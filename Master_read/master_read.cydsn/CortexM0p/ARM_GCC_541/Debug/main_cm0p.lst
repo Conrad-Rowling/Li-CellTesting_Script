@@ -1,0 +1,3178 @@
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main_cm0p.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB543:
+  27              		.file 1 "main_cm0p.c"
+   1:main_cm0p.c   **** /* ========================================
+   2:main_cm0p.c   ****  *
+   3:main_cm0p.c   ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main_cm0p.c   ****  * All Rights Reserved
+   5:main_cm0p.c   ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main_cm0p.c   ****  *
+   7:main_cm0p.c   ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main_cm0p.c   ****  * WHICH IS THE PROPERTY OF your company.
+   9:main_cm0p.c   ****  *
+  10:main_cm0p.c   ****  * ========================================
+  11:main_cm0p.c   **** */
+  12:main_cm0p.c   **** #include "project.h"
+  13:main_cm0p.c   **** 
+  14:main_cm0p.c   **** int main(void)
+  15:main_cm0p.c   **** {
+  28              		.loc 1 15 0
+  29              		.cfi_startproc
+  30              		@ Volatile: function does not return.
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 10B5     		push	{r4, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+  37              	.LBB4:
+  38              	.LBB5:
+  39              		.file 2 "Generated_Source\\PSoC6\\pdl\\cmsis/include/cmsis_gcc.h"
+   1:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /**************************************************************************//**
+   2:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
+   3:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 2
+
+
+   4:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * @version  V5.0.3
+   5:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * @date     16. January 2018
+   6:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  ******************************************************************************/
+   7:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /*
+   8:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * Copyright (c) 2009-2017 ARM Limited. All rights reserved.
+   9:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  *
+  10:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * SPDX-License-Identifier: Apache-2.0
+  11:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  *
+  12:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * Licensed under the Apache License, Version 2.0 (the License); you may
+  13:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * not use this file except in compliance with the License.
+  14:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * You may obtain a copy of the License at
+  15:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  *
+  16:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * www.apache.org/licenses/LICENSE-2.0
+  17:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  *
+  18:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * Unless required by applicable law or agreed to in writing, software
+  19:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * distributed under the License is distributed on an AS IS BASIS, WITHOUT
+  20:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  21:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * See the License for the specific language governing permissions and
+  22:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  * limitations under the License.
+  23:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  */
+  24:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+  25:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef __CMSIS_GCC_H
+  26:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #define __CMSIS_GCC_H
+  27:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+  28:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /* ignore some GCC warnings */
+  29:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic push
+  30:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
+  31:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
+  32:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
+  33:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+  34:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /* Fallback for __has_builtin */
+  35:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef __has_builtin
+  36:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __has_builtin(x) (0)
+  37:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  38:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+  39:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /* CMSIS compiler specific defines */
+  40:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __ASM
+  41:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __ASM                                  __asm
+  42:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  43:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __INLINE
+  44:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __INLINE                               inline
+  45:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  46:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __STATIC_INLINE
+  47:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __STATIC_INLINE                        static inline
+  48:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  49:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __STATIC_FORCEINLINE                 
+  50:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __STATIC_FORCEINLINE                   __attribute__((always_inline)) static inline
+  51:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif                                           
+  52:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __NO_RETURN
+  53:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __NO_RETURN                            __attribute__((__noreturn__))
+  54:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  55:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __USED
+  56:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __USED                                 __attribute__((used))
+  57:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  58:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __WEAK
+  59:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __WEAK                                 __attribute__((weak))
+  60:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 3
+
+
+  61:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __PACKED
+  62:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __PACKED                               __attribute__((packed, aligned(1)))
+  63:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  64:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __PACKED_STRUCT
+  65:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __PACKED_STRUCT                        struct __attribute__((packed, aligned(1)))
+  66:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  67:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __PACKED_UNION
+  68:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __PACKED_UNION                         union __attribute__((packed, aligned(1)))
+  69:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  70:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32        /* deprecated */
+  71:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  72:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  73:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  74:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   struct __attribute__((packed)) T_UINT32 { uint32_t v; };
+  75:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  76:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32(x)                  (((struct T_UINT32 *)(x))->v)
+  77:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  78:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_WRITE
+  79:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  80:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  81:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  82:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_WRITE { uint16_t v; };
+  83:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  84:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_WRITE(addr, val)    (void)((((struct T_UINT16_WRITE *)(void *)(addr))-
+  85:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  86:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_READ
+  87:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  88:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  89:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  90:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
+  91:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  92:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(add
+  93:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+  94:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_WRITE
+  95:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  96:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  97:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  98:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_WRITE { uint32_t v; };
+  99:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ 100:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_WRITE(addr, val)    (void)((((struct T_UINT32_WRITE *)(void *)(addr))-
+ 101:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+ 102:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_READ
+ 103:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+ 104:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+ 105:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+ 106:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_READ { uint32_t v; };
+ 107:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ 108:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_READ(addr)          (((const struct T_UINT32_READ *)(const void *)(add
+ 109:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+ 110:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __ALIGNED
+ 111:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __ALIGNED(x)                           __attribute__((aligned(x)))
+ 112:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+ 113:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #ifndef   __RESTRICT
+ 114:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   #define __RESTRICT                             __restrict
+ 115:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** #endif
+ 116:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+ 117:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 4
+
+
+ 118:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /* ###########################  Core Function Access  ########################### */
+ 119:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /** \ingroup  CMSIS_Core_FunctionInterface
+ 120:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****     \defgroup CMSIS_Core_RegAccFunctions CMSIS Core Register Access Functions
+ 121:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   @{
+ 122:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  */
+ 123:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** 
+ 124:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** /**
+ 125:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
+ 126:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+ 127:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+ 128:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****  */
+ 129:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_irq(void)
+ 130:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h **** {
+ 131:Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h ****   __ASM volatile ("cpsie i" : : : "memory");
+  40              		.loc 2 131 0
+  41              		.syntax divided
+  42              	@ 131 "Generated_Source\PSoC6\pdl\cmsis/include/cmsis_gcc.h" 1
+  43 0002 62B6     		cpsie i
+  44              	@ 0 "" 2
+  45              		.thumb
+  46              		.syntax unified
+  47              	.LBE5:
+  48              	.LBE4:
+  16:main_cm0p.c   ****     __enable_irq(); /* Enable global interrupts. */
+  17:main_cm0p.c   ****     /* Enable CM4.  CY_CORTEX_M4_APPL_ADDR must be updated if CM4 memory layout is changed. */
+  18:main_cm0p.c   ****     Cy_SysEnableCM4(CY_CORTEX_M4_APPL_ADDR); 
+  49              		.loc 1 18 0
+  50 0004 0148     		ldr	r0, .L3
+  51 0006 FFF7FEFF 		bl	Cy_SysEnableCM4
+  52              	.LVL0:
+  53              	.L2:
+  54 000a FEE7     		b	.L2
+  55              	.L4:
+  56              		.align	2
+  57              	.L3:
+  58 000c 00000810 		.word	268959744
+  59              		.cfi_endproc
+  60              	.LFE543:
+  61              		.size	main, .-main
+  62              		.text
+  63              	.Letext0:
+  64              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+  65              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+  66              		.file 5 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/device/cy_device.h"
+  67              		.file 6 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/sar/cy_sar.h"
+  68              		.file 7 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/scb/cy_scb_i2c.h"
+  69              		.file 8 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/scb/cy_scb_uart.h"
+  70              		.file 9 "Generated_Source\\PSoC6\\pdl\\drivers/peripheral/tcpwm/cy_tcpwm_counter.h"
+  71              		.file 10 "Generated_Source\\PSoC6/ADC_1.h"
+  72              		.file 11 "Generated_Source\\PSoC6/UART.h"
+  73              		.file 12 "Generated_Source\\PSoC6/SensorBus.h"
+  74              		.file 13 "Generated_Source\\PSoC6/Timer.h"
+  75              		.file 14 "./system_psoc6.h"
+  76              		.section	.debug_info,"",%progbits
+  77              	.Ldebug_info0:
+  78 0000 B30A0000 		.4byte	0xab3
+  79 0004 0400     		.2byte	0x4
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 5
+
+
+  80 0006 00000000 		.4byte	.Ldebug_abbrev0
+  81 000a 04       		.byte	0x4
+  82 000b 01       		.uleb128 0x1
+  83 000c 8F090000 		.4byte	.LASF208
+  84 0010 0C       		.byte	0xc
+  85 0011 85000000 		.4byte	.LASF209
+  86 0015 15050000 		.4byte	.LASF210
+  87 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  88 001d 00000000 		.4byte	0
+  89 0021 00000000 		.4byte	.Ldebug_line0
+  90 0025 02       		.uleb128 0x2
+  91 0026 02       		.byte	0x2
+  92 0027 05       		.byte	0x5
+  93 0028 7C080000 		.4byte	.LASF0
+  94 002c 02       		.uleb128 0x2
+  95 002d 01       		.byte	0x1
+  96 002e 08       		.byte	0x8
+  97 002f 5A080000 		.4byte	.LASF1
+  98 0033 02       		.uleb128 0x2
+  99 0034 01       		.byte	0x1
+ 100 0035 06       		.byte	0x6
+ 101 0036 600A0000 		.4byte	.LASF2
+ 102 003a 03       		.uleb128 0x3
+ 103 003b 9F000000 		.4byte	.LASF3
+ 104 003f 03       		.byte	0x3
+ 105 0040 1D       		.byte	0x1d
+ 106 0041 2C000000 		.4byte	0x2c
+ 107 0045 03       		.uleb128 0x3
+ 108 0046 2C040000 		.4byte	.LASF4
+ 109 004a 03       		.byte	0x3
+ 110 004b 29       		.byte	0x29
+ 111 004c 25000000 		.4byte	0x25
+ 112 0050 03       		.uleb128 0x3
+ 113 0051 6C0A0000 		.4byte	.LASF5
+ 114 0055 03       		.byte	0x3
+ 115 0056 2B       		.byte	0x2b
+ 116 0057 5B000000 		.4byte	0x5b
+ 117 005b 02       		.uleb128 0x2
+ 118 005c 02       		.byte	0x2
+ 119 005d 07       		.byte	0x7
+ 120 005e CC030000 		.4byte	.LASF6
+ 121 0062 02       		.uleb128 0x2
+ 122 0063 04       		.byte	0x4
+ 123 0064 05       		.byte	0x5
+ 124 0065 13030000 		.4byte	.LASF7
+ 125 0069 03       		.uleb128 0x3
+ 126 006a 05040000 		.4byte	.LASF8
+ 127 006e 03       		.byte	0x3
+ 128 006f 41       		.byte	0x41
+ 129 0070 74000000 		.4byte	0x74
+ 130 0074 02       		.uleb128 0x2
+ 131 0075 04       		.byte	0x4
+ 132 0076 07       		.byte	0x7
+ 133 0077 F1040000 		.4byte	.LASF9
+ 134 007b 02       		.uleb128 0x2
+ 135 007c 08       		.byte	0x8
+ 136 007d 05       		.byte	0x5
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 6
+
+
+ 137 007e 14020000 		.4byte	.LASF10
+ 138 0082 02       		.uleb128 0x2
+ 139 0083 08       		.byte	0x8
+ 140 0084 07       		.byte	0x7
+ 141 0085 28010000 		.4byte	.LASF11
+ 142 0089 04       		.uleb128 0x4
+ 143 008a 04       		.byte	0x4
+ 144 008b 05       		.byte	0x5
+ 145 008c 696E7400 		.ascii	"int\000"
+ 146 0090 02       		.uleb128 0x2
+ 147 0091 04       		.byte	0x4
+ 148 0092 07       		.byte	0x7
+ 149 0093 94040000 		.4byte	.LASF12
+ 150 0097 03       		.uleb128 0x3
+ 151 0098 8A0A0000 		.4byte	.LASF13
+ 152 009c 04       		.byte	0x4
+ 153 009d 18       		.byte	0x18
+ 154 009e 3A000000 		.4byte	0x3a
+ 155 00a2 03       		.uleb128 0x3
+ 156 00a3 F8010000 		.4byte	.LASF14
+ 157 00a7 04       		.byte	0x4
+ 158 00a8 20       		.byte	0x20
+ 159 00a9 45000000 		.4byte	0x45
+ 160 00ad 03       		.uleb128 0x3
+ 161 00ae B2040000 		.4byte	.LASF15
+ 162 00b2 04       		.byte	0x4
+ 163 00b3 24       		.byte	0x24
+ 164 00b4 50000000 		.4byte	0x50
+ 165 00b8 03       		.uleb128 0x3
+ 166 00b9 4D090000 		.4byte	.LASF16
+ 167 00bd 04       		.byte	0x4
+ 168 00be 30       		.byte	0x30
+ 169 00bf 69000000 		.4byte	0x69
+ 170 00c3 02       		.uleb128 0x2
+ 171 00c4 04       		.byte	0x4
+ 172 00c5 07       		.byte	0x7
+ 173 00c6 DC060000 		.4byte	.LASF17
+ 174 00ca 05       		.uleb128 0x5
+ 175 00cb B8000000 		.4byte	0xb8
+ 176 00cf 02       		.uleb128 0x2
+ 177 00d0 08       		.byte	0x8
+ 178 00d1 04       		.byte	0x4
+ 179 00d2 2A0A0000 		.4byte	.LASF18
+ 180 00d6 06       		.uleb128 0x6
+ 181 00d7 B8       		.byte	0xb8
+ 182 00d8 05       		.byte	0x5
+ 183 00d9 34       		.byte	0x34
+ 184 00da E7040000 		.4byte	0x4e7
+ 185 00de 07       		.uleb128 0x7
+ 186 00df FE000000 		.4byte	.LASF19
+ 187 00e3 05       		.byte	0x5
+ 188 00e4 37       		.byte	0x37
+ 189 00e5 B8000000 		.4byte	0xb8
+ 190 00e9 00       		.byte	0
+ 191 00ea 07       		.uleb128 0x7
+ 192 00eb FA030000 		.4byte	.LASF20
+ 193 00ef 05       		.byte	0x5
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 7
+
+
+ 194 00f0 38       		.byte	0x38
+ 195 00f1 B8000000 		.4byte	0xb8
+ 196 00f5 04       		.byte	0x4
+ 197 00f6 07       		.uleb128 0x7
+ 198 00f7 45030000 		.4byte	.LASF21
+ 199 00fb 05       		.byte	0x5
+ 200 00fc 39       		.byte	0x39
+ 201 00fd B8000000 		.4byte	0xb8
+ 202 0101 08       		.byte	0x8
+ 203 0102 07       		.uleb128 0x7
+ 204 0103 33080000 		.4byte	.LASF22
+ 205 0107 05       		.byte	0x5
+ 206 0108 3A       		.byte	0x3a
+ 207 0109 B8000000 		.4byte	0xb8
+ 208 010d 0C       		.byte	0xc
+ 209 010e 07       		.uleb128 0x7
+ 210 010f 83020000 		.4byte	.LASF23
+ 211 0113 05       		.byte	0x5
+ 212 0114 3B       		.byte	0x3b
+ 213 0115 B8000000 		.4byte	0xb8
+ 214 0119 10       		.byte	0x10
+ 215 011a 07       		.uleb128 0x7
+ 216 011b CD020000 		.4byte	.LASF24
+ 217 011f 05       		.byte	0x5
+ 218 0120 3C       		.byte	0x3c
+ 219 0121 B8000000 		.4byte	0xb8
+ 220 0125 14       		.byte	0x14
+ 221 0126 07       		.uleb128 0x7
+ 222 0127 8F050000 		.4byte	.LASF25
+ 223 012b 05       		.byte	0x5
+ 224 012c 3D       		.byte	0x3d
+ 225 012d B8000000 		.4byte	0xb8
+ 226 0131 18       		.byte	0x18
+ 227 0132 07       		.uleb128 0x7
+ 228 0133 7C000000 		.4byte	.LASF26
+ 229 0137 05       		.byte	0x5
+ 230 0138 3E       		.byte	0x3e
+ 231 0139 B8000000 		.4byte	0xb8
+ 232 013d 1C       		.byte	0x1c
+ 233 013e 07       		.uleb128 0x7
+ 234 013f CD0C0000 		.4byte	.LASF27
+ 235 0143 05       		.byte	0x5
+ 236 0144 3F       		.byte	0x3f
+ 237 0145 B8000000 		.4byte	0xb8
+ 238 0149 20       		.byte	0x20
+ 239 014a 07       		.uleb128 0x7
+ 240 014b 93070000 		.4byte	.LASF28
+ 241 014f 05       		.byte	0x5
+ 242 0150 40       		.byte	0x40
+ 243 0151 B8000000 		.4byte	0xb8
+ 244 0155 24       		.byte	0x24
+ 245 0156 07       		.uleb128 0x7
+ 246 0157 92060000 		.4byte	.LASF29
+ 247 015b 05       		.byte	0x5
+ 248 015c 43       		.byte	0x43
+ 249 015d 97000000 		.4byte	0x97
+ 250 0161 28       		.byte	0x28
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 8
+
+
+ 251 0162 07       		.uleb128 0x7
+ 252 0163 5F000000 		.4byte	.LASF30
+ 253 0167 05       		.byte	0x5
+ 254 0168 44       		.byte	0x44
+ 255 0169 97000000 		.4byte	0x97
+ 256 016d 29       		.byte	0x29
+ 257 016e 07       		.uleb128 0x7
+ 258 016f C30C0000 		.4byte	.LASF31
+ 259 0173 05       		.byte	0x5
+ 260 0174 45       		.byte	0x45
+ 261 0175 97000000 		.4byte	0x97
+ 262 0179 2A       		.byte	0x2a
+ 263 017a 07       		.uleb128 0x7
+ 264 017b 85070000 		.4byte	.LASF32
+ 265 017f 05       		.byte	0x5
+ 266 0180 46       		.byte	0x46
+ 267 0181 97000000 		.4byte	0x97
+ 268 0185 2B       		.byte	0x2b
+ 269 0186 07       		.uleb128 0x7
+ 270 0187 0A060000 		.4byte	.LASF33
+ 271 018b 05       		.byte	0x5
+ 272 018c 47       		.byte	0x47
+ 273 018d 97000000 		.4byte	0x97
+ 274 0191 2C       		.byte	0x2c
+ 275 0192 07       		.uleb128 0x7
+ 276 0193 9F0A0000 		.4byte	.LASF34
+ 277 0197 05       		.byte	0x5
+ 278 0198 48       		.byte	0x48
+ 279 0199 97000000 		.4byte	0x97
+ 280 019d 2D       		.byte	0x2d
+ 281 019e 07       		.uleb128 0x7
+ 282 019f 8C020000 		.4byte	.LASF35
+ 283 01a3 05       		.byte	0x5
+ 284 01a4 49       		.byte	0x49
+ 285 01a5 97000000 		.4byte	0x97
+ 286 01a9 2E       		.byte	0x2e
+ 287 01aa 07       		.uleb128 0x7
+ 288 01ab 9F060000 		.4byte	.LASF36
+ 289 01af 05       		.byte	0x5
+ 290 01b0 4A       		.byte	0x4a
+ 291 01b1 97000000 		.4byte	0x97
+ 292 01b5 2F       		.byte	0x2f
+ 293 01b6 07       		.uleb128 0x7
+ 294 01b7 460A0000 		.4byte	.LASF37
+ 295 01bb 05       		.byte	0x5
+ 296 01bc 4B       		.byte	0x4b
+ 297 01bd 97000000 		.4byte	0x97
+ 298 01c1 30       		.byte	0x30
+ 299 01c2 07       		.uleb128 0x7
+ 300 01c3 84050000 		.4byte	.LASF38
+ 301 01c7 05       		.byte	0x5
+ 302 01c8 4E       		.byte	0x4e
+ 303 01c9 97000000 		.4byte	0x97
+ 304 01cd 31       		.byte	0x31
+ 305 01ce 07       		.uleb128 0x7
+ 306 01cf 91000000 		.4byte	.LASF39
+ 307 01d3 05       		.byte	0x5
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 9
+
+
+ 308 01d4 4F       		.byte	0x4f
+ 309 01d5 97000000 		.4byte	0x97
+ 310 01d9 32       		.byte	0x32
+ 311 01da 07       		.uleb128 0x7
+ 312 01db 88040000 		.4byte	.LASF40
+ 313 01df 05       		.byte	0x5
+ 314 01e0 50       		.byte	0x50
+ 315 01e1 97000000 		.4byte	0x97
+ 316 01e5 33       		.byte	0x33
+ 317 01e6 07       		.uleb128 0x7
+ 318 01e7 00070000 		.4byte	.LASF41
+ 319 01eb 05       		.byte	0x5
+ 320 01ec 51       		.byte	0x51
+ 321 01ed 97000000 		.4byte	0x97
+ 322 01f1 34       		.byte	0x34
+ 323 01f2 07       		.uleb128 0x7
+ 324 01f3 320B0000 		.4byte	.LASF42
+ 325 01f7 05       		.byte	0x5
+ 326 01f8 52       		.byte	0x52
+ 327 01f9 A2000000 		.4byte	0xa2
+ 328 01fd 36       		.byte	0x36
+ 329 01fe 07       		.uleb128 0x7
+ 330 01ff 77030000 		.4byte	.LASF43
+ 331 0203 05       		.byte	0x5
+ 332 0204 53       		.byte	0x53
+ 333 0205 A2000000 		.4byte	0xa2
+ 334 0209 38       		.byte	0x38
+ 335 020a 07       		.uleb128 0x7
+ 336 020b BE0A0000 		.4byte	.LASF44
+ 337 020f 05       		.byte	0x5
+ 338 0210 54       		.byte	0x54
+ 339 0211 A2000000 		.4byte	0xa2
+ 340 0215 3A       		.byte	0x3a
+ 341 0216 07       		.uleb128 0x7
+ 342 0217 BE020000 		.4byte	.LASF45
+ 343 021b 05       		.byte	0x5
+ 344 021c 55       		.byte	0x55
+ 345 021d 97000000 		.4byte	0x97
+ 346 0221 3C       		.byte	0x3c
+ 347 0222 07       		.uleb128 0x7
+ 348 0223 9E030000 		.4byte	.LASF46
+ 349 0227 05       		.byte	0x5
+ 350 0228 56       		.byte	0x56
+ 351 0229 97000000 		.4byte	0x97
+ 352 022d 3D       		.byte	0x3d
+ 353 022e 07       		.uleb128 0x7
+ 354 022f B80B0000 		.4byte	.LASF47
+ 355 0233 05       		.byte	0x5
+ 356 0234 57       		.byte	0x57
+ 357 0235 97000000 		.4byte	0x97
+ 358 0239 3E       		.byte	0x3e
+ 359 023a 07       		.uleb128 0x7
+ 360 023b 0F010000 		.4byte	.LASF48
+ 361 023f 05       		.byte	0x5
+ 362 0240 58       		.byte	0x58
+ 363 0241 97000000 		.4byte	0x97
+ 364 0245 3F       		.byte	0x3f
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 10
+
+
+ 365 0246 07       		.uleb128 0x7
+ 366 0247 9E070000 		.4byte	.LASF49
+ 367 024b 05       		.byte	0x5
+ 368 024c 59       		.byte	0x59
+ 369 024d 97000000 		.4byte	0x97
+ 370 0251 40       		.byte	0x40
+ 371 0252 07       		.uleb128 0x7
+ 372 0253 10040000 		.4byte	.LASF50
+ 373 0257 05       		.byte	0x5
+ 374 0258 5A       		.byte	0x5a
+ 375 0259 97000000 		.4byte	0x97
+ 376 025d 41       		.byte	0x41
+ 377 025e 07       		.uleb128 0x7
+ 378 025f 49060000 		.4byte	.LASF51
+ 379 0263 05       		.byte	0x5
+ 380 0264 5B       		.byte	0x5b
+ 381 0265 97000000 		.4byte	0x97
+ 382 0269 42       		.byte	0x42
+ 383 026a 07       		.uleb128 0x7
+ 384 026b 71070000 		.4byte	.LASF52
+ 385 026f 05       		.byte	0x5
+ 386 0270 5C       		.byte	0x5c
+ 387 0271 97000000 		.4byte	0x97
+ 388 0275 43       		.byte	0x43
+ 389 0276 07       		.uleb128 0x7
+ 390 0277 4E030000 		.4byte	.LASF53
+ 391 027b 05       		.byte	0x5
+ 392 027c 5D       		.byte	0x5d
+ 393 027d 97000000 		.4byte	0x97
+ 394 0281 44       		.byte	0x44
+ 395 0282 07       		.uleb128 0x7
+ 396 0283 00000000 		.4byte	.LASF54
+ 397 0287 05       		.byte	0x5
+ 398 0288 5E       		.byte	0x5e
+ 399 0289 B8000000 		.4byte	0xb8
+ 400 028d 48       		.byte	0x48
+ 401 028e 07       		.uleb128 0x7
+ 402 028f 37030000 		.4byte	.LASF55
+ 403 0293 05       		.byte	0x5
+ 404 0294 5F       		.byte	0x5f
+ 405 0295 B8000000 		.4byte	0xb8
+ 406 0299 4C       		.byte	0x4c
+ 407 029a 07       		.uleb128 0x7
+ 408 029b 030D0000 		.4byte	.LASF56
+ 409 029f 05       		.byte	0x5
+ 410 02a0 60       		.byte	0x60
+ 411 02a1 97000000 		.4byte	0x97
+ 412 02a5 50       		.byte	0x50
+ 413 02a6 07       		.uleb128 0x7
+ 414 02a7 AA010000 		.4byte	.LASF57
+ 415 02ab 05       		.byte	0x5
+ 416 02ac 61       		.byte	0x61
+ 417 02ad 97000000 		.4byte	0x97
+ 418 02b1 51       		.byte	0x51
+ 419 02b2 07       		.uleb128 0x7
+ 420 02b3 FD0B0000 		.4byte	.LASF58
+ 421 02b7 05       		.byte	0x5
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 11
+
+
+ 422 02b8 62       		.byte	0x62
+ 423 02b9 97000000 		.4byte	0x97
+ 424 02bd 52       		.byte	0x52
+ 425 02be 07       		.uleb128 0x7
+ 426 02bf AC0A0000 		.4byte	.LASF59
+ 427 02c3 05       		.byte	0x5
+ 428 02c4 63       		.byte	0x63
+ 429 02c5 97000000 		.4byte	0x97
+ 430 02c9 53       		.byte	0x53
+ 431 02ca 07       		.uleb128 0x7
+ 432 02cb 2B090000 		.4byte	.LASF60
+ 433 02cf 05       		.byte	0x5
+ 434 02d0 64       		.byte	0x64
+ 435 02d1 97000000 		.4byte	0x97
+ 436 02d5 54       		.byte	0x54
+ 437 02d6 07       		.uleb128 0x7
+ 438 02d7 E4010000 		.4byte	.LASF61
+ 439 02db 05       		.byte	0x5
+ 440 02dc 65       		.byte	0x65
+ 441 02dd 97000000 		.4byte	0x97
+ 442 02e1 55       		.byte	0x55
+ 443 02e2 07       		.uleb128 0x7
+ 444 02e3 DD040000 		.4byte	.LASF62
+ 445 02e7 05       		.byte	0x5
+ 446 02e8 66       		.byte	0x66
+ 447 02e9 97000000 		.4byte	0x97
+ 448 02ed 56       		.byte	0x56
+ 449 02ee 07       		.uleb128 0x7
+ 450 02ef BE080000 		.4byte	.LASF63
+ 451 02f3 05       		.byte	0x5
+ 452 02f4 67       		.byte	0x67
+ 453 02f5 97000000 		.4byte	0x97
+ 454 02f9 57       		.byte	0x57
+ 455 02fa 07       		.uleb128 0x7
+ 456 02fb 24000000 		.4byte	.LASF64
+ 457 02ff 05       		.byte	0x5
+ 458 0300 68       		.byte	0x68
+ 459 0301 97000000 		.4byte	0x97
+ 460 0305 58       		.byte	0x58
+ 461 0306 07       		.uleb128 0x7
+ 462 0307 68080000 		.4byte	.LASF65
+ 463 030b 05       		.byte	0x5
+ 464 030c 69       		.byte	0x69
+ 465 030d 97000000 		.4byte	0x97
+ 466 0311 59       		.byte	0x59
+ 467 0312 07       		.uleb128 0x7
+ 468 0313 E5060000 		.4byte	.LASF66
+ 469 0317 05       		.byte	0x5
+ 470 0318 6E       		.byte	0x6e
+ 471 0319 AD000000 		.4byte	0xad
+ 472 031d 5A       		.byte	0x5a
+ 473 031e 07       		.uleb128 0x7
+ 474 031f F80A0000 		.4byte	.LASF67
+ 475 0323 05       		.byte	0x5
+ 476 0324 6F       		.byte	0x6f
+ 477 0325 AD000000 		.4byte	0xad
+ 478 0329 5C       		.byte	0x5c
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 12
+
+
+ 479 032a 07       		.uleb128 0x7
+ 480 032b 6D000000 		.4byte	.LASF68
+ 481 032f 05       		.byte	0x5
+ 482 0330 70       		.byte	0x70
+ 483 0331 97000000 		.4byte	0x97
+ 484 0335 5E       		.byte	0x5e
+ 485 0336 07       		.uleb128 0x7
+ 486 0337 05080000 		.4byte	.LASF69
+ 487 033b 05       		.byte	0x5
+ 488 033c 71       		.byte	0x71
+ 489 033d 97000000 		.4byte	0x97
+ 490 0341 5F       		.byte	0x5f
+ 491 0342 07       		.uleb128 0x7
+ 492 0343 60070000 		.4byte	.LASF70
+ 493 0347 05       		.byte	0x5
+ 494 0348 72       		.byte	0x72
+ 495 0349 97000000 		.4byte	0x97
+ 496 034d 60       		.byte	0x60
+ 497 034e 07       		.uleb128 0x7
+ 498 034f DE070000 		.4byte	.LASF71
+ 499 0353 05       		.byte	0x5
+ 500 0354 73       		.byte	0x73
+ 501 0355 B8000000 		.4byte	0xb8
+ 502 0359 64       		.byte	0x64
+ 503 035a 07       		.uleb128 0x7
+ 504 035b 4E010000 		.4byte	.LASF72
+ 505 035f 05       		.byte	0x5
+ 506 0360 76       		.byte	0x76
+ 507 0361 AD000000 		.4byte	0xad
+ 508 0365 68       		.byte	0x68
+ 509 0366 07       		.uleb128 0x7
+ 510 0367 CB040000 		.4byte	.LASF73
+ 511 036b 05       		.byte	0x5
+ 512 036c 77       		.byte	0x77
+ 513 036d AD000000 		.4byte	0xad
+ 514 0371 6A       		.byte	0x6a
+ 515 0372 07       		.uleb128 0x7
+ 516 0373 AB050000 		.4byte	.LASF74
+ 517 0377 05       		.byte	0x5
+ 518 0378 78       		.byte	0x78
+ 519 0379 AD000000 		.4byte	0xad
+ 520 037d 6C       		.byte	0x6c
+ 521 037e 07       		.uleb128 0x7
+ 522 037f ED050000 		.4byte	.LASF75
+ 523 0383 05       		.byte	0x5
+ 524 0384 79       		.byte	0x79
+ 525 0385 AD000000 		.4byte	0xad
+ 526 0389 6E       		.byte	0x6e
+ 527 038a 07       		.uleb128 0x7
+ 528 038b AA080000 		.4byte	.LASF76
+ 529 038f 05       		.byte	0x5
+ 530 0390 7B       		.byte	0x7b
+ 531 0391 97000000 		.4byte	0x97
+ 532 0395 70       		.byte	0x70
+ 533 0396 07       		.uleb128 0x7
+ 534 0397 40020000 		.4byte	.LASF77
+ 535 039b 05       		.byte	0x5
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 13
+
+
+ 536 039c 7C       		.byte	0x7c
+ 537 039d 97000000 		.4byte	0x97
+ 538 03a1 71       		.byte	0x71
+ 539 03a2 07       		.uleb128 0x7
+ 540 03a3 D50C0000 		.4byte	.LASF78
+ 541 03a7 05       		.byte	0x5
+ 542 03a8 7D       		.byte	0x7d
+ 543 03a9 97000000 		.4byte	0x97
+ 544 03ad 72       		.byte	0x72
+ 545 03ae 07       		.uleb128 0x7
+ 546 03af 1E070000 		.4byte	.LASF79
+ 547 03b3 05       		.byte	0x5
+ 548 03b4 7E       		.byte	0x7e
+ 549 03b5 97000000 		.4byte	0x97
+ 550 03b9 73       		.byte	0x73
+ 551 03ba 07       		.uleb128 0x7
+ 552 03bb 3B090000 		.4byte	.LASF80
+ 553 03bf 05       		.byte	0x5
+ 554 03c0 80       		.byte	0x80
+ 555 03c1 AD000000 		.4byte	0xad
+ 556 03c5 74       		.byte	0x74
+ 557 03c6 07       		.uleb128 0x7
+ 558 03c7 770A0000 		.4byte	.LASF81
+ 559 03cb 05       		.byte	0x5
+ 560 03cc 81       		.byte	0x81
+ 561 03cd AD000000 		.4byte	0xad
+ 562 03d1 76       		.byte	0x76
+ 563 03d2 07       		.uleb128 0x7
+ 564 03d3 89030000 		.4byte	.LASF82
+ 565 03d7 05       		.byte	0x5
+ 566 03d8 82       		.byte	0x82
+ 567 03d9 AD000000 		.4byte	0xad
+ 568 03dd 78       		.byte	0x78
+ 569 03de 07       		.uleb128 0x7
+ 570 03df B5000000 		.4byte	.LASF83
+ 571 03e3 05       		.byte	0x5
+ 572 03e4 83       		.byte	0x83
+ 573 03e5 AD000000 		.4byte	0xad
+ 574 03e9 7A       		.byte	0x7a
+ 575 03ea 07       		.uleb128 0x7
+ 576 03eb 410C0000 		.4byte	.LASF84
+ 577 03ef 05       		.byte	0x5
+ 578 03f0 86       		.byte	0x86
+ 579 03f1 97000000 		.4byte	0x97
+ 580 03f5 7C       		.byte	0x7c
+ 581 03f6 07       		.uleb128 0x7
+ 582 03f7 5F0B0000 		.4byte	.LASF85
+ 583 03fb 05       		.byte	0x5
+ 584 03fc 87       		.byte	0x87
+ 585 03fd 97000000 		.4byte	0x97
+ 586 0401 7D       		.byte	0x7d
+ 587 0402 07       		.uleb128 0x7
+ 588 0403 38000000 		.4byte	.LASF86
+ 589 0407 05       		.byte	0x5
+ 590 0408 88       		.byte	0x88
+ 591 0409 97000000 		.4byte	0x97
+ 592 040d 7E       		.byte	0x7e
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 14
+
+
+ 593 040e 07       		.uleb128 0x7
+ 594 040f DF030000 		.4byte	.LASF87
+ 595 0413 05       		.byte	0x5
+ 596 0414 89       		.byte	0x89
+ 597 0415 97000000 		.4byte	0x97
+ 598 0419 7F       		.byte	0x7f
+ 599 041a 07       		.uleb128 0x7
+ 600 041b 74040000 		.4byte	.LASF88
+ 601 041f 05       		.byte	0x5
+ 602 0420 8A       		.byte	0x8a
+ 603 0421 97000000 		.4byte	0x97
+ 604 0425 80       		.byte	0x80
+ 605 0426 07       		.uleb128 0x7
+ 606 0427 480B0000 		.4byte	.LASF89
+ 607 042b 05       		.byte	0x5
+ 608 042c 8D       		.byte	0x8d
+ 609 042d B8000000 		.4byte	0xb8
+ 610 0431 84       		.byte	0x84
+ 611 0432 07       		.uleb128 0x7
+ 612 0433 CA000000 		.4byte	.LASF90
+ 613 0437 05       		.byte	0x5
+ 614 0438 8E       		.byte	0x8e
+ 615 0439 B8000000 		.4byte	0xb8
+ 616 043d 88       		.byte	0x88
+ 617 043e 07       		.uleb128 0x7
+ 618 043f 2C0C0000 		.4byte	.LASF91
+ 619 0443 05       		.byte	0x5
+ 620 0444 8F       		.byte	0x8f
+ 621 0445 B8000000 		.4byte	0xb8
+ 622 0449 8C       		.byte	0x8c
+ 623 044a 07       		.uleb128 0x7
+ 624 044b AB060000 		.4byte	.LASF92
+ 625 044f 05       		.byte	0x5
+ 626 0450 90       		.byte	0x90
+ 627 0451 B8000000 		.4byte	0xb8
+ 628 0455 90       		.byte	0x90
+ 629 0456 07       		.uleb128 0x7
+ 630 0457 44040000 		.4byte	.LASF93
+ 631 045b 05       		.byte	0x5
+ 632 045c 91       		.byte	0x91
+ 633 045d B8000000 		.4byte	0xb8
+ 634 0461 94       		.byte	0x94
+ 635 0462 07       		.uleb128 0x7
+ 636 0463 63060000 		.4byte	.LASF94
+ 637 0467 05       		.byte	0x5
+ 638 0468 92       		.byte	0x92
+ 639 0469 B8000000 		.4byte	0xb8
+ 640 046d 98       		.byte	0x98
+ 641 046e 07       		.uleb128 0x7
+ 642 046f 8E0C0000 		.4byte	.LASF95
+ 643 0473 05       		.byte	0x5
+ 644 0474 93       		.byte	0x93
+ 645 0475 B8000000 		.4byte	0xb8
+ 646 0479 9C       		.byte	0x9c
+ 647 047a 07       		.uleb128 0x7
+ 648 047b 74010000 		.4byte	.LASF96
+ 649 047f 05       		.byte	0x5
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 15
+
+
+ 650 0480 94       		.byte	0x94
+ 651 0481 B8000000 		.4byte	0xb8
+ 652 0485 A0       		.byte	0xa0
+ 653 0486 07       		.uleb128 0x7
+ 654 0487 A9020000 		.4byte	.LASF97
+ 655 048b 05       		.byte	0x5
+ 656 048c 95       		.byte	0x95
+ 657 048d AD000000 		.4byte	0xad
+ 658 0491 A4       		.byte	0xa4
+ 659 0492 07       		.uleb128 0x7
+ 660 0493 E80B0000 		.4byte	.LASF98
+ 661 0497 05       		.byte	0x5
+ 662 0498 96       		.byte	0x96
+ 663 0499 AD000000 		.4byte	0xad
+ 664 049d A6       		.byte	0xa6
+ 665 049e 07       		.uleb128 0x7
+ 666 049f F9070000 		.4byte	.LASF99
+ 667 04a3 05       		.byte	0x5
+ 668 04a4 97       		.byte	0x97
+ 669 04a5 AD000000 		.4byte	0xad
+ 670 04a9 A8       		.byte	0xa8
+ 671 04aa 07       		.uleb128 0x7
+ 672 04ab 520A0000 		.4byte	.LASF100
+ 673 04af 05       		.byte	0x5
+ 674 04b0 98       		.byte	0x98
+ 675 04b1 AD000000 		.4byte	0xad
+ 676 04b5 AA       		.byte	0xaa
+ 677 04b6 07       		.uleb128 0x7
+ 678 04b7 BA050000 		.4byte	.LASF101
+ 679 04bb 05       		.byte	0x5
+ 680 04bc 99       		.byte	0x99
+ 681 04bd AD000000 		.4byte	0xad
+ 682 04c1 AC       		.byte	0xac
+ 683 04c2 07       		.uleb128 0x7
+ 684 04c3 35070000 		.4byte	.LASF102
+ 685 04c7 05       		.byte	0x5
+ 686 04c8 9A       		.byte	0x9a
+ 687 04c9 AD000000 		.4byte	0xad
+ 688 04cd AE       		.byte	0xae
+ 689 04ce 07       		.uleb128 0x7
+ 690 04cf 0B0B0000 		.4byte	.LASF103
+ 691 04d3 05       		.byte	0x5
+ 692 04d4 9D       		.byte	0x9d
+ 693 04d5 AD000000 		.4byte	0xad
+ 694 04d9 B0       		.byte	0xb0
+ 695 04da 07       		.uleb128 0x7
+ 696 04db 4B000000 		.4byte	.LASF104
+ 697 04df 05       		.byte	0x5
+ 698 04e0 9E       		.byte	0x9e
+ 699 04e1 B8000000 		.4byte	0xb8
+ 700 04e5 B4       		.byte	0xb4
+ 701 04e6 00       		.byte	0
+ 702 04e7 03       		.uleb128 0x3
+ 703 04e8 22060000 		.4byte	.LASF105
+ 704 04ec 05       		.byte	0x5
+ 705 04ed 9F       		.byte	0x9f
+ 706 04ee D6000000 		.4byte	0xd6
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 16
+
+
+ 707 04f2 02       		.uleb128 0x2
+ 708 04f3 01       		.byte	0x1
+ 709 04f4 08       		.byte	0x8
+ 710 04f5 360A0000 		.4byte	.LASF106
+ 711 04f9 02       		.uleb128 0x2
+ 712 04fa 04       		.byte	0x4
+ 713 04fb 04       		.byte	0x4
+ 714 04fc C6070000 		.4byte	.LASF107
+ 715 0500 02       		.uleb128 0x2
+ 716 0501 08       		.byte	0x8
+ 717 0502 04       		.byte	0x4
+ 718 0503 82030000 		.4byte	.LASF108
+ 719 0507 08       		.uleb128 0x8
+ 720 0508 04       		.byte	0x4
+ 721 0509 02       		.uleb128 0x2
+ 722 050a 01       		.byte	0x1
+ 723 050b 02       		.byte	0x2
+ 724 050c 54080000 		.4byte	.LASF109
+ 725 0510 09       		.uleb128 0x9
+ 726 0511 01       		.byte	0x1
+ 727 0512 2C000000 		.4byte	0x2c
+ 728 0516 06       		.byte	0x6
+ 729 0517 1304     		.2byte	0x413
+ 730 0519 36050000 		.4byte	0x536
+ 731 051d 0A       		.uleb128 0xa
+ 732 051e D7020000 		.4byte	.LASF110
+ 733 0522 00       		.byte	0
+ 734 0523 0A       		.uleb128 0xa
+ 735 0524 3B080000 		.4byte	.LASF111
+ 736 0528 01       		.byte	0x1
+ 737 0529 0A       		.uleb128 0xa
+ 738 052a 5F030000 		.4byte	.LASF112
+ 739 052e 02       		.byte	0x2
+ 740 052f 0A       		.uleb128 0xa
+ 741 0530 660C0000 		.4byte	.LASF113
+ 742 0534 03       		.byte	0x3
+ 743 0535 00       		.byte	0
+ 744 0536 0B       		.uleb128 0xb
+ 745 0537 55020000 		.4byte	.LASF114
+ 746 053b 06       		.byte	0x6
+ 747 053c 1804     		.2byte	0x418
+ 748 053e 10050000 		.4byte	0x510
+ 749 0542 0C       		.uleb128 0xc
+ 750 0543 78       		.byte	0x78
+ 751 0544 06       		.byte	0x6
+ 752 0545 0205     		.2byte	0x502
+ 753 0547 0F060000 		.4byte	0x60f
+ 754 054b 0D       		.uleb128 0xd
+ 755 054c 3F040000 		.4byte	.LASF115
+ 756 0550 06       		.byte	0x6
+ 757 0551 0405     		.2byte	0x504
+ 758 0553 B8000000 		.4byte	0xb8
+ 759 0557 00       		.byte	0
+ 760 0558 0D       		.uleb128 0xd
+ 761 0559 0D0C0000 		.4byte	.LASF116
+ 762 055d 06       		.byte	0x6
+ 763 055e 0505     		.2byte	0x505
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 17
+
+
+ 764 0560 B8000000 		.4byte	0xb8
+ 765 0564 04       		.byte	0x4
+ 766 0565 0D       		.uleb128 0xd
+ 767 0566 BF030000 		.4byte	.LASF117
+ 768 056a 06       		.byte	0x6
+ 769 056b 0605     		.2byte	0x506
+ 770 056d B8000000 		.4byte	0xb8
+ 771 0571 08       		.byte	0x8
+ 772 0572 0D       		.uleb128 0xd
+ 773 0573 11070000 		.4byte	.LASF118
+ 774 0577 06       		.byte	0x6
+ 775 0578 0705     		.2byte	0x507
+ 776 057a B8000000 		.4byte	0xb8
+ 777 057e 0C       		.byte	0xc
+ 778 057f 0D       		.uleb128 0xd
+ 779 0580 D9050000 		.4byte	.LASF119
+ 780 0584 06       		.byte	0x6
+ 781 0585 0805     		.2byte	0x508
+ 782 0587 B8000000 		.4byte	0xb8
+ 783 058b 10       		.byte	0x10
+ 784 058c 0D       		.uleb128 0xd
+ 785 058d C60B0000 		.4byte	.LASF120
+ 786 0591 06       		.byte	0x6
+ 787 0592 0905     		.2byte	0x509
+ 788 0594 36050000 		.4byte	0x536
+ 789 0598 14       		.byte	0x14
+ 790 0599 0D       		.uleb128 0xd
+ 791 059a 2C080000 		.4byte	.LASF121
+ 792 059e 06       		.byte	0x6
+ 793 059f 0A05     		.2byte	0x50a
+ 794 05a1 B8000000 		.4byte	0xb8
+ 795 05a5 18       		.byte	0x18
+ 796 05a6 0D       		.uleb128 0xd
+ 797 05a7 32060000 		.4byte	.LASF122
+ 798 05ab 06       		.byte	0x6
+ 799 05ac 0B05     		.2byte	0x50b
+ 800 05ae 0F060000 		.4byte	0x60f
+ 801 05b2 1C       		.byte	0x1c
+ 802 05b3 0D       		.uleb128 0xd
+ 803 05b4 90080000 		.4byte	.LASF123
+ 804 05b8 06       		.byte	0x6
+ 805 05b9 0C05     		.2byte	0x50c
+ 806 05bb B8000000 		.4byte	0xb8
+ 807 05bf 5C       		.byte	0x5c
+ 808 05c0 0D       		.uleb128 0xd
+ 809 05c1 68010000 		.4byte	.LASF124
+ 810 05c5 06       		.byte	0x6
+ 811 05c6 0D05     		.2byte	0x50d
+ 812 05c8 B8000000 		.4byte	0xb8
+ 813 05cc 60       		.byte	0x60
+ 814 05cd 0D       		.uleb128 0xd
+ 815 05ce B8070000 		.4byte	.LASF125
+ 816 05d2 06       		.byte	0x6
+ 817 05d3 0E05     		.2byte	0x50e
+ 818 05d5 B8000000 		.4byte	0xb8
+ 819 05d9 64       		.byte	0x64
+ 820 05da 0D       		.uleb128 0xd
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 18
+
+
+ 821 05db 86080000 		.4byte	.LASF126
+ 822 05df 06       		.byte	0x6
+ 823 05e0 0F05     		.2byte	0x50f
+ 824 05e2 B8000000 		.4byte	0xb8
+ 825 05e6 68       		.byte	0x68
+ 826 05e7 0D       		.uleb128 0xd
+ 827 05e8 B30C0000 		.4byte	.LASF127
+ 828 05ec 06       		.byte	0x6
+ 829 05ed 1005     		.2byte	0x510
+ 830 05ef B8000000 		.4byte	0xb8
+ 831 05f3 6C       		.byte	0x6c
+ 832 05f4 0D       		.uleb128 0xd
+ 833 05f5 43070000 		.4byte	.LASF128
+ 834 05f9 06       		.byte	0x6
+ 835 05fa 1105     		.2byte	0x511
+ 836 05fc 09050000 		.4byte	0x509
+ 837 0600 70       		.byte	0x70
+ 838 0601 0D       		.uleb128 0xd
+ 839 0602 83090000 		.4byte	.LASF129
+ 840 0606 06       		.byte	0x6
+ 841 0607 1205     		.2byte	0x512
+ 842 0609 B8000000 		.4byte	0xb8
+ 843 060d 74       		.byte	0x74
+ 844 060e 00       		.byte	0
+ 845 060f 0E       		.uleb128 0xe
+ 846 0610 B8000000 		.4byte	0xb8
+ 847 0614 1F060000 		.4byte	0x61f
+ 848 0618 0F       		.uleb128 0xf
+ 849 0619 C3000000 		.4byte	0xc3
+ 850 061d 0F       		.byte	0xf
+ 851 061e 00       		.byte	0
+ 852 061f 0B       		.uleb128 0xb
+ 853 0620 00020000 		.4byte	.LASF130
+ 854 0624 06       		.byte	0x6
+ 855 0625 1305     		.2byte	0x513
+ 856 0627 42050000 		.4byte	0x542
+ 857 062b 09       		.uleb128 0x9
+ 858 062c 01       		.byte	0x1
+ 859 062d 2C000000 		.4byte	0x2c
+ 860 0631 07       		.byte	0x7
+ 861 0632 2402     		.2byte	0x224
+ 862 0634 45060000 		.4byte	0x645
+ 863 0638 0A       		.uleb128 0xa
+ 864 0639 51070000 		.4byte	.LASF131
+ 865 063d 00       		.byte	0
+ 866 063e 0A       		.uleb128 0xa
+ 867 063f 28030000 		.4byte	.LASF132
+ 868 0643 01       		.byte	0x1
+ 869 0644 00       		.byte	0
+ 870 0645 0B       		.uleb128 0xb
+ 871 0646 D00B0000 		.4byte	.LASF133
+ 872 064a 07       		.byte	0x7
+ 873 064b 2702     		.2byte	0x227
+ 874 064d 2B060000 		.4byte	0x62b
+ 875 0651 0B       		.uleb128 0xb
+ 876 0652 F5020000 		.4byte	.LASF134
+ 877 0656 07       		.byte	0x7
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 19
+
+
+ 878 0657 3902     		.2byte	0x239
+ 879 0659 5D060000 		.4byte	0x65d
+ 880 065d 10       		.uleb128 0x10
+ 881 065e 04       		.byte	0x4
+ 882 065f 63060000 		.4byte	0x663
+ 883 0663 11       		.uleb128 0x11
+ 884 0664 6E060000 		.4byte	0x66e
+ 885 0668 12       		.uleb128 0x12
+ 886 0669 B8000000 		.4byte	0xb8
+ 887 066d 00       		.byte	0
+ 888 066e 0B       		.uleb128 0xb
+ 889 066f DE080000 		.4byte	.LASF135
+ 890 0673 07       		.byte	0x7
+ 891 0674 4402     		.2byte	0x244
+ 892 0676 7A060000 		.4byte	0x67a
+ 893 067a 10       		.uleb128 0x10
+ 894 067b 04       		.byte	0x4
+ 895 067c 80060000 		.4byte	0x680
+ 896 0680 13       		.uleb128 0x13
+ 897 0681 45060000 		.4byte	0x645
+ 898 0685 8F060000 		.4byte	0x68f
+ 899 0689 12       		.uleb128 0x12
+ 900 068a B8000000 		.4byte	0xb8
+ 901 068e 00       		.byte	0
+ 902 068f 14       		.uleb128 0x14
+ 903 0690 CD010000 		.4byte	.LASF159
+ 904 0694 4C       		.byte	0x4c
+ 905 0695 07       		.byte	0x7
+ 906 0696 C302     		.2byte	0x2c3
+ 907 0698 AE070000 		.4byte	0x7ae
+ 908 069c 0D       		.uleb128 0xd
+ 909 069d 190B0000 		.4byte	.LASF136
+ 910 06a1 07       		.byte	0x7
+ 911 06a2 C602     		.2byte	0x2c6
+ 912 06a4 09050000 		.4byte	0x509
+ 913 06a8 00       		.byte	0
+ 914 06a9 0D       		.uleb128 0xd
+ 915 06aa A1050000 		.4byte	.LASF137
+ 916 06ae 07       		.byte	0x7
+ 917 06af C702     		.2byte	0x2c7
+ 918 06b1 09050000 		.4byte	0x509
+ 919 06b5 01       		.byte	0x1
+ 920 06b6 0D       		.uleb128 0xd
+ 921 06b7 EF020000 		.4byte	.LASF138
+ 922 06bb 07       		.byte	0x7
+ 923 06bc C902     		.2byte	0x2c9
+ 924 06be CA000000 		.4byte	0xca
+ 925 06c2 04       		.byte	0x4
+ 926 06c3 0D       		.uleb128 0xd
+ 927 06c4 8A010000 		.4byte	.LASF139
+ 928 06c8 07       		.byte	0x7
+ 929 06c9 CB02     		.2byte	0x2cb
+ 930 06cb CA000000 		.4byte	0xca
+ 931 06cf 08       		.byte	0x8
+ 932 06d0 0D       		.uleb128 0xd
+ 933 06d1 D2080000 		.4byte	.LASF140
+ 934 06d5 07       		.byte	0x7
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 20
+
+
+ 935 06d6 CC02     		.2byte	0x2cc
+ 936 06d8 09050000 		.4byte	0x509
+ 937 06dc 0C       		.byte	0xc
+ 938 06dd 0D       		.uleb128 0xd
+ 939 06de 1C030000 		.4byte	.LASF141
+ 940 06e2 07       		.byte	0x7
+ 941 06e3 CD02     		.2byte	0x2cd
+ 942 06e5 09050000 		.4byte	0x509
+ 943 06e9 0D       		.byte	0xd
+ 944 06ea 0D       		.uleb128 0xd
+ 945 06eb 920A0000 		.4byte	.LASF142
+ 946 06ef 07       		.byte	0x7
+ 947 06f0 CF02     		.2byte	0x2cf
+ 948 06f2 AE070000 		.4byte	0x7ae
+ 949 06f6 10       		.byte	0x10
+ 950 06f7 0D       		.uleb128 0xd
+ 951 06f8 99080000 		.4byte	.LASF143
+ 952 06fc 07       		.byte	0x7
+ 953 06fd D002     		.2byte	0x2d0
+ 954 06ff B8000000 		.4byte	0xb8
+ 955 0703 14       		.byte	0x14
+ 956 0704 0D       		.uleb128 0xd
+ 957 0705 F0060000 		.4byte	.LASF144
+ 958 0709 07       		.byte	0x7
+ 959 070a D102     		.2byte	0x2d1
+ 960 070c CA000000 		.4byte	0xca
+ 961 0710 18       		.byte	0x18
+ 962 0711 0D       		.uleb128 0xd
+ 963 0712 0B090000 		.4byte	.LASF145
+ 964 0716 07       		.byte	0x7
+ 965 0717 D202     		.2byte	0x2d2
+ 966 0719 CA000000 		.4byte	0xca
+ 967 071d 1C       		.byte	0x1c
+ 968 071e 0D       		.uleb128 0xd
+ 969 071f A9000000 		.4byte	.LASF146
+ 970 0723 07       		.byte	0x7
+ 971 0724 D402     		.2byte	0x2d4
+ 972 0726 CA000000 		.4byte	0xca
+ 973 072a 20       		.byte	0x20
+ 974 072b 0D       		.uleb128 0xd
+ 975 072c BB040000 		.4byte	.LASF147
+ 976 0730 07       		.byte	0x7
+ 977 0731 D502     		.2byte	0x2d5
+ 978 0733 B4070000 		.4byte	0x7b4
+ 979 0737 24       		.byte	0x24
+ 980 0738 0D       		.uleb128 0xd
+ 981 0739 7E0B0000 		.4byte	.LASF148
+ 982 073d 07       		.byte	0x7
+ 983 073e D702     		.2byte	0x2d7
+ 984 0740 AE070000 		.4byte	0x7ae
+ 985 0744 28       		.byte	0x28
+ 986 0745 0D       		.uleb128 0xd
+ 987 0746 8C0B0000 		.4byte	.LASF149
+ 988 074a 07       		.byte	0x7
+ 989 074b D802     		.2byte	0x2d8
+ 990 074d B8000000 		.4byte	0xb8
+ 991 0751 2C       		.byte	0x2c
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 21
+
+
+ 992 0752 0D       		.uleb128 0xd
+ 993 0753 A1040000 		.4byte	.LASF150
+ 994 0757 07       		.byte	0x7
+ 995 0758 D902     		.2byte	0x2d9
+ 996 075a CA000000 		.4byte	0xca
+ 997 075e 30       		.byte	0x30
+ 998 075f 0D       		.uleb128 0xd
+ 999 0760 1A090000 		.4byte	.LASF151
+ 1000 0764 07       		.byte	0x7
+ 1001 0765 DA02     		.2byte	0x2da
+ 1002 0767 CA000000 		.4byte	0xca
+ 1003 076b 34       		.byte	0x34
+ 1004 076c 0D       		.uleb128 0xd
+ 1005 076d 79060000 		.4byte	.LASF152
+ 1006 0771 07       		.byte	0x7
+ 1007 0772 DC02     		.2byte	0x2dc
+ 1008 0774 AE070000 		.4byte	0x7ae
+ 1009 0778 38       		.byte	0x38
+ 1010 0779 0D       		.uleb128 0xd
+ 1011 077a 97020000 		.4byte	.LASF153
+ 1012 077e 07       		.byte	0x7
+ 1013 077f DD02     		.2byte	0x2dd
+ 1014 0781 B8000000 		.4byte	0xb8
+ 1015 0785 3C       		.byte	0x3c
+ 1016 0786 0D       		.uleb128 0xd
+ 1017 0787 BC010000 		.4byte	.LASF154
+ 1018 078b 07       		.byte	0x7
+ 1019 078c DE02     		.2byte	0x2de
+ 1020 078e CA000000 		.4byte	0xca
+ 1021 0792 40       		.byte	0x40
+ 1022 0793 0D       		.uleb128 0xd
+ 1023 0794 E4050000 		.4byte	.LASF155
+ 1024 0798 07       		.byte	0x7
+ 1025 0799 E402     		.2byte	0x2e4
+ 1026 079b 51060000 		.4byte	0x651
+ 1027 079f 44       		.byte	0x44
+ 1028 07a0 0D       		.uleb128 0xd
+ 1029 07a1 F3030000 		.4byte	.LASF156
+ 1030 07a5 07       		.byte	0x7
+ 1031 07a6 EB02     		.2byte	0x2eb
+ 1032 07a8 6E060000 		.4byte	0x66e
+ 1033 07ac 48       		.byte	0x48
+ 1034 07ad 00       		.byte	0
+ 1035 07ae 10       		.uleb128 0x10
+ 1036 07af 04       		.byte	0x4
+ 1037 07b0 97000000 		.4byte	0x97
+ 1038 07b4 05       		.uleb128 0x5
+ 1039 07b5 09050000 		.4byte	0x509
+ 1040 07b9 0B       		.uleb128 0xb
+ 1041 07ba 6A090000 		.4byte	.LASF157
+ 1042 07be 07       		.byte	0x7
+ 1043 07bf EE02     		.2byte	0x2ee
+ 1044 07c1 8F060000 		.4byte	0x68f
+ 1045 07c5 0B       		.uleb128 0xb
+ 1046 07c6 58050000 		.4byte	.LASF158
+ 1047 07ca 08       		.byte	0x8
+ 1048 07cb D901     		.2byte	0x1d9
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 22
+
+
+ 1049 07cd 5D060000 		.4byte	0x65d
+ 1050 07d1 14       		.uleb128 0x14
+ 1051 07d2 EB0C0000 		.4byte	.LASF160
+ 1052 07d6 38       		.byte	0x38
+ 1053 07d7 08       		.byte	0x8
+ 1054 07d8 7502     		.2byte	0x275
+ 1055 07da 95080000 		.4byte	0x895
+ 1056 07de 0D       		.uleb128 0xd
+ 1057 07df 98050000 		.4byte	.LASF161
+ 1058 07e3 08       		.byte	0x8
+ 1059 07e4 7802     		.2byte	0x278
+ 1060 07e6 CA000000 		.4byte	0xca
+ 1061 07ea 00       		.byte	0
+ 1062 07eb 0D       		.uleb128 0xd
+ 1063 07ec 7C070000 		.4byte	.LASF162
+ 1064 07f0 08       		.byte	0x8
+ 1065 07f1 7902     		.2byte	0x279
+ 1066 07f3 CA000000 		.4byte	0xca
+ 1067 07f7 04       		.byte	0x4
+ 1068 07f8 0D       		.uleb128 0xd
+ 1069 07f9 5E010000 		.4byte	.LASF163
+ 1070 07fd 08       		.byte	0x8
+ 1071 07fe 7B02     		.2byte	0x27b
+ 1072 0800 07050000 		.4byte	0x507
+ 1073 0804 08       		.byte	0x8
+ 1074 0805 0D       		.uleb128 0xd
+ 1075 0806 D30A0000 		.4byte	.LASF164
+ 1076 080a 08       		.byte	0x8
+ 1077 080b 7C02     		.2byte	0x27c
+ 1078 080d B8000000 		.4byte	0xb8
+ 1079 0811 0C       		.byte	0xc
+ 1080 0812 0D       		.uleb128 0xd
+ 1081 0813 55060000 		.4byte	.LASF165
+ 1082 0817 08       		.byte	0x8
+ 1083 0818 7D02     		.2byte	0x27d
+ 1084 081a CA000000 		.4byte	0xca
+ 1085 081e 10       		.byte	0x10
+ 1086 081f 0D       		.uleb128 0xd
+ 1087 0820 800C0000 		.4byte	.LASF166
+ 1088 0824 08       		.byte	0x8
+ 1089 0825 7E02     		.2byte	0x27e
+ 1090 0827 CA000000 		.4byte	0xca
+ 1091 082b 14       		.byte	0x14
+ 1092 082c 0D       		.uleb128 0xd
+ 1093 082d 780B0000 		.4byte	.LASF167
+ 1094 0831 08       		.byte	0x8
+ 1095 0832 8002     		.2byte	0x280
+ 1096 0834 07050000 		.4byte	0x507
+ 1097 0838 18       		.byte	0x18
+ 1098 0839 0D       		.uleb128 0xd
+ 1099 083a 1A000000 		.4byte	.LASF168
+ 1100 083e 08       		.byte	0x8
+ 1101 083f 8102     		.2byte	0x281
+ 1102 0841 B8000000 		.4byte	0xb8
+ 1103 0845 1C       		.byte	0x1c
+ 1104 0846 0D       		.uleb128 0xd
+ 1105 0847 36040000 		.4byte	.LASF169
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 23
+
+
+ 1106 084b 08       		.byte	0x8
+ 1107 084c 8202     		.2byte	0x282
+ 1108 084e CA000000 		.4byte	0xca
+ 1109 0852 20       		.byte	0x20
+ 1110 0853 0D       		.uleb128 0xd
+ 1111 0854 97010000 		.4byte	.LASF170
+ 1112 0858 08       		.byte	0x8
+ 1113 0859 8402     		.2byte	0x284
+ 1114 085b 07050000 		.4byte	0x507
+ 1115 085f 24       		.byte	0x24
+ 1116 0860 0D       		.uleb128 0xd
+ 1117 0861 59040000 		.4byte	.LASF171
+ 1118 0865 08       		.byte	0x8
+ 1119 0866 8502     		.2byte	0x285
+ 1120 0868 B8000000 		.4byte	0xb8
+ 1121 086c 28       		.byte	0x28
+ 1122 086d 0D       		.uleb128 0xd
+ 1123 086e 1B080000 		.4byte	.LASF172
+ 1124 0872 08       		.byte	0x8
+ 1125 0873 8602     		.2byte	0x286
+ 1126 0875 CA000000 		.4byte	0xca
+ 1127 0879 2C       		.byte	0x2c
+ 1128 087a 0D       		.uleb128 0xd
+ 1129 087b E4050000 		.4byte	.LASF155
+ 1130 087f 08       		.byte	0x8
+ 1131 0880 8B02     		.2byte	0x28b
+ 1132 0882 C5070000 		.4byte	0x7c5
+ 1133 0886 30       		.byte	0x30
+ 1134 0887 0D       		.uleb128 0xd
+ 1135 0888 700B0000 		.4byte	.LASF173
+ 1136 088c 08       		.byte	0x8
+ 1137 088d 8E02     		.2byte	0x28e
+ 1138 088f B8000000 		.4byte	0xb8
+ 1139 0893 34       		.byte	0x34
+ 1140 0894 00       		.byte	0
+ 1141 0895 0B       		.uleb128 0xb
+ 1142 0896 9E0B0000 		.4byte	.LASF174
+ 1143 089a 08       		.byte	0x8
+ 1144 089b 9102     		.2byte	0x291
+ 1145 089d D1070000 		.4byte	0x7d1
+ 1146 08a1 15       		.uleb128 0x15
+ 1147 08a2 C0060000 		.4byte	.LASF175
+ 1148 08a6 4C       		.byte	0x4c
+ 1149 08a7 09       		.byte	0x9
+ 1150 08a8 2F       		.byte	0x2f
+ 1151 08a9 92090000 		.4byte	0x992
+ 1152 08ad 07       		.uleb128 0x7
+ 1153 08ae 08010000 		.4byte	.LASF176
+ 1154 08b2 09       		.byte	0x9
+ 1155 08b3 31       		.byte	0x31
+ 1156 08b4 B8000000 		.4byte	0xb8
+ 1157 08b8 00       		.byte	0
+ 1158 08b9 07       		.uleb128 0x7
+ 1159 08ba 3F010000 		.4byte	.LASF177
+ 1160 08be 09       		.byte	0x9
+ 1161 08bf 33       		.byte	0x33
+ 1162 08c0 B8000000 		.4byte	0xb8
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 24
+
+
+ 1163 08c4 04       		.byte	0x4
+ 1164 08c5 07       		.uleb128 0x7
+ 1165 08c6 12000000 		.4byte	.LASF178
+ 1166 08ca 09       		.byte	0x9
+ 1167 08cb 34       		.byte	0x34
+ 1168 08cc B8000000 		.4byte	0xb8
+ 1169 08d0 08       		.byte	0x8
+ 1170 08d1 07       		.uleb128 0x7
+ 1171 08d2 E1000000 		.4byte	.LASF179
+ 1172 08d6 09       		.byte	0x9
+ 1173 08d7 35       		.byte	0x35
+ 1174 08d8 B8000000 		.4byte	0xb8
+ 1175 08dc 0C       		.byte	0xc
+ 1176 08dd 07       		.uleb128 0x7
+ 1177 08de FA080000 		.4byte	.LASF180
+ 1178 08e2 09       		.byte	0x9
+ 1179 08e3 37       		.byte	0x37
+ 1180 08e4 B8000000 		.4byte	0xb8
+ 1181 08e8 10       		.byte	0x10
+ 1182 08e9 07       		.uleb128 0x7
+ 1183 08ea 210A0000 		.4byte	.LASF181
+ 1184 08ee 09       		.byte	0x9
+ 1185 08ef 38       		.byte	0x38
+ 1186 08f0 B8000000 		.4byte	0xb8
+ 1187 08f4 14       		.byte	0x14
+ 1188 08f5 07       		.uleb128 0x7
+ 1189 08f6 3F0B0000 		.4byte	.LASF182
+ 1190 08fa 09       		.byte	0x9
+ 1191 08fb 39       		.byte	0x39
+ 1192 08fc B8000000 		.4byte	0xb8
+ 1193 0900 18       		.byte	0x18
+ 1194 0901 07       		.uleb128 0x7
+ 1195 0902 03050000 		.4byte	.LASF183
+ 1196 0906 09       		.byte	0x9
+ 1197 0907 3A       		.byte	0x3a
+ 1198 0908 09050000 		.4byte	0x509
+ 1199 090c 1C       		.byte	0x1c
+ 1200 090d 07       		.uleb128 0x7
+ 1201 090e 63040000 		.4byte	.LASF184
+ 1202 0912 09       		.byte	0x9
+ 1203 0913 3C       		.byte	0x3c
+ 1204 0914 B8000000 		.4byte	0xb8
+ 1205 0918 20       		.byte	0x20
+ 1206 0919 07       		.uleb128 0x7
+ 1207 091a AE030000 		.4byte	.LASF185
+ 1208 091e 09       		.byte	0x9
+ 1209 091f 3D       		.byte	0x3d
+ 1210 0920 B8000000 		.4byte	0xb8
+ 1211 0924 24       		.byte	0x24
+ 1212 0925 07       		.uleb128 0x7
+ 1213 0926 1B010000 		.4byte	.LASF186
+ 1214 092a 09       		.byte	0x9
+ 1215 092b 3F       		.byte	0x3f
+ 1216 092c B8000000 		.4byte	0xb8
+ 1217 0930 28       		.byte	0x28
+ 1218 0931 07       		.uleb128 0x7
+ 1219 0932 560C0000 		.4byte	.LASF187
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 25
+
+
+ 1220 0936 09       		.byte	0x9
+ 1221 0937 40       		.byte	0x40
+ 1222 0938 B8000000 		.4byte	0xb8
+ 1223 093c 2C       		.byte	0x2c
+ 1224 093d 07       		.uleb128 0x7
+ 1225 093e E10A0000 		.4byte	.LASF188
+ 1226 0942 09       		.byte	0x9
+ 1227 0943 42       		.byte	0x42
+ 1228 0944 B8000000 		.4byte	0xb8
+ 1229 0948 30       		.byte	0x30
+ 1230 0949 07       		.uleb128 0x7
+ 1231 094a 230B0000 		.4byte	.LASF189
+ 1232 094e 09       		.byte	0x9
+ 1233 094f 43       		.byte	0x43
+ 1234 0950 B8000000 		.4byte	0xb8
+ 1235 0954 34       		.byte	0x34
+ 1236 0955 07       		.uleb128 0x7
+ 1237 0956 87060000 		.4byte	.LASF190
+ 1238 095a 09       		.byte	0x9
+ 1239 095b 45       		.byte	0x45
+ 1240 095c B8000000 		.4byte	0xb8
+ 1241 0960 38       		.byte	0x38
+ 1242 0961 07       		.uleb128 0x7
+ 1243 0962 F0000000 		.4byte	.LASF191
+ 1244 0966 09       		.byte	0x9
+ 1245 0967 46       		.byte	0x46
+ 1246 0968 B8000000 		.4byte	0xb8
+ 1247 096c 3C       		.byte	0x3c
+ 1248 096d 07       		.uleb128 0x7
+ 1249 096e 010B0000 		.4byte	.LASF192
+ 1250 0972 09       		.byte	0x9
+ 1251 0973 48       		.byte	0x48
+ 1252 0974 B8000000 		.4byte	0xb8
+ 1253 0978 40       		.byte	0x40
+ 1254 0979 07       		.uleb128 0x7
+ 1255 097a A40C0000 		.4byte	.LASF193
+ 1256 097e 09       		.byte	0x9
+ 1257 097f 49       		.byte	0x49
+ 1258 0980 B8000000 		.4byte	0xb8
+ 1259 0984 44       		.byte	0x44
+ 1260 0985 07       		.uleb128 0x7
+ 1261 0986 3B0A0000 		.4byte	.LASF194
+ 1262 098a 09       		.byte	0x9
+ 1263 098b 4B       		.byte	0x4b
+ 1264 098c B8000000 		.4byte	0xb8
+ 1265 0990 48       		.byte	0x48
+ 1266 0991 00       		.byte	0
+ 1267 0992 03       		.uleb128 0x3
+ 1268 0993 22020000 		.4byte	.LASF195
+ 1269 0997 09       		.byte	0x9
+ 1270 0998 4C       		.byte	0x4c
+ 1271 0999 A1080000 		.4byte	0x8a1
+ 1272 099d 06       		.uleb128 0x6
+ 1273 099e 14       		.byte	0x14
+ 1274 099f 0A       		.byte	0xa
+ 1275 09a0 3B       		.byte	0x3b
+ 1276 09a1 E2090000 		.4byte	0x9e2
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 26
+
+
+ 1277 09a5 07       		.uleb128 0x7
+ 1278 09a6 3D060000 		.4byte	.LASF196
+ 1279 09aa 0A       		.byte	0xa
+ 1280 09ab 3D       		.byte	0x3d
+ 1281 09ac B8000000 		.4byte	0xb8
+ 1282 09b0 00       		.byte	0
+ 1283 09b1 07       		.uleb128 0x7
+ 1284 09b2 16060000 		.4byte	.LASF197
+ 1285 09b6 0A       		.byte	0xa
+ 1286 09b7 3E       		.byte	0x3e
+ 1287 09b8 B8000000 		.4byte	0xb8
+ 1288 09bc 04       		.byte	0x4
+ 1289 09bd 07       		.uleb128 0x7
+ 1290 09be 20040000 		.4byte	.LASF198
+ 1291 09c2 0A       		.byte	0xa
+ 1292 09c3 3F       		.byte	0x3f
+ 1293 09c4 E2090000 		.4byte	0x9e2
+ 1294 09c8 08       		.byte	0x8
+ 1295 09c9 07       		.uleb128 0x7
+ 1296 09ca ED0A0000 		.4byte	.LASF199
+ 1297 09ce 0A       		.byte	0xa
+ 1298 09cf 40       		.byte	0x40
+ 1299 09d0 B8000000 		.4byte	0xb8
+ 1300 09d4 0C       		.byte	0xc
+ 1301 09d5 07       		.uleb128 0x7
+ 1302 09d6 78020000 		.4byte	.LASF200
+ 1303 09da 0A       		.byte	0xa
+ 1304 09db 45       		.byte	0x45
+ 1305 09dc B8000000 		.4byte	0xb8
+ 1306 09e0 10       		.byte	0x10
+ 1307 09e1 00       		.byte	0
+ 1308 09e2 10       		.uleb128 0x10
+ 1309 09e3 04       		.byte	0x4
+ 1310 09e4 E8090000 		.4byte	0x9e8
+ 1311 09e8 16       		.uleb128 0x16
+ 1312 09e9 1F060000 		.4byte	0x61f
+ 1313 09ed 03       		.uleb128 0x3
+ 1314 09ee 180C0000 		.4byte	.LASF201
+ 1315 09f2 0A       		.byte	0xa
+ 1316 09f3 48       		.byte	0x48
+ 1317 09f4 9D090000 		.4byte	0x99d
+ 1318 09f8 17       		.uleb128 0x17
+ 1319 09f9 AB070000 		.4byte	.LASF211
+ 1320 09fd 02       		.byte	0x2
+ 1321 09fe 81       		.byte	0x81
+ 1322 09ff 03       		.byte	0x3
+ 1323 0a00 18       		.uleb128 0x18
+ 1324 0a01 A9030000 		.4byte	.LASF212
+ 1325 0a05 01       		.byte	0x1
+ 1326 0a06 0E       		.byte	0xe
+ 1327 0a07 89000000 		.4byte	0x89
+ 1328 0a0b 00000000 		.4byte	.LFB543
+ 1329 0a0f 10000000 		.4byte	.LFE543-.LFB543
+ 1330 0a13 01       		.uleb128 0x1
+ 1331 0a14 9C       		.byte	0x9c
+ 1332 0a15 3C0A0000 		.4byte	0xa3c
+ 1333 0a19 19       		.uleb128 0x19
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 27
+
+
+ 1334 0a1a F8090000 		.4byte	0x9f8
+ 1335 0a1e 02000000 		.4byte	.LBB4
+ 1336 0a22 02000000 		.4byte	.LBE4-.LBB4
+ 1337 0a26 01       		.byte	0x1
+ 1338 0a27 10       		.byte	0x10
+ 1339 0a28 1A       		.uleb128 0x1a
+ 1340 0a29 0A000000 		.4byte	.LVL0
+ 1341 0a2d AA0A0000 		.4byte	0xaaa
+ 1342 0a31 1B       		.uleb128 0x1b
+ 1343 0a32 01       		.uleb128 0x1
+ 1344 0a33 50       		.byte	0x50
+ 1345 0a34 05       		.uleb128 0x5
+ 1346 0a35 0C       		.byte	0xc
+ 1347 0a36 00000810 		.4byte	0x10080000
+ 1348 0a3a 00       		.byte	0
+ 1349 0a3b 00       		.byte	0
+ 1350 0a3c 1C       		.uleb128 0x1c
+ 1351 0a3d EF070000 		.4byte	.LASF202
+ 1352 0a41 05       		.byte	0x5
+ 1353 0a42 A7       		.byte	0xa7
+ 1354 0a43 470A0000 		.4byte	0xa47
+ 1355 0a47 10       		.uleb128 0x10
+ 1356 0a48 04       		.byte	0x4
+ 1357 0a49 4D0A0000 		.4byte	0xa4d
+ 1358 0a4d 16       		.uleb128 0x16
+ 1359 0a4e E7040000 		.4byte	0x4e7
+ 1360 0a52 1C       		.uleb128 0x1c
+ 1361 0a53 77050000 		.4byte	.LASF203
+ 1362 0a57 0B       		.byte	0xb
+ 1363 0a58 87       		.byte	0x87
+ 1364 0a59 95080000 		.4byte	0x895
+ 1365 0a5d 1C       		.uleb128 0x1c
+ 1366 0a5e CC070000 		.4byte	.LASF204
+ 1367 0a62 0C       		.byte	0xc
+ 1368 0a63 7F       		.byte	0x7f
+ 1369 0a64 B9070000 		.4byte	0x7b9
+ 1370 0a68 1C       		.uleb128 0x1c
+ 1371 0a69 9D010000 		.4byte	.LASF205
+ 1372 0a6d 0D       		.byte	0xd
+ 1373 0a6e 1F       		.byte	0x1f
+ 1374 0a6f 730A0000 		.4byte	0xa73
+ 1375 0a73 16       		.uleb128 0x16
+ 1376 0a74 92090000 		.4byte	0x992
+ 1377 0a78 1D       		.uleb128 0x1d
+ 1378 0a79 56090000 		.4byte	.LASF206
+ 1379 0a7d 0A       		.byte	0xa
+ 1380 0a7e 6001     		.2byte	0x160
+ 1381 0a80 B8000000 		.4byte	0xb8
+ 1382 0a84 0E       		.uleb128 0xe
+ 1383 0a85 940A0000 		.4byte	0xa94
+ 1384 0a89 940A0000 		.4byte	0xa94
+ 1385 0a8d 0F       		.uleb128 0xf
+ 1386 0a8e C3000000 		.4byte	0xc3
+ 1387 0a92 00       		.byte	0
+ 1388 0a93 00       		.byte	0
+ 1389 0a94 16       		.uleb128 0x16
+ 1390 0a95 ED090000 		.4byte	0x9ed
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 28
+
+
+ 1391 0a99 1D       		.uleb128 0x1d
+ 1392 0a9a C8050000 		.4byte	.LASF207
+ 1393 0a9e 0A       		.byte	0xa
+ 1394 0a9f 6401     		.2byte	0x164
+ 1395 0aa1 A50A0000 		.4byte	0xaa5
+ 1396 0aa5 16       		.uleb128 0x16
+ 1397 0aa6 840A0000 		.4byte	0xa84
+ 1398 0aaa 1E       		.uleb128 0x1e
+ 1399 0aab FA050000 		.4byte	.LASF213
+ 1400 0aaf FA050000 		.4byte	.LASF213
+ 1401 0ab3 0E       		.byte	0xe
+ 1402 0ab4 2502     		.2byte	0x225
+ 1403 0ab6 00       		.byte	0
+ 1404              		.section	.debug_abbrev,"",%progbits
+ 1405              	.Ldebug_abbrev0:
+ 1406 0000 01       		.uleb128 0x1
+ 1407 0001 11       		.uleb128 0x11
+ 1408 0002 01       		.byte	0x1
+ 1409 0003 25       		.uleb128 0x25
+ 1410 0004 0E       		.uleb128 0xe
+ 1411 0005 13       		.uleb128 0x13
+ 1412 0006 0B       		.uleb128 0xb
+ 1413 0007 03       		.uleb128 0x3
+ 1414 0008 0E       		.uleb128 0xe
+ 1415 0009 1B       		.uleb128 0x1b
+ 1416 000a 0E       		.uleb128 0xe
+ 1417 000b 55       		.uleb128 0x55
+ 1418 000c 17       		.uleb128 0x17
+ 1419 000d 11       		.uleb128 0x11
+ 1420 000e 01       		.uleb128 0x1
+ 1421 000f 10       		.uleb128 0x10
+ 1422 0010 17       		.uleb128 0x17
+ 1423 0011 00       		.byte	0
+ 1424 0012 00       		.byte	0
+ 1425 0013 02       		.uleb128 0x2
+ 1426 0014 24       		.uleb128 0x24
+ 1427 0015 00       		.byte	0
+ 1428 0016 0B       		.uleb128 0xb
+ 1429 0017 0B       		.uleb128 0xb
+ 1430 0018 3E       		.uleb128 0x3e
+ 1431 0019 0B       		.uleb128 0xb
+ 1432 001a 03       		.uleb128 0x3
+ 1433 001b 0E       		.uleb128 0xe
+ 1434 001c 00       		.byte	0
+ 1435 001d 00       		.byte	0
+ 1436 001e 03       		.uleb128 0x3
+ 1437 001f 16       		.uleb128 0x16
+ 1438 0020 00       		.byte	0
+ 1439 0021 03       		.uleb128 0x3
+ 1440 0022 0E       		.uleb128 0xe
+ 1441 0023 3A       		.uleb128 0x3a
+ 1442 0024 0B       		.uleb128 0xb
+ 1443 0025 3B       		.uleb128 0x3b
+ 1444 0026 0B       		.uleb128 0xb
+ 1445 0027 49       		.uleb128 0x49
+ 1446 0028 13       		.uleb128 0x13
+ 1447 0029 00       		.byte	0
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 29
+
+
+ 1448 002a 00       		.byte	0
+ 1449 002b 04       		.uleb128 0x4
+ 1450 002c 24       		.uleb128 0x24
+ 1451 002d 00       		.byte	0
+ 1452 002e 0B       		.uleb128 0xb
+ 1453 002f 0B       		.uleb128 0xb
+ 1454 0030 3E       		.uleb128 0x3e
+ 1455 0031 0B       		.uleb128 0xb
+ 1456 0032 03       		.uleb128 0x3
+ 1457 0033 08       		.uleb128 0x8
+ 1458 0034 00       		.byte	0
+ 1459 0035 00       		.byte	0
+ 1460 0036 05       		.uleb128 0x5
+ 1461 0037 35       		.uleb128 0x35
+ 1462 0038 00       		.byte	0
+ 1463 0039 49       		.uleb128 0x49
+ 1464 003a 13       		.uleb128 0x13
+ 1465 003b 00       		.byte	0
+ 1466 003c 00       		.byte	0
+ 1467 003d 06       		.uleb128 0x6
+ 1468 003e 13       		.uleb128 0x13
+ 1469 003f 01       		.byte	0x1
+ 1470 0040 0B       		.uleb128 0xb
+ 1471 0041 0B       		.uleb128 0xb
+ 1472 0042 3A       		.uleb128 0x3a
+ 1473 0043 0B       		.uleb128 0xb
+ 1474 0044 3B       		.uleb128 0x3b
+ 1475 0045 0B       		.uleb128 0xb
+ 1476 0046 01       		.uleb128 0x1
+ 1477 0047 13       		.uleb128 0x13
+ 1478 0048 00       		.byte	0
+ 1479 0049 00       		.byte	0
+ 1480 004a 07       		.uleb128 0x7
+ 1481 004b 0D       		.uleb128 0xd
+ 1482 004c 00       		.byte	0
+ 1483 004d 03       		.uleb128 0x3
+ 1484 004e 0E       		.uleb128 0xe
+ 1485 004f 3A       		.uleb128 0x3a
+ 1486 0050 0B       		.uleb128 0xb
+ 1487 0051 3B       		.uleb128 0x3b
+ 1488 0052 0B       		.uleb128 0xb
+ 1489 0053 49       		.uleb128 0x49
+ 1490 0054 13       		.uleb128 0x13
+ 1491 0055 38       		.uleb128 0x38
+ 1492 0056 0B       		.uleb128 0xb
+ 1493 0057 00       		.byte	0
+ 1494 0058 00       		.byte	0
+ 1495 0059 08       		.uleb128 0x8
+ 1496 005a 0F       		.uleb128 0xf
+ 1497 005b 00       		.byte	0
+ 1498 005c 0B       		.uleb128 0xb
+ 1499 005d 0B       		.uleb128 0xb
+ 1500 005e 00       		.byte	0
+ 1501 005f 00       		.byte	0
+ 1502 0060 09       		.uleb128 0x9
+ 1503 0061 04       		.uleb128 0x4
+ 1504 0062 01       		.byte	0x1
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 30
+
+
+ 1505 0063 0B       		.uleb128 0xb
+ 1506 0064 0B       		.uleb128 0xb
+ 1507 0065 49       		.uleb128 0x49
+ 1508 0066 13       		.uleb128 0x13
+ 1509 0067 3A       		.uleb128 0x3a
+ 1510 0068 0B       		.uleb128 0xb
+ 1511 0069 3B       		.uleb128 0x3b
+ 1512 006a 05       		.uleb128 0x5
+ 1513 006b 01       		.uleb128 0x1
+ 1514 006c 13       		.uleb128 0x13
+ 1515 006d 00       		.byte	0
+ 1516 006e 00       		.byte	0
+ 1517 006f 0A       		.uleb128 0xa
+ 1518 0070 28       		.uleb128 0x28
+ 1519 0071 00       		.byte	0
+ 1520 0072 03       		.uleb128 0x3
+ 1521 0073 0E       		.uleb128 0xe
+ 1522 0074 1C       		.uleb128 0x1c
+ 1523 0075 0B       		.uleb128 0xb
+ 1524 0076 00       		.byte	0
+ 1525 0077 00       		.byte	0
+ 1526 0078 0B       		.uleb128 0xb
+ 1527 0079 16       		.uleb128 0x16
+ 1528 007a 00       		.byte	0
+ 1529 007b 03       		.uleb128 0x3
+ 1530 007c 0E       		.uleb128 0xe
+ 1531 007d 3A       		.uleb128 0x3a
+ 1532 007e 0B       		.uleb128 0xb
+ 1533 007f 3B       		.uleb128 0x3b
+ 1534 0080 05       		.uleb128 0x5
+ 1535 0081 49       		.uleb128 0x49
+ 1536 0082 13       		.uleb128 0x13
+ 1537 0083 00       		.byte	0
+ 1538 0084 00       		.byte	0
+ 1539 0085 0C       		.uleb128 0xc
+ 1540 0086 13       		.uleb128 0x13
+ 1541 0087 01       		.byte	0x1
+ 1542 0088 0B       		.uleb128 0xb
+ 1543 0089 0B       		.uleb128 0xb
+ 1544 008a 3A       		.uleb128 0x3a
+ 1545 008b 0B       		.uleb128 0xb
+ 1546 008c 3B       		.uleb128 0x3b
+ 1547 008d 05       		.uleb128 0x5
+ 1548 008e 01       		.uleb128 0x1
+ 1549 008f 13       		.uleb128 0x13
+ 1550 0090 00       		.byte	0
+ 1551 0091 00       		.byte	0
+ 1552 0092 0D       		.uleb128 0xd
+ 1553 0093 0D       		.uleb128 0xd
+ 1554 0094 00       		.byte	0
+ 1555 0095 03       		.uleb128 0x3
+ 1556 0096 0E       		.uleb128 0xe
+ 1557 0097 3A       		.uleb128 0x3a
+ 1558 0098 0B       		.uleb128 0xb
+ 1559 0099 3B       		.uleb128 0x3b
+ 1560 009a 05       		.uleb128 0x5
+ 1561 009b 49       		.uleb128 0x49
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 31
+
+
+ 1562 009c 13       		.uleb128 0x13
+ 1563 009d 38       		.uleb128 0x38
+ 1564 009e 0B       		.uleb128 0xb
+ 1565 009f 00       		.byte	0
+ 1566 00a0 00       		.byte	0
+ 1567 00a1 0E       		.uleb128 0xe
+ 1568 00a2 01       		.uleb128 0x1
+ 1569 00a3 01       		.byte	0x1
+ 1570 00a4 49       		.uleb128 0x49
+ 1571 00a5 13       		.uleb128 0x13
+ 1572 00a6 01       		.uleb128 0x1
+ 1573 00a7 13       		.uleb128 0x13
+ 1574 00a8 00       		.byte	0
+ 1575 00a9 00       		.byte	0
+ 1576 00aa 0F       		.uleb128 0xf
+ 1577 00ab 21       		.uleb128 0x21
+ 1578 00ac 00       		.byte	0
+ 1579 00ad 49       		.uleb128 0x49
+ 1580 00ae 13       		.uleb128 0x13
+ 1581 00af 2F       		.uleb128 0x2f
+ 1582 00b0 0B       		.uleb128 0xb
+ 1583 00b1 00       		.byte	0
+ 1584 00b2 00       		.byte	0
+ 1585 00b3 10       		.uleb128 0x10
+ 1586 00b4 0F       		.uleb128 0xf
+ 1587 00b5 00       		.byte	0
+ 1588 00b6 0B       		.uleb128 0xb
+ 1589 00b7 0B       		.uleb128 0xb
+ 1590 00b8 49       		.uleb128 0x49
+ 1591 00b9 13       		.uleb128 0x13
+ 1592 00ba 00       		.byte	0
+ 1593 00bb 00       		.byte	0
+ 1594 00bc 11       		.uleb128 0x11
+ 1595 00bd 15       		.uleb128 0x15
+ 1596 00be 01       		.byte	0x1
+ 1597 00bf 27       		.uleb128 0x27
+ 1598 00c0 19       		.uleb128 0x19
+ 1599 00c1 01       		.uleb128 0x1
+ 1600 00c2 13       		.uleb128 0x13
+ 1601 00c3 00       		.byte	0
+ 1602 00c4 00       		.byte	0
+ 1603 00c5 12       		.uleb128 0x12
+ 1604 00c6 05       		.uleb128 0x5
+ 1605 00c7 00       		.byte	0
+ 1606 00c8 49       		.uleb128 0x49
+ 1607 00c9 13       		.uleb128 0x13
+ 1608 00ca 00       		.byte	0
+ 1609 00cb 00       		.byte	0
+ 1610 00cc 13       		.uleb128 0x13
+ 1611 00cd 15       		.uleb128 0x15
+ 1612 00ce 01       		.byte	0x1
+ 1613 00cf 27       		.uleb128 0x27
+ 1614 00d0 19       		.uleb128 0x19
+ 1615 00d1 49       		.uleb128 0x49
+ 1616 00d2 13       		.uleb128 0x13
+ 1617 00d3 01       		.uleb128 0x1
+ 1618 00d4 13       		.uleb128 0x13
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 32
+
+
+ 1619 00d5 00       		.byte	0
+ 1620 00d6 00       		.byte	0
+ 1621 00d7 14       		.uleb128 0x14
+ 1622 00d8 13       		.uleb128 0x13
+ 1623 00d9 01       		.byte	0x1
+ 1624 00da 03       		.uleb128 0x3
+ 1625 00db 0E       		.uleb128 0xe
+ 1626 00dc 0B       		.uleb128 0xb
+ 1627 00dd 0B       		.uleb128 0xb
+ 1628 00de 3A       		.uleb128 0x3a
+ 1629 00df 0B       		.uleb128 0xb
+ 1630 00e0 3B       		.uleb128 0x3b
+ 1631 00e1 05       		.uleb128 0x5
+ 1632 00e2 01       		.uleb128 0x1
+ 1633 00e3 13       		.uleb128 0x13
+ 1634 00e4 00       		.byte	0
+ 1635 00e5 00       		.byte	0
+ 1636 00e6 15       		.uleb128 0x15
+ 1637 00e7 13       		.uleb128 0x13
+ 1638 00e8 01       		.byte	0x1
+ 1639 00e9 03       		.uleb128 0x3
+ 1640 00ea 0E       		.uleb128 0xe
+ 1641 00eb 0B       		.uleb128 0xb
+ 1642 00ec 0B       		.uleb128 0xb
+ 1643 00ed 3A       		.uleb128 0x3a
+ 1644 00ee 0B       		.uleb128 0xb
+ 1645 00ef 3B       		.uleb128 0x3b
+ 1646 00f0 0B       		.uleb128 0xb
+ 1647 00f1 01       		.uleb128 0x1
+ 1648 00f2 13       		.uleb128 0x13
+ 1649 00f3 00       		.byte	0
+ 1650 00f4 00       		.byte	0
+ 1651 00f5 16       		.uleb128 0x16
+ 1652 00f6 26       		.uleb128 0x26
+ 1653 00f7 00       		.byte	0
+ 1654 00f8 49       		.uleb128 0x49
+ 1655 00f9 13       		.uleb128 0x13
+ 1656 00fa 00       		.byte	0
+ 1657 00fb 00       		.byte	0
+ 1658 00fc 17       		.uleb128 0x17
+ 1659 00fd 2E       		.uleb128 0x2e
+ 1660 00fe 00       		.byte	0
+ 1661 00ff 03       		.uleb128 0x3
+ 1662 0100 0E       		.uleb128 0xe
+ 1663 0101 3A       		.uleb128 0x3a
+ 1664 0102 0B       		.uleb128 0xb
+ 1665 0103 3B       		.uleb128 0x3b
+ 1666 0104 0B       		.uleb128 0xb
+ 1667 0105 27       		.uleb128 0x27
+ 1668 0106 19       		.uleb128 0x19
+ 1669 0107 20       		.uleb128 0x20
+ 1670 0108 0B       		.uleb128 0xb
+ 1671 0109 00       		.byte	0
+ 1672 010a 00       		.byte	0
+ 1673 010b 18       		.uleb128 0x18
+ 1674 010c 2E       		.uleb128 0x2e
+ 1675 010d 01       		.byte	0x1
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 33
+
+
+ 1676 010e 3F       		.uleb128 0x3f
+ 1677 010f 19       		.uleb128 0x19
+ 1678 0110 03       		.uleb128 0x3
+ 1679 0111 0E       		.uleb128 0xe
+ 1680 0112 3A       		.uleb128 0x3a
+ 1681 0113 0B       		.uleb128 0xb
+ 1682 0114 3B       		.uleb128 0x3b
+ 1683 0115 0B       		.uleb128 0xb
+ 1684 0116 27       		.uleb128 0x27
+ 1685 0117 19       		.uleb128 0x19
+ 1686 0118 49       		.uleb128 0x49
+ 1687 0119 13       		.uleb128 0x13
+ 1688 011a 8701     		.uleb128 0x87
+ 1689 011c 19       		.uleb128 0x19
+ 1690 011d 11       		.uleb128 0x11
+ 1691 011e 01       		.uleb128 0x1
+ 1692 011f 12       		.uleb128 0x12
+ 1693 0120 06       		.uleb128 0x6
+ 1694 0121 40       		.uleb128 0x40
+ 1695 0122 18       		.uleb128 0x18
+ 1696 0123 9742     		.uleb128 0x2117
+ 1697 0125 19       		.uleb128 0x19
+ 1698 0126 01       		.uleb128 0x1
+ 1699 0127 13       		.uleb128 0x13
+ 1700 0128 00       		.byte	0
+ 1701 0129 00       		.byte	0
+ 1702 012a 19       		.uleb128 0x19
+ 1703 012b 1D       		.uleb128 0x1d
+ 1704 012c 00       		.byte	0
+ 1705 012d 31       		.uleb128 0x31
+ 1706 012e 13       		.uleb128 0x13
+ 1707 012f 11       		.uleb128 0x11
+ 1708 0130 01       		.uleb128 0x1
+ 1709 0131 12       		.uleb128 0x12
+ 1710 0132 06       		.uleb128 0x6
+ 1711 0133 58       		.uleb128 0x58
+ 1712 0134 0B       		.uleb128 0xb
+ 1713 0135 59       		.uleb128 0x59
+ 1714 0136 0B       		.uleb128 0xb
+ 1715 0137 00       		.byte	0
+ 1716 0138 00       		.byte	0
+ 1717 0139 1A       		.uleb128 0x1a
+ 1718 013a 898201   		.uleb128 0x4109
+ 1719 013d 01       		.byte	0x1
+ 1720 013e 11       		.uleb128 0x11
+ 1721 013f 01       		.uleb128 0x1
+ 1722 0140 31       		.uleb128 0x31
+ 1723 0141 13       		.uleb128 0x13
+ 1724 0142 00       		.byte	0
+ 1725 0143 00       		.byte	0
+ 1726 0144 1B       		.uleb128 0x1b
+ 1727 0145 8A8201   		.uleb128 0x410a
+ 1728 0148 00       		.byte	0
+ 1729 0149 02       		.uleb128 0x2
+ 1730 014a 18       		.uleb128 0x18
+ 1731 014b 9142     		.uleb128 0x2111
+ 1732 014d 18       		.uleb128 0x18
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 34
+
+
+ 1733 014e 00       		.byte	0
+ 1734 014f 00       		.byte	0
+ 1735 0150 1C       		.uleb128 0x1c
+ 1736 0151 34       		.uleb128 0x34
+ 1737 0152 00       		.byte	0
+ 1738 0153 03       		.uleb128 0x3
+ 1739 0154 0E       		.uleb128 0xe
+ 1740 0155 3A       		.uleb128 0x3a
+ 1741 0156 0B       		.uleb128 0xb
+ 1742 0157 3B       		.uleb128 0x3b
+ 1743 0158 0B       		.uleb128 0xb
+ 1744 0159 49       		.uleb128 0x49
+ 1745 015a 13       		.uleb128 0x13
+ 1746 015b 3F       		.uleb128 0x3f
+ 1747 015c 19       		.uleb128 0x19
+ 1748 015d 3C       		.uleb128 0x3c
+ 1749 015e 19       		.uleb128 0x19
+ 1750 015f 00       		.byte	0
+ 1751 0160 00       		.byte	0
+ 1752 0161 1D       		.uleb128 0x1d
+ 1753 0162 34       		.uleb128 0x34
+ 1754 0163 00       		.byte	0
+ 1755 0164 03       		.uleb128 0x3
+ 1756 0165 0E       		.uleb128 0xe
+ 1757 0166 3A       		.uleb128 0x3a
+ 1758 0167 0B       		.uleb128 0xb
+ 1759 0168 3B       		.uleb128 0x3b
+ 1760 0169 05       		.uleb128 0x5
+ 1761 016a 49       		.uleb128 0x49
+ 1762 016b 13       		.uleb128 0x13
+ 1763 016c 3F       		.uleb128 0x3f
+ 1764 016d 19       		.uleb128 0x19
+ 1765 016e 3C       		.uleb128 0x3c
+ 1766 016f 19       		.uleb128 0x19
+ 1767 0170 00       		.byte	0
+ 1768 0171 00       		.byte	0
+ 1769 0172 1E       		.uleb128 0x1e
+ 1770 0173 2E       		.uleb128 0x2e
+ 1771 0174 00       		.byte	0
+ 1772 0175 3F       		.uleb128 0x3f
+ 1773 0176 19       		.uleb128 0x19
+ 1774 0177 3C       		.uleb128 0x3c
+ 1775 0178 19       		.uleb128 0x19
+ 1776 0179 6E       		.uleb128 0x6e
+ 1777 017a 0E       		.uleb128 0xe
+ 1778 017b 03       		.uleb128 0x3
+ 1779 017c 0E       		.uleb128 0xe
+ 1780 017d 3A       		.uleb128 0x3a
+ 1781 017e 0B       		.uleb128 0xb
+ 1782 017f 3B       		.uleb128 0x3b
+ 1783 0180 05       		.uleb128 0x5
+ 1784 0181 00       		.byte	0
+ 1785 0182 00       		.byte	0
+ 1786 0183 00       		.byte	0
+ 1787              		.section	.debug_aranges,"",%progbits
+ 1788 0000 1C000000 		.4byte	0x1c
+ 1789 0004 0200     		.2byte	0x2
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 35
+
+
+ 1790 0006 00000000 		.4byte	.Ldebug_info0
+ 1791 000a 04       		.byte	0x4
+ 1792 000b 00       		.byte	0
+ 1793 000c 0000     		.2byte	0
+ 1794 000e 0000     		.2byte	0
+ 1795 0010 00000000 		.4byte	.LFB543
+ 1796 0014 10000000 		.4byte	.LFE543-.LFB543
+ 1797 0018 00000000 		.4byte	0
+ 1798 001c 00000000 		.4byte	0
+ 1799              		.section	.debug_ranges,"",%progbits
+ 1800              	.Ldebug_ranges0:
+ 1801 0000 00000000 		.4byte	.LFB543
+ 1802 0004 10000000 		.4byte	.LFE543
+ 1803 0008 00000000 		.4byte	0
+ 1804 000c 00000000 		.4byte	0
+ 1805              		.section	.debug_line,"",%progbits
+ 1806              	.Ldebug_line0:
+ 1807 0000 F1020000 		.section	.debug_str,"MS",%progbits,1
+ 1807      0200D002 
+ 1807      00000201 
+ 1807      FB0E0D00 
+ 1807      01010101 
+ 1808              	.LASF54:
+ 1809 0000 70726F74 		.ascii	"protBusMasterMask\000"
+ 1809      4275734D 
+ 1809      61737465 
+ 1809      724D6173 
+ 1809      6B00
+ 1810              	.LASF178:
+ 1811 0012 72756E4D 		.ascii	"runMode\000"
+ 1811      6F646500 
+ 1812              	.LASF168:
+ 1813 001a 72784275 		.ascii	"rxBufSize\000"
+ 1813      6653697A 
+ 1813      6500
+ 1814              	.LASF64:
+ 1815 0024 666C6173 		.ascii	"flashCtlMainWs3Freq\000"
+ 1815      6843746C 
+ 1815      4D61696E 
+ 1815      57733346 
+ 1815      72657100 
+ 1816              	.LASF86:
+ 1817 0038 6770696F 		.ascii	"gpioPrtCfgInOffset\000"
+ 1817      50727443 
+ 1817      6667496E 
+ 1817      4F666673 
+ 1817      657400
+ 1818              	.LASF104:
+ 1819 004b 6970634C 		.ascii	"ipcLockStatusOffset\000"
+ 1819      6F636B53 
+ 1819      74617475 
+ 1819      734F6666 
+ 1819      73657400 
+ 1820              	.LASF30:
+ 1821 005f 63727970 		.ascii	"cryptoVersion\000"
+ 1821      746F5665 
+ 1821      7273696F 
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 36
+
+
+ 1821      6E00
+ 1822              	.LASF68:
+ 1823 006d 64774368 		.ascii	"dwChCtlPrioPos\000"
+ 1823      43746C50 
+ 1823      72696F50 
+ 1823      6F7300
+ 1824              	.LASF26:
+ 1825 007c 70617373 		.ascii	"passBase\000"
+ 1825      42617365 
+ 1825      00
+ 1826              	.LASF209:
+ 1827 0085 6D61696E 		.ascii	"main_cm0p.c\000"
+ 1827      5F636D30 
+ 1827      702E6300 
+ 1828              	.LASF39:
+ 1829 0091 63707573 		.ascii	"cpussIpcIrqNr\000"
+ 1829      73497063 
+ 1829      4972714E 
+ 1829      7200
+ 1830              	.LASF3:
+ 1831 009f 5F5F7569 		.ascii	"__uint8_t\000"
+ 1831      6E74385F 
+ 1831      7400
+ 1832              	.LASF146:
+ 1833 00a9 736C6176 		.ascii	"slaveStatus\000"
+ 1833      65537461 
+ 1833      74757300 
+ 1834              	.LASF83:
+ 1835 00b5 70657269 		.ascii	"periDiv24_5CtlOffset\000"
+ 1835      44697632 
+ 1835      345F3543 
+ 1835      746C4F66 
+ 1835      66736574 
+ 1836              	.LASF90:
+ 1837 00ca 63707573 		.ascii	"cpussCm4ClockCtlOffset\000"
+ 1837      73436D34 
+ 1837      436C6F63 
+ 1837      6B43746C 
+ 1837      4F666673 
+ 1838              	.LASF179:
+ 1839 00e1 636F756E 		.ascii	"countDirection\000"
+ 1839      74446972 
+ 1839      65637469 
+ 1839      6F6E00
+ 1840              	.LASF191:
+ 1841 00f0 73746F70 		.ascii	"stopInputMode\000"
+ 1841      496E7075 
+ 1841      744D6F64 
+ 1841      6500
+ 1842              	.LASF19:
+ 1843 00fe 63707573 		.ascii	"cpussBase\000"
+ 1843      73426173 
+ 1843      6500
+ 1844              	.LASF176:
+ 1845 0108 70657269 		.ascii	"period\000"
+ 1845      6F6400
+ 1846              	.LASF48:
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 37
+
+
+ 1847 010f 70657269 		.ascii	"periClockNr\000"
+ 1847      436C6F63 
+ 1847      6B4E7200 
+ 1848              	.LASF186:
+ 1849 011b 63617074 		.ascii	"captureInput\000"
+ 1849      75726549 
+ 1849      6E707574 
+ 1849      00
+ 1850              	.LASF11:
+ 1851 0128 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1851      206C6F6E 
+ 1851      6720756E 
+ 1851      7369676E 
+ 1851      65642069 
+ 1852              	.LASF177:
+ 1853 013f 636C6F63 		.ascii	"clockPrescaler\000"
+ 1853      6B507265 
+ 1853      7363616C 
+ 1853      657200
+ 1854              	.LASF72:
+ 1855 014e 70657269 		.ascii	"periTrCmdOffset\000"
+ 1855      5472436D 
+ 1855      644F6666 
+ 1855      73657400 
+ 1856              	.LASF163:
+ 1857 015e 72785269 		.ascii	"rxRingBuf\000"
+ 1857      6E674275 
+ 1857      6600
+ 1858              	.LASF124:
+ 1859 0168 73617449 		.ascii	"satIntrMask\000"
+ 1859      6E74724D 
+ 1859      61736B00 
+ 1860              	.LASF96:
+ 1861 0174 63707573 		.ascii	"cpussSysTickCtlOffset\000"
+ 1861      73537973 
+ 1861      5469636B 
+ 1861      43746C4F 
+ 1861      66667365 
+ 1862              	.LASF139:
+ 1863 018a 6D617374 		.ascii	"masterStatus\000"
+ 1863      65725374 
+ 1863      61747573 
+ 1863      00
+ 1864              	.LASF170:
+ 1865 0197 74784275 		.ascii	"txBuf\000"
+ 1865      6600
+ 1866              	.LASF205:
+ 1867 019d 54696D65 		.ascii	"Timer_config\000"
+ 1867      725F636F 
+ 1867      6E666967 
+ 1867      00
+ 1868              	.LASF57:
+ 1869 01aa 666C6173 		.ascii	"flashPipeRequired\000"
+ 1869      68506970 
+ 1869      65526571 
+ 1869      75697265 
+ 1869      6400
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 38
+
+
+ 1870              	.LASF154:
+ 1871 01bc 736C6176 		.ascii	"slaveRxBufferIdx\000"
+ 1871      65527842 
+ 1871      75666665 
+ 1871      72496478 
+ 1871      00
+ 1872              	.LASF159:
+ 1873 01cd 63795F73 		.ascii	"cy_stc_scb_i2c_context\000"
+ 1873      74635F73 
+ 1873      63625F69 
+ 1873      32635F63 
+ 1873      6F6E7465 
+ 1874              	.LASF61:
+ 1875 01e4 666C6173 		.ascii	"flashCtlMainWs0Freq\000"
+ 1875      6843746C 
+ 1875      4D61696E 
+ 1875      57733046 
+ 1875      72657100 
+ 1876              	.LASF14:
+ 1877 01f8 696E7431 		.ascii	"int16_t\000"
+ 1877      365F7400 
+ 1878              	.LASF130:
+ 1879 0200 63795F73 		.ascii	"cy_stc_sar_config_t\000"
+ 1879      74635F73 
+ 1879      61725F63 
+ 1879      6F6E6669 
+ 1879      675F7400 
+ 1880              	.LASF10:
+ 1881 0214 6C6F6E67 		.ascii	"long long int\000"
+ 1881      206C6F6E 
+ 1881      6720696E 
+ 1881      7400
+ 1882              	.LASF195:
+ 1883 0222 63795F73 		.ascii	"cy_stc_tcpwm_counter_config_t\000"
+ 1883      74635F74 
+ 1883      6370776D 
+ 1883      5F636F75 
+ 1883      6E746572 
+ 1884              	.LASF77:
+ 1885 0240 70657269 		.ascii	"periDivCmdTypeSelPos\000"
+ 1885      44697643 
+ 1885      6D645479 
+ 1885      70655365 
+ 1885      6C506F73 
+ 1886              	.LASF114:
+ 1887 0255 63795F65 		.ascii	"cy_en_sar_range_detect_condition_t\000"
+ 1887      6E5F7361 
+ 1887      725F7261 
+ 1887      6E67655F 
+ 1887      64657465 
+ 1888              	.LASF200:
+ 1889 0278 636C6B44 		.ascii	"clkDivider\000"
+ 1889      69766964 
+ 1889      657200
+ 1890              	.LASF23:
+ 1891 0283 70726F74 		.ascii	"protBase\000"
+ 1891      42617365 
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 39
+
+
+ 1891      00
+ 1892              	.LASF35:
+ 1893 028c 69706356 		.ascii	"ipcVersion\000"
+ 1893      65727369 
+ 1893      6F6E00
+ 1894              	.LASF153:
+ 1895 0297 736C6176 		.ascii	"slaveRxBufferSize\000"
+ 1895      65527842 
+ 1895      75666665 
+ 1895      7253697A 
+ 1895      6500
+ 1896              	.LASF97:
+ 1897 02a9 63707573 		.ascii	"cpussCm0NmiCtlOffset\000"
+ 1897      73436D30 
+ 1897      4E6D6943 
+ 1897      746C4F66 
+ 1897      66736574 
+ 1898              	.LASF45:
+ 1899 02be 73727373 		.ascii	"srssNumClkpath\000"
+ 1899      4E756D43 
+ 1899      6C6B7061 
+ 1899      746800
+ 1900              	.LASF24:
+ 1901 02cd 6873696F 		.ascii	"hsiomBase\000"
+ 1901      6D426173 
+ 1901      6500
+ 1902              	.LASF110:
+ 1903 02d7 43595F53 		.ascii	"CY_SAR_RANGE_COND_BELOW\000"
+ 1903      41525F52 
+ 1903      414E4745 
+ 1903      5F434F4E 
+ 1903      445F4245 
+ 1904              	.LASF138:
+ 1905 02ef 73746174 		.ascii	"state\000"
+ 1905      6500
+ 1906              	.LASF134:
+ 1907 02f5 63795F63 		.ascii	"cy_cb_scb_i2c_handle_events_t\000"
+ 1907      625F7363 
+ 1907      625F6932 
+ 1907      635F6861 
+ 1907      6E646C65 
+ 1908              	.LASF7:
+ 1909 0313 6C6F6E67 		.ascii	"long int\000"
+ 1909      20696E74 
+ 1909      00
+ 1910              	.LASF141:
+ 1911 031c 6D617374 		.ascii	"masterRdDir\000"
+ 1911      65725264 
+ 1911      44697200 
+ 1912              	.LASF132:
+ 1913 0328 43595F53 		.ascii	"CY_SCB_I2C_NAK\000"
+ 1913      43425F49 
+ 1913      32435F4E 
+ 1913      414B00
+ 1914              	.LASF55:
+ 1915 0337 63727970 		.ascii	"cryptoMemSize\000"
+ 1915      746F4D65 
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 40
+
+
+ 1915      6D53697A 
+ 1915      6500
+ 1916              	.LASF21:
+ 1917 0345 70657269 		.ascii	"periBase\000"
+ 1917      42617365 
+ 1917      00
+ 1918              	.LASF53:
+ 1919 034e 73797350 		.ascii	"sysPmSimoPresent\000"
+ 1919      6D53696D 
+ 1919      6F507265 
+ 1919      73656E74 
+ 1919      00
+ 1920              	.LASF112:
+ 1921 035f 43595F53 		.ascii	"CY_SAR_RANGE_COND_ABOVE\000"
+ 1921      41525F52 
+ 1921      414E4745 
+ 1921      5F434F4E 
+ 1921      445F4142 
+ 1922              	.LASF43:
+ 1923 0377 63707573 		.ascii	"cpussFmIrq\000"
+ 1923      73466D49 
+ 1923      727100
+ 1924              	.LASF108:
+ 1925 0382 646F7562 		.ascii	"double\000"
+ 1925      6C6500
+ 1926              	.LASF82:
+ 1927 0389 70657269 		.ascii	"periDiv16_5CtlOffset\000"
+ 1927      44697631 
+ 1927      365F3543 
+ 1927      746C4F66 
+ 1927      66736574 
+ 1928              	.LASF46:
+ 1929 039e 73727373 		.ascii	"srssNumPll\000"
+ 1929      4E756D50 
+ 1929      6C6C00
+ 1930              	.LASF212:
+ 1931 03a9 6D61696E 		.ascii	"main\000"
+ 1931      00
+ 1932              	.LASF185:
+ 1933 03ae 63617074 		.ascii	"captureInputMode\000"
+ 1933      75726549 
+ 1933      6E707574 
+ 1933      4D6F6465 
+ 1933      00
+ 1934              	.LASF117:
+ 1935 03bf 73616D70 		.ascii	"sampleTime01\000"
+ 1935      6C655469 
+ 1935      6D653031 
+ 1935      00
+ 1936              	.LASF6:
+ 1937 03cc 73686F72 		.ascii	"short unsigned int\000"
+ 1937      7420756E 
+ 1937      7369676E 
+ 1937      65642069 
+ 1937      6E7400
+ 1938              	.LASF87:
+ 1939 03df 6770696F 		.ascii	"gpioPrtCfgOutOffset\000"
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 41
+
+
+ 1939      50727443 
+ 1939      66674F75 
+ 1939      744F6666 
+ 1939      73657400 
+ 1940              	.LASF156:
+ 1941 03f3 63624164 		.ascii	"cbAddr\000"
+ 1941      647200
+ 1942              	.LASF20:
+ 1943 03fa 666C6173 		.ascii	"flashcBase\000"
+ 1943      68634261 
+ 1943      736500
+ 1944              	.LASF8:
+ 1945 0405 5F5F7569 		.ascii	"__uint32_t\000"
+ 1945      6E743332 
+ 1945      5F7400
+ 1946              	.LASF50:
+ 1947 0410 70617373 		.ascii	"passSarChannels\000"
+ 1947      53617243 
+ 1947      68616E6E 
+ 1947      656C7300 
+ 1948              	.LASF198:
+ 1949 0420 6877436F 		.ascii	"hwConfigStc\000"
+ 1949      6E666967 
+ 1949      53746300 
+ 1950              	.LASF4:
+ 1951 042c 5F5F696E 		.ascii	"__int16_t\000"
+ 1951      7431365F 
+ 1951      7400
+ 1952              	.LASF169:
+ 1953 0436 72784275 		.ascii	"rxBufIdx\000"
+ 1953      66496478 
+ 1953      00
+ 1954              	.LASF115:
+ 1955 043f 6374726C 		.ascii	"ctrl\000"
+ 1955      00
+ 1956              	.LASF93:
+ 1957 0444 63707573 		.ascii	"cpussCm4PwrCtlOffset\000"
+ 1957      73436D34 
+ 1957      50777243 
+ 1957      746C4F66 
+ 1957      66736574 
+ 1958              	.LASF171:
+ 1959 0459 74784275 		.ascii	"txBufSize\000"
+ 1959      6653697A 
+ 1959      6500
+ 1960              	.LASF184:
+ 1961 0463 696E7465 		.ascii	"interruptSources\000"
+ 1961      72727570 
+ 1961      74536F75 
+ 1961      72636573 
+ 1961      00
+ 1962              	.LASF88:
+ 1963 0474 6770696F 		.ascii	"gpioPrtCfgSioOffset\000"
+ 1963      50727443 
+ 1963      66675369 
+ 1963      6F4F6666 
+ 1963      73657400 
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 42
+
+
+ 1964              	.LASF40:
+ 1965 0488 63707573 		.ascii	"cpussDwChNr\000"
+ 1965      73447743 
+ 1965      684E7200 
+ 1966              	.LASF12:
+ 1967 0494 756E7369 		.ascii	"unsigned int\000"
+ 1967      676E6564 
+ 1967      20696E74 
+ 1967      00
+ 1968              	.LASF150:
+ 1969 04a1 736C6176 		.ascii	"slaveTxBufferIdx\000"
+ 1969      65547842 
+ 1969      75666665 
+ 1969      72496478 
+ 1969      00
+ 1970              	.LASF15:
+ 1971 04b2 75696E74 		.ascii	"uint16_t\000"
+ 1971      31365F74 
+ 1971      00
+ 1972              	.LASF147:
+ 1973 04bb 736C6176 		.ascii	"slaveRdBufEmpty\000"
+ 1973      65526442 
+ 1973      7566456D 
+ 1973      70747900 
+ 1974              	.LASF73:
+ 1975 04cb 70657269 		.ascii	"periTrCmdGrSelMsk\000"
+ 1975      5472436D 
+ 1975      64477253 
+ 1975      656C4D73 
+ 1975      6B00
+ 1976              	.LASF62:
+ 1977 04dd 666C6173 		.ascii	"flashCtlMainWs1Freq\000"
+ 1977      6843746C 
+ 1977      4D61696E 
+ 1977      57733146 
+ 1977      72657100 
+ 1978              	.LASF9:
+ 1979 04f1 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1979      20756E73 
+ 1979      69676E65 
+ 1979      6420696E 
+ 1979      7400
+ 1980              	.LASF183:
+ 1981 0503 656E6162 		.ascii	"enableCompareSwap\000"
+ 1981      6C65436F 
+ 1981      6D706172 
+ 1981      65537761 
+ 1981      7000
+ 1982              	.LASF210:
+ 1983 0515 433A5C55 		.ascii	"C:\\Users\\cdrow\\Downloads\\Master_read\\Master_re"
+ 1983      73657273 
+ 1983      5C636472 
+ 1983      6F775C44 
+ 1983      6F776E6C 
+ 1984 0543 61645C6D 		.ascii	"ad\\master_read.cydsn\000"
+ 1984      61737465 
+ 1984      725F7265 
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 43
+
+
+ 1984      61642E63 
+ 1984      7964736E 
+ 1985              	.LASF158:
+ 1986 0558 63795F63 		.ascii	"cy_cb_scb_uart_handle_events_t\000"
+ 1986      625F7363 
+ 1986      625F7561 
+ 1986      72745F68 
+ 1986      616E646C 
+ 1987              	.LASF203:
+ 1988 0577 55415254 		.ascii	"UART_context\000"
+ 1988      5F636F6E 
+ 1988      74657874 
+ 1988      00
+ 1989              	.LASF38:
+ 1990 0584 63707573 		.ascii	"cpussIpcNr\000"
+ 1990      73497063 
+ 1990      4E7200
+ 1991              	.LASF25:
+ 1992 058f 6770696F 		.ascii	"gpioBase\000"
+ 1992      42617365 
+ 1992      00
+ 1993              	.LASF161:
+ 1994 0598 74785374 		.ascii	"txStatus\000"
+ 1994      61747573 
+ 1994      00
+ 1995              	.LASF137:
+ 1996 05a1 75736554 		.ascii	"useTxFifo\000"
+ 1996      78466966 
+ 1996      6F00
+ 1997              	.LASF74:
+ 1998 05ab 70657269 		.ascii	"periTrGrOffset\000"
+ 1998      54724772 
+ 1998      4F666673 
+ 1998      657400
+ 1999              	.LASF101:
+ 2000 05ba 63707573 		.ascii	"cpussRam1Ctl0\000"
+ 2000      7352616D 
+ 2000      3143746C 
+ 2000      3000
+ 2001              	.LASF207:
+ 2002 05c8 4144435F 		.ascii	"ADC_1_allConfigs\000"
+ 2002      315F616C 
+ 2002      6C436F6E 
+ 2002      66696773 
+ 2002      00
+ 2003              	.LASF119:
+ 2004 05d9 72616E67 		.ascii	"rangeThres\000"
+ 2004      65546872 
+ 2004      657300
+ 2005              	.LASF155:
+ 2006 05e4 63624576 		.ascii	"cbEvents\000"
+ 2006      656E7473 
+ 2006      00
+ 2007              	.LASF75:
+ 2008 05ed 70657269 		.ascii	"periTrGrSize\000"
+ 2008      54724772 
+ 2008      53697A65 
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 44
+
+
+ 2008      00
+ 2009              	.LASF213:
+ 2010 05fa 43795F53 		.ascii	"Cy_SysEnableCM4\000"
+ 2010      7973456E 
+ 2010      61626C65 
+ 2010      434D3400 
+ 2011              	.LASF33:
+ 2012 060a 6770696F 		.ascii	"gpioVersion\000"
+ 2012      56657273 
+ 2012      696F6E00 
+ 2013              	.LASF197:
+ 2014 0616 6E756D43 		.ascii	"numChannels\000"
+ 2014      68616E6E 
+ 2014      656C7300 
+ 2015              	.LASF105:
+ 2016 0622 63795F73 		.ascii	"cy_stc_device_t\000"
+ 2016      74635F64 
+ 2016      65766963 
+ 2016      655F7400 
+ 2017              	.LASF122:
+ 2018 0632 6368616E 		.ascii	"chanConfig\000"
+ 2018      436F6E66 
+ 2018      696700
+ 2019              	.LASF196:
+ 2020 063d 6368616E 		.ascii	"channelBase\000"
+ 2020      6E656C42 
+ 2020      61736500 
+ 2021              	.LASF51:
+ 2022 0649 65704D6F 		.ascii	"epMonitorNr\000"
+ 2022      6E69746F 
+ 2022      724E7200 
+ 2023              	.LASF165:
+ 2024 0655 72785269 		.ascii	"rxRingBufHead\000"
+ 2024      6E674275 
+ 2024      66486561 
+ 2024      6400
+ 2025              	.LASF94:
+ 2026 0663 63707573 		.ascii	"cpussTrimRamCtlOffset\000"
+ 2026      73547269 
+ 2026      6D52616D 
+ 2026      43746C4F 
+ 2026      66667365 
+ 2027              	.LASF152:
+ 2028 0679 736C6176 		.ascii	"slaveRxBuffer\000"
+ 2028      65527842 
+ 2028      75666665 
+ 2028      7200
+ 2029              	.LASF190:
+ 2030 0687 73746172 		.ascii	"startInput\000"
+ 2030      74496E70 
+ 2030      757400
+ 2031              	.LASF29:
+ 2032 0692 63707573 		.ascii	"cpussVersion\000"
+ 2032      73566572 
+ 2032      73696F6E 
+ 2032      00
+ 2033              	.LASF36:
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 45
+
+
+ 2034 069f 70657269 		.ascii	"periVersion\000"
+ 2034      56657273 
+ 2034      696F6E00 
+ 2035              	.LASF92:
+ 2036 06ab 63707573 		.ascii	"cpussCm0StatusOffset\000"
+ 2036      73436D30 
+ 2036      53746174 
+ 2036      75734F66 
+ 2036      66736574 
+ 2037              	.LASF175:
+ 2038 06c0 63795F73 		.ascii	"cy_stc_tcpwm_counter_config\000"
+ 2038      74635F74 
+ 2038      6370776D 
+ 2038      5F636F75 
+ 2038      6E746572 
+ 2039              	.LASF17:
+ 2040 06dc 73697A65 		.ascii	"sizetype\000"
+ 2040      74797065 
+ 2040      00
+ 2041              	.LASF66:
+ 2042 06e5 64774368 		.ascii	"dwChOffset\000"
+ 2042      4F666673 
+ 2042      657400
+ 2043              	.LASF144:
+ 2044 06f0 6D617374 		.ascii	"masterBufferIdx\000"
+ 2044      65724275 
+ 2044      66666572 
+ 2044      49647800 
+ 2045              	.LASF41:
+ 2046 0700 63707573 		.ascii	"cpussFlashPaSize\000"
+ 2046      73466C61 
+ 2046      73685061 
+ 2046      53697A65 
+ 2046      00
+ 2047              	.LASF118:
+ 2048 0711 73616D70 		.ascii	"sampleTime23\000"
+ 2048      6C655469 
+ 2048      6D653233 
+ 2048      00
+ 2049              	.LASF79:
+ 2050 071e 70657269 		.ascii	"periDivCmdPaTypeSelPos\000"
+ 2050      44697643 
+ 2050      6D645061 
+ 2050      54797065 
+ 2050      53656C50 
+ 2051              	.LASF102:
+ 2052 0735 63707573 		.ascii	"cpussRam2Ctl0\000"
+ 2052      7352616D 
+ 2052      3243746C 
+ 2052      3000
+ 2053              	.LASF128:
+ 2054 0743 636F6E66 		.ascii	"configRouting\000"
+ 2054      6967526F 
+ 2054      7574696E 
+ 2054      6700
+ 2055              	.LASF131:
+ 2056 0751 43595F53 		.ascii	"CY_SCB_I2C_ACK\000"
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 46
+
+
+ 2056      43425F49 
+ 2056      32435F41 
+ 2056      434B00
+ 2057              	.LASF70:
+ 2058 0760 64775374 		.ascii	"dwStatusChIdxPos\000"
+ 2058      61747573 
+ 2058      43684964 
+ 2058      78506F73 
+ 2058      00
+ 2059              	.LASF52:
+ 2060 0771 75646250 		.ascii	"udbPresent\000"
+ 2060      72657365 
+ 2060      6E7400
+ 2061              	.LASF162:
+ 2062 077c 72785374 		.ascii	"rxStatus\000"
+ 2062      61747573 
+ 2062      00
+ 2063              	.LASF32:
+ 2064 0785 666C6173 		.ascii	"flashcVersion\000"
+ 2064      68635665 
+ 2064      7273696F 
+ 2064      6E00
+ 2065              	.LASF28:
+ 2066 0793 63727970 		.ascii	"cryptoBase\000"
+ 2066      746F4261 
+ 2066      736500
+ 2067              	.LASF49:
+ 2068 079e 736D6966 		.ascii	"smifDeviceNr\000"
+ 2068      44657669 
+ 2068      63654E72 
+ 2068      00
+ 2069              	.LASF211:
+ 2070 07ab 5F5F656E 		.ascii	"__enable_irq\000"
+ 2070      61626C65 
+ 2070      5F697271 
+ 2070      00
+ 2071              	.LASF125:
+ 2072 07b8 72616E67 		.ascii	"rangeIntrMask\000"
+ 2072      65496E74 
+ 2072      724D6173 
+ 2072      6B00
+ 2073              	.LASF107:
+ 2074 07c6 666C6F61 		.ascii	"float\000"
+ 2074      7400
+ 2075              	.LASF204:
+ 2076 07cc 53656E73 		.ascii	"SensorBus_context\000"
+ 2076      6F724275 
+ 2076      735F636F 
+ 2076      6E746578 
+ 2076      7400
+ 2077              	.LASF71:
+ 2078 07de 64775374 		.ascii	"dwStatusChIdxMsk\000"
+ 2078      61747573 
+ 2078      43684964 
+ 2078      784D736B 
+ 2078      00
+ 2079              	.LASF202:
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 47
+
+
+ 2080 07ef 63795F64 		.ascii	"cy_device\000"
+ 2080      65766963 
+ 2080      6500
+ 2081              	.LASF99:
+ 2082 07f9 63707573 		.ascii	"cpussRomCtl\000"
+ 2082      73526F6D 
+ 2082      43746C00 
+ 2083              	.LASF69:
+ 2084 0805 64774368 		.ascii	"dwChCtlPreemptablePos\000"
+ 2084      43746C50 
+ 2084      7265656D 
+ 2084      70746162 
+ 2084      6C65506F 
+ 2085              	.LASF172:
+ 2086 081b 74784C65 		.ascii	"txLeftToTransmit\000"
+ 2086      6674546F 
+ 2086      5472616E 
+ 2086      736D6974 
+ 2086      00
+ 2087              	.LASF121:
+ 2088 082c 6368616E 		.ascii	"chanEn\000"
+ 2088      456E00
+ 2089              	.LASF22:
+ 2090 0833 75646242 		.ascii	"udbBase\000"
+ 2090      61736500 
+ 2091              	.LASF111:
+ 2092 083b 43595F53 		.ascii	"CY_SAR_RANGE_COND_INSIDE\000"
+ 2092      41525F52 
+ 2092      414E4745 
+ 2092      5F434F4E 
+ 2092      445F494E 
+ 2093              	.LASF109:
+ 2094 0854 5F426F6F 		.ascii	"_Bool\000"
+ 2094      6C00
+ 2095              	.LASF1:
+ 2096 085a 756E7369 		.ascii	"unsigned char\000"
+ 2096      676E6564 
+ 2096      20636861 
+ 2096      7200
+ 2097              	.LASF65:
+ 2098 0868 666C6173 		.ascii	"flashCtlMainWs4Freq\000"
+ 2098      6843746C 
+ 2098      4D61696E 
+ 2098      57733446 
+ 2098      72657100 
+ 2099              	.LASF0:
+ 2100 087c 73686F72 		.ascii	"short int\000"
+ 2100      7420696E 
+ 2100      7400
+ 2101              	.LASF126:
+ 2102 0886 6D757853 		.ascii	"muxSwitch\000"
+ 2102      77697463 
+ 2102      6800
+ 2103              	.LASF123:
+ 2104 0890 696E7472 		.ascii	"intrMask\000"
+ 2104      4D61736B 
+ 2104      00
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 48
+
+
+ 2105              	.LASF143:
+ 2106 0899 6D617374 		.ascii	"masterBufferSize\000"
+ 2106      65724275 
+ 2106      66666572 
+ 2106      53697A65 
+ 2106      00
+ 2107              	.LASF76:
+ 2108 08aa 70657269 		.ascii	"periDivCmdDivSelMsk\000"
+ 2108      44697643 
+ 2108      6D644469 
+ 2108      7653656C 
+ 2108      4D736B00 
+ 2109              	.LASF63:
+ 2110 08be 666C6173 		.ascii	"flashCtlMainWs2Freq\000"
+ 2110      6843746C 
+ 2110      4D61696E 
+ 2110      57733246 
+ 2110      72657100 
+ 2111              	.LASF140:
+ 2112 08d2 6D617374 		.ascii	"masterPause\000"
+ 2112      65725061 
+ 2112      75736500 
+ 2113              	.LASF135:
+ 2114 08de 63795F63 		.ascii	"cy_cb_scb_i2c_handle_addr_t\000"
+ 2114      625F7363 
+ 2114      625F6932 
+ 2114      635F6861 
+ 2114      6E646C65 
+ 2115              	.LASF180:
+ 2116 08fa 636F6D70 		.ascii	"compareOrCapture\000"
+ 2116      6172654F 
+ 2116      72436170 
+ 2116      74757265 
+ 2116      00
+ 2117              	.LASF145:
+ 2118 090b 6D617374 		.ascii	"masterNumBytes\000"
+ 2118      65724E75 
+ 2118      6D427974 
+ 2118      657300
+ 2119              	.LASF151:
+ 2120 091a 736C6176 		.ascii	"slaveTxBufferCnt\000"
+ 2120      65547842 
+ 2120      75666665 
+ 2120      72436E74 
+ 2120      00
+ 2121              	.LASF60:
+ 2122 092b 666C6173 		.ascii	"flashEraseDelay\000"
+ 2122      68457261 
+ 2122      73654465 
+ 2122      6C617900 
+ 2123              	.LASF80:
+ 2124 093b 70657269 		.ascii	"periDiv8CtlOffset\000"
+ 2124      44697638 
+ 2124      43746C4F 
+ 2124      66667365 
+ 2124      7400
+ 2125              	.LASF16:
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 49
+
+
+ 2126 094d 75696E74 		.ascii	"uint32_t\000"
+ 2126      33325F74 
+ 2126      00
+ 2127              	.LASF206:
+ 2128 0956 4144435F 		.ascii	"ADC_1_currentConfig\000"
+ 2128      315F6375 
+ 2128      7272656E 
+ 2128      74436F6E 
+ 2128      66696700 
+ 2129              	.LASF157:
+ 2130 096a 63795F73 		.ascii	"cy_stc_scb_i2c_context_t\000"
+ 2130      74635F73 
+ 2130      63625F69 
+ 2130      32635F63 
+ 2130      6F6E7465 
+ 2131              	.LASF129:
+ 2132 0983 76726566 		.ascii	"vrefMvValue\000"
+ 2132      4D765661 
+ 2132      6C756500 
+ 2133              	.LASF208:
+ 2134 098f 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2134      43313120 
+ 2134      352E342E 
+ 2134      31203230 
+ 2134      31363036 
+ 2135 09c2 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 2135      20726576 
+ 2135      6973696F 
+ 2135      6E203233 
+ 2135      37373135 
+ 2136 09f5 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 2136      67202D66 
+ 2136      66756E63 
+ 2136      74696F6E 
+ 2136      2D736563 
+ 2137              	.LASF181:
+ 2138 0a21 636F6D70 		.ascii	"compare0\000"
+ 2138      61726530 
+ 2138      00
+ 2139              	.LASF18:
+ 2140 0a2a 6C6F6E67 		.ascii	"long double\000"
+ 2140      20646F75 
+ 2140      626C6500 
+ 2141              	.LASF106:
+ 2142 0a36 63686172 		.ascii	"char\000"
+ 2142      00
+ 2143              	.LASF194:
+ 2144 0a3b 636F756E 		.ascii	"countInput\000"
+ 2144      74496E70 
+ 2144      757400
+ 2145              	.LASF37:
+ 2146 0a46 70726F74 		.ascii	"protVersion\000"
+ 2146      56657273 
+ 2146      696F6E00 
+ 2147              	.LASF100:
+ 2148 0a52 63707573 		.ascii	"cpussRam0Ctl0\000"
+ 2148      7352616D 
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 50
+
+
+ 2148      3043746C 
+ 2148      3000
+ 2149              	.LASF2:
+ 2150 0a60 7369676E 		.ascii	"signed char\000"
+ 2150      65642063 
+ 2150      68617200 
+ 2151              	.LASF5:
+ 2152 0a6c 5F5F7569 		.ascii	"__uint16_t\000"
+ 2152      6E743136 
+ 2152      5F7400
+ 2153              	.LASF81:
+ 2154 0a77 70657269 		.ascii	"periDiv16CtlOffset\000"
+ 2154      44697631 
+ 2154      3643746C 
+ 2154      4F666673 
+ 2154      657400
+ 2155              	.LASF13:
+ 2156 0a8a 75696E74 		.ascii	"uint8_t\000"
+ 2156      385F7400 
+ 2157              	.LASF142:
+ 2158 0a92 6D617374 		.ascii	"masterBuffer\000"
+ 2158      65724275 
+ 2158      66666572 
+ 2158      00
+ 2159              	.LASF34:
+ 2160 0a9f 6873696F 		.ascii	"hsiomVersion\000"
+ 2160      6D566572 
+ 2160      73696F6E 
+ 2160      00
+ 2161              	.LASF59:
+ 2162 0aac 666C6173 		.ascii	"flashProgramDelay\000"
+ 2162      6850726F 
+ 2162      6772616D 
+ 2162      44656C61 
+ 2162      7900
+ 2163              	.LASF44:
+ 2164 0abe 63707573 		.ascii	"cpussNotConnectedIrq\000"
+ 2164      734E6F74 
+ 2164      436F6E6E 
+ 2164      65637465 
+ 2164      64497271 
+ 2165              	.LASF164:
+ 2166 0ad3 72785269 		.ascii	"rxRingBufSize\000"
+ 2166      6E674275 
+ 2166      6653697A 
+ 2166      6500
+ 2167              	.LASF188:
+ 2168 0ae1 72656C6F 		.ascii	"reloadInput\000"
+ 2168      6164496E 
+ 2168      70757400 
+ 2169              	.LASF199:
+ 2170 0aed 6D697363 		.ascii	"miscConfig\000"
+ 2170      436F6E66 
+ 2170      696700
+ 2171              	.LASF67:
+ 2172 0af8 64774368 		.ascii	"dwChSize\000"
+ 2172      53697A65 
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 51
+
+
+ 2172      00
+ 2173              	.LASF192:
+ 2174 0b01 73746F70 		.ascii	"stopInput\000"
+ 2174      496E7075 
+ 2174      7400
+ 2175              	.LASF103:
+ 2176 0b0b 69706353 		.ascii	"ipcStructSize\000"
+ 2176      74727563 
+ 2176      7453697A 
+ 2176      6500
+ 2177              	.LASF136:
+ 2178 0b19 75736552 		.ascii	"useRxFifo\000"
+ 2178      78466966 
+ 2178      6F00
+ 2179              	.LASF189:
+ 2180 0b23 73746172 		.ascii	"startInputMode\000"
+ 2180      74496E70 
+ 2180      75744D6F 
+ 2180      646500
+ 2181              	.LASF42:
+ 2182 0b32 63707573 		.ascii	"cpussIpc0Irq\000"
+ 2182      73497063 
+ 2182      30497271 
+ 2182      00
+ 2183              	.LASF182:
+ 2184 0b3f 636F6D70 		.ascii	"compare1\000"
+ 2184      61726531 
+ 2184      00
+ 2185              	.LASF89:
+ 2186 0b48 63707573 		.ascii	"cpussCm0ClockCtlOffset\000"
+ 2186      73436D30 
+ 2186      436C6F63 
+ 2186      6B43746C 
+ 2186      4F666673 
+ 2187              	.LASF85:
+ 2188 0b5f 6770696F 		.ascii	"gpioPrtCfgOffset\000"
+ 2188      50727443 
+ 2188      66674F66 
+ 2188      66736574 
+ 2188      00
+ 2189              	.LASF173:
+ 2190 0b70 696E6974 		.ascii	"initKey\000"
+ 2190      4B657900 
+ 2191              	.LASF167:
+ 2192 0b78 72784275 		.ascii	"rxBuf\000"
+ 2192      6600
+ 2193              	.LASF148:
+ 2194 0b7e 736C6176 		.ascii	"slaveTxBuffer\000"
+ 2194      65547842 
+ 2194      75666665 
+ 2194      7200
+ 2195              	.LASF149:
+ 2196 0b8c 736C6176 		.ascii	"slaveTxBufferSize\000"
+ 2196      65547842 
+ 2196      75666665 
+ 2196      7253697A 
+ 2196      6500
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 52
+
+
+ 2197              	.LASF174:
+ 2198 0b9e 63795F73 		.ascii	"cy_stc_scb_uart_context_t\000"
+ 2198      74635F73 
+ 2198      63625F75 
+ 2198      6172745F 
+ 2198      636F6E74 
+ 2199              	.LASF47:
+ 2200 0bb8 73727373 		.ascii	"srssNumHfroot\000"
+ 2200      4E756D48 
+ 2200      66726F6F 
+ 2200      7400
+ 2201              	.LASF120:
+ 2202 0bc6 72616E67 		.ascii	"rangeCond\000"
+ 2202      65436F6E 
+ 2202      6400
+ 2203              	.LASF133:
+ 2204 0bd0 63795F65 		.ascii	"cy_en_scb_i2c_command_t\000"
+ 2204      6E5F7363 
+ 2204      625F6932 
+ 2204      635F636F 
+ 2204      6D6D616E 
+ 2205              	.LASF98:
+ 2206 0be8 63707573 		.ascii	"cpussCm4NmiCtlOffset\000"
+ 2206      73436D34 
+ 2206      4E6D6943 
+ 2206      746C4F66 
+ 2206      66736574 
+ 2207              	.LASF58:
+ 2208 0bfd 666C6173 		.ascii	"flashWriteDelay\000"
+ 2208      68577269 
+ 2208      74654465 
+ 2208      6C617900 
+ 2209              	.LASF116:
+ 2210 0c0d 73616D70 		.ascii	"sampleCtrl\000"
+ 2210      6C654374 
+ 2210      726C00
+ 2211              	.LASF201:
+ 2212 0c18 4144435F 		.ascii	"ADC_1_CONFIG_STRUCT\000"
+ 2212      315F434F 
+ 2212      4E464947 
+ 2212      5F535452 
+ 2212      55435400 
+ 2213              	.LASF91:
+ 2214 0c2c 63707573 		.ascii	"cpussCm4StatusOffset\000"
+ 2214      73436D34 
+ 2214      53746174 
+ 2214      75734F66 
+ 2214      66736574 
+ 2215              	.LASF84:
+ 2216 0c41 6770696F 		.ascii	"gpioPrtIntrCfgOffset\000"
+ 2216      50727449 
+ 2216      6E747243 
+ 2216      66674F66 
+ 2216      66736574 
+ 2217              	.LASF187:
+ 2218 0c56 72656C6F 		.ascii	"reloadInputMode\000"
+ 2218      6164496E 
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccROWOlk.s 			page 53
+
+
+ 2218      7075744D 
+ 2218      6F646500 
+ 2219              	.LASF113:
+ 2220 0c66 43595F53 		.ascii	"CY_SAR_RANGE_COND_OUTSIDE\000"
+ 2220      41525F52 
+ 2220      414E4745 
+ 2220      5F434F4E 
+ 2220      445F4F55 
+ 2221              	.LASF166:
+ 2222 0c80 72785269 		.ascii	"rxRingBufTail\000"
+ 2222      6E674275 
+ 2222      66546169 
+ 2222      6C00
+ 2223              	.LASF95:
+ 2224 0c8e 63707573 		.ascii	"cpussTrimRomCtlOffset\000"
+ 2224      73547269 
+ 2224      6D526F6D 
+ 2224      43746C4F 
+ 2224      66667365 
+ 2225              	.LASF193:
+ 2226 0ca4 636F756E 		.ascii	"countInputMode\000"
+ 2226      74496E70 
+ 2226      75744D6F 
+ 2226      646500
+ 2227              	.LASF127:
+ 2228 0cb3 6D757853 		.ascii	"muxSwitchSqCtrl\000"
+ 2228      77697463 
+ 2228      68537143 
+ 2228      74726C00 
+ 2229              	.LASF31:
+ 2230 0cc3 64775665 		.ascii	"dwVersion\000"
+ 2230      7273696F 
+ 2230      6E00
+ 2231              	.LASF27:
+ 2232 0ccd 69706342 		.ascii	"ipcBase\000"
+ 2232      61736500 
+ 2233              	.LASF78:
+ 2234 0cd5 70657269 		.ascii	"periDivCmdPaDivSelPos\000"
+ 2234      44697643 
+ 2234      6D645061 
+ 2234      44697653 
+ 2234      656C506F 
+ 2235              	.LASF160:
+ 2236 0ceb 63795F73 		.ascii	"cy_stc_scb_uart_context\000"
+ 2236      74635F73 
+ 2236      63625F75 
+ 2236      6172745F 
+ 2236      636F6E74 
+ 2237              	.LASF56:
+ 2238 0d03 666C6173 		.ascii	"flashRwwRequired\000"
+ 2238      68527777 
+ 2238      52657175 
+ 2238      69726564 
+ 2238      00
+ 2239              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

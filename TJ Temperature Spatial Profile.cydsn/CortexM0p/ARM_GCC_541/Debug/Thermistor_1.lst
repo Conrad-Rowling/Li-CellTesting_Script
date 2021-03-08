@@ -1,0 +1,1043 @@
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccXR29JG.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"Thermistor_1.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	__aeabi_idiv
+  20              		.section	.text.Thermistor_1_GetResistance,"ax",%progbits
+  21              		.align	2
+  22              		.global	Thermistor_1_GetResistance
+  23              		.code	16
+  24              		.thumb_func
+  25              		.type	Thermistor_1_GetResistance, %function
+  26              	Thermistor_1_GetResistance:
+  27              	.LFB1:
+  28              		.file 1 "Generated_Source\\PSoC4\\Thermistor_1.c"
+   1:Generated_Source\PSoC4/Thermistor_1.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/Thermistor_1.c **** * File Name: Thermistor_1.c
+   3:Generated_Source\PSoC4/Thermistor_1.c **** * Version 1.20
+   4:Generated_Source\PSoC4/Thermistor_1.c **** *
+   5:Generated_Source\PSoC4/Thermistor_1.c **** * Description:
+   6:Generated_Source\PSoC4/Thermistor_1.c **** *  This file provides the source code to the API for the ThermistorCalc
+   7:Generated_Source\PSoC4/Thermistor_1.c **** *  Component.
+   8:Generated_Source\PSoC4/Thermistor_1.c **** *
+   9:Generated_Source\PSoC4/Thermistor_1.c **** * Note:
+  10:Generated_Source\PSoC4/Thermistor_1.c **** *  None.
+  11:Generated_Source\PSoC4/Thermistor_1.c **** *
+  12:Generated_Source\PSoC4/Thermistor_1.c **** ********************************************************************************
+  13:Generated_Source\PSoC4/Thermistor_1.c **** * Copyright 2013, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC4/Thermistor_1.c **** * You may use this file only in accordance with the license, terms, conditions,
+  15:Generated_Source\PSoC4/Thermistor_1.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  16:Generated_Source\PSoC4/Thermistor_1.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC4/Thermistor_1.c **** *******************************************************************************/
+  18:Generated_Source\PSoC4/Thermistor_1.c **** 
+  19:Generated_Source\PSoC4/Thermistor_1.c **** #include "Thermistor_1.h"
+  20:Generated_Source\PSoC4/Thermistor_1.c **** 
+  21:Generated_Source\PSoC4/Thermistor_1.c **** 
+  22:Generated_Source\PSoC4/Thermistor_1.c **** /*******************************************************************************
+  23:Generated_Source\PSoC4/Thermistor_1.c **** * Function Name: Thermistor_1_GetResistance
+  24:Generated_Source\PSoC4/Thermistor_1.c **** ********************************************************************************
+  25:Generated_Source\PSoC4/Thermistor_1.c **** *
+  26:Generated_Source\PSoC4/Thermistor_1.c **** * Summary:
+  27:Generated_Source\PSoC4/Thermistor_1.c **** *  The digital values of the voltages across the reference resistor and the
+  28:Generated_Source\PSoC4/Thermistor_1.c **** *  thermistor are passed to this function as parameters. The function returns
+  29:Generated_Source\PSoC4/Thermistor_1.c **** *  the resistance, based on the voltage values.
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccXR29JG.s 			page 2
+
+
+  30:Generated_Source\PSoC4/Thermistor_1.c **** *
+  31:Generated_Source\PSoC4/Thermistor_1.c **** * Parameters:
+  32:Generated_Source\PSoC4/Thermistor_1.c **** *  vReference: the voltage across the reference resistor;
+  33:Generated_Source\PSoC4/Thermistor_1.c **** *  vThermistor: the voltage across the thermistor.
+  34:Generated_Source\PSoC4/Thermistor_1.c **** *  The ratio of these two voltages is used by this function. Therefore, the
+  35:Generated_Source\PSoC4/Thermistor_1.c **** *  units for both parameters must be the same.
+  36:Generated_Source\PSoC4/Thermistor_1.c **** *
+  37:Generated_Source\PSoC4/Thermistor_1.c **** * Return:
+  38:Generated_Source\PSoC4/Thermistor_1.c **** *  The return value is the resistance across the thermistor. The value returned
+  39:Generated_Source\PSoC4/Thermistor_1.c **** *  is the resistance in Ohms.
+  40:Generated_Source\PSoC4/Thermistor_1.c **** *
+  41:Generated_Source\PSoC4/Thermistor_1.c **** *******************************************************************************/
+  42:Generated_Source\PSoC4/Thermistor_1.c **** uint32 Thermistor_1_GetResistance(int16 vReference, int16 vThermistor)
+  43:Generated_Source\PSoC4/Thermistor_1.c ****                                       
+  44:Generated_Source\PSoC4/Thermistor_1.c **** {
+  29              		.loc 1 44 0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              	.LVL0:
+  34 0000 10B5     		push	{r4, lr}
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 4, -8
+  37              		.cfi_offset 14, -4
+  38 0002 0200     		movs	r2, r0
+  45:Generated_Source\PSoC4/Thermistor_1.c ****     int32 resT;
+  46:Generated_Source\PSoC4/Thermistor_1.c ****     int16 temp;
+  47:Generated_Source\PSoC4/Thermistor_1.c **** 
+  48:Generated_Source\PSoC4/Thermistor_1.c ****     /* Calculate thermistor resistance from the voltages */
+  49:Generated_Source\PSoC4/Thermistor_1.c ****     resT = Thermistor_1_REF_RESISTOR * ((int32)vThermistor);
+  39              		.loc 1 49 0
+  40 0004 084B     		ldr	r3, .L4
+  41 0006 5943     		muls	r1, r3
+  42              	.LVL1:
+  50:Generated_Source\PSoC4/Thermistor_1.c ****     if (vReference < 0)
+  43              		.loc 1 50 0
+  44 0008 0028     		cmp	r0, #0
+  45 000a 05DA     		bge	.L2
+  51:Generated_Source\PSoC4/Thermistor_1.c ****     {
+  52:Generated_Source\PSoC4/Thermistor_1.c ****         temp = -vReference;
+  46              		.loc 1 52 0
+  47 000c 4042     		rsbs	r0, r0, #0
+  48              	.LVL2:
+  49 000e 80B2     		uxth	r0, r0
+  50              	.LVL3:
+  53:Generated_Source\PSoC4/Thermistor_1.c ****         temp = (int16)((uint16)((uint16)temp >> 1u));
+  51              		.loc 1 53 0
+  52 0010 4008     		lsrs	r0, r0, #1
+  53              	.LVL4:
+  54:Generated_Source\PSoC4/Thermistor_1.c ****         temp = -temp;
+  54              		.loc 1 54 0
+  55 0012 4342     		rsbs	r3, r0, #0
+  56 0014 18B2     		sxth	r0, r3
+  57              	.LVL5:
+  58 0016 01E0     		b	.L3
+  59              	.LVL6:
+  60              	.L2:
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccXR29JG.s 			page 3
+
+
+  55:Generated_Source\PSoC4/Thermistor_1.c ****     }
+  56:Generated_Source\PSoC4/Thermistor_1.c ****     else
+  57:Generated_Source\PSoC4/Thermistor_1.c ****     {
+  58:Generated_Source\PSoC4/Thermistor_1.c ****         temp = (int16)((uint16)((uint16)vReference >> 1u));
+  61              		.loc 1 58 0
+  62 0018 80B2     		uxth	r0, r0
+  63 001a 4008     		lsrs	r0, r0, #1
+  64              	.LVL7:
+  65              	.L3:
+  59:Generated_Source\PSoC4/Thermistor_1.c ****     }
+  60:Generated_Source\PSoC4/Thermistor_1.c ****     resT += temp;
+  66              		.loc 1 60 0
+  67 001c 4018     		adds	r0, r0, r1
+  68              	.LVL8:
+  61:Generated_Source\PSoC4/Thermistor_1.c ****     resT /= vReference;
+  69              		.loc 1 61 0
+  70 001e 1100     		movs	r1, r2
+  71 0020 FFF7FEFF 		bl	__aeabi_idiv
+  72              	.LVL9:
+  62:Generated_Source\PSoC4/Thermistor_1.c **** 
+  63:Generated_Source\PSoC4/Thermistor_1.c ****     /* The ordering of Reference resistor value is specifically designed to keep the result from ov
+  64:Generated_Source\PSoC4/Thermistor_1.c ****     return ((uint32)((uint32)resT << Thermistor_1_REF_RES_SHIFT));
+  65:Generated_Source\PSoC4/Thermistor_1.c **** }
+  73              		.loc 1 65 0
+  74              		@ sp needed
+  75 0024 10BD     		pop	{r4, pc}
+  76              	.L5:
+  77 0026 C046     		.align	2
+  78              	.L4:
+  79 0028 983A0000 		.word	15000
+  80              		.cfi_endproc
+  81              	.LFE1:
+  82              		.size	Thermistor_1_GetResistance, .-Thermistor_1_GetResistance
+  83              		.global	__aeabi_ui2d
+  84              		.global	__aeabi_d2f
+  85              		.global	__aeabi_f2d
+  86              		.global	__aeabi_dmul
+  87              		.global	__aeabi_dadd
+  88              		.global	__aeabi_ddiv
+  89              		.global	__aeabi_dsub
+  90              		.global	__aeabi_f2iz
+  91              		.section	.text.Thermistor_1_GetTemperature,"ax",%progbits
+  92              		.align	2
+  93              		.global	Thermistor_1_GetTemperature
+  94              		.code	16
+  95              		.thumb_func
+  96              		.type	Thermistor_1_GetTemperature, %function
+  97              	Thermistor_1_GetTemperature:
+  98              	.LFB2:
+  66:Generated_Source\PSoC4/Thermistor_1.c **** 
+  67:Generated_Source\PSoC4/Thermistor_1.c **** 
+  68:Generated_Source\PSoC4/Thermistor_1.c **** /*******************************************************************************
+  69:Generated_Source\PSoC4/Thermistor_1.c **** * Function Name: Thermistor_1_GetTemperature
+  70:Generated_Source\PSoC4/Thermistor_1.c **** ********************************************************************************
+  71:Generated_Source\PSoC4/Thermistor_1.c **** *
+  72:Generated_Source\PSoC4/Thermistor_1.c **** * Summary:
+  73:Generated_Source\PSoC4/Thermistor_1.c **** *  The value of the thermistor resistance is passed to this function as a
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccXR29JG.s 			page 4
+
+
+  74:Generated_Source\PSoC4/Thermistor_1.c **** *  parameter. The function returns the temperature, based on the resistance
+  75:Generated_Source\PSoC4/Thermistor_1.c **** *  value. The method used to calculate the temperature is dependent on whether
+  76:Generated_Source\PSoC4/Thermistor_1.c **** *  Equation or LUT was selected in the Customizer.
+  77:Generated_Source\PSoC4/Thermistor_1.c **** *
+  78:Generated_Source\PSoC4/Thermistor_1.c **** * Parameters:
+  79:Generated_Source\PSoC4/Thermistor_1.c **** *  resT: the resistance across the thermistor in Ohms.
+  80:Generated_Source\PSoC4/Thermistor_1.c **** *
+  81:Generated_Source\PSoC4/Thermistor_1.c **** * Return:
+  82:Generated_Source\PSoC4/Thermistor_1.c **** *  The return value is the temperature in 1/100ths of degrees C. For example,
+  83:Generated_Source\PSoC4/Thermistor_1.c **** *  the return value is 2345, when the actual temperature is 23.45 degrees C.
+  84:Generated_Source\PSoC4/Thermistor_1.c **** *
+  85:Generated_Source\PSoC4/Thermistor_1.c **** *******************************************************************************/
+  86:Generated_Source\PSoC4/Thermistor_1.c **** int16 Thermistor_1_GetTemperature(uint32 resT) 
+  87:Generated_Source\PSoC4/Thermistor_1.c **** {
+  99              		.loc 1 87 0
+ 100              		.cfi_startproc
+ 101              		@ args = 0, pretend = 0, frame = 0
+ 102              		@ frame_needed = 0, uses_anonymous_args = 0
+ 103              	.LVL10:
+ 104 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 105              		.cfi_def_cfa_offset 24
+ 106              		.cfi_offset 3, -24
+ 107              		.cfi_offset 4, -20
+ 108              		.cfi_offset 5, -16
+ 109              		.cfi_offset 6, -12
+ 110              		.cfi_offset 7, -8
+ 111              		.cfi_offset 14, -4
+  88:Generated_Source\PSoC4/Thermistor_1.c ****     int16 tempTR;
+  89:Generated_Source\PSoC4/Thermistor_1.c ****     
+  90:Generated_Source\PSoC4/Thermistor_1.c ****     #if (Thermistor_1_IMPLEMENTATION == Thermistor_1_EQUATION_METHOD)
+  91:Generated_Source\PSoC4/Thermistor_1.c **** 
+  92:Generated_Source\PSoC4/Thermistor_1.c ****         float32 stEqn;
+  93:Generated_Source\PSoC4/Thermistor_1.c ****         float32 logrT;
+  94:Generated_Source\PSoC4/Thermistor_1.c **** 
+  95:Generated_Source\PSoC4/Thermistor_1.c ****         /* Calculate thermistor resistance from the voltages */
+  96:Generated_Source\PSoC4/Thermistor_1.c ****         #if(!CY_PSOC3)
+  97:Generated_Source\PSoC4/Thermistor_1.c ****             logrT = (float32)log((float64)resT);
+ 112              		.loc 1 97 0
+ 113 0002 FFF7FEFF 		bl	__aeabi_ui2d
+ 114              	.LVL11:
+ 115 0006 FFF7FEFF 		bl	log
+ 116              	.LVL12:
+ 117 000a FFF7FEFF 		bl	__aeabi_d2f
+ 118              	.LVL13:
+  98:Generated_Source\PSoC4/Thermistor_1.c ****         #else
+  99:Generated_Source\PSoC4/Thermistor_1.c ****             logrT = log((float32)resT);
+ 100:Generated_Source\PSoC4/Thermistor_1.c ****         #endif  /* (!CY_PSOC3) */
+ 101:Generated_Source\PSoC4/Thermistor_1.c **** 
+ 102:Generated_Source\PSoC4/Thermistor_1.c ****         /* Calculate temperature from the resistance of thermistor using Steinhart-Hart Equation */
+ 103:Generated_Source\PSoC4/Thermistor_1.c ****         #if(!CY_PSOC3)
+ 104:Generated_Source\PSoC4/Thermistor_1.c ****             stEqn = (float32)(Thermistor_1_THA + (Thermistor_1_THB * logrT) + 
+ 119              		.loc 1 104 0
+ 120 000e FFF7FEFF 		bl	__aeabi_f2d
+ 121              	.LVL14:
+ 122 0012 0400     		movs	r4, r0
+ 123 0014 0D00     		movs	r5, r1
+ 124 0016 1B4A     		ldr	r2, .L7
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccXR29JG.s 			page 5
+
+
+ 125 0018 1B4B     		ldr	r3, .L7+4
+ 126 001a FFF7FEFF 		bl	__aeabi_dmul
+ 127              	.LVL15:
+ 128 001e 1B4A     		ldr	r2, .L7+8
+ 129 0020 1B4B     		ldr	r3, .L7+12
+ 130 0022 FFF7FEFF 		bl	__aeabi_dadd
+ 131              	.LVL16:
+ 132 0026 0600     		movs	r6, r0
+ 133 0028 0F00     		movs	r7, r1
+ 105:Generated_Source\PSoC4/Thermistor_1.c ****                              (Thermistor_1_THC * pow((float64)logrT, (float32)3)));
+ 134              		.loc 1 105 0
+ 135 002a 0022     		movs	r2, #0
+ 136 002c 194B     		ldr	r3, .L7+16
+ 137 002e 2000     		movs	r0, r4
+ 138 0030 2900     		movs	r1, r5
+ 139 0032 FFF7FEFF 		bl	pow
+ 140              	.LVL17:
+ 141 0036 184A     		ldr	r2, .L7+20
+ 142 0038 184B     		ldr	r3, .L7+24
+ 143 003a FFF7FEFF 		bl	__aeabi_dmul
+ 144              	.LVL18:
+ 145 003e 0200     		movs	r2, r0
+ 146 0040 0B00     		movs	r3, r1
+ 104:Generated_Source\PSoC4/Thermistor_1.c ****                              (Thermistor_1_THC * pow((float64)logrT, (float32)3)));
+ 147              		.loc 1 104 0
+ 148 0042 3000     		movs	r0, r6
+ 149 0044 3900     		movs	r1, r7
+ 150 0046 FFF7FEFF 		bl	__aeabi_dadd
+ 151              	.LVL19:
+ 152 004a FFF7FEFF 		bl	__aeabi_d2f
+ 153              	.LVL20:
+ 106:Generated_Source\PSoC4/Thermistor_1.c ****         #else
+ 107:Generated_Source\PSoC4/Thermistor_1.c ****             stEqn = (float32)(Thermistor_1_THA + (Thermistor_1_THB * logrT) + 
+ 108:Generated_Source\PSoC4/Thermistor_1.c ****                              (Thermistor_1_THC * pow(logrT, (float32)3)));
+ 109:Generated_Source\PSoC4/Thermistor_1.c ****         #endif  /* (!CY_PSOC3) */
+ 110:Generated_Source\PSoC4/Thermistor_1.c **** 
+ 111:Generated_Source\PSoC4/Thermistor_1.c ****         tempTR = (int16)((float32)((((1.0 / stEqn) - Thermistor_1_K2C) * (float32)Thermistor_1_SCAL
+ 154              		.loc 1 111 0
+ 155 004e FFF7FEFF 		bl	__aeabi_f2d
+ 156              	.LVL21:
+ 157 0052 0200     		movs	r2, r0
+ 158 0054 0B00     		movs	r3, r1
+ 159 0056 0020     		movs	r0, #0
+ 160 0058 1149     		ldr	r1, .L7+28
+ 161 005a FFF7FEFF 		bl	__aeabi_ddiv
+ 162              	.LVL22:
+ 163 005e 114A     		ldr	r2, .L7+32
+ 164 0060 114B     		ldr	r3, .L7+36
+ 165 0062 FFF7FEFF 		bl	__aeabi_dsub
+ 166              	.LVL23:
+ 167 0066 0022     		movs	r2, #0
+ 168 0068 104B     		ldr	r3, .L7+40
+ 169 006a FFF7FEFF 		bl	__aeabi_dmul
+ 170              	.LVL24:
+ 171 006e 0022     		movs	r2, #0
+ 172 0070 0F4B     		ldr	r3, .L7+44
+ 173 0072 FFF7FEFF 		bl	__aeabi_dadd
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccXR29JG.s 			page 6
+
+
+ 174              	.LVL25:
+ 175 0076 FFF7FEFF 		bl	__aeabi_d2f
+ 176              	.LVL26:
+ 177 007a FFF7FEFF 		bl	__aeabi_f2iz
+ 178              	.LVL27:
+ 179 007e 00B2     		sxth	r0, r0
+ 180              	.LVL28:
+ 112:Generated_Source\PSoC4/Thermistor_1.c **** 
+ 113:Generated_Source\PSoC4/Thermistor_1.c ****     #else /* Thermistor_1_IMPLEMENTATION == Thermistor_1_LUT_METHOD */
+ 114:Generated_Source\PSoC4/Thermistor_1.c **** 
+ 115:Generated_Source\PSoC4/Thermistor_1.c ****         uint16 mid;
+ 116:Generated_Source\PSoC4/Thermistor_1.c ****         uint16 first = 0u;
+ 117:Generated_Source\PSoC4/Thermistor_1.c ****         uint16 last = Thermistor_1_LUT_SIZE - 1u;
+ 118:Generated_Source\PSoC4/Thermistor_1.c **** 
+ 119:Generated_Source\PSoC4/Thermistor_1.c ****         /* Calculate temperature from the resistance of thermistor by using the LUT */
+ 120:Generated_Source\PSoC4/Thermistor_1.c ****         while (first < last)
+ 121:Generated_Source\PSoC4/Thermistor_1.c ****         {
+ 122:Generated_Source\PSoC4/Thermistor_1.c ****             mid = (first + last) >> 1u;
+ 123:Generated_Source\PSoC4/Thermistor_1.c **** 
+ 124:Generated_Source\PSoC4/Thermistor_1.c ****             if ((0u == mid) || ((Thermistor_1_LUT_SIZE - 1u) == mid) || (resT == Thermistor_1_LUT[m
+ 125:Generated_Source\PSoC4/Thermistor_1.c ****             {
+ 126:Generated_Source\PSoC4/Thermistor_1.c ****                 last = mid;
+ 127:Generated_Source\PSoC4/Thermistor_1.c ****                 break;
+ 128:Generated_Source\PSoC4/Thermistor_1.c ****             }
+ 129:Generated_Source\PSoC4/Thermistor_1.c ****             else if (Thermistor_1_LUT[mid] > resT)
+ 130:Generated_Source\PSoC4/Thermistor_1.c ****             {
+ 131:Generated_Source\PSoC4/Thermistor_1.c ****                 first = mid + 1u;
+ 132:Generated_Source\PSoC4/Thermistor_1.c ****             }
+ 133:Generated_Source\PSoC4/Thermistor_1.c ****             else /* (Thermistor_1_LUT[mid] < resT) */
+ 134:Generated_Source\PSoC4/Thermistor_1.c ****             {
+ 135:Generated_Source\PSoC4/Thermistor_1.c ****                 last = mid - 1u;
+ 136:Generated_Source\PSoC4/Thermistor_1.c ****             }
+ 137:Generated_Source\PSoC4/Thermistor_1.c ****         }
+ 138:Generated_Source\PSoC4/Thermistor_1.c **** 
+ 139:Generated_Source\PSoC4/Thermistor_1.c ****         /* Calculation the closest entry in the LUT */
+ 140:Generated_Source\PSoC4/Thermistor_1.c ****         if ((Thermistor_1_LUT[last] > resT) && (last < (Thermistor_1_LUT_SIZE - 1u)) &&
+ 141:Generated_Source\PSoC4/Thermistor_1.c ****            ((Thermistor_1_LUT[last] - resT) > (resT - Thermistor_1_LUT[last + 1u])))
+ 142:Generated_Source\PSoC4/Thermistor_1.c ****         {
+ 143:Generated_Source\PSoC4/Thermistor_1.c ****             last++;
+ 144:Generated_Source\PSoC4/Thermistor_1.c ****         }
+ 145:Generated_Source\PSoC4/Thermistor_1.c ****         else if ((Thermistor_1_LUT[last] < resT) && (last > 0u) &&
+ 146:Generated_Source\PSoC4/Thermistor_1.c ****                 ((Thermistor_1_LUT[last - 1u] - resT) < (resT - Thermistor_1_LUT[last])))
+ 147:Generated_Source\PSoC4/Thermistor_1.c ****         {
+ 148:Generated_Source\PSoC4/Thermistor_1.c ****             last--;
+ 149:Generated_Source\PSoC4/Thermistor_1.c ****         }
+ 150:Generated_Source\PSoC4/Thermistor_1.c ****         else
+ 151:Generated_Source\PSoC4/Thermistor_1.c ****         {
+ 152:Generated_Source\PSoC4/Thermistor_1.c ****             /* Closest entry in the LUT already found */
+ 153:Generated_Source\PSoC4/Thermistor_1.c ****         }
+ 154:Generated_Source\PSoC4/Thermistor_1.c **** 
+ 155:Generated_Source\PSoC4/Thermistor_1.c ****         tempTR = Thermistor_1_MIN_TEMP + (int16)((uint16)(last * Thermistor_1_ACCURACY));
+ 156:Generated_Source\PSoC4/Thermistor_1.c **** 
+ 157:Generated_Source\PSoC4/Thermistor_1.c ****     #endif /* (Thermistor_1_IMPLEMENTATION == Thermistor_1_EQUATION_METHOD) */
+ 158:Generated_Source\PSoC4/Thermistor_1.c **** 
+ 159:Generated_Source\PSoC4/Thermistor_1.c ****     return (tempTR);
+ 160:Generated_Source\PSoC4/Thermistor_1.c **** }
+ 181              		.loc 1 160 0
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccXR29JG.s 			page 7
+
+
+ 182              		@ sp needed
+ 183 0080 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 184              	.L8:
+ 185 0082 C046     		.align	2
+ 186              	.L7:
+ 187 0084 1C2C1991 		.word	-1860621284
+ 188 0088 7A20313F 		.word	1060184186
+ 189 008c CF94E830 		.word	820548815
+ 190 0090 90BC4B3F 		.word	1061928080
+ 191 0094 00000840 		.word	1074266112
+ 192 0098 F215FFBF 		.word	-1073801742
+ 193 009c FE46813E 		.word	1048659710
+ 194 00a0 0000F03F 		.word	1072693248
+ 195 00a4 66666666 		.word	1717986918
+ 196 00a8 66127140 		.word	1081152102
+ 197 00ac 00005940 		.word	1079574528
+ 198 00b0 0000E03F 		.word	1071644672
+ 199              		.cfi_endproc
+ 200              	.LFE2:
+ 201              		.size	Thermistor_1_GetTemperature, .-Thermistor_1_GetTemperature
+ 202              		.text
+ 203              	.Letext0:
+ 204              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
+ 205              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 206              		.section	.debug_info,"",%progbits
+ 207              	.Ldebug_info0:
+ 208 0000 A5010000 		.4byte	0x1a5
+ 209 0004 0400     		.2byte	0x4
+ 210 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 211 000a 04       		.byte	0x4
+ 212 000b 01       		.uleb128 0x1
+ 213 000c C5010000 		.4byte	.LASF29
+ 214 0010 0C       		.byte	0xc
+ 215 0011 7F010000 		.4byte	.LASF30
+ 216 0015 79000000 		.4byte	.LASF31
+ 217 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 218 001d 00000000 		.4byte	0
+ 219 0021 00000000 		.4byte	.Ldebug_line0
+ 220 0025 02       		.uleb128 0x2
+ 221 0026 01       		.byte	0x1
+ 222 0027 06       		.byte	0x6
+ 223 0028 57020000 		.4byte	.LASF0
+ 224 002c 02       		.uleb128 0x2
+ 225 002d 01       		.byte	0x1
+ 226 002e 08       		.byte	0x8
+ 227 002f 34000000 		.4byte	.LASF1
+ 228 0033 02       		.uleb128 0x2
+ 229 0034 02       		.byte	0x2
+ 230 0035 05       		.byte	0x5
+ 231 0036 E4000000 		.4byte	.LASF2
+ 232 003a 02       		.uleb128 0x2
+ 233 003b 02       		.byte	0x2
+ 234 003c 07       		.byte	0x7
+ 235 003d 13000000 		.4byte	.LASF3
+ 236 0041 02       		.uleb128 0x2
+ 237 0042 04       		.byte	0x4
+ 238 0043 05       		.byte	0x5
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccXR29JG.s 			page 8
+
+
+ 239 0044 AB010000 		.4byte	.LASF4
+ 240 0048 02       		.uleb128 0x2
+ 241 0049 04       		.byte	0x4
+ 242 004a 07       		.byte	0x7
+ 243 004b 4E000000 		.4byte	.LASF5
+ 244 004f 02       		.uleb128 0x2
+ 245 0050 08       		.byte	0x8
+ 246 0051 05       		.byte	0x5
+ 247 0052 6C010000 		.4byte	.LASF6
+ 248 0056 02       		.uleb128 0x2
+ 249 0057 08       		.byte	0x8
+ 250 0058 07       		.byte	0x7
+ 251 0059 09010000 		.4byte	.LASF7
+ 252 005d 03       		.uleb128 0x3
+ 253 005e 04       		.byte	0x4
+ 254 005f 05       		.byte	0x5
+ 255 0060 696E7400 		.ascii	"int\000"
+ 256 0064 02       		.uleb128 0x2
+ 257 0065 04       		.byte	0x4
+ 258 0066 07       		.byte	0x7
+ 259 0067 FC000000 		.4byte	.LASF8
+ 260 006b 04       		.uleb128 0x4
+ 261 006c EE000000 		.4byte	.LASF9
+ 262 0070 02       		.byte	0x2
+ 263 0071 F801     		.2byte	0x1f8
+ 264 0073 3A000000 		.4byte	0x3a
+ 265 0077 04       		.uleb128 0x4
+ 266 0078 F5000000 		.4byte	.LASF10
+ 267 007c 02       		.byte	0x2
+ 268 007d F901     		.2byte	0x1f9
+ 269 007f 48000000 		.4byte	0x48
+ 270 0083 04       		.uleb128 0x4
+ 271 0084 48000000 		.4byte	.LASF11
+ 272 0088 02       		.byte	0x2
+ 273 0089 FB01     		.2byte	0x1fb
+ 274 008b 33000000 		.4byte	0x33
+ 275 008f 04       		.uleb128 0x4
+ 276 0090 65000000 		.4byte	.LASF12
+ 277 0094 02       		.byte	0x2
+ 278 0095 FC01     		.2byte	0x1fc
+ 279 0097 41000000 		.4byte	0x41
+ 280 009b 04       		.uleb128 0x4
+ 281 009c 26000000 		.4byte	.LASF13
+ 282 00a0 02       		.byte	0x2
+ 283 00a1 FD01     		.2byte	0x1fd
+ 284 00a3 A7000000 		.4byte	0xa7
+ 285 00a7 02       		.uleb128 0x2
+ 286 00a8 04       		.byte	0x4
+ 287 00a9 04       		.byte	0x4
+ 288 00aa 2E000000 		.4byte	.LASF14
+ 289 00ae 04       		.uleb128 0x4
+ 290 00af 00000000 		.4byte	.LASF15
+ 291 00b3 02       		.byte	0x2
+ 292 00b4 0102     		.2byte	0x201
+ 293 00b6 BA000000 		.4byte	0xba
+ 294 00ba 02       		.uleb128 0x2
+ 295 00bb 08       		.byte	0x8
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccXR29JG.s 			page 9
+
+
+ 296 00bc 04       		.byte	0x4
+ 297 00bd 72000000 		.4byte	.LASF16
+ 298 00c1 02       		.uleb128 0x2
+ 299 00c2 01       		.byte	0x1
+ 300 00c3 08       		.byte	0x8
+ 301 00c4 7A010000 		.4byte	.LASF17
+ 302 00c8 02       		.uleb128 0x2
+ 303 00c9 08       		.byte	0x8
+ 304 00ca 04       		.byte	0x4
+ 305 00cb B9010000 		.4byte	.LASF18
+ 306 00cf 02       		.uleb128 0x2
+ 307 00d0 04       		.byte	0x4
+ 308 00d1 07       		.byte	0x7
+ 309 00d2 47010000 		.4byte	.LASF19
+ 310 00d6 05       		.uleb128 0x5
+ 311 00d7 2C010000 		.4byte	.LASF24
+ 312 00db 01       		.byte	0x1
+ 313 00dc 2A       		.byte	0x2a
+ 314 00dd 77000000 		.4byte	0x77
+ 315 00e1 00000000 		.4byte	.LFB1
+ 316 00e5 2C000000 		.4byte	.LFE1-.LFB1
+ 317 00e9 01       		.uleb128 0x1
+ 318 00ea 9C       		.byte	0x9c
+ 319 00eb 2C010000 		.4byte	0x12c
+ 320 00ef 06       		.uleb128 0x6
+ 321 00f0 08000000 		.4byte	.LASF20
+ 322 00f4 01       		.byte	0x1
+ 323 00f5 2A       		.byte	0x2a
+ 324 00f6 83000000 		.4byte	0x83
+ 325 00fa 00000000 		.4byte	.LLST0
+ 326 00fe 06       		.uleb128 0x6
+ 327 00ff 20010000 		.4byte	.LASF21
+ 328 0103 01       		.byte	0x1
+ 329 0104 2A       		.byte	0x2a
+ 330 0105 83000000 		.4byte	0x83
+ 331 0109 3A000000 		.4byte	.LLST1
+ 332 010d 07       		.uleb128 0x7
+ 333 010e B4010000 		.4byte	.LASF22
+ 334 0112 01       		.byte	0x1
+ 335 0113 2D       		.byte	0x2d
+ 336 0114 8F000000 		.4byte	0x8f
+ 337 0118 5B000000 		.4byte	.LLST2
+ 338 011c 07       		.uleb128 0x7
+ 339 011d 60000000 		.4byte	.LASF23
+ 340 0121 01       		.byte	0x1
+ 341 0122 2E       		.byte	0x2e
+ 342 0123 83000000 		.4byte	0x83
+ 343 0127 84000000 		.4byte	.LLST3
+ 344 012b 00       		.byte	0
+ 345 012c 05       		.uleb128 0x5
+ 346 012d 50010000 		.4byte	.LASF25
+ 347 0131 01       		.byte	0x1
+ 348 0132 56       		.byte	0x56
+ 349 0133 83000000 		.4byte	0x83
+ 350 0137 00000000 		.4byte	.LFB2
+ 351 013b B4000000 		.4byte	.LFE2-.LFB2
+ 352 013f 01       		.uleb128 0x1
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccXR29JG.s 			page 10
+
+
+ 353 0140 9C       		.byte	0x9c
+ 354 0141 92010000 		.4byte	0x192
+ 355 0145 06       		.uleb128 0x6
+ 356 0146 B4010000 		.4byte	.LASF22
+ 357 014a 01       		.byte	0x1
+ 358 014b 56       		.byte	0x56
+ 359 014c 77000000 		.4byte	0x77
+ 360 0150 A2000000 		.4byte	.LLST4
+ 361 0154 08       		.uleb128 0x8
+ 362 0155 6B000000 		.4byte	.LASF26
+ 363 0159 01       		.byte	0x1
+ 364 015a 58       		.byte	0x58
+ 365 015b 83000000 		.4byte	0x83
+ 366 015f 01       		.uleb128 0x1
+ 367 0160 50       		.byte	0x50
+ 368 0161 07       		.uleb128 0x7
+ 369 0162 A5010000 		.4byte	.LASF27
+ 370 0166 01       		.byte	0x1
+ 371 0167 5C       		.byte	0x5c
+ 372 0168 9B000000 		.4byte	0x9b
+ 373 016c C3000000 		.4byte	.LLST5
+ 374 0170 07       		.uleb128 0x7
+ 375 0171 42000000 		.4byte	.LASF28
+ 376 0175 01       		.byte	0x1
+ 377 0176 5D       		.byte	0x5d
+ 378 0177 9B000000 		.4byte	0x9b
+ 379 017b D6000000 		.4byte	.LLST6
+ 380 017f 09       		.uleb128 0x9
+ 381 0180 0A000000 		.4byte	.LVL12
+ 382 0184 92010000 		.4byte	0x192
+ 383 0188 09       		.uleb128 0x9
+ 384 0189 36000000 		.4byte	.LVL17
+ 385 018d 9D010000 		.4byte	0x19d
+ 386 0191 00       		.byte	0
+ 387 0192 0A       		.uleb128 0xa
+ 388 0193 6C6F6700 		.ascii	"log\000"
+ 389 0197 6C6F6700 		.ascii	"log\000"
+ 390 019b 03       		.byte	0x3
+ 391 019c 84       		.byte	0x84
+ 392 019d 0A       		.uleb128 0xa
+ 393 019e 706F7700 		.ascii	"pow\000"
+ 394 01a2 706F7700 		.ascii	"pow\000"
+ 395 01a6 03       		.byte	0x3
+ 396 01a7 86       		.byte	0x86
+ 397 01a8 00       		.byte	0
+ 398              		.section	.debug_abbrev,"",%progbits
+ 399              	.Ldebug_abbrev0:
+ 400 0000 01       		.uleb128 0x1
+ 401 0001 11       		.uleb128 0x11
+ 402 0002 01       		.byte	0x1
+ 403 0003 25       		.uleb128 0x25
+ 404 0004 0E       		.uleb128 0xe
+ 405 0005 13       		.uleb128 0x13
+ 406 0006 0B       		.uleb128 0xb
+ 407 0007 03       		.uleb128 0x3
+ 408 0008 0E       		.uleb128 0xe
+ 409 0009 1B       		.uleb128 0x1b
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccXR29JG.s 			page 11
+
+
+ 410 000a 0E       		.uleb128 0xe
+ 411 000b 55       		.uleb128 0x55
+ 412 000c 17       		.uleb128 0x17
+ 413 000d 11       		.uleb128 0x11
+ 414 000e 01       		.uleb128 0x1
+ 415 000f 10       		.uleb128 0x10
+ 416 0010 17       		.uleb128 0x17
+ 417 0011 00       		.byte	0
+ 418 0012 00       		.byte	0
+ 419 0013 02       		.uleb128 0x2
+ 420 0014 24       		.uleb128 0x24
+ 421 0015 00       		.byte	0
+ 422 0016 0B       		.uleb128 0xb
+ 423 0017 0B       		.uleb128 0xb
+ 424 0018 3E       		.uleb128 0x3e
+ 425 0019 0B       		.uleb128 0xb
+ 426 001a 03       		.uleb128 0x3
+ 427 001b 0E       		.uleb128 0xe
+ 428 001c 00       		.byte	0
+ 429 001d 00       		.byte	0
+ 430 001e 03       		.uleb128 0x3
+ 431 001f 24       		.uleb128 0x24
+ 432 0020 00       		.byte	0
+ 433 0021 0B       		.uleb128 0xb
+ 434 0022 0B       		.uleb128 0xb
+ 435 0023 3E       		.uleb128 0x3e
+ 436 0024 0B       		.uleb128 0xb
+ 437 0025 03       		.uleb128 0x3
+ 438 0026 08       		.uleb128 0x8
+ 439 0027 00       		.byte	0
+ 440 0028 00       		.byte	0
+ 441 0029 04       		.uleb128 0x4
+ 442 002a 16       		.uleb128 0x16
+ 443 002b 00       		.byte	0
+ 444 002c 03       		.uleb128 0x3
+ 445 002d 0E       		.uleb128 0xe
+ 446 002e 3A       		.uleb128 0x3a
+ 447 002f 0B       		.uleb128 0xb
+ 448 0030 3B       		.uleb128 0x3b
+ 449 0031 05       		.uleb128 0x5
+ 450 0032 49       		.uleb128 0x49
+ 451 0033 13       		.uleb128 0x13
+ 452 0034 00       		.byte	0
+ 453 0035 00       		.byte	0
+ 454 0036 05       		.uleb128 0x5
+ 455 0037 2E       		.uleb128 0x2e
+ 456 0038 01       		.byte	0x1
+ 457 0039 3F       		.uleb128 0x3f
+ 458 003a 19       		.uleb128 0x19
+ 459 003b 03       		.uleb128 0x3
+ 460 003c 0E       		.uleb128 0xe
+ 461 003d 3A       		.uleb128 0x3a
+ 462 003e 0B       		.uleb128 0xb
+ 463 003f 3B       		.uleb128 0x3b
+ 464 0040 0B       		.uleb128 0xb
+ 465 0041 27       		.uleb128 0x27
+ 466 0042 19       		.uleb128 0x19
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccXR29JG.s 			page 12
+
+
+ 467 0043 49       		.uleb128 0x49
+ 468 0044 13       		.uleb128 0x13
+ 469 0045 11       		.uleb128 0x11
+ 470 0046 01       		.uleb128 0x1
+ 471 0047 12       		.uleb128 0x12
+ 472 0048 06       		.uleb128 0x6
+ 473 0049 40       		.uleb128 0x40
+ 474 004a 18       		.uleb128 0x18
+ 475 004b 9642     		.uleb128 0x2116
+ 476 004d 19       		.uleb128 0x19
+ 477 004e 01       		.uleb128 0x1
+ 478 004f 13       		.uleb128 0x13
+ 479 0050 00       		.byte	0
+ 480 0051 00       		.byte	0
+ 481 0052 06       		.uleb128 0x6
+ 482 0053 05       		.uleb128 0x5
+ 483 0054 00       		.byte	0
+ 484 0055 03       		.uleb128 0x3
+ 485 0056 0E       		.uleb128 0xe
+ 486 0057 3A       		.uleb128 0x3a
+ 487 0058 0B       		.uleb128 0xb
+ 488 0059 3B       		.uleb128 0x3b
+ 489 005a 0B       		.uleb128 0xb
+ 490 005b 49       		.uleb128 0x49
+ 491 005c 13       		.uleb128 0x13
+ 492 005d 02       		.uleb128 0x2
+ 493 005e 17       		.uleb128 0x17
+ 494 005f 00       		.byte	0
+ 495 0060 00       		.byte	0
+ 496 0061 07       		.uleb128 0x7
+ 497 0062 34       		.uleb128 0x34
+ 498 0063 00       		.byte	0
+ 499 0064 03       		.uleb128 0x3
+ 500 0065 0E       		.uleb128 0xe
+ 501 0066 3A       		.uleb128 0x3a
+ 502 0067 0B       		.uleb128 0xb
+ 503 0068 3B       		.uleb128 0x3b
+ 504 0069 0B       		.uleb128 0xb
+ 505 006a 49       		.uleb128 0x49
+ 506 006b 13       		.uleb128 0x13
+ 507 006c 02       		.uleb128 0x2
+ 508 006d 17       		.uleb128 0x17
+ 509 006e 00       		.byte	0
+ 510 006f 00       		.byte	0
+ 511 0070 08       		.uleb128 0x8
+ 512 0071 34       		.uleb128 0x34
+ 513 0072 00       		.byte	0
+ 514 0073 03       		.uleb128 0x3
+ 515 0074 0E       		.uleb128 0xe
+ 516 0075 3A       		.uleb128 0x3a
+ 517 0076 0B       		.uleb128 0xb
+ 518 0077 3B       		.uleb128 0x3b
+ 519 0078 0B       		.uleb128 0xb
+ 520 0079 49       		.uleb128 0x49
+ 521 007a 13       		.uleb128 0x13
+ 522 007b 02       		.uleb128 0x2
+ 523 007c 18       		.uleb128 0x18
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccXR29JG.s 			page 13
+
+
+ 524 007d 00       		.byte	0
+ 525 007e 00       		.byte	0
+ 526 007f 09       		.uleb128 0x9
+ 527 0080 898201   		.uleb128 0x4109
+ 528 0083 00       		.byte	0
+ 529 0084 11       		.uleb128 0x11
+ 530 0085 01       		.uleb128 0x1
+ 531 0086 31       		.uleb128 0x31
+ 532 0087 13       		.uleb128 0x13
+ 533 0088 00       		.byte	0
+ 534 0089 00       		.byte	0
+ 535 008a 0A       		.uleb128 0xa
+ 536 008b 2E       		.uleb128 0x2e
+ 537 008c 00       		.byte	0
+ 538 008d 3F       		.uleb128 0x3f
+ 539 008e 19       		.uleb128 0x19
+ 540 008f 3C       		.uleb128 0x3c
+ 541 0090 19       		.uleb128 0x19
+ 542 0091 6E       		.uleb128 0x6e
+ 543 0092 08       		.uleb128 0x8
+ 544 0093 03       		.uleb128 0x3
+ 545 0094 08       		.uleb128 0x8
+ 546 0095 3A       		.uleb128 0x3a
+ 547 0096 0B       		.uleb128 0xb
+ 548 0097 3B       		.uleb128 0x3b
+ 549 0098 0B       		.uleb128 0xb
+ 550 0099 00       		.byte	0
+ 551 009a 00       		.byte	0
+ 552 009b 00       		.byte	0
+ 553              		.section	.debug_loc,"",%progbits
+ 554              	.Ldebug_loc0:
+ 555              	.LLST0:
+ 556 0000 00000000 		.4byte	.LVL0
+ 557 0004 0E000000 		.4byte	.LVL2
+ 558 0008 0100     		.2byte	0x1
+ 559 000a 50       		.byte	0x50
+ 560 000b 0E000000 		.4byte	.LVL2
+ 561 000f 18000000 		.4byte	.LVL6
+ 562 0013 0400     		.2byte	0x4
+ 563 0015 F3       		.byte	0xf3
+ 564 0016 01       		.uleb128 0x1
+ 565 0017 50       		.byte	0x50
+ 566 0018 9F       		.byte	0x9f
+ 567 0019 18000000 		.4byte	.LVL6
+ 568 001d 1C000000 		.4byte	.LVL7
+ 569 0021 0100     		.2byte	0x1
+ 570 0023 50       		.byte	0x50
+ 571 0024 1C000000 		.4byte	.LVL7
+ 572 0028 2C000000 		.4byte	.LFE1
+ 573 002c 0400     		.2byte	0x4
+ 574 002e F3       		.byte	0xf3
+ 575 002f 01       		.uleb128 0x1
+ 576 0030 50       		.byte	0x50
+ 577 0031 9F       		.byte	0x9f
+ 578 0032 00000000 		.4byte	0
+ 579 0036 00000000 		.4byte	0
+ 580              	.LLST1:
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccXR29JG.s 			page 14
+
+
+ 581 003a 00000000 		.4byte	.LVL0
+ 582 003e 08000000 		.4byte	.LVL1
+ 583 0042 0100     		.2byte	0x1
+ 584 0044 51       		.byte	0x51
+ 585 0045 08000000 		.4byte	.LVL1
+ 586 0049 2C000000 		.4byte	.LFE1
+ 587 004d 0400     		.2byte	0x4
+ 588 004f F3       		.byte	0xf3
+ 589 0050 01       		.uleb128 0x1
+ 590 0051 51       		.byte	0x51
+ 591 0052 9F       		.byte	0x9f
+ 592 0053 00000000 		.4byte	0
+ 593 0057 00000000 		.4byte	0
+ 594              	.LLST2:
+ 595 005b 08000000 		.4byte	.LVL1
+ 596 005f 1E000000 		.4byte	.LVL8
+ 597 0063 0100     		.2byte	0x1
+ 598 0065 51       		.byte	0x51
+ 599 0066 1E000000 		.4byte	.LVL8
+ 600 006a 23000000 		.4byte	.LVL9-1
+ 601 006e 0100     		.2byte	0x1
+ 602 0070 50       		.byte	0x50
+ 603 0071 24000000 		.4byte	.LVL9
+ 604 0075 2C000000 		.4byte	.LFE1
+ 605 0079 0100     		.2byte	0x1
+ 606 007b 50       		.byte	0x50
+ 607 007c 00000000 		.4byte	0
+ 608 0080 00000000 		.4byte	0
+ 609              	.LLST3:
+ 610 0084 10000000 		.4byte	.LVL3
+ 611 0088 18000000 		.4byte	.LVL6
+ 612 008c 0100     		.2byte	0x1
+ 613 008e 50       		.byte	0x50
+ 614 008f 1C000000 		.4byte	.LVL7
+ 615 0093 1E000000 		.4byte	.LVL8
+ 616 0097 0100     		.2byte	0x1
+ 617 0099 50       		.byte	0x50
+ 618 009a 00000000 		.4byte	0
+ 619 009e 00000000 		.4byte	0
+ 620              	.LLST4:
+ 621 00a2 00000000 		.4byte	.LVL10
+ 622 00a6 05000000 		.4byte	.LVL11-1
+ 623 00aa 0100     		.2byte	0x1
+ 624 00ac 50       		.byte	0x50
+ 625 00ad 05000000 		.4byte	.LVL11-1
+ 626 00b1 B4000000 		.4byte	.LFE2
+ 627 00b5 0400     		.2byte	0x4
+ 628 00b7 F3       		.byte	0xf3
+ 629 00b8 01       		.uleb128 0x1
+ 630 00b9 50       		.byte	0x50
+ 631 00ba 9F       		.byte	0x9f
+ 632 00bb 00000000 		.4byte	0
+ 633 00bf 00000000 		.4byte	0
+ 634              	.LLST5:
+ 635 00c3 4E000000 		.4byte	.LVL20
+ 636 00c7 51000000 		.4byte	.LVL21-1
+ 637 00cb 0100     		.2byte	0x1
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccXR29JG.s 			page 15
+
+
+ 638 00cd 50       		.byte	0x50
+ 639 00ce 00000000 		.4byte	0
+ 640 00d2 00000000 		.4byte	0
+ 641              	.LLST6:
+ 642 00d6 0E000000 		.4byte	.LVL13
+ 643 00da 11000000 		.4byte	.LVL14-1
+ 644 00de 0100     		.2byte	0x1
+ 645 00e0 50       		.byte	0x50
+ 646 00e1 00000000 		.4byte	0
+ 647 00e5 00000000 		.4byte	0
+ 648              		.section	.debug_aranges,"",%progbits
+ 649 0000 24000000 		.4byte	0x24
+ 650 0004 0200     		.2byte	0x2
+ 651 0006 00000000 		.4byte	.Ldebug_info0
+ 652 000a 04       		.byte	0x4
+ 653 000b 00       		.byte	0
+ 654 000c 0000     		.2byte	0
+ 655 000e 0000     		.2byte	0
+ 656 0010 00000000 		.4byte	.LFB1
+ 657 0014 2C000000 		.4byte	.LFE1-.LFB1
+ 658 0018 00000000 		.4byte	.LFB2
+ 659 001c B4000000 		.4byte	.LFE2-.LFB2
+ 660 0020 00000000 		.4byte	0
+ 661 0024 00000000 		.4byte	0
+ 662              		.section	.debug_ranges,"",%progbits
+ 663              	.Ldebug_ranges0:
+ 664 0000 00000000 		.4byte	.LFB1
+ 665 0004 2C000000 		.4byte	.LFE1
+ 666 0008 00000000 		.4byte	.LFB2
+ 667 000c B4000000 		.4byte	.LFE2
+ 668 0010 00000000 		.4byte	0
+ 669 0014 00000000 		.4byte	0
+ 670              		.section	.debug_line,"",%progbits
+ 671              	.Ldebug_line0:
+ 672 0000 F4000000 		.section	.debug_str,"MS",%progbits,1
+ 672      0200BB00 
+ 672      00000201 
+ 672      FB0E0D00 
+ 672      01010101 
+ 673              	.LASF15:
+ 674 0000 666C6F61 		.ascii	"float64\000"
+ 674      74363400 
+ 675              	.LASF20:
+ 676 0008 76526566 		.ascii	"vReference\000"
+ 676      6572656E 
+ 676      636500
+ 677              	.LASF3:
+ 678 0013 73686F72 		.ascii	"short unsigned int\000"
+ 678      7420756E 
+ 678      7369676E 
+ 678      65642069 
+ 678      6E7400
+ 679              	.LASF13:
+ 680 0026 666C6F61 		.ascii	"float32\000"
+ 680      74333200 
+ 681              	.LASF14:
+ 682 002e 666C6F61 		.ascii	"float\000"
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccXR29JG.s 			page 16
+
+
+ 682      7400
+ 683              	.LASF1:
+ 684 0034 756E7369 		.ascii	"unsigned char\000"
+ 684      676E6564 
+ 684      20636861 
+ 684      7200
+ 685              	.LASF28:
+ 686 0042 6C6F6772 		.ascii	"logrT\000"
+ 686      5400
+ 687              	.LASF11:
+ 688 0048 696E7431 		.ascii	"int16\000"
+ 688      3600
+ 689              	.LASF5:
+ 690 004e 6C6F6E67 		.ascii	"long unsigned int\000"
+ 690      20756E73 
+ 690      69676E65 
+ 690      6420696E 
+ 690      7400
+ 691              	.LASF23:
+ 692 0060 74656D70 		.ascii	"temp\000"
+ 692      00
+ 693              	.LASF12:
+ 694 0065 696E7433 		.ascii	"int32\000"
+ 694      3200
+ 695              	.LASF26:
+ 696 006b 74656D70 		.ascii	"tempTR\000"
+ 696      545200
+ 697              	.LASF16:
+ 698 0072 646F7562 		.ascii	"double\000"
+ 698      6C6500
+ 699              	.LASF31:
+ 700 0079 433A5C55 		.ascii	"C:\\Users\\cdrow\\Downloads\\TJ Temperature Spatial"
+ 700      73657273 
+ 700      5C636472 
+ 700      6F775C44 
+ 700      6F776E6C 
+ 701 00a8 2050726F 		.ascii	" Profile Revised.cydsn\\TJ Temperature Spatial Prof"
+ 701      66696C65 
+ 701      20526576 
+ 701      69736564 
+ 701      2E637964 
+ 702 00da 696C652E 		.ascii	"ile.cydsn\000"
+ 702      63796473 
+ 702      6E00
+ 703              	.LASF2:
+ 704 00e4 73686F72 		.ascii	"short int\000"
+ 704      7420696E 
+ 704      7400
+ 705              	.LASF9:
+ 706 00ee 75696E74 		.ascii	"uint16\000"
+ 706      313600
+ 707              	.LASF10:
+ 708 00f5 75696E74 		.ascii	"uint32\000"
+ 708      333200
+ 709              	.LASF8:
+ 710 00fc 756E7369 		.ascii	"unsigned int\000"
+ 710      676E6564 
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccXR29JG.s 			page 17
+
+
+ 710      20696E74 
+ 710      00
+ 711              	.LASF7:
+ 712 0109 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 712      206C6F6E 
+ 712      6720756E 
+ 712      7369676E 
+ 712      65642069 
+ 713              	.LASF21:
+ 714 0120 76546865 		.ascii	"vThermistor\000"
+ 714      726D6973 
+ 714      746F7200 
+ 715              	.LASF24:
+ 716 012c 54686572 		.ascii	"Thermistor_1_GetResistance\000"
+ 716      6D697374 
+ 716      6F725F31 
+ 716      5F476574 
+ 716      52657369 
+ 717              	.LASF19:
+ 718 0147 73697A65 		.ascii	"sizetype\000"
+ 718      74797065 
+ 718      00
+ 719              	.LASF25:
+ 720 0150 54686572 		.ascii	"Thermistor_1_GetTemperature\000"
+ 720      6D697374 
+ 720      6F725F31 
+ 720      5F476574 
+ 720      54656D70 
+ 721              	.LASF6:
+ 722 016c 6C6F6E67 		.ascii	"long long int\000"
+ 722      206C6F6E 
+ 722      6720696E 
+ 722      7400
+ 723              	.LASF17:
+ 724 017a 63686172 		.ascii	"char\000"
+ 724      00
+ 725              	.LASF30:
+ 726 017f 47656E65 		.ascii	"Generated_Source\\PSoC4\\Thermistor_1.c\000"
+ 726      72617465 
+ 726      645F536F 
+ 726      75726365 
+ 726      5C50536F 
+ 727              	.LASF27:
+ 728 01a5 73744571 		.ascii	"stEqn\000"
+ 728      6E00
+ 729              	.LASF4:
+ 730 01ab 6C6F6E67 		.ascii	"long int\000"
+ 730      20696E74 
+ 730      00
+ 731              	.LASF22:
+ 732 01b4 72657354 		.ascii	"resT\000"
+ 732      00
+ 733              	.LASF18:
+ 734 01b9 6C6F6E67 		.ascii	"long double\000"
+ 734      20646F75 
+ 734      626C6500 
+ 735              	.LASF29:
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccXR29JG.s 			page 18
+
+
+ 736 01c5 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 736      43313120 
+ 736      352E342E 
+ 736      31203230 
+ 736      31363036 
+ 737 01f8 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 737      20726576 
+ 737      6973696F 
+ 737      6E203233 
+ 737      37373135 
+ 738 022b 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 738      67202D66 
+ 738      66756E63 
+ 738      74696F6E 
+ 738      2D736563 
+ 739              	.LASF0:
+ 740 0257 7369676E 		.ascii	"signed char\000"
+ 740      65642063 
+ 740      68617200 
+ 741              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
