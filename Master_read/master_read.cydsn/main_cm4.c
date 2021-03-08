@@ -77,10 +77,11 @@ int main(void)
            
             while(lowTemp && lowCurrent && !stopPlease){
                 ADC_1_StartConvert();
-                //ADC_1_IsEndConversion();
+                ADC_1_IsEndConversion(CY_SAR_WAIT_FOR_RESULT);
                 vmShunt = ADC_1_GetResult32(0);
                 ADC_1_StopConvert();
                 vmShV = ADC_1_CountsTo_mVolts(0, vmShunt);
+                vmShV = 
                 
                 
                 register_setting.slaveAddress = 0x08;
