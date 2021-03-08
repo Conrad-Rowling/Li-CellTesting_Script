@@ -1,0 +1,1319 @@
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccHDp8Tk.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Shutdown_Test,"ax",%progbits
+  20              		.align	2
+  21              		.global	Shutdown_Test
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	Shutdown_Test, %function
+  25              	Shutdown_Test:
+  26              	.LFB34:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include <project.h>
+  13:main.c        **** #include <stdio.h>
+  14:main.c        **** #include <stdlib.h>
+  15:main.c        **** 
+  16:main.c        **** void Shutdown_Test()
+  17:main.c        **** {
+  28              		.loc 1 17 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  18:main.c        ****     RED_LED_Write(1);
+  36              		.loc 1 18 0
+  37 0002 0120     		movs	r0, #1
+  38 0004 FFF7FEFF 		bl	RED_LED_Write
+  39              	.LVL0:
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccHDp8Tk.s 			page 2
+
+
+  19:main.c        ****     RELAY_Write(0);
+  40              		.loc 1 19 0
+  41 0008 0020     		movs	r0, #0
+  42 000a FFF7FEFF 		bl	RELAY_Write
+  43              	.LVL1:
+  20:main.c        **** }
+  44              		.loc 1 20 0
+  45              		@ sp needed
+  46 000e 10BD     		pop	{r4, pc}
+  47              		.cfi_endproc
+  48              	.LFE34:
+  49              		.size	Shutdown_Test, .-Shutdown_Test
+  50              		.section	.text.Print_headers,"ax",%progbits
+  51              		.align	2
+  52              		.global	Print_headers
+  53              		.code	16
+  54              		.thumb_func
+  55              		.type	Print_headers, %function
+  56              	Print_headers:
+  57              	.LFB35:
+  21:main.c        **** void Print_headers(uint length)
+  22:main.c        **** {
+  58              		.loc 1 22 0
+  59              		.cfi_startproc
+  60              		@ args = 0, pretend = 0, frame = 64
+  61              		@ frame_needed = 0, uses_anonymous_args = 0
+  62              	.LVL2:
+  63 0000 30B5     		push	{r4, r5, lr}
+  64              		.cfi_def_cfa_offset 12
+  65              		.cfi_offset 4, -12
+  66              		.cfi_offset 5, -8
+  67              		.cfi_offset 14, -4
+  68 0002 91B0     		sub	sp, sp, #68
+  69              		.cfi_def_cfa_offset 80
+  70 0004 0500     		movs	r5, r0
+  23:main.c        ****     char hstr[60]; 
+  24:main.c        ****     sprintf(hstr,"\r\n");
+  71              		.loc 1 24 0
+  72 0006 01A8     		add	r0, sp, #4
+  73              	.LVL3:
+  74 0008 124B     		ldr	r3, .L5
+  75 000a 1A88     		ldrh	r2, [r3]
+  76 000c 0280     		strh	r2, [r0]
+  77 000e 9B78     		ldrb	r3, [r3, #2]
+  78 0010 8370     		strb	r3, [r0, #2]
+  25:main.c        ****     UART_1_UartPutString(hstr);
+  79              		.loc 1 25 0
+  80 0012 FFF7FEFF 		bl	UART_1_UartPutString
+  81              	.LVL4:
+  82              	.LBB2:
+  26:main.c        ****     
+  27:main.c        ****     for (uint i = 0; i < length; i++){
+  83              		.loc 1 27 0
+  84 0016 0024     		movs	r4, #0
+  85 0018 0CE0     		b	.L3
+  86              	.LVL5:
+  87              	.L4:
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccHDp8Tk.s 			page 3
+
+
+  28:main.c        ****         sprintf(hstr,"T%d, T%d-1, ", i, i);
+  88              		.loc 1 28 0 discriminator 3
+  89 001a 2300     		movs	r3, r4
+  90 001c 2200     		movs	r2, r4
+  91 001e 0E49     		ldr	r1, .L5+4
+  92 0020 01A8     		add	r0, sp, #4
+  93 0022 FFF7FEFF 		bl	sprintf
+  94              	.LVL6:
+  29:main.c        ****         UART_1_UartPutString(hstr);
+  95              		.loc 1 29 0 discriminator 3
+  96 0026 01A8     		add	r0, sp, #4
+  97 0028 FFF7FEFF 		bl	UART_1_UartPutString
+  98              	.LVL7:
+  30:main.c        ****         CyDelay(10);
+  99              		.loc 1 30 0 discriminator 3
+ 100 002c 0A20     		movs	r0, #10
+ 101 002e FFF7FEFF 		bl	CyDelay
+ 102              	.LVL8:
+  27:main.c        ****         sprintf(hstr,"T%d, T%d-1, ", i, i);
+ 103              		.loc 1 27 0 discriminator 3
+ 104 0032 0134     		adds	r4, r4, #1
+ 105              	.LVL9:
+ 106              	.L3:
+  27:main.c        ****         sprintf(hstr,"T%d, T%d-1, ", i, i);
+ 107              		.loc 1 27 0 is_stmt 0 discriminator 1
+ 108 0034 AC42     		cmp	r4, r5
+ 109 0036 F0D3     		bcc	.L4
+ 110              	.LBE2:
+  31:main.c        ****         }
+  32:main.c        ****     sprintf(hstr,"batV, Current \r\n");
+ 111              		.loc 1 32 0 is_stmt 1
+ 112 0038 01A8     		add	r0, sp, #4
+ 113 003a 084B     		ldr	r3, .L5+8
+ 114 003c 0200     		movs	r2, r0
+ 115 003e 32CB     		ldmia	r3!, {r1, r4, r5}
+ 116 0040 32C2     		stmia	r2!, {r1, r4, r5}
+ 117              	.LVL10:
+ 118 0042 1900     		movs	r1, r3
+ 119 0044 1B68     		ldr	r3, [r3]
+ 120 0046 1360     		str	r3, [r2]
+ 121 0048 0B79     		ldrb	r3, [r1, #4]
+ 122 004a 1371     		strb	r3, [r2, #4]
+  33:main.c        ****     UART_1_UartPutString(hstr);
+ 123              		.loc 1 33 0
+ 124 004c FFF7FEFF 		bl	UART_1_UartPutString
+ 125              	.LVL11:
+  34:main.c        ****     
+  35:main.c        **** }
+ 126              		.loc 1 35 0
+ 127 0050 11B0     		add	sp, sp, #68
+ 128              		@ sp needed
+ 129 0052 30BD     		pop	{r4, r5, pc}
+ 130              	.L6:
+ 131              		.align	2
+ 132              	.L5:
+ 133 0054 00000000 		.word	.LC0
+ 134 0058 04000000 		.word	.LC2
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccHDp8Tk.s 			page 4
+
+
+ 135 005c 14000000 		.word	.LC4
+ 136              		.cfi_endproc
+ 137              	.LFE35:
+ 138              		.size	Print_headers, .-Print_headers
+ 139              		.section	.text.main,"ax",%progbits
+ 140              		.align	2
+ 141              		.global	main
+ 142              		.code	16
+ 143              		.thumb_func
+ 144              		.type	main, %function
+ 145              	main:
+ 146              	.LFB36:
+  36:main.c        **** 
+  37:main.c        **** int main (void)
+  38:main.c        **** {
+ 147              		.loc 1 38 0
+ 148              		.cfi_startproc
+ 149              		@ args = 0, pretend = 0, frame = 24
+ 150              		@ frame_needed = 0, uses_anonymous_args = 0
+ 151 0000 00B5     		push	{lr}
+ 152              		.cfi_def_cfa_offset 4
+ 153              		.cfi_offset 14, -4
+ 154 0002 87B0     		sub	sp, sp, #28
+ 155              		.cfi_def_cfa_offset 32
+  39:main.c        ****     int time;
+  40:main.c        ****     char string[20];
+  41:main.c        ****     Opamp_1_Start();
+ 156              		.loc 1 41 0
+ 157 0004 FFF7FEFF 		bl	Opamp_1_Start
+ 158              	.LVL12:
+  42:main.c        ****     PGA_1_Start();
+ 159              		.loc 1 42 0
+ 160 0008 FFF7FEFF 		bl	PGA_1_Start
+ 161              	.LVL13:
+  43:main.c        ****     Timer_1_Start();
+ 162              		.loc 1 43 0
+ 163 000c FFF7FEFF 		bl	Timer_1_Start
+ 164              	.LVL14:
+  44:main.c        ****     UART_1_Start();
+ 165              		.loc 1 44 0
+ 166 0010 FFF7FEFF 		bl	UART_1_Start
+ 167              	.LVL15:
+  45:main.c        ****     RED_LED_Write(0);
+ 168              		.loc 1 45 0
+ 169 0014 0020     		movs	r0, #0
+ 170 0016 FFF7FEFF 		bl	RED_LED_Write
+ 171              	.LVL16:
+  46:main.c        ****     //RELAY_Write(0);
+  47:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+ 172              		.loc 1 47 0
+ 173              		.syntax divided
+ 174              	@ 47 "main.c" 1
+ 175 001a 62B6     		CPSIE   i
+ 176              	@ 0 "" 2
+ 177              		.thumb
+ 178              		.syntax unified
+ 179              	.L8:
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccHDp8Tk.s 			page 5
+
+
+  48:main.c        **** 
+  49:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  50:main.c        **** 
+  51:main.c        ****     for(;;)
+  52:main.c        ****     {
+  53:main.c        ****         time = Timer_1_ReadCounter();
+ 180              		.loc 1 53 0 discriminator 1
+ 181 001c FFF7FEFF 		bl	Timer_1_ReadCounter
+ 182              	.LVL17:
+ 183 0020 0200     		movs	r2, r0
+ 184              	.LVL18:
+  54:main.c        ****         sprintf(string, "Voltage = %d \r\n", time); 
+ 185              		.loc 1 54 0 discriminator 1
+ 186 0022 0A49     		ldr	r1, .L9
+ 187 0024 01A8     		add	r0, sp, #4
+ 188              	.LVL19:
+ 189 0026 FFF7FEFF 		bl	sprintf
+ 190              	.LVL20:
+  55:main.c        ****         UART_1_UartPutString(string);
+ 191              		.loc 1 55 0 discriminator 1
+ 192 002a 01A8     		add	r0, sp, #4
+ 193 002c FFF7FEFF 		bl	UART_1_UartPutString
+ 194              	.LVL21:
+  56:main.c        ****         UART_1_UartPutString("\n\r");
+ 195              		.loc 1 56 0 discriminator 1
+ 196 0030 0748     		ldr	r0, .L9+4
+ 197 0032 FFF7FEFF 		bl	UART_1_UartPutString
+ 198              	.LVL22:
+  57:main.c        ****         RED_LED_Write(0);
+ 199              		.loc 1 57 0 discriminator 1
+ 200 0036 0020     		movs	r0, #0
+ 201 0038 FFF7FEFF 		bl	RED_LED_Write
+ 202              	.LVL23:
+  58:main.c        ****         CyDelay(1000);
+ 203              		.loc 1 58 0 discriminator 1
+ 204 003c FA20     		movs	r0, #250
+ 205 003e 8000     		lsls	r0, r0, #2
+ 206 0040 FFF7FEFF 		bl	CyDelay
+ 207              	.LVL24:
+  59:main.c        ****         RED_LED_Write(1);
+ 208              		.loc 1 59 0 discriminator 1
+ 209 0044 0120     		movs	r0, #1
+ 210 0046 FFF7FEFF 		bl	RED_LED_Write
+ 211              	.LVL25:
+ 212 004a E7E7     		b	.L8
+ 213              	.L10:
+ 214              		.align	2
+ 215              	.L9:
+ 216 004c 28000000 		.word	.LC6
+ 217 0050 38000000 		.word	.LC8
+ 218              		.cfi_endproc
+ 219              	.LFE36:
+ 220              		.size	main, .-main
+ 221              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 222              		.align	2
+ 223              	.LC0:
+ 224 0000 0D0A00   		.ascii	"\015\012\000"
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccHDp8Tk.s 			page 6
+
+
+ 225 0003 00       		.space	1
+ 226              	.LC2:
+ 227 0004 5425642C 		.ascii	"T%d, T%d-1, \000"
+ 227      20542564 
+ 227      2D312C20 
+ 227      00
+ 228 0011 000000   		.space	3
+ 229              	.LC4:
+ 230 0014 62617456 		.ascii	"batV, Current \015\012\000"
+ 230      2C204375 
+ 230      7272656E 
+ 230      74200D0A 
+ 230      00
+ 231 0025 000000   		.space	3
+ 232              	.LC6:
+ 233 0028 566F6C74 		.ascii	"Voltage = %d \015\012\000"
+ 233      61676520 
+ 233      3D202564 
+ 233      200D0A00 
+ 234              	.LC8:
+ 235 0038 0A0D00   		.ascii	"\012\015\000"
+ 236              		.text
+ 237              	.Letext0:
+ 238              		.file 2 "Generated_Source\\PSoC4/RED_LED.h"
+ 239              		.file 3 "Generated_Source\\PSoC4/RELAY.h"
+ 240              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 241              		.file 5 "Generated_Source\\PSoC4/UART_1_SPI_UART.h"
+ 242              		.file 6 "Generated_Source\\PSoC4/CyLib.h"
+ 243              		.file 7 "Generated_Source\\PSoC4/Opamp_1.h"
+ 244              		.file 8 "Generated_Source\\PSoC4/PGA_1.h"
+ 245              		.file 9 "Generated_Source\\PSoC4/Timer_1.h"
+ 246              		.file 10 "Generated_Source\\PSoC4/UART_1.h"
+ 247              		.file 11 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4
+ 248              		.section	.debug_info,"",%progbits
+ 249              	.Ldebug_info0:
+ 250 0000 18030000 		.4byte	0x318
+ 251 0004 0400     		.2byte	0x4
+ 252 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 253 000a 04       		.byte	0x4
+ 254 000b 01       		.uleb128 0x1
+ 255 000c 9E010000 		.4byte	.LASF27
+ 256 0010 0C       		.byte	0xc
+ 257 0011 53010000 		.4byte	.LASF28
+ 258 0015 B4000000 		.4byte	.LASF29
+ 259 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 260 001d 00000000 		.4byte	0
+ 261 0021 00000000 		.4byte	.Ldebug_line0
+ 262 0025 02       		.uleb128 0x2
+ 263 0026 01       		.byte	0x1
+ 264 0027 06       		.byte	0x6
+ 265 0028 30020000 		.4byte	.LASF0
+ 266 002c 02       		.uleb128 0x2
+ 267 002d 01       		.byte	0x1
+ 268 002e 08       		.byte	0x8
+ 269 002f 73000000 		.4byte	.LASF1
+ 270 0033 02       		.uleb128 0x2
+ 271 0034 02       		.byte	0x2
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccHDp8Tk.s 			page 7
+
+
+ 272 0035 05       		.byte	0x5
+ 273 0036 73010000 		.4byte	.LASF2
+ 274 003a 02       		.uleb128 0x2
+ 275 003b 02       		.byte	0x2
+ 276 003c 07       		.byte	0x7
+ 277 003d A1000000 		.4byte	.LASF3
+ 278 0041 02       		.uleb128 0x2
+ 279 0042 04       		.byte	0x4
+ 280 0043 05       		.byte	0x5
+ 281 0044 4A000000 		.4byte	.LASF4
+ 282 0048 02       		.uleb128 0x2
+ 283 0049 04       		.byte	0x4
+ 284 004a 07       		.byte	0x7
+ 285 004b 8F000000 		.4byte	.LASF5
+ 286 004f 02       		.uleb128 0x2
+ 287 0050 08       		.byte	0x8
+ 288 0051 05       		.byte	0x5
+ 289 0052 45010000 		.4byte	.LASF6
+ 290 0056 02       		.uleb128 0x2
+ 291 0057 08       		.byte	0x8
+ 292 0058 07       		.byte	0x7
+ 293 0059 12010000 		.4byte	.LASF7
+ 294 005d 03       		.uleb128 0x3
+ 295 005e 04       		.byte	0x4
+ 296 005f 05       		.byte	0x5
+ 297 0060 696E7400 		.ascii	"int\000"
+ 298 0064 02       		.uleb128 0x2
+ 299 0065 04       		.byte	0x4
+ 300 0066 07       		.byte	0x7
+ 301 0067 05010000 		.4byte	.LASF8
+ 302 006b 02       		.uleb128 0x2
+ 303 006c 04       		.byte	0x4
+ 304 006d 04       		.byte	0x4
+ 305 006e 6D000000 		.4byte	.LASF9
+ 306 0072 02       		.uleb128 0x2
+ 307 0073 08       		.byte	0x8
+ 308 0074 04       		.byte	0x4
+ 309 0075 53000000 		.4byte	.LASF10
+ 310 0079 02       		.uleb128 0x2
+ 311 007a 01       		.byte	0x1
+ 312 007b 08       		.byte	0x8
+ 313 007c 5A010000 		.4byte	.LASF11
+ 314 0080 02       		.uleb128 0x2
+ 315 0081 08       		.byte	0x8
+ 316 0082 04       		.byte	0x4
+ 317 0083 92010000 		.4byte	.LASF12
+ 318 0087 02       		.uleb128 0x2
+ 319 0088 04       		.byte	0x4
+ 320 0089 07       		.byte	0x7
+ 321 008a 3C010000 		.4byte	.LASF13
+ 322 008e 04       		.uleb128 0x4
+ 323 008f 00010000 		.4byte	.LASF30
+ 324 0093 0B       		.byte	0xb
+ 325 0094 6C       		.byte	0x6c
+ 326 0095 64000000 		.4byte	0x64
+ 327 0099 05       		.uleb128 0x5
+ 328 009a 81000000 		.4byte	.LASF31
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccHDp8Tk.s 			page 8
+
+
+ 329 009e 01       		.byte	0x1
+ 330 009f 10       		.byte	0x10
+ 331 00a0 00000000 		.4byte	.LFB34
+ 332 00a4 10000000 		.4byte	.LFE34-.LFB34
+ 333 00a8 01       		.uleb128 0x1
+ 334 00a9 9C       		.byte	0x9c
+ 335 00aa D1000000 		.4byte	0xd1
+ 336 00ae 06       		.uleb128 0x6
+ 337 00af 08000000 		.4byte	.LVL0
+ 338 00b3 AA020000 		.4byte	0x2aa
+ 339 00b7 C1000000 		.4byte	0xc1
+ 340 00bb 07       		.uleb128 0x7
+ 341 00bc 01       		.uleb128 0x1
+ 342 00bd 50       		.byte	0x50
+ 343 00be 01       		.uleb128 0x1
+ 344 00bf 31       		.byte	0x31
+ 345 00c0 00       		.byte	0
+ 346 00c1 08       		.uleb128 0x8
+ 347 00c2 0E000000 		.4byte	.LVL1
+ 348 00c6 B5020000 		.4byte	0x2b5
+ 349 00ca 07       		.uleb128 0x7
+ 350 00cb 01       		.uleb128 0x1
+ 351 00cc 50       		.byte	0x50
+ 352 00cd 01       		.uleb128 0x1
+ 353 00ce 30       		.byte	0x30
+ 354 00cf 00       		.byte	0
+ 355 00d0 00       		.byte	0
+ 356 00d1 09       		.uleb128 0x9
+ 357 00d2 29010000 		.4byte	.LASF32
+ 358 00d6 01       		.byte	0x1
+ 359 00d7 15       		.byte	0x15
+ 360 00d8 00000000 		.4byte	.LFB35
+ 361 00dc 60000000 		.4byte	.LFE35-.LFB35
+ 362 00e0 01       		.uleb128 0x1
+ 363 00e1 9C       		.byte	0x9c
+ 364 00e2 94010000 		.4byte	0x194
+ 365 00e6 0A       		.uleb128 0xa
+ 366 00e7 7D010000 		.4byte	.LASF33
+ 367 00eb 01       		.byte	0x1
+ 368 00ec 15       		.byte	0x15
+ 369 00ed 8E000000 		.4byte	0x8e
+ 370 00f1 00000000 		.4byte	.LLST0
+ 371 00f5 0B       		.uleb128 0xb
+ 372 00f6 FB000000 		.4byte	.LASF14
+ 373 00fa 01       		.byte	0x1
+ 374 00fb 17       		.byte	0x17
+ 375 00fc 94010000 		.4byte	0x194
+ 376 0100 03       		.uleb128 0x3
+ 377 0101 91       		.byte	0x91
+ 378 0102 B47F     		.sleb128 -76
+ 379 0104 0C       		.uleb128 0xc
+ 380 0105 16000000 		.4byte	.LBB2
+ 381 0109 22000000 		.4byte	.LBE2-.LBB2
+ 382 010d 6D010000 		.4byte	0x16d
+ 383 0111 0D       		.uleb128 0xd
+ 384 0112 6900     		.ascii	"i\000"
+ 385 0114 01       		.byte	0x1
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccHDp8Tk.s 			page 9
+
+
+ 386 0115 1B       		.byte	0x1b
+ 387 0116 8E000000 		.4byte	0x8e
+ 388 011a 2C000000 		.4byte	.LLST1
+ 389 011e 06       		.uleb128 0x6
+ 390 011f 26000000 		.4byte	.LVL6
+ 391 0123 C0020000 		.4byte	0x2c0
+ 392 0127 48010000 		.4byte	0x148
+ 393 012b 07       		.uleb128 0x7
+ 394 012c 01       		.uleb128 0x1
+ 395 012d 50       		.byte	0x50
+ 396 012e 03       		.uleb128 0x3
+ 397 012f 91       		.byte	0x91
+ 398 0130 B47F     		.sleb128 -76
+ 399 0132 07       		.uleb128 0x7
+ 400 0133 01       		.uleb128 0x1
+ 401 0134 51       		.byte	0x51
+ 402 0135 05       		.uleb128 0x5
+ 403 0136 03       		.byte	0x3
+ 404 0137 04000000 		.4byte	.LC2
+ 405 013b 07       		.uleb128 0x7
+ 406 013c 01       		.uleb128 0x1
+ 407 013d 52       		.byte	0x52
+ 408 013e 02       		.uleb128 0x2
+ 409 013f 74       		.byte	0x74
+ 410 0140 00       		.sleb128 0
+ 411 0141 07       		.uleb128 0x7
+ 412 0142 01       		.uleb128 0x1
+ 413 0143 53       		.byte	0x53
+ 414 0144 02       		.uleb128 0x2
+ 415 0145 74       		.byte	0x74
+ 416 0146 00       		.sleb128 0
+ 417 0147 00       		.byte	0
+ 418 0148 06       		.uleb128 0x6
+ 419 0149 2C000000 		.4byte	.LVL7
+ 420 014d CB020000 		.4byte	0x2cb
+ 421 0151 5D010000 		.4byte	0x15d
+ 422 0155 07       		.uleb128 0x7
+ 423 0156 01       		.uleb128 0x1
+ 424 0157 50       		.byte	0x50
+ 425 0158 03       		.uleb128 0x3
+ 426 0159 91       		.byte	0x91
+ 427 015a B47F     		.sleb128 -76
+ 428 015c 00       		.byte	0
+ 429 015d 08       		.uleb128 0x8
+ 430 015e 32000000 		.4byte	.LVL8
+ 431 0162 D7020000 		.4byte	0x2d7
+ 432 0166 07       		.uleb128 0x7
+ 433 0167 01       		.uleb128 0x1
+ 434 0168 50       		.byte	0x50
+ 435 0169 01       		.uleb128 0x1
+ 436 016a 3A       		.byte	0x3a
+ 437 016b 00       		.byte	0
+ 438 016c 00       		.byte	0
+ 439 016d 06       		.uleb128 0x6
+ 440 016e 16000000 		.4byte	.LVL4
+ 441 0172 CB020000 		.4byte	0x2cb
+ 442 0176 82010000 		.4byte	0x182
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccHDp8Tk.s 			page 10
+
+
+ 443 017a 07       		.uleb128 0x7
+ 444 017b 01       		.uleb128 0x1
+ 445 017c 50       		.byte	0x50
+ 446 017d 03       		.uleb128 0x3
+ 447 017e 91       		.byte	0x91
+ 448 017f B47F     		.sleb128 -76
+ 449 0181 00       		.byte	0
+ 450 0182 08       		.uleb128 0x8
+ 451 0183 50000000 		.4byte	.LVL11
+ 452 0187 CB020000 		.4byte	0x2cb
+ 453 018b 07       		.uleb128 0x7
+ 454 018c 01       		.uleb128 0x1
+ 455 018d 50       		.byte	0x50
+ 456 018e 03       		.uleb128 0x3
+ 457 018f 91       		.byte	0x91
+ 458 0190 B47F     		.sleb128 -76
+ 459 0192 00       		.byte	0
+ 460 0193 00       		.byte	0
+ 461 0194 0E       		.uleb128 0xe
+ 462 0195 79000000 		.4byte	0x79
+ 463 0199 A4010000 		.4byte	0x1a4
+ 464 019d 0F       		.uleb128 0xf
+ 465 019e 87000000 		.4byte	0x87
+ 466 01a2 3B       		.byte	0x3b
+ 467 01a3 00       		.byte	0
+ 468 01a4 10       		.uleb128 0x10
+ 469 01a5 F6000000 		.4byte	.LASF34
+ 470 01a9 01       		.byte	0x1
+ 471 01aa 25       		.byte	0x25
+ 472 01ab 5D000000 		.4byte	0x5d
+ 473 01af 00000000 		.4byte	.LFB36
+ 474 01b3 54000000 		.4byte	.LFE36-.LFB36
+ 475 01b7 01       		.uleb128 0x1
+ 476 01b8 9C       		.byte	0x9c
+ 477 01b9 9A020000 		.4byte	0x29a
+ 478 01bd 11       		.uleb128 0x11
+ 479 01be 37010000 		.4byte	.LASF15
+ 480 01c2 01       		.byte	0x1
+ 481 01c3 27       		.byte	0x27
+ 482 01c4 5D000000 		.4byte	0x5d
+ 483 01c8 4B000000 		.4byte	.LLST2
+ 484 01cc 0B       		.uleb128 0xb
+ 485 01cd 5A000000 		.4byte	.LASF16
+ 486 01d1 01       		.byte	0x1
+ 487 01d2 28       		.byte	0x28
+ 488 01d3 9A020000 		.4byte	0x29a
+ 489 01d7 02       		.uleb128 0x2
+ 490 01d8 91       		.byte	0x91
+ 491 01d9 64       		.sleb128 -28
+ 492 01da 12       		.uleb128 0x12
+ 493 01db 08000000 		.4byte	.LVL12
+ 494 01df E2020000 		.4byte	0x2e2
+ 495 01e3 12       		.uleb128 0x12
+ 496 01e4 0C000000 		.4byte	.LVL13
+ 497 01e8 ED020000 		.4byte	0x2ed
+ 498 01ec 12       		.uleb128 0x12
+ 499 01ed 10000000 		.4byte	.LVL14
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccHDp8Tk.s 			page 11
+
+
+ 500 01f1 F8020000 		.4byte	0x2f8
+ 501 01f5 12       		.uleb128 0x12
+ 502 01f6 14000000 		.4byte	.LVL15
+ 503 01fa 04030000 		.4byte	0x304
+ 504 01fe 06       		.uleb128 0x6
+ 505 01ff 1A000000 		.4byte	.LVL16
+ 506 0203 AA020000 		.4byte	0x2aa
+ 507 0207 11020000 		.4byte	0x211
+ 508 020b 07       		.uleb128 0x7
+ 509 020c 01       		.uleb128 0x1
+ 510 020d 50       		.byte	0x50
+ 511 020e 01       		.uleb128 0x1
+ 512 020f 30       		.byte	0x30
+ 513 0210 00       		.byte	0
+ 514 0211 12       		.uleb128 0x12
+ 515 0212 20000000 		.4byte	.LVL17
+ 516 0216 0F030000 		.4byte	0x30f
+ 517 021a 06       		.uleb128 0x6
+ 518 021b 2A000000 		.4byte	.LVL20
+ 519 021f C0020000 		.4byte	0x2c0
+ 520 0223 37020000 		.4byte	0x237
+ 521 0227 07       		.uleb128 0x7
+ 522 0228 01       		.uleb128 0x1
+ 523 0229 50       		.byte	0x50
+ 524 022a 02       		.uleb128 0x2
+ 525 022b 91       		.byte	0x91
+ 526 022c 64       		.sleb128 -28
+ 527 022d 07       		.uleb128 0x7
+ 528 022e 01       		.uleb128 0x1
+ 529 022f 51       		.byte	0x51
+ 530 0230 05       		.uleb128 0x5
+ 531 0231 03       		.byte	0x3
+ 532 0232 28000000 		.4byte	.LC6
+ 533 0236 00       		.byte	0
+ 534 0237 06       		.uleb128 0x6
+ 535 0238 30000000 		.4byte	.LVL21
+ 536 023c CB020000 		.4byte	0x2cb
+ 537 0240 4B020000 		.4byte	0x24b
+ 538 0244 07       		.uleb128 0x7
+ 539 0245 01       		.uleb128 0x1
+ 540 0246 50       		.byte	0x50
+ 541 0247 02       		.uleb128 0x2
+ 542 0248 91       		.byte	0x91
+ 543 0249 64       		.sleb128 -28
+ 544 024a 00       		.byte	0
+ 545 024b 06       		.uleb128 0x6
+ 546 024c 36000000 		.4byte	.LVL22
+ 547 0250 CB020000 		.4byte	0x2cb
+ 548 0254 62020000 		.4byte	0x262
+ 549 0258 07       		.uleb128 0x7
+ 550 0259 01       		.uleb128 0x1
+ 551 025a 50       		.byte	0x50
+ 552 025b 05       		.uleb128 0x5
+ 553 025c 03       		.byte	0x3
+ 554 025d 38000000 		.4byte	.LC8
+ 555 0261 00       		.byte	0
+ 556 0262 06       		.uleb128 0x6
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccHDp8Tk.s 			page 12
+
+
+ 557 0263 3C000000 		.4byte	.LVL23
+ 558 0267 AA020000 		.4byte	0x2aa
+ 559 026b 75020000 		.4byte	0x275
+ 560 026f 07       		.uleb128 0x7
+ 561 0270 01       		.uleb128 0x1
+ 562 0271 50       		.byte	0x50
+ 563 0272 01       		.uleb128 0x1
+ 564 0273 30       		.byte	0x30
+ 565 0274 00       		.byte	0
+ 566 0275 06       		.uleb128 0x6
+ 567 0276 44000000 		.4byte	.LVL24
+ 568 027a D7020000 		.4byte	0x2d7
+ 569 027e 8A020000 		.4byte	0x28a
+ 570 0282 07       		.uleb128 0x7
+ 571 0283 01       		.uleb128 0x1
+ 572 0284 50       		.byte	0x50
+ 573 0285 03       		.uleb128 0x3
+ 574 0286 0A       		.byte	0xa
+ 575 0287 E803     		.2byte	0x3e8
+ 576 0289 00       		.byte	0
+ 577 028a 08       		.uleb128 0x8
+ 578 028b 4A000000 		.4byte	.LVL25
+ 579 028f AA020000 		.4byte	0x2aa
+ 580 0293 07       		.uleb128 0x7
+ 581 0294 01       		.uleb128 0x1
+ 582 0295 50       		.byte	0x50
+ 583 0296 01       		.uleb128 0x1
+ 584 0297 31       		.byte	0x31
+ 585 0298 00       		.byte	0
+ 586 0299 00       		.byte	0
+ 587 029a 0E       		.uleb128 0xe
+ 588 029b 79000000 		.4byte	0x79
+ 589 029f AA020000 		.4byte	0x2aa
+ 590 02a3 0F       		.uleb128 0xf
+ 591 02a4 87000000 		.4byte	0x87
+ 592 02a8 13       		.byte	0x13
+ 593 02a9 00       		.byte	0
+ 594 02aa 13       		.uleb128 0x13
+ 595 02ab 84010000 		.4byte	.LASF17
+ 596 02af 84010000 		.4byte	.LASF17
+ 597 02b3 02       		.byte	0x2
+ 598 02b4 33       		.byte	0x33
+ 599 02b5 13       		.uleb128 0x13
+ 600 02b6 61000000 		.4byte	.LASF18
+ 601 02ba 61000000 		.4byte	.LASF18
+ 602 02be 03       		.byte	0x3
+ 603 02bf 33       		.byte	0x33
+ 604 02c0 13       		.uleb128 0x13
+ 605 02c1 3C020000 		.4byte	.LASF19
+ 606 02c5 3C020000 		.4byte	.LASF19
+ 607 02c9 04       		.byte	0x4
+ 608 02ca E7       		.byte	0xe7
+ 609 02cb 14       		.uleb128 0x14
+ 610 02cc 35000000 		.4byte	.LASF20
+ 611 02d0 35000000 		.4byte	.LASF20
+ 612 02d4 05       		.byte	0x5
+ 613 02d5 2A03     		.2byte	0x32a
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccHDp8Tk.s 			page 13
+
+
+ 614 02d7 13       		.uleb128 0x13
+ 615 02d8 44020000 		.4byte	.LASF21
+ 616 02dc 44020000 		.4byte	.LASF21
+ 617 02e0 06       		.byte	0x6
+ 618 02e1 EC       		.byte	0xec
+ 619 02e2 13       		.uleb128 0x13
+ 620 02e3 27000000 		.4byte	.LASF22
+ 621 02e7 27000000 		.4byte	.LASF22
+ 622 02eb 07       		.byte	0x7
+ 623 02ec 29       		.byte	0x29
+ 624 02ed 13       		.uleb128 0x13
+ 625 02ee 00000000 		.4byte	.LASF23
+ 626 02f2 00000000 		.4byte	.LASF23
+ 627 02f6 08       		.byte	0x8
+ 628 02f7 37       		.byte	0x37
+ 629 02f8 14       		.uleb128 0x14
+ 630 02f9 19000000 		.4byte	.LASF24
+ 631 02fd 19000000 		.4byte	.LASF24
+ 632 0301 09       		.byte	0x9
+ 633 0302 3201     		.2byte	0x132
+ 634 0304 13       		.uleb128 0x13
+ 635 0305 0C000000 		.4byte	.LASF25
+ 636 0309 0C000000 		.4byte	.LASF25
+ 637 030d 0A       		.byte	0xa
+ 638 030e 72       		.byte	0x72
+ 639 030f 14       		.uleb128 0x14
+ 640 0310 5F010000 		.4byte	.LASF26
+ 641 0314 5F010000 		.4byte	.LASF26
+ 642 0318 09       		.byte	0x9
+ 643 0319 4B01     		.2byte	0x14b
+ 644 031b 00       		.byte	0
+ 645              		.section	.debug_abbrev,"",%progbits
+ 646              	.Ldebug_abbrev0:
+ 647 0000 01       		.uleb128 0x1
+ 648 0001 11       		.uleb128 0x11
+ 649 0002 01       		.byte	0x1
+ 650 0003 25       		.uleb128 0x25
+ 651 0004 0E       		.uleb128 0xe
+ 652 0005 13       		.uleb128 0x13
+ 653 0006 0B       		.uleb128 0xb
+ 654 0007 03       		.uleb128 0x3
+ 655 0008 0E       		.uleb128 0xe
+ 656 0009 1B       		.uleb128 0x1b
+ 657 000a 0E       		.uleb128 0xe
+ 658 000b 55       		.uleb128 0x55
+ 659 000c 17       		.uleb128 0x17
+ 660 000d 11       		.uleb128 0x11
+ 661 000e 01       		.uleb128 0x1
+ 662 000f 10       		.uleb128 0x10
+ 663 0010 17       		.uleb128 0x17
+ 664 0011 00       		.byte	0
+ 665 0012 00       		.byte	0
+ 666 0013 02       		.uleb128 0x2
+ 667 0014 24       		.uleb128 0x24
+ 668 0015 00       		.byte	0
+ 669 0016 0B       		.uleb128 0xb
+ 670 0017 0B       		.uleb128 0xb
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccHDp8Tk.s 			page 14
+
+
+ 671 0018 3E       		.uleb128 0x3e
+ 672 0019 0B       		.uleb128 0xb
+ 673 001a 03       		.uleb128 0x3
+ 674 001b 0E       		.uleb128 0xe
+ 675 001c 00       		.byte	0
+ 676 001d 00       		.byte	0
+ 677 001e 03       		.uleb128 0x3
+ 678 001f 24       		.uleb128 0x24
+ 679 0020 00       		.byte	0
+ 680 0021 0B       		.uleb128 0xb
+ 681 0022 0B       		.uleb128 0xb
+ 682 0023 3E       		.uleb128 0x3e
+ 683 0024 0B       		.uleb128 0xb
+ 684 0025 03       		.uleb128 0x3
+ 685 0026 08       		.uleb128 0x8
+ 686 0027 00       		.byte	0
+ 687 0028 00       		.byte	0
+ 688 0029 04       		.uleb128 0x4
+ 689 002a 16       		.uleb128 0x16
+ 690 002b 00       		.byte	0
+ 691 002c 03       		.uleb128 0x3
+ 692 002d 0E       		.uleb128 0xe
+ 693 002e 3A       		.uleb128 0x3a
+ 694 002f 0B       		.uleb128 0xb
+ 695 0030 3B       		.uleb128 0x3b
+ 696 0031 0B       		.uleb128 0xb
+ 697 0032 49       		.uleb128 0x49
+ 698 0033 13       		.uleb128 0x13
+ 699 0034 00       		.byte	0
+ 700 0035 00       		.byte	0
+ 701 0036 05       		.uleb128 0x5
+ 702 0037 2E       		.uleb128 0x2e
+ 703 0038 01       		.byte	0x1
+ 704 0039 3F       		.uleb128 0x3f
+ 705 003a 19       		.uleb128 0x19
+ 706 003b 03       		.uleb128 0x3
+ 707 003c 0E       		.uleb128 0xe
+ 708 003d 3A       		.uleb128 0x3a
+ 709 003e 0B       		.uleb128 0xb
+ 710 003f 3B       		.uleb128 0x3b
+ 711 0040 0B       		.uleb128 0xb
+ 712 0041 11       		.uleb128 0x11
+ 713 0042 01       		.uleb128 0x1
+ 714 0043 12       		.uleb128 0x12
+ 715 0044 06       		.uleb128 0x6
+ 716 0045 40       		.uleb128 0x40
+ 717 0046 18       		.uleb128 0x18
+ 718 0047 9742     		.uleb128 0x2117
+ 719 0049 19       		.uleb128 0x19
+ 720 004a 01       		.uleb128 0x1
+ 721 004b 13       		.uleb128 0x13
+ 722 004c 00       		.byte	0
+ 723 004d 00       		.byte	0
+ 724 004e 06       		.uleb128 0x6
+ 725 004f 898201   		.uleb128 0x4109
+ 726 0052 01       		.byte	0x1
+ 727 0053 11       		.uleb128 0x11
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccHDp8Tk.s 			page 15
+
+
+ 728 0054 01       		.uleb128 0x1
+ 729 0055 31       		.uleb128 0x31
+ 730 0056 13       		.uleb128 0x13
+ 731 0057 01       		.uleb128 0x1
+ 732 0058 13       		.uleb128 0x13
+ 733 0059 00       		.byte	0
+ 734 005a 00       		.byte	0
+ 735 005b 07       		.uleb128 0x7
+ 736 005c 8A8201   		.uleb128 0x410a
+ 737 005f 00       		.byte	0
+ 738 0060 02       		.uleb128 0x2
+ 739 0061 18       		.uleb128 0x18
+ 740 0062 9142     		.uleb128 0x2111
+ 741 0064 18       		.uleb128 0x18
+ 742 0065 00       		.byte	0
+ 743 0066 00       		.byte	0
+ 744 0067 08       		.uleb128 0x8
+ 745 0068 898201   		.uleb128 0x4109
+ 746 006b 01       		.byte	0x1
+ 747 006c 11       		.uleb128 0x11
+ 748 006d 01       		.uleb128 0x1
+ 749 006e 31       		.uleb128 0x31
+ 750 006f 13       		.uleb128 0x13
+ 751 0070 00       		.byte	0
+ 752 0071 00       		.byte	0
+ 753 0072 09       		.uleb128 0x9
+ 754 0073 2E       		.uleb128 0x2e
+ 755 0074 01       		.byte	0x1
+ 756 0075 3F       		.uleb128 0x3f
+ 757 0076 19       		.uleb128 0x19
+ 758 0077 03       		.uleb128 0x3
+ 759 0078 0E       		.uleb128 0xe
+ 760 0079 3A       		.uleb128 0x3a
+ 761 007a 0B       		.uleb128 0xb
+ 762 007b 3B       		.uleb128 0x3b
+ 763 007c 0B       		.uleb128 0xb
+ 764 007d 27       		.uleb128 0x27
+ 765 007e 19       		.uleb128 0x19
+ 766 007f 11       		.uleb128 0x11
+ 767 0080 01       		.uleb128 0x1
+ 768 0081 12       		.uleb128 0x12
+ 769 0082 06       		.uleb128 0x6
+ 770 0083 40       		.uleb128 0x40
+ 771 0084 18       		.uleb128 0x18
+ 772 0085 9742     		.uleb128 0x2117
+ 773 0087 19       		.uleb128 0x19
+ 774 0088 01       		.uleb128 0x1
+ 775 0089 13       		.uleb128 0x13
+ 776 008a 00       		.byte	0
+ 777 008b 00       		.byte	0
+ 778 008c 0A       		.uleb128 0xa
+ 779 008d 05       		.uleb128 0x5
+ 780 008e 00       		.byte	0
+ 781 008f 03       		.uleb128 0x3
+ 782 0090 0E       		.uleb128 0xe
+ 783 0091 3A       		.uleb128 0x3a
+ 784 0092 0B       		.uleb128 0xb
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccHDp8Tk.s 			page 16
+
+
+ 785 0093 3B       		.uleb128 0x3b
+ 786 0094 0B       		.uleb128 0xb
+ 787 0095 49       		.uleb128 0x49
+ 788 0096 13       		.uleb128 0x13
+ 789 0097 02       		.uleb128 0x2
+ 790 0098 17       		.uleb128 0x17
+ 791 0099 00       		.byte	0
+ 792 009a 00       		.byte	0
+ 793 009b 0B       		.uleb128 0xb
+ 794 009c 34       		.uleb128 0x34
+ 795 009d 00       		.byte	0
+ 796 009e 03       		.uleb128 0x3
+ 797 009f 0E       		.uleb128 0xe
+ 798 00a0 3A       		.uleb128 0x3a
+ 799 00a1 0B       		.uleb128 0xb
+ 800 00a2 3B       		.uleb128 0x3b
+ 801 00a3 0B       		.uleb128 0xb
+ 802 00a4 49       		.uleb128 0x49
+ 803 00a5 13       		.uleb128 0x13
+ 804 00a6 02       		.uleb128 0x2
+ 805 00a7 18       		.uleb128 0x18
+ 806 00a8 00       		.byte	0
+ 807 00a9 00       		.byte	0
+ 808 00aa 0C       		.uleb128 0xc
+ 809 00ab 0B       		.uleb128 0xb
+ 810 00ac 01       		.byte	0x1
+ 811 00ad 11       		.uleb128 0x11
+ 812 00ae 01       		.uleb128 0x1
+ 813 00af 12       		.uleb128 0x12
+ 814 00b0 06       		.uleb128 0x6
+ 815 00b1 01       		.uleb128 0x1
+ 816 00b2 13       		.uleb128 0x13
+ 817 00b3 00       		.byte	0
+ 818 00b4 00       		.byte	0
+ 819 00b5 0D       		.uleb128 0xd
+ 820 00b6 34       		.uleb128 0x34
+ 821 00b7 00       		.byte	0
+ 822 00b8 03       		.uleb128 0x3
+ 823 00b9 08       		.uleb128 0x8
+ 824 00ba 3A       		.uleb128 0x3a
+ 825 00bb 0B       		.uleb128 0xb
+ 826 00bc 3B       		.uleb128 0x3b
+ 827 00bd 0B       		.uleb128 0xb
+ 828 00be 49       		.uleb128 0x49
+ 829 00bf 13       		.uleb128 0x13
+ 830 00c0 02       		.uleb128 0x2
+ 831 00c1 17       		.uleb128 0x17
+ 832 00c2 00       		.byte	0
+ 833 00c3 00       		.byte	0
+ 834 00c4 0E       		.uleb128 0xe
+ 835 00c5 01       		.uleb128 0x1
+ 836 00c6 01       		.byte	0x1
+ 837 00c7 49       		.uleb128 0x49
+ 838 00c8 13       		.uleb128 0x13
+ 839 00c9 01       		.uleb128 0x1
+ 840 00ca 13       		.uleb128 0x13
+ 841 00cb 00       		.byte	0
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccHDp8Tk.s 			page 17
+
+
+ 842 00cc 00       		.byte	0
+ 843 00cd 0F       		.uleb128 0xf
+ 844 00ce 21       		.uleb128 0x21
+ 845 00cf 00       		.byte	0
+ 846 00d0 49       		.uleb128 0x49
+ 847 00d1 13       		.uleb128 0x13
+ 848 00d2 2F       		.uleb128 0x2f
+ 849 00d3 0B       		.uleb128 0xb
+ 850 00d4 00       		.byte	0
+ 851 00d5 00       		.byte	0
+ 852 00d6 10       		.uleb128 0x10
+ 853 00d7 2E       		.uleb128 0x2e
+ 854 00d8 01       		.byte	0x1
+ 855 00d9 3F       		.uleb128 0x3f
+ 856 00da 19       		.uleb128 0x19
+ 857 00db 03       		.uleb128 0x3
+ 858 00dc 0E       		.uleb128 0xe
+ 859 00dd 3A       		.uleb128 0x3a
+ 860 00de 0B       		.uleb128 0xb
+ 861 00df 3B       		.uleb128 0x3b
+ 862 00e0 0B       		.uleb128 0xb
+ 863 00e1 27       		.uleb128 0x27
+ 864 00e2 19       		.uleb128 0x19
+ 865 00e3 49       		.uleb128 0x49
+ 866 00e4 13       		.uleb128 0x13
+ 867 00e5 8701     		.uleb128 0x87
+ 868 00e7 19       		.uleb128 0x19
+ 869 00e8 11       		.uleb128 0x11
+ 870 00e9 01       		.uleb128 0x1
+ 871 00ea 12       		.uleb128 0x12
+ 872 00eb 06       		.uleb128 0x6
+ 873 00ec 40       		.uleb128 0x40
+ 874 00ed 18       		.uleb128 0x18
+ 875 00ee 9742     		.uleb128 0x2117
+ 876 00f0 19       		.uleb128 0x19
+ 877 00f1 01       		.uleb128 0x1
+ 878 00f2 13       		.uleb128 0x13
+ 879 00f3 00       		.byte	0
+ 880 00f4 00       		.byte	0
+ 881 00f5 11       		.uleb128 0x11
+ 882 00f6 34       		.uleb128 0x34
+ 883 00f7 00       		.byte	0
+ 884 00f8 03       		.uleb128 0x3
+ 885 00f9 0E       		.uleb128 0xe
+ 886 00fa 3A       		.uleb128 0x3a
+ 887 00fb 0B       		.uleb128 0xb
+ 888 00fc 3B       		.uleb128 0x3b
+ 889 00fd 0B       		.uleb128 0xb
+ 890 00fe 49       		.uleb128 0x49
+ 891 00ff 13       		.uleb128 0x13
+ 892 0100 02       		.uleb128 0x2
+ 893 0101 17       		.uleb128 0x17
+ 894 0102 00       		.byte	0
+ 895 0103 00       		.byte	0
+ 896 0104 12       		.uleb128 0x12
+ 897 0105 898201   		.uleb128 0x4109
+ 898 0108 00       		.byte	0
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccHDp8Tk.s 			page 18
+
+
+ 899 0109 11       		.uleb128 0x11
+ 900 010a 01       		.uleb128 0x1
+ 901 010b 31       		.uleb128 0x31
+ 902 010c 13       		.uleb128 0x13
+ 903 010d 00       		.byte	0
+ 904 010e 00       		.byte	0
+ 905 010f 13       		.uleb128 0x13
+ 906 0110 2E       		.uleb128 0x2e
+ 907 0111 00       		.byte	0
+ 908 0112 3F       		.uleb128 0x3f
+ 909 0113 19       		.uleb128 0x19
+ 910 0114 3C       		.uleb128 0x3c
+ 911 0115 19       		.uleb128 0x19
+ 912 0116 6E       		.uleb128 0x6e
+ 913 0117 0E       		.uleb128 0xe
+ 914 0118 03       		.uleb128 0x3
+ 915 0119 0E       		.uleb128 0xe
+ 916 011a 3A       		.uleb128 0x3a
+ 917 011b 0B       		.uleb128 0xb
+ 918 011c 3B       		.uleb128 0x3b
+ 919 011d 0B       		.uleb128 0xb
+ 920 011e 00       		.byte	0
+ 921 011f 00       		.byte	0
+ 922 0120 14       		.uleb128 0x14
+ 923 0121 2E       		.uleb128 0x2e
+ 924 0122 00       		.byte	0
+ 925 0123 3F       		.uleb128 0x3f
+ 926 0124 19       		.uleb128 0x19
+ 927 0125 3C       		.uleb128 0x3c
+ 928 0126 19       		.uleb128 0x19
+ 929 0127 6E       		.uleb128 0x6e
+ 930 0128 0E       		.uleb128 0xe
+ 931 0129 03       		.uleb128 0x3
+ 932 012a 0E       		.uleb128 0xe
+ 933 012b 3A       		.uleb128 0x3a
+ 934 012c 0B       		.uleb128 0xb
+ 935 012d 3B       		.uleb128 0x3b
+ 936 012e 05       		.uleb128 0x5
+ 937 012f 00       		.byte	0
+ 938 0130 00       		.byte	0
+ 939 0131 00       		.byte	0
+ 940              		.section	.debug_loc,"",%progbits
+ 941              	.Ldebug_loc0:
+ 942              	.LLST0:
+ 943 0000 00000000 		.4byte	.LVL2
+ 944 0004 08000000 		.4byte	.LVL3
+ 945 0008 0100     		.2byte	0x1
+ 946 000a 50       		.byte	0x50
+ 947 000b 08000000 		.4byte	.LVL3
+ 948 000f 42000000 		.4byte	.LVL10
+ 949 0013 0100     		.2byte	0x1
+ 950 0015 55       		.byte	0x55
+ 951 0016 42000000 		.4byte	.LVL10
+ 952 001a 60000000 		.4byte	.LFE35
+ 953 001e 0400     		.2byte	0x4
+ 954 0020 F3       		.byte	0xf3
+ 955 0021 01       		.uleb128 0x1
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccHDp8Tk.s 			page 19
+
+
+ 956 0022 50       		.byte	0x50
+ 957 0023 9F       		.byte	0x9f
+ 958 0024 00000000 		.4byte	0
+ 959 0028 00000000 		.4byte	0
+ 960              	.LLST1:
+ 961 002c 16000000 		.4byte	.LVL4
+ 962 0030 1A000000 		.4byte	.LVL5
+ 963 0034 0200     		.2byte	0x2
+ 964 0036 30       		.byte	0x30
+ 965 0037 9F       		.byte	0x9f
+ 966 0038 1A000000 		.4byte	.LVL5
+ 967 003c 42000000 		.4byte	.LVL10
+ 968 0040 0100     		.2byte	0x1
+ 969 0042 54       		.byte	0x54
+ 970 0043 00000000 		.4byte	0
+ 971 0047 00000000 		.4byte	0
+ 972              	.LLST2:
+ 973 004b 22000000 		.4byte	.LVL18
+ 974 004f 26000000 		.4byte	.LVL19
+ 975 0053 0100     		.2byte	0x1
+ 976 0055 50       		.byte	0x50
+ 977 0056 26000000 		.4byte	.LVL19
+ 978 005a 29000000 		.4byte	.LVL20-1
+ 979 005e 0100     		.2byte	0x1
+ 980 0060 52       		.byte	0x52
+ 981 0061 00000000 		.4byte	0
+ 982 0065 00000000 		.4byte	0
+ 983              		.section	.debug_aranges,"",%progbits
+ 984 0000 2C000000 		.4byte	0x2c
+ 985 0004 0200     		.2byte	0x2
+ 986 0006 00000000 		.4byte	.Ldebug_info0
+ 987 000a 04       		.byte	0x4
+ 988 000b 00       		.byte	0
+ 989 000c 0000     		.2byte	0
+ 990 000e 0000     		.2byte	0
+ 991 0010 00000000 		.4byte	.LFB34
+ 992 0014 10000000 		.4byte	.LFE34-.LFB34
+ 993 0018 00000000 		.4byte	.LFB35
+ 994 001c 60000000 		.4byte	.LFE35-.LFB35
+ 995 0020 00000000 		.4byte	.LFB36
+ 996 0024 54000000 		.4byte	.LFE36-.LFB36
+ 997 0028 00000000 		.4byte	0
+ 998 002c 00000000 		.4byte	0
+ 999              		.section	.debug_ranges,"",%progbits
+ 1000              	.Ldebug_ranges0:
+ 1001 0000 00000000 		.4byte	.LFB34
+ 1002 0004 10000000 		.4byte	.LFE34
+ 1003 0008 00000000 		.4byte	.LFB35
+ 1004 000c 60000000 		.4byte	.LFE35
+ 1005 0010 00000000 		.4byte	.LFB36
+ 1006 0014 54000000 		.4byte	.LFE36
+ 1007 0018 00000000 		.4byte	0
+ 1008 001c 00000000 		.4byte	0
+ 1009              		.section	.debug_line,"",%progbits
+ 1010              	.Ldebug_line0:
+ 1011 0000 07020000 		.section	.debug_str,"MS",%progbits,1
+ 1011      02008701 
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccHDp8Tk.s 			page 20
+
+
+ 1011      00000201 
+ 1011      FB0E0D00 
+ 1011      01010101 
+ 1012              	.LASF23:
+ 1013 0000 5047415F 		.ascii	"PGA_1_Start\000"
+ 1013      315F5374 
+ 1013      61727400 
+ 1014              	.LASF25:
+ 1015 000c 55415254 		.ascii	"UART_1_Start\000"
+ 1015      5F315F53 
+ 1015      74617274 
+ 1015      00
+ 1016              	.LASF24:
+ 1017 0019 54696D65 		.ascii	"Timer_1_Start\000"
+ 1017      725F315F 
+ 1017      53746172 
+ 1017      7400
+ 1018              	.LASF22:
+ 1019 0027 4F70616D 		.ascii	"Opamp_1_Start\000"
+ 1019      705F315F 
+ 1019      53746172 
+ 1019      7400
+ 1020              	.LASF20:
+ 1021 0035 55415254 		.ascii	"UART_1_UartPutString\000"
+ 1021      5F315F55 
+ 1021      61727450 
+ 1021      75745374 
+ 1021      72696E67 
+ 1022              	.LASF4:
+ 1023 004a 6C6F6E67 		.ascii	"long int\000"
+ 1023      20696E74 
+ 1023      00
+ 1024              	.LASF10:
+ 1025 0053 646F7562 		.ascii	"double\000"
+ 1025      6C6500
+ 1026              	.LASF16:
+ 1027 005a 73747269 		.ascii	"string\000"
+ 1027      6E6700
+ 1028              	.LASF18:
+ 1029 0061 52454C41 		.ascii	"RELAY_Write\000"
+ 1029      595F5772 
+ 1029      69746500 
+ 1030              	.LASF9:
+ 1031 006d 666C6F61 		.ascii	"float\000"
+ 1031      7400
+ 1032              	.LASF1:
+ 1033 0073 756E7369 		.ascii	"unsigned char\000"
+ 1033      676E6564 
+ 1033      20636861 
+ 1033      7200
+ 1034              	.LASF31:
+ 1035 0081 53687574 		.ascii	"Shutdown_Test\000"
+ 1035      646F776E 
+ 1035      5F546573 
+ 1035      7400
+ 1036              	.LASF5:
+ 1037 008f 6C6F6E67 		.ascii	"long unsigned int\000"
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccHDp8Tk.s 			page 21
+
+
+ 1037      20756E73 
+ 1037      69676E65 
+ 1037      6420696E 
+ 1037      7400
+ 1038              	.LASF3:
+ 1039 00a1 73686F72 		.ascii	"short unsigned int\000"
+ 1039      7420756E 
+ 1039      7369676E 
+ 1039      65642069 
+ 1039      6E7400
+ 1040              	.LASF29:
+ 1041 00b4 433A5C55 		.ascii	"C:\\Users\\cdrow\\Documents\\PSoC Creator\\PSOC4_Ma"
+ 1041      73657273 
+ 1041      5C636472 
+ 1041      6F775C44 
+ 1041      6F63756D 
+ 1042 00e2 696E5C50 		.ascii	"in\\PSOC4_Main.cydsn\000"
+ 1042      534F4334 
+ 1042      5F4D6169 
+ 1042      6E2E6379 
+ 1042      64736E00 
+ 1043              	.LASF34:
+ 1044 00f6 6D61696E 		.ascii	"main\000"
+ 1044      00
+ 1045              	.LASF14:
+ 1046 00fb 68737472 		.ascii	"hstr\000"
+ 1046      00
+ 1047              	.LASF30:
+ 1048 0100 75696E74 		.ascii	"uint\000"
+ 1048      00
+ 1049              	.LASF8:
+ 1050 0105 756E7369 		.ascii	"unsigned int\000"
+ 1050      676E6564 
+ 1050      20696E74 
+ 1050      00
+ 1051              	.LASF7:
+ 1052 0112 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1052      206C6F6E 
+ 1052      6720756E 
+ 1052      7369676E 
+ 1052      65642069 
+ 1053              	.LASF32:
+ 1054 0129 5072696E 		.ascii	"Print_headers\000"
+ 1054      745F6865 
+ 1054      61646572 
+ 1054      7300
+ 1055              	.LASF15:
+ 1056 0137 74696D65 		.ascii	"time\000"
+ 1056      00
+ 1057              	.LASF13:
+ 1058 013c 73697A65 		.ascii	"sizetype\000"
+ 1058      74797065 
+ 1058      00
+ 1059              	.LASF6:
+ 1060 0145 6C6F6E67 		.ascii	"long long int\000"
+ 1060      206C6F6E 
+ 1060      6720696E 
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccHDp8Tk.s 			page 22
+
+
+ 1060      7400
+ 1061              	.LASF28:
+ 1062 0153 6D61696E 		.ascii	"main.c\000"
+ 1062      2E6300
+ 1063              	.LASF11:
+ 1064 015a 63686172 		.ascii	"char\000"
+ 1064      00
+ 1065              	.LASF26:
+ 1066 015f 54696D65 		.ascii	"Timer_1_ReadCounter\000"
+ 1066      725F315F 
+ 1066      52656164 
+ 1066      436F756E 
+ 1066      74657200 
+ 1067              	.LASF2:
+ 1068 0173 73686F72 		.ascii	"short int\000"
+ 1068      7420696E 
+ 1068      7400
+ 1069              	.LASF33:
+ 1070 017d 6C656E67 		.ascii	"length\000"
+ 1070      746800
+ 1071              	.LASF17:
+ 1072 0184 5245445F 		.ascii	"RED_LED_Write\000"
+ 1072      4C45445F 
+ 1072      57726974 
+ 1072      6500
+ 1073              	.LASF12:
+ 1074 0192 6C6F6E67 		.ascii	"long double\000"
+ 1074      20646F75 
+ 1074      626C6500 
+ 1075              	.LASF27:
+ 1076 019e 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1076      43313120 
+ 1076      352E342E 
+ 1076      31203230 
+ 1076      31363036 
+ 1077 01d1 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 1077      20726576 
+ 1077      6973696F 
+ 1077      6E203233 
+ 1077      37373135 
+ 1078 0204 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 1078      67202D66 
+ 1078      66756E63 
+ 1078      74696F6E 
+ 1078      2D736563 
+ 1079              	.LASF0:
+ 1080 0230 7369676E 		.ascii	"signed char\000"
+ 1080      65642063 
+ 1080      68617200 
+ 1081              	.LASF19:
+ 1082 023c 73707269 		.ascii	"sprintf\000"
+ 1082      6E746600 
+ 1083              	.LASF21:
+ 1084 0244 43794465 		.ascii	"CyDelay\000"
+ 1084      6C617900 
+ 1085              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
