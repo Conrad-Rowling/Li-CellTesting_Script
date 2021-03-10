@@ -639,6 +639,9 @@
 #define Opamp_1_cy_psoc4_abuf__OA_SW CYREG_CTB0_OA0_SW
 #define Opamp_1_cy_psoc4_abuf__OA_SW_CLEAR CYREG_CTB0_OA0_SW_CLEAR
 
+/* PVref_1 */
+#define PVref_1_cy_psoc4_pref_PRB_REF CYREG_PASS_PRB_REF1
+
 /* RED_LED */
 #define RED_LED__0__DR CYREG_GPIO_PRT0_DR
 #define RED_LED__0__DR_CLR CYREG_GPIO_PRT0_DR_CLR
@@ -864,7 +867,6 @@
 #define CYDEV_DFT_SELECT_CLK1 9u
 #define CYDEV_DMA_CHANNELS_AVAILABLE 8
 #define CYDEV_HEAP_SIZE 0x200
-//#define CYDEV_HEAP_SIZE 0x80
 #define CYDEV_IMO_TRIMMED_BY_USB 0u
 #define CYDEV_IMO_TRIMMED_BY_WCO 0u
 #define CYDEV_INTR_NUMBER_DMA 12u

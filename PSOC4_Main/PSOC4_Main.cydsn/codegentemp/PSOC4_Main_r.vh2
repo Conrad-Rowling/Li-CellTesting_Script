@@ -1,5 +1,5 @@
 -- Project:   PSOC4_Main
--- Generated: 03/07/2021 20:55:10
+-- Generated: 03/09/2021 19:01:48
 -- PSoC Creator  4.4
 
 ENTITY PSOC4_Main IS
@@ -133,6 +133,7 @@ ARCHITECTURE __DEFAULT__ OF PSOC4_Main IS
     ATTRIBUTE Location OF CyDesignWideVoltageReference : LABEL IS "F(REF,0)";
     ATTRIBUTE Location OF \PGA_1:cy_psoc4_abuf\ : LABEL IS "F(OA,1)";
     ATTRIBUTE Location OF \Opamp_1:cy_psoc4_abuf\ : LABEL IS "F(OA,0)";
+    ATTRIBUTE Location OF \PVref_1:cy_psoc4_pref\ : LABEL IS "F(REF,1)";
     COMPONENT interrupt
         PORT (
             interrupt : IN std_ulogic;
@@ -1361,5 +1362,11 @@ BEGIN
             needs_dsab => 0)
         PORT MAP(
             ctb_dsi_comp => \Opamp_1:Net_12\);
+
+    \PVref_1:cy_psoc4_pref\:p4prefcell
+        GENERIC MAP(
+            cy_registers => "",
+            referenceid => 0,
+            tapid => 0);
 
 END __DEFAULT__;

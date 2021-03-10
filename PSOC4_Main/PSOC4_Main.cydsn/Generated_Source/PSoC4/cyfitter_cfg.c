@@ -294,11 +294,15 @@ void AMux_1_Set(uint8 channel)
 {
 	switch (channel) {
 		case 0u:
-			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_OA0_SW, (0x02u));
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_OA0_SW, (0x80u));
+			CY_SET_REG32((void CYXDATA *)CYREG_ART_CTB0VREF_SW, (0x02u));
 			break;
 		case 1u:
-			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_OA1_SW, (0x200000u));
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_OA0_SW, (0x02u));
+			break;
+		case 2u:
 			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_OA0_SW, (0x20u));
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_OA1_SW, (0x200000u));
 			break;
 		default:
 			break;
@@ -323,11 +327,15 @@ void AMux_1_Unset(uint8 channel)
 {
 	switch (channel) {
 		case 0u:
-			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_OA0_SW_CLEAR, (0x02u));
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_OA0_SW_CLEAR, (0x80u));
+			CY_SET_REG32((void CYXDATA *)CYREG_ART_CTB0VREF_SW_CLR, (0x02u));
 			break;
 		case 1u:
-			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_OA1_SW_CLEAR, (0x200000u));
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_OA0_SW_CLEAR, (0x02u));
+			break;
+		case 2u:
 			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_OA0_SW_CLEAR, (0x20u));
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_OA1_SW_CLEAR, (0x200000u));
 			break;
 		default:
 			break;

@@ -1,5 +1,5 @@
 # PSOC4_Main
-# 2021-03-08 04:55:11Z
+# 2021-03-10 03:01:48Z
 
 # IO_0@[IOP=(0)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 0 0
@@ -26,3 +26,4 @@ set_location "\ADC_1:IRQ\" interrupt -1 -1 15
 set_location "CyDesignWideVoltageReference" p4prefcell -1 -1 0
 set_location "\PGA_1:cy_psoc4_abuf\" p4abufcell -1 -1 1
 set_location "\Opamp_1:cy_psoc4_abuf\" p4abufcell -1 -1 0
+set_location "\PVref_1:cy_psoc4_pref\" p4prefcell -1 -1 1

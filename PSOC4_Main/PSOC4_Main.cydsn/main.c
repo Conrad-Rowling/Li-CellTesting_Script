@@ -63,6 +63,8 @@ int main (void)
     CyGlobalIntEnable; /* Enable global interrupts. */
     
     uint32 vmShunt;
+    uint32 adcOffset;
+    float adcOff;
     float vmShmV;
     uint32 vmBat;
     float vmBatmV;
@@ -80,6 +82,7 @@ int main (void)
 
     for(;;)
     {
+        
         time = Timer_1_ReadCounter();
         RED_LED_Write(1);
         CyDelay(1000);
@@ -96,39 +99,55 @@ int main (void)
             Print_headers(35);
            
             while(lowTemp && lowCurrent && !stopPlease){
+                PVref_1_Start();
+                
                 time = Timer_1_ReadCounter();
                 sprintf(string1,"\r\n %d, ", time);
+                UART_1_UartPutString(string1);
                 
-                UART_1_UartPutString(string1);  
                 AMux_1_Select(1);
                 ADC_1_StartConvert();
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-                vmShunt = ADC_1_GetResult32(0);
+                adcOffset = ADC_1_GetResult32(0);
+                adcOff = ADC_1_CountsTo_mVolts(0, adcOffset);
+                adcOff = adcOff - 1200.0;
+                adcOff = 0;
                 ADC_1_StopConvert();
-                vmShmV = ADC_1_CountsTo_mVolts(0, vmShunt);
-                //vmShmV = vmShmV*60.0/(32.0*50.0);
-                sprintf(string1, "%3.3f, ", vmShmV);
+                sprintf(string1, "%3.3f, ", adcOff);
                 UART_1_UartPutString(string1);
-                
+                            
+                                
+                AMux_1_Select(2);
+                ADC_1_StartConvert();
+                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
+                vmBat = ADC_1_GetResult32(0);
+                ADC_1_StopConvert();
+                vmBatmV = ADC_1_CountsTo_mVolts(0, vmBat);
+                vmBatmV = vmBatmV - adcOff;
+                vmBatmV = vmBatmV/1000.0;
+                sprintf(string1, "%3.3f, ", vmBatmV);
+                UART_1_UartPutString(string1);
+               
                 AMux_1_Select(0);
                 ADC_1_StartConvert();
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vmShunt = ADC_1_GetResult32(0);
                 ADC_1_StopConvert();
-                vmBatmV = ADC_1_CountsTo_mVolts(0, vmShunt);
-                vmBatmV = vmBatmV/1000.0;
-                sprintf(string1, "%3.3f, ", vmBatmV);
+                vmShmV = ADC_1_CountsTo_mVolts(0, vmShunt);
+                vmShmV = vmShmV - adcOff;
+                vmShmV = vmShmV*60.0/(32.0*50.0);
+                sprintf(string1, "%3.3f, ", vmShmV);
                 UART_1_UartPutString(string1);
-                
+
                 I2C_1_I2CMasterReadBuf(0x08, batteryArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
                 for(uint i = 0; i < 32; i=i+2){
                     sprintf(string1, "%d.%d, ", batteryArray[i], batteryArray[i+1]);
-                    UART_1_UartPutString(string1);    
+                    //UART_1_UartPutString(string1);    
                 }
                 I2C_1_I2CMasterReadBuf(0x09, resistorArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
                 for(uint i = 0; i < 32; i=i+2){
                     sprintf(string1, "%d.%d, ", resistorArray[i], resistorArray[i+1]);
-                    UART_1_UartPutString(string1);    
+                    //UART_1_UartPutString(string1);    
                 }
                 sprintf(string1, "\r\n");
                 UART_1_UartPutString(string1);
@@ -141,6 +160,8 @@ int main (void)
                     Shutdown_Test();
                 }
             }
+            
+            
         }
         CyDelay(10);
         

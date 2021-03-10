@@ -46,6 +46,7 @@
 #include "Pin_2_aliases.h"
 #include "Opamp_1.h"
 #include "AMux_1.h"
+#include "PVref_1.h"
 #include "UART_1_SCBCLK.h"
 #include "UART_1_tx.h"
 #include "UART_1_tx_aliases.h"

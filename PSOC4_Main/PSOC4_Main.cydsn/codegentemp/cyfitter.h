@@ -639,6 +639,9 @@
 #define Opamp_1_cy_psoc4_abuf__OA_SW CYREG_CTB0_OA0_SW
 #define Opamp_1_cy_psoc4_abuf__OA_SW_CLEAR CYREG_CTB0_OA0_SW_CLEAR
 
+/* PVref_1 */
+#define PVref_1_cy_psoc4_pref_PRB_REF CYREG_PASS_PRB_REF1
+
 /* RED_LED */
 #define RED_LED__0__DR CYREG_GPIO_PRT0_DR
 #define RED_LED__0__DR_CLR CYREG_GPIO_PRT0_DR_CLR
