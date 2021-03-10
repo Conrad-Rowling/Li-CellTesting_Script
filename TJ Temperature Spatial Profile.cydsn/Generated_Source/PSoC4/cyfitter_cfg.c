@@ -228,13 +228,20 @@ static void AnalogSetDefault(void);
 static void AnalogSetDefault(void)
 {
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_CTB_CTRL, 0x80000000u);
-	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_OA0_SW, 0x20000010u);
-	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_CTBBUS_SW, 0x00000400u);
+	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_OA0_SW, 0x00080080u);
+	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_OA1_SW, 0x00040009u);
+	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_CTBBUS_SW, 0x00900000u);
+	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB1_CTB_CTRL, 0x80000000u);
+	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB1_OA1_SW, 0x00040260u);
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_CTRL, 0x80000000u);
-	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_SARMUXVPLUS_SW, 0x01000001u);
+	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_SARMUXVPLUS_SW, 0x01000002u);
+	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_SARMUXVMINUS_SW, 0x00000080u);
+	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_SARMUXCOREIO1_SW, 0x02000020u);
+	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_CTB0VREF_SW, 0x00000001u);
+	CY_SET_XTND_REG32((void CYFAR *)CYREG_SAR_CTRL, 0x80000000u);
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_PASS_CTRL, 0x00000003u);
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_PRB_CTRL, 0x80000001u);
-	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_PRB_REF0, 0x000000F1u);
+	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_PRB_REF1, 0x000000F1u);
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_DSAB_DSAB_CTRL, 0x00000020u);
 	SetAnalogRoutingPumps(1);
 }
@@ -270,6 +277,491 @@ void SetAnalogRoutingPumps(uint8 enabled)
 	CY_SET_XTND_REG32((void *)(CYREG_SAR_PUMP_CTRL), regValue);
 }
 
+
+#define CY_AMUX_UNUSED CYREG_CM0P_ROM_DWT
+/*******************************************************************************
+* Function Name: AMux_1_CYAMUXSIDE_A_Set
+********************************************************************************
+* Summary:
+*  This function is used to set a particular channel as active on the AMux.
+*
+* Parameters:  
+*   channel - The mux channel input to set as active
+*
+* Return:
+*   void
+*
+*******************************************************************************/
+void AMux_1_CYAMUXSIDE_A_Set(uint8 channel)
+{
+	switch (channel) {
+		case 0u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x04u));
+			break;
+		case 1u:
+			CY_SET_REG32((void CYXDATA *)CYREG_HSIOM_PORT_SEL3, (CY_GET_REG32((void CYXDATA *)CYREG_HSIOM_PORT_SEL3) | 0x70u));
+			break;
+		case 2u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x04u));
+			break;
+		case 3u:
+			CY_SET_REG32((void CYXDATA *)CYREG_HSIOM_PORT_SEL3, (CY_GET_REG32((void CYXDATA *)CYREG_HSIOM_PORT_SEL3) | 0x700u));
+			break;
+		case 4u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x04u));
+			break;
+		case 5u:
+			CY_SET_REG32((void CYXDATA *)CYREG_HSIOM_PORT_SEL3, (CY_GET_REG32((void CYXDATA *)CYREG_HSIOM_PORT_SEL3) | 0x7000u));
+			break;
+		case 6u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x04u));
+			break;
+		case 7u:
+			CY_SET_REG32((void CYXDATA *)CYREG_HSIOM_PORT_SEL3, (CY_GET_REG32((void CYXDATA *)CYREG_HSIOM_PORT_SEL3) | 0x70000u));
+			break;
+		case 8u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x04u));
+			break;
+		case 9u:
+			CY_SET_REG32((void CYXDATA *)CYREG_HSIOM_PORT_SEL3, (CY_GET_REG32((void CYXDATA *)CYREG_HSIOM_PORT_SEL3) | 0x07u));
+			break;
+		case 10u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x04u));
+			break;
+		case 11u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW, (0x80u));
+			break;
+		case 12u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x04u));
+			break;
+		case 13u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW, (0x40u));
+			break;
+		case 14u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x04u));
+			break;
+		case 15u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW, (0x20u));
+			break;
+		case 16u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x04u));
+			break;
+		case 17u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW, (0x10u));
+			break;
+		case 18u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x04u));
+			break;
+		case 19u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW, (0x08u));
+			break;
+		case 20u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x04u));
+			break;
+		case 21u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW, (0x04u));
+			break;
+		case 22u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x04u));
+			break;
+		case 23u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW, (0x02u));
+			break;
+		case 24u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x04u));
+			break;
+		case 25u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW, (0x01u));
+			break;
+		case 26u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x04u));
+			break;
+		case 27u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_OA1_SW, (0x04u));
+			break;
+		case 28u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x04u));
+			break;
+		case 29u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x08u));
+			break;
+		case 30u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x04u));
+			break;
+		case 31u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x02u));
+			break;
+		case 32u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x02u));
+			break;
+		default:
+			break;
+	}
+}
+
+/*******************************************************************************
+* Function Name: AMux_1_CYAMUXSIDE_A_Unset
+********************************************************************************
+* Summary:
+*  This function is used to clear a particular channel from being active on the
+*  AMux.
+*
+* Parameters:  
+*   channel - The mux channel input to mark inactive
+*
+* Return:
+*   void
+*
+*******************************************************************************/
+void AMux_1_CYAMUXSIDE_A_Unset(uint8 channel)
+{
+	switch (channel) {
+		case 0u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x04u));
+			break;
+		case 1u:
+			CY_SET_REG32((void CYXDATA *)CYREG_HSIOM_PORT_SEL3, (CY_GET_REG32((void CYXDATA *)CYREG_HSIOM_PORT_SEL3) & 0xffffff8fu));
+			break;
+		case 2u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x04u));
+			break;
+		case 3u:
+			CY_SET_REG32((void CYXDATA *)CYREG_HSIOM_PORT_SEL3, (CY_GET_REG32((void CYXDATA *)CYREG_HSIOM_PORT_SEL3) & 0xfffff8ffu));
+			break;
+		case 4u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x04u));
+			break;
+		case 5u:
+			CY_SET_REG32((void CYXDATA *)CYREG_HSIOM_PORT_SEL3, (CY_GET_REG32((void CYXDATA *)CYREG_HSIOM_PORT_SEL3) & 0xffff8fffu));
+			break;
+		case 6u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x04u));
+			break;
+		case 7u:
+			CY_SET_REG32((void CYXDATA *)CYREG_HSIOM_PORT_SEL3, (CY_GET_REG32((void CYXDATA *)CYREG_HSIOM_PORT_SEL3) & 0xfff8ffffu));
+			break;
+		case 8u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x04u));
+			break;
+		case 9u:
+			CY_SET_REG32((void CYXDATA *)CYREG_HSIOM_PORT_SEL3, (CY_GET_REG32((void CYXDATA *)CYREG_HSIOM_PORT_SEL3) & 0xfffffff8u));
+			break;
+		case 10u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x04u));
+			break;
+		case 11u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW_CLEAR, (0x80u));
+			break;
+		case 12u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x04u));
+			break;
+		case 13u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW_CLEAR, (0x40u));
+			break;
+		case 14u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x04u));
+			break;
+		case 15u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW_CLEAR, (0x20u));
+			break;
+		case 16u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x04u));
+			break;
+		case 17u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW_CLEAR, (0x10u));
+			break;
+		case 18u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x04u));
+			break;
+		case 19u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW_CLEAR, (0x08u));
+			break;
+		case 20u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x04u));
+			break;
+		case 21u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW_CLEAR, (0x04u));
+			break;
+		case 22u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x04u));
+			break;
+		case 23u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW_CLEAR, (0x02u));
+			break;
+		case 24u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x04u));
+			break;
+		case 25u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW_CLEAR, (0x01u));
+			break;
+		case 26u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x04u));
+			break;
+		case 27u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_OA1_SW_CLEAR, (0x04u));
+			break;
+		case 28u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x04u));
+			break;
+		case 29u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x08u));
+			break;
+		case 30u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x04u));
+			break;
+		case 31u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x02u));
+			break;
+		case 32u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x02u));
+			break;
+		default:
+			break;
+	}
+}
+
+/*******************************************************************************
+* Function Name: AMux_1_CYAMUXSIDE_B_Set
+********************************************************************************
+* Summary:
+*  This function is used to set a particular channel as active on the AMux.
+*
+* Parameters:  
+*   channel - The mux channel input to set as active
+*
+* Return:
+*   void
+*
+*******************************************************************************/
+void AMux_1_CYAMUXSIDE_B_Set(uint8 channel)
+{
+	switch (channel) {
+		case 0u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x200u));
+			break;
+		case 1u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x2000u));
+			break;
+		case 2u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x400u));
+			break;
+		case 3u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x2000u));
+			break;
+		case 4u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x800u));
+			break;
+		case 5u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x2000u));
+			break;
+		case 6u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x1000u));
+			break;
+		case 7u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x2000u));
+			break;
+		case 8u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x100u));
+			break;
+		case 9u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x2000u));
+			break;
+		case 10u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW, (0x80000u));
+			break;
+		case 11u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x2000u));
+			break;
+		case 12u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW, (0x8000u));
+			break;
+		case 13u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x2000u));
+			break;
+		case 14u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_OA1_SW, (0x02u));
+			break;
+		case 15u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x2000u));
+			break;
+		case 16u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_OA1_SW, (0x04u));
+			break;
+		case 17u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x2000u));
+			break;
+		case 18u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW, (0x20000u));
+			break;
+		case 19u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x2000u));
+			break;
+		case 20u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW, (0x2000u));
+			break;
+		case 21u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x2000u));
+			break;
+		case 22u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW, (0x10000u));
+			break;
+		case 23u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x2000u));
+			break;
+		case 24u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW, (0x1000u));
+			break;
+		case 25u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x2000u));
+			break;
+		case 26u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x4000u));
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x400000u));
+			break;
+		case 27u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x2000u));
+			break;
+		case 28u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x20000u));
+			break;
+		case 29u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x2000u));
+			break;
+		case 30u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x10000u));
+			break;
+		case 31u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH0, (0x2000u));
+			break;
+		case 32u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x10000u));
+			break;
+		default:
+			break;
+	}
+}
+
+/*******************************************************************************
+* Function Name: AMux_1_CYAMUXSIDE_B_Unset
+********************************************************************************
+* Summary:
+*  This function is used to clear a particular channel from being active on the
+*  AMux.
+*
+* Parameters:  
+*   channel - The mux channel input to mark inactive
+*
+* Return:
+*   void
+*
+*******************************************************************************/
+void AMux_1_CYAMUXSIDE_B_Unset(uint8 channel)
+{
+	switch (channel) {
+		case 0u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x200u));
+			break;
+		case 1u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x2000u));
+			break;
+		case 2u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x400u));
+			break;
+		case 3u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x2000u));
+			break;
+		case 4u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x800u));
+			break;
+		case 5u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x2000u));
+			break;
+		case 6u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x1000u));
+			break;
+		case 7u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x2000u));
+			break;
+		case 8u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x100u));
+			break;
+		case 9u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x2000u));
+			break;
+		case 10u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW_CLEAR, (0x80000u));
+			break;
+		case 11u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x2000u));
+			break;
+		case 12u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW_CLEAR, (0x8000u));
+			break;
+		case 13u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x2000u));
+			break;
+		case 14u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_OA1_SW_CLEAR, (0x02u));
+			break;
+		case 15u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x2000u));
+			break;
+		case 16u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_OA1_SW_CLEAR, (0x04u));
+			break;
+		case 17u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x2000u));
+			break;
+		case 18u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW_CLEAR, (0x20000u));
+			break;
+		case 19u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x2000u));
+			break;
+		case 20u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW_CLEAR, (0x2000u));
+			break;
+		case 21u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x2000u));
+			break;
+		case 22u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW_CLEAR, (0x10000u));
+			break;
+		case 23u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x2000u));
+			break;
+		case 24u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW_CLEAR, (0x1000u));
+			break;
+		case 25u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x2000u));
+			break;
+		case 26u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x4000u));
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x400000u));
+			break;
+		case 27u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x2000u));
+			break;
+		case 28u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x20000u));
+			break;
+		case 29u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x2000u));
+			break;
+		case 30u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x10000u));
+			break;
+		case 31u:
+			CY_SET_REG32((void CYXDATA *)CYREG_SAR_MUX_SWITCH_CLEAR0, (0x2000u));
+			break;
+		case 32u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x10000u));
+			break;
+		default:
+			break;
+	}
+}
 
 
 
@@ -308,15 +800,20 @@ void cyfitter_cfg(void)
 	/* Perform second pass device configuration. These items must be configured in specific order after the regular configuration is done. */
 	/* IOPINS0_0 Starting address: CYDEV_GPIO_PRT0_BASE */
 	CY_SET_REG32((void *)(CYDEV_GPIO_PRT0_BASE), 0x00000020u);
-	CY_SET_REG32((void *)(CYREG_GPIO_PRT0_PC), 0x00271036u);
+	CY_SET_REG32((void *)(CYREG_GPIO_PRT0_PC), 0x002711B6u);
+
+	/* IOPINS0_1 Starting address: CYDEV_GPIO_PRT1_BASE */
+	CY_SET_REG32((void *)(CYDEV_GPIO_PRT1_BASE), 0x000000FFu);
+	CY_SET_REG32((void *)(CYREG_GPIO_PRT1_PC2), 0x000000FFu);
 
 	/* IOPINS0_2 Starting address: CYDEV_GPIO_PRT2_BASE */
-	CY_SET_REG32((void *)(CYDEV_GPIO_PRT2_BASE), 0x000000A0u);
-	CY_SET_REG32((void *)(CYREG_GPIO_PRT2_PC2), 0x000000A0u);
+	CY_SET_REG32((void *)(CYDEV_GPIO_PRT2_BASE), 0x0000009Eu);
+	CY_SET_REG32((void *)(CYREG_GPIO_PRT2_PC2), 0x0000009Eu);
 
 	/* IOPINS0_3 Starting address: CYDEV_GPIO_PRT3_BASE */
-	CY_SET_REG32((void *)(CYDEV_GPIO_PRT3_BASE), 0x000000C0u);
+	CY_SET_REG32((void *)(CYDEV_GPIO_PRT3_BASE), 0x000000FFu);
 	CY_SET_REG32((void *)(CYREG_GPIO_PRT3_PC), 0x00900000u);
+	CY_SET_REG32((void *)(CYREG_GPIO_PRT3_PC2), 0x0000003Fu);
 
 
 	/* Setup clocks based on selections from Clock DWR */

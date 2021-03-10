@@ -1,5 +1,7 @@
 /* ========================================
  *
+ * Conrad Rowling, UC Davis, 2020
+ *
  * Copyright YOUR COMPANY, THE YEAR
  * All Rights Reserved
  * UNPUBLISHED, LICENSED SOFTWARE.

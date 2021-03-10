@@ -57,9 +57,9 @@ int16 Thermistor_1_GetTemperature(uint32 resT) ;
 #define Thermistor_1_K2C                    (273.15)
 #define Thermistor_1_SCALE                  (100)
 
-#define Thermistor_1_THA               (0.0008464531)
-#define Thermistor_1_THB               (0.0002613353)
-#define Thermistor_1_THC               (1.287261E-07)
+#define Thermistor_1_THA               (0.001013576)
+#define Thermistor_1_THB               (0.0002541277)
+#define Thermistor_1_THC               (-2.075161E-10)
 
 
 #endif /* CY_THERMISTOR_CALC_Thermistor_1_H */
