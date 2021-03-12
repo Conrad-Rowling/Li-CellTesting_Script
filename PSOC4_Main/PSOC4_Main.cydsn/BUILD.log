@@ -1,11 +1,11 @@
---------------- Build Started: 03/09/2021 19:07:40 Project: PSOC4_Main, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 03/11/2021 19:01:08 Project: PSOC4_Main, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m0plus -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0p\ARM_GCC_541\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM0p\ARM_GCC_541\Debug\main.o
 main.c: In function 'main':
-main.c:75:9: warning: unused variable 'addr' [-Wunused-variable]
+main.c:80:9: warning: unused variable 'addr' [-Wunused-variable]
      int addr;
          ^
-main.c:51:10: warning: unused variable 'string' [-Wunused-variable]
+main.c:57:10: warning: unused variable 'string' [-Wunused-variable]
      char string[20];
           ^
 arm-none-eabi-ar.exe -rs .\CortexM0p\ARM_GCC_541\Debug\PSOC4_Main.a .\CortexM0p\ARM_GCC_541\Debug\Clock_1.o .\CortexM0p\ARM_GCC_541\Debug\Timer_1.o .\CortexM0p\ARM_GCC_541\Debug\Timer_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\UART_1.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_SPI_UART.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_SPI_UART_INT.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_UART.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_BOOT.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_UART_BOOT.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_I2C_INT.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_I2C.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_I2C_BOOT.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_I2C_MASTER.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_BOOT.o .\CortexM0p\ARM_GCC_541\Debug\ADC_1.o .\CortexM0p\ARM_GCC_541\Debug\ADC_1_INIT.o .\CortexM0p\ARM_GCC_541\Debug\ADC_1_INT.o .\CortexM0p\ARM_GCC_541\Debug\ADC_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\PGA_1.o .\CortexM0p\ARM_GCC_541\Debug\PGA_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\Pin_1.o .\CortexM0p\ARM_GCC_541\Debug\Pin_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\Pin_2.o .\CortexM0p\ARM_GCC_541\Debug\Pin_2_PM.o .\CortexM0p\ARM_GCC_541\Debug\Opamp_1.o .\CortexM0p\ARM_GCC_541\Debug\Opamp_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\AMux_1.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_SCBCLK.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_tx.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_tx_PM.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_rx.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_rx_PM.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_SCBCLK.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_sda.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_sda_PM.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_scl.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_scl_PM.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_SCB_IRQ.o .\CortexM0p\ARM_GCC_541\Debug\ADC_1_intSarClock.o .\CortexM0p\ARM_GCC_541\Debug\ADC_1_IRQ.o .\CortexM0p\ARM_GCC_541\Debug\ADC_1_intUabClock.o .\CortexM0p\ARM_GCC_541\Debug\CyFlash.o .\CortexM0p\ARM_GCC_541\Debug\CyLib.o .\CortexM0p\ARM_GCC_541\Debug\cyPm.o .\CortexM0p\ARM_GCC_541\Debug\cyutils.o .\CortexM0p\ARM_GCC_541\Debug\CyDMA.o .\CortexM0p\ARM_GCC_541\Debug\CyLFClk.o .\CortexM0p\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM0p\ARM_GCC_541\Debug\RELAY.o .\CortexM0p\ARM_GCC_541\Debug\RELAY_PM.o .\CortexM0p\ARM_GCC_541\Debug\RED_LED.o .\CortexM0p\ARM_GCC_541\Debug\RED_LED_PM.o .\CortexM0p\ARM_GCC_541\Debug\PVref_1.o .\CortexM0p\ARM_GCC_541\Debug\PVref_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\CyBootAsmGnu.o
@@ -16,6 +16,6 @@ No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S C:\Users\cdrow\Documents\GitHub\Li-CellTesting_Script\PSOC4_Main\PSOC4_Main.cydsn\CortexM0p\ARM_GCC_541\Debug\PSOC4_Main.elf
-Flash used: 25732 of 32768 bytes (78.5%).
+Flash used: 26436 of 32768 bytes (80.7%).
 SRAM used: 2684 of 4096 bytes (65.5%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 03/09/2021 19:07:41 ---------------
+--------------- Build Succeeded: 03/11/2021 19:01:10 ---------------
