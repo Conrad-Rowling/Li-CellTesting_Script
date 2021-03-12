@@ -152,11 +152,11 @@ int main(void)
             tempArr[chan+1] = fracTemp;
             
             // Get thermistor number
-             //i = (chan/2) + 1;
+             i = (chan/2) + 1;
              //UART Transmission for Debug
-             //sprintf(string, "Therm %ld = %ld.%.2ld", i, decTemp, fracTemp); 
-             //UART_1_UartPutString(string);
-             //UART_1_UartPutString("\n\r");
+             sprintf(string, "Therm %ld = %ld.%.2ld", i, decTemp, fracTemp); 
+             UART_1_UartPutString(string);
+             UART_1_UartPutString("\n\r");
             
         }      
         
@@ -171,7 +171,7 @@ int main(void)
         PVref_1_Stop();
         
         /* Wait five seconds */
-        CyDelay(50);
+        CyDelay(500);
     }
 }
 

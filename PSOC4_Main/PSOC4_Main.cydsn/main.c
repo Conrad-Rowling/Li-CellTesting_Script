@@ -168,7 +168,7 @@ int main (void)
                 sprintf(string1, "\r\n");
                 UART_1_UartPutString(string1);
                 rxData = UART_1_UartGetChar();
-                CyDelay(50);
+                CyDelay(500);
                                 
                 if (rxData == 83){
                     stopPlease = true;

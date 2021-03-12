@@ -1,13 +1,13 @@
-Loading plugins phase: Elapsed time ==> 0s.218ms
+Loading plugins phase: Elapsed time ==> 0s.242ms
 <CYPRESSTAG name="CyDsfit arguments...">
 cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\cdrow\Documents\GitHub\Li-CellTesting_Script\PSOC4_Main\PSOC4_Main.cydsn\PSOC4_Main.cyprj -d CY8C4145LQI-PS433 -s C:\Users\cdrow\Documents\GitHub\Li-CellTesting_Script\PSOC4_Main\PSOC4_Main.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 </CYPRESSTAG>
 <CYPRESSTAG name="Design elaboration results...">
 </CYPRESSTAG>
-Elaboration phase: Elapsed time ==> 4s.730ms
+Elaboration phase: Elapsed time ==> 5s.696ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
-HDL generation phase: Elapsed time ==> 0s.266ms
+HDL generation phase: Elapsed time ==> 0s.380ms
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -41,7 +41,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\cdrow
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
-Thu Mar 11 19:43:35 2021
+Thu Mar 11 20:24:15 2021
 
 
 ======================================================================
@@ -51,7 +51,7 @@ Options  :    -yv2 -q10 PSOC4_Main.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
-Thu Mar 11 19:43:35 2021
+Thu Mar 11 20:24:15 2021
 
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'
@@ -90,7 +90,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\cdrow
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
-Thu Mar 11 19:43:35 2021
+Thu Mar 11 20:24:15 2021
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -124,7 +124,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\cdrow
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
-Thu Mar 11 19:43:37 2021
+Thu Mar 11 20:24:18 2021
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -296,10 +296,10 @@ CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\wa
 Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\bin\warp.exe
 Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\cdrow\Documents\GitHub\Li-CellTesting_Script\PSOC4_Main\PSOC4_Main.cydsn\PSOC4_Main.cyprj -dcpsoc3 PSOC4_Main.v -verilog
 </CYPRESSTAG>
-Warp synthesis phase: Elapsed time ==> 4s.253ms
+Warp synthesis phase: Elapsed time ==> 4s.317ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
-cyp3fit: V4.4.0.80, Family: PSoC3, Started at: Thursday, 11 March 2021 19:43:39
+cyp3fit: V4.4.0.80, Family: PSoC3, Started at: Thursday, 11 March 2021 20:24:19
 Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\cdrow\Documents\GitHub\Li-CellTesting_Script\PSOC4_Main\PSOC4_Main.cydsn\PSOC4_Main.cyprj -d CY8C4145LQI-PS433 PSOC4_Main.v -verilog
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
@@ -319,7 +319,7 @@ Done removing unused cells.
 <CYPRESSTAG name="UDB Clock/Enable Remapping Results">
 </CYPRESSTAG>
 </CYPRESSTAG>
-ADD: pft.M0040: information: The following 3 pin(s) will be assigned a location by the fitter: \ADC_1:Bypass(0)\, Pin_1(0), Pin_2(0)
+ADD: pft.M0040: information: The following 1 pin(s) will be assigned a location by the fitter: \ADC_1:Bypass(0)\
 
 
 Removing unused cells resulting from optimization
@@ -571,6 +571,9 @@ Design Equations
             pa_out => Pin_1(0)__PA ,
             analog_term => Net_1643 ,
             pad => Pin_1(0)_PAD );
+        Properties:
+        {
+        }
 
     Pin : Name = Pin_2(0)
         Attributes:
@@ -608,6 +611,9 @@ Design Equations
             pa_out => Pin_2(0)__PA ,
             analog_term => Net_1525 ,
             pad => Pin_2(0)_PAD );
+        Properties:
+        {
+        }
 
     Pin : Name = Pin_3(0)
         Attributes:
@@ -757,8 +763,8 @@ SAR ADC                       :    1 :    0 :    1 : 100.00 %
 DAC                           :      :      :      :        
   7-bit IDAC                  :    0 :    2 :    2 :  0.00 %
 </CYPRESSTAG>
-Technology Mapping: Elapsed time ==> 0s.082ms
-Tech Mapping phase: Elapsed time ==> 0s.116ms
+Technology Mapping: Elapsed time ==> 0s.070ms
+Tech Mapping phase: Elapsed time ==> 0s.104ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
 <CYPRESSTAG name="FFB & IO Pre Placement">
@@ -770,6 +776,8 @@ RELAY(0)                            : [IOP=(0)][IoId=(3)]
 RED_LED(0)                          : [IOP=(0)][IoId=(2)]                
 \I2C_1:sda(0)\                      : [IOP=(3)][IoId=(7)]                
 \I2C_1:scl(0)\                      : [IOP=(3)][IoId=(6)]                
+Pin_1(0)                            : [IOP=(2)][IoId=(4)]                
+Pin_2(0)                            : [IOP=(2)][IoId=(1)]                
 Pin_3(0)                            : [IOP=(0)][IoId=(5)]                
 Pin_4(0)                            : [IOP=(0)][IoId=(4)]                
 ClockGenBlock                       : CLK_GEN_[FFB(CLK_GEN,0)]           
@@ -782,22 +790,20 @@ CyDesignWideVoltageReference        : REF_PRB0.REF0
 \Opamp_1:cy_psoc4_abuf\             : OA_CTB0.OA1                        
 \ADC_1:vssa_kelvin_0\               : Vref_[FFB(Vref,0)]                 
 \ADC_1:Bypass(0)\                   : [IOP=(2)][IoId=(7)]                
-Pin_1(0)                            : [IOP=(2)][IoId=(0)]                
-Pin_2(0)                            : [IOP=(2)][IoId=(4)]                
 \Timer_1:cy_m0s8_tcpwm_1\           : TCPWM_[FFB(TCPWM,0)]               
 
 </CYPRESSTAG>
 </CYPRESSTAG>
 <CYPRESSTAG name="Real Analog Placement">
-Elapsed time ==> 0.2329299s
+Elapsed time ==> 0.1984288s
 </CYPRESSTAG>
-Analog Placement phase: Elapsed time ==> 0s.549ms
+Analog Placement phase: Elapsed time ==> 0s.493ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Routing">
 <CYPRESSTAG name="Analog Routing">
-Route success=True, Iterations=1 Elapsed=0.0186903 secs
+Route success=True, Iterations=1 Elapsed=0.0196501 secs
 </CYPRESSTAG>
-Analog Routing phase: Elapsed time ==> 0s.036ms
+Analog Routing phase: Elapsed time ==> 0s.027ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Code Generation">
 ============ Analog Final Answer Routes ============
@@ -816,9 +822,9 @@ Map of net to items {
     p2_1
   }
   Net: Net_1643 {
-    PASS0_CTB0_oa1_vplus
-    PASS0_CTB0_A23
     p2_4
+    PASS0_CTB0_A23
+    PASS0_CTB0_oa1_vplus
   }
   Net: Net_1652 {
     PASS0_ctb0_vout1
@@ -866,9 +872,9 @@ Map of item to net {
   PASS0_AROUTE0_SMP_SRP                            -> Net_1524
   PASS0_sar_vplus                                  -> Net_1524
   p2_1                                             -> Net_1525
-  PASS0_CTB0_oa1_vplus                             -> Net_1643
-  PASS0_CTB0_A23                                   -> Net_1643
   p2_4                                             -> Net_1643
+  PASS0_CTB0_A23                                   -> Net_1643
+  PASS0_CTB0_oa1_vplus                             -> Net_1643
   PASS0_ctb0_vout1                                 -> Net_1652
   PASS0_vref1                                      -> Net_1658
   PASS0_ext_vref0                                  -> \ADC_1:Net_408\
@@ -928,7 +934,7 @@ Mux Info {
     }
   }
 }
-Analog Code Generation phase: Elapsed time ==> 0s.030ms
+Analog Code Generation phase: Elapsed time ==> 0s.036ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="Detailed placement messages">
@@ -939,14 +945,14 @@ I2076: Total run-time: 0.2 sec.
 <CYPRESSTAG name="PLD Packing Summary">
 No PLDs were packed.
 </CYPRESSTAG>
-PLD Packing: Elapsed time ==> 0s.001ms
+PLD Packing: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Partitioning">
 <CYPRESSTAG name="Initial Partitioning Summary">
 Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
 <CYPRESSTAG name="Final Partitioning Summary">
 Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
-Partitioning: Elapsed time ==> 0s.011ms
+Partitioning: Elapsed time ==> 0s.024ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Final Placement Summary">
 
@@ -1603,8 +1609,8 @@ Port | Pin | Fixed |      Type |       Drive Mode |              Name | Connecti
      |   4 |     * |      NONE |     HI_Z_DIGITAL |          Pin_4(0) | FB(Net_1557)
      |   5 |     * |      NONE |         CMOS_OUT |          Pin_3(0) | In(Net_1566)
 -----+-----+-------+-----------+------------------+-------------------+------------------------
-   2 |   1 |       |      NONE |      HI_Z_ANALOG |          Pin_2(0) | Analog(Net_1525)
-     |   4 |       |      NONE |      HI_Z_ANALOG |          Pin_1(0) | Analog(Net_1643)
+   2 |   1 |     * |      NONE |      HI_Z_ANALOG |          Pin_2(0) | Analog(Net_1525)
+     |   4 |     * |      NONE |      HI_Z_ANALOG |          Pin_1(0) | Analog(Net_1643)
      |   7 |       |      NONE |      HI_Z_ANALOG | \ADC_1:Bypass(0)\ | Analog(\ADC_1:Net_408\)
 -----+-----+-------+-----------+------------------+-------------------+------------------------
    3 |   6 |     * |      NONE |    OPEN_DRAIN_LO |    \I2C_1:scl(0)\ | FB(Net_1585)
@@ -1613,16 +1619,16 @@ Port | Pin | Fixed |      Type |       Drive Mode |              Name | Connecti
 </CYPRESSTAG>
 </CYPRESSTAG>
 </CYPRESSTAG>
-Digital component placer commit/Report: Elapsed time ==> 0s.042ms
-Digital Placement phase: Elapsed time ==> 0s.400ms
+Digital component placer commit/Report: Elapsed time ==> 0s.028ms
+Digital Placement phase: Elapsed time ==> 0s.321ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
 "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\dev\psoc4/8/route_arch-rrg.cydata" --vh2-path "PSOC4_Main_r.vh2" --pcf-path "PSOC4_Main.pco" --des-name "PSOC4_Main" --dsf-path "PSOC4_Main.dsf"
 Routing successful.
-Digital Routing phase: Elapsed time ==> 0s.382ms
+Digital Routing phase: Elapsed time ==> 0s.422ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Generation">
-Bitstream Generation phase: Elapsed time ==> 0s.323ms
+Bitstream Generation phase: Elapsed time ==> 0s.327ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Verification">
 Bitstream Verification phase: Elapsed time ==> 0s.005ms
@@ -1635,11 +1641,11 @@ Static timing analysis phase: Elapsed time ==> 0s.000ms
 Data reporting phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
-Design database save phase: Elapsed time ==> 0s.396ms
+Design database save phase: Elapsed time ==> 0s.455ms
 </CYPRESSTAG>
-cydsfit: Elapsed time ==> 2s.411ms
+cydsfit: Elapsed time ==> 2s.366ms
 </CYPRESSTAG>
-Fitter phase: Elapsed time ==> 2s.411ms
-API generation phase: Elapsed time ==> 6s.302ms
-Dependency generation phase: Elapsed time ==> 0s.068ms
-Cleanup phase: Elapsed time ==> 0s.002ms
+Fitter phase: Elapsed time ==> 2s.366ms
+API generation phase: Elapsed time ==> 5s.474ms
+Dependency generation phase: Elapsed time ==> 0s.076ms
+Cleanup phase: Elapsed time ==> 0s.001ms
