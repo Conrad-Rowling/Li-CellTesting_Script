@@ -154,19 +154,21 @@ int main (void)
                 UART_1_UartPutString(string1);
 
                 I2C_1_I2CMasterReadBuf(0x08, batteryArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
-                for(uint i = 2; i < 32; i=i+2){
+                for(uint i = 0; i < 32; i=i+2){
                     sprintf(string1, "%d.%d, ", batteryArray[i], batteryArray[i+1]);
                     UART_1_UartPutString(string1);    
                 }
+                
                 I2C_1_I2CMasterReadBuf(0x09, resistorArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
-                for(uint i = 2; i < 32; i=i+2){
+                for(uint i = 0; i < 32; i=i+2){
                     sprintf(string1, "%d.%d, ", resistorArray[i], resistorArray[i+1]);
                     UART_1_UartPutString(string1);    
                 }
+                
                 sprintf(string1, "\r\n");
                 UART_1_UartPutString(string1);
                 rxData = UART_1_UartGetChar();
-                CyDelay(500);
+                CyDelay(50);
                                 
                 if (rxData == 83){
                     stopPlease = true;
