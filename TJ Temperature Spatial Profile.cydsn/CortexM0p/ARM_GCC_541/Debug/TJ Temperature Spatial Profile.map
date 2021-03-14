@@ -75,7 +75,7 @@ c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.
 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_udivsi3.o)
                               .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o) (__aeabi_uidiv)
 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_divsi3.o)
-                              .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o) (__aeabi_idiv)
+                              .\CortexM0p\ARM_GCC_541\Debug\main.o (__aeabi_idiv)
 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_dvmd_tls.o)
                               c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_udivsi3.o) (__aeabi_idiv0)
 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_arm_cmpdf2.o)
@@ -865,7 +865,7 @@ END GROUP
                 0x00000001                cy_project_type_bootloader = (appl_start == 0x0)?0x1:0x0
                 0x00000000                cy_project_type_app_for_stack_and_copier = (CY_APP_FOR_STACK_AND_COPIER == 0x1)?0x1:0x0
 
-.text           0x00000000     0x5d76
+.text           0x00000000     0x5d86
  CREATE_OBJECT_SYMBOLS
                 0x00000000                PROVIDE (__cy_interrupt_vector, RomVectors)
  *(.romvectors)
@@ -887,474 +887,474 @@ END GROUP
  .text.FilterSignal
                 0x000001bc       0x48 .\CortexM0p\ARM_GCC_541\Debug\main.o
                 0x000001bc                FilterSignal
- .text.main     0x00000204      0x120 .\CortexM0p\ARM_GCC_541\Debug\main.o
+ .text.main     0x00000204      0x130 .\CortexM0p\ARM_GCC_541\Debug\main.o
                 0x00000204                main
  .text.SetAnalogRoutingPumps
-                0x00000324       0x20 .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
-                0x00000324                SetAnalogRoutingPumps
+                0x00000334       0x20 .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000334                SetAnalogRoutingPumps
  .text.AnalogSetDefault
-                0x00000344       0xc0 .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000354       0xc0 .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.AMux_1_CYAMUXSIDE_A_Set
-                0x00000404      0x144 .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
-                0x00000404                AMux_1_CYAMUXSIDE_A_Set
+                0x00000414      0x144 .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000414                AMux_1_CYAMUXSIDE_A_Set
  .text.AMux_1_CYAMUXSIDE_A_Unset
-                0x00000548      0x14c .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
-                0x00000548                AMux_1_CYAMUXSIDE_A_Unset
+                0x00000558      0x14c .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000558                AMux_1_CYAMUXSIDE_A_Unset
  .text.AMux_1_CYAMUXSIDE_B_Set
-                0x00000694      0x170 .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
-                0x00000694                AMux_1_CYAMUXSIDE_B_Set
+                0x000006a4      0x170 .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x000006a4                AMux_1_CYAMUXSIDE_B_Set
  .text.AMux_1_CYAMUXSIDE_B_Unset
-                0x00000804      0x170 .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
-                0x00000804                AMux_1_CYAMUXSIDE_B_Unset
+                0x00000814      0x170 .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000814                AMux_1_CYAMUXSIDE_B_Unset
  .text.IntDefaultHandler
-                0x00000974       0x10 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
-                0x00000974                IntDefaultHandler
- .text._sbrk    0x00000984       0x30 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
-                0x00000984                _sbrk
- .text.Start_c  0x000009b4       0x48 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
-                0x000009b4                Start_c
+                0x00000984       0x10 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
+                0x00000984                IntDefaultHandler
+ .text._sbrk    0x00000994       0x30 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
+                0x00000994                _sbrk
+ .text.Start_c  0x000009c4       0x48 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
+                0x000009c4                Start_c
  .text.initialize_psoc
-                0x000009fc       0x40 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
-                0x000009fc                initialize_psoc
+                0x00000a0c       0x40 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
+                0x00000a0c                initialize_psoc
  .text.CySysClkImoDisableWcoLock
-                0x00000a3c       0x4c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
-                0x00000a3c                CySysClkImoDisableWcoLock
+                0x00000a4c       0x4c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
+                0x00000a4c                CySysClkImoDisableWcoLock
  .text.CySysClkImoGetWcoLock
-                0x00000a88       0x14 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
-                0x00000a88                CySysClkImoGetWcoLock
+                0x00000a98       0x14 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
+                0x00000a98                CySysClkImoGetWcoLock
  .text.CyIntEnable
-                0x00000a9c       0x14 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
-                0x00000a9c                CyIntEnable
+                0x00000aac       0x14 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
+                0x00000aac                CyIntEnable
  .text.CyIntDisable
-                0x00000ab0       0x14 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
-                0x00000ab0                CyIntDisable
- .text.CyHalt   0x00000ac4        0x4 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
-                0x00000ac4                CyHalt
+                0x00000ac0       0x14 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
+                0x00000ac0                CyIntDisable
+ .text.CyHalt   0x00000ad4        0x4 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
+                0x00000ad4                CyHalt
  .text.CyIntSetVector
-                0x00000ac8       0x24 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
-                0x00000ac8                CyIntSetVector
+                0x00000ad8       0x24 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
+                0x00000ad8                CyIntSetVector
  .text.CyIntSetPriority
-                0x00000aec       0x4c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
-                0x00000aec                CyIntSetPriority
- .text.CyDelay  0x00000b38       0x30 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
-                0x00000b38                CyDelay
+                0x00000afc       0x4c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
+                0x00000afc                CyIntSetPriority
+ .text.CyDelay  0x00000b48       0x30 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
+                0x00000b48                CyDelay
  .text.CySysClkImoEnableWcoLock
-                0x00000b68       0xd0 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
-                0x00000b68                CySysClkImoEnableWcoLock
+                0x00000b78       0xd0 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
+                0x00000b78                CySysClkImoEnableWcoLock
  .text.CySysClkWriteImoFreq
-                0x00000c38       0xd8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
-                0x00000c38                CySysClkWriteImoFreq
+                0x00000c48       0xd8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
+                0x00000c48                CySysClkWriteImoFreq
  .text.CyDelayUs
-                0x00000d10       0x14 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
-                0x00000d10                CyDelayUs
+                0x00000d20       0x14 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
+                0x00000d20                CyDelayUs
  .text.CySysClkGetTimerSource
-                0x00000d24       0x10 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLFClk.o)
+                0x00000d34       0x10 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLFClk.o)
  .text.CySysClkWcoEnabled
-                0x00000d34       0x14 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLFClk.o)
-                0x00000d34                CySysClkWcoEnabled
+                0x00000d44       0x14 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLFClk.o)
+                0x00000d44                CySysClkWcoEnabled
  .text.CySysWdtDisable
-                0x00000d48       0x10 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLFClk.o)
-                0x00000d48                CySysWdtDisable
+                0x00000d58       0x10 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLFClk.o)
+                0x00000d58                CySysWdtDisable
  .text.CySysClkSetTimerSource
-                0x00000d58       0x68 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLFClk.o)
-                0x00000d58                CySysClkSetTimerSource
+                0x00000d68       0x68 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLFClk.o)
+                0x00000d68                CySysClkSetTimerSource
  .text.CySysTimerClearInterrupt
-                0x00000dc0       0x2c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLFClk.o)
-                0x00000dc0                CySysTimerClearInterrupt
+                0x00000dd0       0x2c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLFClk.o)
+                0x00000dd0                CySysTimerClearInterrupt
  .text.CySysTimerIsr
-                0x00000dec       0xa4 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLFClk.o)
-                0x00000dec                CySysTimerIsr
+                0x00000dfc       0xa4 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLFClk.o)
+                0x00000dfc                CySysTimerIsr
  .text.AMux_1_Start
-                0x00000e90       0x28 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(AMux_1.o)
-                0x00000e90                AMux_1_Start
+                0x00000ea0       0x28 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(AMux_1.o)
+                0x00000ea0                AMux_1_Start
  .text.AMux_1_Connect
-                0x00000eb8       0x10 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(AMux_1.o)
-                0x00000eb8                AMux_1_Connect
+                0x00000ec8       0x10 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(AMux_1.o)
+                0x00000ec8                AMux_1_Connect
  .text.AMux_1_Select
-                0x00000ec8       0x18 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(AMux_1.o)
-                0x00000ec8                AMux_1_Select
+                0x00000ed8       0x18 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(AMux_1.o)
+                0x00000ed8                AMux_1_Select
  .text.PVref_1_Init
-                0x00000ee0       0x1c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(PVref_1.o)
-                0x00000ee0                PVref_1_Init
+                0x00000ef0       0x1c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(PVref_1.o)
+                0x00000ef0                PVref_1_Init
  .text.PVref_1_Enable
-                0x00000efc       0x10 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(PVref_1.o)
-                0x00000efc                PVref_1_Enable
+                0x00000f0c       0x10 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(PVref_1.o)
+                0x00000f0c                PVref_1_Enable
  .text.PVref_1_Start
-                0x00000f0c       0x20 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(PVref_1.o)
-                0x00000f0c                PVref_1_Start
+                0x00000f1c       0x20 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(PVref_1.o)
+                0x00000f1c                PVref_1_Start
  .text.PVref_1_Stop
-                0x00000f2c       0x10 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(PVref_1.o)
-                0x00000f2c                PVref_1_Stop
+                0x00000f3c       0x10 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(PVref_1.o)
+                0x00000f3c                PVref_1_Stop
  .text.Opamp_1_Init
-                0x00000f3c       0x2c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_1.o)
-                0x00000f3c                Opamp_1_Init
+                0x00000f4c       0x2c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_1.o)
+                0x00000f4c                Opamp_1_Init
  .text.Opamp_1_Enable
-                0x00000f68       0x1c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_1.o)
-                0x00000f68                Opamp_1_Enable
+                0x00000f78       0x1c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_1.o)
+                0x00000f78                Opamp_1_Enable
  .text.Opamp_1_Start
-                0x00000f84       0x20 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_1.o)
-                0x00000f84                Opamp_1_Start
+                0x00000f94       0x20 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_1.o)
+                0x00000f94                Opamp_1_Start
  .text.ADC_1_SetDFTControl
-                0x00000fa4       0x34 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
+                0x00000fb4       0x34 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
  .text.ADC_1_IsChannelSigned
-                0x00000fd8       0x58 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
+                0x00000fe8       0x58 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
  .text.ADC_1_Stop
-                0x00001030       0x10 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
-                0x00001030                ADC_1_Stop
+                0x00001040       0x10 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
+                0x00001040                ADC_1_Stop
  .text.ADC_1_InitConfig
-                0x00001040       0xac .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
-                0x00001040                ADC_1_InitConfig
+                0x00001050       0xac .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
+                0x00001050                ADC_1_InitConfig
  .text.ADC_1_StartConvert
-                0x000010ec       0x28 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
-                0x000010ec                ADC_1_StartConvert
+                0x000010fc       0x28 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
+                0x000010fc                ADC_1_StartConvert
  .text.ADC_1_IsEndConversion
-                0x00001114       0x38 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
-                0x00001114                ADC_1_IsEndConversion
+                0x00001124       0x38 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
+                0x00001124                ADC_1_IsEndConversion
  .text.ADC_1_GetResult32
-                0x0000114c       0x64 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
-                0x0000114c                ADC_1_GetResult32
+                0x0000115c       0x64 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
+                0x0000115c                ADC_1_GetResult32
  .text.ADC_1_Init
-                0x000011b0       0xa8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
-                0x000011b0                ADC_1_Init
+                0x000011c0       0xa8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
+                0x000011c0                ADC_1_Init
  .text.ADC_1_Enable
-                0x00001258       0x48 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
-                0x00001258                ADC_1_Enable
+                0x00001268       0x48 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
+                0x00001268                ADC_1_Enable
  .text.ADC_1_Start
-                0x000012a0       0x24 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
-                0x000012a0                ADC_1_Start
+                0x000012b0       0x24 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
+                0x000012b0                ADC_1_Start
  .text.ADC_1_StopConvert
-                0x000012c4       0x44 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
-                0x000012c4                ADC_1_StopConvert
+                0x000012d4       0x44 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
+                0x000012d4                ADC_1_StopConvert
  .text.ADC_1_ISR
-                0x00001308        0xc .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_INT.o)
-                0x00001308                ADC_1_ISR
+                0x00001318        0xc .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_INT.o)
+                0x00001318                ADC_1_ISR
  .text.ADC_1_intSarClock_StartEx
-                0x00001314       0x1c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_intSarClock.o)
-                0x00001314                ADC_1_intSarClock_StartEx
+                0x00001324       0x1c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_intSarClock.o)
+                0x00001324                ADC_1_intSarClock_StartEx
  .text.ADC_1_intSarClock_Stop
-                0x00001330       0x18 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_intSarClock.o)
-                0x00001330                ADC_1_intSarClock_Stop
+                0x00001340       0x18 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_intSarClock.o)
+                0x00001340                ADC_1_intSarClock_Stop
  .text.ADC_1_intSarClock_SetFractionalDividerRegister
-                0x00001348       0x20 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_intSarClock.o)
-                0x00001348                ADC_1_intSarClock_SetFractionalDividerRegister
+                0x00001358       0x20 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_intSarClock.o)
+                0x00001358                ADC_1_intSarClock_SetFractionalDividerRegister
  .text.I2C_1_ScbEnableIntr
-                0x00001368        0xc .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1.o)
+                0x00001378        0xc .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1.o)
  .text.I2C_1_Init
-                0x00001374        0x8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1.o)
-                0x00001374                I2C_1_Init
+                0x00001384        0x8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1.o)
+                0x00001384                I2C_1_Init
  .text.I2C_1_Enable
-                0x0000137c       0x18 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1.o)
-                0x0000137c                I2C_1_Enable
+                0x0000138c       0x18 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1.o)
+                0x0000138c                I2C_1_Enable
  .text.I2C_1_Start
-                0x00001394       0x20 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1.o)
-                0x00001394                I2C_1_Start
+                0x000013a4       0x20 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1.o)
+                0x000013a4                I2C_1_Start
  .text.I2C_1_I2CInit
-                0x000013b4       0xcc .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C.o)
-                0x000013b4                I2C_1_I2CInit
+                0x000013c4       0xcc .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C.o)
+                0x000013c4                I2C_1_I2CInit
  .text.I2C_1_I2CFwBlockReset
-                0x00001480       0x5c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C.o)
-                0x00001480                I2C_1_I2CFwBlockReset
+                0x00001490       0x5c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C.o)
+                0x00001490                I2C_1_I2CFwBlockReset
  .text.I2C_1_I2CSlaveClearReadStatus
-                0x000014dc       0x28 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_SLAVE.o)
-                0x000014dc                I2C_1_I2CSlaveClearReadStatus
+                0x000014ec       0x28 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_SLAVE.o)
+                0x000014ec                I2C_1_I2CSlaveClearReadStatus
  .text.I2C_1_I2CSlaveInitReadBuf
-                0x00001504       0x3c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_SLAVE.o)
-                0x00001504                I2C_1_I2CSlaveInitReadBuf
+                0x00001514       0x3c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_SLAVE.o)
+                0x00001514                I2C_1_I2CSlaveInitReadBuf
  .text.I2C_1_I2CSlaveClearReadBuf
-                0x00001540        0xc .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_SLAVE.o)
-                0x00001540                I2C_1_I2CSlaveClearReadBuf
+                0x00001550        0xc .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_SLAVE.o)
+                0x00001550                I2C_1_I2CSlaveClearReadBuf
  .text.UART_1_ScbModePostEnable
-                0x0000154c        0x8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1.o)
+                0x0000155c        0x8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1.o)
  .text.UART_1_Init
-                0x00001554        0x8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1.o)
-                0x00001554                UART_1_Init
+                0x00001564        0x8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1.o)
+                0x00001564                UART_1_Init
  .text.UART_1_Enable
-                0x0000155c       0x18 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1.o)
-                0x0000155c                UART_1_Enable
+                0x0000156c       0x18 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1.o)
+                0x0000156c                UART_1_Enable
  .text.UART_1_Start
-                0x00001574       0x20 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1.o)
-                0x00001574                UART_1_Start
+                0x00001584       0x20 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1.o)
+                0x00001584                UART_1_Start
  .text.UART_1_UartInit
-                0x00001594       0xa8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_UART.o)
-                0x00001594                UART_1_UartInit
+                0x000015a4       0xa8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_UART.o)
+                0x000015a4                UART_1_UartInit
  .text.UART_1_UartPostEnable
-                0x0000163c       0x14 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_UART.o)
-                0x0000163c                UART_1_UartPostEnable
+                0x0000164c       0x14 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_UART.o)
+                0x0000164c                UART_1_UartPostEnable
  .text.UART_1_UartPutString
-                0x00001650       0x18 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_UART.o)
-                0x00001650                UART_1_UartPutString
+                0x00001660       0x18 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_UART.o)
+                0x00001660                UART_1_UartPutString
  .text.Thermistor_1_GetResistance
-                0x00001668       0x2c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Thermistor_1.o)
-                0x00001668                Thermistor_1_GetResistance
+                0x00001678       0x2c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Thermistor_1.o)
+                0x00001678                Thermistor_1_GetResistance
  .text.Thermistor_1_GetTemperature
-                0x00001694       0xb4 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Thermistor_1.o)
-                0x00001694                Thermistor_1_GetTemperature
+                0x000016a4       0xb4 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Thermistor_1.o)
+                0x000016a4                Thermistor_1_GetTemperature
  .text.Opamp_2_Init
-                0x00001748       0x2c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_2.o)
-                0x00001748                Opamp_2_Init
+                0x00001758       0x2c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_2.o)
+                0x00001758                Opamp_2_Init
  .text.Opamp_2_Enable
-                0x00001774       0x1c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_2.o)
-                0x00001774                Opamp_2_Enable
+                0x00001784       0x1c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_2.o)
+                0x00001784                Opamp_2_Enable
  .text.Opamp_2_Start
-                0x00001790       0x20 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_2.o)
-                0x00001790                Opamp_2_Start
+                0x000017a0       0x20 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_2.o)
+                0x000017a0                Opamp_2_Start
  .text.Opamp_3_Init
-                0x000017b0       0x2c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_3.o)
-                0x000017b0                Opamp_3_Init
+                0x000017c0       0x2c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_3.o)
+                0x000017c0                Opamp_3_Init
  .text.Opamp_3_Enable
-                0x000017dc       0x1c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_3.o)
-                0x000017dc                Opamp_3_Enable
+                0x000017ec       0x1c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_3.o)
+                0x000017ec                Opamp_3_Enable
  .text.Opamp_3_Start
-                0x000017f8       0x20 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_3.o)
-                0x000017f8                Opamp_3_Start
+                0x00001808       0x20 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_3.o)
+                0x00001808                Opamp_3_Start
  .text.LED_Write
-                0x00001818       0x18 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(LED.o)
-                0x00001818                LED_Write
- .text          0x00001830       0x20 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyBootAsmGnu.o)
-                0x00001830                CyDelayCycles
-                0x00001842                CyEnterCriticalSection
-                0x0000184a                CyExitCriticalSection
+                0x00001828       0x18 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(LED.o)
+                0x00001828                LED_Write
+ .text          0x00001840       0x20 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyBootAsmGnu.o)
+                0x00001840                CyDelayCycles
+                0x00001852                CyEnterCriticalSection
+                0x0000185a                CyExitCriticalSection
  .text.CySysFlashSetWaitCycles
-                0x00001850       0x54 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyFlash.o)
-                0x00001850                CySysFlashSetWaitCycles
+                0x00001860       0x54 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyFlash.o)
+                0x00001860                CySysFlashSetWaitCycles
  .text.I2C_1_I2C_ISR
-                0x000018a4      0x3b8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_INT.o)
-                0x000018a4                I2C_1_I2C_ISR
+                0x000018b4      0x3b8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_INT.o)
+                0x000018b4                I2C_1_I2C_ISR
  .text.UART_1_SpiUartWriteTxData
-                0x00001c5c       0x1c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_SPI_UART.o)
-                0x00001c5c                UART_1_SpiUartWriteTxData
- .text.log      0x00001c78      0x110 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-w_log.o)
-                0x00001c78                log
- .text.pow      0x00001d88      0x378 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-w_pow.o)
-                0x00001d88                pow
+                0x00001c6c       0x1c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_SPI_UART.o)
+                0x00001c6c                UART_1_SpiUartWriteTxData
+ .text.log      0x00001c88      0x110 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-w_log.o)
+                0x00001c88                log
+ .text.pow      0x00001d98      0x378 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-w_pow.o)
+                0x00001d98                pow
  .text.__ieee754_log
-                0x00002100      0x404 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-e_log.o)
-                0x00002100                __ieee754_log
+                0x00002110      0x404 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-e_log.o)
+                0x00002110                __ieee754_log
  .text.__ieee754_pow
-                0x00002504      0xa6c c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-e_pow.o)
-                0x00002504                __ieee754_pow
+                0x00002514      0xa6c c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-e_pow.o)
+                0x00002514                __ieee754_pow
  .text.__ieee754_sqrt
-                0x00002f70      0x1ec c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-e_sqrt.o)
-                0x00002f70                __ieee754_sqrt
- .text.fabs     0x0000315c        0x8 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-s_fabs.o)
-                0x0000315c                fabs
- .text.finite   0x00003164       0x14 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-s_finite.o)
-                0x00003164                finite
- .text.matherr  0x00003178        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-s_matherr.o)
-                0x00003178                matherr
- .text.nan      0x0000317c        0xc c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-s_nan.o)
-                0x0000317c                nan
- .text.rint     0x00003188      0x144 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-s_rint.o)
-                0x00003188                rint
- .text.scalbn   0x000032cc       0xd0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-s_scalbn.o)
-                0x000032cc                scalbn
+                0x00002f80      0x1ec c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-e_sqrt.o)
+                0x00002f80                __ieee754_sqrt
+ .text.fabs     0x0000316c        0x8 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-s_fabs.o)
+                0x0000316c                fabs
+ .text.finite   0x00003174       0x14 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-s_finite.o)
+                0x00003174                finite
+ .text.matherr  0x00003188        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-s_matherr.o)
+                0x00003188                matherr
+ .text.nan      0x0000318c        0xc c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-s_nan.o)
+                0x0000318c                nan
+ .text.rint     0x00003198      0x144 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-s_rint.o)
+                0x00003198                rint
+ .text.scalbn   0x000032dc       0xd0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-s_scalbn.o)
+                0x000032dc                scalbn
  .text.copysign
-                0x0000339c       0x10 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-s_copysign.o)
-                0x0000339c                copysign
- .text          0x000033ac      0x114 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_udivsi3.o)
-                0x000033ac                __aeabi_uidiv
-                0x000033ac                __udivsi3
-                0x000034b8                __aeabi_uidivmod
- .text          0x000034c0      0x1d4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_divsi3.o)
-                0x000034c0                __divsi3
-                0x000034c0                __aeabi_idiv
-                0x0000368c                __aeabi_idivmod
- .text          0x00003694        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_dvmd_tls.o)
-                0x00003694                __aeabi_idiv0
-                0x00003694                __aeabi_ldiv0
- .text          0x00003698       0x7c c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_arm_cmpdf2.o)
-                0x00003698                __aeabi_cdrcmple
-                0x000036a8                __aeabi_cdcmple
-                0x000036a8                __aeabi_cdcmpeq
-                0x000036b8                __aeabi_dcmpeq
-                0x000036c4                __aeabi_dcmplt
-                0x000036d8                __aeabi_dcmple
-                0x000036ec                __aeabi_dcmpgt
-                0x00003700                __aeabi_dcmpge
- .text          0x00003714       0x44 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(fixsfsi.o)
-                0x00003714                __aeabi_f2iz
- .text          0x00003758      0x658 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(adddf3.o)
-                0x00003758                __aeabi_dadd
- .text          0x00003db0      0x62c c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(divdf3.o)
-                0x00003db0                __aeabi_ddiv
- .text          0x000043dc       0x80 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(eqdf2.o)
-                0x000043dc                __nedf2
-                0x000043dc                __eqdf2
- .text          0x0000445c       0xc8 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(gedf2.o)
-                0x0000445c                __gedf2
-                0x0000445c                __gtdf2
- .text          0x00004524       0xd4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(ledf2.o)
-                0x00004524                __ledf2
-                0x00004524                __ltdf2
- .text          0x000045f8      0x4f4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(muldf3.o)
-                0x000045f8                __aeabi_dmul
- .text          0x00004aec      0x6a8 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(subdf3.o)
-                0x00004aec                __aeabi_dsub
- .text          0x00005194       0x40 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(unorddf2.o)
-                0x00005194                __aeabi_dcmpun
- .text          0x000051d4       0x84 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(floatsidf.o)
-                0x000051d4                __aeabi_i2d
- .text          0x00005258       0x70 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(floatunsidf.o)
-                0x00005258                __aeabi_ui2d
- .text          0x000052c8       0xa8 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(extendsfdf2.o)
-                0x000052c8                __aeabi_f2d
- .text          0x00005370      0x118 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(truncdfsf2.o)
-                0x00005370                __aeabi_d2f
- .text          0x00005488       0x3c c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_clzsi2.o)
-                0x00005488                __clzsi2
- .text.__errno  0x000054c4        0xc c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-errno.o)
-                0x000054c4                __errno
+                0x000033ac       0x10 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-s_copysign.o)
+                0x000033ac                copysign
+ .text          0x000033bc      0x114 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_udivsi3.o)
+                0x000033bc                __aeabi_uidiv
+                0x000033bc                __udivsi3
+                0x000034c8                __aeabi_uidivmod
+ .text          0x000034d0      0x1d4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_divsi3.o)
+                0x000034d0                __divsi3
+                0x000034d0                __aeabi_idiv
+                0x0000369c                __aeabi_idivmod
+ .text          0x000036a4        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_dvmd_tls.o)
+                0x000036a4                __aeabi_idiv0
+                0x000036a4                __aeabi_ldiv0
+ .text          0x000036a8       0x7c c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_arm_cmpdf2.o)
+                0x000036a8                __aeabi_cdrcmple
+                0x000036b8                __aeabi_cdcmple
+                0x000036b8                __aeabi_cdcmpeq
+                0x000036c8                __aeabi_dcmpeq
+                0x000036d4                __aeabi_dcmplt
+                0x000036e8                __aeabi_dcmple
+                0x000036fc                __aeabi_dcmpgt
+                0x00003710                __aeabi_dcmpge
+ .text          0x00003724       0x44 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(fixsfsi.o)
+                0x00003724                __aeabi_f2iz
+ .text          0x00003768      0x658 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(adddf3.o)
+                0x00003768                __aeabi_dadd
+ .text          0x00003dc0      0x62c c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(divdf3.o)
+                0x00003dc0                __aeabi_ddiv
+ .text          0x000043ec       0x80 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(eqdf2.o)
+                0x000043ec                __nedf2
+                0x000043ec                __eqdf2
+ .text          0x0000446c       0xc8 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(gedf2.o)
+                0x0000446c                __gedf2
+                0x0000446c                __gtdf2
+ .text          0x00004534       0xd4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(ledf2.o)
+                0x00004534                __ledf2
+                0x00004534                __ltdf2
+ .text          0x00004608      0x4f4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(muldf3.o)
+                0x00004608                __aeabi_dmul
+ .text          0x00004afc      0x6a8 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(subdf3.o)
+                0x00004afc                __aeabi_dsub
+ .text          0x000051a4       0x40 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(unorddf2.o)
+                0x000051a4                __aeabi_dcmpun
+ .text          0x000051e4       0x84 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(floatsidf.o)
+                0x000051e4                __aeabi_i2d
+ .text          0x00005268       0x70 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(floatunsidf.o)
+                0x00005268                __aeabi_ui2d
+ .text          0x000052d8       0xa8 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(extendsfdf2.o)
+                0x000052d8                __aeabi_f2d
+ .text          0x00005380      0x118 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(truncdfsf2.o)
+                0x00005380                __aeabi_d2f
+ .text          0x00005498       0x3c c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(_clzsi2.o)
+                0x00005498                __clzsi2
+ .text.__errno  0x000054d4        0xc c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-errno.o)
+                0x000054d4                __errno
  .text.__libc_init_array
-                0x000054d0       0x4c c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-init.o)
-                0x000054d0                __libc_init_array
- .text.memcpy   0x0000551c       0x12 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memcpy-stub.o)
-                0x0000551c                memcpy
- *fill*         0x0000552e        0x2 
- .text.sprintf  0x00005530       0x44 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-sprintf.o)
-                0x00005530                siprintf
-                0x00005530                sprintf
+                0x000054e0       0x4c c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-init.o)
+                0x000054e0                __libc_init_array
+ .text.memcpy   0x0000552c       0x12 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memcpy-stub.o)
+                0x0000552c                memcpy
+ *fill*         0x0000553e        0x2 
+ .text.sprintf  0x00005540       0x44 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-sprintf.o)
+                0x00005540                siprintf
+                0x00005540                sprintf
  .text.__ssputs_r
-                0x00005574       0xc4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-nano-svfprintf.o)
-                0x00005574                __ssputs_r
+                0x00005584       0xc4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x00005584                __ssputs_r
  .text._svfprintf_r
-                0x00005638      0x1fc c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-nano-svfprintf.o)
-                0x00005638                _svfiprintf_r
-                0x00005638                _svfprintf_r
+                0x00005648      0x1fc c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x00005648                _svfiprintf_r
+                0x00005648                _svfprintf_r
  .text._printf_common
-                0x00005834       0xdc c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x00005834                _printf_common
+                0x00005844       0xdc c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x00005844                _printf_common
  .text._printf_i
-                0x00005910      0x244 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x00005910                _printf_i
- .text.memchr   0x00005b54       0x16 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memchr-stub.o)
-                0x00005b54                memchr
- .text.memmove  0x00005b6a       0x2a c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memmove.o)
-                0x00005b6a                memmove
- .text._free_r  0x00005b94       0x98 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-nano-freer.o)
-                0x00005b94                _free_r
+                0x00005920      0x244 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x00005920                _printf_i
+ .text.memchr   0x00005b64       0x16 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memchr-stub.o)
+                0x00005b64                memchr
+ .text.memmove  0x00005b7a       0x2a c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-memmove.o)
+                0x00005b7a                memmove
+ .text._free_r  0x00005ba4       0x98 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-nano-freer.o)
+                0x00005ba4                _free_r
  .text._malloc_r
-                0x00005c2c       0xc0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-nano-mallocr.o)
-                0x00005c2c                _malloc_r
+                0x00005c3c       0xc0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-nano-mallocr.o)
+                0x00005c3c                _malloc_r
  .text._realloc_r
-                0x00005cec       0x4c c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-nano-reallocr.o)
-                0x00005cec                _realloc_r
- .text._sbrk_r  0x00005d38       0x24 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-sbrkr.o)
-                0x00005d38                _sbrk_r
+                0x00005cfc       0x4c c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-nano-reallocr.o)
+                0x00005cfc                _realloc_r
+ .text._sbrk_r  0x00005d48       0x24 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-sbrkr.o)
+                0x00005d48                _sbrk_r
  .text.__malloc_lock
-                0x00005d5c        0x2 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-mlock.o)
-                0x00005d5c                __malloc_lock
+                0x00005d6c        0x2 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-mlock.o)
+                0x00005d6c                __malloc_lock
  .text.__malloc_unlock
-                0x00005d5e        0x2 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-mlock.o)
-                0x00005d5e                __malloc_unlock
+                0x00005d6e        0x2 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-mlock.o)
+                0x00005d6e                __malloc_unlock
  .text._malloc_usable_size_r
-                0x00005d60       0x16 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-nano-msizer.o)
-                0x00005d60                _malloc_usable_size_r
+                0x00005d70       0x16 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-nano-msizer.o)
+                0x00005d70                _malloc_usable_size_r
  *(.plt)
  *(.gnu.warning)
  *(.glue_7t)
- .glue_7t       0x00005d76        0x0 linker stubs
+ .glue_7t       0x00005d86        0x0 linker stubs
  *(.glue_7)
- .glue_7        0x00005d76        0x0 linker stubs
+ .glue_7        0x00005d86        0x0 linker stubs
  *(.vfp11_veneer)
- .vfp11_veneer  0x00005d76        0x0 linker stubs
+ .vfp11_veneer  0x00005d86        0x0 linker stubs
  *(.bootloader)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
  *(.gcc_except_table)
 
-.v4_bx          0x00005d78        0x0
- .v4_bx         0x00005d78        0x0 linker stubs
+.v4_bx          0x00005d88        0x0
+ .v4_bx         0x00005d88        0x0 linker stubs
 
-.iplt           0x00005d78        0x0
- .iplt          0x00005d78        0x0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+.iplt           0x00005d88        0x0
+ .iplt          0x00005d88        0x0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
 
 .eh_frame_hdr
  *(.eh_frame_hdr)
 
-.eh_frame       0x00005d78        0x4
+.eh_frame       0x00005d88        0x4
  *(.eh_frame)
- .eh_frame      0x00005d78        0x0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
- .eh_frame      0x00005d78        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtend.o
+ .eh_frame      0x00005d88        0x0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+ .eh_frame      0x00005d88        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtend.o
                 [!provide]                PROVIDE (__exidx_start, .)
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x00005d7c                __exidx_end = .
+                0x00005d8c                __exidx_end = .
 
-.rodata         0x00005d80      0x370
+.rodata         0x00005d90      0x370
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata.str1.4
-                0x00005d80       0x1b .\CortexM0p\ARM_GCC_541\Debug\main.o
- *fill*         0x00005d9b        0x1 
- .rodata        0x00005d9c      0x210 .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
- .rodata        0x00005fac       0x38 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_INIT.o)
-                0x00005fac                ADC_1_allConfigs
+                0x00005d90       0x1b .\CortexM0p\ARM_GCC_541\Debug\main.o
+ *fill*         0x00005dab        0x1 
+ .rodata        0x00005dac      0x210 .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .rodata        0x00005fbc       0x38 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_INIT.o)
+                0x00005fbc                ADC_1_allConfigs
  .rodata.str1.4
-                0x00005fe4        0x5 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-w_log.o)
- *fill*         0x00005fe9        0x3 
+                0x00005ff4        0x5 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-w_log.o)
+ *fill*         0x00005ff9        0x3 
  .rodata.str1.4
-                0x00005fec        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-w_pow.o)
+                0x00005ffc        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-w_pow.o)
  .rodata.str1.4
-                0x00005ff0        0x1 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-e_pow.o)
- .rodata.TWO52  0x00005ff0       0x10 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-s_rint.o)
- .rodata        0x00006000       0x40 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(divdf3.o)
- .rodata        0x00006040       0x40 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(muldf3.o)
+                0x00006000        0x1 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-e_pow.o)
+ .rodata.TWO52  0x00006000       0x10 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libm.a(lib_a-s_rint.o)
+ .rodata        0x00006010       0x40 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(divdf3.o)
+ .rodata        0x00006050       0x40 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m\libgcc.a(muldf3.o)
  .rodata.str1.1
-                0x00006080        0x2 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
+                0x00006090        0x2 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-impure.o)
  .rodata.str1.1
-                0x00006082       0x11 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-nano-svfprintf.o)
+                0x00006092       0x11 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-nano-svfprintf.o)
  .rodata.str1.1
-                0x00006093       0x22 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x000060b8                . = ALIGN (0x4)
- *fill*         0x000060b5        0x3 
+                0x000060a3       0x22 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv6-m\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x000060c8                . = ALIGN (0x4)
+ *fill*         0x000060c5        0x3 
  *(.init)
- .init          0x000060b8        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crti.o
-                0x000060b8                _init
- .init          0x000060bc        0x8 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtn.o
-                0x000060c4                . = ALIGN (0x4)
-                0x000060c4                __preinit_array_start = .
+ .init          0x000060c8        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crti.o
+                0x000060c8                _init
+ .init          0x000060cc        0x8 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtn.o
+                0x000060d4                . = ALIGN (0x4)
+                0x000060d4                __preinit_array_start = .
  *(.preinit_array)
-                0x000060c4                __preinit_array_end = .
-                0x000060c4                . = ALIGN (0x4)
-                0x000060c4                __init_array_start = .
+                0x000060d4                __preinit_array_end = .
+                0x000060d4                . = ALIGN (0x4)
+                0x000060d4                __init_array_start = .
  *(SORT(.init_array.*))
  *(.init_array)
- .init_array    0x000060c4        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
- .init_array    0x000060c8        0x4 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
-                0x000060cc                __init_array_end = .
-                0x000060cc                . = ALIGN (0x4)
- *(.fini)
- .fini          0x000060cc        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crti.o
-                0x000060cc                _fini
- .fini          0x000060d0        0x8 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtn.o
-                0x000060d8                . = ALIGN (0x4)
-                0x000060d8                __fini_array_start = .
- *(.fini_array)
- .fini_array    0x000060d8        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
- *(SORT(.fini_array.*))
-                0x000060dc                __fini_array_end = .
+ .init_array    0x000060d4        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+ .init_array    0x000060d8        0x4 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
+                0x000060dc                __init_array_end = .
                 0x000060dc                . = ALIGN (0x4)
+ *(.fini)
+ .fini          0x000060dc        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crti.o
+                0x000060dc                _fini
+ .fini          0x000060e0        0x8 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtn.o
+                0x000060e8                . = ALIGN (0x4)
+                0x000060e8                __fini_array_start = .
+ *(.fini_array)
+ .fini_array    0x000060e8        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+ *(SORT(.fini_array.*))
+                0x000060ec                __fini_array_end = .
+                0x000060ec                . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *crtend.o(.ctors)
-                0x000060dc                . = ALIGN (0x4)
+                0x000060ec                . = ALIGN (0x4)
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *crtend.o(.dtors)
-                0x000060dc                . = ALIGN (0x4)
-                0x000060dc                __cy_regions = .
-                0x000060dc        0x4 LONG 0x60f0 __cy_region_init_ram
-                0x000060e0        0x4 LONG 0x200000a8 __cy_region_start_data
-                0x000060e4        0x4 LONG 0x88 __cy_region_init_size_ram
-                0x000060e8        0x4 LONG 0x130 __cy_region_zero_size_ram
-                0x000060ec                __cy_regions_end = .
-                0x000060f0                . = ALIGN (0x8)
- *fill*         0x000060ec        0x4 
-                0x000060f0                _etext = .
+                0x000060ec                . = ALIGN (0x4)
+                0x000060ec                __cy_regions = .
+                0x000060ec        0x4 LONG 0x6100 __cy_region_init_ram
+                0x000060f0        0x4 LONG 0x200000a8 __cy_region_start_data
+                0x000060f4        0x4 LONG 0x88 __cy_region_init_size_ram
+                0x000060f8        0x4 LONG 0x130 __cy_region_zero_size_ram
+                0x000060fc                __cy_regions_end = .
+                0x00006100                . = ALIGN (0x8)
+ *fill*         0x000060fc        0x4 
+                0x00006100                _etext = .
 
 .cy_checksum_exclude
-                0x000060f0        0x0
+                0x00006100        0x0
  *(.cy_checksum_exclude)
 
 .ramvectors     0x20000000       0xa4
@@ -1366,7 +1366,7 @@ END GROUP
 .noinit
  *(.noinit)
 
-.data           0x200000a8       0x88 load address 0x000060f0
+.data           0x200000a8       0x88 load address 0x00006100
                 0x200000a8                __cy_region_start_data = .
  *(.jcr)
  .jcr           0x200000a8        0x0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
@@ -1397,10 +1397,10 @@ END GROUP
  *(.ram)
                 0x20000130                _edata = .
 
-.igot.plt       0x20000130        0x0 load address 0x00006178
+.igot.plt       0x20000130        0x0 load address 0x00006188
  .igot.plt      0x20000130        0x0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
 
-.bss            0x20000130      0x130 load address 0x00006178
+.bss            0x20000130      0x130 load address 0x00006188
                 0x20000130                PROVIDE (__bss_start__, .)
  *(.shbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
@@ -1463,11 +1463,11 @@ END GROUP
                 0x20000260                __end = .
                 0x20000260                PROVIDE (end, .)
                 0x20000260                PROVIDE (__bss_end__, .)
-                0x000060f0                __cy_region_init_ram = LOADADDR (.data)
+                0x00006100                __cy_region_init_ram = LOADADDR (.data)
                 0x00000088                __cy_region_init_size_ram = (_edata - ADDR (.data))
                 0x00000130                __cy_region_zero_size_ram = (_end - _edata)
 
-.heap           0x20000260       0x80 load address 0x00006178
+.heap           0x20000260       0x80 load address 0x00006188
                 0x20000260                . = _end
                 0x200002e0                . = (. + 0x80)
  *fill*         0x20000260       0x80 
@@ -1507,8 +1507,8 @@ END GROUP
                 0x90600000        0x1 .\CortexM0p\ARM_GCC_541\Debug\cymetadata.o
                 0x90600000                cy_meta_chipprotect
 
-.rel.dyn        0x00006178        0x0 load address 0x90600004
- .rel.iplt      0x00006178        0x0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
+.rel.dyn        0x00006188        0x0 load address 0x90600004
+ .rel.iplt      0x00006188        0x0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv6-m/crtbegin.o
 
 .stab
  *(.stab)
@@ -1588,95 +1588,95 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x5a4c
+.debug_info     0x00000000     0x5a44
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0x5a1 .\CortexM0p\ARM_GCC_541\Debug\main.o
- .debug_info    0x000005a1      0x261 .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_info    0x00000802       0xf8 .\CortexM0p\ARM_GCC_541\Debug\cymetadata.o
- .debug_info    0x000008fa      0x3a5 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
- .debug_info    0x00000c9f      0xe0e .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
- .debug_info    0x00001aad      0xd06 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLFClk.o)
- .debug_info    0x000027b3      0x235 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(AMux_1.o)
- .debug_info    0x000029e8      0x15e .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(PVref_1.o)
- .debug_info    0x00002b46      0x17c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_1.o)
- .debug_info    0x00002cc2      0xa55 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
- .debug_info    0x00003717      0x192 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_INIT.o)
- .debug_info    0x000038a9       0xcb .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_INT.o)
- .debug_info    0x00003974      0x166 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_intSarClock.o)
- .debug_info    0x00003ada      0x305 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_IRQ.o)
- .debug_info    0x00003ddf      0x298 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1.o)
- .debug_info    0x00004077      0x18f .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C.o)
- .debug_info    0x00004206      0x38d .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_SLAVE.o)
- .debug_info    0x00004593      0x23a .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1.o)
- .debug_info    0x000047cd      0x3b5 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_UART.o)
- .debug_info    0x00004b82      0x1a9 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Thermistor_1.o)
- .debug_info    0x00004d2b      0x17c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_2.o)
- .debug_info    0x00004ea7      0x17c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_3.o)
- .debug_info    0x00005023      0x19d .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(LED.o)
- .debug_info    0x000051c0       0xbe .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyBootAsmGnu.o)
- .debug_info    0x0000527e      0x417 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyFlash.o)
- .debug_info    0x00005695      0x197 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_INT.o)
- .debug_info    0x0000582c      0x220 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_SPI_UART.o)
+ .debug_info    0x00000000      0x599 .\CortexM0p\ARM_GCC_541\Debug\main.o
+ .debug_info    0x00000599      0x261 .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_info    0x000007fa       0xf8 .\CortexM0p\ARM_GCC_541\Debug\cymetadata.o
+ .debug_info    0x000008f2      0x3a5 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
+ .debug_info    0x00000c97      0xe0e .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
+ .debug_info    0x00001aa5      0xd06 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLFClk.o)
+ .debug_info    0x000027ab      0x235 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(AMux_1.o)
+ .debug_info    0x000029e0      0x15e .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(PVref_1.o)
+ .debug_info    0x00002b3e      0x17c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_1.o)
+ .debug_info    0x00002cba      0xa55 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
+ .debug_info    0x0000370f      0x192 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_INIT.o)
+ .debug_info    0x000038a1       0xcb .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_INT.o)
+ .debug_info    0x0000396c      0x166 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_intSarClock.o)
+ .debug_info    0x00003ad2      0x305 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_IRQ.o)
+ .debug_info    0x00003dd7      0x298 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1.o)
+ .debug_info    0x0000406f      0x18f .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C.o)
+ .debug_info    0x000041fe      0x38d .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_SLAVE.o)
+ .debug_info    0x0000458b      0x23a .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1.o)
+ .debug_info    0x000047c5      0x3b5 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_UART.o)
+ .debug_info    0x00004b7a      0x1a9 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Thermistor_1.o)
+ .debug_info    0x00004d23      0x17c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_2.o)
+ .debug_info    0x00004e9f      0x17c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_3.o)
+ .debug_info    0x0000501b      0x19d .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(LED.o)
+ .debug_info    0x000051b8       0xbe .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyBootAsmGnu.o)
+ .debug_info    0x00005276      0x417 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyFlash.o)
+ .debug_info    0x0000568d      0x197 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_INT.o)
+ .debug_info    0x00005824      0x220 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_SPI_UART.o)
 
-.debug_abbrev   0x00000000     0x1ba1
+.debug_abbrev   0x00000000     0x1b94
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x13c .\CortexM0p\ARM_GCC_541\Debug\main.o
- .debug_abbrev  0x0000013c       0xdd .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_abbrev  0x00000219       0x5d .\CortexM0p\ARM_GCC_541\Debug\cymetadata.o
- .debug_abbrev  0x00000276      0x1d0 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
- .debug_abbrev  0x00000446      0x1f5 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
- .debug_abbrev  0x0000063b      0x207 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLFClk.o)
- .debug_abbrev  0x00000842       0xbe .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(AMux_1.o)
- .debug_abbrev  0x00000900       0xaa .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(PVref_1.o)
- .debug_abbrev  0x000009aa       0xc8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_1.o)
- .debug_abbrev  0x00000a72      0x21e .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
- .debug_abbrev  0x00000c90       0x86 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_INIT.o)
- .debug_abbrev  0x00000d16       0x65 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_INT.o)
- .debug_abbrev  0x00000d7b       0xb7 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_intSarClock.o)
- .debug_abbrev  0x00000e32      0x19a .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_IRQ.o)
- .debug_abbrev  0x00000fcc      0x118 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1.o)
- .debug_abbrev  0x000010e4       0xc7 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C.o)
- .debug_abbrev  0x000011ab      0x156 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_SLAVE.o)
- .debug_abbrev  0x00001301       0xd5 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1.o)
- .debug_abbrev  0x000013d6      0x132 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_UART.o)
- .debug_abbrev  0x00001508       0x9c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Thermistor_1.o)
- .debug_abbrev  0x000015a4       0xc8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_2.o)
- .debug_abbrev  0x0000166c       0xc8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_3.o)
- .debug_abbrev  0x00001734       0xc8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(LED.o)
- .debug_abbrev  0x000017fc       0x14 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyBootAsmGnu.o)
- .debug_abbrev  0x00001810      0x19e .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyFlash.o)
- .debug_abbrev  0x000019ae       0xa4 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_INT.o)
- .debug_abbrev  0x00001a52      0x14f .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_SPI_UART.o)
+ .debug_abbrev  0x00000000      0x12f .\CortexM0p\ARM_GCC_541\Debug\main.o
+ .debug_abbrev  0x0000012f       0xdd .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_abbrev  0x0000020c       0x5d .\CortexM0p\ARM_GCC_541\Debug\cymetadata.o
+ .debug_abbrev  0x00000269      0x1d0 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
+ .debug_abbrev  0x00000439      0x1f5 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
+ .debug_abbrev  0x0000062e      0x207 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLFClk.o)
+ .debug_abbrev  0x00000835       0xbe .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(AMux_1.o)
+ .debug_abbrev  0x000008f3       0xaa .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(PVref_1.o)
+ .debug_abbrev  0x0000099d       0xc8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_1.o)
+ .debug_abbrev  0x00000a65      0x21e .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
+ .debug_abbrev  0x00000c83       0x86 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_INIT.o)
+ .debug_abbrev  0x00000d09       0x65 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_INT.o)
+ .debug_abbrev  0x00000d6e       0xb7 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_intSarClock.o)
+ .debug_abbrev  0x00000e25      0x19a .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_IRQ.o)
+ .debug_abbrev  0x00000fbf      0x118 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1.o)
+ .debug_abbrev  0x000010d7       0xc7 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C.o)
+ .debug_abbrev  0x0000119e      0x156 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_SLAVE.o)
+ .debug_abbrev  0x000012f4       0xd5 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1.o)
+ .debug_abbrev  0x000013c9      0x132 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_UART.o)
+ .debug_abbrev  0x000014fb       0x9c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Thermistor_1.o)
+ .debug_abbrev  0x00001597       0xc8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_2.o)
+ .debug_abbrev  0x0000165f       0xc8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_3.o)
+ .debug_abbrev  0x00001727       0xc8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(LED.o)
+ .debug_abbrev  0x000017ef       0x14 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyBootAsmGnu.o)
+ .debug_abbrev  0x00001803      0x19e .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyFlash.o)
+ .debug_abbrev  0x000019a1       0xa4 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_INT.o)
+ .debug_abbrev  0x00001a45      0x14f .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_SPI_UART.o)
 
-.debug_line     0x00000000     0x29da
+.debug_line     0x00000000     0x29f8
  *(.debug_line)
- .debug_line    0x00000000      0x1d7 .\CortexM0p\ARM_GCC_541\Debug\main.o
- .debug_line    0x000001d7      0x22a .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_line    0x00000401      0x141 .\CortexM0p\ARM_GCC_541\Debug\cymetadata.o
- .debug_line    0x00000542      0x247 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
- .debug_line    0x00000789      0x5df .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
- .debug_line    0x00000d68      0x5c1 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLFClk.o)
- .debug_line    0x00001329       0xdb .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(AMux_1.o)
- .debug_line    0x00001404       0xc1 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(PVref_1.o)
- .debug_line    0x000014c5       0xc3 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_1.o)
- .debug_line    0x00001588      0x3af .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
- .debug_line    0x00001937       0x5c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_INIT.o)
- .debug_line    0x00001993       0x64 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_INT.o)
- .debug_line    0x000019f7       0xc4 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_intSarClock.o)
- .debug_line    0x00001abb      0x155 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_IRQ.o)
- .debug_line    0x00001c10      0x128 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1.o)
- .debug_line    0x00001d38       0xc7 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C.o)
- .debug_line    0x00001dff      0x13e .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_SLAVE.o)
- .debug_line    0x00001f3d      0x10c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1.o)
- .debug_line    0x00002049      0x1cf .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_UART.o)
- .debug_line    0x00002218       0xf8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Thermistor_1.o)
- .debug_line    0x00002310       0xc3 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_2.o)
- .debug_line    0x000023d3       0xc3 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_3.o)
- .debug_line    0x00002496       0xbb .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(LED.o)
- .debug_line    0x00002551       0x68 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyBootAsmGnu.o)
- .debug_line    0x000025b9      0x1e1 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyFlash.o)
- .debug_line    0x0000279a      0x124 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_INT.o)
- .debug_line    0x000028be      0x11c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_SPI_UART.o)
+ .debug_line    0x00000000      0x1f5 .\CortexM0p\ARM_GCC_541\Debug\main.o
+ .debug_line    0x000001f5      0x22a .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_line    0x0000041f      0x141 .\CortexM0p\ARM_GCC_541\Debug\cymetadata.o
+ .debug_line    0x00000560      0x247 .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
+ .debug_line    0x000007a7      0x5df .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
+ .debug_line    0x00000d86      0x5c1 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLFClk.o)
+ .debug_line    0x00001347       0xdb .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(AMux_1.o)
+ .debug_line    0x00001422       0xc1 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(PVref_1.o)
+ .debug_line    0x000014e3       0xc3 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_1.o)
+ .debug_line    0x000015a6      0x3af .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
+ .debug_line    0x00001955       0x5c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_INIT.o)
+ .debug_line    0x000019b1       0x64 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_INT.o)
+ .debug_line    0x00001a15       0xc4 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_intSarClock.o)
+ .debug_line    0x00001ad9      0x155 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_IRQ.o)
+ .debug_line    0x00001c2e      0x128 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1.o)
+ .debug_line    0x00001d56       0xc7 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C.o)
+ .debug_line    0x00001e1d      0x13e .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_SLAVE.o)
+ .debug_line    0x00001f5b      0x10c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1.o)
+ .debug_line    0x00002067      0x1cf .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_UART.o)
+ .debug_line    0x00002236       0xf8 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Thermistor_1.o)
+ .debug_line    0x0000232e       0xc3 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_2.o)
+ .debug_line    0x000023f1       0xc3 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_3.o)
+ .debug_line    0x000024b4       0xbb .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(LED.o)
+ .debug_line    0x0000256f       0x68 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyBootAsmGnu.o)
+ .debug_line    0x000025d7      0x1e1 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyFlash.o)
+ .debug_line    0x000027b8      0x124 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_INT.o)
+ .debug_line    0x000028dc      0x11c .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_SPI_UART.o)
 
 .debug_frame    0x00000000     0x2250
  *(.debug_frame)
@@ -1786,11 +1786,11 @@ END GROUP
  .debug_str     0x00001ace      0x11b .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_IRQ.o)
                                 0x354 (size before relaxing)
  .debug_str     0x00001be9      0x115 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1.o)
-                                0x30c (size before relaxing)
+                                0x2f7 (size before relaxing)
  .debug_str     0x00001cfe       0x90 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C.o)
-                                0x299 (size before relaxing)
+                                0x284 (size before relaxing)
  .debug_str     0x00001d8e      0x184 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_SLAVE.o)
-                                0x410 (size before relaxing)
+                                0x3fb (size before relaxing)
  .debug_str     0x00001f12       0xf5 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1.o)
                                 0x2e5 (size before relaxing)
  .debug_str     0x00002007      0x1da .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_UART.o)
@@ -1806,34 +1806,34 @@ END GROUP
  .debug_str     0x000023f6      0x11d .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyFlash.o)
                                 0x354 (size before relaxing)
  .debug_str     0x00002513       0x4b .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_INT.o)
-                                0x2f9 (size before relaxing)
+                                0x2e4 (size before relaxing)
  .debug_str     0x0000255e       0xeb .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_SPI_UART.o)
                                 0x314 (size before relaxing)
 
-.debug_loc      0x00000000     0x29de
+.debug_loc      0x00000000     0x2a0a
  *(.debug_loc)
- .debug_loc     0x00000000      0x192 .\CortexM0p\ARM_GCC_541\Debug\main.o
- .debug_loc     0x00000192       0xa2 .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_loc     0x00000234      0x14f .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
- .debug_loc     0x00000383      0x868 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
- .debug_loc     0x00000beb      0xa88 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLFClk.o)
- .debug_loc     0x00001673       0xae .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(AMux_1.o)
- .debug_loc     0x00001721       0x2e .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(PVref_1.o)
- .debug_loc     0x0000174f       0x21 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_1.o)
- .debug_loc     0x00001770      0x815 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
- .debug_loc     0x00001f85       0x76 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_intSarClock.o)
- .debug_loc     0x00001ffb       0x82 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_IRQ.o)
- .debug_loc     0x0000207d       0x7e .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1.o)
- .debug_loc     0x000020fb      0x180 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_SLAVE.o)
- .debug_loc     0x0000227b       0x7e .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1.o)
- .debug_loc     0x000022f9      0x223 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_UART.o)
- .debug_loc     0x0000251c       0xe9 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Thermistor_1.o)
- .debug_loc     0x00002605       0x21 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_2.o)
- .debug_loc     0x00002626       0x21 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_3.o)
- .debug_loc     0x00002647       0xa2 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(LED.o)
- .debug_loc     0x000026e9      0x1bd .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyFlash.o)
- .debug_loc     0x000028a6       0xa2 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_INT.o)
- .debug_loc     0x00002948       0x96 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_SPI_UART.o)
+ .debug_loc     0x00000000      0x1be .\CortexM0p\ARM_GCC_541\Debug\main.o
+ .debug_loc     0x000001be       0xa2 .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_loc     0x00000260      0x14f .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
+ .debug_loc     0x000003af      0x868 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLib.o)
+ .debug_loc     0x00000c17      0xa88 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyLFClk.o)
+ .debug_loc     0x0000169f       0xae .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(AMux_1.o)
+ .debug_loc     0x0000174d       0x2e .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(PVref_1.o)
+ .debug_loc     0x0000177b       0x21 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_1.o)
+ .debug_loc     0x0000179c      0x815 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1.o)
+ .debug_loc     0x00001fb1       0x76 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_intSarClock.o)
+ .debug_loc     0x00002027       0x82 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(ADC_1_IRQ.o)
+ .debug_loc     0x000020a9       0x7e .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1.o)
+ .debug_loc     0x00002127      0x180 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_SLAVE.o)
+ .debug_loc     0x000022a7       0x7e .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1.o)
+ .debug_loc     0x00002325      0x223 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_UART.o)
+ .debug_loc     0x00002548       0xe9 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Thermistor_1.o)
+ .debug_loc     0x00002631       0x21 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_2.o)
+ .debug_loc     0x00002652       0x21 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(Opamp_3.o)
+ .debug_loc     0x00002673       0xa2 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(LED.o)
+ .debug_loc     0x00002715      0x1bd .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(CyFlash.o)
+ .debug_loc     0x000028d2       0xa2 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(I2C_1_I2C_INT.o)
+ .debug_loc     0x00002974       0x96 .\CortexM0p\ARM_GCC_541\Debug\TJ Temperature Spatial Profile.a(UART_1_SPI_UART.o)
 
 .debug_macinfo
  *(.debug_macinfo)

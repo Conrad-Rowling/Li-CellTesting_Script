@@ -137,10 +137,10 @@ int main(void)
             temp = Thermistor_1_GetTemperature(resT);
                        
     	    //Determine decimal portion of temperature by dividing temperature by 100
-            decTemp = 6; //temp/100;
+            decTemp = temp/100;
             
             // Determine fraction portion of temperature by subtracting decimal portion from result 
-            fracTemp = 90; //temp - (decTemp * 100);
+            fracTemp = temp - (decTemp * 100);
             
             // If fractional temperature is negative make it positive 
             if(fracTemp < 0) {

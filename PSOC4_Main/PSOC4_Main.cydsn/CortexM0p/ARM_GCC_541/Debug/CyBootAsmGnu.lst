@@ -6264,18 +6264,18 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  354              	.set Pin_1__0__DR_INV, CYREG_GPIO_PRT2_DR_INV
  355              	.set Pin_1__0__DR_SET, CYREG_GPIO_PRT2_DR_SET
  356              	.set Pin_1__0__HSIOM, CYREG_HSIOM_PORT_SEL2
- 357              	.set Pin_1__0__HSIOM_MASK, 0x000F0000
- 358              	.set Pin_1__0__HSIOM_SHIFT, 16
+ 357              	.set Pin_1__0__HSIOM_MASK, 0x0F000000
+ 358              	.set Pin_1__0__HSIOM_SHIFT, 24
  359              	.set Pin_1__0__INTCFG, CYREG_GPIO_PRT2_INTR_CFG
  360              	.set Pin_1__0__INTR, CYREG_GPIO_PRT2_INTR
  361              	.set Pin_1__0__INTR_CFG, CYREG_GPIO_PRT2_INTR_CFG
  362              	.set Pin_1__0__INTSTAT, CYREG_GPIO_PRT2_INTR
- 363              	.set Pin_1__0__MASK, 0x10
+ 363              	.set Pin_1__0__MASK, 0x40
  364              	.set Pin_1__0__PC, CYREG_GPIO_PRT2_PC
  365              	.set Pin_1__0__PC2, CYREG_GPIO_PRT2_PC2
  366              	.set Pin_1__0__PORT, 2
  367              	.set Pin_1__0__PS, CYREG_GPIO_PRT2_PS
- 368              	.set Pin_1__0__SHIFT, 4
+ 368              	.set Pin_1__0__SHIFT, 6
  369              	.set Pin_1__DR, CYREG_GPIO_PRT2_DR
  370              	.set Pin_1__DR_CLR, CYREG_GPIO_PRT2_DR_CLR
  371              	.set Pin_1__DR_INV, CYREG_GPIO_PRT2_DR_INV
@@ -6284,47 +6284,47 @@ ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  374              	.set Pin_1__INTR, CYREG_GPIO_PRT2_INTR
  375              	.set Pin_1__INTR_CFG, CYREG_GPIO_PRT2_INTR_CFG
  376              	.set Pin_1__INTSTAT, CYREG_GPIO_PRT2_INTR
- 377              	.set Pin_1__MASK, 0x10
+ 377              	.set Pin_1__MASK, 0x40
  378              	.set Pin_1__PC, CYREG_GPIO_PRT2_PC
  379              	.set Pin_1__PC2, CYREG_GPIO_PRT2_PC2
  380              	.set Pin_1__PORT, 2
  381              	.set Pin_1__PS, CYREG_GPIO_PRT2_PS
- 382              	.set Pin_1__SHIFT, 4
+ 382              	.set Pin_1__SHIFT, 6
  383              	
  384              	/* Pin_2 */
- 385              	.set Pin_2__0__DR, CYREG_GPIO_PRT2_DR
- 386              	.set Pin_2__0__DR_CLR, CYREG_GPIO_PRT2_DR_CLR
- 387              	.set Pin_2__0__DR_INV, CYREG_GPIO_PRT2_DR_INV
- 388              	.set Pin_2__0__DR_SET, CYREG_GPIO_PRT2_DR_SET
- 389              	.set Pin_2__0__HSIOM, CYREG_HSIOM_PORT_SEL2
+ 385              	.set Pin_2__0__DR, CYREG_GPIO_PRT4_DR
+ 386              	.set Pin_2__0__DR_CLR, CYREG_GPIO_PRT4_DR_CLR
+ 387              	.set Pin_2__0__DR_INV, CYREG_GPIO_PRT4_DR_INV
+ 388              	.set Pin_2__0__DR_SET, CYREG_GPIO_PRT4_DR_SET
+ 389              	.set Pin_2__0__HSIOM, CYREG_HSIOM_PORT_SEL4
  390              	.set Pin_2__0__HSIOM_MASK, 0x000000F0
 ARM GAS  Generated_Source\PSoC4\CyBootAsmGnu.s 			page 106
 
 
  391              	.set Pin_2__0__HSIOM_SHIFT, 4
- 392              	.set Pin_2__0__INTCFG, CYREG_GPIO_PRT2_INTR_CFG
- 393              	.set Pin_2__0__INTR, CYREG_GPIO_PRT2_INTR
- 394              	.set Pin_2__0__INTR_CFG, CYREG_GPIO_PRT2_INTR_CFG
- 395              	.set Pin_2__0__INTSTAT, CYREG_GPIO_PRT2_INTR
+ 392              	.set Pin_2__0__INTCFG, CYREG_GPIO_PRT4_INTR_CFG
+ 393              	.set Pin_2__0__INTR, CYREG_GPIO_PRT4_INTR
+ 394              	.set Pin_2__0__INTR_CFG, CYREG_GPIO_PRT4_INTR_CFG
+ 395              	.set Pin_2__0__INTSTAT, CYREG_GPIO_PRT4_INTR
  396              	.set Pin_2__0__MASK, 0x02
- 397              	.set Pin_2__0__PC, CYREG_GPIO_PRT2_PC
- 398              	.set Pin_2__0__PC2, CYREG_GPIO_PRT2_PC2
- 399              	.set Pin_2__0__PORT, 2
- 400              	.set Pin_2__0__PS, CYREG_GPIO_PRT2_PS
+ 397              	.set Pin_2__0__PC, CYREG_GPIO_PRT4_PC
+ 398              	.set Pin_2__0__PC2, CYREG_GPIO_PRT4_PC2
+ 399              	.set Pin_2__0__PORT, 4
+ 400              	.set Pin_2__0__PS, CYREG_GPIO_PRT4_PS
  401              	.set Pin_2__0__SHIFT, 1
- 402              	.set Pin_2__DR, CYREG_GPIO_PRT2_DR
- 403              	.set Pin_2__DR_CLR, CYREG_GPIO_PRT2_DR_CLR
- 404              	.set Pin_2__DR_INV, CYREG_GPIO_PRT2_DR_INV
- 405              	.set Pin_2__DR_SET, CYREG_GPIO_PRT2_DR_SET
- 406              	.set Pin_2__INTCFG, CYREG_GPIO_PRT2_INTR_CFG
- 407              	.set Pin_2__INTR, CYREG_GPIO_PRT2_INTR
- 408              	.set Pin_2__INTR_CFG, CYREG_GPIO_PRT2_INTR_CFG
- 409              	.set Pin_2__INTSTAT, CYREG_GPIO_PRT2_INTR
+ 402              	.set Pin_2__DR, CYREG_GPIO_PRT4_DR
+ 403              	.set Pin_2__DR_CLR, CYREG_GPIO_PRT4_DR_CLR
+ 404              	.set Pin_2__DR_INV, CYREG_GPIO_PRT4_DR_INV
+ 405              	.set Pin_2__DR_SET, CYREG_GPIO_PRT4_DR_SET
+ 406              	.set Pin_2__INTCFG, CYREG_GPIO_PRT4_INTR_CFG
+ 407              	.set Pin_2__INTR, CYREG_GPIO_PRT4_INTR
+ 408              	.set Pin_2__INTR_CFG, CYREG_GPIO_PRT4_INTR_CFG
+ 409              	.set Pin_2__INTSTAT, CYREG_GPIO_PRT4_INTR
  410              	.set Pin_2__MASK, 0x02
- 411              	.set Pin_2__PC, CYREG_GPIO_PRT2_PC
- 412              	.set Pin_2__PC2, CYREG_GPIO_PRT2_PC2
- 413              	.set Pin_2__PORT, 2
- 414              	.set Pin_2__PS, CYREG_GPIO_PRT2_PS
+ 411              	.set Pin_2__PC, CYREG_GPIO_PRT4_PC
+ 412              	.set Pin_2__PC2, CYREG_GPIO_PRT4_PC2
+ 413              	.set Pin_2__PORT, 4
+ 414              	.set Pin_2__PS, CYREG_GPIO_PRT4_PS
  415              	.set Pin_2__SHIFT, 1
  416              	
  417              	/* Pin_3 */

@@ -19,7 +19,7 @@
 #define false 0u
 #define SOC_FULL  10.2 //Ahr
 #define LOW_CURRENT 1
-#define HIGH_CURRENT 40
+#define HIGH_CURRENT 20
 
 void Shutdown_Test()
 {
@@ -34,7 +34,7 @@ void Print_headers(uint length)
     sprintf(hstr,"Time, SOC(percent), Shunt(A), Bat(V), ");
     UART_1_UartPutString(hstr);
     
-    for (uint i = 0; i < length; i++){
+    for (uint i = 0; i < length-1; i++){
         sprintf(hstr,"Battery Temp %d, ", i);
         UART_1_UartPutString(hstr);
         CyDelay(10);
@@ -98,38 +98,38 @@ int main (void)
         {
             sprintf(string1,"\r\n Beginning the Test... \r\n");
             UART_1_UartPutString(string1);
+            PVref_1_Start();
             RED_LED_Write(1);
             RELAY_Write(1);
             Timer_1_Start();
-            Print_headers(35);
+            Print_headers(6);
             
-            AMux_1_Select(1);
+            AMux_1_Select(0);
             ADC_1_StartConvert();
             ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
             adcOffset = ADC_1_GetResult32(0);
             adcOff = ADC_1_CountsTo_mVolts(0, adcOffset);
             adcOff = adcOff - 1200.0;
             ADC_1_StopConvert();
+            PVref_1_Stop();
             //sprintf(string1, "%3.3f, ", adcOff);
             //UART_1_UartPutString(string1);
             timeOld = 0;     // just to avoid the first readcounter
             
-            while(lowTemp && goodCurrent && !stopPlease){
-                PVref_1_Start(); 
+            while(lowTemp && goodCurrent && !stopPlease){ 
                 
                 time = Timer_1_ReadCounter();
 
                 sprintf(string1,"\r\n %lu, ", time);
                 UART_1_UartPutString(string1);
-                
-                
+                                
                 if (time > timeOld){
                     soc = soc -  vmShA*(time-timeOld)/3600;
                     timeOld = time;
                 }
                 sprintf(string1,"\r\n %3.5f, ", soc);
                 UART_1_UartPutString(string1);
-                                            
+                                                           
                 AMux_1_Select(2);
                 ADC_1_StartConvert();
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
@@ -137,30 +137,30 @@ int main (void)
                 ADC_1_StopConvert();
                 vmBatmV = ADC_1_CountsTo_mVolts(0, vmBat);
                 vmBatmV = vmBatmV - adcOff;
-                vmBatmV = vmBatmV/1000.0;
+                vmBatmV = 2.0*vmBatmV/1000.0;
                 sprintf(string1, "%3.3f, ", vmBatmV);
                 UART_1_UartPutString(string1);
                
-                AMux_1_Select(0);
+                AMux_1_Select(1);
                 ADC_1_StartConvert();
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vmShunt = ADC_1_GetResult32(0);
                 ADC_1_StopConvert();
                 vmShmV = ADC_1_CountsTo_mVolts(0, vmShunt);
                 vmShmV = vmShmV - adcOff;
-                //vmShA = vmShmV*60.0/(32.0*50.0);
-                vmShA = 1.0;
+                vmShA = vmShmV*60.0/(32.0*50.0);
+                //vmShA = 1.0;
                 sprintf(string1, "%3.3f, ", vmShA);
                 UART_1_UartPutString(string1);
 
                 I2C_1_I2CMasterReadBuf(0x08, batteryArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
-                for(uint i = 0; i < 32; i=i+2){
+                for(uint i = 2; i < 14; i=i+2){
                     sprintf(string1, "%d.%d, ", batteryArray[i], batteryArray[i+1]);
                     UART_1_UartPutString(string1);    
                 }
                 
                 I2C_1_I2CMasterReadBuf(0x09, resistorArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
-                for(uint i = 0; i < 32; i=i+2){
+                for(uint i = 2; i < 12; i=i+2){
                     sprintf(string1, "%d.%d, ", resistorArray[i], resistorArray[i+1]);
                     UART_1_UartPutString(string1);    
                 }
@@ -175,13 +175,13 @@ int main (void)
                     Shutdown_Test();
                 }
                 
-//                for(uint i = 2; i < 32; i=i+2){
-//                    if ((batteryArray[i] > 60) ||  (resistorArray[i] > 170))
-//                        lowTemp = false;
-//                }
-//                if ((vmShA < LOW_CURRENT) ||(vmShA > HIGH_CURRENT)){
-//                    goodCurrent = false;
-//                }
+                for(uint i = 2; i < 12; i=i+2){
+                    if (((batteryArray[i] > 60) ||  (resistorArray[i] > 170)) && ((batteryArray[i] < 255) &&  (resistorArray[i] < 255)))
+                        lowTemp = false;
+                }
+                if ((vmShA < LOW_CURRENT) ||(vmShA > HIGH_CURRENT)){
+                    goodCurrent = false;
+                }
             }        
         }
         CyDelay(10);

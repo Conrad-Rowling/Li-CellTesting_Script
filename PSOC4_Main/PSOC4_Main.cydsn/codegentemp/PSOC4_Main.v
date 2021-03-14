@@ -1,6 +1,6 @@
 // ======================================================================
 // PSOC4_Main.v generated from TopDesign.cysch
-// 03/11/2021 at 20:24
+// 03/13/2021 at 14:59
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -3077,11 +3077,11 @@ module top ;
           wire  Net_1628;
           wire  Net_1627;
           wire  Net_1642;
+    electrical  Net_1525;
+    electrical  Net_1661;
           wire  Net_1566;
     electrical  Net_1658;
-    electrical  Net_1525;
     electrical  Net_1621;
-    electrical  Net_1652;
           wire  Net_1629;
     electrical  Net_1524;
 
@@ -3324,7 +3324,7 @@ module top ;
 
     PGA_P4_v1_10_4 PGA_1 (
         .Vin(Net_1643),
-        .Vout(Net_1652),
+        .Vout(Net_1661),
         .Vref(Net_1527));
 
 	wire [0:0] tmpOE__Pin_1_net;
@@ -3489,7 +3489,7 @@ module top ;
     
     cy_psoc3_amux_v1_0 AMux_1(
         .muxin({
-            Net_1652,
+            Net_1661,
             Net_1525,
             Net_1658
             }),
