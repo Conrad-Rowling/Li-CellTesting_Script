@@ -1,6 +1,6 @@
 -- Project:   PSOC4_Main
--- Generated: 03/13/2021 15:00:02
--- PSoC Creator  4.4
+-- Generated: 03/27/2021 20:50:43
+-- PSoC Creator  4.3
 
 ENTITY PSOC4_Main IS
     PORT(
@@ -94,6 +94,7 @@ ARCHITECTURE __DEFAULT__ OF PSOC4_Main IS
     SIGNAL \I2C_1:tx_wire\ : bit;
     SIGNAL \Opamp_1:Net_12\ : bit;
     SIGNAL \PGA_1:Net_12\ : bit;
+    SIGNAL \PGA_2:Net_12\ : bit;
     SIGNAL \UART_1:Net_847_ff1\ : bit;
     ATTRIBUTE global_signal OF \UART_1:Net_847_ff1\ : SIGNAL IS true;
     SIGNAL \UART_1:miso_s_wire\ : bit;
@@ -125,6 +126,7 @@ ARCHITECTURE __DEFAULT__ OF PSOC4_Main IS
     ATTRIBUTE Location OF Pin_3(0) : LABEL IS "P0[5]";
     ATTRIBUTE Location OF Pin_4(0) : LABEL IS "P0[4]";
     ATTRIBUTE Location OF \Timer_1:cy_m0s8_tcpwm_1\ : LABEL IS "F(TCPWM,0)";
+    ATTRIBUTE Location OF ctb1_resistor_string : LABEL IS "F(RSB,1)";
     ATTRIBUTE Location OF \UART_1:SCB\ : LABEL IS "F(SCB,1)";
     ATTRIBUTE Location OF \I2C_1:SCB_IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(10)]";
     ATTRIBUTE Location OF \I2C_1:SCB\ : LABEL IS "F(SCB,2)";
@@ -134,6 +136,7 @@ ARCHITECTURE __DEFAULT__ OF PSOC4_Main IS
     ATTRIBUTE Location OF \PGA_1:cy_psoc4_abuf\ : LABEL IS "F(OA,1)";
     ATTRIBUTE Location OF \Opamp_1:cy_psoc4_abuf\ : LABEL IS "F(OA,0)";
     ATTRIBUTE Location OF \PVref_1:cy_psoc4_pref\ : LABEL IS "F(REF,1)";
+    ATTRIBUTE Location OF \PGA_2:cy_psoc4_abuf\ : LABEL IS "F(OA,3)";
     COMPONENT interrupt
         PORT (
             interrupt : IN std_ulogic;
@@ -1241,6 +1244,8 @@ BEGIN
             line_compl => Net_1633,
             interrupt => Net_1631);
 
+    ctb1_resistor_string:p4rsbcell;
+
     \UART_1:SCB\:m0s8scbcell
         GENERIC MAP(
             cy_registers => "",
@@ -1369,5 +1374,14 @@ BEGIN
             cy_registers => "",
             referenceid => 0,
             tapid => 0);
+
+    \PGA_2:cy_psoc4_abuf\:p4abufcell
+        GENERIC MAP(
+            cy_registers => "",
+            deepsleep_available => 0,
+            has_resistor => 1,
+            needs_dsab => 0)
+        PORT MAP(
+            ctb_dsi_comp => \PGA_2:Net_12\);
 
 END __DEFAULT__;

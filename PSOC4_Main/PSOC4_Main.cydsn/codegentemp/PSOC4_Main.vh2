@@ -2,7 +2,7 @@
 --	Conversion of PSOC4_Main.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sat Mar 13 15:00:01 2021
+--	Sat Mar 27 20:50:42 2021
 --
 
 USE cypress.cypress.all;
@@ -65,16 +65,16 @@ SIGNAL Net_1564 : bit;
 SIGNAL Net_1565 : bit;
 SIGNAL Net_1556 : bit;
 SIGNAL \UART_1:Net_1028\ : bit;
+SIGNAL Net_1555 : bit;
 SIGNAL Net_1549 : bit;
 SIGNAL Net_1550 : bit;
 SIGNAL Net_1551 : bit;
 SIGNAL Net_1552 : bit;
 SIGNAL Net_1553 : bit;
 SIGNAL Net_1554 : bit;
-SIGNAL Net_1555 : bit;
-SIGNAL Net_1558 : bit;
 SIGNAL Net_1559 : bit;
 SIGNAL Net_1566 : bit;
+SIGNAL Net_1558 : bit;
 SIGNAL \I2C_1:Net_847\ : bit;
 SIGNAL \I2C_1:select_s_wire\ : bit;
 SIGNAL \I2C_1:rx_wire\ : bit;
@@ -110,16 +110,16 @@ SIGNAL \I2C_1:miso_s_wire\ : bit;
 SIGNAL Net_1587 : bit;
 SIGNAL Net_1578 : bit;
 SIGNAL \I2C_1:Net_1028\ : bit;
+SIGNAL Net_1577 : bit;
 SIGNAL Net_1571 : bit;
 SIGNAL Net_1572 : bit;
 SIGNAL Net_1573 : bit;
 SIGNAL Net_1574 : bit;
 SIGNAL Net_1575 : bit;
 SIGNAL Net_1576 : bit;
-SIGNAL Net_1577 : bit;
-SIGNAL Net_1580 : bit;
 SIGNAL Net_1581 : bit;
 SIGNAL Net_1588 : bit;
+SIGNAL Net_1580 : bit;
 TERMINAL \ADC_1:vinPlus_0\ : bit;
 TERMINAL Net_1524 : bit;
 TERMINAL \ADC_1:Net_107\ : bit;
@@ -640,6 +640,7 @@ TERMINAL \Opamp_1:Net_18\ : bit;
 TERMINAL \Opamp_1:Net_29\ : bit;
 TERMINAL \Opamp_1:Net_19\ : bit;
 SIGNAL \Opamp_1:Net_12\ : bit;
+TERMINAL Net_1669 : bit;
 TERMINAL Net_1658 : bit;
 SIGNAL tmpOE__Pin_3_net_0 : bit;
 SIGNAL tmpFB_0__Pin_3_net_0 : bit;
@@ -650,6 +651,12 @@ SIGNAL tmpOE__Pin_4_net_0 : bit;
 SIGNAL tmpIO_0__Pin_4_net_0 : bit;
 TERMINAL tmpSIOVREF__Pin_4_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Pin_4_net_0 : bit;
+TERMINAL \PGA_2:Net_29\ : bit;
+TERMINAL \PGA_2:Net_18\ : bit;
+TERMINAL \PGA_2:Net_39\ : bit;
+TERMINAL \PGA_2:Net_19\ : bit;
+SIGNAL \PGA_2:Net_12\ : bit;
+TERMINAL \PGA_2:Net_51\ : bit;
 BEGIN
 
 zero <=  ('0') ;
@@ -3107,7 +3114,7 @@ AMux_1:cy_psoc3_amux_v1_0
 		init_mux_sel=>"000",
 		api_type=>0,
 		connect_mode=>1)
-	PORT MAP(muxin=>(Net_1661, Net_1525, Net_1658),
+	PORT MAP(muxin=>(Net_1669, Net_1525, Net_1658),
 		hw_ctrl_en=>(others => zero),
 		vout=>Net_1621);
 \PVref_1:cy_psoc4_pref\:cy_psoc4_pref_v1_0
@@ -3255,5 +3262,30 @@ Pin_4:cy_psoc3_pins_v1_10
 		out_clock_en=>tmpOE__RELAY_net_0,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__Pin_4_net_0);
+\PGA_2:cy_psoc4_abuf\:cy_psoc4_abuf_v1_0
+	GENERIC MAP(cy_registers=>"",
+		needs_dsab=>'0',
+		deepsleep_available=>'0',
+		has_resistor=>'1')
+	PORT MAP(vplus=>Net_1661,
+		vminus=>\PGA_2:Net_29\,
+		vout1=>\PGA_2:Net_18\,
+		rs_bot=>\PGA_2:Net_39\,
+		vout10=>\PGA_2:Net_19\,
+		cmpout=>\PGA_2:Net_12\);
+\PGA_2:cy_analog_virtualmux_2_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>Net_1669,
+		signal2=>\PGA_2:Net_18\);
+\PGA_2:cy_analog_noconnect_1\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\PGA_2:Net_29\);
+\PGA_2:cy_analog_noconnect_2\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\PGA_2:Net_51\);
+\PGA_2:cy_analog_virtualmux_1_connect\:cy_connect_v1_0
+	GENERIC MAP(sig_width=>1,
+		is_net_join=>'0')
+	PORT MAP(signal1=>\PGA_2:Net_39\,
+		signal2=>\PGA_2:Net_51\);
 
 END R_T_L;

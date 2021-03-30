@@ -1,6 +1,6 @@
 -- ======================================================================
 -- PSOC4_Main.ctl generated from PSOC4_Main
--- 03/13/2021 at 14:59
+-- 03/27/2021 at 20:50
 -- This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 -- ======================================================================
 
