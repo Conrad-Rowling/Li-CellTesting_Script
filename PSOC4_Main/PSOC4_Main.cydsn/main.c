@@ -17,21 +17,25 @@
 
 #define true 1u
 #define false 0u
-#define SOC_FULL  3.0 //10.2 //Ahr
+#define SOC_FULL  10.2 //Ahr
 #define LOW_CURRENT 1
 #define HIGH_CURRENT 20
 
 void Shutdown_Test()
 {
+    char string[10];
     RED_LED_Write(1);
     RELAY_Write(0);
+    sprintf(string,"\r\n  -- Test Stopped Manually  -- \r\n");
+    UART_1_UartPutString(string);
+    
 }
 void Print_headers(uint length)
 {
     char hstr[60]; 
     sprintf(hstr,"\r\n");
     UART_1_UartPutString(hstr);
-    sprintf(hstr,"Time, SOC(percent), Bat(V), Shunt(A), ");//"Time, % SOC, Shunt(A), Bat(V), ");
+    sprintf(hstr,"Time(s), SOC(percent), Bat(V), Shunt(A), ");//"Time, % SOC, Shunt(A), Bat(V), ");
     UART_1_UartPutString(hstr);
     
     for (uint i = 0; i < length-1; i++){
@@ -45,6 +49,18 @@ void Print_headers(uint length)
         CyDelay(10);
         }   
 }
+float Move_Window(float *array, float reading, uint len){
+    float average = 0;
+    for (uint i = 1; i < len; i++){
+        array[i-1] = array[i];
+    }
+    array[len -1] = reading;
+    for (uint i = 0; i < 10; i++){
+        average  += array[i];
+    }
+    average = average/10.0;
+    return average;
+}
 
 int main (void)
 {
@@ -54,7 +70,6 @@ int main (void)
     uint32 time;
     uint32 timeOld;
     float soc;
-    char string[20];
     
     AMux_1_Start();
     Opamp_1_Start();
@@ -71,17 +86,14 @@ int main (void)
     uint32 vmShunt;
     uint32 adcOffset;
     float adcOff;
-    float vmShmV;
-    float vmShA;
-    float avgShA;  //moving window average for current
-    float windowArray[10];
-    float windowSum;
+    float ShmV;
+    float ShA;
+    float windowArray[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     uint32 vmBat;
     float vmBatmV;
     
     uint8 batteryArray[32];
     uint8 resistorArray[32];
-    int addr;
     char string1[20];
     uint32 rxData;
     
@@ -89,6 +101,7 @@ int main (void)
     UART_1_UartPutString(string1);
 
     soc = SOC_FULL;
+    // If test starts at another point than full SOC, need to enter it here
     
     for(;;)
     {
@@ -116,8 +129,7 @@ int main (void)
             adcOff = adcOff - 1200.0;
             ADC_1_StopConvert();
             PVref_1_Stop();
-            //sprintf(string1, "%3.3f, ", adcOff);
-            //UART_1_UartPutString(string1);
+            
             timeOld = 0;     // just to avoid the first readcounter
             
             while(lowTemp && goodCurrent && !stopPlease){ 
@@ -128,10 +140,11 @@ int main (void)
                 UART_1_UartPutString(string1);
                                 
                 if (time > timeOld){
-                    soc = soc -  vmShA*(time-timeOld)/3600;
+                    soc = soc -  ShA*(time-timeOld)/3600;
                     timeOld = time;
                 }
-                sprintf(string1,"\r\n %3.5f, ", soc);
+                
+                sprintf(string1,"\r\n %3.5f, ", soc*100.0/SOC_FULL);
                 UART_1_UartPutString(string1);
                                                            
                 AMux_1_Select(2);
@@ -151,40 +164,20 @@ int main (void)
                 vmShunt = ADC_1_GetResult32(0);
                 ADC_1_StopConvert();
                 
-//                windowSum = 0.0;
-//                avgShA = 0.0; 
-//                CyDelay(1000);
-//                
-//                for(int i=0; i < 10; i++)
-//                {
-//                    vmShmV = ADC_1_CountsTo_mVolts(0, vmShunt);
-//                    vmShmV = vmShmV - adcOff;
-//                    vmShA = vmShmV*60.0/(9.52*5.82*50.0); 
-//                    windowArray[i] = vmShA;
-//                    ADC_1_StartConvert();
-//                    ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-//                    vmShunt = ADC_1_GetResult32(0);
-//                    ADC_1_StopConvert();
-//                    CyDelay(1000);
-//                }
-//                
-//                for(int i = 0; i < 10; i++)
-//                {
-//                    windowSum += windowArray[i];
-//                }
-//                
-//                avgShA = windowSum / 10.0;
-//                
-                //ADC_1_StopConvert();
-                vmShmV = ADC_1_CountsTo_mVolts(0, vmShunt);
-                vmShmV = vmShmV - adcOff;
-                vmShA = vmShmV*60.0/(4.0*8.0*50.0); 
-                //vmShA = 1.0;
-                sprintf(string1, "%3.3f, ", vmShA);  
+                ShmV = ADC_1_CountsTo_mVolts(0, vmShunt);
+                ShmV = ShmV - adcOff;
+                ShA = ShmV*60.0/(4.0*8.0*50.0); 
                 
-                UART_1_UartPutString(string1);
-                sprintf(string1, "%3.3f, ", vmShmV);
-                //UART_1_UartPutString(string1);
+                if (windowArray[9] == 0){
+                    int i = 0;
+                    windowArray[i] = ShA;
+                    i += 1;
+                }
+                else{
+                    ShA = Move_Window(windowArray, ShA, 10);
+                }
+                
+                sprintf(string1, "%3.3f, ", ShA);
 
                 I2C_1_I2CMasterReadBuf(0x08, batteryArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
                 for(uint i = 2; i < 14; i=i+2){
@@ -208,16 +201,28 @@ int main (void)
                     Shutdown_Test();
                 }
                 
-                /*for(uint i = 2; i < 12; i=i+2){
-                    if (((batteryArray[i] > 60) ||  (resistorArray[i] > 170))) //&& ((batteryArray[i] < 255) &&  (resistorArray[i] < 255)))
+                for(uint i = 2; i < 12; i=i+2){
+                    if (batteryArray[i] > 60){
                         lowTemp = false;
+                        sprintf(string1, "\r\n ERROR - High Temperature on Battery: %d.%d, on Thermistor %d \r\n", batteryArray[i], batteryArray[i+1], i);
+                        UART_1_UartPutString(string1);  
+                    }
+                    if (resistorArray[i] > 170){ 
+                        lowTemp = false;
+                        sprintf(string1, "\r\n ERROR - High Temperature on Resistor: %d.%d, on Thermistor %d \r\n", resistorArray[i], resistorArray[i+1], i);
+                        UART_1_UartPutString(string1);  
+                    }
                 }
-                if ((vmShA < LOW_CURRENT) ||(vmShA > HIGH_CURRENT)){
+                
+                if ((ShA < LOW_CURRENT) ||(ShA > HIGH_CURRENT)){
                     goodCurrent = false;
-                }*/
-            }        
+                    sprintf(string1, "\r\n ERROR - High Temperature on Resistor: %f \r\n", ShA);
+                    UART_1_UartPutString(string1); 
+                }
+            }
+            UART_1_UartPutString("\r\n SAFETY THRESHOLD EXCEEDED, TEST HALTED \r\n"); 
         }
-        //CyDelay(10);
+        
     }
 }
 
