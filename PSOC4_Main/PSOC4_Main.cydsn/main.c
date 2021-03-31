@@ -167,7 +167,7 @@ int main (void)
             
             timeOld = 0;     // just to avoid the first readcounter
             
-            while(lowTemp && goodCurrent && !stopPlease){ 
+            while(lowTemp && goodCurrent && !stopPlease){   
                 
                 time = Timer_1_ReadCounter(); //Read Counter for the time
                 
@@ -222,14 +222,14 @@ int main (void)
                 
                 // Read Battery Temperature Array via I2C and append to print string
                 I2C_1_I2CMasterReadBuf(0x08, batteryArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
-                for(uint i = 2; i < 14; i=i+2){
+                for(uint i = 2; i < 13; i=i+2){
                     sprintf(string1, "%d.%d, ", batteryArray[i], batteryArray[i+1]);
                     UART_1_UartPutString(string1);    
                 }
                 
                 // Ready Power Resistors Temperature Array via I2C and append to print string
                 I2C_1_I2CMasterReadBuf(0x09, resistorArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
-                for(uint i = 2; i < 12; i=i+2){
+                for(uint i = 2; i < 11; i=i+2){
                     sprintf(string1, "%d.%d, ", resistorArray[i], resistorArray[i+1]);
                     UART_1_UartPutString(string1);    
                 }
