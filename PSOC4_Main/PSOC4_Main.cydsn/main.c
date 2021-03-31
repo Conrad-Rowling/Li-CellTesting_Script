@@ -178,6 +178,7 @@ int main (void)
                 }
                 
                 sprintf(string1, "%3.3f, ", ShA);
+                UART_1_UartPutString(string1);
 
                 I2C_1_I2CMasterReadBuf(0x08, batteryArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
                 for(uint i = 2; i < 14; i=i+2){
