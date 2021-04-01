@@ -171,7 +171,7 @@ int main(void)
         PVref_1_Stop();
         
         /* Wait five seconds */
-        CyDelay(500);
+        CyDelay(100);//(500);
     }
 }
 

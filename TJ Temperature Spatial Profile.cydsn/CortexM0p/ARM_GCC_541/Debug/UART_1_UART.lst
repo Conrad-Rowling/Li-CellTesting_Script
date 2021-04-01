@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
   28:Generated_Source\PSoC4/UART_1_UART.c ****     /** This global variable determines whether to enable Skip Start
   29:Generated_Source\PSoC4/UART_1_UART.c ****     * functionality when UART_1_Sleep() function is called:
   30:Generated_Source\PSoC4/UART_1_UART.c ****     * 0 – disable, other values – enable. Default value is 1.
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 2
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 2
 
 
   31:Generated_Source\PSoC4/UART_1_UART.c ****     * It is only available when Enable wakeup from Deep Sleep Mode is enabled.
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
   85:Generated_Source\PSoC4/UART_1_UART.c ****     *
   86:Generated_Source\PSoC4/UART_1_UART.c ****     *  This function is intended specifically to be used when the UART_1
   87:Generated_Source\PSoC4/UART_1_UART.c ****     *  configuration is set to “Unconfigured UART_1” in the customizer.
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 3
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 3
 
 
   88:Generated_Source\PSoC4/UART_1_UART.c ****     *  After initializing the UART_1 in UART mode using this function,
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  142:Generated_Source\PSoC4/UART_1_UART.c ****                                                 (UART_1_UART_GET_CTRL_OVS_IRDA_LP(config->oversampl
  143:Generated_Source\PSoC4/UART_1_UART.c ****                                                 (UART_1_CTRL_OVS_IRDA_OVS16));
  144:Generated_Source\PSoC4/UART_1_UART.c ****             }
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 4
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 4
 
 
  145:Generated_Source\PSoC4/UART_1_UART.c ****             else
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  199:Generated_Source\PSoC4/UART_1_UART.c ****                                             UART_1_GET_UART_FLOW_CTRL_CTS_POLARITY (config->ctsPola
  200:Generated_Source\PSoC4/UART_1_UART.c ****                                             UART_1_GET_UART_FLOW_CTRL_RTS_POLARITY (config->rtsPola
  201:Generated_Source\PSoC4/UART_1_UART.c ****                                             UART_1_GET_UART_FLOW_CTRL_TRIGGER_LEVEL(config->rtsRxFi
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 5
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 5
 
 
  202:Generated_Source\PSoC4/UART_1_UART.c ****         #endif /* !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1) */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
   33              		.loc 1 250 0
   34 0000 154A     		ldr	r2, .L2
   35 0002 164B     		ldr	r3, .L2+4
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 6
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 6
 
 
   36 0004 1A60     		str	r2, [r3]
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  271:Generated_Source\PSoC4/UART_1_UART.c ****     #if(UART_1_SCB_IRQ_INTERNAL)
  272:Generated_Source\PSoC4/UART_1_UART.c ****         CyIntDisable    (UART_1_ISR_NUMBER);
  273:Generated_Source\PSoC4/UART_1_UART.c ****         CyIntSetPriority(UART_1_ISR_NUMBER, UART_1_ISR_PRIORITY);
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 7
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 7
 
 
  274:Generated_Source\PSoC4/UART_1_UART.c ****         (void) CyIntSetVector(UART_1_ISR_NUMBER, &UART_1_SPI_UART_ISR);
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
   92              		.loc 1 305 0
   93              		@ sp needed
   94 0054 7047     		bx	lr
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 8
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 8
 
 
   95              	.L3:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  321:Generated_Source\PSoC4/UART_1_UART.c ****         if (UART_1_CHECK_TX_SDA_MISO_PIN_USED)
  322:Generated_Source\PSoC4/UART_1_UART.c ****         {
  323:Generated_Source\PSoC4/UART_1_UART.c ****             /* Set SCB UART to drive the output pin */
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 9
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 9
 
 
  324:Generated_Source\PSoC4/UART_1_UART.c ****             UART_1_SET_HSIOM_SEL(UART_1_TX_SDA_MISO_HSIOM_REG, UART_1_TX_SDA_MISO_HSIOM_MASK,
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  155              		.type	UART_1_UartStop, %function
  156              	UART_1_UartStop:
  157              	.LFB3:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 10
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 10
 
 
  357:Generated_Source\PSoC4/UART_1_UART.c **** 
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  406:Generated_Source\PSoC4/UART_1_UART.c ****         /* Set GPIO to drive output pin */
  407:Generated_Source\PSoC4/UART_1_UART.c ****         UART_1_SET_HSIOM_SEL(UART_1_RTS_HSIOM_REG, UART_1_RTS_HSIOM_MASK,
  408:Generated_Source\PSoC4/UART_1_UART.c ****                                        UART_1_RTS_HSIOM_POS, UART_1_RTS_HSIOM_SEL_GPIO);
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 11
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 11
 
 
  409:Generated_Source\PSoC4/UART_1_UART.c ****     #endif /* (UART_1_UART_RTS_PIN) */
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  191              		.cfi_startproc
  192              		@ args = 0, pretend = 0, frame = 0
  193              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 12
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 12
 
 
  194              		@ link register save eliminated.
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  454:Generated_Source\PSoC4/UART_1_UART.c **** *   - Bit value 1 – the bit needs to match with the corresponding bit
  455:Generated_Source\PSoC4/UART_1_UART.c **** *     of the address.
  456:Generated_Source\PSoC4/UART_1_UART.c **** *
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 13
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 13
 
 
  457:Generated_Source\PSoC4/UART_1_UART.c **** *******************************************************************************/
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  471:Generated_Source\PSoC4/UART_1_UART.c **** #if(UART_1_UART_RX_DIRECTION)
  472:Generated_Source\PSoC4/UART_1_UART.c ****     /*******************************************************************************
  473:Generated_Source\PSoC4/UART_1_UART.c ****     * Function Name: UART_1_UartGetChar
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 14
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 14
 
 
  474:Generated_Source\PSoC4/UART_1_UART.c ****     ****************************************************************************//**
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  290 0010 0020     		movs	r0, #0
  291              	.LVL14:
  292              	.L17:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 15
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 15
 
 
  506:Generated_Source\PSoC4/UART_1_UART.c ****         }
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  525:Generated_Source\PSoC4/UART_1_UART.c ****     *     from the RX FIFO. Undefined data will be returned if the RX FIFO is
  526:Generated_Source\PSoC4/UART_1_UART.c ****     *     empty.
  527:Generated_Source\PSoC4/UART_1_UART.c ****     *   - The RX software buffer is enabled: returns data element from the
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 16
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 16
 
 
  528:Generated_Source\PSoC4/UART_1_UART.c ****     *     software receive buffer.
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  569:Generated_Source\PSoC4/UART_1_UART.c **** 
  570:Generated_Source\PSoC4/UART_1_UART.c ****             /* Get received byte */
  571:Generated_Source\PSoC4/UART_1_UART.c ****             rxData = UART_1_SpiUartReadRxData();
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 17
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 17
 
 
  340              		.loc 1 571 0
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  363 0022 9202     		lsls	r2, r2, #10
  364 0024 1340     		ands	r3, r2
  365 0026 1843     		orrs	r0, r3
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 18
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 18
 
 
  366              	.LVL23:
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  396 0004 064A     		ldr	r2, .L30
  397 0006 1368     		ldr	r3, [r2]
  398 0008 8021     		movs	r1, #128
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 19
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 19
 
 
  399 000a 4902     		lsls	r1, r1, #9
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  650:Generated_Source\PSoC4/UART_1_UART.c ****         void UART_1_UartSetRtsFifoLevel(uint32 level)
  651:Generated_Source\PSoC4/UART_1_UART.c ****         {
  430              		.loc 1 651 0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 20
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 20
 
 
  431              		.cfi_startproc
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  668:Generated_Source\PSoC4/UART_1_UART.c ****     * Function Name: UART_1_UartPutString
  669:Generated_Source\PSoC4/UART_1_UART.c ****     ****************************************************************************//**
  670:Generated_Source\PSoC4/UART_1_UART.c ****     *
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 21
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 21
 
 
  671:Generated_Source\PSoC4/UART_1_UART.c ****     *  Places a NULL terminated string in the transmit buffer to be sent at the
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  500              		@ sp needed
  501              	.LVL35:
  502              	.LVL36:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 22
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 22
 
 
  503 0014 70BD     		pop	{r4, r5, r6, pc}
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  537 0012 10BD     		pop	{r4, pc}
  538              		.cfi_endproc
  539              	.LFE11:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 23
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 23
 
 
  540              		.size	UART_1_UartPutCRLF, .-UART_1_UartPutCRLF
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  578              	.LFB13:
  729:Generated_Source\PSoC4/UART_1_UART.c **** 
  730:Generated_Source\PSoC4/UART_1_UART.c **** 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 24
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 24
 
 
  731:Generated_Source\PSoC4/UART_1_UART.c ****         /*******************************************************************************
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  755:Generated_Source\PSoC4/UART_1_UART.c ****         * polarity: Active polarity of CTS output signal.
  756:Generated_Source\PSoC4/UART_1_UART.c ****         *   - UART_1_UART_CTS_ACTIVE_LOW  - CTS signal is active low.
  757:Generated_Source\PSoC4/UART_1_UART.c ****         *   - UART_1_UART_CTS_ACTIVE_HIGH - CTS signal is active high.
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 25
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 25
 
 
  758:Generated_Source\PSoC4/UART_1_UART.c ****         *
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  650              		.type	UART_1_UartSendBreakBlocking, %function
  651              	UART_1_UartSendBreakBlocking:
  652              	.LFB15:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 26
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 26
 
 
  771:Generated_Source\PSoC4/UART_1_UART.c ****     #endif /* !(UART_1_CY_SCBIP_V0 || UART_1_CY_SCBIP_V1) */
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  675 0010 0D4A     		ldr	r2, .L52+4
  676 0012 1160     		str	r1, [r2]
  803:Generated_Source\PSoC4/UART_1_UART.c **** 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 27
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 27
 
 
  804:Generated_Source\PSoC4/UART_1_UART.c ****         /* Store TX CTRL configuration */
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  824:Generated_Source\PSoC4/UART_1_UART.c ****         UART_1_SetTxInterruptMode(txIntrReg);
  710              		.loc 1 824 0
  711 003c 014B     		ldr	r3, .L52
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 28
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 28
 
 
  712 003e 1D60     		str	r5, [r3]
@@ -1651,40 +1651,40 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  738 0006 00000000 		.4byte	.Ldebug_abbrev0
  739 000a 04       		.byte	0x4
  740 000b 01       		.uleb128 0x1
- 741 000c 3F030000 		.4byte	.LASF50
+ 741 000c 33030000 		.4byte	.LASF50
  742 0010 0C       		.byte	0xc
- 743 0011 A5010000 		.4byte	.LASF51
- 744 0015 14000000 		.4byte	.LASF52
+ 743 0011 35010000 		.4byte	.LASF51
+ 744 0015 A7020000 		.4byte	.LASF52
  745 0019 00000000 		.4byte	.Ldebug_ranges0+0
  746 001d 00000000 		.4byte	0
  747 0021 00000000 		.4byte	.Ldebug_line0
  748 0025 02       		.uleb128 0x2
  749 0026 01       		.byte	0x1
  750 0027 06       		.byte	0x6
- 751 0028 D1030000 		.4byte	.LASF0
+ 751 0028 C5030000 		.4byte	.LASF0
  752 002c 02       		.uleb128 0x2
  753 002d 01       		.byte	0x1
  754 002e 08       		.byte	0x8
- 755 002f 2C010000 		.4byte	.LASF1
+ 755 002f BC000000 		.4byte	.LASF1
  756 0033 02       		.uleb128 0x2
  757 0034 02       		.byte	0x2
  758 0035 05       		.byte	0x5
- 759 0036 E0020000 		.4byte	.LASF2
+ 759 0036 70020000 		.4byte	.LASF2
  760 003a 02       		.uleb128 0x2
  761 003b 02       		.byte	0x2
  762 003c 07       		.byte	0x7
- 763 003d 78010000 		.4byte	.LASF3
+ 763 003d 08010000 		.4byte	.LASF3
  764 0041 02       		.uleb128 0x2
  765 0042 04       		.byte	0x4
  766 0043 05       		.byte	0x5
- 767 0044 17030000 		.4byte	.LASF4
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 29
+ 767 0044 0B030000 		.4byte	.LASF4
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 29
 
 
  768 0048 02       		.uleb128 0x2
  769 0049 04       		.byte	0x4
  770 004a 07       		.byte	0x7
- 771 004b 66010000 		.4byte	.LASF5
+ 771 004b F6000000 		.4byte	.LASF5
  772 004f 02       		.uleb128 0x2
  773 0050 08       		.byte	0x8
  774 0051 05       		.byte	0x5
@@ -1692,7 +1692,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  776 0056 02       		.uleb128 0x2
  777 0057 08       		.byte	0x8
  778 0058 07       		.byte	0x7
- 779 0059 3C020000 		.4byte	.LASF7
+ 779 0059 CC010000 		.4byte	.LASF7
  780 005d 03       		.uleb128 0x3
  781 005e 04       		.byte	0x4
  782 005f 05       		.byte	0x5
@@ -1700,34 +1700,34 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  784 0064 02       		.uleb128 0x2
  785 0065 04       		.byte	0x4
  786 0066 07       		.byte	0x7
- 787 0067 27020000 		.4byte	.LASF8
+ 787 0067 B7010000 		.4byte	.LASF8
  788 006b 04       		.uleb128 0x4
- 789 006c 01020000 		.4byte	.LASF9
+ 789 006c 91010000 		.4byte	.LASF9
  790 0070 02       		.byte	0x2
  791 0071 F801     		.2byte	0x1f8
  792 0073 3A000000 		.4byte	0x3a
  793 0077 04       		.uleb128 0x4
- 794 0078 20020000 		.4byte	.LASF10
+ 794 0078 B0010000 		.4byte	.LASF10
  795 007c 02       		.byte	0x2
  796 007d F901     		.2byte	0x1f9
  797 007f 48000000 		.4byte	0x48
  798 0083 02       		.uleb128 0x2
  799 0084 04       		.byte	0x4
  800 0085 04       		.byte	0x4
- 801 0086 1C010000 		.4byte	.LASF11
+ 801 0086 AC000000 		.4byte	.LASF11
  802 008a 02       		.uleb128 0x2
  803 008b 08       		.byte	0x8
  804 008c 04       		.byte	0x4
- 805 008d CA010000 		.4byte	.LASF12
+ 805 008d 5A010000 		.4byte	.LASF12
  806 0091 04       		.uleb128 0x4
- 807 0092 AF020000 		.4byte	.LASF13
+ 807 0092 3F020000 		.4byte	.LASF13
  808 0096 02       		.byte	0x2
  809 0097 0802     		.2byte	0x208
  810 0099 9D000000 		.4byte	0x9d
  811 009d 02       		.uleb128 0x2
  812 009e 01       		.byte	0x1
  813 009f 08       		.byte	0x8
- 814 00a0 B2000000 		.4byte	.LASF14
+ 814 00a0 42000000 		.4byte	.LASF14
  815 00a4 04       		.uleb128 0x4
  816 00a5 0E000000 		.4byte	.LASF15
  817 00a9 02       		.byte	0x2
@@ -1738,16 +1738,16 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  822 00b5 02       		.uleb128 0x2
  823 00b6 08       		.byte	0x8
  824 00b7 04       		.byte	0x4
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 30
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 30
 
 
- 825 00b8 33030000 		.4byte	.LASF16
+ 825 00b8 27030000 		.4byte	.LASF16
  826 00bc 02       		.uleb128 0x2
  827 00bd 04       		.byte	0x4
  828 00be 07       		.byte	0x7
- 829 00bf A6020000 		.4byte	.LASF17
+ 829 00bf 36020000 		.4byte	.LASF17
  830 00c3 06       		.uleb128 0x6
- 831 00c4 07030000 		.4byte	.LASF18
+ 831 00c4 97020000 		.4byte	.LASF18
  832 00c8 01       		.byte	0x1
  833 00c9 F7       		.byte	0xf7
  834 00ca 00000000 		.4byte	.LFB1
@@ -1755,7 +1755,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  836 00d2 01       		.uleb128 0x1
  837 00d3 9C       		.byte	0x9c
  838 00d4 07       		.uleb128 0x7
- 839 00d5 D1010000 		.4byte	.LASF19
+ 839 00d5 61010000 		.4byte	.LASF19
  840 00d9 01       		.byte	0x1
  841 00da 3D01     		.2byte	0x13d
  842 00dc 00000000 		.4byte	.LFB2
@@ -1763,7 +1763,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  844 00e4 01       		.uleb128 0x1
  845 00e5 9C       		.byte	0x9c
  846 00e6 07       		.uleb128 0x7
- 847 00e7 D5000000 		.4byte	.LASF20
+ 847 00e7 65000000 		.4byte	.LASF20
  848 00eb 01       		.byte	0x1
  849 00ec 7101     		.2byte	0x171
  850 00ee 00000000 		.4byte	.LFB3
@@ -1771,7 +1771,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  852 00f6 01       		.uleb128 0x1
  853 00f7 9C       		.byte	0x9c
  854 00f8 08       		.uleb128 0x8
- 855 00f9 08020000 		.4byte	.LASF21
+ 855 00f9 98010000 		.4byte	.LASF21
  856 00fd 01       		.byte	0x1
  857 00fe B101     		.2byte	0x1b1
  858 0100 00000000 		.4byte	.LFB4
@@ -1780,45 +1780,45 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  861 0109 9C       		.byte	0x9c
  862 010a 2F010000 		.4byte	0x12f
  863 010e 09       		.uleb128 0x9
- 864 010f 34020000 		.4byte	.LASF23
+ 864 010f C4010000 		.4byte	.LASF23
  865 0113 01       		.byte	0x1
  866 0114 B101     		.2byte	0x1b1
  867 0116 77000000 		.4byte	0x77
  868 011a 00000000 		.4byte	.LLST0
  869 011e 0A       		.uleb128 0xa
- 870 011f 2A030000 		.4byte	.LASF25
+ 870 011f 1E030000 		.4byte	.LASF25
  871 0123 01       		.byte	0x1
  872 0124 B301     		.2byte	0x1b3
  873 0126 77000000 		.4byte	0x77
  874 012a 21000000 		.4byte	.LLST1
  875 012e 00       		.byte	0
  876 012f 08       		.uleb128 0x8
- 877 0130 8A020000 		.4byte	.LASF22
+ 877 0130 1A020000 		.4byte	.LASF22
  878 0134 01       		.byte	0x1
  879 0135 CA01     		.2byte	0x1ca
  880 0137 00000000 		.4byte	.LFB5
  881 013b 18000000 		.4byte	.LFE5-.LFB5
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 31
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 31
 
 
  882 013f 01       		.uleb128 0x1
  883 0140 9C       		.byte	0x9c
  884 0141 66010000 		.4byte	0x166
  885 0145 09       		.uleb128 0x9
- 886 0146 53020000 		.4byte	.LASF24
+ 886 0146 E3010000 		.4byte	.LASF24
  887 014a 01       		.byte	0x1
  888 014b CA01     		.2byte	0x1ca
  889 014d 77000000 		.4byte	0x77
  890 0151 3F000000 		.4byte	.LLST2
  891 0155 0A       		.uleb128 0xa
- 892 0156 2A030000 		.4byte	.LASF25
+ 892 0156 1E030000 		.4byte	.LASF25
  893 015a 01       		.byte	0x1
  894 015b CC01     		.2byte	0x1cc
  895 015d 77000000 		.4byte	0x77
  896 0161 60000000 		.4byte	.LLST3
  897 0165 00       		.byte	0
  898 0166 0B       		.uleb128 0xb
- 899 0167 8B010000 		.4byte	.LASF27
+ 899 0167 1B010000 		.4byte	.LASF27
  900 016b 01       		.byte	0x1
  901 016c F201     		.2byte	0x1f2
  902 016e 77000000 		.4byte	0x77
@@ -1828,7 +1828,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  906 017b 9C       		.byte	0x9c
  907 017c A3010000 		.4byte	0x1a3
  908 0180 0A       		.uleb128 0xa
- 909 0181 9E010000 		.4byte	.LASF26
+ 909 0181 2E010000 		.4byte	.LASF26
  910 0185 01       		.byte	0x1
  911 0186 F401     		.2byte	0x1f4
  912 0188 77000000 		.4byte	0x77
@@ -1841,7 +1841,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  919 019e 9C030000 		.4byte	0x39c
  920 01a2 00       		.byte	0
  921 01a3 0B       		.uleb128 0xb
- 922 01a4 F4030000 		.4byte	.LASF28
+ 922 01a4 E8030000 		.4byte	.LASF28
  923 01a8 01       		.byte	0x1
  924 01a9 2402     		.2byte	0x224
  925 01ab 77000000 		.4byte	0x77
@@ -1851,14 +1851,14 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  929 01b8 9C       		.byte	0x9c
  930 01b9 F0010000 		.4byte	0x1f0
  931 01bd 0A       		.uleb128 0xa
- 932 01be 9E010000 		.4byte	.LASF26
+ 932 01be 2E010000 		.4byte	.LASF26
  933 01c2 01       		.byte	0x1
  934 01c3 2602     		.2byte	0x226
  935 01c5 77000000 		.4byte	0x77
  936 01c9 D6000000 		.4byte	.LLST5
  937 01cd 0A       		.uleb128 0xa
- 938 01ce 20030000 		.4byte	.LASF29
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 32
+ 938 01ce 14030000 		.4byte	.LASF29
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 32
 
 
  939 01d2 01       		.byte	0x1
@@ -1873,7 +1873,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  948 01eb 9C030000 		.4byte	0x39c
  949 01ef 00       		.byte	0
  950 01f0 08       		.uleb128 0x8
- 951 01f1 4C010000 		.4byte	.LASF30
+ 951 01f1 DC000000 		.4byte	.LASF30
  952 01f5 01       		.byte	0x1
  953 01f6 6E02     		.2byte	0x26e
  954 01f8 00000000 		.4byte	.LFB8
@@ -1882,7 +1882,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  957 0201 9C       		.byte	0x9c
  958 0202 15020000 		.4byte	0x215
  959 0206 0D       		.uleb128 0xd
- 960 0207 78020000 		.4byte	.LASF31
+ 960 0207 08020000 		.4byte	.LASF31
  961 020b 01       		.byte	0x1
  962 020c 6E02     		.2byte	0x26e
  963 020e 77000000 		.4byte	0x77
@@ -1890,7 +1890,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  965 0213 50       		.byte	0x50
  966 0214 00       		.byte	0
  967 0215 08       		.uleb128 0x8
- 968 0216 07040000 		.4byte	.LASF32
+ 968 0216 FB030000 		.4byte	.LASF32
  969 021a 01       		.byte	0x1
  970 021b 8A02     		.2byte	0x28a
  971 021d 00000000 		.4byte	.LFB9
@@ -1899,38 +1899,38 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  974 0226 9C       		.byte	0x9c
  975 0227 4C020000 		.4byte	0x24c
  976 022b 09       		.uleb128 0x9
- 977 022c 84000000 		.4byte	.LASF33
+ 977 022c 14000000 		.4byte	.LASF33
  978 0230 01       		.byte	0x1
  979 0231 8A02     		.2byte	0x28a
  980 0233 77000000 		.4byte	0x77
  981 0237 0D010000 		.4byte	.LLST7
  982 023b 0A       		.uleb128 0xa
- 983 023c E7030000 		.4byte	.LASF34
+ 983 023c DB030000 		.4byte	.LASF34
  984 0240 01       		.byte	0x1
  985 0241 8C02     		.2byte	0x28c
  986 0243 77000000 		.4byte	0x77
  987 0247 2E010000 		.4byte	.LLST8
  988 024b 00       		.byte	0
  989 024c 08       		.uleb128 0x8
- 990 024d 9D000000 		.4byte	.LASF35
+ 990 024d 2D000000 		.4byte	.LASF35
  991 0251 01       		.byte	0x1
  992 0252 A802     		.2byte	0x2a8
  993 0254 00000000 		.4byte	.LFB10
  994 0258 16000000 		.4byte	.LFE10-.LFB10
  995 025c 01       		.uleb128 0x1
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 33
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 33
 
 
  996 025d 9C       		.byte	0x9c
  997 025e 8C020000 		.4byte	0x28c
  998 0262 09       		.uleb128 0x9
- 999 0263 FF000000 		.4byte	.LASF36
+ 999 0263 8F000000 		.4byte	.LASF36
  1000 0267 01       		.byte	0x1
  1001 0268 A802     		.2byte	0x2a8
  1002 026a 8C020000 		.4byte	0x28c
  1003 026e 4C010000 		.4byte	.LLST9
  1004 0272 0A       		.uleb128 0xa
- 1005 0273 81020000 		.4byte	.LASF37
+ 1005 0273 11020000 		.4byte	.LASF37
  1006 0277 01       		.byte	0x1
  1007 0278 AA02     		.2byte	0x2aa
  1008 027a 77000000 		.4byte	0x77
@@ -1945,7 +1945,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  1017 0292 0F       		.uleb128 0xf
  1018 0293 91000000 		.4byte	0x91
  1019 0297 08       		.uleb128 0x8
- 1020 0298 8A000000 		.4byte	.LASF38
+ 1020 0298 1A000000 		.4byte	.LASF38
  1021 029c 01       		.byte	0x1
  1022 029d C302     		.2byte	0x2c3
  1023 029f 00000000 		.4byte	.LFB11
@@ -1954,7 +1954,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  1026 02a8 9C       		.byte	0x9c
  1027 02a9 F5020000 		.4byte	0x2f5
  1028 02ad 09       		.uleb128 0x9
- 1029 02ae C0020000 		.4byte	.LASF39
+ 1029 02ae 50020000 		.4byte	.LASF39
  1030 02b2 01       		.byte	0x1
  1031 02b3 C302     		.2byte	0x2c3
  1032 02b5 77000000 		.4byte	0x77
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  1050 02df 11       		.uleb128 0x11
  1051 02e0 01       		.uleb128 0x1
  1052 02e1 50       		.byte	0x50
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 34
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 34
 
 
  1053 02e2 01       		.uleb128 0x1
@@ -1995,7 +1995,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  1064 02f3 00       		.byte	0
  1065 02f4 00       		.byte	0
  1066 02f5 07       		.uleb128 0x7
- 1067 02f6 CB020000 		.4byte	.LASF40
+ 1067 02f6 5B020000 		.4byte	.LASF40
  1068 02fa 01       		.byte	0x1
  1069 02fb D502     		.2byte	0x2d5
  1070 02fd 00000000 		.4byte	.LFB12
@@ -2003,7 +2003,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  1072 0305 01       		.uleb128 0x1
  1073 0306 9C       		.byte	0x9c
  1074 0307 07       		.uleb128 0x7
- 1075 0308 06010000 		.4byte	.LASF41
+ 1075 0308 96000000 		.4byte	.LASF41
  1076 030c 01       		.byte	0x1
  1077 030d E402     		.2byte	0x2e4
  1078 030f 00000000 		.4byte	.LFB13
@@ -2011,7 +2011,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  1080 0317 01       		.uleb128 0x1
  1081 0318 9C       		.byte	0x9c
  1082 0319 08       		.uleb128 0x8
- 1083 031a E5000000 		.4byte	.LASF42
+ 1083 031a 75000000 		.4byte	.LASF42
  1084 031e 01       		.byte	0x1
  1085 031f F802     		.2byte	0x2f8
  1086 0321 00000000 		.4byte	.LFB14
@@ -2020,7 +2020,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  1089 032a 9C       		.byte	0x9c
  1090 032b 3E030000 		.4byte	0x33e
  1091 032f 0D       		.uleb128 0xd
- 1092 0330 78020000 		.4byte	.LASF31
+ 1092 0330 08020000 		.4byte	.LASF31
  1093 0334 01       		.byte	0x1
  1094 0335 F802     		.2byte	0x2f8
  1095 0337 77000000 		.4byte	0x77
@@ -2028,7 +2028,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  1097 033c 50       		.byte	0x50
  1098 033d 00       		.byte	0
  1099 033e 08       		.uleb128 0x8
- 1100 033f EA020000 		.4byte	.LASF43
+ 1100 033f 7A020000 		.4byte	.LASF43
  1101 0343 01       		.byte	0x1
  1102 0344 1A03     		.2byte	0x31a
  1103 0346 00000000 		.4byte	.LFB15
@@ -2037,8 +2037,8 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  1106 034f 9C       		.byte	0x9c
  1107 0350 85030000 		.4byte	0x385
  1108 0354 09       		.uleb128 0x9
- 1109 0355 B5020000 		.4byte	.LASF44
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 35
+ 1109 0355 45020000 		.4byte	.LASF44
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 35
 
 
  1110 0359 01       		.byte	0x1
@@ -2046,36 +2046,36 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  1112 035c 77000000 		.4byte	0x77
  1113 0360 B8010000 		.4byte	.LLST12
  1114 0364 0A       		.uleb128 0xa
- 1115 0365 DD030000 		.4byte	.LASF45
+ 1115 0365 D1030000 		.4byte	.LASF45
  1116 0369 01       		.byte	0x1
  1117 036a 1C03     		.2byte	0x31c
  1118 036c 77000000 		.4byte	0x77
  1119 0370 F1010000 		.4byte	.LLST13
  1120 0374 0A       		.uleb128 0xa
- 1121 0375 22010000 		.4byte	.LASF46
+ 1121 0375 B2000000 		.4byte	.LASF46
  1122 0379 01       		.byte	0x1
  1123 037a 1D03     		.2byte	0x31d
  1124 037c 77000000 		.4byte	0x77
  1125 0380 04020000 		.4byte	.LLST14
  1126 0384 00       		.byte	0
  1127 0385 13       		.uleb128 0x13
- 1128 0386 3A010000 		.4byte	.LASF53
+ 1128 0386 CA000000 		.4byte	.LASF53
  1129 038a 04       		.byte	0x4
  1130 038b 5B       		.byte	0x5b
  1131 038c 6B000000 		.4byte	0x6b
  1132 0390 14       		.uleb128 0x14
- 1133 0391 B7000000 		.4byte	.LASF47
- 1134 0395 B7000000 		.4byte	.LASF47
+ 1133 0391 47000000 		.4byte	.LASF47
+ 1134 0395 47000000 		.4byte	.LASF47
  1135 0399 03       		.byte	0x3
  1136 039a 3E03     		.2byte	0x33e
  1137 039c 14       		.uleb128 0x14
- 1138 039d 5F020000 		.4byte	.LASF48
- 1139 03a1 5F020000 		.4byte	.LASF48
+ 1138 039d EF010000 		.4byte	.LASF48
+ 1139 03a1 EF010000 		.4byte	.LASF48
  1140 03a5 03       		.byte	0x3
  1141 03a6 3D03     		.2byte	0x33d
  1142 03a8 14       		.uleb128 0x14
- 1143 03a9 E7010000 		.4byte	.LASF49
- 1144 03ad E7010000 		.4byte	.LASF49
+ 1143 03a9 77010000 		.4byte	.LASF49
+ 1144 03ad 77010000 		.4byte	.LASF49
  1145 03b1 03       		.byte	0x3
  1146 03b2 4403     		.2byte	0x344
  1147 03b4 00       		.byte	0
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  1164 000e 01       		.uleb128 0x1
  1165 000f 10       		.uleb128 0x10
  1166 0010 17       		.uleb128 0x17
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 36
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 36
 
 
  1167 0011 00       		.byte	0
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  1221 0047 0B       		.uleb128 0xb
  1222 0048 27       		.uleb128 0x27
  1223 0049 19       		.uleb128 0x19
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 37
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 37
 
 
  1224 004a 11       		.uleb128 0x11
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  1278 0083 01       		.uleb128 0x1
  1279 0084 13       		.uleb128 0x13
  1280 0085 00       		.byte	0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 38
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 38
 
 
  1281 0086 00       		.byte	0
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  1335 00bd 01       		.uleb128 0x1
  1336 00be 13       		.uleb128 0x13
  1337 00bf 00       		.byte	0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 39
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 39
 
 
  1338 00c0 00       		.byte	0
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  1392 00fc 00       		.byte	0
  1393 00fd 02       		.uleb128 0x2
  1394 00fe 18       		.uleb128 0x18
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 40
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 40
 
 
  1395 00ff 9142     		.uleb128 0x2111
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  1449 000a 50       		.byte	0x50
  1450 000b 0A000000 		.4byte	.LVL3
  1451 000f 14000000 		.4byte	.LFE4
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 41
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 41
 
 
  1452 0013 0400     		.2byte	0x4
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  1506 0099 10000000 		.4byte	.LVL13
  1507 009d 0100     		.2byte	0x1
  1508 009f 50       		.byte	0x50
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 42
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 42
 
 
  1509 00a0 10000000 		.4byte	.LVL13
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  1563 0125 9F       		.byte	0x9f
  1564 0126 00000000 		.4byte	0
  1565 012a 00000000 		.4byte	0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 43
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 43
 
 
  1566              	.LLST8:
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  1620 01b4 00000000 		.4byte	0
  1621              	.LLST12:
  1622 01b8 00000000 		.4byte	.LVL42
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 44
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 44
 
 
  1623 01bc 1C000000 		.4byte	.LVL45
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  1677 0024 18000000 		.4byte	.LFE3-.LFB3
  1678 0028 00000000 		.4byte	.LFB4
  1679 002c 14000000 		.4byte	.LFE4-.LFB4
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 45
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 45
 
 
  1680 0030 00000000 		.4byte	.LFB5
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  1734 0070 00000000 		.4byte	.LFB15
  1735 0074 58000000 		.4byte	.LFE15
  1736 0078 00000000 		.4byte	0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 46
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 46
 
 
  1737 007c 00000000 		.4byte	0
@@ -2717,287 +2717,282 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 1
  1743              	.LASF15:
  1744 000e 72656733 		.ascii	"reg32\000"
  1744      3200
- 1745              	.LASF52:
- 1746 0014 433A5C55 		.ascii	"C:\\Users\\cdrow\\Downloads\\PSoC Project TJ Temper"
- 1746      73657273 
- 1746      5C636472 
- 1746      6F775C44 
- 1746      6F776E6C 
- 1747 0043 61747572 		.ascii	"ature Spatial Profile.cydsn\\TJ Temperature Spatial"
- 1747      65205370 
- 1747      61746961 
- 1747      6C205072 
- 1747      6F66696C 
- 1748 0075 2050726F 		.ascii	" Profile.cydsn\000"
- 1748      66696C65 
- 1748      2E637964 
- 1748      736E00
- 1749              	.LASF33:
- 1750 0084 6C657665 		.ascii	"level\000"
- 1750      6C00
- 1751              	.LASF38:
- 1752 008a 55415254 		.ascii	"UART_1_UartPutCRLF\000"
- 1752      5F315F55 
- 1752      61727450 
- 1752      75744352 
- 1752      4C4600
- 1753              	.LASF35:
- 1754 009d 55415254 		.ascii	"UART_1_UartPutString\000"
- 1754      5F315F55 
- 1754      61727450 
- 1754      75745374 
- 1754      72696E67 
- 1755              	.LASF14:
- 1756 00b2 63686172 		.ascii	"char\000"
- 1756      00
- 1757              	.LASF47:
- 1758 00b7 55415254 		.ascii	"UART_1_SpiUartGetRxBufferSize\000"
- 1758      5F315F53 
- 1758      70695561 
- 1758      72744765 
- 1758      74527842 
- 1759              	.LASF20:
- 1760 00d5 55415254 		.ascii	"UART_1_UartStop\000"
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 47
-
-
- 1760      5F315F55 
- 1760      61727453 
- 1760      746F7000 
- 1761              	.LASF42:
- 1762 00e5 55415254 		.ascii	"UART_1_UartSetCtsPolarity\000"
+ 1745              	.LASF33:
+ 1746 0014 6C657665 		.ascii	"level\000"
+ 1746      6C00
+ 1747              	.LASF38:
+ 1748 001a 55415254 		.ascii	"UART_1_UartPutCRLF\000"
+ 1748      5F315F55 
+ 1748      61727450 
+ 1748      75744352 
+ 1748      4C4600
+ 1749              	.LASF35:
+ 1750 002d 55415254 		.ascii	"UART_1_UartPutString\000"
+ 1750      5F315F55 
+ 1750      61727450 
+ 1750      75745374 
+ 1750      72696E67 
+ 1751              	.LASF14:
+ 1752 0042 63686172 		.ascii	"char\000"
+ 1752      00
+ 1753              	.LASF47:
+ 1754 0047 55415254 		.ascii	"UART_1_SpiUartGetRxBufferSize\000"
+ 1754      5F315F53 
+ 1754      70695561 
+ 1754      72744765 
+ 1754      74527842 
+ 1755              	.LASF20:
+ 1756 0065 55415254 		.ascii	"UART_1_UartStop\000"
+ 1756      5F315F55 
+ 1756      61727453 
+ 1756      746F7000 
+ 1757              	.LASF42:
+ 1758 0075 55415254 		.ascii	"UART_1_UartSetCtsPolarity\000"
+ 1758      5F315F55 
+ 1758      61727453 
+ 1758      65744374 
+ 1758      73506F6C 
+ 1759              	.LASF36:
+ 1760 008f 73747269 		.ascii	"string\000"
+ 1760      6E6700
+ 1761              	.LASF41:
+ 1762 0096 55415254 		.ascii	"UART_1_UartDisableCts\000"
  1762      5F315F55 
- 1762      61727453 
- 1762      65744374 
- 1762      73506F6C 
- 1763              	.LASF36:
- 1764 00ff 73747269 		.ascii	"string\000"
- 1764      6E6700
- 1765              	.LASF41:
- 1766 0106 55415254 		.ascii	"UART_1_UartDisableCts\000"
- 1766      5F315F55 
- 1766      61727444 
- 1766      69736162 
- 1766      6C654374 
- 1767              	.LASF11:
- 1768 011c 666C6F61 		.ascii	"float\000"
- 1768      7400
- 1769              	.LASF46:
- 1770 0122 7478496E 		.ascii	"txIntrReg\000"
- 1770      74725265 
- 1770      6700
- 1771              	.LASF1:
- 1772 012c 756E7369 		.ascii	"unsigned char\000"
- 1772      676E6564 
- 1772      20636861 
- 1772      7200
- 1773              	.LASF53:
- 1774 013a 55415254 		.ascii	"UART_1_IntrTxMask\000"
- 1774      5F315F49 
- 1774      6E747254 
- 1774      784D6173 
- 1774      6B00
- 1775              	.LASF30:
- 1776 014c 55415254 		.ascii	"UART_1_UartSetRtsPolarity\000"
- 1776      5F315F55 
- 1776      61727453 
- 1776      65745274 
- 1776      73506F6C 
- 1777              	.LASF5:
- 1778 0166 6C6F6E67 		.ascii	"long unsigned int\000"
- 1778      20756E73 
- 1778      69676E65 
- 1778      6420696E 
- 1778      7400
- 1779              	.LASF3:
- 1780 0178 73686F72 		.ascii	"short unsigned int\000"
- 1780      7420756E 
- 1780      7369676E 
- 1780      65642069 
- 1780      6E7400
- 1781              	.LASF27:
- 1782 018b 55415254 		.ascii	"UART_1_UartGetChar\000"
- 1782      5F315F55 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 48
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 47
 
 
- 1782      61727447 
- 1782      65744368 
- 1782      617200
- 1783              	.LASF26:
- 1784 019e 72784461 		.ascii	"rxData\000"
- 1784      746100
- 1785              	.LASF51:
- 1786 01a5 47656E65 		.ascii	"Generated_Source\\PSoC4\\UART_1_UART.c\000"
- 1786      72617465 
- 1786      645F536F 
- 1786      75726365 
- 1786      5C50536F 
- 1787              	.LASF12:
- 1788 01ca 646F7562 		.ascii	"double\000"
- 1788      6C6500
- 1789              	.LASF19:
- 1790 01d1 55415254 		.ascii	"UART_1_UartPostEnable\000"
- 1790      5F315F55 
- 1790      61727450 
- 1790      6F737445 
- 1790      6E61626C 
- 1791              	.LASF49:
- 1792 01e7 55415254 		.ascii	"UART_1_SpiUartWriteTxData\000"
- 1792      5F315F53 
- 1792      70695561 
- 1792      72745772 
- 1792      69746554 
- 1793              	.LASF9:
- 1794 0201 75696E74 		.ascii	"uint16\000"
- 1794      313600
- 1795              	.LASF21:
- 1796 0208 55415254 		.ascii	"UART_1_UartSetRxAddress\000"
- 1796      5F315F55 
- 1796      61727453 
- 1796      65745278 
- 1796      41646472 
- 1797              	.LASF10:
- 1798 0220 75696E74 		.ascii	"uint32\000"
- 1798      333200
- 1799              	.LASF8:
- 1800 0227 756E7369 		.ascii	"unsigned int\000"
- 1800      676E6564 
- 1800      20696E74 
- 1800      00
- 1801              	.LASF23:
- 1802 0234 61646472 		.ascii	"address\000"
- 1802      65737300 
- 1803              	.LASF7:
- 1804 023c 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1804      206C6F6E 
- 1804      6720756E 
- 1804      7369676E 
- 1804      65642069 
- 1805              	.LASF24:
- 1806 0253 61646472 		.ascii	"addressMask\000"
- 1806      6573734D 
- 1806      61736B00 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 49
+ 1762      61727444 
+ 1762      69736162 
+ 1762      6C654374 
+ 1763              	.LASF11:
+ 1764 00ac 666C6F61 		.ascii	"float\000"
+ 1764      7400
+ 1765              	.LASF46:
+ 1766 00b2 7478496E 		.ascii	"txIntrReg\000"
+ 1766      74725265 
+ 1766      6700
+ 1767              	.LASF1:
+ 1768 00bc 756E7369 		.ascii	"unsigned char\000"
+ 1768      676E6564 
+ 1768      20636861 
+ 1768      7200
+ 1769              	.LASF53:
+ 1770 00ca 55415254 		.ascii	"UART_1_IntrTxMask\000"
+ 1770      5F315F49 
+ 1770      6E747254 
+ 1770      784D6173 
+ 1770      6B00
+ 1771              	.LASF30:
+ 1772 00dc 55415254 		.ascii	"UART_1_UartSetRtsPolarity\000"
+ 1772      5F315F55 
+ 1772      61727453 
+ 1772      65745274 
+ 1772      73506F6C 
+ 1773              	.LASF5:
+ 1774 00f6 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1774      20756E73 
+ 1774      69676E65 
+ 1774      6420696E 
+ 1774      7400
+ 1775              	.LASF3:
+ 1776 0108 73686F72 		.ascii	"short unsigned int\000"
+ 1776      7420756E 
+ 1776      7369676E 
+ 1776      65642069 
+ 1776      6E7400
+ 1777              	.LASF27:
+ 1778 011b 55415254 		.ascii	"UART_1_UartGetChar\000"
+ 1778      5F315F55 
+ 1778      61727447 
+ 1778      65744368 
+ 1778      617200
+ 1779              	.LASF26:
+ 1780 012e 72784461 		.ascii	"rxData\000"
+ 1780      746100
+ 1781              	.LASF51:
+ 1782 0135 47656E65 		.ascii	"Generated_Source\\PSoC4\\UART_1_UART.c\000"
+ 1782      72617465 
+ 1782      645F536F 
+ 1782      75726365 
+ 1782      5C50536F 
+ 1783              	.LASF12:
+ 1784 015a 646F7562 		.ascii	"double\000"
+ 1784      6C6500
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 48
 
 
- 1807              	.LASF48:
- 1808 025f 55415254 		.ascii	"UART_1_SpiUartReadRxData\000"
- 1808      5F315F53 
- 1808      70695561 
- 1808      72745265 
- 1808      61645278 
- 1809              	.LASF31:
- 1810 0278 706F6C61 		.ascii	"polarity\000"
- 1810      72697479 
- 1810      00
- 1811              	.LASF37:
- 1812 0281 62756649 		.ascii	"bufIndex\000"
- 1812      6E646578 
+ 1785              	.LASF19:
+ 1786 0161 55415254 		.ascii	"UART_1_UartPostEnable\000"
+ 1786      5F315F55 
+ 1786      61727450 
+ 1786      6F737445 
+ 1786      6E61626C 
+ 1787              	.LASF49:
+ 1788 0177 55415254 		.ascii	"UART_1_SpiUartWriteTxData\000"
+ 1788      5F315F53 
+ 1788      70695561 
+ 1788      72745772 
+ 1788      69746554 
+ 1789              	.LASF9:
+ 1790 0191 75696E74 		.ascii	"uint16\000"
+ 1790      313600
+ 1791              	.LASF21:
+ 1792 0198 55415254 		.ascii	"UART_1_UartSetRxAddress\000"
+ 1792      5F315F55 
+ 1792      61727453 
+ 1792      65745278 
+ 1792      41646472 
+ 1793              	.LASF10:
+ 1794 01b0 75696E74 		.ascii	"uint32\000"
+ 1794      333200
+ 1795              	.LASF8:
+ 1796 01b7 756E7369 		.ascii	"unsigned int\000"
+ 1796      676E6564 
+ 1796      20696E74 
+ 1796      00
+ 1797              	.LASF23:
+ 1798 01c4 61646472 		.ascii	"address\000"
+ 1798      65737300 
+ 1799              	.LASF7:
+ 1800 01cc 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1800      206C6F6E 
+ 1800      6720756E 
+ 1800      7369676E 
+ 1800      65642069 
+ 1801              	.LASF24:
+ 1802 01e3 61646472 		.ascii	"addressMask\000"
+ 1802      6573734D 
+ 1802      61736B00 
+ 1803              	.LASF48:
+ 1804 01ef 55415254 		.ascii	"UART_1_SpiUartReadRxData\000"
+ 1804      5F315F53 
+ 1804      70695561 
+ 1804      72745265 
+ 1804      61645278 
+ 1805              	.LASF31:
+ 1806 0208 706F6C61 		.ascii	"polarity\000"
+ 1806      72697479 
+ 1806      00
+ 1807              	.LASF37:
+ 1808 0211 62756649 		.ascii	"bufIndex\000"
+ 1808      6E646578 
+ 1808      00
+ 1809              	.LASF22:
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 49
+
+
+ 1810 021a 55415254 		.ascii	"UART_1_UartSetRxAddressMask\000"
+ 1810      5F315F55 
+ 1810      61727453 
+ 1810      65745278 
+ 1810      41646472 
+ 1811              	.LASF17:
+ 1812 0236 73697A65 		.ascii	"sizetype\000"
+ 1812      74797065 
  1812      00
- 1813              	.LASF22:
- 1814 028a 55415254 		.ascii	"UART_1_UartSetRxAddressMask\000"
- 1814      5F315F55 
- 1814      61727453 
- 1814      65745278 
- 1814      41646472 
- 1815              	.LASF17:
- 1816 02a6 73697A65 		.ascii	"sizetype\000"
- 1816      74797065 
- 1816      00
- 1817              	.LASF13:
- 1818 02af 63686172 		.ascii	"char8\000"
- 1818      3800
- 1819              	.LASF44:
- 1820 02b5 62726561 		.ascii	"breakWidth\000"
- 1820      6B576964 
- 1820      746800
- 1821              	.LASF39:
- 1822 02c0 74784461 		.ascii	"txDataByte\000"
- 1822      74614279 
- 1822      746500
- 1823              	.LASF40:
- 1824 02cb 55415254 		.ascii	"UART_1_UartEnableCts\000"
+ 1813              	.LASF13:
+ 1814 023f 63686172 		.ascii	"char8\000"
+ 1814      3800
+ 1815              	.LASF44:
+ 1816 0245 62726561 		.ascii	"breakWidth\000"
+ 1816      6B576964 
+ 1816      746800
+ 1817              	.LASF39:
+ 1818 0250 74784461 		.ascii	"txDataByte\000"
+ 1818      74614279 
+ 1818      746500
+ 1819              	.LASF40:
+ 1820 025b 55415254 		.ascii	"UART_1_UartEnableCts\000"
+ 1820      5F315F55 
+ 1820      61727445 
+ 1820      6E61626C 
+ 1820      65437473 
+ 1821              	.LASF2:
+ 1822 0270 73686F72 		.ascii	"short int\000"
+ 1822      7420696E 
+ 1822      7400
+ 1823              	.LASF43:
+ 1824 027a 55415254 		.ascii	"UART_1_UartSendBreakBlocking\000"
  1824      5F315F55 
- 1824      61727445 
- 1824      6E61626C 
- 1824      65437473 
- 1825              	.LASF2:
- 1826 02e0 73686F72 		.ascii	"short int\000"
- 1826      7420696E 
- 1826      7400
- 1827              	.LASF43:
- 1828 02ea 55415254 		.ascii	"UART_1_UartSendBreakBlocking\000"
- 1828      5F315F55 
- 1828      61727453 
- 1828      656E6442 
- 1828      7265616B 
- 1829              	.LASF18:
- 1830 0307 55415254 		.ascii	"UART_1_UartInit\000"
- 1830      5F315F55 
- 1830      61727449 
- 1830      6E697400 
+ 1824      61727453 
+ 1824      656E6442 
+ 1824      7265616B 
+ 1825              	.LASF18:
+ 1826 0297 55415254 		.ascii	"UART_1_UartInit\000"
+ 1826      5F315F55 
+ 1826      61727449 
+ 1826      6E697400 
+ 1827              	.LASF52:
+ 1828 02a7 433A5C55 		.ascii	"C:\\Users\\samue\\OneDrive\\Documents\\GitHub\\Li-C"
+ 1828      73657273 
+ 1828      5C73616D 
+ 1828      75655C4F 
+ 1828      6E654472 
+ 1829 02d4 656C6C54 		.ascii	"ellTesting_Script\\TJ Temperature Spatial Profile.c"
+ 1829      65737469 
+ 1829      6E675F53 
+ 1829      63726970 
+ 1829      745C544A 
+ 1830 0306 7964736E 		.ascii	"ydsn\000"
+ 1830      00
  1831              	.LASF4:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 50
-
-
- 1832 0317 6C6F6E67 		.ascii	"long int\000"
+ 1832 030b 6C6F6E67 		.ascii	"long int\000"
  1832      20696E74 
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccipJZ64.s 			page 50
+
+
  1832      00
  1833              	.LASF29:
- 1834 0320 746D7053 		.ascii	"tmpStatus\000"
+ 1834 0314 746D7053 		.ascii	"tmpStatus\000"
  1834      74617475 
  1834      7300
  1835              	.LASF25:
- 1836 032a 6D617463 		.ascii	"matchReg\000"
+ 1836 031e 6D617463 		.ascii	"matchReg\000"
  1836      68526567 
  1836      00
  1837              	.LASF16:
- 1838 0333 6C6F6E67 		.ascii	"long double\000"
+ 1838 0327 6C6F6E67 		.ascii	"long double\000"
  1838      20646F75 
  1838      626C6500 
  1839              	.LASF50:
- 1840 033f 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1840 0333 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  1840      43313120 
  1840      352E342E 
  1840      31203230 
  1840      31363036 
- 1841 0372 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 1841 0366 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
  1841      20726576 
  1841      6973696F 
  1841      6E203233 
  1841      37373135 
- 1842 03a5 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 1842 0399 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
  1842      67202D66 
  1842      66756E63 
  1842      74696F6E 
  1842      2D736563 
  1843              	.LASF0:
- 1844 03d1 7369676E 		.ascii	"signed char\000"
+ 1844 03c5 7369676E 		.ascii	"signed char\000"
  1844      65642063 
  1844      68617200 
  1845              	.LASF45:
- 1846 03dd 74784374 		.ascii	"txCtrlReg\000"
+ 1846 03d1 74784374 		.ascii	"txCtrlReg\000"
  1846      726C5265 
  1846      6700
  1847              	.LASF34:
- 1848 03e7 75617274 		.ascii	"uartFlowCtrl\000"
+ 1848 03db 75617274 		.ascii	"uartFlowCtrl\000"
  1848      466C6F77 
  1848      4374726C 
  1848      00
  1849              	.LASF28:
- 1850 03f4 55415254 		.ascii	"UART_1_UartGetByte\000"
+ 1850 03e8 55415254 		.ascii	"UART_1_UartGetByte\000"
  1850      5F315F55 
  1850      61727447 
  1850      65744279 
  1850      746500
  1851              	.LASF32:
- 1852 0407 55415254 		.ascii	"UART_1_UartSetRtsFifoLevel\000"
+ 1852 03fb 55415254 		.ascii	"UART_1_UartSetRtsFifoLevel\000"
  1852      5F315F55 
  1852      61727453 
  1852      65745274 
  1852      73466966 
  1853              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccAoiobj.s 			page 51
-
-

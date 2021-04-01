@@ -1,6 +1,8 @@
 /* ========================================
  *
- * Conrad Rowling, UC Davis, 2020
+ * Conrad Rowling, UC Davis, 2021
+ *
+ * Most recently modified: 3/30/2021
  *
  * Copyright YOUR COMPANY, THE YEAR
  * All Rights Reserved
@@ -20,6 +22,8 @@
 #define SOC_FULL  10.2 //Ahr
 #define LOW_CURRENT 1
 #define HIGH_CURRENT 20
+#define LOW_VOLTAGE 2.6
+#define BAD_COUNT_LIMIT 3
 
 void Shutdown_Test()
 {
@@ -66,6 +70,7 @@ int main (void)
 {
     int lowTemp = true;
     int goodCurrent = true;
+    int goodVoltage = true;
     int stopPlease = false;
     uint32 time;
     uint32 timeOld;
@@ -91,6 +96,7 @@ int main (void)
     float windowArray[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     uint32 vmBat;
     float vmBatmV;
+    int bad_read_count[13] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     
     uint8 batteryArray[32];
     uint8 resistorArray[32];
@@ -132,7 +138,7 @@ int main (void)
             
             timeOld = 0;     // just to avoid the first readcounter
             
-            while(lowTemp && goodCurrent && !stopPlease){ 
+            while(lowTemp && goodCurrent && goodVoltage && !stopPlease){ 
                 
                 time = Timer_1_ReadCounter();
 
@@ -165,7 +171,7 @@ int main (void)
                 ADC_1_StopConvert();
                 
                 ShmV = ADC_1_CountsTo_mVolts(0, vmShunt);
-                ShmV = ShmV - adcOff;
+                ShmV = ShmV - adcOff;                         //add current filter right here
                 ShA = ShmV*60.0/(4.0*8.0*50.0); 
                 
                 if (windowArray[9] == 0){
@@ -203,15 +209,25 @@ int main (void)
                 }
                 
                 for(uint i = 2; i < 12; i=i+2){
-                    if (batteryArray[i] > 60){
-                        lowTemp = false;
-                        sprintf(string1, "\r\n ERROR - High Temperature on Battery: %d.%d, on Thermistor %d \r\n", batteryArray[i], batteryArray[i+1], i);
-                        UART_1_UartPutString(string1);  
-                    }
-                    if (resistorArray[i] > 170){ 
-                        lowTemp = false;
-                        sprintf(string1, "\r\n ERROR - High Temperature on Resistor: %d.%d, on Thermistor %d \r\n", resistorArray[i], resistorArray[i+1], i);
-                        UART_1_UartPutString(string1);  
+                    /*if (batteryArray[i] > 60 && batteryArray[i] < 255){
+                        //bad_read_count[i/2] += 1;
+                        //if(bad_read_count[i] > BAD_COUNT_LIMIT){
+                            lowTemp = false;
+                            sprintf(string1, "\r\n ERROR - High Temperature on Battery: %d.%d, on Thermistor %d \r\n", batteryArray[i], batteryArray[i+1], i);
+                            UART_1_UartPutString(string1);  
+                        //}
+                        //else
+                        //    bad_read_count[i/2] = 0;
+                    }*/
+                    if (resistorArray[i] > 170 && resistorArray[i] < 255){ 
+                        //bad_read_count[i/2+6] += 1;
+                        //if(bad_read_count[(i/2)+6] > BAD_COUNT_LIMIT){
+                            lowTemp = false;
+                            sprintf(string1, "\r\n ERROR - High Temperature on Resistor: %d.%d, on Thermistor %d \r\n", resistorArray[i], resistorArray[i+1], i);
+                            UART_1_UartPutString(string1);  
+                        //}
+                        //else
+                        //    bad_read_count[(i/2)+6] = 0;
                     }
                 }
                 
@@ -220,6 +236,12 @@ int main (void)
                     sprintf(string1, "\r\n ERROR - High Temperature on Resistor: %f \r\n", ShA);
                     UART_1_UartPutString(string1); 
                 }
+                
+                /*if ((vmBatmV < LOW_VOLTAGE)){
+                    goodVoltage = false;
+                    sprintf(string1, "\r\n ERROR - Low Voltage: %f \r\n", vmBatmV);
+                    UART_1_UartPutString(string1); 
+                }*/
             }
             UART_1_UartPutString("\r\n SAFETY THRESHOLD EXCEEDED, TEST HALTED \r\n"); 
         }
