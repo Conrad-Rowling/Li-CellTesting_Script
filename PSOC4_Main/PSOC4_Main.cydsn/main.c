@@ -171,7 +171,7 @@ int main (void)
                 ADC_1_StopConvert();
                 
                 ShmV = ADC_1_CountsTo_mVolts(0, vmShunt);
-                ShmV = ShmV - adcOff;                         //add current filter right here
+                ShmV = ShmV - adcOff;                         
                 ShA = ShmV*60.0/(4.0*8.0*50.0); 
                 
                 if (windowArray[9] == 0){
