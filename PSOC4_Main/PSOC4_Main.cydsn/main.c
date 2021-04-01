@@ -22,6 +22,12 @@
 #define true 1u
 #define false 0u
 #define SOC_FULL  10.2 //Ahr
+#define BATTERY_HIGH_TEMP 60 //deg C   
+#define RESISTOR_HIGH_TEMP 180 //deg C
+
+#define SHUNT_CONDUCTANCE 1.2 // (1.2 for High Current, 7.5 for Low Current)
+#define AMP_GAIN 32.0 // (from Amp Blocks)
+
 #define LOW_CURRENT 1
 #define HIGH_CURRENT 20
 
@@ -30,10 +36,10 @@
 // =============================
 
 /*******************************************************************************
-* Function Name: Move_Window
+* Function Name: Shutdown_Test
 ****************************************************************************//**
-*
 * 
+* Opens the current path, and turns off the on board LED, and prints
 *
 *******************************************************************************/
 void Shutdown_Test()
@@ -41,19 +47,19 @@ void Shutdown_Test()
     char string[10];
     RED_LED_Write(1);
     RELAY_Write(0);
-    sprintf(string,"\r\n  -- Test Stopped Manually  -- \r\n");
+    sprintf(string,"\r\n  -- Test Stopped -- \r\n");
     UART_1_UartPutString(string);
     
 }
 
 /*******************************************************************************
-* Function Name: Move_Window
+* Function Name: Print_Headers
 ****************************************************************************//**
 *
-* 
+* Formats the headers for exporting the UART terminal to a comma delimited Excel file
 *
 *******************************************************************************/
-void Print_headers(uint length)
+void Print_Headers(uint length)
 {
     char hstr[60]; 
     sprintf(hstr,"\r\n");
@@ -77,7 +83,7 @@ void Print_headers(uint length)
 * Function Name: Move_Window
 ****************************************************************************//**
 *
-* 
+* Increments a moving window average array , pass the array to increment, the value to include, and the length of the array
 *
 *******************************************************************************/
 float Move_Window(float *array, float reading, uint len){
@@ -153,7 +159,7 @@ int main (void)
             RED_LED_Write(1);
             RELAY_Write(1);
             Timer_1_Start();
-            Print_headers(6);
+            Print_Headers(6);
             
             //ADC Offset 
             AMux_1_Select(0);                               // Mux Select
@@ -204,7 +210,7 @@ int main (void)
                 
                 ShmV = ADC_1_CountsTo_mVolts(0, vmShunt);       // Convert to mV
                 ShmV = ShmV - adcOff;                           // Apply Offset
-                ShA = ShmV*60.0/(4.0*8.0*50.0);                 // Convert the Value
+                ShA = ShmV*SHUNT_CONDUCTANCE/(AMP_GAIN);                 // Convert the Value
                 
                 // Moving Average Code
                 if (windowArray[9] == 0){   
@@ -244,14 +250,14 @@ int main (void)
                     Shutdown_Test();
                 }
                 
-                /*
+                
                 for(uint i = 2; i < 12; i=i+2){
-                    if (batteryArray[i] > 60){
+                    if (batteryArray[i] > BATTERY_HIGH_TEMP){
                         lowTemp = false;
                         sprintf(string1, "\r\n ERROR - High Temperature on Battery: %d.%d, on Thermistor %d \r\n", batteryArray[i], batteryArray[i+1], i);
                         UART_1_UartPutString(string1);  
                     }
-                    if (resistorArray[i] > 170){ 
+                    if (resistorArray[i] > RESISTOR_HIGH_TEMP){ 
                         lowTemp = false;
                         sprintf(string1, "\r\n ERROR - High Temperature on Resistor: %d.%d, on Thermistor %d \r\n", resistorArray[i], resistorArray[i+1], i);
                         UART_1_UartPutString(string1);  
@@ -263,7 +269,7 @@ int main (void)
                     sprintf(string1, "\r\n ERROR - High Temperature on Resistor: %f \r\n", ShA);
                     UART_1_UartPutString(string1); 
                 }
-                */
+                
             }
             UART_1_UartPutString("\r\n SAFETY THRESHOLD EXCEEDED, TEST HALTED \r\n"); 
         }
