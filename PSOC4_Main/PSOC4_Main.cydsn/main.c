@@ -1,18 +1,20 @@
 /* ========================================
+ * Version: 1.0
+ * Last Modified: 3.31.2021 
+ * Conrad Rowling, Osama Abualsoud, Milad Mehr, Tucker Zischka, Formula Racing @ UC Davis, 2021
  *
- * Conrad Rowling, UC Davis, 2021
- *
- * Most recently modified: 3/30/2021
- *
- * Copyright YOUR COMPANY, THE YEAR
  * All Rights Reserved
  * UNPUBLISHED, LICENSED SOFTWARE.
  *
  * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
+ * WHICH IS THE PROPERTY OF Formula Racing @ UC Davis company.
  *
  * ========================================
 */
+
+// =============================
+// Delcarations and Includes
+// =============================
 #include <project.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,9 +24,18 @@
 #define SOC_FULL  10.2 //Ahr
 #define LOW_CURRENT 1
 #define HIGH_CURRENT 20
-#define LOW_VOLTAGE 2.6
-#define BAD_COUNT_LIMIT 3
 
+// =============================
+// Function Definitions
+// =============================
+
+/*******************************************************************************
+* Function Name: Move_Window
+****************************************************************************//**
+*
+* 
+*
+*******************************************************************************/
 void Shutdown_Test()
 {
     char string[10];
@@ -34,6 +45,14 @@ void Shutdown_Test()
     UART_1_UartPutString(string);
     
 }
+
+/*******************************************************************************
+* Function Name: Move_Window
+****************************************************************************//**
+*
+* 
+*
+*******************************************************************************/
 void Print_headers(uint length)
 {
     char hstr[60]; 
@@ -53,6 +72,14 @@ void Print_headers(uint length)
         CyDelay(10);
         }   
 }
+
+/*******************************************************************************
+* Function Name: Move_Window
+****************************************************************************//**
+*
+* 
+*
+*******************************************************************************/
 float Move_Window(float *array, float reading, uint len){
     float average = 0;
     for (uint i = 1; i < len; i++){
@@ -66,11 +93,13 @@ float Move_Window(float *array, float reading, uint len){
     return average;
 }
 
+// ======================================
+// Main Function
+// ======================================
 int main (void)
 {
     int lowTemp = true;
     int goodCurrent = true;
-    int goodVoltage = true;
     int stopPlease = false;
     uint32 time;
     uint32 timeOld;
@@ -96,7 +125,6 @@ int main (void)
     float windowArray[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     uint32 vmBat;
     float vmBatmV;
-    int bad_read_count[13] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     
     uint8 batteryArray[32];
     uint8 resistorArray[32];
@@ -127,24 +155,26 @@ int main (void)
             Timer_1_Start();
             Print_headers(6);
             
-            AMux_1_Select(0);
-            ADC_1_StartConvert();
-            ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-            adcOffset = ADC_1_GetResult32(0);
-            adcOff = ADC_1_CountsTo_mVolts(0, adcOffset);
-            adcOff = adcOff - 1200.0;
-            ADC_1_StopConvert();
-            PVref_1_Stop();
+            //ADC Offset 
+            AMux_1_Select(0);                               // Mux Select
+            ADC_1_StartConvert();                           // Start the Read the ADC
+            ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);   // Wait
+            adcOffset = ADC_1_GetResult32(0);               // Get the ADC reading
+            adcOff = ADC_1_CountsTo_mVolts(0, adcOffset);   // Convert to milivolts
+            adcOff = adcOff - 1200.0;                       // Proper offset of the offest (What is 1200 for? )
+            ADC_1_StopConvert();                            // Stop ADC Conversino 
+            PVref_1_Stop();                                 // 
             
             timeOld = 0;     // just to avoid the first readcounter
             
-            while(lowTemp && goodCurrent && goodVoltage && !stopPlease){ 
+            while(lowTemp && goodCurrent && !stopPlease){   
                 
-                time = Timer_1_ReadCounter();
-
-                sprintf(string1,"\r\n %lu, ", time);
+                time = Timer_1_ReadCounter(); //Read Counter for the time
+                
+                sprintf(string1,"\r\n %lu, ", time); //print time
                 UART_1_UartPutString(string1);
                                 
+                // SoC Calculator
                 if (time > timeOld){
                     soc = soc -  ShA*(time-timeOld)/3600;
                     timeOld = time;
@@ -152,29 +182,32 @@ int main (void)
                 
                 sprintf(string1,"\r\n %3.5f, ", soc*100.0/SOC_FULL);
                 UART_1_UartPutString(string1);
-                                                           
-                AMux_1_Select(2);
-                ADC_1_StartConvert();
-                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-                vmBat = ADC_1_GetResult32(0);
-                ADC_1_StopConvert();
-                vmBatmV = ADC_1_CountsTo_mVolts(0, vmBat);
-                vmBatmV = vmBatmV - adcOff;
-                vmBatmV = 3.0*vmBatmV/1000.0;
-                sprintf(string1, "%3.3f, ", vmBatmV);
-                UART_1_UartPutString(string1);
+                                                     
+                //Battery Voltage Reading & Conversion
+                AMux_1_Select(2);                               // Select Battery Voltage 
+                ADC_1_StartConvert();                           // Start the ADC
+                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);   // Wait for the ADC
+                vmBat = ADC_1_GetResult32(0);                   // Get the Results
+                ADC_1_StopConvert();                            // Stop the ADC
+                vmBatmV = ADC_1_CountsTo_mVolts(0, vmBat);      // Convert the ADC Value to mV
+                vmBatmV = vmBatmV - adcOff;                     // Apply Offset
+                vmBatmV = 3.0*vmBatmV/1000.0;                   // Convert the Value
+                sprintf(string1, "%3.3f, ", vmBatmV);           // Place in the Display string
+                UART_1_UartPutString(string1);                  // Print the Display String
                
-                AMux_1_Select(1);
-                ADC_1_StartConvert();
-                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-                vmShunt = ADC_1_GetResult32(0);
-                ADC_1_StopConvert();
+                //Shunt Voltage Reading & Conversion
+                AMux_1_Select(1);                               // Select the Shunt Voltage
+                ADC_1_StartConvert();                           // Start the Conversion 
+                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);   // End the Conversion
+                vmShunt = ADC_1_GetResult32(0);                 // Get the Results
+                ADC_1_StopConvert();                            // Stop Conversion
                 
-                ShmV = ADC_1_CountsTo_mVolts(0, vmShunt);
-                ShmV = ShmV - adcOff;                         
-                ShA = ShmV*60.0/(4.0*8.0*50.0); 
+                ShmV = ADC_1_CountsTo_mVolts(0, vmShunt);       // Convert to mV
+                ShmV = ShmV - adcOff;                           // Apply Offset
+                ShA = ShmV*60.0/(4.0*8.0*50.0);                 // Convert the Value
                 
-                if (windowArray[9] == 0){
+                // Moving Average Code
+                if (windowArray[9] == 0){   
                     int i = 0;
                     windowArray[i] = ShA;
                     i += 1;
@@ -186,21 +219,24 @@ int main (void)
                 sprintf(string1, "%3.3f, ", ShA);
                 UART_1_UartPutString(string1);
 
+                
+                // Read Battery Temperature Array via I2C and append to print string
                 I2C_1_I2CMasterReadBuf(0x08, batteryArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
-                for(uint i = 2; i < 14; i=i+2){
+                for(uint i = 2; i < 13; i=i+2){
                     sprintf(string1, "%d.%d, ", batteryArray[i], batteryArray[i+1]);
                     UART_1_UartPutString(string1);    
                 }
                 
+                // Ready Power Resistors Temperature Array via I2C and append to print string
                 I2C_1_I2CMasterReadBuf(0x09, resistorArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
-                for(uint i = 2; i < 12; i=i+2){
+                for(uint i = 2; i < 11; i=i+2){
                     sprintf(string1, "%d.%d, ", resistorArray[i], resistorArray[i+1]);
                     UART_1_UartPutString(string1);    
                 }
                 
                 sprintf(string1, "\r\n");
-                UART_1_UartPutString(string1);
-                rxData = UART_1_UartGetChar();
+                UART_1_UartPutString(string1);  //Push print string to terminal
+                rxData = UART_1_UartGetChar();  // Terminal Serial Input??? 
                 CyDelay(500);
                                 
                 if (rxData == 83){
@@ -208,26 +244,17 @@ int main (void)
                     Shutdown_Test();
                 }
                 
+                /*
                 for(uint i = 2; i < 12; i=i+2){
-                    /*if (batteryArray[i] > 60 && batteryArray[i] < 255){
-                        //bad_read_count[i/2] += 1;
-                        //if(bad_read_count[i] > BAD_COUNT_LIMIT){
-                            lowTemp = false;
-                            sprintf(string1, "\r\n ERROR - High Temperature on Battery: %d.%d, on Thermistor %d \r\n", batteryArray[i], batteryArray[i+1], i);
-                            UART_1_UartPutString(string1);  
-                        //}
-                        //else
-                        //    bad_read_count[i/2] = 0;
-                    }*/
-                    if (resistorArray[i] > 170 && resistorArray[i] < 255){ 
-                        //bad_read_count[i/2+6] += 1;
-                        //if(bad_read_count[(i/2)+6] > BAD_COUNT_LIMIT){
-                            lowTemp = false;
-                            sprintf(string1, "\r\n ERROR - High Temperature on Resistor: %d.%d, on Thermistor %d \r\n", resistorArray[i], resistorArray[i+1], i);
-                            UART_1_UartPutString(string1);  
-                        //}
-                        //else
-                        //    bad_read_count[(i/2)+6] = 0;
+                    if (batteryArray[i] > 60){
+                        lowTemp = false;
+                        sprintf(string1, "\r\n ERROR - High Temperature on Battery: %d.%d, on Thermistor %d \r\n", batteryArray[i], batteryArray[i+1], i);
+                        UART_1_UartPutString(string1);  
+                    }
+                    if (resistorArray[i] > 170){ 
+                        lowTemp = false;
+                        sprintf(string1, "\r\n ERROR - High Temperature on Resistor: %d.%d, on Thermistor %d \r\n", resistorArray[i], resistorArray[i+1], i);
+                        UART_1_UartPutString(string1);  
                     }
                 }
                 
@@ -236,12 +263,7 @@ int main (void)
                     sprintf(string1, "\r\n ERROR - High Temperature on Resistor: %f \r\n", ShA);
                     UART_1_UartPutString(string1); 
                 }
-                
-                /*if ((vmBatmV < LOW_VOLTAGE)){
-                    goodVoltage = false;
-                    sprintf(string1, "\r\n ERROR - Low Voltage: %f \r\n", vmBatmV);
-                    UART_1_UartPutString(string1); 
-                }*/
+                */
             }
             UART_1_UartPutString("\r\n SAFETY THRESHOLD EXCEEDED, TEST HALTED \r\n"); 
         }
