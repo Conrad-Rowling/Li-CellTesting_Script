@@ -25,6 +25,9 @@
 #define BATTERY_HIGH_TEMP 60 //deg C   
 #define RESISTOR_HIGH_TEMP 180 //deg C
 
+#define NUM_R_THERMISTORS 5 // excluding the thermistor at Position 1
+#define NUM_BAT_THERMISTORS 6 // excluding the thermistor at Position 1
+
 #define SHUNT_CONDUCTANCE 1.2 // (1.2 for High Current, 7.5 for Low Current)
 #define AMP_GAIN 32.0 // (from Amp Blocks)
 
@@ -59,7 +62,7 @@ void Shutdown_Test()
 * Formats the headers for exporting the UART terminal to a comma delimited Excel file
 *
 *******************************************************************************/
-void Print_Headers(uint length)
+void Print_Headers(uint length_a, uint length_b)
 {
     char hstr[60]; 
     sprintf(hstr,"\r\n");
@@ -67,12 +70,12 @@ void Print_Headers(uint length)
     sprintf(hstr,"Time(s), SOC(percent), Bat(V), Shunt(A), ");//"Time, % SOC, Shunt(A), Bat(V), ");
     UART_1_UartPutString(hstr);
     
-    for (uint i = 0; i < length-1; i++){
+    for (uint i = 0; i < length_a; i++){
         sprintf(hstr,"Battery Temp %d, ", i);
         UART_1_UartPutString(hstr);
         CyDelay(10);
         }
-        for (uint i = 0; i < length; i++){
+        for (uint i = 0; i < length_b; i++){
         sprintf(hstr,"Resistor Temp %d, ", i);
         UART_1_UartPutString(hstr);
         CyDelay(10);
@@ -107,24 +110,14 @@ int main (void)
     int lowTemp = true;
     int goodCurrent = true;
     int stopPlease = false;
+    uint8 r_therm_toRead = (NUM_R_THERMISTORS*2) + 1;
+    uint8 b_therm_toRead = (NUM_BAT_THERMISTORS*2) + 1;
+    
     uint32 time;
     uint32 timeOld;
     float soc;
-    
-    AMux_1_Start();
-    Opamp_1_Start();
-    PGA_1_Start();
-    PGA_2_Start();
-    UART_1_Start();
-    RED_LED_Write(0);
-    RELAY_Write(0);
-    ADC_1_Start();
-    I2C_1_Start();
-    
-    CyGlobalIntEnable; /* Enable global interrupts. */
-    
-    uint32 vmShunt;
-    uint32 adcOffset;
+    uint32 vmShunt; //Voltage measured from shunt in 12-bit res
+    uint32 adcOffset; // adcOffset in 12-bit resolution
     float adcOff;
     float ShmV;
     float ShA;
@@ -137,6 +130,18 @@ int main (void)
     char string1[20];
     uint32 rxData;
     
+    AMux_1_Start();
+    Opamp_1_Start();
+    PGA_1_Start();
+    PGA_2_Start();
+    UART_1_Start();
+    RED_LED_Write(0);
+    RELAY_Write(0);
+    ADC_1_Start();
+    I2C_1_Start();
+    
+    CyGlobalIntEnable; /* Enable global interrupts. */
+     
     sprintf(string1,"\r\n Enter G to Start Test, Enter S to Stop \r\n");
     UART_1_UartPutString(string1);
 
@@ -159,7 +164,11 @@ int main (void)
             RED_LED_Write(1);
             RELAY_Write(1);
             Timer_1_Start();
-            Print_Headers(6);
+            Print_Headers(NUM_BAT_THERMISTORS, NUM_R_THERMISTORS);
+            
+            lowTemp = true;
+            goodCurrent = true;
+            stopPlease = false;
             
             //ADC Offset 
             AMux_1_Select(0);                               // Mux Select
@@ -171,7 +180,7 @@ int main (void)
             ADC_1_StopConvert();                            // Stop ADC Conversino 
             PVref_1_Stop();                                 // 
             
-            timeOld = 0;     // just to avoid the first readcounter
+            timeOld = Timer_1_ReadCounter();     // just to avoid the first readcounter
             
             while(lowTemp && goodCurrent && !stopPlease){   
                 
@@ -228,14 +237,14 @@ int main (void)
                 
                 // Read Battery Temperature Array via I2C and append to print string
                 I2C_1_I2CMasterReadBuf(0x08, batteryArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
-                for(uint i = 2; i < 13; i=i+2){
+                for(uint i = 2; i < b_therm_toRead; i=i+2){
                     sprintf(string1, "%d.%d, ", batteryArray[i], batteryArray[i+1]);
                     UART_1_UartPutString(string1);    
                 }
                 
                 // Ready Power Resistors Temperature Array via I2C and append to print string
                 I2C_1_I2CMasterReadBuf(0x09, resistorArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
-                for(uint i = 2; i < 11; i=i+2){
+                for(uint i = 2; i < r_therm_toRead; i=i+2){
                     sprintf(string1, "%d.%d, ", resistorArray[i], resistorArray[i+1]);
                     UART_1_UartPutString(string1);    
                 }
@@ -271,7 +280,8 @@ int main (void)
                 }
                 
             }
-            UART_1_UartPutString("\r\n SAFETY THRESHOLD EXCEEDED, TEST HALTED \r\n"); 
+            UART_1_UartPutString("\r\n TEST HALTED - Enter 'G' to Resume \r\n");
+            Timer_1_Stop();
         }
         
     }
