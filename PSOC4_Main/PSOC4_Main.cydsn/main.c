@@ -1,13 +1,13 @@
 /* ========================================
- * Version: 1.0
- * Last Modified: 3.31.2021 
+ * Version: 1.2
+ * Last Modified: 4.3.2021 
  * Conrad Rowling, Osama Abualsoud, Milad Mehr, Tucker Zischka, Formula Racing @ UC Davis, 2021
  *
  * All Rights Reserved
  * UNPUBLISHED, LICENSED SOFTWARE.
  *
  * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF Formula Racing @ UC Davis company.
+ * WHICH IS THE PROPERTY OF Formula Racing @ UC Davis.
  *
  * ========================================
 */
@@ -28,7 +28,7 @@
 #define NUM_R_THERMISTORS 5 // excluding the thermistor at Position 1
 #define NUM_BAT_THERMISTORS 6 // excluding the thermistor at Position 1
 
-#define SHUNT_CONDUCTANCE 1.2 // (1.2 for High Current, 7.5 for Low Current)
+#define SHUNT_CONDUCTANCE .133 // (1.2 for High Current, .133 for Low Current)
 #define AMP_GAIN 32.0 // (from Amp Blocks)
 
 #define LOW_CURRENT 1
@@ -108,6 +108,7 @@ float Move_Window(float *array, float reading, uint len){
 int main (void)
 {
     int lowTemp = true;
+    int overDischarged = false; 
     int goodCurrent = true;
     int stopPlease = false;
     uint8 r_therm_toRead = (NUM_R_THERMISTORS*2) + 1;
@@ -182,11 +183,11 @@ int main (void)
             
             timeOld = Timer_1_ReadCounter();     // just to avoid the first readcounter
             
-            while(lowTemp && goodCurrent && !stopPlease){   
+            while(lowTemp && goodCurrent && !stopPlease && !overDischarged){   
                 
                 time = Timer_1_ReadCounter(); //Read Counter for the time
                 
-                sprintf(string1,"\r\n %lu, ", time); //print time
+                sprintf(string1,"%lu, ", time); //print time
                 UART_1_UartPutString(string1);
                                 
                 // SoC Calculator
@@ -195,7 +196,7 @@ int main (void)
                     timeOld = time;
                 }
                 
-                sprintf(string1,"\r\n %3.5f, ", soc*100.0/SOC_FULL);
+                sprintf(string1," %3.5f, ", soc*100.0/SOC_FULL);
                 UART_1_UartPutString(string1);
                                                      
                 //Battery Voltage Reading & Conversion
@@ -254,29 +255,40 @@ int main (void)
                 rxData = UART_1_UartGetChar();  // Terminal Serial Input??? 
                 CyDelay(500);
                                 
-                if (rxData == 83){
-                    stopPlease = true;
+                if (rxData == 83){              // 83 is ASCII for stop 
+                    stopPlease = true; 
                     Shutdown_Test();
                 }
                 
-                
+                // Over Heating Protection
                 for(uint i = 2; i < 12; i=i+2){
                     if (batteryArray[i] > BATTERY_HIGH_TEMP){
                         lowTemp = false;
                         sprintf(string1, "\r\n ERROR - High Temperature on Battery: %d.%d, on Thermistor %d \r\n", batteryArray[i], batteryArray[i+1], i);
-                        UART_1_UartPutString(string1);  
+                        UART_1_UartPutString(string1); 
+                        Shutdown_Test(); 
                     }
                     if (resistorArray[i] > RESISTOR_HIGH_TEMP){ 
                         lowTemp = false;
                         sprintf(string1, "\r\n ERROR - High Temperature on Resistor: %d.%d, on Thermistor %d \r\n", resistorArray[i], resistorArray[i+1], i);
                         UART_1_UartPutString(string1);  
+                        Shutdown_Test(); 
                     }
                 }
                 
-                if ((ShA < LOW_CURRENT) ||(ShA > HIGH_CURRENT)){
-                    goodCurrent = false;
-                    sprintf(string1, "\r\n ERROR - High Temperature on Resistor: %f \r\n", ShA);
+                if(vmBatmV < 2.5) {
+                    overDischarged = true; 
+                    sprintf(string1, "\r\n ERROR - Cell Discharged: %f \r\n", vmBatmV); 
                     UART_1_UartPutString(string1); 
+                    Shutdown_Test(); 
+                }
+                
+                // Over Current Protection
+                if ((ShA > HIGH_CURRENT)){
+                    goodCurrent = false;
+                    sprintf(string1, "\r\n ERROR - Incorrect Current read: %f \r\n", ShA);
+                    UART_1_UartPutString(string1);
+                    Shutdown_Test(); 
                 }
                 
             }

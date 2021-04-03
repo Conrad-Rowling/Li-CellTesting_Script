@@ -1,6 +1,6 @@
 -- Project:   PSOC4_Main
--- Generated: 03/30/2021 21:27:00
--- PSoC Creator  4.3
+-- Generated: 04/03/2021 14:04:15
+-- PSoC Creator  4.4
 
 ENTITY PSOC4_Main IS
     PORT(
@@ -31,6 +31,8 @@ ARCHITECTURE __DEFAULT__ OF PSOC4_Main IS
     SIGNAL ClockBlock_LFClk : bit;
     SIGNAL ClockBlock_SysClk : bit;
     SIGNAL ClockBlock_WCO : bit;
+    SIGNAL In_minus(0)__PA : bit;
+    SIGNAL In_plus(0)__PA : bit;
     SIGNAL Net_1547 : bit;
     SIGNAL Net_1556 : bit;
     SIGNAL Net_1557 : bit;
@@ -69,8 +71,6 @@ ARCHITECTURE __DEFAULT__ OF PSOC4_Main IS
     SIGNAL Net_1633 : bit;
     SIGNAL Net_1634 : bit;
     SIGNAL Net_1638 : bit;
-    SIGNAL Pin_1(0)__PA : bit;
-    SIGNAL Pin_2(0)__PA : bit;
     SIGNAL Pin_3(0)__PA : bit;
     SIGNAL Pin_4(0)__PA : bit;
     SIGNAL RED_LED(0)__PA : bit;
@@ -120,8 +120,8 @@ ARCHITECTURE __DEFAULT__ OF PSOC4_Main IS
     ATTRIBUTE Location OF \I2C_1:sda(0)\ : LABEL IS "P3[7]";
     ATTRIBUTE Location OF \I2C_1:scl(0)\ : LABEL IS "P3[6]";
     ATTRIBUTE Location OF \ADC_1:Bypass(0)\ : LABEL IS "P2[7]";
-    ATTRIBUTE Location OF Pin_1(0) : LABEL IS "P2[6]";
-    ATTRIBUTE Location OF Pin_2(0) : LABEL IS "P4[1]";
+    ATTRIBUTE Location OF In_plus(0) : LABEL IS "P2[6]";
+    ATTRIBUTE Location OF In_minus(0) : LABEL IS "P4[1]";
     ATTRIBUTE Location OF Pin_3(0) : LABEL IS "P0[5]";
     ATTRIBUTE Location OF Pin_4(0) : LABEL IS "P0[4]";
     ATTRIBUTE Location OF ctb1_resistor_string : LABEL IS "F(RSB,1)";
@@ -859,7 +859,7 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    Pin_1:logicalport
+    In_plus:logicalport
         GENERIC MAP(
             drive_mode => "000",
             ibuf_enabled => "0",
@@ -930,16 +930,16 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    Pin_1(0):iocell
+    In_plus(0):iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "Pin_1",
+            logicalport => "In_plus",
             logicalport_pin_id => 0,
             io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
         PORT MAP(
-            pa_out => Pin_1(0)__PA,
+            pa_out => In_plus(0)__PA,
             oe => open,
             in_clock => open,
             in_clock_en => '1',
@@ -948,7 +948,7 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    Pin_2:logicalport
+    In_minus:logicalport
         GENERIC MAP(
             drive_mode => "000",
             ibuf_enabled => "0",
@@ -1019,16 +1019,16 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    Pin_2(0):iocell
+    In_minus(0):iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "Pin_2",
+            logicalport => "In_minus",
             logicalport_pin_id => 0,
             io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
         PORT MAP(
-            pa_out => Pin_2(0)__PA,
+            pa_out => In_minus(0)__PA,
             oe => open,
             in_clock => open,
             in_clock_en => '1',
