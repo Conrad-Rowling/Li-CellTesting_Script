@@ -1,5 +1,5 @@
 /* ========================================
- * Version: 1.2
+ * Version: 1.3
  * Last Modified: 4.3.2021 
  * Conrad Rowling, Osama Abualsoud, Milad Mehr, Tucker Zischka, Formula Racing @ UC Davis, 2021
  *
@@ -47,10 +47,10 @@
 *******************************************************************************/
 void Shutdown_Test()
 {
-    char string[10];
+    char string[30];
     RED_LED_Write(1);
     RELAY_Write(0);
-    sprintf(string,"\r\n  -- Test Stopped -- \r\n");
+    sprintf(string, "\r\n  -- Test Stopped -- \r\n");
     UART_1_UartPutString(string);
     
 }
@@ -80,6 +80,8 @@ void Print_Headers(uint length_a, uint length_b)
         UART_1_UartPutString(hstr);
         CyDelay(10);
         }   
+    sprintf(hstr,"\r\n");
+    UART_1_UartPutString(hstr);
 }
 
 /*******************************************************************************
@@ -151,7 +153,6 @@ int main (void)
     
     for(;;)
     {
-        
         RED_LED_Write(1);
         CyDelay(1000);
         RELAY_Write(0);
@@ -170,16 +171,16 @@ int main (void)
             lowTemp = true;
             goodCurrent = true;
             stopPlease = false;
+            overDischarged = false; 
             
             //ADC Offset 
             AMux_1_Select(0);                               // Mux Select
             ADC_1_StartConvert();                           // Start the Read the ADC
             ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);   // Wait
             adcOffset = ADC_1_GetResult32(0);               // Get the ADC reading
-            adcOff = ADC_1_CountsTo_mVolts(0, adcOffset);   // Convert to milivolts
+            ax`dcOff = ADC_1_CountsTo_mVolts(0, adcOffset);   // Convert to milivolts
             adcOff = adcOff - 1200.0;                       // Proper offset of the offest (What is 1200 for? )
-            ADC_1_StopConvert();                            // Stop ADC Conversino 
-            PVref_1_Stop();                                 // 
+            ADC_1_StopConvert();                            // Stop ADC Conversion 
             
             timeOld = Timer_1_ReadCounter();     // just to avoid the first readcounter
             
@@ -266,13 +267,11 @@ int main (void)
                         lowTemp = false;
                         sprintf(string1, "\r\n ERROR - High Temperature on Battery: %d.%d, on Thermistor %d \r\n", batteryArray[i], batteryArray[i+1], i);
                         UART_1_UartPutString(string1); 
-                        Shutdown_Test(); 
                     }
                     if (resistorArray[i] > RESISTOR_HIGH_TEMP){ 
                         lowTemp = false;
                         sprintf(string1, "\r\n ERROR - High Temperature on Resistor: %d.%d, on Thermistor %d \r\n", resistorArray[i], resistorArray[i+1], i);
-                        UART_1_UartPutString(string1);  
-                        Shutdown_Test(); 
+                        UART_1_UartPutString(string1);   
                     }
                 }
                 
@@ -280,15 +279,13 @@ int main (void)
                     overDischarged = true; 
                     sprintf(string1, "\r\n ERROR - Cell Discharged: %f \r\n", vmBatmV); 
                     UART_1_UartPutString(string1); 
-                    Shutdown_Test(); 
                 }
                 
                 // Over Current Protection
                 if ((ShA > HIGH_CURRENT)){
                     goodCurrent = false;
                     sprintf(string1, "\r\n ERROR - Incorrect Current read: %f \r\n", ShA);
-                    UART_1_UartPutString(string1);
-                    Shutdown_Test(); 
+                    UART_1_UartPutString(string1); 
                 }
                 
             }
@@ -297,6 +294,7 @@ int main (void)
         }
         
     }
+    PVref_1_Stop(); 
 }
 
 /* [] END OF FILE */
