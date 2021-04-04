@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
   28:Generated_Source\PSoC4/CyLib.c **** uint32 cydelayFreqKhz = (CYDEV_BCLK__SYSCLK__HZ + CY_DELAY_1K_MINUS_1_THRESHOLD) / CY_DELAY_1K_THRE
   29:Generated_Source\PSoC4/CyLib.c **** uint8  cydelayFreqMhz = (uint8)((CYDEV_BCLK__SYSCLK__HZ + CY_DELAY_1M_MINUS_1_THRESHOLD) / CY_DELAY
   30:Generated_Source\PSoC4/CyLib.c **** uint32 cydelay32kMs   = CY_DELAY_MS_OVERFLOW * ((CYDEV_BCLK__SYSCLK__HZ + CY_DELAY_1K_MINUS_1_THRES
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 2
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 2
 
 
   31:Generated_Source\PSoC4/CyLib.c ****                         CY_DELAY_1K_THRESHOLD);
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
   85:Generated_Source\PSoC4/CyLib.c **** #endif /* (CY_IP_IMO_TRIMMABLE_BY_USB && CY_IP_SRSSV2) */
   86:Generated_Source\PSoC4/CyLib.c **** 
   87:Generated_Source\PSoC4/CyLib.c **** /* Stored PUMP_SEL configuration during disable (IMO output by default) */
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 3
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 3
 
 
   88:Generated_Source\PSoC4/CyLib.c **** uint32 CySysClkPumpConfig = CY_SYS_CLK_PUMP_ENABLE;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
   47              		.cfi_endproc
   48              	.LFE1:
   49              		.size	CySysClkImoStart, .-CySysClkImoStart
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 4
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 4
 
 
   50              		.section	.text.CySysClkImoDisableWcoLock,"ax",%progbits
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  169:Generated_Source\PSoC4/CyLib.c ****     *
  170:Generated_Source\PSoC4/CyLib.c ****     * This function is applicable for PSoC 4100M / PSoC 4200M / PSoC 4000S /
  171:Generated_Source\PSoC4/CyLib.c ****     * PSoC 4100S / PSoC 4500 / PSoC Analog Coprocessor / PSoC 4200L.
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 5
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 5
 
 
  172:Generated_Source\PSoC4/CyLib.c ****     *
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  226:Generated_Source\PSoC4/CyLib.c ****                 if ((CY_SYS_CLK_IMO_TRIM4_REG & CY_SYS_CLK_IMO_TRIM4_GAIN_MASK) == 0u)
  227:Generated_Source\PSoC4/CyLib.c ****                 {
  228:Generated_Source\PSoC4/CyLib.c ****                      CY_SYS_CLK_IMO_TRIM4_REG = (CY_SYS_CLK_IMO_TRIM4_REG & (uint32) ~CY_SYS_CLK_IM
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 6
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 6
 
 
  229:Generated_Source\PSoC4/CyLib.c ****                                                  CY_SYS_CLK_IMO_TRIM4_WCO_GAIN;
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  283:Generated_Source\PSoC4/CyLib.c ****     void CySysClkImoDisableWcoLock(void)
  284:Generated_Source\PSoC4/CyLib.c ****     {
   58              		.loc 1 284 0
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 7
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 7
 
 
   59              		.cfi_startproc
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
   80              		.loc 1 316 0
   81 0018 0849     		ldr	r1, .L5+8
   82 001a 0868     		ldr	r0, [r1]
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 8
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 8
 
 
   83 001c 084A     		ldr	r2, .L5+12
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  128 0002 FFF7FEFF 		bl	CySysClkImoDisableWcoLock
  129              	.LVL3:
  148:Generated_Source\PSoC4/CyLib.c **** }
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 9
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 9
 
 
  130              		.loc 1 148 0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  342:Generated_Source\PSoC4/CyLib.c ****                 (uint32) 1u :
  165              		.loc 1 342 0
  166 000a 00D0     		beq	.L11
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 10
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 10
 
 
  167 000c 0120     		movs	r0, #1
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  377:Generated_Source\PSoC4/CyLib.c ****             CySysClkImoTrim4 = CY_SYS_CLK_IMO_TRIM4_REG;
  378:Generated_Source\PSoC4/CyLib.c ****             CySysClkImoTrim5 = CY_PWR_BG_TRIM5_REG;
  379:Generated_Source\PSoC4/CyLib.c **** 
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 11
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 11
 
 
  380:Generated_Source\PSoC4/CyLib.c ****             CySysClkImoSetImoTrims();
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  434:Generated_Source\PSoC4/CyLib.c ****     /*******************************************************************************
  435:Generated_Source\PSoC4/CyLib.c ****     * Function Name: CySysClkImoGetUsbLock
  436:Generated_Source\PSoC4/CyLib.c ****     ****************************************************************************//**
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 12
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 12
 
 
  437:Generated_Source\PSoC4/CyLib.c ****     *
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  491:Generated_Source\PSoC4/CyLib.c ****         /* Get current IMO frequency based on the register value */
  492:Generated_Source\PSoC4/CyLib.c ****         uint32 freq = CY_SYS_CLK_IMO_MIN_FREQ_MHZ;
  493:Generated_Source\PSoC4/CyLib.c **** 
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 13
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 13
 
 
  494:Generated_Source\PSoC4/CyLib.c ****         for(i = 0u; i < CY_SYS_CLK_IMO_FREQ_TABLE_SIZE; i++)
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  548:Generated_Source\PSoC4/CyLib.c **** #endif  /* (CY_IP_IMO_TRIMMABLE_BY_USB) */
  549:Generated_Source\PSoC4/CyLib.c **** 
  550:Generated_Source\PSoC4/CyLib.c **** 
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 14
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 14
 
 
  551:Generated_Source\PSoC4/CyLib.c **** /*******************************************************************************
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  198 0004 FFF7FEFF 		bl	CyEnterCriticalSection
  199              	.LVL5:
  594:Generated_Source\PSoC4/CyLib.c **** 
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 15
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 15
 
 
  595:Generated_Source\PSoC4/CyLib.c **** #if (CY_IP_SRSSLT && CY_IP_PLL)
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  638:Generated_Source\PSoC4/CyLib.c **** 
  639:Generated_Source\PSoC4/CyLib.c ****     CY_SYS_CLK_SELECT_REG = tmpReg;
  211              		.loc 1 639 0
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 16
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 16
 
 
  212 0014 1460     		str	r4, [r2]
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  665:Generated_Source\PSoC4/CyLib.c ****         {
  666:Generated_Source\PSoC4/CyLib.c ****             CY_SYS_CLK_IMO_CONFIG_REG |= (CySysClkPumpConfig << CY_SYS_CLK_IMO_CONFIG_PUMP_SEL_SHIF
  667:Generated_Source\PSoC4/CyLib.c ****         }
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 17
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 17
 
 
  668:Generated_Source\PSoC4/CyLib.c ****         else
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  276              		.cfi_endproc
  277              	.LFE7:
  278              		.size	CySysEnablePumpClock, .-CySysEnablePumpClock
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 18
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 18
 
 
  279              		.section	.text.CySysClkGetSysclkSource,"ax",%progbits
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  716:Generated_Source\PSoC4/CyLib.c ****         sysclkSource |= (((uint32)(CY_SYS_ECO_CLK_SELECT_REG & CY_SYS_ECO_CLK_SELECT_ECO_PLL_MASK))
  717:Generated_Source\PSoC4/CyLib.c ****                          CY_SYS_CLK_SELECT_HFCLK_PLL_SHIFT);
  718:Generated_Source\PSoC4/CyLib.c ****     #endif /* (CY_IP_SRSSLT && CY_IP_PLL) */
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 19
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 19
 
 
  719:Generated_Source\PSoC4/CyLib.c **** 
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  750:Generated_Source\PSoC4/CyLib.c **** *  CY_SYS_CLK_SYSCLK_DIV2        SYSCLK = HFCLK / 2
  751:Generated_Source\PSoC4/CyLib.c **** *  CY_SYS_CLK_SYSCLK_DIV4        SYSCLK = HFCLK / 4
  752:Generated_Source\PSoC4/CyLib.c **** *  CY_SYS_CLK_SYSCLK_DIV8        SYSCLK = HFCLK / 8
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 20
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 20
 
 
  753:Generated_Source\PSoC4/CyLib.c **** *  CY_SYS_CLK_SYSCLK_DIV16       SYSCLK = HFCLK / 16  (N/A for 4000 Family)
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  360              	.L27:
  361              		.align	2
  362              	.L26:
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 21
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 21
 
 
  363 0020 28000340 		.word	1073938472
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  814:Generated_Source\PSoC4/CyLib.c **** *
  815:Generated_Source\PSoC4/CyLib.c **** *******************************************************************************/
  816:Generated_Source\PSoC4/CyLib.c **** #if(CY_IP_SRSSV2)
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 22
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 22
 
 
  817:Generated_Source\PSoC4/CyLib.c ****     void CySysClkWriteImoFreq(uint32 freq)
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  871:Generated_Source\PSoC4/CyLib.c ****         #if (CY_IP_FMLT)
  872:Generated_Source\PSoC4/CyLib.c **** 
  873:Generated_Source\PSoC4/CyLib.c ****             /* FM-Lite Clock Restore */
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 23
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 23
 
 
  874:Generated_Source\PSoC4/CyLib.c ****             regValues[0u] = CY_SYS_CLK_IMO_CONFIG_REG;
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  928:Generated_Source\PSoC4/CyLib.c ****             * IMO_TRIM2 value as a function of IMO frequency is a strictly increasing
  929:Generated_Source\PSoC4/CyLib.c ****             * function and is time-invariant.
  930:Generated_Source\PSoC4/CyLib.c ****             ***************************************************************************/
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 24
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 24
 
 
  931:Generated_Source\PSoC4/CyLib.c ****             if ((newImoTrim2Value >= CY_SYS_CLK_IMO_BOUNDARY_FREQ_TRIM2) && (freq >= CY_SYS_CLK_IMO
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  985:Generated_Source\PSoC4/CyLib.c ****             {
  986:Generated_Source\PSoC4/CyLib.c ****                 CySysClkImoEnableWcoLock();
  987:Generated_Source\PSoC4/CyLib.c ****             }
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 25
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 25
 
 
  988:Generated_Source\PSoC4/CyLib.c ****         #endif  /* (CY_IP_IMO_TRIMMABLE_BY_WCO) */
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 1042:Generated_Source\PSoC4/CyLib.c ****                     if (48u == freq)
 1043:Generated_Source\PSoC4/CyLib.c ****                     {
 1044:Generated_Source\PSoC4/CyLib.c ****                         usbLock = 1u;
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 26
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 26
 
 
 1045:Generated_Source\PSoC4/CyLib.c ****                         CySysClkImoDisableUsbLock();
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 1099:Generated_Source\PSoC4/CyLib.c ****             }
 1100:Generated_Source\PSoC4/CyLib.c **** 
 1101:Generated_Source\PSoC4/CyLib.c ****             #if (CY_IP_IMO_TRIMMABLE_BY_WCO)
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 27
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 27
 
 
 1102:Generated_Source\PSoC4/CyLib.c ****                 if (1u == wcoLock)
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 1156:Generated_Source\PSoC4/CyLib.c ****     {
  375              		.loc 1 1156 0
  376              		.cfi_startproc
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 28
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 28
 
 
  377              		@ args = 0, pretend = 0, frame = 0
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  419              		.global	CySysGetResetReason
  420              		.code	16
  421              		.thumb_func
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 29
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 29
 
 
  422              		.type	CySysGetResetReason, %function
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 1218:Generated_Source\PSoC4/CyLib.c **** 
 1219:Generated_Source\PSoC4/CyLib.c ****             if (0u != (CY_SYS_BLESS_MT_CFG_REG & (CY_SYS_BLESS_MT_CFG_ENABLE_BLERD <<  CYFLD_BLE_BL
 1220:Generated_Source\PSoC4/CyLib.c ****             {
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 30
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 30
 
 
 1221:Generated_Source\PSoC4/CyLib.c ****                 CY_SYS_BLESS_MT_CFG_REG |= (CY_SYS_BLESS_MT_CFG_DPSLP_ECO_ON  <<  CYFLD_BLE_BLESS_D
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 1275:Generated_Source\PSoC4/CyLib.c ****                 /* Send read commands to RBUS */
 1276:Generated_Source\PSoC4/CyLib.c ****                 CY_SYS_RCB_TX_FIFO_WR_REG = (CY_SYS_RCB_RBUS_RD_CMD |
 1277:Generated_Source\PSoC4/CyLib.c ****                                             (CY_SYS_RCB_RBUS_RF_DCXO_CFG_SET & ~CY_SYS_RCB_RBUS_VAL
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 31
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 31
 
 
 1278:Generated_Source\PSoC4/CyLib.c **** 
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 1332:Generated_Source\PSoC4/CyLib.c ****     }
 1333:Generated_Source\PSoC4/CyLib.c **** 
 1334:Generated_Source\PSoC4/CyLib.c **** 
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 32
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 32
 
 
 1335:Generated_Source\PSoC4/CyLib.c ****     /*******************************************************************************
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 1389:Generated_Source\PSoC4/CyLib.c **** 
 1390:Generated_Source\PSoC4/CyLib.c ****             returnValue =  ((CY_SYS_BLESS_MT_STATUS_BLERD_IDLE == returnValue) ||
 1391:Generated_Source\PSoC4/CyLib.c ****                             (CY_SYS_BLESS_MT_STATUS_SWITCH_EN  == returnValue) ||
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 33
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 33
 
 
 1392:Generated_Source\PSoC4/CyLib.c ****                             (CY_SYS_BLESS_MT_STATUS_ACTIVE  ==  returnValue) ||
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 1446:Generated_Source\PSoC4/CyLib.c ****         }
 1447:Generated_Source\PSoC4/CyLib.c **** 
 1448:Generated_Source\PSoC4/CyLib.c ****     #else
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 34
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 34
 
 
 1449:Generated_Source\PSoC4/CyLib.c **** 
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 1503:Generated_Source\PSoC4/CyLib.c ****         * - \ref CY_SYS_CLK_ECO_RTRIM1       24 MHz < Crystal frequency <= 30 MHz
 1504:Generated_Source\PSoC4/CyLib.c ****         * - \ref CY_SYS_CLK_ECO_RTRIM2       17 MHz < Crystal frequency <= 24 MHz
 1505:Generated_Source\PSoC4/CyLib.c ****         * - \ref CY_SYS_CLK_ECO_RTRIM3       Crystal frequency <= 17 MHz
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 35
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 35
 
 
 1506:Generated_Source\PSoC4/CyLib.c ****         *
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 1560:Generated_Source\PSoC4/CyLib.c ****         *  amplitude level equals or above 2. In this case the amplitude is not
 1561:Generated_Source\PSoC4/CyLib.c ****         *  explicitly controlled and will grow until it saturates to the supply rail
 1562:Generated_Source\PSoC4/CyLib.c ****         *  (1.8V nom). WARNING: use care when disabling AGC because driving a crystal
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 36
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 36
 
 
 1563:Generated_Source\PSoC4/CyLib.c ****         *  beyond its rated limit can permanently damage the crystal.
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 1617:Generated_Source\PSoC4/CyLib.c ****                 {
 1618:Generated_Source\PSoC4/CyLib.c ****                     aTrim = CY_SYS_CLK_ECO_ATRIM6;
 1619:Generated_Source\PSoC4/CyLib.c ****                 }
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 37
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 37
 
 
 1620:Generated_Source\PSoC4/CyLib.c ****                 else
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 1674:Generated_Source\PSoC4/CyLib.c ****                 {
 1675:Generated_Source\PSoC4/CyLib.c ****                     /* The amplitude is not explicitly controlled and will grow until it saturates 
 1676:Generated_Source\PSoC4/CyLib.c ****                     * supply rail (1.8V nom).
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 38
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 38
 
 
 1677:Generated_Source\PSoC4/CyLib.c ****                     */
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 1731:Generated_Source\PSoC4/CyLib.c ****             CY_SYS_CLK_PLL_BASE.pll[pll].config &= (uint32) ~CY_SYS_CLK_PLL_CONFIG_ISOLATE;
 1732:Generated_Source\PSoC4/CyLib.c **** 
 1733:Generated_Source\PSoC4/CyLib.c ****             /* Enable PLL */
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 39
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 39
 
 
 1734:Generated_Source\PSoC4/CyLib.c ****             CY_SYS_CLK_PLL_BASE.pll[pll].config |= CY_SYS_CLK_PLL_CONFIG_ENABLE;
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 1788:Generated_Source\PSoC4/CyLib.c ****     {
 1789:Generated_Source\PSoC4/CyLib.c ****         uint8  interruptState;
 1790:Generated_Source\PSoC4/CyLib.c ****         uint32 returnStatus;
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 40
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 40
 
 
 1791:Generated_Source\PSoC4/CyLib.c **** 
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 1845:Generated_Source\PSoC4/CyLib.c ****     *
 1846:Generated_Source\PSoC4/CyLib.c ****     * The PLL must not be the system clock source when calling this function. The
 1847:Generated_Source\PSoC4/CyLib.c ****     * PLL output will glitch during this function call.
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 41
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 41
 
 
 1848:Generated_Source\PSoC4/CyLib.c ****     *
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 1902:Generated_Source\PSoC4/CyLib.c ****         return (returnStatus);
 1903:Generated_Source\PSoC4/CyLib.c ****     }
 1904:Generated_Source\PSoC4/CyLib.c **** 
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 42
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 42
 
 
 1905:Generated_Source\PSoC4/CyLib.c **** 
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 1959:Generated_Source\PSoC4/CyLib.c ****     *  Gets the bypass mode for the specified PLL.
 1960:Generated_Source\PSoC4/CyLib.c ****     *  This API is available only for PSoC 4200L / 4100S / 4500 with PLL devices.
 1961:Generated_Source\PSoC4/CyLib.c ****     *
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 43
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 43
 
 
 1962:Generated_Source\PSoC4/CyLib.c ****     *  \return bypass: Bypass mode.
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 2016:Generated_Source\PSoC4/CyLib.c ****         {
 2017:Generated_Source\PSoC4/CyLib.c ****             returnValue = CYRET_SUCCESS;
 2018:Generated_Source\PSoC4/CyLib.c ****         }
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 44
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 44
 
 
 2019:Generated_Source\PSoC4/CyLib.c **** 
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 2073:Generated_Source\PSoC4/CyLib.c ****     *  1   PLL#1 (available only for PSoC 4200L)
 2074:Generated_Source\PSoC4/CyLib.c ****     *
 2075:Generated_Source\PSoC4/CyLib.c ****     * \param inputFreq The reference frequency in KHz. The valid range is from 1000 to 49152 KHz.
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 45
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 45
 
 
 2076:Generated_Source\PSoC4/CyLib.c ****     *
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 2130:Generated_Source\PSoC4/CyLib.c ****             {
 2131:Generated_Source\PSoC4/CyLib.c ****                 for(q = qMin; q <= qMax; q++)
 2132:Generated_Source\PSoC4/CyLib.c ****                 {
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 46
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 46
 
 
 2133:Generated_Source\PSoC4/CyLib.c ****                     /* Solve for the feedback divisor value */
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 2187:Generated_Source\PSoC4/CyLib.c ****     *  CY_SYS_PLL_SOURCE_DSI1       DSI_OUT[1] (available only for PSoC 4200L)
 2188:Generated_Source\PSoC4/CyLib.c ****     *  CY_SYS_PLL_SOURCE_DSI2       DSI_OUT[2] (available only for PSoC 4200L)
 2189:Generated_Source\PSoC4/CyLib.c ****     *  CY_SYS_PLL_SOURCE_DSI3       DSI_OUT[3] (available only for PSoC 4200L)
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 47
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 47
 
 
 2190:Generated_Source\PSoC4/CyLib.c ****     *
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 2244:Generated_Source\PSoC4/CyLib.c ****     *
 2245:Generated_Source\PSoC4/CyLib.c ****     *  This API is available only for PSoC 4200L / 4100S / 4500 with PLL devices.
 2246:Generated_Source\PSoC4/CyLib.c ****     *
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 48
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 48
 
 
 2247:Generated_Source\PSoC4/CyLib.c ****     *  \param PLL:
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 2301:Generated_Source\PSoC4/CyLib.c ****         * \return A set bit indicates the source of the interrupt:
 2302:Generated_Source\PSoC4/CyLib.c ****         *  *CY_SYS_PLL_INTR_PLL_LOCK
 2303:Generated_Source\PSoC4/CyLib.c ****         *  *CY_SYS_PLL_INTR_WD_ERR
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 49
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 49
 
 
 2304:Generated_Source\PSoC4/CyLib.c ****         *  *CY_SYS_PLL_INTR_CSV_CLK_SW
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 2358:Generated_Source\PSoC4/CyLib.c ****         *  This API sets the interrupt mask bit for the corresponding interrupts.
 2359:Generated_Source\PSoC4/CyLib.c ****         *
 2360:Generated_Source\PSoC4/CyLib.c ****         *  This API is available only for PSoC 4500 with PLL devices.
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 50
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 50
 
 
 2361:Generated_Source\PSoC4/CyLib.c ****         *
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 2415:Generated_Source\PSoC4/CyLib.c **** 
 2416:Generated_Source\PSoC4/CyLib.c ****         /*******************************************************************************
 2417:Generated_Source\PSoC4/CyLib.c ****         * Function Name: CySysClkPllCsvEnable
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 51
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 51
 
 
 2418:Generated_Source\PSoC4/CyLib.c ****         ****************************************************************************//**
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 2472:Generated_Source\PSoC4/CyLib.c ****         }
 2473:Generated_Source\PSoC4/CyLib.c **** 
 2474:Generated_Source\PSoC4/CyLib.c **** 
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 52
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 52
 
 
 2475:Generated_Source\PSoC4/CyLib.c ****         /*******************************************************************************
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 2529:Generated_Source\PSoC4/CyLib.c ****         *  This API sets the csv period time.
 2530:Generated_Source\PSoC4/CyLib.c ****         *
 2531:Generated_Source\PSoC4/CyLib.c ****         *  This API is available only for PSoC 4500 with PLL devices.
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 53
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 53
 
 
 2532:Generated_Source\PSoC4/CyLib.c ****         *
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 2586:Generated_Source\PSoC4/CyLib.c ****             CY_SET_REG32_FIELD(CYREG_EXCO_RSTDLY_CTL, CYFLD_EXCO_EN, 0x1uL);
 2587:Generated_Source\PSoC4/CyLib.c ****         }
 2588:Generated_Source\PSoC4/CyLib.c **** 
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 54
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 54
 
 
 2589:Generated_Source\PSoC4/CyLib.c **** 
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 2643:Generated_Source\PSoC4/CyLib.c ****     *         Define                     Voltage threshold
 2644:Generated_Source\PSoC4/CyLib.c ****     *    CY_LVD_THRESHOLD_1_75_V       1.7500 V
 2645:Generated_Source\PSoC4/CyLib.c ****     *    CY_LVD_THRESHOLD_1_80_V       1.8000 V
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 55
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 55
 
 
 2646:Generated_Source\PSoC4/CyLib.c ****     *    CY_LVD_THRESHOLD_1_90_V       1.9000 V
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 2700:Generated_Source\PSoC4/CyLib.c ****     * Function Name: CySysLvdGetInterruptSource
 2701:Generated_Source\PSoC4/CyLib.c ****     ****************************************************************************//**
 2702:Generated_Source\PSoC4/CyLib.c ****     *
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 56
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 56
 
 
 2703:Generated_Source\PSoC4/CyLib.c ****     *  Gets the low voltage detection interrupt status (without clearing).
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  428              		@ frame_needed = 0, uses_anonymous_args = 0
  429              		@ link register save eliminated.
  430              	.LVL24:
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 57
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 57
 
 
  431 0000 0200     		movs	r2, r0
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  462              		.loc 1 2776 0
  463              		.cfi_startproc
  464              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 58
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 58
 
 
  465              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  496              		@ frame_needed = 0, uses_anonymous_args = 0
  497              		@ link register save eliminated.
  498              	.LVL29:
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 59
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 59
 
 
 2800:Generated_Source\PSoC4/CyLib.c ****     CY_INT_ENABLE_REG = mask;
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 2833:Generated_Source\PSoC4/CyLib.c ****     /* Set new Interrupt service routine. */
 2834:Generated_Source\PSoC4/CyLib.c ****     ramVectorTable[number] = address;
 2835:Generated_Source\PSoC4/CyLib.c **** 
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 60
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 60
 
 
 2836:Generated_Source\PSoC4/CyLib.c ****     return(oldIsr);
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 2890:Generated_Source\PSoC4/CyLib.c ****     ramVectorTable[CY_INT_IRQ_BASE + number] = address;
 2891:Generated_Source\PSoC4/CyLib.c **** 
 2892:Generated_Source\PSoC4/CyLib.c ****     return(oldIsr);
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 61
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 61
 
 
 2893:Generated_Source\PSoC4/CyLib.c **** }
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 2947:Generated_Source\PSoC4/CyLib.c **** 
 2948:Generated_Source\PSoC4/CyLib.c **** /*******************************************************************************
 2949:Generated_Source\PSoC4/CyLib.c **** * Function Name: CyIntGetPriority
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 62
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 62
 
 
 2950:Generated_Source\PSoC4/CyLib.c **** ****************************************************************************//**
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  539              	.L41:
  540 0010 00E100E0 		.word	-536813312
  541              		.cfi_endproc
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 63
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 63
 
 
  542              	.LFE21:
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  577              		.size	CyIntGetState, .-CyIntGetState
  578              		.section	.text.CyIntDisable,"ax",%progbits
  579              		.align	2
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 64
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 64
 
 
  580              		.global	CyIntDisable
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 3020:Generated_Source\PSoC4/CyLib.c **** /*******************************************************************************
 3021:Generated_Source\PSoC4/CyLib.c **** * Function Name: CyIntSetPending
 3022:Generated_Source\PSoC4/CyLib.c **** ****************************************************************************//**
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 65
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 65
 
 
 3023:Generated_Source\PSoC4/CyLib.c **** *
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 3045:Generated_Source\PSoC4/CyLib.c **** {
  650              		.loc 1 3045 0
  651              		.cfi_startproc
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 66
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 66
 
 
  652              		@ args = 0, pretend = 0, frame = 0
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 3064:Generated_Source\PSoC4/CyLib.c ****     }
 3065:Generated_Source\PSoC4/CyLib.c **** 
 3066:Generated_Source\PSoC4/CyLib.c ****     #if defined (__ARMCC_VERSION)
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 67
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 67
 
 
 3067:Generated_Source\PSoC4/CyLib.c ****         __breakpoint(0x0);
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 2831:Generated_Source\PSoC4/CyLib.c **** 
  732              		.loc 1 2831 0 is_stmt 1
  733 0010 A400     		lsls	r4, r4, #2
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 68
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 68
 
 
  734 0012 8023     		movs	r3, #128
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  782 0016 6444     		add	r4, r4, ip
  783 0018 2068     		ldr	r0, [r4]
 2864:Generated_Source\PSoC4/CyLib.c **** 
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 69
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 69
 
 
  784              		.loc 1 2864 0
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  832              		.loc 1 2893 0
  833              		@ sp needed
  834              	.LVL56:
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 70
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 70
 
 
  835 0020 70BD     		pop	{r4, r5, r6, pc}
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  884              		.code	16
  885              		.thumb_func
  886              		.type	CyIntSetPriority, %function
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 71
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 71
 
 
  887              	CyIntSetPriority:
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  933 002e 6444     		add	r4, r4, ip
  934 0030 2168     		ldr	r1, [r4]
  935              	.LVL67:
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 72
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 72
 
 
 2940:Generated_Source\PSoC4/CyLib.c ****     value |= ((uint32)priority << shift);
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  983              		.loc 1 2964 0
  984 0004 1828     		cmp	r0, #24
  985 0006 02D9     		bls	.L70
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 73
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 73
 
 
 2964:Generated_Source\PSoC4/CyLib.c **** 
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 3084:Generated_Source\PSoC4/CyLib.c **** {
  1026              		.loc 1 3084 0
  1027              		.cfi_startproc
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 74
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 74
 
 
  1028              		@ args = 0, pretend = 0, frame = 0
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  1061              		.cfi_startproc
  1062              		@ args = 0, pretend = 0, frame = 0
  1063              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 75
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 75
 
 
  1064              	.LVL79:
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  1106              	.LFE28:
  1107              		.size	CyDelay, .-CyDelay
  1108              		.section	.text.CySysClkImoEnableWcoLock,"ax",%progbits
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 76
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 76
 
 
  1109              		.align	2
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  222:Generated_Source\PSoC4/CyLib.c **** 
  1156              		.loc 1 222 0
  1157 002a 0021     		movs	r1, #0
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 77
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 77
 
 
  1158 002c 214B     		ldr	r3, .L85+8
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  1204              		.loc 1 250 0
  1205 006e 2668     		ldr	r6, [r4]
  1206 0070 164B     		ldr	r3, .L85+32
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 78
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 78
 
 
  1207 0072 1E40     		ands	r6, r3
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  1251              	.L81:
  267:Generated_Source\PSoC4/CyLib.c **** 
  1252              		.loc 1 267 0
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 79
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 79
 
 
  1253 00a8 02B0     		add	sp, sp, #8
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  1303 0010 07D0     		beq	.L88
 1020:Generated_Source\PSoC4/CyLib.c ****                 (freq == 36u) || (freq == 40u) || (freq == 44u) ||
  1304              		.loc 1 1020 0 discriminator 3
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 80
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 80
 
 
  1305 0012 2428     		cmp	r0, #36
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  1349 0046 E318     		adds	r3, r4, r3
  1350 0048 1B78     		ldrb	r3, [r3]
  1351 004a DBB2     		uxtb	r3, r3
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 81
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 81
 
 
  1352              	.LVL115:
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  1396 008a 1343     		orrs	r3, r2
  1397 008c 3B60     		str	r3, [r7]
 1093:Generated_Source\PSoC4/CyLib.c **** 
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 82
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 82
 
 
  1398              		.loc 1 1093 0
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  1444 00c4 CDF1FF0F 		.word	268431821
  1445 00c8 0C0F0340 		.word	1073942284
  1446 00cc 100F0340 		.word	1073942288
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 83
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 83
 
 
  1447 00d0 180F0340 		.word	1073942296
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  1487              		.section	.text.CyDelayFreq,"ax",%progbits
  1488              		.align	2
  1489              		.global	CyDelayFreq
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 84
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 84
 
 
  1490              		.code	16
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  1522 0016 0A4B     		ldr	r3, .L103+8
  1523 0018 E818     		adds	r0, r5, r3
  1524              	.LVL130:
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 85
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 85
 
 
  1525 001a 0A49     		ldr	r1, .L103+12
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 3169:Generated_Source\PSoC4/CyLib.c **** *  Clears SysTick count flag if it was set.
 3170:Generated_Source\PSoC4/CyLib.c **** *
 3171:Generated_Source\PSoC4/CyLib.c **** *******************************************************************************/
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 86
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 86
 
 
 3172:Generated_Source\PSoC4/CyLib.c **** void CySysTickStart(void)
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 3226:Generated_Source\PSoC4/CyLib.c **** *
 3227:Generated_Source\PSoC4/CyLib.c **** * \sideeffect
 3228:Generated_Source\PSoC4/CyLib.c **** *  Clears SysTick count flag if it was set
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 87
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 87
 
 
 3229:Generated_Source\PSoC4/CyLib.c **** *
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 3254:Generated_Source\PSoC4/CyLib.c **** /*******************************************************************************
 3255:Generated_Source\PSoC4/CyLib.c **** * Function Name: CySysTickEnableInterrupt
 3256:Generated_Source\PSoC4/CyLib.c **** ****************************************************************************//**
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 88
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 88
 
 
 3257:Generated_Source\PSoC4/CyLib.c **** *
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  1631              		.loc 1 3234 0
  1632 0006 034A     		ldr	r2, .L112
  1633 0008 1168     		ldr	r1, [r2]
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 89
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 89
 
 
  1634 000a 0123     		movs	r3, #1
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  1671              	.L115:
  1672 000c 10E000E0 		.word	-536813552
  1673              		.cfi_endproc
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 90
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 90
 
 
  1674              	.LFE36:
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  1711              		.type	CySysTickGetReload, %function
  1712              	CySysTickGetReload:
  1713              	.LFB38:
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 91
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 91
 
 
 3301:Generated_Source\PSoC4/CyLib.c **** 
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 3327:Generated_Source\PSoC4/CyLib.c **** *
 3328:Generated_Source\PSoC4/CyLib.c **** *******************************************************************************/
 3329:Generated_Source\PSoC4/CyLib.c **** uint32 CySysTickGetValue(void)
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 92
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 92
 
 
 3330:Generated_Source\PSoC4/CyLib.c **** {
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 3356:Generated_Source\PSoC4/CyLib.c ****     *   CY_SYS_SYST_CSR_CLK_SRC_SYSCLK     SysTick is clocked by the CPU clock.
 3357:Generated_Source\PSoC4/CyLib.c ****     *   CY_SYS_SYST_CSR_CLK_SRC_LFCLK      SysTick is clocked by the low frequency
 3358:Generated_Source\PSoC4/CyLib.c ****     *                                      clock. (ILO 100 KHz for PSoC 5LP, and
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 93
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 93
 
 
 3359:Generated_Source\PSoC4/CyLib.c ****     *                                      LFCLK for PSoC 4).
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  1811              	.LFB41:
 3372:Generated_Source\PSoC4/CyLib.c **** 
 3373:Generated_Source\PSoC4/CyLib.c **** 
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 94
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 94
 
 
 3374:Generated_Source\PSoC4/CyLib.c ****     /*******************************************************************************
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 3399:Generated_Source\PSoC4/CyLib.c **** *  The flag cleared on read.
 3400:Generated_Source\PSoC4/CyLib.c **** *
 3401:Generated_Source\PSoC4/CyLib.c **** * \return
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 95
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 95
 
 
 3402:Generated_Source\PSoC4/CyLib.c ****     *  Returns non-zero value if flag is set, otherwise zero is returned.
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 3428:Generated_Source\PSoC4/CyLib.c **** /*******************************************************************************
 3429:Generated_Source\PSoC4/CyLib.c **** * Function Name: CySysTickSetCallback
 3430:Generated_Source\PSoC4/CyLib.c **** ****************************************************************************//**
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 96
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 96
 
 
 3431:Generated_Source\PSoC4/CyLib.c **** *
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 3485:Generated_Source\PSoC4/CyLib.c **** 
 3486:Generated_Source\PSoC4/CyLib.c **** 
 3487:Generated_Source\PSoC4/CyLib.c **** /*******************************************************************************
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 97
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 97
 
 
 3488:Generated_Source\PSoC4/CyLib.c **** * Function Name: CySysTickServiceCallbacks
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 3501:Generated_Source\PSoC4/CyLib.c ****         {
  1904              		.loc 1 3501 0 is_stmt 0 discriminator 1
  1905 001e 042C     		cmp	r4, #4
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 98
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 98
 
 
  1906 0020 F4D9     		bls	.L141
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  1953              	.LFB32:
 3202:Generated_Source\PSoC4/CyLib.c ****     uint32 i;
  1954              		.loc 1 3202 0
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 99
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 99
 
 
  1955              		.cfi_startproc
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 3218:Generated_Source\PSoC4/CyLib.c **** 
  2001              		.loc 1 3218 0
  2002              		@ sp needed
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 100
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 100
 
 
  2003 0036 10BD     		pop	{r4, pc}
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  2051 001c 00000000 		.word	.LANCHOR1
  2052              		.cfi_endproc
  2053              	.LFE31:
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 101
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 101
 
 
  2054              		.size	CySysTickStart, .-CySysTickStart
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  2102              	.LVL157:
  2103 0002 014B     		ldr	r3, .L161
  2104 0004 C058     		ldr	r0, [r0, r3]
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 102
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 102
 
 
 3484:Generated_Source\PSoC4/CyLib.c **** 
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  2137 000c 1B02     		lsls	r3, r3, #8
  2138 000e 1343     		orrs	r3, r2
  2139 0010 0360     		str	r3, [r0]
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 103
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 103
 
 
 3531:Generated_Source\PSoC4/CyLib.c ****     uniqueId[0u] |= ((uint32)(* (reg8 *) CYREG_SFLASH_DIE_LOT2  ) << 16u);
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  2175              		.loc 1 3549 0
  2176              		@ sp needed
  2177 004c 7047     		bx	lr
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 104
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 104
 
 
  2178              	.L165:
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  2206              		.loc 1 3575 0
  2207 0000 0549     		ldr	r1, .L167
  2208 0002 0A68     		ldr	r2, [r1]
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 105
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 105
 
 
  2209 0004 054B     		ldr	r3, .L167+4
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 3598:Generated_Source\PSoC4/CyLib.c ****     *******************************************************************************/
 3599:Generated_Source\PSoC4/CyLib.c ****     void CySysSetFlashAccessArbPriority(uint32 source)
 3600:Generated_Source\PSoC4/CyLib.c ****     {
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 106
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 106
 
 
  2241              		.loc 1 3600 0
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 3614:Generated_Source\PSoC4/CyLib.c ****     *  register is configured to set the priority. Please refer to the device TRM
 3615:Generated_Source\PSoC4/CyLib.c ****     *  for more details.
 3616:Generated_Source\PSoC4/CyLib.c ****     *
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 107
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 107
 
 
 3617:Generated_Source\PSoC4/CyLib.c ****     *  This API is applicable for PSoC 4200M / PSoC 4200L / 4100S with
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  2318              		.code	16
  2319              		.thumb_func
  2320              		.type	CySysSetPeripheralAccessArbPriority, %function
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 108
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 108
 
 
  2321              	CySysSetPeripheralAccessArbPriority:
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  2345 0010 C023     		movs	r3, #192
  2346 0012 DB02     		lsls	r3, r3, #11
  2347 0014 1940     		ands	r1, r3
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 109
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 109
 
 
  2348 0016 1143     		orrs	r1, r2
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  2381 0038 FFF7FEFF 		bl	CyHalt
  2382              	.LVL183:
  2383              	.L175:
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 110
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 110
 
 
 3686:Generated_Source\PSoC4/CyLib.c ****         }
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 3720:Generated_Source\PSoC4/CyLib.c ****         {
  2404              		.loc 1 3720 0
  2405              		.cfi_startproc
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 111
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 111
 
 
  2406              		@ args = 0, pretend = 0, frame = 0
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 3741:Generated_Source\PSoC4/CyLib.c ****     *
 3742:Generated_Source\PSoC4/CyLib.c ****     *******************************************************************************/
 3743:Generated_Source\PSoC4/CyLib.c ****     void CySysPrbSetBgGain(uint32 gain)
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 112
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 112
 
 
 3744:Generated_Source\PSoC4/CyLib.c ****     {
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 3765:Generated_Source\PSoC4/CyLib.c ****     *
 3766:Generated_Source\PSoC4/CyLib.c ****     *   voltageTap  | If bandgap (x1), V| If bandgap (x2), V| If Vdda
 3767:Generated_Source\PSoC4/CyLib.c ****     *   ------------|-------------------|-------------------|-------------------
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 113
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 113
 
 
 3768:Generated_Source\PSoC4/CyLib.c ****     *       1       |       0.08        |       0.16        |       0.21
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  2504              		.thumb_func
  2505              		.type	CySysPrbEnableDeepsleepVddaRef, %function
  2506              	CySysPrbEnableDeepsleepVddaRef:
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 114
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 114
 
 
  2507              	.LFB55:
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 3814:Generated_Source\PSoC4/CyLib.c ****     *
 3815:Generated_Source\PSoC4/CyLib.c ****     * Disables the Vdda reference in deep sleep mode. The Vdda reference is by
 3816:Generated_Source\PSoC4/CyLib.c ****     * default disabled when entering deep sleep mode.
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 115
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 115
 
 
 3817:Generated_Source\PSoC4/CyLib.c ****     *
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  2569              		.cfi_startproc
  2570              		@ args = 0, pretend = 0, frame = 0
  2571              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 116
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 116
 
 
  2572              		@ link register save eliminated.
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  2608              		.loc 1 3857 0
  2609              		@ sp needed
  2610 000a 7047     		bx	lr
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 117
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 117
 
 
  2611              	.L201:
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  2642 000a 3F21     		movs	r1, #63
  2643 000c 8B43     		bics	r3, r1
  2644 000e 0840     		ands	r0, r1
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 118
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 118
 
 
  2645              	.LVL193:
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
 3897:Generated_Source\PSoC4/CyLib.c ****     * Returns the current trim of the bandgap reference buffer.
 3898:Generated_Source\PSoC4/CyLib.c ****     *
 3899:Generated_Source\PSoC4/CyLib.c ****     * This API is applicable for PSoC 4 devices that support the programmable
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 119
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 119
 
 
 3900:Generated_Source\PSoC4/CyLib.c ****     * reference block. Please refer to the device TRM for more details.
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  2716              		.size	CySysPrbGetBgBufferTrim, .-CySysPrbGetBgBufferTrim
  2717              		.global	CySysClkPumpConfig
  2718              		.global	CySysTickInitVar
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 120
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 120
 
 
  2719              		.global	cydelay32kMs
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  2769 000a 04       		.byte	0x4
  2770 000b 01       		.uleb128 0x1
  2771 000c 2C060000 		.4byte	.LASF129
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 121
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 121
 
 
  2772 0010 0C       		.byte	0xc
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  2826 007d FD01     		.2byte	0x1fd
  2827 007f 3A000000 		.4byte	0x3a
  2828 0083 04       		.uleb128 0x4
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 122
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 122
 
 
  2829 0084 F9010000 		.4byte	.LASF11
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  2883 00f9 04       		.byte	0x4
  2884 00fa 07       		.byte	0x7
  2885 00fb 44040000 		.4byte	.LASF21
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 123
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 123
 
 
  2886 00ff 04       		.uleb128 0x4
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  2940 017e 4802     		.2byte	0x248
  2941 0180 00000000 		.4byte	.LFB6
  2942 0184 20000000 		.4byte	.LFE6-.LFB6
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 124
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 124
 
 
  2943 0188 01       		.uleb128 0x1
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  2997 020c 43020000 		.4byte	0x243
  2998 0210 0A       		.uleb128 0xa
  2999 0211 34010000 		.4byte	.LASF27
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 125
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 125
 
 
  3000 0215 01       		.byte	0x1
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  3054 02a2 0E       		.uleb128 0xe
  3055 02a3 04080000 		.4byte	.LASF34
  3056 02a7 01       		.byte	0x1
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 126
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 126
 
 
  3057 02a8 8304     		.2byte	0x483
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  3111 0330 83000000 		.4byte	0x83
  3112 0334 01       		.uleb128 0x1
  3113 0335 50       		.byte	0x50
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 127
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 127
 
 
  3114 0336 00       		.byte	0
@@ -7618,7 +7618,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  3168 03b4 C70B     		.2byte	0xbc7
  3169 03b6 00000000 		.4byte	.LFB23
  3170 03ba 14000000 		.4byte	.LFE23-.LFB23
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 128
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 128
 
 
  3171 03be 01       		.uleb128 0x1
@@ -7678,7 +7678,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  3225 043f F30B     		.2byte	0xbf3
  3226 0441 6B000000 		.4byte	0x6b
  3227 0445 01       		.uleb128 0x1
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 129
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 129
 
 
  3228 0446 50       		.byte	0x50
@@ -7738,7 +7738,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  3282 04be DE000000 		.4byte	0xde
  3283 04c2 00000000 		.4byte	.LFB16
  3284 04c6 1C000000 		.4byte	.LFE16-.LFB16
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 130
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 130
 
 
  3285 04ca 01       		.uleb128 0x1
@@ -7798,7 +7798,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  3339 0548 12       		.uleb128 0x12
  3340 0549 00000000 		.4byte	.LASF54
  3341 054d 01       		.byte	0x1
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 131
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 131
 
 
  3342 054e 420B     		.2byte	0xb42
@@ -7858,7 +7858,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  3396 05c8 0E       		.uleb128 0xe
  3397 05c9 AB030000 		.4byte	.LASF45
  3398 05cd 01       		.byte	0x1
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 132
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 132
 
 
  3399 05ce 6E0B     		.2byte	0xb6e
@@ -7918,7 +7918,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  3453 0651 10       		.uleb128 0x10
  3454 0652 45020000 		.4byte	.LASF62
  3455 0656 01       		.byte	0x1
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 133
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 133
 
 
  3456 0657 900B     		.2byte	0xb90
@@ -7978,7 +7978,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  3510 06d8 EC0D0000 		.4byte	0xdec
  3511 06dc 0C       		.uleb128 0xc
  3512 06dd 26000000 		.4byte	.LVL83
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 134
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 134
 
 
  3513 06e1 EC0D0000 		.4byte	0xdec
@@ -8038,7 +8038,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  3567 0765 01       		.uleb128 0x1
  3568 0766 50       		.byte	0x50
  3569 0767 02       		.uleb128 0x2
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 135
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 135
 
 
  3570 0768 08       		.byte	0x8
@@ -8098,7 +8098,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  3624 07d4 7C040000 		.4byte	.LLST35
  3625 07d8 0A       		.uleb128 0xa
  3626 07d9 52070000 		.4byte	.LASF72
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 136
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 136
 
 
  3627 07dd 01       		.byte	0x1
@@ -8158,7 +8158,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  3681 0857 94       		.byte	0x94
  3682 0858 01       		.byte	0x1
  3683 0859 00       		.byte	0
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 137
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 137
 
 
  3684 085a 13       		.uleb128 0x13
@@ -8218,7 +8218,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  3738 08d4 E2000000 		.4byte	.LASF78
  3739 08d8 01       		.byte	0x1
  3740 08d9 C00C     		.2byte	0xcc0
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 138
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 138
 
 
  3741 08db 00000000 		.4byte	.LFB35
@@ -8278,7 +8278,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  3795 095c 83000000 		.4byte	0x83
  3796 0960 00000000 		.4byte	.LFB39
  3797 0964 10000000 		.4byte	.LFE39-.LFB39
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 139
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 139
 
 
  3798 0968 01       		.uleb128 0x1
@@ -8338,7 +8338,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  3852 09e4 A5090000 		.4byte	0x9a5
  3853 09e8 00       		.byte	0
  3854 09e9 16       		.uleb128 0x16
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 140
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 140
 
 
  3855 09ea E2020000 		.4byte	.LASF89
@@ -8398,7 +8398,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  3909 0a60 00       		.byte	0
  3910 0a61 09       		.uleb128 0x9
  3911 0a62 21040000 		.4byte	.LASF91
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 141
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 141
 
 
  3912 0a66 01       		.byte	0x1
@@ -8458,7 +8458,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  3966 0ae7 FC0A0000 		.4byte	0xafc
  3967 0aeb 0E       		.uleb128 0xe
  3968 0aec AB030000 		.4byte	.LASF45
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 142
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 142
 
 
  3969 0af0 01       		.byte	0x1
@@ -8518,7 +8518,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  4023 0b6f 9C       		.byte	0x9c
  4024 0b70 950B0000 		.4byte	0xb95
  4025 0b74 0E       		.uleb128 0xe
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 143
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 143
 
 
  4026 0b75 3D040000 		.4byte	.LASF99
@@ -8578,7 +8578,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  4080 0bfe E9060000 		.4byte	.LLST52
  4081 0c02 0A       		.uleb128 0xa
  4082 0c03 70030000 		.4byte	.LASF68
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 144
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 144
 
 
  4083 0c07 01       		.byte	0x1
@@ -8638,7 +8638,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  4137 0c82 970C0000 		.4byte	0xc97
  4138 0c86 0E       		.uleb128 0xe
  4139 0c87 5C010000 		.4byte	.LASF108
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 145
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 145
 
 
  4140 0c8b 01       		.byte	0x1
@@ -8698,7 +8698,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  4194 0d0a 01       		.byte	0x1
  4195 0d0b 240F     		.2byte	0xf24
  4196 0d0d 6B000000 		.4byte	0x6b
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 146
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 146
 
 
  4197 0d11 18080000 		.4byte	.LLST58
@@ -8758,7 +8758,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  4251 0d8c 05       		.uleb128 0x5
  4252 0d8d 03       		.byte	0x3
  4253 0d8e 00000000 		.4byte	cydelayFreqKhz
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 147
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 147
 
 
  4254 0d92 1E       		.uleb128 0x1e
@@ -8818,7 +8818,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  4308 0e07 1D080000 		.4byte	.LASF128
  4309 0e0b 05       		.byte	0x5
  4310 0e0c 52       		.byte	0x52
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 148
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 148
 
 
  4311 0e0d 00       		.byte	0
@@ -8878,7 +8878,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  4365 0033 13       		.uleb128 0x13
  4366 0034 00       		.byte	0
  4367 0035 00       		.byte	0
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 149
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 149
 
 
  4368 0036 05       		.uleb128 0x5
@@ -8938,7 +8938,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  4422 006d 0B       		.uleb128 0xb
  4423 006e 3B       		.uleb128 0x3b
  4424 006f 05       		.uleb128 0x5
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 150
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 150
 
 
  4425 0070 27       		.uleb128 0x27
@@ -8998,7 +8998,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  4479 00a8 0C       		.uleb128 0xc
  4480 00a9 898201   		.uleb128 0x4109
  4481 00ac 00       		.byte	0
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 151
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 151
 
 
  4482 00ad 11       		.uleb128 0x11
@@ -9058,7 +9058,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  4536 00e4 05       		.uleb128 0x5
  4537 00e5 49       		.uleb128 0x49
  4538 00e6 13       		.uleb128 0x13
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 152
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 152
 
 
  4539 00e7 02       		.uleb128 0x2
@@ -9118,7 +9118,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  4593 011e 05       		.uleb128 0x5
  4594 011f 49       		.uleb128 0x49
  4595 0120 13       		.uleb128 0x13
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 153
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 153
 
 
  4596 0121 1C       		.uleb128 0x1c
@@ -9178,7 +9178,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  4650 015f 00       		.byte	0
  4651 0160 00       		.byte	0
  4652 0161 17       		.uleb128 0x17
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 154
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 154
 
 
  4653 0162 34       		.uleb128 0x34
@@ -9238,7 +9238,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  4707 0199 1A       		.uleb128 0x1a
  4708 019a 2E       		.uleb128 0x2e
  4709 019b 01       		.byte	0x1
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 155
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 155
 
 
  4710 019c 03       		.uleb128 0x3
@@ -9298,7 +9298,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  4764 01d3 34       		.uleb128 0x34
  4765 01d4 00       		.byte	0
  4766 01d5 03       		.uleb128 0x3
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 156
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 156
 
 
  4767 01d6 0E       		.uleb128 0xe
@@ -9358,7 +9358,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  4820 0037 0100     		.2byte	0x1
  4821 0039 54       		.byte	0x54
  4822 003a 12000000 		.4byte	.LVL7
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 157
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 157
 
 
  4823 003e 20000000 		.4byte	.LFE6
@@ -9418,7 +9418,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  4877 00cc 24000000 		.4byte	.LFE9
  4878 00d0 0400     		.2byte	0x4
  4879 00d2 F3       		.byte	0xf3
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 158
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 158
 
 
  4880 00d3 01       		.uleb128 0x1
@@ -9478,7 +9478,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  4934 015d 14000000 		.4byte	.LFE21
  4935 0161 0400     		.2byte	0x4
  4936 0163 F3       		.byte	0xf3
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 159
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 159
 
 
  4937 0164 01       		.uleb128 0x1
@@ -9538,7 +9538,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  4991 01e5 0400     		.2byte	0x4
  4992 01e7 F3       		.byte	0xf3
  4993 01e8 01       		.uleb128 0x1
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 160
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 160
 
 
  4994 01e9 50       		.byte	0x50
@@ -9598,7 +9598,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  5048 026b 50       		.byte	0x50
  5049 026c 0C000000 		.4byte	.LVL53
  5050 0270 22000000 		.4byte	.LFE17
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 161
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 161
 
 
  5051 0274 0400     		.2byte	0x4
@@ -9658,7 +9658,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  5105 02f0 00000000 		.4byte	.LVL61
  5106 02f4 0F000000 		.4byte	.LVL63-1
  5107 02f8 0100     		.2byte	0x1
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 162
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 162
 
 
  5108 02fa 51       		.byte	0x51
@@ -9718,7 +9718,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  5162 0383 9F       		.byte	0x9f
  5163 0384 00000000 		.4byte	0
  5164 0388 00000000 		.4byte	0
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 163
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 163
 
 
  5165              	.LLST28:
@@ -9778,7 +9778,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  5219 0419 78000000 		.4byte	.LVL98
  5220 041d A8000000 		.4byte	.LVL104
  5221 0421 0100     		.2byte	0x1
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 164
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 164
 
 
  5222 0423 54       		.byte	0x54
@@ -9838,7 +9838,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  5276 04aa 06       		.byte	0x6
  5277 04ab 9F       		.byte	0x9f
  5278 04ac 00000000 		.4byte	0
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 165
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 165
 
 
  5279 04b0 00000000 		.4byte	0
@@ -9898,7 +9898,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  5333 0531 00000000 		.4byte	0
  5334 0535 00000000 		.4byte	0
  5335              	.LLST40:
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 166
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 166
 
 
  5336 0539 00000000 		.4byte	.LVL134
@@ -9958,7 +9958,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  5390 05c2 50       		.byte	0x50
  5391 05c3 02000000 		.4byte	.LVL157
  5392 05c7 0C000000 		.4byte	.LFE45
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 167
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 167
 
 
  5393 05cb 0400     		.2byte	0x4
@@ -10018,7 +10018,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  5447 064e 50       		.byte	0x50
  5448 064f 00000000 		.4byte	0
  5449 0653 00000000 		.4byte	0
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 168
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 168
 
 
  5450              	.LLST49:
@@ -10078,7 +10078,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  5504 06db 0400     		.2byte	0x4
  5505 06dd F3       		.byte	0xf3
  5506 06de 01       		.uleb128 0x1
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 169
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 169
 
 
  5507 06df 50       		.byte	0x50
@@ -10138,7 +10138,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  5561 0761 36000000 		.4byte	.LVL181
  5562 0765 0100     		.2byte	0x1
  5563 0767 51       		.byte	0x51
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 170
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 170
 
 
  5564 0768 00000000 		.4byte	0
@@ -10198,7 +10198,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  5618 07ed 16000000 		.4byte	.LVL194
  5619 07f1 0400     		.2byte	0x4
  5620 07f3 F3       		.byte	0xf3
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 171
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 171
 
 
  5621 07f4 01       		.uleb128 0x1
@@ -10258,7 +10258,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  5675 0006 00000000 		.4byte	.Ldebug_info0
  5676 000a 04       		.byte	0x4
  5677 000b 00       		.byte	0
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 172
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 172
 
 
  5678 000c 0000     		.2byte	0
@@ -10318,7 +10318,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  5732 00e0 00000000 		.4byte	.LFB3
  5733 00e4 D0000000 		.4byte	.LFE3-.LFB3
  5734 00e8 00000000 		.4byte	.LFB10
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 173
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 173
 
 
  5735 00ec D8000000 		.4byte	.LFE10-.LFB10
@@ -10378,7 +10378,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  5789 01c4 14000000 		.4byte	.LFE55-.LFB55
  5790 01c8 00000000 		.4byte	.LFB56
  5791 01cc 14000000 		.4byte	.LFE56-.LFB56
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 174
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 174
 
 
  5792 01d0 00000000 		.4byte	.LFB57
@@ -10438,7 +10438,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  5846 00a8 00000000 		.4byte	.LFB18
  5847 00ac 1E000000 		.4byte	.LFE18
  5848 00b0 00000000 		.4byte	.LFB19
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 175
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 175
 
 
  5849 00b4 4C000000 		.4byte	.LFE19
@@ -10498,7 +10498,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  5903 018c 20000000 		.4byte	.LFE50
  5904 0190 00000000 		.4byte	.LFB51
  5905 0194 4C000000 		.4byte	.LFE51
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 176
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 176
 
 
  5906 0198 00000000 		.4byte	.LFB52
@@ -10558,7 +10558,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  5940      50756D70 
  5940      436F6E66 
  5940      696700
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 177
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 177
 
 
  5941              	.LASF29:
@@ -10618,7 +10618,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  5962      206C6F6E 
  5962      6720696E 
  5962      7400
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 178
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 178
 
 
  5963              	.LASF0:
@@ -10678,7 +10678,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  5988 01bb 43795379 		.ascii	"CySysTickGetCallback\000"
  5988      73546963 
  5988      6B476574 
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 179
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 179
 
 
  5988      43616C6C 
@@ -10738,7 +10738,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  6014 0263 43795379 		.ascii	"CySysPrbSetBgBufferTrim\000"
  6014      73507262 
  6014      53657442 
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 180
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 180
 
 
  6014      67427566 
@@ -10798,7 +10798,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  6036      746F7000 
  6037              	.LASF124:
  6038 031a 4379456E 		.ascii	"CyEnterCriticalSection\000"
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 181
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 181
 
 
  6038      74657243 
@@ -10858,7 +10858,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  6060      46726571 
  6061              	.LASF100:
  6062 03d0 43795379 		.ascii	"CySysSetFlashAccessArbPriority\000"
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 182
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 182
 
 
  6062      73536574 
@@ -10918,7 +10918,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  6084      65737300 
  6085              	.LASF32:
  6086 0497 73797363 		.ascii	"sysclkSource\000"
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 183
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 183
 
 
  6086      6C6B536F 
@@ -10978,7 +10978,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  6108      69736563 
  6108      6F6E6473 
  6108      00
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 184
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 184
 
 
  6109              	.LASF104:
@@ -11038,7 +11038,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  6131      6C617955 
  6131      7300
  6132              	.LASF38:
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 185
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 185
 
 
  6133 0625 72656173 		.ascii	"reason\000"
@@ -11098,7 +11098,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  6151      6261636B 
  6152              	.LASF117:
  6153 073f 43795379 		.ascii	"CySysTickCallbacks\000"
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 186
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 186
 
 
  6153      73546963 
@@ -11158,7 +11158,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  6175      73546963 
  6175      6B53746F 
  6175      7000
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 187
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 187
 
 
  6176              	.LASF34:
@@ -11218,7 +11218,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 1
  6197 08c6 72657475 		.ascii	"returnValue\000"
  6197      726E5661 
  6197      6C756500 
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccminMU8.s 			page 188
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccsn9nyP.s 			page 188
 
 
  6198              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

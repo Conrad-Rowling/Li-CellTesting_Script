@@ -274,6 +274,7 @@ int main (void)
                 }
                 
                 // Over Heating Protection
+                /*
                 for(uint i = 2; i < 12; i=i+2){
                     if (batteryArray[i] > BATTERY_HIGH_TEMP){
                         lowTemp = false;
@@ -286,20 +287,21 @@ int main (void)
                         UART_1_UartPutString(string1);   
                     }
                 }
-                
+                */
+                /*
                 if(vmBatmV < 2.5) {
-                    //overDischarged = true; 
+                    overDischarged = true; 
                     sprintf(string1, "\r\n ERROR - Cell Discharged: %f \r\n", vmBatmV); 
                     UART_1_UartPutString(string1); 
                 }
                 
                 // Over Current Protection
                 if ((ShA > HIGH_CURRENT)){
-                    //goodCurrent = false;
+                    goodCurrent = false;
                     sprintf(string1, "\r\n ERROR - Incorrect Current read: %f \r\n", ShA);
                     UART_1_UartPutString(string1); 
                 }
-                
+                */
             }
             UART_1_UartPutString("\r\n TEST HALTED - Enter 'G' to Resume \r\n");
             Timer_1_Stop();

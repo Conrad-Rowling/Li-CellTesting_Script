@@ -1,6 +1,6 @@
 // ======================================================================
 // PSOC4_Main.v generated from TopDesign.cysch
-// 04/03/2021 at 21:13
+// 04/03/2021 at 22:37
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -3108,7 +3108,7 @@ module top ;
 
     electrical  Net_1716;
     electrical  Net_1667;
-    electrical  Net_1728;
+    electrical  Net_1775;
     electrical  Net_1625;
     electrical  Net_1612;
     electrical  Net_1611;
@@ -3175,15 +3175,15 @@ module top ;
           wire  Net_1628;
           wire  Net_1627;
           wire  Net_1642;
-    electrical  Net_1706;
+    electrical  Net_1769;
+    electrical  Net_1772;
     electrical  Net_1525;
-    electrical  Net_1733;
-    electrical  Net_1734;
-    electrical  Net_1735;
+    electrical  Net_1706;
     electrical  Net_1736;
-    electrical  Net_1710;
     electrical  Net_1621;
     electrical  Net_1719;
+    electrical  Net_1710;
+    electrical  Net_1735;
     electrical  Net_1704;
           wire  Net_1566;
           wire  Net_1629;
@@ -3609,7 +3609,7 @@ module top ;
     
     cy_psoc3_amux_v1_0 AMux_1_CYAMUXSIDE_B(
         .muxin({
-            Net_1734,
+            Net_1772,
             Net_1706,
             Net_1710
             }),
@@ -3624,9 +3624,9 @@ module top ;
     // -- AMux AMux_1 end --
 
     PGA_P4_v1_10_6 PGA_2 (
-        .Vin(Net_1733),
-        .Vout(Net_1734),
-        .Vref(Net_1728));
+        .Vin(Net_1769),
+        .Vout(Net_1772),
+        .Vref(Net_1775));
 
 	wire [0:0] tmpOE__Pin_3_net;
 	wire [0:0] tmpFB_0__Pin_3_net;
@@ -3921,7 +3921,7 @@ module top ;
 		 (.oe(tmpOE__In_Minus_net),
 		  .y({1'b0}),
 		  .fb({tmpFB_0__In_Minus_net[0:0]}),
-		  .analog({Net_1733}),
+		  .analog({Net_1769}),
 		  .io({tmpIO_0__In_Minus_net[0:0]}),
 		  .siovref(tmpSIOVREF__In_Minus_net),
 		  .interrupt({tmpINTERRUPT_0__In_Minus_net[0:0]}),

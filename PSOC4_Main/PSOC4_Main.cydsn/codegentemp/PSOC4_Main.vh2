@@ -2,7 +2,7 @@
 --	Conversion of PSOC4_Main.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sat Apr 03 21:13:17 2021
+--	Sat Apr 03 22:37:15 2021
 --
 
 USE cypress.cypress.all;
@@ -636,10 +636,10 @@ TERMINAL \Opamp_1:Net_29\ : bit;
 TERMINAL \Opamp_1:Net_19\ : bit;
 SIGNAL \Opamp_1:Net_12\ : bit;
 TERMINAL Net_1736 : bit;
-TERMINAL Net_1734 : bit;
+TERMINAL Net_1772 : bit;
 TERMINAL Net_1706 : bit;
 TERMINAL Net_1719 : bit;
-TERMINAL Net_1733 : bit;
+TERMINAL Net_1769 : bit;
 TERMINAL \PGA_2:Net_29\ : bit;
 TERMINAL \PGA_2:Net_18\ : bit;
 TERMINAL \PGA_2:Net_39\ : bit;
@@ -3124,7 +3124,7 @@ AMux_1_CYAMUXSIDE_B:cy_psoc3_amux_v1_0
 		init_mux_sel=>"000",
 		api_type=>0,
 		connect_mode=>1)
-	PORT MAP(muxin=>(Net_1734, Net_1706, Net_1710),
+	PORT MAP(muxin=>(Net_1772, Net_1706, Net_1710),
 		hw_ctrl_en=>(others => zero),
 		vout=>Net_1719);
 \PGA_2:cy_psoc4_abuf\:cy_psoc4_abuf_v1_0
@@ -3132,7 +3132,7 @@ AMux_1_CYAMUXSIDE_B:cy_psoc3_amux_v1_0
 		needs_dsab=>'0',
 		deepsleep_available=>'0',
 		has_resistor=>'1')
-	PORT MAP(vplus=>Net_1733,
+	PORT MAP(vplus=>Net_1769,
 		vminus=>\PGA_2:Net_29\,
 		vout1=>\PGA_2:Net_18\,
 		rs_bot=>\PGA_2:Net_39\,
@@ -3141,7 +3141,7 @@ AMux_1_CYAMUXSIDE_B:cy_psoc3_amux_v1_0
 \PGA_2:cy_analog_virtualmux_2_connect\:cy_connect_v1_0
 	GENERIC MAP(sig_width=>1,
 		is_net_join=>'0')
-	PORT MAP(signal1=>Net_1734,
+	PORT MAP(signal1=>Net_1772,
 		signal2=>\PGA_2:Net_18\);
 \PGA_2:cy_analog_noconnect_1\:cy_analog_noconnect_v1_0
 	PORT MAP(noconnect=>\PGA_2:Net_29\);
@@ -3446,7 +3446,7 @@ In_Minus:cy_psoc3_pins_v1_10
 	PORT MAP(oe=>(tmpOE__RELAY_net_0),
 		y=>(zero),
 		fb=>(tmpFB_0__In_Minus_net_0),
-		analog=>Net_1733,
+		analog=>Net_1769,
 		io=>(tmpIO_0__In_Minus_net_0),
 		siovref=>(tmpSIOVREF__In_Minus_net_0),
 		annotation=>(open),
