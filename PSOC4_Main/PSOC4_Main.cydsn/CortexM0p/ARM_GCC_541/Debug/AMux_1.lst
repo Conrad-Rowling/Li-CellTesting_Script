@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\cci0AkUI.s 			page 1
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccKH5Mde.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\cci0AkUI.s 			page 1
   28:Generated_Source\PSoC4/AMux_1.c **** *
   29:Generated_Source\PSoC4/AMux_1.c **** * Parameters:
   30:Generated_Source\PSoC4/AMux_1.c **** *  void
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\cci0AkUI.s 			page 2
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccKH5Mde.s 			page 2
 
 
   31:Generated_Source\PSoC4/AMux_1.c **** *
@@ -82,61 +82,65 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\cci0AkUI.s 			page 1
   40:Generated_Source\PSoC4/AMux_1.c ****     for(chan = 0u; chan < AMux_1_CHANNELS ; chan++)
   37              		.loc 1 40 0
   38 0002 0024     		movs	r4, #0
-  39 0004 04E0     		b	.L2
+  39 0004 07E0     		b	.L2
   40              	.LVL1:
   41              	.L3:
   41:Generated_Source\PSoC4/AMux_1.c ****     {
   42:Generated_Source\PSoC4/AMux_1.c **** #if (AMux_1_MUXTYPE == AMux_1_MUX_SINGLE)
   43:Generated_Source\PSoC4/AMux_1.c ****         AMux_1_Unset(chan);
-  42              		.loc 1 43 0 discriminator 3
-  43 0006 2000     		movs	r0, r4
-  44 0008 FFF7FEFF 		bl	AMux_1_Unset
-  45              	.LVL2:
-  40:Generated_Source\PSoC4/AMux_1.c ****     {
-  46              		.loc 1 40 0 discriminator 3
-  47 000c 0134     		adds	r4, r4, #1
-  48              	.LVL3:
-  49 000e E4B2     		uxtb	r4, r4
-  50              	.LVL4:
-  51              	.L2:
-  40:Generated_Source\PSoC4/AMux_1.c ****     {
-  52              		.loc 1 40 0 is_stmt 0 discriminator 1
-  53 0010 022C     		cmp	r4, #2
-  54 0012 F8D9     		bls	.L3
   44:Generated_Source\PSoC4/AMux_1.c **** #else
   45:Generated_Source\PSoC4/AMux_1.c ****         AMux_1_CYAMUXSIDE_A_Unset(chan);
+  42              		.loc 1 45 0 discriminator 3
+  43 0006 2000     		movs	r0, r4
+  44 0008 FFF7FEFF 		bl	AMux_1_CYAMUXSIDE_A_Unset
+  45              	.LVL2:
   46:Generated_Source\PSoC4/AMux_1.c ****         AMux_1_CYAMUXSIDE_B_Unset(chan);
+  46              		.loc 1 46 0 discriminator 3
+  47 000c 2000     		movs	r0, r4
+  48 000e FFF7FEFF 		bl	AMux_1_CYAMUXSIDE_B_Unset
+  49              	.LVL3:
+  40:Generated_Source\PSoC4/AMux_1.c ****     {
+  50              		.loc 1 40 0 discriminator 3
+  51 0012 0134     		adds	r4, r4, #1
+  52              	.LVL4:
+  53 0014 E4B2     		uxtb	r4, r4
+  54              	.LVL5:
+  55              	.L2:
+  40:Generated_Source\PSoC4/AMux_1.c ****     {
+  56              		.loc 1 40 0 is_stmt 0 discriminator 1
+  57 0016 022C     		cmp	r4, #2
+  58 0018 F5D9     		bls	.L3
   47:Generated_Source\PSoC4/AMux_1.c **** #endif
   48:Generated_Source\PSoC4/AMux_1.c ****     }
   49:Generated_Source\PSoC4/AMux_1.c **** 
   50:Generated_Source\PSoC4/AMux_1.c ****     AMux_1_lastChannel = AMux_1_NULL_CHANNEL;
-  55              		.loc 1 50 0 is_stmt 1
-  56 0014 FF22     		movs	r2, #255
-  57 0016 014B     		ldr	r3, .L4
-  58 0018 1A70     		strb	r2, [r3]
+  59              		.loc 1 50 0 is_stmt 1
+  60 001a FF22     		movs	r2, #255
+  61 001c 014B     		ldr	r3, .L4
+  62 001e 1A70     		strb	r2, [r3]
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccKH5Mde.s 			page 3
+
+
   51:Generated_Source\PSoC4/AMux_1.c **** }
-  59              		.loc 1 51 0
-  60              		@ sp needed
-  61              	.LVL5:
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\cci0AkUI.s 			page 3
-
-
-  62 001a 10BD     		pop	{r4, pc}
-  63              	.L5:
-  64              		.align	2
-  65              	.L4:
-  66 001c 00000000 		.word	.LANCHOR0
-  67              		.cfi_endproc
-  68              	.LFE0:
-  69              		.size	AMux_1_Start, .-AMux_1_Start
-  70              		.section	.text.AMux_1_FastSelect,"ax",%progbits
-  71              		.align	2
-  72              		.global	AMux_1_FastSelect
-  73              		.code	16
-  74              		.thumb_func
-  75              		.type	AMux_1_FastSelect, %function
-  76              	AMux_1_FastSelect:
-  77              	.LFB1:
+  63              		.loc 1 51 0
+  64              		@ sp needed
+  65              	.LVL6:
+  66 0020 10BD     		pop	{r4, pc}
+  67              	.L5:
+  68 0022 C046     		.align	2
+  69              	.L4:
+  70 0024 00000000 		.word	.LANCHOR0
+  71              		.cfi_endproc
+  72              	.LFE0:
+  73              		.size	AMux_1_Start, .-AMux_1_Start
+  74              		.section	.text.AMux_1_Disconnect,"ax",%progbits
+  75              		.align	2
+  76              		.global	AMux_1_Disconnect
+  77              		.code	16
+  78              		.thumb_func
+  79              		.type	AMux_1_Disconnect, %function
+  80              	AMux_1_Disconnect:
+  81              	.LFB2:
   52:Generated_Source\PSoC4/AMux_1.c **** 
   53:Generated_Source\PSoC4/AMux_1.c **** 
   54:Generated_Source\PSoC4/AMux_1.c **** #if (!AMux_1_ATMOSTONE)
@@ -174,49 +178,25 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\cci0AkUI.s 			page 1
   86:Generated_Source\PSoC4/AMux_1.c **** *
   87:Generated_Source\PSoC4/AMux_1.c **** * Parameters:
   88:Generated_Source\PSoC4/AMux_1.c **** *  channel:  The channel to connect to the common terminal.
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccKH5Mde.s 			page 4
+
+
   89:Generated_Source\PSoC4/AMux_1.c **** *
   90:Generated_Source\PSoC4/AMux_1.c **** * Return:
   91:Generated_Source\PSoC4/AMux_1.c **** *  void
   92:Generated_Source\PSoC4/AMux_1.c **** *
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\cci0AkUI.s 			page 4
-
-
   93:Generated_Source\PSoC4/AMux_1.c **** *******************************************************************************/
   94:Generated_Source\PSoC4/AMux_1.c **** void AMux_1_FastSelect(uint8 channel) 
   95:Generated_Source\PSoC4/AMux_1.c **** {
-  78              		.loc 1 95 0
-  79              		.cfi_startproc
-  80              		@ args = 0, pretend = 0, frame = 0
-  81              		@ frame_needed = 0, uses_anonymous_args = 0
-  82              	.LVL6:
-  83 0000 10B5     		push	{r4, lr}
-  84              		.cfi_def_cfa_offset 8
-  85              		.cfi_offset 4, -8
-  86              		.cfi_offset 14, -4
-  87 0002 0400     		movs	r4, r0
   96:Generated_Source\PSoC4/AMux_1.c ****     /* Disconnect the last valid channel */
   97:Generated_Source\PSoC4/AMux_1.c ****     if( AMux_1_lastChannel != AMux_1_NULL_CHANNEL)
-  88              		.loc 1 97 0
-  89 0004 054B     		ldr	r3, .L8
-  90 0006 1878     		ldrb	r0, [r3]
-  91              	.LVL7:
-  92 0008 FF28     		cmp	r0, #255
-  93 000a 01D0     		beq	.L7
   98:Generated_Source\PSoC4/AMux_1.c ****     {
   99:Generated_Source\PSoC4/AMux_1.c ****         AMux_1_Disconnect(AMux_1_lastChannel);
-  94              		.loc 1 99 0
-  95 000c FFF7FEFF 		bl	AMux_1_Unset
-  96              	.LVL8:
-  97              	.L7:
  100:Generated_Source\PSoC4/AMux_1.c ****     }
  101:Generated_Source\PSoC4/AMux_1.c **** 
  102:Generated_Source\PSoC4/AMux_1.c ****     /* Make the new channel connection */
  103:Generated_Source\PSoC4/AMux_1.c **** #if (AMux_1_MUXTYPE == AMux_1_MUX_SINGLE)
  104:Generated_Source\PSoC4/AMux_1.c ****     AMux_1_Set(channel);
-  98              		.loc 1 104 0
-  99 0010 2000     		movs	r0, r4
- 100 0012 FFF7FEFF 		bl	AMux_1_Set
- 101              	.LVL9:
  105:Generated_Source\PSoC4/AMux_1.c **** #else
  106:Generated_Source\PSoC4/AMux_1.c ****     AMux_1_CYAMUXSIDE_A_Set(channel);
  107:Generated_Source\PSoC4/AMux_1.c ****     AMux_1_CYAMUXSIDE_B_Set(channel);
@@ -224,31 +204,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\cci0AkUI.s 			page 1
  109:Generated_Source\PSoC4/AMux_1.c **** 
  110:Generated_Source\PSoC4/AMux_1.c **** 
  111:Generated_Source\PSoC4/AMux_1.c ****     AMux_1_lastChannel = channel;   /* Update last channel */
- 102              		.loc 1 111 0
- 103 0016 014B     		ldr	r3, .L8
- 104 0018 1C70     		strb	r4, [r3]
  112:Generated_Source\PSoC4/AMux_1.c **** }
- 105              		.loc 1 112 0
- 106              		@ sp needed
- 107 001a 10BD     		pop	{r4, pc}
- 108              	.L9:
- 109              		.align	2
- 110              	.L8:
- 111 001c 00000000 		.word	.LANCHOR0
- 112              		.cfi_endproc
- 113              	.LFE1:
- 114              		.size	AMux_1_FastSelect, .-AMux_1_FastSelect
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\cci0AkUI.s 			page 5
-
-
- 115              		.section	.text.AMux_1_DisconnectAll,"ax",%progbits
- 116              		.align	2
- 117              		.global	AMux_1_DisconnectAll
- 118              		.code	16
- 119              		.thumb_func
- 120              		.type	AMux_1_DisconnectAll, %function
- 121              	AMux_1_DisconnectAll:
- 122              	.LFB2:
  113:Generated_Source\PSoC4/AMux_1.c **** 
  114:Generated_Source\PSoC4/AMux_1.c **** 
  115:Generated_Source\PSoC4/AMux_1.c **** #if (AMux_1_MUXTYPE == AMux_1_MUX_DIFF)
@@ -282,6 +238,9 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\cci0AkUI.s 			page 1
  143:Generated_Source\PSoC4/AMux_1.c **** *
  144:Generated_Source\PSoC4/AMux_1.c **** * Parameters:
  145:Generated_Source\PSoC4/AMux_1.c **** *  channel:  The channel to disconnect from the common terminal.
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccKH5Mde.s 			page 5
+
+
  146:Generated_Source\PSoC4/AMux_1.c **** *
  147:Generated_Source\PSoC4/AMux_1.c **** * Return:
  148:Generated_Source\PSoC4/AMux_1.c **** *  void
@@ -289,18 +248,105 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\cci0AkUI.s 			page 1
  150:Generated_Source\PSoC4/AMux_1.c **** *******************************************************************************/
  151:Generated_Source\PSoC4/AMux_1.c **** void AMux_1_Disconnect(uint8 channel) 
  152:Generated_Source\PSoC4/AMux_1.c **** {
+  82              		.loc 1 152 0
+  83              		.cfi_startproc
+  84              		@ args = 0, pretend = 0, frame = 0
+  85              		@ frame_needed = 0, uses_anonymous_args = 0
+  86              	.LVL7:
+  87 0000 10B5     		push	{r4, lr}
+  88              		.cfi_def_cfa_offset 8
+  89              		.cfi_offset 4, -8
+  90              		.cfi_offset 14, -4
+  91 0002 0400     		movs	r4, r0
  153:Generated_Source\PSoC4/AMux_1.c ****     AMux_1_CYAMUXSIDE_A_Unset(channel);
+  92              		.loc 1 153 0
+  93 0004 FFF7FEFF 		bl	AMux_1_CYAMUXSIDE_A_Unset
+  94              	.LVL8:
  154:Generated_Source\PSoC4/AMux_1.c ****     AMux_1_CYAMUXSIDE_B_Unset(channel);
+  95              		.loc 1 154 0
+  96 0008 2000     		movs	r0, r4
+  97 000a FFF7FEFF 		bl	AMux_1_CYAMUXSIDE_B_Unset
+  98              	.LVL9:
  155:Generated_Source\PSoC4/AMux_1.c **** }
+  99              		.loc 1 155 0
+ 100              		@ sp needed
+ 101 000e 10BD     		pop	{r4, pc}
+ 102              		.cfi_endproc
+ 103              	.LFE2:
+ 104              		.size	AMux_1_Disconnect, .-AMux_1_Disconnect
+ 105              		.section	.text.AMux_1_FastSelect,"ax",%progbits
+ 106              		.align	2
+ 107              		.global	AMux_1_FastSelect
+ 108              		.code	16
+ 109              		.thumb_func
+ 110              		.type	AMux_1_FastSelect, %function
+ 111              	AMux_1_FastSelect:
+ 112              	.LFB1:
+  95:Generated_Source\PSoC4/AMux_1.c ****     /* Disconnect the last valid channel */
+ 113              		.loc 1 95 0
+ 114              		.cfi_startproc
+ 115              		@ args = 0, pretend = 0, frame = 0
+ 116              		@ frame_needed = 0, uses_anonymous_args = 0
+ 117              	.LVL10:
+ 118 0000 10B5     		push	{r4, lr}
+ 119              		.cfi_def_cfa_offset 8
+ 120              		.cfi_offset 4, -8
+ 121              		.cfi_offset 14, -4
+ 122 0002 0400     		movs	r4, r0
+  97:Generated_Source\PSoC4/AMux_1.c ****     {
+ 123              		.loc 1 97 0
+ 124 0004 074B     		ldr	r3, .L9
+ 125 0006 1878     		ldrb	r0, [r3]
+ 126              	.LVL11:
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccKH5Mde.s 			page 6
+
+
+ 127 0008 FF28     		cmp	r0, #255
+ 128 000a 01D0     		beq	.L8
+  99:Generated_Source\PSoC4/AMux_1.c ****     }
+ 129              		.loc 1 99 0
+ 130 000c FFF7FEFF 		bl	AMux_1_Disconnect
+ 131              	.LVL12:
+ 132              	.L8:
+ 106:Generated_Source\PSoC4/AMux_1.c ****     AMux_1_CYAMUXSIDE_B_Set(channel);
+ 133              		.loc 1 106 0
+ 134 0010 2000     		movs	r0, r4
+ 135 0012 FFF7FEFF 		bl	AMux_1_CYAMUXSIDE_A_Set
+ 136              	.LVL13:
+ 107:Generated_Source\PSoC4/AMux_1.c **** #endif
+ 137              		.loc 1 107 0
+ 138 0016 2000     		movs	r0, r4
+ 139 0018 FFF7FEFF 		bl	AMux_1_CYAMUXSIDE_B_Set
+ 140              	.LVL14:
+ 111:Generated_Source\PSoC4/AMux_1.c **** }
+ 141              		.loc 1 111 0
+ 142 001c 014B     		ldr	r3, .L9
+ 143 001e 1C70     		strb	r4, [r3]
+ 112:Generated_Source\PSoC4/AMux_1.c **** 
+ 144              		.loc 1 112 0
+ 145              		@ sp needed
+ 146 0020 10BD     		pop	{r4, pc}
+ 147              	.L10:
+ 148 0022 C046     		.align	2
+ 149              	.L9:
+ 150 0024 00000000 		.word	.LANCHOR0
+ 151              		.cfi_endproc
+ 152              	.LFE1:
+ 153              		.size	AMux_1_FastSelect, .-AMux_1_FastSelect
+ 154              		.section	.text.AMux_1_DisconnectAll,"ax",%progbits
+ 155              		.align	2
+ 156              		.global	AMux_1_DisconnectAll
+ 157              		.code	16
+ 158              		.thumb_func
+ 159              		.type	AMux_1_DisconnectAll, %function
+ 160              	AMux_1_DisconnectAll:
+ 161              	.LFB3:
  156:Generated_Source\PSoC4/AMux_1.c **** #endif
  157:Generated_Source\PSoC4/AMux_1.c **** 
  158:Generated_Source\PSoC4/AMux_1.c **** #if (AMux_1_ATMOSTONE)
  159:Generated_Source\PSoC4/AMux_1.c **** /*******************************************************************************
  160:Generated_Source\PSoC4/AMux_1.c **** * Function Name: AMux_1_DisconnectAll
  161:Generated_Source\PSoC4/AMux_1.c **** ********************************************************************************
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\cci0AkUI.s 			page 6
-
-
  162:Generated_Source\PSoC4/AMux_1.c **** * Summary:
  163:Generated_Source\PSoC4/AMux_1.c **** *  This function disconnects all channels.
  164:Generated_Source\PSoC4/AMux_1.c **** *
@@ -312,604 +358,732 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\cci0AkUI.s 			page 1
  170:Generated_Source\PSoC4/AMux_1.c **** *
  171:Generated_Source\PSoC4/AMux_1.c **** *******************************************************************************/
  172:Generated_Source\PSoC4/AMux_1.c **** void AMux_1_DisconnectAll(void) 
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccKH5Mde.s 			page 7
+
+
  173:Generated_Source\PSoC4/AMux_1.c **** {
- 123              		.loc 1 173 0
- 124              		.cfi_startproc
- 125              		@ args = 0, pretend = 0, frame = 0
- 126              		@ frame_needed = 0, uses_anonymous_args = 0
- 127 0000 10B5     		push	{r4, lr}
- 128              		.cfi_def_cfa_offset 8
- 129              		.cfi_offset 4, -8
- 130              		.cfi_offset 14, -4
+ 162              		.loc 1 173 0
+ 163              		.cfi_startproc
+ 164              		@ args = 0, pretend = 0, frame = 0
+ 165              		@ frame_needed = 0, uses_anonymous_args = 0
+ 166 0000 10B5     		push	{r4, lr}
+ 167              		.cfi_def_cfa_offset 8
+ 168              		.cfi_offset 4, -8
+ 169              		.cfi_offset 14, -4
  174:Generated_Source\PSoC4/AMux_1.c ****     if(AMux_1_lastChannel != AMux_1_NULL_CHANNEL) 
- 131              		.loc 1 174 0
- 132 0002 054B     		ldr	r3, .L12
- 133 0004 1878     		ldrb	r0, [r3]
- 134 0006 FF28     		cmp	r0, #255
- 135 0008 04D0     		beq	.L10
+ 170              		.loc 1 174 0
+ 171 0002 054B     		ldr	r3, .L13
+ 172 0004 1878     		ldrb	r0, [r3]
+ 173 0006 FF28     		cmp	r0, #255
+ 174 0008 04D0     		beq	.L11
  175:Generated_Source\PSoC4/AMux_1.c ****     {
  176:Generated_Source\PSoC4/AMux_1.c ****         AMux_1_Disconnect(AMux_1_lastChannel);
- 136              		.loc 1 176 0
- 137 000a FFF7FEFF 		bl	AMux_1_Unset
- 138              	.LVL10:
+ 175              		.loc 1 176 0
+ 176 000a FFF7FEFF 		bl	AMux_1_Disconnect
+ 177              	.LVL15:
  177:Generated_Source\PSoC4/AMux_1.c ****         AMux_1_lastChannel = AMux_1_NULL_CHANNEL;
- 139              		.loc 1 177 0
- 140 000e FF22     		movs	r2, #255
- 141 0010 014B     		ldr	r3, .L12
- 142 0012 1A70     		strb	r2, [r3]
- 143              	.L10:
+ 178              		.loc 1 177 0
+ 179 000e FF22     		movs	r2, #255
+ 180 0010 014B     		ldr	r3, .L13
+ 181 0012 1A70     		strb	r2, [r3]
+ 182              	.L11:
  178:Generated_Source\PSoC4/AMux_1.c ****     }
  179:Generated_Source\PSoC4/AMux_1.c **** }
- 144              		.loc 1 179 0
- 145              		@ sp needed
- 146 0014 10BD     		pop	{r4, pc}
- 147              	.L13:
- 148 0016 C046     		.align	2
- 149              	.L12:
- 150 0018 00000000 		.word	.LANCHOR0
- 151              		.cfi_endproc
- 152              	.LFE2:
- 153              		.size	AMux_1_DisconnectAll, .-AMux_1_DisconnectAll
- 154              		.data
- 155              		.set	.LANCHOR0,. + 0
- 156              		.type	AMux_1_lastChannel, %object
- 157              		.size	AMux_1_lastChannel, 1
- 158              	AMux_1_lastChannel:
- 159 0000 FF       		.byte	-1
- 160              		.text
- 161              	.Letext0:
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\cci0AkUI.s 			page 7
+ 183              		.loc 1 179 0
+ 184              		@ sp needed
+ 185 0014 10BD     		pop	{r4, pc}
+ 186              	.L14:
+ 187 0016 C046     		.align	2
+ 188              	.L13:
+ 189 0018 00000000 		.word	.LANCHOR0
+ 190              		.cfi_endproc
+ 191              	.LFE3:
+ 192              		.size	AMux_1_DisconnectAll, .-AMux_1_DisconnectAll
+ 193              		.data
+ 194              		.set	.LANCHOR0,. + 0
+ 195              		.type	AMux_1_lastChannel, %object
+ 196              		.size	AMux_1_lastChannel, 1
+ 197              	AMux_1_lastChannel:
+ 198 0000 FF       		.byte	-1
+ 199              		.text
+ 200              	.Letext0:
+ 201              		.file 2 "Generated_Source\\PSoC4\\cyfitter_cfg.h"
+ 202              		.file 3 "Generated_Source\\PSoC4\\cytypes.h"
+ 203              		.section	.debug_info,"",%progbits
+ 204              	.Ldebug_info0:
+ 205 0000 C9010000 		.4byte	0x1c9
+ 206 0004 0400     		.2byte	0x4
+ 207 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 208 000a 04       		.byte	0x4
+ 209 000b 01       		.uleb128 0x1
+ 210 000c C2010000 		.4byte	.LASF23
+ 211 0010 0C       		.byte	0xc
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccKH5Mde.s 			page 8
 
 
- 162              		.file 2 "Generated_Source\\PSoC4\\cyfitter_cfg.h"
- 163              		.file 3 "Generated_Source\\PSoC4\\cytypes.h"
- 164              		.section	.debug_info,"",%progbits
- 165              	.Ldebug_info0:
- 166 0000 42010000 		.4byte	0x142
- 167 0004 0400     		.2byte	0x4
- 168 0006 00000000 		.4byte	.Ldebug_abbrev0
- 169 000a 04       		.byte	0x4
- 170 000b 01       		.uleb128 0x1
- 171 000c 64010000 		.4byte	.LASF19
- 172 0010 0C       		.byte	0xc
- 173 0011 15000000 		.4byte	.LASF20
- 174 0015 B6000000 		.4byte	.LASF21
- 175 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 176 001d 00000000 		.4byte	0
- 177 0021 00000000 		.4byte	.Ldebug_line0
- 178 0025 02       		.uleb128 0x2
- 179 0026 01       		.byte	0x1
- 180 0027 06       		.byte	0x6
- 181 0028 F6010000 		.4byte	.LASF0
- 182 002c 02       		.uleb128 0x2
- 183 002d 01       		.byte	0x1
- 184 002e 08       		.byte	0x8
- 185 002f 3B000000 		.4byte	.LASF1
- 186 0033 02       		.uleb128 0x2
- 187 0034 02       		.byte	0x2
- 188 0035 05       		.byte	0x5
- 189 0036 40010000 		.4byte	.LASF2
- 190 003a 02       		.uleb128 0x2
- 191 003b 02       		.byte	0x2
- 192 003c 07       		.byte	0x7
- 193 003d 6D000000 		.4byte	.LASF3
- 194 0041 02       		.uleb128 0x2
- 195 0042 04       		.byte	0x4
- 196 0043 05       		.byte	0x5
- 197 0044 5B010000 		.4byte	.LASF4
- 198 0048 02       		.uleb128 0x2
- 199 0049 04       		.byte	0x4
- 200 004a 07       		.byte	0x7
- 201 004b 5B000000 		.4byte	.LASF5
- 202 004f 02       		.uleb128 0x2
- 203 0050 08       		.byte	0x8
- 204 0051 05       		.byte	0x5
- 205 0052 2D010000 		.4byte	.LASF6
- 206 0056 02       		.uleb128 0x2
- 207 0057 08       		.byte	0x8
- 208 0058 07       		.byte	0x7
- 209 0059 11010000 		.4byte	.LASF7
- 210 005d 03       		.uleb128 0x3
- 211 005e 04       		.byte	0x4
- 212 005f 05       		.byte	0x5
- 213 0060 696E7400 		.ascii	"int\000"
- 214 0064 02       		.uleb128 0x2
- 215 0065 04       		.byte	0x4
- 216 0066 07       		.byte	0x7
- 217 0067 A9000000 		.4byte	.LASF8
- 218 006b 04       		.uleb128 0x4
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\cci0AkUI.s 			page 8
+ 212 0011 3A000000 		.4byte	.LASF24
+ 213 0015 0D010000 		.4byte	.LASF25
+ 214 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 215 001d 00000000 		.4byte	0
+ 216 0021 00000000 		.4byte	.Ldebug_line0
+ 217 0025 02       		.uleb128 0x2
+ 218 0026 01       		.byte	0x1
+ 219 0027 06       		.byte	0x6
+ 220 0028 54020000 		.4byte	.LASF0
+ 221 002c 02       		.uleb128 0x2
+ 222 002d 01       		.byte	0x1
+ 223 002e 08       		.byte	0x8
+ 224 002f 7A000000 		.4byte	.LASF1
+ 225 0033 02       		.uleb128 0x2
+ 226 0034 02       		.byte	0x2
+ 227 0035 05       		.byte	0x5
+ 228 0036 A9010000 		.4byte	.LASF2
+ 229 003a 02       		.uleb128 0x2
+ 230 003b 02       		.byte	0x2
+ 231 003c 07       		.byte	0x7
+ 232 003d AC000000 		.4byte	.LASF3
+ 233 0041 02       		.uleb128 0x2
+ 234 0042 04       		.byte	0x4
+ 235 0043 05       		.byte	0x5
+ 236 0044 B9010000 		.4byte	.LASF4
+ 237 0048 02       		.uleb128 0x2
+ 238 0049 04       		.byte	0x4
+ 239 004a 07       		.byte	0x7
+ 240 004b 9A000000 		.4byte	.LASF5
+ 241 004f 02       		.uleb128 0x2
+ 242 0050 08       		.byte	0x8
+ 243 0051 05       		.byte	0x5
+ 244 0052 96010000 		.4byte	.LASF6
+ 245 0056 02       		.uleb128 0x2
+ 246 0057 08       		.byte	0x8
+ 247 0058 07       		.byte	0x7
+ 248 0059 68010000 		.4byte	.LASF7
+ 249 005d 03       		.uleb128 0x3
+ 250 005e 04       		.byte	0x4
+ 251 005f 05       		.byte	0x5
+ 252 0060 696E7400 		.ascii	"int\000"
+ 253 0064 02       		.uleb128 0x2
+ 254 0065 04       		.byte	0x4
+ 255 0066 07       		.byte	0x7
+ 256 0067 00010000 		.4byte	.LASF8
+ 257 006b 04       		.uleb128 0x4
+ 258 006c B3010000 		.4byte	.LASF26
+ 259 0070 03       		.byte	0x3
+ 260 0071 FC01     		.2byte	0x1fc
+ 261 0073 2C000000 		.4byte	0x2c
+ 262 0077 02       		.uleb128 0x2
+ 263 0078 04       		.byte	0x4
+ 264 0079 04       		.byte	0x4
+ 265 007a 5A000000 		.4byte	.LASF9
+ 266 007e 02       		.uleb128 0x2
+ 267 007f 08       		.byte	0x8
+ 268 0080 04       		.byte	0x4
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccKH5Mde.s 			page 9
 
 
- 219 006c 4A010000 		.4byte	.LASF22
- 220 0070 03       		.byte	0x3
- 221 0071 FC01     		.2byte	0x1fc
- 222 0073 2C000000 		.4byte	0x2c
- 223 0077 02       		.uleb128 0x2
- 224 0078 04       		.byte	0x4
- 225 0079 04       		.byte	0x4
- 226 007a 35000000 		.4byte	.LASF9
- 227 007e 02       		.uleb128 0x2
- 228 007f 08       		.byte	0x8
- 229 0080 04       		.byte	0x4
- 230 0081 80000000 		.4byte	.LASF10
- 231 0085 02       		.uleb128 0x2
- 232 0086 01       		.byte	0x1
- 233 0087 08       		.byte	0x8
- 234 0088 3B010000 		.4byte	.LASF11
- 235 008c 05       		.uleb128 0x5
- 236 008d 87000000 		.4byte	.LASF12
- 237 0091 01       		.byte	0x1
- 238 0092 24       		.byte	0x24
- 239 0093 00000000 		.4byte	.LFB0
- 240 0097 20000000 		.4byte	.LFE0-.LFB0
- 241 009b 01       		.uleb128 0x1
- 242 009c 9C       		.byte	0x9c
- 243 009d C1000000 		.4byte	0xc1
- 244 00a1 06       		.uleb128 0x6
- 245 00a2 28010000 		.4byte	.LASF15
- 246 00a6 01       		.byte	0x1
- 247 00a7 26       		.byte	0x26
- 248 00a8 6B000000 		.4byte	0x6b
- 249 00ac 00000000 		.4byte	.LLST0
- 250 00b0 07       		.uleb128 0x7
- 251 00b1 0C000000 		.4byte	.LVL2
- 252 00b5 2F010000 		.4byte	0x12f
- 253 00b9 08       		.uleb128 0x8
- 254 00ba 01       		.uleb128 0x1
- 255 00bb 50       		.byte	0x50
- 256 00bc 02       		.uleb128 0x2
- 257 00bd 74       		.byte	0x74
- 258 00be 00       		.sleb128 0
- 259 00bf 00       		.byte	0
- 260 00c0 00       		.byte	0
- 261 00c1 05       		.uleb128 0x5
- 262 00c2 49000000 		.4byte	.LASF13
- 263 00c6 01       		.byte	0x1
- 264 00c7 5E       		.byte	0x5e
- 265 00c8 00000000 		.4byte	.LFB1
- 266 00cc 20000000 		.4byte	.LFE1-.LFB1
- 267 00d0 01       		.uleb128 0x1
- 268 00d1 9C       		.byte	0x9c
- 269 00d2 FF000000 		.4byte	0xff
- 270 00d6 09       		.uleb128 0x9
- 271 00d7 00000000 		.4byte	.LASF23
- 272 00db 01       		.byte	0x1
- 273 00dc 5E       		.byte	0x5e
- 274 00dd 6B000000 		.4byte	0x6b
- 275 00e1 2A000000 		.4byte	.LLST1
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\cci0AkUI.s 			page 9
+ 269 0081 D7000000 		.4byte	.LASF10
+ 270 0085 02       		.uleb128 0x2
+ 271 0086 01       		.byte	0x1
+ 272 0087 08       		.byte	0x8
+ 273 0088 A4010000 		.4byte	.LASF11
+ 274 008c 05       		.uleb128 0x5
+ 275 008d DE000000 		.4byte	.LASF12
+ 276 0091 01       		.byte	0x1
+ 277 0092 24       		.byte	0x24
+ 278 0093 00000000 		.4byte	.LFB0
+ 279 0097 28000000 		.4byte	.LFE0-.LFB0
+ 280 009b 01       		.uleb128 0x1
+ 281 009c 9C       		.byte	0x9c
+ 282 009d D5000000 		.4byte	0xd5
+ 283 00a1 06       		.uleb128 0x6
+ 284 00a2 91010000 		.4byte	.LASF17
+ 285 00a6 01       		.byte	0x1
+ 286 00a7 26       		.byte	0x26
+ 287 00a8 6B000000 		.4byte	0x6b
+ 288 00ac 00000000 		.4byte	.LLST0
+ 289 00b0 07       		.uleb128 0x7
+ 290 00b1 0C000000 		.4byte	.LVL2
+ 291 00b5 A0010000 		.4byte	0x1a0
+ 292 00b9 C4000000 		.4byte	0xc4
+ 293 00bd 08       		.uleb128 0x8
+ 294 00be 01       		.uleb128 0x1
+ 295 00bf 50       		.byte	0x50
+ 296 00c0 02       		.uleb128 0x2
+ 297 00c1 74       		.byte	0x74
+ 298 00c2 00       		.sleb128 0
+ 299 00c3 00       		.byte	0
+ 300 00c4 09       		.uleb128 0x9
+ 301 00c5 12000000 		.4byte	.LVL3
+ 302 00c9 AB010000 		.4byte	0x1ab
+ 303 00cd 08       		.uleb128 0x8
+ 304 00ce 01       		.uleb128 0x1
+ 305 00cf 50       		.byte	0x50
+ 306 00d0 02       		.uleb128 0x2
+ 307 00d1 74       		.byte	0x74
+ 308 00d2 00       		.sleb128 0
+ 309 00d3 00       		.byte	0
+ 310 00d4 00       		.byte	0
+ 311 00d5 05       		.uleb128 0x5
+ 312 00d6 7F010000 		.4byte	.LASF13
+ 313 00da 01       		.byte	0x1
+ 314 00db 97       		.byte	0x97
+ 315 00dc 00000000 		.4byte	.LFB2
+ 316 00e0 10000000 		.4byte	.LFE2-.LFB2
+ 317 00e4 01       		.uleb128 0x1
+ 318 00e5 9C       		.byte	0x9c
+ 319 00e6 1E010000 		.4byte	0x11e
+ 320 00ea 0A       		.uleb128 0xa
+ 321 00eb 00000000 		.4byte	.LASF15
+ 322 00ef 01       		.byte	0x1
+ 323 00f0 97       		.byte	0x97
+ 324 00f1 6B000000 		.4byte	0x6b
+ 325 00f5 2A000000 		.4byte	.LLST1
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccKH5Mde.s 			page 10
 
 
- 276 00e5 0A       		.uleb128 0xa
- 277 00e6 10000000 		.4byte	.LVL8
- 278 00ea 2F010000 		.4byte	0x12f
- 279 00ee 07       		.uleb128 0x7
- 280 00ef 16000000 		.4byte	.LVL9
- 281 00f3 3A010000 		.4byte	0x13a
- 282 00f7 08       		.uleb128 0x8
- 283 00f8 01       		.uleb128 0x1
- 284 00f9 50       		.byte	0x50
- 285 00fa 02       		.uleb128 0x2
- 286 00fb 74       		.byte	0x74
- 287 00fc 00       		.sleb128 0
- 288 00fd 00       		.byte	0
- 289 00fe 00       		.byte	0
- 290 00ff 05       		.uleb128 0x5
- 291 0100 94000000 		.4byte	.LASF14
- 292 0104 01       		.byte	0x1
- 293 0105 AC       		.byte	0xac
- 294 0106 00000000 		.4byte	.LFB2
- 295 010a 1C000000 		.4byte	.LFE2-.LFB2
- 296 010e 01       		.uleb128 0x1
- 297 010f 9C       		.byte	0x9c
- 298 0110 1E010000 		.4byte	0x11e
- 299 0114 0A       		.uleb128 0xa
- 300 0115 0E000000 		.4byte	.LVL10
- 301 0119 2F010000 		.4byte	0x12f
- 302 011d 00       		.byte	0
- 303 011e 0B       		.uleb128 0xb
- 304 011f 02020000 		.4byte	.LASF16
- 305 0123 01       		.byte	0x1
- 306 0124 14       		.byte	0x14
- 307 0125 6B000000 		.4byte	0x6b
- 308 0129 05       		.uleb128 0x5
- 309 012a 03       		.byte	0x3
- 310 012b 00000000 		.4byte	AMux_1_lastChannel
- 311 012f 0C       		.uleb128 0xc
- 312 0130 08000000 		.4byte	.LASF17
- 313 0134 08000000 		.4byte	.LASF17
- 314 0138 02       		.byte	0x2
- 315 0139 1B       		.byte	0x1b
- 316 013a 0C       		.uleb128 0xc
- 317 013b 50010000 		.4byte	.LASF18
- 318 013f 50010000 		.4byte	.LASF18
- 319 0143 02       		.byte	0x2
- 320 0144 1A       		.byte	0x1a
- 321 0145 00       		.byte	0
- 322              		.section	.debug_abbrev,"",%progbits
- 323              	.Ldebug_abbrev0:
- 324 0000 01       		.uleb128 0x1
- 325 0001 11       		.uleb128 0x11
- 326 0002 01       		.byte	0x1
- 327 0003 25       		.uleb128 0x25
- 328 0004 0E       		.uleb128 0xe
- 329 0005 13       		.uleb128 0x13
- 330 0006 0B       		.uleb128 0xb
- 331 0007 03       		.uleb128 0x3
- 332 0008 0E       		.uleb128 0xe
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\cci0AkUI.s 			page 10
+ 326 00f9 07       		.uleb128 0x7
+ 327 00fa 08000000 		.4byte	.LVL8
+ 328 00fe A0010000 		.4byte	0x1a0
+ 329 0102 0D010000 		.4byte	0x10d
+ 330 0106 08       		.uleb128 0x8
+ 331 0107 01       		.uleb128 0x1
+ 332 0108 50       		.byte	0x50
+ 333 0109 02       		.uleb128 0x2
+ 334 010a 74       		.byte	0x74
+ 335 010b 00       		.sleb128 0
+ 336 010c 00       		.byte	0
+ 337 010d 09       		.uleb128 0x9
+ 338 010e 0E000000 		.4byte	.LVL9
+ 339 0112 AB010000 		.4byte	0x1ab
+ 340 0116 08       		.uleb128 0x8
+ 341 0117 01       		.uleb128 0x1
+ 342 0118 50       		.byte	0x50
+ 343 0119 02       		.uleb128 0x2
+ 344 011a 74       		.byte	0x74
+ 345 011b 00       		.sleb128 0
+ 346 011c 00       		.byte	0
+ 347 011d 00       		.byte	0
+ 348 011e 05       		.uleb128 0x5
+ 349 011f 88000000 		.4byte	.LASF14
+ 350 0123 01       		.byte	0x1
+ 351 0124 5E       		.byte	0x5e
+ 352 0125 00000000 		.4byte	.LFB1
+ 353 0129 28000000 		.4byte	.LFE1-.LFB1
+ 354 012d 01       		.uleb128 0x1
+ 355 012e 9C       		.byte	0x9c
+ 356 012f 70010000 		.4byte	0x170
+ 357 0133 0A       		.uleb128 0xa
+ 358 0134 00000000 		.4byte	.LASF15
+ 359 0138 01       		.byte	0x1
+ 360 0139 5E       		.byte	0x5e
+ 361 013a 6B000000 		.4byte	0x6b
+ 362 013e 4B000000 		.4byte	.LLST2
+ 363 0142 0B       		.uleb128 0xb
+ 364 0143 10000000 		.4byte	.LVL12
+ 365 0147 D5000000 		.4byte	0xd5
+ 366 014b 07       		.uleb128 0x7
+ 367 014c 16000000 		.4byte	.LVL13
+ 368 0150 B6010000 		.4byte	0x1b6
+ 369 0154 5F010000 		.4byte	0x15f
+ 370 0158 08       		.uleb128 0x8
+ 371 0159 01       		.uleb128 0x1
+ 372 015a 50       		.byte	0x50
+ 373 015b 02       		.uleb128 0x2
+ 374 015c 74       		.byte	0x74
+ 375 015d 00       		.sleb128 0
+ 376 015e 00       		.byte	0
+ 377 015f 09       		.uleb128 0x9
+ 378 0160 1C000000 		.4byte	.LVL14
+ 379 0164 C1010000 		.4byte	0x1c1
+ 380 0168 08       		.uleb128 0x8
+ 381 0169 01       		.uleb128 0x1
+ 382 016a 50       		.byte	0x50
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccKH5Mde.s 			page 11
 
 
- 333 0009 1B       		.uleb128 0x1b
- 334 000a 0E       		.uleb128 0xe
- 335 000b 55       		.uleb128 0x55
- 336 000c 17       		.uleb128 0x17
- 337 000d 11       		.uleb128 0x11
- 338 000e 01       		.uleb128 0x1
- 339 000f 10       		.uleb128 0x10
- 340 0010 17       		.uleb128 0x17
- 341 0011 00       		.byte	0
- 342 0012 00       		.byte	0
- 343 0013 02       		.uleb128 0x2
- 344 0014 24       		.uleb128 0x24
- 345 0015 00       		.byte	0
- 346 0016 0B       		.uleb128 0xb
- 347 0017 0B       		.uleb128 0xb
- 348 0018 3E       		.uleb128 0x3e
- 349 0019 0B       		.uleb128 0xb
- 350 001a 03       		.uleb128 0x3
- 351 001b 0E       		.uleb128 0xe
- 352 001c 00       		.byte	0
- 353 001d 00       		.byte	0
- 354 001e 03       		.uleb128 0x3
- 355 001f 24       		.uleb128 0x24
- 356 0020 00       		.byte	0
- 357 0021 0B       		.uleb128 0xb
- 358 0022 0B       		.uleb128 0xb
- 359 0023 3E       		.uleb128 0x3e
- 360 0024 0B       		.uleb128 0xb
- 361 0025 03       		.uleb128 0x3
- 362 0026 08       		.uleb128 0x8
- 363 0027 00       		.byte	0
- 364 0028 00       		.byte	0
- 365 0029 04       		.uleb128 0x4
- 366 002a 16       		.uleb128 0x16
- 367 002b 00       		.byte	0
- 368 002c 03       		.uleb128 0x3
- 369 002d 0E       		.uleb128 0xe
- 370 002e 3A       		.uleb128 0x3a
- 371 002f 0B       		.uleb128 0xb
- 372 0030 3B       		.uleb128 0x3b
- 373 0031 05       		.uleb128 0x5
- 374 0032 49       		.uleb128 0x49
- 375 0033 13       		.uleb128 0x13
- 376 0034 00       		.byte	0
- 377 0035 00       		.byte	0
- 378 0036 05       		.uleb128 0x5
- 379 0037 2E       		.uleb128 0x2e
- 380 0038 01       		.byte	0x1
- 381 0039 3F       		.uleb128 0x3f
- 382 003a 19       		.uleb128 0x19
- 383 003b 03       		.uleb128 0x3
- 384 003c 0E       		.uleb128 0xe
- 385 003d 3A       		.uleb128 0x3a
- 386 003e 0B       		.uleb128 0xb
- 387 003f 3B       		.uleb128 0x3b
- 388 0040 0B       		.uleb128 0xb
- 389 0041 27       		.uleb128 0x27
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\cci0AkUI.s 			page 11
+ 383 016b 02       		.uleb128 0x2
+ 384 016c 74       		.byte	0x74
+ 385 016d 00       		.sleb128 0
+ 386 016e 00       		.byte	0
+ 387 016f 00       		.byte	0
+ 388 0170 05       		.uleb128 0x5
+ 389 0171 EB000000 		.4byte	.LASF16
+ 390 0175 01       		.byte	0x1
+ 391 0176 AC       		.byte	0xac
+ 392 0177 00000000 		.4byte	.LFB3
+ 393 017b 1C000000 		.4byte	.LFE3-.LFB3
+ 394 017f 01       		.uleb128 0x1
+ 395 0180 9C       		.byte	0x9c
+ 396 0181 8F010000 		.4byte	0x18f
+ 397 0185 0B       		.uleb128 0xb
+ 398 0186 0E000000 		.4byte	.LVL15
+ 399 018a D5000000 		.4byte	0xd5
+ 400 018e 00       		.byte	0
+ 401 018f 0C       		.uleb128 0xc
+ 402 0190 60020000 		.4byte	.LASF18
+ 403 0194 01       		.byte	0x1
+ 404 0195 14       		.byte	0x14
+ 405 0196 6B000000 		.4byte	0x6b
+ 406 019a 05       		.uleb128 0x5
+ 407 019b 03       		.byte	0x3
+ 408 019c 00000000 		.4byte	AMux_1_lastChannel
+ 409 01a0 0D       		.uleb128 0xd
+ 410 01a1 60000000 		.4byte	.LASF19
+ 411 01a5 60000000 		.4byte	.LASF19
+ 412 01a9 02       		.byte	0x2
+ 413 01aa 1B       		.byte	0x1b
+ 414 01ab 0D       		.uleb128 0xd
+ 415 01ac 08000000 		.4byte	.LASF20
+ 416 01b0 08000000 		.4byte	.LASF20
+ 417 01b4 02       		.byte	0x2
+ 418 01b5 1D       		.byte	0x1d
+ 419 01b6 0D       		.uleb128 0xd
+ 420 01b7 22000000 		.4byte	.LASF21
+ 421 01bb 22000000 		.4byte	.LASF21
+ 422 01bf 02       		.byte	0x2
+ 423 01c0 1A       		.byte	0x1a
+ 424 01c1 0D       		.uleb128 0xd
+ 425 01c2 BF000000 		.4byte	.LASF22
+ 426 01c6 BF000000 		.4byte	.LASF22
+ 427 01ca 02       		.byte	0x2
+ 428 01cb 1C       		.byte	0x1c
+ 429 01cc 00       		.byte	0
+ 430              		.section	.debug_abbrev,"",%progbits
+ 431              	.Ldebug_abbrev0:
+ 432 0000 01       		.uleb128 0x1
+ 433 0001 11       		.uleb128 0x11
+ 434 0002 01       		.byte	0x1
+ 435 0003 25       		.uleb128 0x25
+ 436 0004 0E       		.uleb128 0xe
+ 437 0005 13       		.uleb128 0x13
+ 438 0006 0B       		.uleb128 0xb
+ 439 0007 03       		.uleb128 0x3
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccKH5Mde.s 			page 12
 
 
- 390 0042 19       		.uleb128 0x19
- 391 0043 11       		.uleb128 0x11
- 392 0044 01       		.uleb128 0x1
- 393 0045 12       		.uleb128 0x12
- 394 0046 06       		.uleb128 0x6
- 395 0047 40       		.uleb128 0x40
- 396 0048 18       		.uleb128 0x18
- 397 0049 9742     		.uleb128 0x2117
- 398 004b 19       		.uleb128 0x19
- 399 004c 01       		.uleb128 0x1
- 400 004d 13       		.uleb128 0x13
- 401 004e 00       		.byte	0
- 402 004f 00       		.byte	0
- 403 0050 06       		.uleb128 0x6
- 404 0051 34       		.uleb128 0x34
- 405 0052 00       		.byte	0
- 406 0053 03       		.uleb128 0x3
- 407 0054 0E       		.uleb128 0xe
- 408 0055 3A       		.uleb128 0x3a
- 409 0056 0B       		.uleb128 0xb
- 410 0057 3B       		.uleb128 0x3b
- 411 0058 0B       		.uleb128 0xb
- 412 0059 49       		.uleb128 0x49
- 413 005a 13       		.uleb128 0x13
- 414 005b 02       		.uleb128 0x2
- 415 005c 17       		.uleb128 0x17
- 416 005d 00       		.byte	0
- 417 005e 00       		.byte	0
- 418 005f 07       		.uleb128 0x7
- 419 0060 898201   		.uleb128 0x4109
- 420 0063 01       		.byte	0x1
- 421 0064 11       		.uleb128 0x11
- 422 0065 01       		.uleb128 0x1
- 423 0066 31       		.uleb128 0x31
- 424 0067 13       		.uleb128 0x13
- 425 0068 00       		.byte	0
- 426 0069 00       		.byte	0
- 427 006a 08       		.uleb128 0x8
- 428 006b 8A8201   		.uleb128 0x410a
- 429 006e 00       		.byte	0
- 430 006f 02       		.uleb128 0x2
- 431 0070 18       		.uleb128 0x18
- 432 0071 9142     		.uleb128 0x2111
- 433 0073 18       		.uleb128 0x18
- 434 0074 00       		.byte	0
- 435 0075 00       		.byte	0
- 436 0076 09       		.uleb128 0x9
- 437 0077 05       		.uleb128 0x5
- 438 0078 00       		.byte	0
- 439 0079 03       		.uleb128 0x3
- 440 007a 0E       		.uleb128 0xe
- 441 007b 3A       		.uleb128 0x3a
- 442 007c 0B       		.uleb128 0xb
- 443 007d 3B       		.uleb128 0x3b
- 444 007e 0B       		.uleb128 0xb
- 445 007f 49       		.uleb128 0x49
- 446 0080 13       		.uleb128 0x13
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\cci0AkUI.s 			page 12
+ 440 0008 0E       		.uleb128 0xe
+ 441 0009 1B       		.uleb128 0x1b
+ 442 000a 0E       		.uleb128 0xe
+ 443 000b 55       		.uleb128 0x55
+ 444 000c 17       		.uleb128 0x17
+ 445 000d 11       		.uleb128 0x11
+ 446 000e 01       		.uleb128 0x1
+ 447 000f 10       		.uleb128 0x10
+ 448 0010 17       		.uleb128 0x17
+ 449 0011 00       		.byte	0
+ 450 0012 00       		.byte	0
+ 451 0013 02       		.uleb128 0x2
+ 452 0014 24       		.uleb128 0x24
+ 453 0015 00       		.byte	0
+ 454 0016 0B       		.uleb128 0xb
+ 455 0017 0B       		.uleb128 0xb
+ 456 0018 3E       		.uleb128 0x3e
+ 457 0019 0B       		.uleb128 0xb
+ 458 001a 03       		.uleb128 0x3
+ 459 001b 0E       		.uleb128 0xe
+ 460 001c 00       		.byte	0
+ 461 001d 00       		.byte	0
+ 462 001e 03       		.uleb128 0x3
+ 463 001f 24       		.uleb128 0x24
+ 464 0020 00       		.byte	0
+ 465 0021 0B       		.uleb128 0xb
+ 466 0022 0B       		.uleb128 0xb
+ 467 0023 3E       		.uleb128 0x3e
+ 468 0024 0B       		.uleb128 0xb
+ 469 0025 03       		.uleb128 0x3
+ 470 0026 08       		.uleb128 0x8
+ 471 0027 00       		.byte	0
+ 472 0028 00       		.byte	0
+ 473 0029 04       		.uleb128 0x4
+ 474 002a 16       		.uleb128 0x16
+ 475 002b 00       		.byte	0
+ 476 002c 03       		.uleb128 0x3
+ 477 002d 0E       		.uleb128 0xe
+ 478 002e 3A       		.uleb128 0x3a
+ 479 002f 0B       		.uleb128 0xb
+ 480 0030 3B       		.uleb128 0x3b
+ 481 0031 05       		.uleb128 0x5
+ 482 0032 49       		.uleb128 0x49
+ 483 0033 13       		.uleb128 0x13
+ 484 0034 00       		.byte	0
+ 485 0035 00       		.byte	0
+ 486 0036 05       		.uleb128 0x5
+ 487 0037 2E       		.uleb128 0x2e
+ 488 0038 01       		.byte	0x1
+ 489 0039 3F       		.uleb128 0x3f
+ 490 003a 19       		.uleb128 0x19
+ 491 003b 03       		.uleb128 0x3
+ 492 003c 0E       		.uleb128 0xe
+ 493 003d 3A       		.uleb128 0x3a
+ 494 003e 0B       		.uleb128 0xb
+ 495 003f 3B       		.uleb128 0x3b
+ 496 0040 0B       		.uleb128 0xb
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccKH5Mde.s 			page 13
 
 
- 447 0081 02       		.uleb128 0x2
- 448 0082 17       		.uleb128 0x17
- 449 0083 00       		.byte	0
- 450 0084 00       		.byte	0
- 451 0085 0A       		.uleb128 0xa
- 452 0086 898201   		.uleb128 0x4109
- 453 0089 00       		.byte	0
- 454 008a 11       		.uleb128 0x11
- 455 008b 01       		.uleb128 0x1
- 456 008c 31       		.uleb128 0x31
- 457 008d 13       		.uleb128 0x13
- 458 008e 00       		.byte	0
- 459 008f 00       		.byte	0
- 460 0090 0B       		.uleb128 0xb
- 461 0091 34       		.uleb128 0x34
- 462 0092 00       		.byte	0
- 463 0093 03       		.uleb128 0x3
- 464 0094 0E       		.uleb128 0xe
- 465 0095 3A       		.uleb128 0x3a
- 466 0096 0B       		.uleb128 0xb
- 467 0097 3B       		.uleb128 0x3b
- 468 0098 0B       		.uleb128 0xb
- 469 0099 49       		.uleb128 0x49
- 470 009a 13       		.uleb128 0x13
- 471 009b 02       		.uleb128 0x2
- 472 009c 18       		.uleb128 0x18
- 473 009d 00       		.byte	0
- 474 009e 00       		.byte	0
- 475 009f 0C       		.uleb128 0xc
- 476 00a0 2E       		.uleb128 0x2e
- 477 00a1 00       		.byte	0
- 478 00a2 3F       		.uleb128 0x3f
- 479 00a3 19       		.uleb128 0x19
- 480 00a4 3C       		.uleb128 0x3c
- 481 00a5 19       		.uleb128 0x19
- 482 00a6 6E       		.uleb128 0x6e
- 483 00a7 0E       		.uleb128 0xe
- 484 00a8 03       		.uleb128 0x3
- 485 00a9 0E       		.uleb128 0xe
- 486 00aa 3A       		.uleb128 0x3a
- 487 00ab 0B       		.uleb128 0xb
- 488 00ac 3B       		.uleb128 0x3b
- 489 00ad 0B       		.uleb128 0xb
- 490 00ae 00       		.byte	0
- 491 00af 00       		.byte	0
- 492 00b0 00       		.byte	0
- 493              		.section	.debug_loc,"",%progbits
- 494              	.Ldebug_loc0:
- 495              	.LLST0:
- 496 0000 02000000 		.4byte	.LVL0
- 497 0004 06000000 		.4byte	.LVL1
- 498 0008 0200     		.2byte	0x2
- 499 000a 30       		.byte	0x30
- 500 000b 9F       		.byte	0x9f
- 501 000c 06000000 		.4byte	.LVL1
- 502 0010 0E000000 		.4byte	.LVL3
- 503 0014 0100     		.2byte	0x1
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\cci0AkUI.s 			page 13
+ 497 0041 27       		.uleb128 0x27
+ 498 0042 19       		.uleb128 0x19
+ 499 0043 11       		.uleb128 0x11
+ 500 0044 01       		.uleb128 0x1
+ 501 0045 12       		.uleb128 0x12
+ 502 0046 06       		.uleb128 0x6
+ 503 0047 40       		.uleb128 0x40
+ 504 0048 18       		.uleb128 0x18
+ 505 0049 9742     		.uleb128 0x2117
+ 506 004b 19       		.uleb128 0x19
+ 507 004c 01       		.uleb128 0x1
+ 508 004d 13       		.uleb128 0x13
+ 509 004e 00       		.byte	0
+ 510 004f 00       		.byte	0
+ 511 0050 06       		.uleb128 0x6
+ 512 0051 34       		.uleb128 0x34
+ 513 0052 00       		.byte	0
+ 514 0053 03       		.uleb128 0x3
+ 515 0054 0E       		.uleb128 0xe
+ 516 0055 3A       		.uleb128 0x3a
+ 517 0056 0B       		.uleb128 0xb
+ 518 0057 3B       		.uleb128 0x3b
+ 519 0058 0B       		.uleb128 0xb
+ 520 0059 49       		.uleb128 0x49
+ 521 005a 13       		.uleb128 0x13
+ 522 005b 02       		.uleb128 0x2
+ 523 005c 17       		.uleb128 0x17
+ 524 005d 00       		.byte	0
+ 525 005e 00       		.byte	0
+ 526 005f 07       		.uleb128 0x7
+ 527 0060 898201   		.uleb128 0x4109
+ 528 0063 01       		.byte	0x1
+ 529 0064 11       		.uleb128 0x11
+ 530 0065 01       		.uleb128 0x1
+ 531 0066 31       		.uleb128 0x31
+ 532 0067 13       		.uleb128 0x13
+ 533 0068 01       		.uleb128 0x1
+ 534 0069 13       		.uleb128 0x13
+ 535 006a 00       		.byte	0
+ 536 006b 00       		.byte	0
+ 537 006c 08       		.uleb128 0x8
+ 538 006d 8A8201   		.uleb128 0x410a
+ 539 0070 00       		.byte	0
+ 540 0071 02       		.uleb128 0x2
+ 541 0072 18       		.uleb128 0x18
+ 542 0073 9142     		.uleb128 0x2111
+ 543 0075 18       		.uleb128 0x18
+ 544 0076 00       		.byte	0
+ 545 0077 00       		.byte	0
+ 546 0078 09       		.uleb128 0x9
+ 547 0079 898201   		.uleb128 0x4109
+ 548 007c 01       		.byte	0x1
+ 549 007d 11       		.uleb128 0x11
+ 550 007e 01       		.uleb128 0x1
+ 551 007f 31       		.uleb128 0x31
+ 552 0080 13       		.uleb128 0x13
+ 553 0081 00       		.byte	0
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccKH5Mde.s 			page 14
 
 
- 504 0016 54       		.byte	0x54
- 505 0017 10000000 		.4byte	.LVL4
- 506 001b 1A000000 		.4byte	.LVL5
- 507 001f 0100     		.2byte	0x1
- 508 0021 54       		.byte	0x54
- 509 0022 00000000 		.4byte	0
- 510 0026 00000000 		.4byte	0
- 511              	.LLST1:
- 512 002a 00000000 		.4byte	.LVL6
- 513 002e 08000000 		.4byte	.LVL7
- 514 0032 0100     		.2byte	0x1
- 515 0034 50       		.byte	0x50
- 516 0035 08000000 		.4byte	.LVL7
- 517 0039 20000000 		.4byte	.LFE1
- 518 003d 0400     		.2byte	0x4
- 519 003f F3       		.byte	0xf3
- 520 0040 01       		.uleb128 0x1
- 521 0041 50       		.byte	0x50
- 522 0042 9F       		.byte	0x9f
- 523 0043 00000000 		.4byte	0
- 524 0047 00000000 		.4byte	0
- 525              		.section	.debug_aranges,"",%progbits
- 526 0000 2C000000 		.4byte	0x2c
- 527 0004 0200     		.2byte	0x2
- 528 0006 00000000 		.4byte	.Ldebug_info0
- 529 000a 04       		.byte	0x4
- 530 000b 00       		.byte	0
- 531 000c 0000     		.2byte	0
- 532 000e 0000     		.2byte	0
- 533 0010 00000000 		.4byte	.LFB0
- 534 0014 20000000 		.4byte	.LFE0-.LFB0
- 535 0018 00000000 		.4byte	.LFB1
- 536 001c 20000000 		.4byte	.LFE1-.LFB1
- 537 0020 00000000 		.4byte	.LFB2
- 538 0024 1C000000 		.4byte	.LFE2-.LFB2
- 539 0028 00000000 		.4byte	0
- 540 002c 00000000 		.4byte	0
- 541              		.section	.debug_ranges,"",%progbits
- 542              	.Ldebug_ranges0:
- 543 0000 00000000 		.4byte	.LFB0
- 544 0004 20000000 		.4byte	.LFE0
- 545 0008 00000000 		.4byte	.LFB1
- 546 000c 20000000 		.4byte	.LFE1
- 547 0010 00000000 		.4byte	.LFB2
- 548 0014 1C000000 		.4byte	.LFE2
- 549 0018 00000000 		.4byte	0
- 550 001c 00000000 		.4byte	0
- 551              		.section	.debug_line,"",%progbits
- 552              	.Ldebug_line0:
- 553 0000 A9000000 		.section	.debug_str,"MS",%progbits,1
- 553      02005500 
- 553      00000201 
- 553      FB0E0D00 
- 553      01010101 
- 554              	.LASF23:
- 555 0000 6368616E 		.ascii	"channel\000"
- 555      6E656C00 
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\cci0AkUI.s 			page 14
+ 554 0082 00       		.byte	0
+ 555 0083 0A       		.uleb128 0xa
+ 556 0084 05       		.uleb128 0x5
+ 557 0085 00       		.byte	0
+ 558 0086 03       		.uleb128 0x3
+ 559 0087 0E       		.uleb128 0xe
+ 560 0088 3A       		.uleb128 0x3a
+ 561 0089 0B       		.uleb128 0xb
+ 562 008a 3B       		.uleb128 0x3b
+ 563 008b 0B       		.uleb128 0xb
+ 564 008c 49       		.uleb128 0x49
+ 565 008d 13       		.uleb128 0x13
+ 566 008e 02       		.uleb128 0x2
+ 567 008f 17       		.uleb128 0x17
+ 568 0090 00       		.byte	0
+ 569 0091 00       		.byte	0
+ 570 0092 0B       		.uleb128 0xb
+ 571 0093 898201   		.uleb128 0x4109
+ 572 0096 00       		.byte	0
+ 573 0097 11       		.uleb128 0x11
+ 574 0098 01       		.uleb128 0x1
+ 575 0099 31       		.uleb128 0x31
+ 576 009a 13       		.uleb128 0x13
+ 577 009b 00       		.byte	0
+ 578 009c 00       		.byte	0
+ 579 009d 0C       		.uleb128 0xc
+ 580 009e 34       		.uleb128 0x34
+ 581 009f 00       		.byte	0
+ 582 00a0 03       		.uleb128 0x3
+ 583 00a1 0E       		.uleb128 0xe
+ 584 00a2 3A       		.uleb128 0x3a
+ 585 00a3 0B       		.uleb128 0xb
+ 586 00a4 3B       		.uleb128 0x3b
+ 587 00a5 0B       		.uleb128 0xb
+ 588 00a6 49       		.uleb128 0x49
+ 589 00a7 13       		.uleb128 0x13
+ 590 00a8 02       		.uleb128 0x2
+ 591 00a9 18       		.uleb128 0x18
+ 592 00aa 00       		.byte	0
+ 593 00ab 00       		.byte	0
+ 594 00ac 0D       		.uleb128 0xd
+ 595 00ad 2E       		.uleb128 0x2e
+ 596 00ae 00       		.byte	0
+ 597 00af 3F       		.uleb128 0x3f
+ 598 00b0 19       		.uleb128 0x19
+ 599 00b1 3C       		.uleb128 0x3c
+ 600 00b2 19       		.uleb128 0x19
+ 601 00b3 6E       		.uleb128 0x6e
+ 602 00b4 0E       		.uleb128 0xe
+ 603 00b5 03       		.uleb128 0x3
+ 604 00b6 0E       		.uleb128 0xe
+ 605 00b7 3A       		.uleb128 0x3a
+ 606 00b8 0B       		.uleb128 0xb
+ 607 00b9 3B       		.uleb128 0x3b
+ 608 00ba 0B       		.uleb128 0xb
+ 609 00bb 00       		.byte	0
+ 610 00bc 00       		.byte	0
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccKH5Mde.s 			page 15
 
 
- 556              	.LASF17:
- 557 0008 414D7578 		.ascii	"AMux_1_Unset\000"
- 557      5F315F55 
- 557      6E736574 
- 557      00
- 558              	.LASF20:
- 559 0015 47656E65 		.ascii	"Generated_Source\\PSoC4\\AMux_1.c\000"
- 559      72617465 
- 559      645F536F 
- 559      75726365 
- 559      5C50536F 
- 560              	.LASF9:
- 561 0035 666C6F61 		.ascii	"float\000"
- 561      7400
- 562              	.LASF1:
- 563 003b 756E7369 		.ascii	"unsigned char\000"
- 563      676E6564 
- 563      20636861 
- 563      7200
- 564              	.LASF13:
- 565 0049 414D7578 		.ascii	"AMux_1_FastSelect\000"
- 565      5F315F46 
- 565      61737453 
- 565      656C6563 
- 565      7400
- 566              	.LASF5:
- 567 005b 6C6F6E67 		.ascii	"long unsigned int\000"
- 567      20756E73 
- 567      69676E65 
- 567      6420696E 
- 567      7400
- 568              	.LASF3:
- 569 006d 73686F72 		.ascii	"short unsigned int\000"
- 569      7420756E 
- 569      7369676E 
- 569      65642069 
- 569      6E7400
- 570              	.LASF10:
- 571 0080 646F7562 		.ascii	"double\000"
- 571      6C6500
- 572              	.LASF12:
- 573 0087 414D7578 		.ascii	"AMux_1_Start\000"
- 573      5F315F53 
- 573      74617274 
- 573      00
- 574              	.LASF14:
- 575 0094 414D7578 		.ascii	"AMux_1_DisconnectAll\000"
- 575      5F315F44 
- 575      6973636F 
- 575      6E6E6563 
- 575      74416C6C 
- 576              	.LASF8:
- 577 00a9 756E7369 		.ascii	"unsigned int\000"
- 577      676E6564 
- 577      20696E74 
- 577      00
- 578              	.LASF21:
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\cci0AkUI.s 			page 15
+ 611 00bd 00       		.byte	0
+ 612              		.section	.debug_loc,"",%progbits
+ 613              	.Ldebug_loc0:
+ 614              	.LLST0:
+ 615 0000 02000000 		.4byte	.LVL0
+ 616 0004 06000000 		.4byte	.LVL1
+ 617 0008 0200     		.2byte	0x2
+ 618 000a 30       		.byte	0x30
+ 619 000b 9F       		.byte	0x9f
+ 620 000c 06000000 		.4byte	.LVL1
+ 621 0010 14000000 		.4byte	.LVL4
+ 622 0014 0100     		.2byte	0x1
+ 623 0016 54       		.byte	0x54
+ 624 0017 16000000 		.4byte	.LVL5
+ 625 001b 20000000 		.4byte	.LVL6
+ 626 001f 0100     		.2byte	0x1
+ 627 0021 54       		.byte	0x54
+ 628 0022 00000000 		.4byte	0
+ 629 0026 00000000 		.4byte	0
+ 630              	.LLST1:
+ 631 002a 00000000 		.4byte	.LVL7
+ 632 002e 07000000 		.4byte	.LVL8-1
+ 633 0032 0100     		.2byte	0x1
+ 634 0034 50       		.byte	0x50
+ 635 0035 07000000 		.4byte	.LVL8-1
+ 636 0039 10000000 		.4byte	.LFE2
+ 637 003d 0400     		.2byte	0x4
+ 638 003f F3       		.byte	0xf3
+ 639 0040 01       		.uleb128 0x1
+ 640 0041 50       		.byte	0x50
+ 641 0042 9F       		.byte	0x9f
+ 642 0043 00000000 		.4byte	0
+ 643 0047 00000000 		.4byte	0
+ 644              	.LLST2:
+ 645 004b 00000000 		.4byte	.LVL10
+ 646 004f 08000000 		.4byte	.LVL11
+ 647 0053 0100     		.2byte	0x1
+ 648 0055 50       		.byte	0x50
+ 649 0056 08000000 		.4byte	.LVL11
+ 650 005a 28000000 		.4byte	.LFE1
+ 651 005e 0400     		.2byte	0x4
+ 652 0060 F3       		.byte	0xf3
+ 653 0061 01       		.uleb128 0x1
+ 654 0062 50       		.byte	0x50
+ 655 0063 9F       		.byte	0x9f
+ 656 0064 00000000 		.4byte	0
+ 657 0068 00000000 		.4byte	0
+ 658              		.section	.debug_aranges,"",%progbits
+ 659 0000 34000000 		.4byte	0x34
+ 660 0004 0200     		.2byte	0x2
+ 661 0006 00000000 		.4byte	.Ldebug_info0
+ 662 000a 04       		.byte	0x4
+ 663 000b 00       		.byte	0
+ 664 000c 0000     		.2byte	0
+ 665 000e 0000     		.2byte	0
+ 666 0010 00000000 		.4byte	.LFB0
+ 667 0014 28000000 		.4byte	.LFE0-.LFB0
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccKH5Mde.s 			page 16
 
 
- 579 00b6 433A5C55 		.ascii	"C:\\Users\\Tucker Zischka\\Documents\\GitHub\\Li-Ce"
- 579      73657273 
- 579      5C547563 
- 579      6B657220 
- 579      5A697363 
- 580 00e4 6C6C5465 		.ascii	"llTesting_Script\\PSOC4_Main\\PSOC4_Main.cydsn\000"
- 580      7374696E 
- 580      675F5363 
- 580      72697074 
- 580      5C50534F 
- 581              	.LASF7:
- 582 0111 6C6F6E67 		.ascii	"long long unsigned int\000"
- 582      206C6F6E 
- 582      6720756E 
- 582      7369676E 
- 582      65642069 
- 583              	.LASF15:
- 584 0128 6368616E 		.ascii	"chan\000"
- 584      00
- 585              	.LASF6:
- 586 012d 6C6F6E67 		.ascii	"long long int\000"
- 586      206C6F6E 
- 586      6720696E 
- 586      7400
- 587              	.LASF11:
- 588 013b 63686172 		.ascii	"char\000"
- 588      00
- 589              	.LASF2:
- 590 0140 73686F72 		.ascii	"short int\000"
- 590      7420696E 
- 590      7400
- 591              	.LASF22:
- 592 014a 75696E74 		.ascii	"uint8\000"
- 592      3800
- 593              	.LASF18:
- 594 0150 414D7578 		.ascii	"AMux_1_Set\000"
- 594      5F315F53 
- 594      657400
- 595              	.LASF4:
- 596 015b 6C6F6E67 		.ascii	"long int\000"
- 596      20696E74 
- 596      00
- 597              	.LASF19:
- 598 0164 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 598      43313120 
- 598      352E342E 
- 598      31203230 
- 598      31363036 
- 599 0197 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
- 599      20726576 
- 599      6973696F 
- 599      6E203233 
- 599      37373135 
- 600 01ca 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
- 600      67202D66 
- 600      66756E63 
- 600      74696F6E 
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\cci0AkUI.s 			page 16
+ 668 0018 00000000 		.4byte	.LFB2
+ 669 001c 10000000 		.4byte	.LFE2-.LFB2
+ 670 0020 00000000 		.4byte	.LFB1
+ 671 0024 28000000 		.4byte	.LFE1-.LFB1
+ 672 0028 00000000 		.4byte	.LFB3
+ 673 002c 1C000000 		.4byte	.LFE3-.LFB3
+ 674 0030 00000000 		.4byte	0
+ 675 0034 00000000 		.4byte	0
+ 676              		.section	.debug_ranges,"",%progbits
+ 677              	.Ldebug_ranges0:
+ 678 0000 00000000 		.4byte	.LFB0
+ 679 0004 28000000 		.4byte	.LFE0
+ 680 0008 00000000 		.4byte	.LFB2
+ 681 000c 10000000 		.4byte	.LFE2
+ 682 0010 00000000 		.4byte	.LFB1
+ 683 0014 28000000 		.4byte	.LFE1
+ 684 0018 00000000 		.4byte	.LFB3
+ 685 001c 1C000000 		.4byte	.LFE3
+ 686 0020 00000000 		.4byte	0
+ 687 0024 00000000 		.4byte	0
+ 688              		.section	.debug_line,"",%progbits
+ 689              	.Ldebug_line0:
+ 690 0000 C4000000 		.section	.debug_str,"MS",%progbits,1
+ 690      02005500 
+ 690      00000201 
+ 690      FB0E0D00 
+ 690      01010101 
+ 691              	.LASF15:
+ 692 0000 6368616E 		.ascii	"channel\000"
+ 692      6E656C00 
+ 693              	.LASF20:
+ 694 0008 414D7578 		.ascii	"AMux_1_CYAMUXSIDE_B_Unset\000"
+ 694      5F315F43 
+ 694      59414D55 
+ 694      58534944 
+ 694      455F425F 
+ 695              	.LASF21:
+ 696 0022 414D7578 		.ascii	"AMux_1_CYAMUXSIDE_A_Set\000"
+ 696      5F315F43 
+ 696      59414D55 
+ 696      58534944 
+ 696      455F415F 
+ 697              	.LASF24:
+ 698 003a 47656E65 		.ascii	"Generated_Source\\PSoC4\\AMux_1.c\000"
+ 698      72617465 
+ 698      645F536F 
+ 698      75726365 
+ 698      5C50536F 
+ 699              	.LASF9:
+ 700 005a 666C6F61 		.ascii	"float\000"
+ 700      7400
+ 701              	.LASF19:
+ 702 0060 414D7578 		.ascii	"AMux_1_CYAMUXSIDE_A_Unset\000"
+ 702      5F315F43 
+ 702      59414D55 
+ 702      58534944 
+ 702      455F415F 
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccKH5Mde.s 			page 17
 
 
- 600      2D736563 
- 601              	.LASF0:
- 602 01f6 7369676E 		.ascii	"signed char\000"
- 602      65642063 
- 602      68617200 
- 603              	.LASF16:
- 604 0202 414D7578 		.ascii	"AMux_1_lastChannel\000"
- 604      5F315F6C 
- 604      61737443 
- 604      68616E6E 
- 604      656C00
- 605              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 703              	.LASF1:
+ 704 007a 756E7369 		.ascii	"unsigned char\000"
+ 704      676E6564 
+ 704      20636861 
+ 704      7200
+ 705              	.LASF14:
+ 706 0088 414D7578 		.ascii	"AMux_1_FastSelect\000"
+ 706      5F315F46 
+ 706      61737453 
+ 706      656C6563 
+ 706      7400
+ 707              	.LASF5:
+ 708 009a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 708      20756E73 
+ 708      69676E65 
+ 708      6420696E 
+ 708      7400
+ 709              	.LASF3:
+ 710 00ac 73686F72 		.ascii	"short unsigned int\000"
+ 710      7420756E 
+ 710      7369676E 
+ 710      65642069 
+ 710      6E7400
+ 711              	.LASF22:
+ 712 00bf 414D7578 		.ascii	"AMux_1_CYAMUXSIDE_B_Set\000"
+ 712      5F315F43 
+ 712      59414D55 
+ 712      58534944 
+ 712      455F425F 
+ 713              	.LASF10:
+ 714 00d7 646F7562 		.ascii	"double\000"
+ 714      6C6500
+ 715              	.LASF12:
+ 716 00de 414D7578 		.ascii	"AMux_1_Start\000"
+ 716      5F315F53 
+ 716      74617274 
+ 716      00
+ 717              	.LASF16:
+ 718 00eb 414D7578 		.ascii	"AMux_1_DisconnectAll\000"
+ 718      5F315F44 
+ 718      6973636F 
+ 718      6E6E6563 
+ 718      74416C6C 
+ 719              	.LASF8:
+ 720 0100 756E7369 		.ascii	"unsigned int\000"
+ 720      676E6564 
+ 720      20696E74 
+ 720      00
+ 721              	.LASF25:
+ 722 010d 433A5C55 		.ascii	"C:\\Users\\Tucker Zischka\\Documents\\GitHub\\Li-Ce"
+ 722      73657273 
+ 722      5C547563 
+ 722      6B657220 
+ 722      5A697363 
+ 723 013b 6C6C5465 		.ascii	"llTesting_Script\\PSOC4_Main\\PSOC4_Main.cydsn\000"
+ 723      7374696E 
+ 723      675F5363 
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccKH5Mde.s 			page 18
+
+
+ 723      72697074 
+ 723      5C50534F 
+ 724              	.LASF7:
+ 725 0168 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 725      206C6F6E 
+ 725      6720756E 
+ 725      7369676E 
+ 725      65642069 
+ 726              	.LASF13:
+ 727 017f 414D7578 		.ascii	"AMux_1_Disconnect\000"
+ 727      5F315F44 
+ 727      6973636F 
+ 727      6E6E6563 
+ 727      7400
+ 728              	.LASF17:
+ 729 0191 6368616E 		.ascii	"chan\000"
+ 729      00
+ 730              	.LASF6:
+ 731 0196 6C6F6E67 		.ascii	"long long int\000"
+ 731      206C6F6E 
+ 731      6720696E 
+ 731      7400
+ 732              	.LASF11:
+ 733 01a4 63686172 		.ascii	"char\000"
+ 733      00
+ 734              	.LASF2:
+ 735 01a9 73686F72 		.ascii	"short int\000"
+ 735      7420696E 
+ 735      7400
+ 736              	.LASF26:
+ 737 01b3 75696E74 		.ascii	"uint8\000"
+ 737      3800
+ 738              	.LASF4:
+ 739 01b9 6C6F6E67 		.ascii	"long int\000"
+ 739      20696E74 
+ 739      00
+ 740              	.LASF23:
+ 741 01c2 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 741      43313120 
+ 741      352E342E 
+ 741      31203230 
+ 741      31363036 
+ 742 01f5 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 742      20726576 
+ 742      6973696F 
+ 742      6E203233 
+ 742      37373135 
+ 743 0228 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 743      67202D66 
+ 743      66756E63 
+ 743      74696F6E 
+ 743      2D736563 
+ 744              	.LASF0:
+ 745 0254 7369676E 		.ascii	"signed char\000"
+ 745      65642063 
+ 745      68617200 
+ 746              	.LASF18:
+ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccKH5Mde.s 			page 19
+
+
+ 747 0260 414D7578 		.ascii	"AMux_1_lastChannel\000"
+ 747      5F315F6C 
+ 747      61737443 
+ 747      68616E6E 
+ 747      656C00
+ 748              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

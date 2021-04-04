@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Battery.c  
+* File Name: Battery_Plus.c  
 * Version 2.20
 *
 * Description:
@@ -15,13 +15,13 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "Battery.h"
+#include "Battery_Plus.h"
 
-static Battery_BACKUP_STRUCT  Battery_backup = {0u, 0u, 0u};
+static Battery_Plus_BACKUP_STRUCT  Battery_Plus_backup = {0u, 0u, 0u};
 
 
 /*******************************************************************************
-* Function Name: Battery_Sleep
+* Function Name: Battery_Plus_Sleep
 ****************************************************************************//**
 *
 * \brief Stores the pin configuration and prepares the pin for entering chip 
@@ -39,30 +39,30 @@ static Battery_BACKUP_STRUCT  Battery_backup = {0u, 0u, 0u};
 *  deep-sleep/hibernate modes.
 *
 * \funcusage
-*  \snippet Battery_SUT.c usage_Battery_Sleep_Wakeup
+*  \snippet Battery_Plus_SUT.c usage_Battery_Plus_Sleep_Wakeup
 *******************************************************************************/
-void Battery_Sleep(void)
+void Battery_Plus_Sleep(void)
 {
-    #if defined(Battery__PC)
-        Battery_backup.pcState = Battery_PC;
+    #if defined(Battery_Plus__PC)
+        Battery_Plus_backup.pcState = Battery_Plus_PC;
     #else
         #if (CY_PSOC4_4200L)
             /* Save the regulator state and put the PHY into suspend mode */
-            Battery_backup.usbState = Battery_CR1_REG;
-            Battery_USB_POWER_REG |= Battery_USBIO_ENTER_SLEEP;
-            Battery_CR1_REG &= Battery_USBIO_CR1_OFF;
+            Battery_Plus_backup.usbState = Battery_Plus_CR1_REG;
+            Battery_Plus_USB_POWER_REG |= Battery_Plus_USBIO_ENTER_SLEEP;
+            Battery_Plus_CR1_REG &= Battery_Plus_USBIO_CR1_OFF;
         #endif
     #endif
-    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Battery__SIO)
-        Battery_backup.sioState = Battery_SIO_REG;
+    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Battery_Plus__SIO)
+        Battery_Plus_backup.sioState = Battery_Plus_SIO_REG;
         /* SIO requires unregulated output buffer and single ended input buffer */
-        Battery_SIO_REG &= (uint32)(~Battery_SIO_LPM_MASK);
+        Battery_Plus_SIO_REG &= (uint32)(~Battery_Plus_SIO_LPM_MASK);
     #endif  
 }
 
 
 /*******************************************************************************
-* Function Name: Battery_Wakeup
+* Function Name: Battery_Plus_Wakeup
 ****************************************************************************//**
 *
 * \brief Restores the pin configuration that was saved during Pin_Sleep(). This 
@@ -77,22 +77,22 @@ void Battery_Sleep(void)
 *  None
 *  
 * \funcusage
-*  Refer to Battery_Sleep() for an example usage.
+*  Refer to Battery_Plus_Sleep() for an example usage.
 *******************************************************************************/
-void Battery_Wakeup(void)
+void Battery_Plus_Wakeup(void)
 {
-    #if defined(Battery__PC)
-        Battery_PC = Battery_backup.pcState;
+    #if defined(Battery_Plus__PC)
+        Battery_Plus_PC = Battery_Plus_backup.pcState;
     #else
         #if (CY_PSOC4_4200L)
             /* Restore the regulator state and come out of suspend mode */
-            Battery_USB_POWER_REG &= Battery_USBIO_EXIT_SLEEP_PH1;
-            Battery_CR1_REG = Battery_backup.usbState;
-            Battery_USB_POWER_REG &= Battery_USBIO_EXIT_SLEEP_PH2;
+            Battery_Plus_USB_POWER_REG &= Battery_Plus_USBIO_EXIT_SLEEP_PH1;
+            Battery_Plus_CR1_REG = Battery_Plus_backup.usbState;
+            Battery_Plus_USB_POWER_REG &= Battery_Plus_USBIO_EXIT_SLEEP_PH2;
         #endif
     #endif
-    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Battery__SIO)
-        Battery_SIO_REG = Battery_backup.sioState;
+    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Battery_Plus__SIO)
+        Battery_Plus_SIO_REG = Battery_Plus_backup.sioState;
     #endif
 }
 

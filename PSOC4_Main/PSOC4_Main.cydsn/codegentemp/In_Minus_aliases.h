@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Battery.h  
+* File Name: In_Minus.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_Battery_ALIASES_H) /* Pins Battery_ALIASES_H */
-#define CY_PINS_Battery_ALIASES_H
+#if !defined(CY_PINS_In_Minus_ALIASES_H) /* Pins In_Minus_ALIASES_H */
+#define CY_PINS_In_Minus_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -26,17 +26,17 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define Battery_0			(Battery__0__PC)
-#define Battery_0_PS		(Battery__0__PS)
-#define Battery_0_PC		(Battery__0__PC)
-#define Battery_0_DR		(Battery__0__DR)
-#define Battery_0_SHIFT	(Battery__0__SHIFT)
-#define Battery_0_INTR	((uint16)((uint16)0x0003u << (Battery__0__SHIFT*2u)))
+#define In_Minus_0			(In_Minus__0__PC)
+#define In_Minus_0_PS		(In_Minus__0__PS)
+#define In_Minus_0_PC		(In_Minus__0__PC)
+#define In_Minus_0_DR		(In_Minus__0__DR)
+#define In_Minus_0_SHIFT	(In_Minus__0__SHIFT)
+#define In_Minus_0_INTR	((uint16)((uint16)0x0003u << (In_Minus__0__SHIFT*2u)))
 
-#define Battery_INTR_ALL	 ((uint16)(Battery_0_INTR))
+#define In_Minus_INTR_ALL	 ((uint16)(In_Minus_0_INTR))
 
 
-#endif /* End Pins Battery_ALIASES_H */
+#endif /* End Pins In_Minus_ALIASES_H */
 
 
 /* [] END OF FILE */

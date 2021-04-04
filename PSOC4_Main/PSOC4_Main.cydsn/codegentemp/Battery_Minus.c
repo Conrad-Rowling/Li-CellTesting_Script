@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Battery.c  
+* File Name: Battery_Minus.c  
 * Version 2.20
 *
 * Description:
@@ -13,35 +13,35 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "Battery.h"
+#include "Battery_Minus.h"
 
 
-#if defined(Battery__PC)
-    #define Battery_SetP4PinDriveMode(shift, mode)  \
+#if defined(Battery_Minus__PC)
+    #define Battery_Minus_SetP4PinDriveMode(shift, mode)  \
     do { \
-        Battery_PC =   (Battery_PC & \
-                                (uint32)(~(uint32)(Battery_DRIVE_MODE_IND_MASK << \
-                                (Battery_DRIVE_MODE_BITS * (shift))))) | \
+        Battery_Minus_PC =   (Battery_Minus_PC & \
+                                (uint32)(~(uint32)(Battery_Minus_DRIVE_MODE_IND_MASK << \
+                                (Battery_Minus_DRIVE_MODE_BITS * (shift))))) | \
                                 (uint32)((uint32)(mode) << \
-                                (Battery_DRIVE_MODE_BITS * (shift))); \
+                                (Battery_Minus_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 #else
     #if (CY_PSOC4_4200L)
-        #define Battery_SetP4PinDriveMode(shift, mode)  \
+        #define Battery_Minus_SetP4PinDriveMode(shift, mode)  \
         do { \
-            Battery_USBIO_CTRL_REG = (Battery_USBIO_CTRL_REG & \
-                                    (uint32)(~(uint32)(Battery_DRIVE_MODE_IND_MASK << \
-                                    (Battery_DRIVE_MODE_BITS * (shift))))) | \
+            Battery_Minus_USBIO_CTRL_REG = (Battery_Minus_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(Battery_Minus_DRIVE_MODE_IND_MASK << \
+                                    (Battery_Minus_DRIVE_MODE_BITS * (shift))))) | \
                                     (uint32)((uint32)(mode) << \
-                                    (Battery_DRIVE_MODE_BITS * (shift))); \
+                                    (Battery_Minus_DRIVE_MODE_BITS * (shift))); \
         } while (0)
     #endif
 #endif
   
 
-#if defined(Battery__PC) || (CY_PSOC4_4200L) 
+#if defined(Battery_Minus__PC) || (CY_PSOC4_4200L) 
     /*******************************************************************************
-    * Function Name: Battery_SetDriveMode
+    * Function Name: Battery_Minus_SetDriveMode
     ****************************************************************************//**
     *
     * \brief Sets the drive mode for each of the Pins component's pins.
@@ -67,17 +67,17 @@
     *  APIs (primary method) or disable interrupts around this function.
     *
     * \funcusage
-    *  \snippet Battery_SUT.c usage_Battery_SetDriveMode
+    *  \snippet Battery_Minus_SUT.c usage_Battery_Minus_SetDriveMode
     *******************************************************************************/
-    void Battery_SetDriveMode(uint8 mode)
+    void Battery_Minus_SetDriveMode(uint8 mode)
     {
-		Battery_SetP4PinDriveMode(Battery__0__SHIFT, mode);
+		Battery_Minus_SetP4PinDriveMode(Battery_Minus__0__SHIFT, mode);
     }
 #endif
 
 
 /*******************************************************************************
-* Function Name: Battery_Write
+* Function Name: Battery_Minus_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -106,18 +106,18 @@
 *  this function.
 *
 * \funcusage
-*  \snippet Battery_SUT.c usage_Battery_Write
+*  \snippet Battery_Minus_SUT.c usage_Battery_Minus_Write
 *******************************************************************************/
-void Battery_Write(uint8 value)
+void Battery_Minus_Write(uint8 value)
 {
-    uint8 drVal = (uint8)(Battery_DR & (uint8)(~Battery_MASK));
-    drVal = (drVal | ((uint8)(value << Battery_SHIFT) & Battery_MASK));
-    Battery_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(Battery_Minus_DR & (uint8)(~Battery_Minus_MASK));
+    drVal = (drVal | ((uint8)(value << Battery_Minus_SHIFT) & Battery_Minus_MASK));
+    Battery_Minus_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: Battery_Read
+* Function Name: Battery_Minus_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void Battery_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet Battery_SUT.c usage_Battery_Read  
+*  \snippet Battery_Minus_SUT.c usage_Battery_Minus_Read  
 *******************************************************************************/
-uint8 Battery_Read(void)
+uint8 Battery_Minus_Read(void)
 {
-    return (uint8)((Battery_PS & Battery_MASK) >> Battery_SHIFT);
+    return (uint8)((Battery_Minus_PS & Battery_Minus_MASK) >> Battery_Minus_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: Battery_ReadDataReg
+* Function Name: Battery_Minus_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 Battery_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred Battery_Read() API because the 
-* Battery_ReadDataReg() reads the data register instead of the status 
+* preferred Battery_Minus_Read() API because the 
+* Battery_Minus_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,16 +159,16 @@ uint8 Battery_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet Battery_SUT.c usage_Battery_ReadDataReg 
+*  \snippet Battery_Minus_SUT.c usage_Battery_Minus_ReadDataReg 
 *******************************************************************************/
-uint8 Battery_ReadDataReg(void)
+uint8 Battery_Minus_ReadDataReg(void)
 {
-    return (uint8)((Battery_DR & Battery_MASK) >> Battery_SHIFT);
+    return (uint8)((Battery_Minus_DR & Battery_Minus_MASK) >> Battery_Minus_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: Battery_SetInterruptMode
+* Function Name: Battery_Minus_SetInterruptMode
 ****************************************************************************//**
 *
 * \brief Configures the interrupt mode for each of the Pins component's
@@ -181,12 +181,12 @@ uint8 Battery_ReadDataReg(void)
 * \param position
 *  The pin position as listed in the Pins component. You may OR these to be 
 *  able to configure the interrupt mode of multiple pins within a Pins 
-*  component. Or you may use Battery_INTR_ALL to configure the
+*  component. Or you may use Battery_Minus_INTR_ALL to configure the
 *  interrupt mode of all the pins in the Pins component.       
-*  - Battery_0_INTR       (First pin in the list)
-*  - Battery_1_INTR       (Second pin in the list)
+*  - Battery_Minus_0_INTR       (First pin in the list)
+*  - Battery_Minus_1_INTR       (Second pin in the list)
 *  - ...
-*  - Battery_INTR_ALL     (All pins in Pins component)
+*  - Battery_Minus_INTR_ALL     (All pins in Pins component)
 *
 * \param mode
 *  Interrupt mode for the selected pins. Valid options are documented in
@@ -202,19 +202,19 @@ uint8 Battery_ReadDataReg(void)
 *  port.
 *
 * \funcusage
-*  \snippet Battery_SUT.c usage_Battery_SetInterruptMode
+*  \snippet Battery_Minus_SUT.c usage_Battery_Minus_SetInterruptMode
 *******************************************************************************/
-void Battery_SetInterruptMode(uint16 position, uint16 mode)
+void Battery_Minus_SetInterruptMode(uint16 position, uint16 mode)
 {
     uint32 intrCfg;
     
-    intrCfg =  Battery_INTCFG & (uint32)(~(uint32)position);
-    Battery_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+    intrCfg =  Battery_Minus_INTCFG & (uint32)(~(uint32)position);
+    Battery_Minus_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
 }
 
 
 /*******************************************************************************
-* Function Name: Battery_ClearInterrupt
+* Function Name: Battery_Minus_ClearInterrupt
 ****************************************************************************//**
 *
 * \brief Clears any active interrupts attached with the component and returns 
@@ -231,13 +231,13 @@ void Battery_SetInterruptMode(uint16 position, uint16 mode)
 *  those associated with the Pins component.
 *
 * \funcusage
-*  \snippet Battery_SUT.c usage_Battery_ClearInterrupt
+*  \snippet Battery_Minus_SUT.c usage_Battery_Minus_ClearInterrupt
 *******************************************************************************/
-uint8 Battery_ClearInterrupt(void)
+uint8 Battery_Minus_ClearInterrupt(void)
 {
-	uint8 maskedStatus = (uint8)(Battery_INTSTAT & Battery_MASK);
-	Battery_INTSTAT = maskedStatus;
-    return maskedStatus >> Battery_SHIFT;
+	uint8 maskedStatus = (uint8)(Battery_Minus_INTSTAT & Battery_Minus_MASK);
+	Battery_Minus_INTSTAT = maskedStatus;
+    return maskedStatus >> Battery_Minus_SHIFT;
 }
 
 

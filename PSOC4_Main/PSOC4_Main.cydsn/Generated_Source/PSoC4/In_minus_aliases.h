@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: In_minus.h  
+* File Name: In_Minus.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_In_minus_ALIASES_H) /* Pins In_minus_ALIASES_H */
-#define CY_PINS_In_minus_ALIASES_H
+#if !defined(CY_PINS_In_Minus_ALIASES_H) /* Pins In_Minus_ALIASES_H */
+#define CY_PINS_In_Minus_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -26,17 +26,17 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define In_minus_0			(In_minus__0__PC)
-#define In_minus_0_PS		(In_minus__0__PS)
-#define In_minus_0_PC		(In_minus__0__PC)
-#define In_minus_0_DR		(In_minus__0__DR)
-#define In_minus_0_SHIFT	(In_minus__0__SHIFT)
-#define In_minus_0_INTR	((uint16)((uint16)0x0003u << (In_minus__0__SHIFT*2u)))
+#define In_Minus_0			(In_Minus__0__PC)
+#define In_Minus_0_PS		(In_Minus__0__PS)
+#define In_Minus_0_PC		(In_Minus__0__PC)
+#define In_Minus_0_DR		(In_Minus__0__DR)
+#define In_Minus_0_SHIFT	(In_Minus__0__SHIFT)
+#define In_Minus_0_INTR	((uint16)((uint16)0x0003u << (In_Minus__0__SHIFT*2u)))
 
-#define In_minus_INTR_ALL	 ((uint16)(In_minus_0_INTR))
+#define In_Minus_INTR_ALL	 ((uint16)(In_Minus_0_INTR))
 
 
-#endif /* End Pins In_minus_ALIASES_H */
+#endif /* End Pins In_Minus_ALIASES_H */
 
 
 /* [] END OF FILE */

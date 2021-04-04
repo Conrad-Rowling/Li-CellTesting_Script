@@ -1,5 +1,5 @@
 /* ========================================
- * Version: 1.4
+ * Version: 1.5
  * Last Modified: 4.3.2021 
  * Conrad Rowling, Osama Abualsoud, Milad Mehr, Tucker Zischka, Formula Racing @ UC Davis, 2021
  *
@@ -29,7 +29,7 @@
 #define NUM_BAT_THERMISTORS 6 // excluding the thermistor at Position 1
 
 #define SHUNT_CONDUCTANCE .133 // (1.2 for High Current, .133 for Low Current)
-#define AMP_GAIN 16.0 // (from Amp Blocks)
+#define AMP_GAIN 8.0 // (from Amp Blocks)
 
 #define LOW_CURRENT 1
 #define HIGH_CURRENT 20
@@ -143,11 +143,11 @@ int main (void)
     RELAY_Write(0);
     ADC_1_Start();
     I2C_1_Start();
-    PVref_1_Start();
+    //PVref_1_Start();
     
     CyGlobalIntEnable; /* Enable global interrupts. */
      
-    sprintf(string1,"\r\n Enter G to Start Test, Enter S to Stop \r\n");
+    sprintf(string1,"\r\n Initialized... \n\r Enter G to Start Test, Enter S to Stop \r\n");
     UART_1_UartPutString(string1);
 
     soc = SOC_FULL;
@@ -181,7 +181,7 @@ int main (void)
             adcOffset = ADC_1_GetResult32(0);               // Get the ADC reading
             ADC_1_StopConvert();                            // Stop ADC Conversion 
             adcOff = ADC_1_CountsTo_mVolts(0, adcOffset);   // Convert to milivolts
-            adcOff = adcOff - 1200.0;                       // Proper offset of the offest (What is 1200 for? )   
+            //adcOff = adcOff - 1200.0;                       // Proper offset of the offest (What is 1200 for? )   
             
             //ADC Offset 
             AMux_1_Select(0);                               // Mux Select
@@ -190,7 +190,7 @@ int main (void)
             adcOffset = ADC_1_GetResult32(0);               // Get the ADC reading
             ADC_1_StopConvert();                            // Stop ADC Conversion 
             adcOff = ADC_1_CountsTo_mVolts(0, adcOffset);   // Convert to milivolts
-            adcOff = adcOff - 1200.0;                       // Proper offset of the offest (What is 1200 for? )   
+            //adcOff = adcOff - 1200.0;                       // Proper offset of the offest (What is 1200 for? )   
             
             timeOld = Timer_1_ReadCounter();     // just to avoid the first readcounter
             
@@ -234,7 +234,8 @@ int main (void)
                 ShA = ShmV*SHUNT_CONDUCTANCE/(AMP_GAIN);                 // Convert the Value
                 
                 // Moving Average Code
-                if (windowArray[9] == 0){   
+                
+                /*if (windowArray[9] == 0){   
                     int i = 0;
                     windowArray[i] = ShA;
                     i += 1;
@@ -242,6 +243,7 @@ int main (void)
                 else{
                     ShA = Move_Window(windowArray, ShA, 10);
                 }
+                */
                 
                 sprintf(string1, "%3.3f, ", ShA);
                 UART_1_UartPutString(string1);
@@ -286,14 +288,14 @@ int main (void)
                 }
                 
                 if(vmBatmV < 2.5) {
-                    overDischarged = true; 
+                    //overDischarged = true; 
                     sprintf(string1, "\r\n ERROR - Cell Discharged: %f \r\n", vmBatmV); 
                     UART_1_UartPutString(string1); 
                 }
                 
                 // Over Current Protection
                 if ((ShA > HIGH_CURRENT)){
-                    goodCurrent = false;
+                    //goodCurrent = false;
                     sprintf(string1, "\r\n ERROR - Incorrect Current read: %f \r\n", ShA);
                     UART_1_UartPutString(string1); 
                 }
@@ -304,7 +306,7 @@ int main (void)
         }
         
     }
-    PVref_1_Stop(); 
+    //PVref_1_Stop(); 
 }
 
 /* [] END OF FILE */

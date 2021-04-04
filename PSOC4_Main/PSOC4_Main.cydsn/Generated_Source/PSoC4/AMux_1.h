@@ -50,7 +50,7 @@ void AMux_1_FastSelect(uint8 channel) ;
 ***************************************/
 
 #define AMux_1_CHANNELS  3u
-#define AMux_1_MUXTYPE   1
+#define AMux_1_MUXTYPE   2
 #define AMux_1_ATMOSTONE 1
 
 /***************************************
