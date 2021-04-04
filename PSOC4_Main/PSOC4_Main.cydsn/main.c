@@ -1,5 +1,5 @@
 /* ========================================
- * Version: 1.3
+ * Version: 1.4
  * Last Modified: 4.3.2021 
  * Conrad Rowling, Osama Abualsoud, Milad Mehr, Tucker Zischka, Formula Racing @ UC Davis, 2021
  *
@@ -29,7 +29,7 @@
 #define NUM_BAT_THERMISTORS 6 // excluding the thermistor at Position 1
 
 #define SHUNT_CONDUCTANCE .133 // (1.2 for High Current, .133 for Low Current)
-#define AMP_GAIN 32.0 // (from Amp Blocks)
+#define AMP_GAIN 16.0 // (from Amp Blocks)
 
 #define LOW_CURRENT 1
 #define HIGH_CURRENT 20
@@ -135,6 +135,7 @@ int main (void)
     
     AMux_1_Start();
     Opamp_1_Start();
+    Opamp_2_Start(); 
     PGA_1_Start();
     PGA_2_Start();
     UART_1_Start();
@@ -142,6 +143,7 @@ int main (void)
     RELAY_Write(0);
     ADC_1_Start();
     I2C_1_Start();
+    PVref_1_Start();
     
     CyGlobalIntEnable; /* Enable global interrupts. */
      
@@ -162,7 +164,6 @@ int main (void)
         {
             sprintf(string1,"\r\n Beginning the Test... \r\n");
             UART_1_UartPutString(string1);
-            PVref_1_Start();
             RED_LED_Write(1);
             RELAY_Write(1);
             Timer_1_Start();
@@ -178,9 +179,18 @@ int main (void)
             ADC_1_StartConvert();                           // Start the Read the ADC
             ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);   // Wait
             adcOffset = ADC_1_GetResult32(0);               // Get the ADC reading
-            ax`dcOff = ADC_1_CountsTo_mVolts(0, adcOffset);   // Convert to milivolts
-            adcOff = adcOff - 1200.0;                       // Proper offset of the offest (What is 1200 for? )
             ADC_1_StopConvert();                            // Stop ADC Conversion 
+            adcOff = ADC_1_CountsTo_mVolts(0, adcOffset);   // Convert to milivolts
+            adcOff = adcOff - 1200.0;                       // Proper offset of the offest (What is 1200 for? )   
+            
+            //ADC Offset 
+            AMux_1_Select(0);                               // Mux Select
+            ADC_1_StartConvert();                           // Start the Read the ADC
+            ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);   // Wait
+            adcOffset = ADC_1_GetResult32(0);               // Get the ADC reading
+            ADC_1_StopConvert();                            // Stop ADC Conversion 
+            adcOff = ADC_1_CountsTo_mVolts(0, adcOffset);   // Convert to milivolts
+            adcOff = adcOff - 1200.0;                       // Proper offset of the offest (What is 1200 for? )   
             
             timeOld = Timer_1_ReadCounter();     // just to avoid the first readcounter
             

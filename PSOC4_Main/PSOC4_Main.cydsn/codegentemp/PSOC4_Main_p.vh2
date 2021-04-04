@@ -1,5 +1,5 @@
 -- Project:   PSOC4_Main
--- Generated: 04/03/2021 14:04:15
+-- Generated: 04/03/2021 18:16:55
 -- PSoC Creator  4.4
 
 ENTITY PSOC4_Main IS
@@ -23,6 +23,7 @@ ENTITY PSOC4_Main IS
 END PSOC4_Main;
 
 ARCHITECTURE __DEFAULT__ OF PSOC4_Main IS
+    SIGNAL Battery(0)__PA : bit;
     SIGNAL ClockBlock_ExtClk : bit;
     SIGNAL ClockBlock_HFClk : bit;
     ATTRIBUTE global_signal OF ClockBlock_HFClk : SIGNAL IS true;
@@ -31,7 +32,6 @@ ARCHITECTURE __DEFAULT__ OF PSOC4_Main IS
     SIGNAL ClockBlock_LFClk : bit;
     SIGNAL ClockBlock_SysClk : bit;
     SIGNAL ClockBlock_WCO : bit;
-    SIGNAL In_minus(0)__PA : bit;
     SIGNAL In_plus(0)__PA : bit;
     SIGNAL Net_1547 : bit;
     SIGNAL Net_1556 : bit;
@@ -93,6 +93,7 @@ ARCHITECTURE __DEFAULT__ OF PSOC4_Main IS
     SIGNAL \I2C_1:select_m_wire_3\ : bit;
     SIGNAL \I2C_1:tx_wire\ : bit;
     SIGNAL \Opamp_1:Net_12\ : bit;
+    SIGNAL \Opamp_2:Net_12\ : bit;
     SIGNAL \PGA_1:Net_12\ : bit;
     SIGNAL \PGA_2:Net_12\ : bit;
     SIGNAL \UART_1:Net_847_ff1\ : bit;
@@ -121,7 +122,7 @@ ARCHITECTURE __DEFAULT__ OF PSOC4_Main IS
     ATTRIBUTE Location OF \I2C_1:scl(0)\ : LABEL IS "P3[6]";
     ATTRIBUTE Location OF \ADC_1:Bypass(0)\ : LABEL IS "P2[7]";
     ATTRIBUTE Location OF In_plus(0) : LABEL IS "P2[6]";
-    ATTRIBUTE Location OF In_minus(0) : LABEL IS "P4[1]";
+    ATTRIBUTE Location OF Battery(0) : LABEL IS "P4[1]";
     ATTRIBUTE Location OF Pin_3(0) : LABEL IS "P0[5]";
     ATTRIBUTE Location OF Pin_4(0) : LABEL IS "P0[4]";
     ATTRIBUTE Location OF ctb1_resistor_string : LABEL IS "F(RSB,1)";
@@ -130,7 +131,8 @@ ARCHITECTURE __DEFAULT__ OF PSOC4_Main IS
     ATTRIBUTE Location OF \PGA_1:cy_psoc4_abuf\ : LABEL IS "F(OA,1)";
     ATTRIBUTE Location OF \Opamp_1:cy_psoc4_abuf\ : LABEL IS "F(OA,0)";
     ATTRIBUTE Location OF \PVref_1:cy_psoc4_pref\ : LABEL IS "F(REF,1)";
-    ATTRIBUTE Location OF \PGA_2:cy_psoc4_abuf\ : LABEL IS "F(OA,3)";
+    ATTRIBUTE Location OF \PGA_2:cy_psoc4_abuf\ : LABEL IS "F(OA,2)";
+    ATTRIBUTE Location OF \Opamp_2:cy_psoc4_abuf\ : LABEL IS "F(OA,3)";
     COMPONENT interrupt
         PORT (
             interrupt : IN std_ulogic;
@@ -948,7 +950,7 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    In_minus:logicalport
+    Battery:logicalport
         GENERIC MAP(
             drive_mode => "000",
             ibuf_enabled => "0",
@@ -1019,16 +1021,16 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    In_minus(0):iocell
+    Battery(0):iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "In_minus",
+            logicalport => "Battery",
             logicalport_pin_id => 0,
             io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
         PORT MAP(
-            pa_out => In_minus(0)__PA,
+            pa_out => Battery(0)__PA,
             oe => open,
             in_clock => open,
             in_clock_en => '1',
@@ -1376,5 +1378,14 @@ BEGIN
             needs_dsab => 0)
         PORT MAP(
             ctb_dsi_comp => \PGA_2:Net_12\);
+
+    \Opamp_2:cy_psoc4_abuf\:p4abufcell
+        GENERIC MAP(
+            cy_registers => "",
+            deepsleep_available => 0,
+            has_resistor => 0,
+            needs_dsab => 0)
+        PORT MAP(
+            ctb_dsi_comp => \Opamp_2:Net_12\);
 
 END __DEFAULT__;
