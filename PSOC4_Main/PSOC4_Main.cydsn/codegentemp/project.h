@@ -53,7 +53,6 @@
 #include "Battery_Minus_aliases.h"
 #include "In_Minus.h"
 #include "In_Minus_aliases.h"
-#include "Opamp_2.h"
 #include "UART_1_SCBCLK.h"
 #include "I2C_1_SCBCLK.h"
 #include "I2C_1_sda.h"

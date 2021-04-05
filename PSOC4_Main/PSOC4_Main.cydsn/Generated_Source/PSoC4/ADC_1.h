@@ -241,7 +241,7 @@ The parameters that are set in the customizer are redefined as constants here.
 #define ADC_1_CFG0_SAMPLE_RATE             (100000)
 #define ADC_1_CFG0_CHANNEL_BASE            (0u)
 #define ADC_1_CFG0_CHANNEL_COUNT           (1u)
-#define ADC_1_CFG0_VREF_SEL_MASK           (0xf0u)
+#define ADC_1_CFG0_VREF_SEL_MASK           (0xc0u)
 #define ADC_1_CFG0_NOMINAL_CLOCK_FREQ      (12000000u)
 #define ADC_1_CFG0_CHANNEL_EN              (0x1u)
 /* Sample Control Register */
@@ -253,7 +253,7 @@ The parameters that are set in the customizer are redefined as constants here.
 #define ADC_1_CFG0_SATURATE_INTR_MASK      (0x0u)
 #define ADC_1_CFG0_VNEG_INPUT_SEL          (7)
 #define ADC_1_CFG0_SINGLE_PRESENT          (0)
-#define ADC_1_CFG0_VREF_MV_VALUE           (3300)
+#define ADC_1_CFG0_VREF_MV_VALUE           (1200)
 #define ADC_1_CFG0_APERTURE_TIME0          (3uL)
 #define ADC_1_CFG0_APERTURE_TIME1          (2uL)
 #define ADC_1_CFG0_APERTURE_TIME2          (2uL)
@@ -1600,7 +1600,7 @@ extern const uint32 CYCODE ADC_1_InputsPlacement[ADC_1_TOTAL_CHANNELS_NUM];
 #define ADC_1_CFG0_TARGET_SPS 100000
 #define ADC_1_CFG0_ACHIEVED_SPS 2757
 #define ADC_1_CFG0_ADC_CLOCK_FREQ_HZ 12000000
-#define ADC_1_CFG0_VREF_SOURCE VREFSOURCE_VDDA
+#define ADC_1_CFG0_VREF_SOURCE VREFSOURCE_VBGR
 #define ADC_1_CFG0_VREF_BYPASS True
 #define ADC_1_CFG0_VNEG_SOURCE VNEGSOURCE_VREFSHORT
 #define ADC_1_CFG0_NUM_SAMPLES_AVERAGED TWOFIFTYSIX_SAMPLES

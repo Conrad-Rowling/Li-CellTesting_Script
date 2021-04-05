@@ -590,26 +590,6 @@
 #define Opamp_1_cy_psoc4_abuf__OA_SW CYREG_CTB0_OA0_SW
 #define Opamp_1_cy_psoc4_abuf__OA_SW_CLEAR CYREG_CTB0_OA0_SW_CLEAR
 
-/* Opamp_2 */
-#define Opamp_2_cy_psoc4_abuf__COMP_STAT CYREG_CTB0_COMP_STAT
-#define Opamp_2_cy_psoc4_abuf__COMP_STAT_SHIFT 16u
-#define Opamp_2_cy_psoc4_abuf__CTB_CTB_CTRL CYREG_CTB0_CTB_CTRL
-#define Opamp_2_cy_psoc4_abuf__INTR CYREG_CTB0_INTR
-#define Opamp_2_cy_psoc4_abuf__INTR_MASK CYREG_CTB0_INTR_MASK
-#define Opamp_2_cy_psoc4_abuf__INTR_MASK_SHIFT 1u
-#define Opamp_2_cy_psoc4_abuf__INTR_MASKED CYREG_CTB0_INTR_MASKED
-#define Opamp_2_cy_psoc4_abuf__INTR_MASKED_SHIFT 1u
-#define Opamp_2_cy_psoc4_abuf__INTR_SET CYREG_CTB0_INTR_SET
-#define Opamp_2_cy_psoc4_abuf__INTR_SET_SHIFT 1u
-#define Opamp_2_cy_psoc4_abuf__INTR_SHIFT 1u
-#define Opamp_2_cy_psoc4_abuf__OA_COMP_TRIM CYREG_CTB0_OA1_COMP_TRIM
-#define Opamp_2_cy_psoc4_abuf__OA_NUMBER 1u
-#define Opamp_2_cy_psoc4_abuf__OA_OFFSET_TRIM CYREG_CTB0_OA1_OFFSET_TRIM
-#define Opamp_2_cy_psoc4_abuf__OA_RES_CTRL CYREG_CTB0_OA_RES1_CTRL
-#define Opamp_2_cy_psoc4_abuf__OA_SLOPE_OFFSET_TRIM CYREG_CTB0_OA1_SLOPE_OFFSET_TRIM
-#define Opamp_2_cy_psoc4_abuf__OA_SW CYREG_CTB0_OA1_SW
-#define Opamp_2_cy_psoc4_abuf__OA_SW_CLEAR CYREG_CTB0_OA1_SW_CLEAR
-
 /* PVref_1 */
 #define PVref_1_cy_psoc4_pref_PRB_REF CYREG_PASS_PRB_REF1
 

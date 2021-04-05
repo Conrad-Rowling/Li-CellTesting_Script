@@ -28,7 +28,7 @@
 *   Conditional Compilation Parameters
 ****************************************/
 
-#define PVref_1_SEL_OUTPUT_VOLTAGE      (16u)
+#define PVref_1_SEL_OUTPUT_VOLTAGE      (10u)
 #define PVref_1_SEL_REFERENCE_SOURCE    (0u)
 
 

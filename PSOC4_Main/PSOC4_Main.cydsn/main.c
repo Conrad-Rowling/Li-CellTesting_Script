@@ -1,6 +1,6 @@
 /* ========================================
- * Version: 1.7
- * Last Modified: 4.4.2021 
+ * Version: 1.8
+ * Last Modified: 4.5.2021 
  * Conrad Rowling, Osama Abualsoud, Milad Mehr, Tucker Zischka, Formula Racing @ UC Davis, 2021
  *
  * All Rights Reserved
@@ -135,7 +135,7 @@ int main (void)
     
     AMux_1_Start();
     Opamp_1_Start();
-    Opamp_2_Start(); 
+    //Opamp_2_Start(); 
     UART_1_Start();
     RED_LED_Write(0);
     RELAY_Write(0);
@@ -182,6 +182,8 @@ int main (void)
             ADC_1_StopConvert();                            // Stop ADC Conversion 
             adcOff = ADC_1_CountsTo_mVolts(0, adcOffset);   // Convert to milivolts
             //adcOff = adcOff - 1200.0;                       // Proper offset of the offest (What is 1200 for? )   
+            sprintf(string1,"\r\n Initializing.... offset = %3.3f \r\n", adcOff);
+            UART_1_UartPutString(string1);
             
             //ADC Offset 
             AMux_1_Select(0);                               // Mux Select
@@ -190,7 +192,9 @@ int main (void)
             adcOffset = ADC_1_GetResult32(0);               // Get the ADC reading
             ADC_1_StopConvert();                            // Stop ADC Conversion 
             adcOff = ADC_1_CountsTo_mVolts(0, adcOffset);   // Convert to milivolts
-            //adcOff = adcOff - 1200.0;                       // Proper offset of the offest (What is 1200 for? )   
+            //adcOff = adcOff - 1200.0;                       // Proper offset of the offest (What is 1200 for? )  
+            sprintf(string1,"\r\n Initializing.... offset = %3.3f \r\n", adcOff);
+            UART_1_UartPutString(string1);
             
             timeOld = Timer_1_ReadCounter();     // just to avoid the first readcounter
             
