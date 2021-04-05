@@ -25,7 +25,7 @@
 ***************************************/
     
 #define PGA_2_POWER                  ((uint32)3u)
-#define PGA_2_GAIN                   ((uint32)6u)
+#define PGA_2_GAIN                   ((uint32)10u)
     
 #define PGA_2_POWER_MAX              (PGA_2_HIGH)
 #define PGA_2_GAIN_MAX               (PGA_2_GAIN_32)

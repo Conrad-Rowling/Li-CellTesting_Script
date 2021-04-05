@@ -15,10 +15,12 @@
       <Data key="3dbba19d-7851-4a83-b204-a0a386fe8d68/5382e105-1382-4a2e-b9f4-3bb2feba71e0" value="I2C_1_sda" />
       <Data key="3dbba19d-7851-4a83-b204-a0a386fe8d68/22863ebe-a37b-476f-b252-6e49a8c00b12" value="I2C_1_scl" />
       <Data key="07bd4810-e587-4d2d-b007-b07a8b09132e" value="In_plus" />
+      <Data key="8b143d8d-7502-4043-a089-151b09e25309" value="Minus_Out" />
       <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="Pin_4" />
       <Data key="29fa238b-bfdc-4496-9149-9aa5cea28476" value="Battery_Plus" />
       <Data key="43ec2fa1-bf22-4b71-9477-b6ca7b97f0b0/23b8206d-1c77-4e61-be4a-b4037d5de5fc" value="UART_1_tx" />
       <Data key="43ec2fa1-bf22-4b71-9477-b6ca7b97f0b0/78e33e5d-45ea-4b75-88d5-73274e8a7ce4" value="UART_1_rx" />
+      <Data key="149ae51c-5b90-49eb-8665-936ba31115d8" value="Plus_Out" />
       <Data key="785dd5a1-9e69-41e7-9c39-6e7c7a9c5310" value="Pin_3" />
       <Data key="14974151-1d54-4eb6-a590-e4a7fa602432/77715107-f8d5-47e5-a629-0fb83101ac6b" value="ADC_1_Bypass" />
       <Data key="77715107-f8d5-47e5-a629-0fb83101ac6b" value="Battery_Minus" />
@@ -1877,6 +1879,11 @@
         <Data key="Port Format" value="2,5" />
       </Group>
     </Group>
+    <Group key="8b143d8d-7502-4043-a089-151b09e25309">
+      <Group key="0">
+        <Data key="Port Format" value="2,2" />
+      </Group>
+    </Group>
     <Group key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba">
       <Group key="0">
         <Data key="Port Format" value="0,4" />
@@ -1885,6 +1892,11 @@
     <Group key="29fa238b-bfdc-4496-9149-9aa5cea28476">
       <Group key="0">
         <Data key="Port Format" value="2,1" />
+      </Group>
+    </Group>
+    <Group key="149ae51c-5b90-49eb-8665-936ba31115d8">
+      <Group key="0">
+        <Data key="Port Format" value="2,3" />
       </Group>
     </Group>
     <Group key="785dd5a1-9e69-41e7-9c39-6e7c7a9c5310">
@@ -1923,7 +1935,7 @@
     <Data key="CYDEV_CONFIGURATION_MODE" value="COMPRESSED" />
     <Data key="CYDEV_DEBUG_PROTECT" value="OPEN" />
     <Data key="CYDEV_DEBUGGING_DPS" value="SWD" />
-    <Data key="CYDEV_HEAP_SIZE" value="0x80" />
+    <Data key="CYDEV_HEAP_SIZE" value="0x200" />
     <Data key="CYDEV_PRB_VDDA_SLEEP" value="False" />
     <Data key="CYDEV_STACK_SIZE" value="0x0800" />
     <Data key="CYDEV_SYSTEM_PRB_SOURCE" value="0" />

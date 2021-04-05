@@ -1,5 +1,5 @@
 -- Project:   PSOC4_Main
--- Generated: 04/03/2021 22:37:16
+-- Generated: 04/04/2021 22:48:51
 -- PSoC Creator  4.4
 
 ENTITY PSOC4_Main IS
@@ -96,8 +96,6 @@ ARCHITECTURE __DEFAULT__ OF PSOC4_Main IS
     SIGNAL \I2C_1:tx_wire\ : bit;
     SIGNAL \Opamp_1:Net_12\ : bit;
     SIGNAL \Opamp_2:Net_12\ : bit;
-    SIGNAL \PGA_1:Net_12\ : bit;
-    SIGNAL \PGA_2:Net_12\ : bit;
     SIGNAL \UART_1:Net_847_ff1\ : bit;
     ATTRIBUTE global_signal OF \UART_1:Net_847_ff1\ : SIGNAL IS true;
     SIGNAL \UART_1:miso_s_wire\ : bit;
@@ -116,7 +114,6 @@ ARCHITECTURE __DEFAULT__ OF PSOC4_Main IS
     ATTRIBUTE POWER OF tmpOE__RELAY_net_0 : SIGNAL IS true;
     SIGNAL zero : bit;
     ATTRIBUTE GROUND OF zero : SIGNAL IS true;
-    ATTRIBUTE Location OF ctb0_resistor_string : LABEL IS "F(RSB,0)";
     ATTRIBUTE Location OF ClockGenBlock : LABEL IS "F(CLK_GEN,0)";
     ATTRIBUTE Location OF ClockBlock : LABEL IS "F(Clock,0)";
     ATTRIBUTE Location OF RELAY(0) : LABEL IS "P0[3]";
@@ -131,7 +128,6 @@ ARCHITECTURE __DEFAULT__ OF PSOC4_Main IS
     ATTRIBUTE Location OF Battery_Minus(0) : LABEL IS "P2[0]";
     ATTRIBUTE Location OF In_Minus(0) : LABEL IS "P2[4]";
     ATTRIBUTE Location OF \Timer_1:cy_m0s8_tcpwm_1\ : LABEL IS "F(TCPWM,0)";
-    ATTRIBUTE Location OF ctb1_resistor_string : LABEL IS "F(RSB,1)";
     ATTRIBUTE Location OF \UART_1:SCB\ : LABEL IS "F(SCB,1)";
     ATTRIBUTE Location OF \I2C_1:SCB_IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(10)]";
     ATTRIBUTE Location OF \I2C_1:SCB\ : LABEL IS "F(SCB,2)";
@@ -139,9 +135,7 @@ ARCHITECTURE __DEFAULT__ OF PSOC4_Main IS
     ATTRIBUTE Location OF \ADC_1:IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(15)]";
     ATTRIBUTE Location OF CyDesignWideVoltageReference : LABEL IS "F(REF,0)";
     ATTRIBUTE Location OF \PVref_1:cy_psoc4_pref\ : LABEL IS "F(REF,1)";
-    ATTRIBUTE Location OF \Opamp_1:cy_psoc4_abuf\ : LABEL IS "F(OA,2)";
-    ATTRIBUTE Location OF \PGA_2:cy_psoc4_abuf\ : LABEL IS "F(OA,0)";
-    ATTRIBUTE Location OF \PGA_1:cy_psoc4_abuf\ : LABEL IS "F(OA,3)";
+    ATTRIBUTE Location OF \Opamp_1:cy_psoc4_abuf\ : LABEL IS "F(OA,0)";
     ATTRIBUTE Location OF \Opamp_2:cy_psoc4_abuf\ : LABEL IS "F(OA,1)";
     COMPONENT interrupt
         PORT (
@@ -348,8 +342,6 @@ ARCHITECTURE __DEFAULT__ OF PSOC4_Main IS
     END COMPONENT;
     COMPONENT p4prefcell
     END COMPONENT;
-    COMPONENT p4rsbcell
-    END COMPONENT;
     COMPONENT p4sarcell
         PORT (
             clock : IN std_ulogic;
@@ -399,8 +391,6 @@ ARCHITECTURE __DEFAULT__ OF PSOC4_Main IS
             data_oe_3 : IN std_ulogic);
     END COMPONENT;
 BEGIN
-
-    ctb0_resistor_string:p4rsbcell;
 
     ClockGenBlock:m0s8clockgenblockcell;
 
@@ -1428,8 +1418,6 @@ BEGIN
             line_compl => Net_1633,
             interrupt => Net_1631);
 
-    ctb1_resistor_string:p4rsbcell;
-
     \UART_1:SCB\:m0s8scbcell
         GENERIC MAP(
             cy_registers => "",
@@ -1549,24 +1537,6 @@ BEGIN
             needs_dsab => 0)
         PORT MAP(
             ctb_dsi_comp => \Opamp_1:Net_12\);
-
-    \PGA_2:cy_psoc4_abuf\:p4abufcell
-        GENERIC MAP(
-            cy_registers => "",
-            deepsleep_available => 0,
-            has_resistor => 1,
-            needs_dsab => 0)
-        PORT MAP(
-            ctb_dsi_comp => \PGA_2:Net_12\);
-
-    \PGA_1:cy_psoc4_abuf\:p4abufcell
-        GENERIC MAP(
-            cy_registers => "",
-            deepsleep_available => 0,
-            has_resistor => 1,
-            needs_dsab => 0)
-        PORT MAP(
-            ctb_dsi_comp => \PGA_1:Net_12\);
 
     \Opamp_2:cy_psoc4_abuf\:p4abufcell
         GENERIC MAP(

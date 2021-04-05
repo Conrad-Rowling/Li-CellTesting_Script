@@ -1,6 +1,6 @@
 /* ========================================
- * Version: 1.5
- * Last Modified: 4.3.2021 
+ * Version: 1.7
+ * Last Modified: 4.4.2021 
  * Conrad Rowling, Osama Abualsoud, Milad Mehr, Tucker Zischka, Formula Racing @ UC Davis, 2021
  *
  * All Rights Reserved
@@ -28,8 +28,8 @@
 #define NUM_R_THERMISTORS 5 // excluding the thermistor at Position 1
 #define NUM_BAT_THERMISTORS 6 // excluding the thermistor at Position 1
 
-#define SHUNT_CONDUCTANCE .133 // (1.2 for High Current, .133 for Low Current)
-#define AMP_GAIN 8.0 // (from Amp Blocks)
+#define SHUNT_CONDUCTANCE 1.0 // (1.2 for High Current, .133 for Low Current)
+#define AMP_GAIN 1.0 // (from Amp Blocks)
 
 #define LOW_CURRENT 1
 #define HIGH_CURRENT 20
@@ -136,12 +136,12 @@ int main (void)
     AMux_1_Start();
     Opamp_1_Start();
     Opamp_2_Start(); 
-    PGA_1_Start();
-    PGA_2_Start();
     UART_1_Start();
     RED_LED_Write(0);
     RELAY_Write(0);
     ADC_1_Start();
+    ADC_1_Init();       //Added this to see if it can do what the Start() funciton can not 
+    ADC_1_Enable();     //Added this to see if it can do what the Start() function can not
     I2C_1_Start();
     //PVref_1_Start();
     

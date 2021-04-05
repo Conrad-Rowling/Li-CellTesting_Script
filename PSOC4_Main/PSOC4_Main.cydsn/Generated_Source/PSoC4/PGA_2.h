@@ -26,7 +26,7 @@
 ***************************************/
 
 #define PGA_2_VREF_MODE              (0u)
-#define PGA_2_OUTPUT_MODE            (0u)
+#define PGA_2_OUTPUT_MODE            (1u)
 #define PGA_2_DEEPSLEEP_SUPPORT      (0u)
 
 
