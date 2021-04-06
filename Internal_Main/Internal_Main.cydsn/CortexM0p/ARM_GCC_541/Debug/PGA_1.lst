@@ -1,0 +1,1589 @@
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"PGA_1.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.PGA_1_Enable,"ax",%progbits
+  20              		.align	2
+  21              		.global	PGA_1_Enable
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	PGA_1_Enable, %function
+  25              	PGA_1_Enable:
+  26              	.LFB1:
+  27              		.file 1 "Generated_Source\\PSoC4\\PGA_1.c"
+   1:Generated_Source\PSoC4/PGA_1.c **** /***************************************************************************//**
+   2:Generated_Source\PSoC4/PGA_1.c **** * \file     PGA_1.c
+   3:Generated_Source\PSoC4/PGA_1.c **** * \version  1.10
+   4:Generated_Source\PSoC4/PGA_1.c **** *
+   5:Generated_Source\PSoC4/PGA_1.c **** * \brief
+   6:Generated_Source\PSoC4/PGA_1.c **** *  This file provides the source code to the API for the PGA_P4 Component
+   7:Generated_Source\PSoC4/PGA_1.c **** *
+   8:Generated_Source\PSoC4/PGA_1.c **** ********************************************************************************
+   9:Generated_Source\PSoC4/PGA_1.c **** * \copyright
+  10:Generated_Source\PSoC4/PGA_1.c **** * Copyright 2016, Cypress Semiconductor Corporation.  All rights reserved.
+  11:Generated_Source\PSoC4/PGA_1.c **** * You may use this file only in accordance with the license, terms, conditions,
+  12:Generated_Source\PSoC4/PGA_1.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  13:Generated_Source\PSoC4/PGA_1.c **** * the software package with which this file was provided.
+  14:Generated_Source\PSoC4/PGA_1.c **** *******************************************************************************/
+  15:Generated_Source\PSoC4/PGA_1.c **** 
+  16:Generated_Source\PSoC4/PGA_1.c **** #include "PGA_1_PVT.h"
+  17:Generated_Source\PSoC4/PGA_1.c **** 
+  18:Generated_Source\PSoC4/PGA_1.c **** 
+  19:Generated_Source\PSoC4/PGA_1.c **** uint8 PGA_1_initVar = 0u; /**< Describes the init state of the component */
+  20:Generated_Source\PSoC4/PGA_1.c **** 
+  21:Generated_Source\PSoC4/PGA_1.c **** uint32 PGA_1_internalGainPower = 0u; /**< Stores component Gain, Power and Enable values */
+  22:Generated_Source\PSoC4/PGA_1.c **** 
+  23:Generated_Source\PSoC4/PGA_1.c **** /***************************************************************************//**
+  24:Generated_Source\PSoC4/PGA_1.c **** * Compensation table 
+  25:Generated_Source\PSoC4/PGA_1.c **** *
+  26:Generated_Source\PSoC4/PGA_1.c **** * There is a feedback compensation capacitor recomended setting (for certain 
+  27:Generated_Source\PSoC4/PGA_1.c **** * gain and power setting) under the mask 0x0F000000u
+  28:Generated_Source\PSoC4/PGA_1.c **** * or (PGA_1_C_FB_MASK)
+  29:Generated_Source\PSoC4/PGA_1.c **** *
+  30:Generated_Source\PSoC4/PGA_1.c **** * Also there is an OpAmp compensation recomended setting (for certain 
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 2
+
+
+  31:Generated_Source\PSoC4/PGA_1.c **** * gain and power setting) under the mask 0x00000003u
+  32:Generated_Source\PSoC4/PGA_1.c **** * or (PGA_1_GET_OA_COMP_TRIM)
+  33:Generated_Source\PSoC4/PGA_1.c **** *
+  34:Generated_Source\PSoC4/PGA_1.c **** * There is only 6 values for whole gain range because the recommended 
+  35:Generated_Source\PSoC4/PGA_1.c **** * values are for each pair of adjacent gain values, e.g.:
+  36:Generated_Source\PSoC4/PGA_1.c **** * the first (index = 0) value is for gain = 1 and 1.4,
+  37:Generated_Source\PSoC4/PGA_1.c **** * the second (index = 1) value is for gain = 2 and 2.8,and so on,
+  38:Generated_Source\PSoC4/PGA_1.c **** * and the sixth (index = 5) value is for gain = 32 only.
+  39:Generated_Source\PSoC4/PGA_1.c **** *******************************************************************************/
+  40:Generated_Source\PSoC4/PGA_1.c **** const uint32 PGA_1_compTab[PGA_1_COMP_TAB_HEIGHT][PGA_1_COMP_TAB_WIDTH] =
+  41:Generated_Source\PSoC4/PGA_1.c **** {
+  42:Generated_Source\PSoC4/PGA_1.c **** #if (PGA_1_CHECK_OUTPUT_MODE) /* Class AB */
+  43:Generated_Source\PSoC4/PGA_1.c ****     {0x0F000002u, 0x0F000002u, 0x0F000002u},
+  44:Generated_Source\PSoC4/PGA_1.c ****     {0x07000002u, 0x09000002u, 0x09000002u},
+  45:Generated_Source\PSoC4/PGA_1.c ****     {0x04000002u, 0x04000002u, 0x04000002u},
+  46:Generated_Source\PSoC4/PGA_1.c ****     {0x03000001u, 0x02000002u, 0x03000002u},
+  47:Generated_Source\PSoC4/PGA_1.c ****     {0x01000001u, 0x00000002u, 0x00000002u},
+  48:Generated_Source\PSoC4/PGA_1.c ****     {0x01000001u, 0x01000001u, 0x02000001u}
+  49:Generated_Source\PSoC4/PGA_1.c **** #else /* Class A */
+  50:Generated_Source\PSoC4/PGA_1.c ****     {0x0F000002u, 0x0F000002u, 0x0F000002u},
+  51:Generated_Source\PSoC4/PGA_1.c ****     {0x08000002u, 0x09000002u, 0x09000002u},
+  52:Generated_Source\PSoC4/PGA_1.c ****     {0x03000001u, 0x05000002u, 0x04000002u},
+  53:Generated_Source\PSoC4/PGA_1.c ****     {0x00000001u, 0x02000002u, 0x03000002u},
+  54:Generated_Source\PSoC4/PGA_1.c ****     {0x00000001u, 0x00000002u, 0x01000002u},
+  55:Generated_Source\PSoC4/PGA_1.c ****     {0x00000001u, 0x00000001u, 0x00000001u}
+  56:Generated_Source\PSoC4/PGA_1.c **** #endif /* PGA_1_OUTPUT_MODE */
+  57:Generated_Source\PSoC4/PGA_1.c **** };
+  58:Generated_Source\PSoC4/PGA_1.c **** 
+  59:Generated_Source\PSoC4/PGA_1.c **** 
+  60:Generated_Source\PSoC4/PGA_1.c **** /*******************************************************************************   
+  61:Generated_Source\PSoC4/PGA_1.c **** * Function Name: PGA_1_Init
+  62:Generated_Source\PSoC4/PGA_1.c **** ****************************************************************************//**
+  63:Generated_Source\PSoC4/PGA_1.c **** *
+  64:Generated_Source\PSoC4/PGA_1.c **** *  Initializes component's parameters to the values set by user in the 
+  65:Generated_Source\PSoC4/PGA_1.c **** *  customizer of the component placed onto schematic. Usually it is called in 
+  66:Generated_Source\PSoC4/PGA_1.c **** *  PGA_1_Start().
+  67:Generated_Source\PSoC4/PGA_1.c **** *
+  68:Generated_Source\PSoC4/PGA_1.c **** *******************************************************************************/
+  69:Generated_Source\PSoC4/PGA_1.c **** void PGA_1_Init(void)
+  70:Generated_Source\PSoC4/PGA_1.c **** {
+  71:Generated_Source\PSoC4/PGA_1.c ****     /* Set default internal variable value */
+  72:Generated_Source\PSoC4/PGA_1.c ****     PGA_1_internalGainPower = PGA_1_DEFAULT_GAIN_POWER;
+  73:Generated_Source\PSoC4/PGA_1.c ****     
+  74:Generated_Source\PSoC4/PGA_1.c ****     /* Set default register values */
+  75:Generated_Source\PSoC4/PGA_1.c ****     PGA_1_CTB_CTRL_REG |= PGA_1_DEFAULT_CTB_CTRL;
+  76:Generated_Source\PSoC4/PGA_1.c ****     PGA_1_OA_RES_CTRL_REG &= (uint32) ~PGA_1_DEFAULT_OA_RES_CTRL_MASK;
+  77:Generated_Source\PSoC4/PGA_1.c ****     PGA_1_OA_RES_CTRL_REG |= PGA_1_DEFAULT_OA_RES_CTRL;
+  78:Generated_Source\PSoC4/PGA_1.c ****     
+  79:Generated_Source\PSoC4/PGA_1.c ****     /* Check if component has been enabled */
+  80:Generated_Source\PSoC4/PGA_1.c ****     if((PGA_1_OA_RES_CTRL_REG & PGA_1_OA_PWR_MODE_MASK) != 0u)
+  81:Generated_Source\PSoC4/PGA_1.c ****     {
+  82:Generated_Source\PSoC4/PGA_1.c ****         /* Set the default power level */
+  83:Generated_Source\PSoC4/PGA_1.c ****         PGA_1_Enable();
+  84:Generated_Source\PSoC4/PGA_1.c ****     }
+  85:Generated_Source\PSoC4/PGA_1.c ****     
+  86:Generated_Source\PSoC4/PGA_1.c ****     /* Set default gain and correspondent Cfb and OA_trim values */
+  87:Generated_Source\PSoC4/PGA_1.c ****     PGA_1_SetGain(PGA_1_GAIN);
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 3
+
+
+  88:Generated_Source\PSoC4/PGA_1.c **** }
+  89:Generated_Source\PSoC4/PGA_1.c **** 
+  90:Generated_Source\PSoC4/PGA_1.c **** 
+  91:Generated_Source\PSoC4/PGA_1.c **** /*******************************************************************************   
+  92:Generated_Source\PSoC4/PGA_1.c **** * Function Name: PGA_1_Enable
+  93:Generated_Source\PSoC4/PGA_1.c **** ****************************************************************************//**
+  94:Generated_Source\PSoC4/PGA_1.c **** *
+  95:Generated_Source\PSoC4/PGA_1.c **** *  Powers up amplifier (to default power level or restored after 
+  96:Generated_Source\PSoC4/PGA_1.c **** *  previous PGA_1_Stop() call).
+  97:Generated_Source\PSoC4/PGA_1.c **** *  Usually it is called in PGA_1_Start().
+  98:Generated_Source\PSoC4/PGA_1.c **** *  
+  99:Generated_Source\PSoC4/PGA_1.c **** *******************************************************************************/
+ 100:Generated_Source\PSoC4/PGA_1.c **** void PGA_1_Enable(void)
+ 101:Generated_Source\PSoC4/PGA_1.c **** {
+  28              		.loc 1 101 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+ 102:Generated_Source\PSoC4/PGA_1.c ****     PGA_1_OA_RES_CTRL_REG |= PGA_1_GET_POWER;
+  33              		.loc 1 102 0
+  34 0000 0449     		ldr	r1, .L2
+  35 0002 0868     		ldr	r0, [r1]
+  36 0004 044B     		ldr	r3, .L2+4
+  37 0006 1B68     		ldr	r3, [r3]
+  38 0008 0322     		movs	r2, #3
+  39 000a 1340     		ands	r3, r2
+  40 000c 0343     		orrs	r3, r0
+  41 000e 0B60     		str	r3, [r1]
+ 103:Generated_Source\PSoC4/PGA_1.c **** }
+  42              		.loc 1 103 0
+  43              		@ sp needed
+  44 0010 7047     		bx	lr
+  45              	.L3:
+  46 0012 C046     		.align	2
+  47              	.L2:
+  48 0014 08003040 		.word	1076887560
+  49 0018 00000000 		.word	.LANCHOR0
+  50              		.cfi_endproc
+  51              	.LFE1:
+  52              		.size	PGA_1_Enable, .-PGA_1_Enable
+  53              		.section	.text.PGA_1_Stop,"ax",%progbits
+  54              		.align	2
+  55              		.global	PGA_1_Stop
+  56              		.code	16
+  57              		.thumb_func
+  58              		.type	PGA_1_Stop, %function
+  59              	PGA_1_Stop:
+  60              	.LFB3:
+ 104:Generated_Source\PSoC4/PGA_1.c **** 
+ 105:Generated_Source\PSoC4/PGA_1.c **** 
+ 106:Generated_Source\PSoC4/PGA_1.c **** /*******************************************************************************
+ 107:Generated_Source\PSoC4/PGA_1.c **** * Function Name: PGA_1_Start
+ 108:Generated_Source\PSoC4/PGA_1.c **** ****************************************************************************//**
+ 109:Generated_Source\PSoC4/PGA_1.c **** *
+ 110:Generated_Source\PSoC4/PGA_1.c **** *  Enables the amplifier operation (calls PGA_1_Enable).
+ 111:Generated_Source\PSoC4/PGA_1.c **** *  Also on the first call (after the system reset) initializes all the component
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 4
+
+
+ 112:Generated_Source\PSoC4/PGA_1.c **** *  related registers with default values (calls PGA_1_Init).
+ 113:Generated_Source\PSoC4/PGA_1.c **** *
+ 114:Generated_Source\PSoC4/PGA_1.c **** *  \globalvars
+ 115:Generated_Source\PSoC4/PGA_1.c **** *   The PGA_1_initVar variable is used to indicate initial
+ 116:Generated_Source\PSoC4/PGA_1.c **** *   configuration of this component. The variable is initialized to zero (0u)
+ 117:Generated_Source\PSoC4/PGA_1.c **** *   and set to one (1u) at the first time PGA_1_Start() is called.
+ 118:Generated_Source\PSoC4/PGA_1.c **** *   This allows to enable the component without re-initialization in all
+ 119:Generated_Source\PSoC4/PGA_1.c **** *   subsequent calls of the PGA_1_Start() routine.
+ 120:Generated_Source\PSoC4/PGA_1.c **** *
+ 121:Generated_Source\PSoC4/PGA_1.c **** *******************************************************************************/
+ 122:Generated_Source\PSoC4/PGA_1.c **** void PGA_1_Start(void)
+ 123:Generated_Source\PSoC4/PGA_1.c **** {
+ 124:Generated_Source\PSoC4/PGA_1.c ****     if(PGA_1_initVar == 0u)
+ 125:Generated_Source\PSoC4/PGA_1.c ****     {
+ 126:Generated_Source\PSoC4/PGA_1.c ****         PGA_1_Init();
+ 127:Generated_Source\PSoC4/PGA_1.c ****         PGA_1_initVar = 1u;
+ 128:Generated_Source\PSoC4/PGA_1.c ****     }
+ 129:Generated_Source\PSoC4/PGA_1.c **** 
+ 130:Generated_Source\PSoC4/PGA_1.c ****     PGA_1_Enable();
+ 131:Generated_Source\PSoC4/PGA_1.c **** }
+ 132:Generated_Source\PSoC4/PGA_1.c **** 
+ 133:Generated_Source\PSoC4/PGA_1.c **** 
+ 134:Generated_Source\PSoC4/PGA_1.c **** /*******************************************************************************
+ 135:Generated_Source\PSoC4/PGA_1.c **** * Function Name: PGA_1_Stop
+ 136:Generated_Source\PSoC4/PGA_1.c **** ****************************************************************************//**
+ 137:Generated_Source\PSoC4/PGA_1.c **** *
+ 138:Generated_Source\PSoC4/PGA_1.c **** *  Powers down the amplifier.
+ 139:Generated_Source\PSoC4/PGA_1.c **** *
+ 140:Generated_Source\PSoC4/PGA_1.c **** *******************************************************************************/
+ 141:Generated_Source\PSoC4/PGA_1.c **** void PGA_1_Stop(void)
+ 142:Generated_Source\PSoC4/PGA_1.c **** { 
+  61              		.loc 1 142 0
+  62              		.cfi_startproc
+  63              		@ args = 0, pretend = 0, frame = 0
+  64              		@ frame_needed = 0, uses_anonymous_args = 0
+  65              		@ link register save eliminated.
+ 143:Generated_Source\PSoC4/PGA_1.c ****     PGA_1_OA_RES_CTRL_REG &= (uint32)~PGA_1_OA_PWR_MODE_MASK;
+  66              		.loc 1 143 0
+  67 0000 024A     		ldr	r2, .L5
+  68 0002 1368     		ldr	r3, [r2]
+  69 0004 0321     		movs	r1, #3
+  70 0006 8B43     		bics	r3, r1
+  71 0008 1360     		str	r3, [r2]
+ 144:Generated_Source\PSoC4/PGA_1.c **** }
+  72              		.loc 1 144 0
+  73              		@ sp needed
+  74 000a 7047     		bx	lr
+  75              	.L6:
+  76              		.align	2
+  77              	.L5:
+  78 000c 08003040 		.word	1076887560
+  79              		.cfi_endproc
+  80              	.LFE3:
+  81              		.size	PGA_1_Stop, .-PGA_1_Stop
+  82              		.section	.text.PGA_1_SetPower,"ax",%progbits
+  83              		.align	2
+  84              		.global	PGA_1_SetPower
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 5
+
+
+  85              		.code	16
+  86              		.thumb_func
+  87              		.type	PGA_1_SetPower, %function
+  88              	PGA_1_SetPower:
+  89              	.LFB4:
+ 145:Generated_Source\PSoC4/PGA_1.c **** 
+ 146:Generated_Source\PSoC4/PGA_1.c **** 
+ 147:Generated_Source\PSoC4/PGA_1.c **** /*******************************************************************************
+ 148:Generated_Source\PSoC4/PGA_1.c **** * Function Name: PGA_1_SetPower
+ 149:Generated_Source\PSoC4/PGA_1.c **** ****************************************************************************//**
+ 150:Generated_Source\PSoC4/PGA_1.c **** *
+ 151:Generated_Source\PSoC4/PGA_1.c **** *  Sets the power level of amplifier.
+ 152:Generated_Source\PSoC4/PGA_1.c **** *
+ 153:Generated_Source\PSoC4/PGA_1.c **** * \param powerLevel
+ 154:Generated_Source\PSoC4/PGA_1.c **** *  The power level setting of amplifier. Possible values:
+ 155:Generated_Source\PSoC4/PGA_1.c **** *   * PGA_1_LOW - The lowest power consumption.
+ 156:Generated_Source\PSoC4/PGA_1.c **** *   * PGA_1_MED - The middle setting.
+ 157:Generated_Source\PSoC4/PGA_1.c **** *   * PGA_1_HIGH - The highest amplifier bandwidth.
+ 158:Generated_Source\PSoC4/PGA_1.c **** *
+ 159:Generated_Source\PSoC4/PGA_1.c **** *  \internal
+ 160:Generated_Source\PSoC4/PGA_1.c **** *   The PGA_1_internalGainPower variable is used to store the
+ 161:Generated_Source\PSoC4/PGA_1.c **** *   current gain and power level to set appropriate compensation settings.
+ 162:Generated_Source\PSoC4/PGA_1.c **** *
+ 163:Generated_Source\PSoC4/PGA_1.c **** *******************************************************************************/
+ 164:Generated_Source\PSoC4/PGA_1.c **** void PGA_1_SetPower(uint32 powerLevel)
+ 165:Generated_Source\PSoC4/PGA_1.c **** {
+  90              		.loc 1 165 0
+  91              		.cfi_startproc
+  92              		@ args = 0, pretend = 0, frame = 0
+  93              		@ frame_needed = 0, uses_anonymous_args = 0
+  94              	.LVL0:
+  95 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  96              		.cfi_def_cfa_offset 20
+  97              		.cfi_offset 4, -20
+  98              		.cfi_offset 5, -16
+  99              		.cfi_offset 6, -12
+ 100              		.cfi_offset 7, -8
+ 101              		.cfi_offset 14, -4
+ 102 0002 4746     		mov	r7, r8
+ 103 0004 80B4     		push	{r7}
+ 104              		.cfi_def_cfa_offset 24
+ 105              		.cfi_offset 8, -24
+ 166:Generated_Source\PSoC4/PGA_1.c ****     uint32 locTmp;
+ 167:Generated_Source\PSoC4/PGA_1.c ****     
+ 168:Generated_Source\PSoC4/PGA_1.c ****     /* Save the powerLevel */
+ 169:Generated_Source\PSoC4/PGA_1.c ****     PGA_1_internalGainPower &= (uint32) ~PGA_1_OA_PWR_MODE_MASK;
+ 106              		.loc 1 169 0
+ 107 0006 184D     		ldr	r5, .L8
+ 108 0008 0321     		movs	r1, #3
+ 109 000a 2B68     		ldr	r3, [r5]
+ 110 000c 8B43     		bics	r3, r1
+ 170:Generated_Source\PSoC4/PGA_1.c ****     PGA_1_internalGainPower |= powerLevel & PGA_1_OA_PWR_MODE_MASK;
+ 111              		.loc 1 170 0
+ 112 000e 0840     		ands	r0, r1
+ 113              	.LVL1:
+ 114 0010 1843     		orrs	r0, r3
+ 115 0012 2860     		str	r0, [r5]
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 6
+
+
+ 171:Generated_Source\PSoC4/PGA_1.c ****     
+ 172:Generated_Source\PSoC4/PGA_1.c ****     /* Save the rest of register bitfields */
+ 173:Generated_Source\PSoC4/PGA_1.c ****     locTmp = PGA_1_OA_RES_CTRL_REG &
+ 116              		.loc 1 173 0
+ 117 0014 154B     		ldr	r3, .L8+4
+ 118 0016 9846     		mov	r8, r3
+ 119 0018 1C68     		ldr	r4, [r3]
+ 120 001a 154A     		ldr	r2, .L8+8
+ 121 001c 1440     		ands	r4, r2
+ 122              	.LVL2:
+ 174:Generated_Source\PSoC4/PGA_1.c ****         (uint32)~(PGA_1_OA_PWR_MODE_MASK | PGA_1_C_FB_MASK);
+ 175:Generated_Source\PSoC4/PGA_1.c ****            
+ 176:Generated_Source\PSoC4/PGA_1.c ****     /* Set the power and the feedback capacitor values into the control register */
+ 177:Generated_Source\PSoC4/PGA_1.c ****     PGA_1_OA_RES_CTRL_REG  = locTmp | PGA_1_GET_POWER | PGA_1_GET_C_FB;
+ 123              		.loc 1 177 0
+ 124 001e 0A00     		movs	r2, r1
+ 125 0020 0240     		ands	r2, r0
+ 126 0022 1443     		orrs	r4, r2
+ 127              	.LVL3:
+ 128 0024 400C     		lsrs	r0, r0, #17
+ 129 0026 0727     		movs	r7, #7
+ 130 0028 3840     		ands	r0, r7
+ 131 002a 013A     		subs	r2, r2, #1
+ 132 002c 114E     		ldr	r6, .L8+12
+ 133 002e 4300     		lsls	r3, r0, #1
+ 134 0030 9C46     		mov	ip, r3
+ 135 0032 6044     		add	r0, r0, ip
+ 136 0034 8018     		adds	r0, r0, r2
+ 137 0036 8000     		lsls	r0, r0, #2
+ 138 0038 8059     		ldr	r0, [r0, r6]
+ 139 003a F022     		movs	r2, #240
+ 140 003c 1205     		lsls	r2, r2, #20
+ 141 003e 0240     		ands	r2, r0
+ 142 0040 1443     		orrs	r4, r2
+ 143 0042 4346     		mov	r3, r8
+ 144 0044 1C60     		str	r4, [r3]
+ 178:Generated_Source\PSoC4/PGA_1.c ****     
+ 179:Generated_Source\PSoC4/PGA_1.c ****     /* Set the OA compensation capacitor value */
+ 180:Generated_Source\PSoC4/PGA_1.c ****     PGA_1_OA_COMP_TRIM_REG = PGA_1_GET_OA_COMP_TRIM;
+ 145              		.loc 1 180 0
+ 146 0046 2B68     		ldr	r3, [r5]
+ 147 0048 5A0C     		lsrs	r2, r3, #17
+ 148 004a 1740     		ands	r7, r2
+ 149 004c 0B40     		ands	r3, r1
+ 150 004e 5A1E     		subs	r2, r3, #1
+ 151 0050 7B00     		lsls	r3, r7, #1
+ 152 0052 DB19     		adds	r3, r3, r7
+ 153 0054 9B18     		adds	r3, r3, r2
+ 154 0056 9B00     		lsls	r3, r3, #2
+ 155 0058 9B59     		ldr	r3, [r3, r6]
+ 156 005a 1940     		ands	r1, r3
+ 157 005c 064B     		ldr	r3, .L8+16
+ 158 005e 1960     		str	r1, [r3]
+ 181:Generated_Source\PSoC4/PGA_1.c **** }
+ 159              		.loc 1 181 0
+ 160              		@ sp needed
+ 161 0060 04BC     		pop	{r2}
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 7
+
+
+ 162 0062 9046     		mov	r8, r2
+ 163 0064 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 164              	.L9:
+ 165 0066 C046     		.align	2
+ 166              	.L8:
+ 167 0068 00000000 		.word	.LANCHOR0
+ 168 006c 08003040 		.word	1076887560
+ 169 0070 FCFFFFF0 		.word	-251658244
+ 170 0074 00000000 		.word	.LANCHOR1
+ 171 0078 140F3040 		.word	1076891412
+ 172              		.cfi_endproc
+ 173              	.LFE4:
+ 174              		.size	PGA_1_SetPower, .-PGA_1_SetPower
+ 175              		.section	.text.PGA_1_SetGain,"ax",%progbits
+ 176              		.align	2
+ 177              		.global	PGA_1_SetGain
+ 178              		.code	16
+ 179              		.thumb_func
+ 180              		.type	PGA_1_SetGain, %function
+ 181              	PGA_1_SetGain:
+ 182              	.LFB5:
+ 182:Generated_Source\PSoC4/PGA_1.c **** 
+ 183:Generated_Source\PSoC4/PGA_1.c **** 
+ 184:Generated_Source\PSoC4/PGA_1.c **** /*******************************************************************************
+ 185:Generated_Source\PSoC4/PGA_1.c **** * Function Name: PGA_1_SetGain
+ 186:Generated_Source\PSoC4/PGA_1.c **** ****************************************************************************//**
+ 187:Generated_Source\PSoC4/PGA_1.c **** *
+ 188:Generated_Source\PSoC4/PGA_1.c **** *  Sets values of the input and feedback resistors to set a 
+ 189:Generated_Source\PSoC4/PGA_1.c **** *  specific gain of the amplifier.
+ 190:Generated_Source\PSoC4/PGA_1.c **** *
+ 191:Generated_Source\PSoC4/PGA_1.c **** * \param gainLevel
+ 192:Generated_Source\PSoC4/PGA_1.c **** *  The gain setting of amplifier. Possible values:
+ 193:Generated_Source\PSoC4/PGA_1.c **** *   * PGA_1_GAIN_1_00 - gain 1.00.
+ 194:Generated_Source\PSoC4/PGA_1.c **** *   * PGA_1_GAIN_1_42 - gain 1.42.
+ 195:Generated_Source\PSoC4/PGA_1.c **** *   * PGA_1_GAIN_2_00 - gain 2.00.
+ 196:Generated_Source\PSoC4/PGA_1.c **** *   * PGA_1_GAIN_2_78 - gain 2.78.
+ 197:Generated_Source\PSoC4/PGA_1.c **** *   * PGA_1_GAIN_4_00 - gain 4.00.
+ 198:Generated_Source\PSoC4/PGA_1.c **** *   * PGA_1_GAIN_5_82 - gain 5.82.
+ 199:Generated_Source\PSoC4/PGA_1.c **** *   * PGA_1_GAIN_8_00 - gain 8.00.
+ 200:Generated_Source\PSoC4/PGA_1.c **** *   * PGA_1_GAIN_10_7 - gain 10.7.
+ 201:Generated_Source\PSoC4/PGA_1.c **** *   * PGA_1_GAIN_16_0 - gain 16.0.
+ 202:Generated_Source\PSoC4/PGA_1.c **** *   * PGA_1_GAIN_21_3 - gain 21.3.
+ 203:Generated_Source\PSoC4/PGA_1.c **** *   * PGA_1_GAIN_32_0 - gain 32.0.
+ 204:Generated_Source\PSoC4/PGA_1.c **** *
+ 205:Generated_Source\PSoC4/PGA_1.c **** *  \internal
+ 206:Generated_Source\PSoC4/PGA_1.c **** *   The PGA_1_internalGainPower variable is used to store the
+ 207:Generated_Source\PSoC4/PGA_1.c **** *   current gain and power level to set appropriate compensation settings.
+ 208:Generated_Source\PSoC4/PGA_1.c **** *
+ 209:Generated_Source\PSoC4/PGA_1.c **** *******************************************************************************/
+ 210:Generated_Source\PSoC4/PGA_1.c **** void PGA_1_SetGain(uint32 gainLevel)
+ 211:Generated_Source\PSoC4/PGA_1.c **** {
+ 183              		.loc 1 211 0
+ 184              		.cfi_startproc
+ 185              		@ args = 0, pretend = 0, frame = 0
+ 186              		@ frame_needed = 0, uses_anonymous_args = 0
+ 187              	.LVL4:
+ 188 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 8
+
+
+ 189              		.cfi_def_cfa_offset 20
+ 190              		.cfi_offset 4, -20
+ 191              		.cfi_offset 5, -16
+ 192              		.cfi_offset 6, -12
+ 193              		.cfi_offset 7, -8
+ 194              		.cfi_offset 14, -4
+ 212:Generated_Source\PSoC4/PGA_1.c ****     uint32 locTmp;
+ 213:Generated_Source\PSoC4/PGA_1.c ****     
+ 214:Generated_Source\PSoC4/PGA_1.c ****     /* Save the gainLevel */
+ 215:Generated_Source\PSoC4/PGA_1.c ****     PGA_1_internalGainPower &= (uint32) ~PGA_1_RES_TAP_MASK;
+ 195              		.loc 1 215 0
+ 196 0002 184F     		ldr	r7, .L11
+ 197 0004 184A     		ldr	r2, .L11+4
+ 198 0006 3B68     		ldr	r3, [r7]
+ 199 0008 1A40     		ands	r2, r3
+ 216:Generated_Source\PSoC4/PGA_1.c ****     PGA_1_internalGainPower |= ((uint32)(gainLevel << PGA_1_RES_TAP_SHIFT)) &
+ 200              		.loc 1 216 0
+ 201 000a 0004     		lsls	r0, r0, #16
+ 202              	.LVL5:
+ 203 000c F023     		movs	r3, #240
+ 204 000e 1B03     		lsls	r3, r3, #12
+ 205 0010 1840     		ands	r0, r3
+ 206 0012 1043     		orrs	r0, r2
+ 207 0014 3860     		str	r0, [r7]
+ 217:Generated_Source\PSoC4/PGA_1.c ****                                                                  PGA_1_RES_TAP_MASK;
+ 218:Generated_Source\PSoC4/PGA_1.c ****     /* Save the rest of register bitfields */
+ 219:Generated_Source\PSoC4/PGA_1.c ****     locTmp = PGA_1_OA_RES_CTRL_REG &
+ 208              		.loc 1 219 0
+ 209 0016 154A     		ldr	r2, .L11+8
+ 210 0018 9446     		mov	ip, r2
+ 211 001a 1168     		ldr	r1, [r2]
+ 212 001c 144A     		ldr	r2, .L11+12
+ 213 001e 0A40     		ands	r2, r1
+ 214              	.LVL6:
+ 220:Generated_Source\PSoC4/PGA_1.c ****         (uint32)~(PGA_1_RES_TAP_MASK | PGA_1_C_FB_MASK);
+ 221:Generated_Source\PSoC4/PGA_1.c ****     
+ 222:Generated_Source\PSoC4/PGA_1.c ****     /* Set the gain and the feedback capacitor values into the control register */
+ 223:Generated_Source\PSoC4/PGA_1.c ****     PGA_1_OA_RES_CTRL_REG = locTmp | (PGA_1_internalGainPower &
+ 215              		.loc 1 223 0
+ 216 0020 0340     		ands	r3, r0
+ 217 0022 1A43     		orrs	r2, r3
+ 218              	.LVL7:
+ 224:Generated_Source\PSoC4/PGA_1.c ****         PGA_1_RES_TAP_MASK) | PGA_1_GET_C_FB;
+ 219              		.loc 1 224 0
+ 220 0024 460C     		lsrs	r6, r0, #17
+ 221 0026 0721     		movs	r1, #7
+ 222              	.LVL8:
+ 223 0028 0E40     		ands	r6, r1
+ 224 002a 0324     		movs	r4, #3
+ 225 002c 2040     		ands	r0, r4
+ 226 002e 431E     		subs	r3, r0, #1
+ 227 0030 104D     		ldr	r5, .L11+16
+ 228 0032 7000     		lsls	r0, r6, #1
+ 229 0034 8019     		adds	r0, r0, r6
+ 230 0036 C018     		adds	r0, r0, r3
+ 231 0038 8000     		lsls	r0, r0, #2
+ 232 003a 4059     		ldr	r0, [r0, r5]
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 9
+
+
+ 233 003c F023     		movs	r3, #240
+ 234 003e 1B05     		lsls	r3, r3, #20
+ 235 0040 0340     		ands	r3, r0
+ 236 0042 1A43     		orrs	r2, r3
+ 223:Generated_Source\PSoC4/PGA_1.c ****         PGA_1_RES_TAP_MASK) | PGA_1_GET_C_FB;
+ 237              		.loc 1 223 0
+ 238 0044 6346     		mov	r3, ip
+ 239 0046 1A60     		str	r2, [r3]
+ 225:Generated_Source\PSoC4/PGA_1.c ****     
+ 226:Generated_Source\PSoC4/PGA_1.c **** #if (PGA_1_VREF_MODE == PGA_1_VREF_INTERNAL)
+ 227:Generated_Source\PSoC4/PGA_1.c ****     if(PGA_1_GAIN_1_00 == gainLevel)
+ 228:Generated_Source\PSoC4/PGA_1.c ****     {
+ 229:Generated_Source\PSoC4/PGA_1.c ****         /* Disconnect the resistor matrix bottom from the internal Vss */
+ 230:Generated_Source\PSoC4/PGA_1.c ****         PGA_1_OA_SW_CLEAR_REG = PGA_1_RBOT_TO_VSSA;
+ 231:Generated_Source\PSoC4/PGA_1.c ****     }
+ 232:Generated_Source\PSoC4/PGA_1.c ****     else
+ 233:Generated_Source\PSoC4/PGA_1.c ****     {
+ 234:Generated_Source\PSoC4/PGA_1.c ****         /* Connect the resistor matrix bottom to the internal Vss */
+ 235:Generated_Source\PSoC4/PGA_1.c ****         PGA_1_OA_SW_REG = PGA_1_RBOT_TO_VSSA;
+ 236:Generated_Source\PSoC4/PGA_1.c ****     }
+ 237:Generated_Source\PSoC4/PGA_1.c **** #endif /* Vref Internal */
+ 238:Generated_Source\PSoC4/PGA_1.c ****     
+ 239:Generated_Source\PSoC4/PGA_1.c ****     /* Set the OA compensation capacitor value */
+ 240:Generated_Source\PSoC4/PGA_1.c ****     PGA_1_OA_COMP_TRIM_REG = PGA_1_GET_OA_COMP_TRIM;
+ 240              		.loc 1 240 0
+ 241 0048 3B68     		ldr	r3, [r7]
+ 242 004a 5A0C     		lsrs	r2, r3, #17
+ 243 004c 1140     		ands	r1, r2
+ 244 004e 2340     		ands	r3, r4
+ 245 0050 5A1E     		subs	r2, r3, #1
+ 246 0052 4B00     		lsls	r3, r1, #1
+ 247 0054 5B18     		adds	r3, r3, r1
+ 248 0056 9B18     		adds	r3, r3, r2
+ 249 0058 9B00     		lsls	r3, r3, #2
+ 250 005a 5B59     		ldr	r3, [r3, r5]
+ 251 005c 1C40     		ands	r4, r3
+ 252 005e 064B     		ldr	r3, .L11+20
+ 253 0060 1C60     		str	r4, [r3]
+ 241:Generated_Source\PSoC4/PGA_1.c **** }
+ 254              		.loc 1 241 0
+ 255              		@ sp needed
+ 256 0062 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 257              	.L12:
+ 258              		.align	2
+ 259              	.L11:
+ 260 0064 00000000 		.word	.LANCHOR0
+ 261 0068 FFFFF0FF 		.word	-983041
+ 262 006c 08003040 		.word	1076887560
+ 263 0070 FFFFF0F0 		.word	-252641281
+ 264 0074 00000000 		.word	.LANCHOR1
+ 265 0078 140F3040 		.word	1076891412
+ 266              		.cfi_endproc
+ 267              	.LFE5:
+ 268              		.size	PGA_1_SetGain, .-PGA_1_SetGain
+ 269              		.section	.text.PGA_1_Init,"ax",%progbits
+ 270              		.align	2
+ 271              		.global	PGA_1_Init
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 10
+
+
+ 272              		.code	16
+ 273              		.thumb_func
+ 274              		.type	PGA_1_Init, %function
+ 275              	PGA_1_Init:
+ 276              	.LFB0:
+  70:Generated_Source\PSoC4/PGA_1.c ****     /* Set default internal variable value */
+ 277              		.loc 1 70 0
+ 278              		.cfi_startproc
+ 279              		@ args = 0, pretend = 0, frame = 0
+ 280              		@ frame_needed = 0, uses_anonymous_args = 0
+ 281 0000 10B5     		push	{r4, lr}
+ 282              		.cfi_def_cfa_offset 8
+ 283              		.cfi_offset 4, -8
+ 284              		.cfi_offset 14, -4
+  72:Generated_Source\PSoC4/PGA_1.c ****     
+ 285              		.loc 1 72 0
+ 286 0002 0321     		movs	r1, #3
+ 287 0004 0D4B     		ldr	r3, .L15
+ 288 0006 1960     		str	r1, [r3]
+  75:Generated_Source\PSoC4/PGA_1.c ****     PGA_1_OA_RES_CTRL_REG &= (uint32) ~PGA_1_DEFAULT_OA_RES_CTRL_MASK;
+ 289              		.loc 1 75 0
+ 290 0008 0D4A     		ldr	r2, .L15+4
+ 291 000a 1368     		ldr	r3, [r2]
+ 292 000c 8020     		movs	r0, #128
+ 293 000e 0006     		lsls	r0, r0, #24
+ 294 0010 0343     		orrs	r3, r0
+ 295 0012 1360     		str	r3, [r2]
+  76:Generated_Source\PSoC4/PGA_1.c ****     PGA_1_OA_RES_CTRL_REG |= PGA_1_DEFAULT_OA_RES_CTRL;
+ 296              		.loc 1 76 0
+ 297 0014 0B4B     		ldr	r3, .L15+8
+ 298 0016 1868     		ldr	r0, [r3]
+ 299 0018 0B4A     		ldr	r2, .L15+12
+ 300 001a 0240     		ands	r2, r0
+ 301 001c 1A60     		str	r2, [r3]
+  77:Generated_Source\PSoC4/PGA_1.c ****     
+ 302              		.loc 1 77 0
+ 303 001e 1A68     		ldr	r2, [r3]
+ 304 0020 8020     		movs	r0, #128
+ 305 0022 0001     		lsls	r0, r0, #4
+ 306 0024 0243     		orrs	r2, r0
+ 307 0026 1A60     		str	r2, [r3]
+  80:Generated_Source\PSoC4/PGA_1.c ****     {
+ 308              		.loc 1 80 0
+ 309 0028 1B68     		ldr	r3, [r3]
+ 310 002a 1942     		tst	r1, r3
+ 311 002c 01D0     		beq	.L14
+  83:Generated_Source\PSoC4/PGA_1.c ****     }
+ 312              		.loc 1 83 0
+ 313 002e FFF7FEFF 		bl	PGA_1_Enable
+ 314              	.LVL9:
+ 315              	.L14:
+  87:Generated_Source\PSoC4/PGA_1.c **** }
+ 316              		.loc 1 87 0
+ 317 0032 0020     		movs	r0, #0
+ 318 0034 FFF7FEFF 		bl	PGA_1_SetGain
+ 319              	.LVL10:
+  88:Generated_Source\PSoC4/PGA_1.c **** 
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 11
+
+
+ 320              		.loc 1 88 0
+ 321              		@ sp needed
+ 322 0038 10BD     		pop	{r4, pc}
+ 323              	.L16:
+ 324 003a C046     		.align	2
+ 325              	.L15:
+ 326 003c 00000000 		.word	.LANCHOR0
+ 327 0040 00003040 		.word	1076887552
+ 328 0044 08003040 		.word	1076887560
+ 329 0048 FBF7FFFF 		.word	-2053
+ 330              		.cfi_endproc
+ 331              	.LFE0:
+ 332              		.size	PGA_1_Init, .-PGA_1_Init
+ 333              		.section	.text.PGA_1_Start,"ax",%progbits
+ 334              		.align	2
+ 335              		.global	PGA_1_Start
+ 336              		.code	16
+ 337              		.thumb_func
+ 338              		.type	PGA_1_Start, %function
+ 339              	PGA_1_Start:
+ 340              	.LFB2:
+ 123:Generated_Source\PSoC4/PGA_1.c ****     if(PGA_1_initVar == 0u)
+ 341              		.loc 1 123 0
+ 342              		.cfi_startproc
+ 343              		@ args = 0, pretend = 0, frame = 0
+ 344              		@ frame_needed = 0, uses_anonymous_args = 0
+ 345 0000 10B5     		push	{r4, lr}
+ 346              		.cfi_def_cfa_offset 8
+ 347              		.cfi_offset 4, -8
+ 348              		.cfi_offset 14, -4
+ 124:Generated_Source\PSoC4/PGA_1.c ****     {
+ 349              		.loc 1 124 0
+ 350 0002 064B     		ldr	r3, .L19
+ 351 0004 1B79     		ldrb	r3, [r3, #4]
+ 352 0006 002B     		cmp	r3, #0
+ 353 0008 04D1     		bne	.L18
+ 126:Generated_Source\PSoC4/PGA_1.c ****         PGA_1_initVar = 1u;
+ 354              		.loc 1 126 0
+ 355 000a FFF7FEFF 		bl	PGA_1_Init
+ 356              	.LVL11:
+ 127:Generated_Source\PSoC4/PGA_1.c ****     }
+ 357              		.loc 1 127 0
+ 358 000e 0122     		movs	r2, #1
+ 359 0010 024B     		ldr	r3, .L19
+ 360 0012 1A71     		strb	r2, [r3, #4]
+ 361              	.L18:
+ 130:Generated_Source\PSoC4/PGA_1.c **** }
+ 362              		.loc 1 130 0
+ 363 0014 FFF7FEFF 		bl	PGA_1_Enable
+ 364              	.LVL12:
+ 131:Generated_Source\PSoC4/PGA_1.c **** 
+ 365              		.loc 1 131 0
+ 366              		@ sp needed
+ 367 0018 10BD     		pop	{r4, pc}
+ 368              	.L20:
+ 369 001a C046     		.align	2
+ 370              	.L19:
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 12
+
+
+ 371 001c 00000000 		.word	.LANCHOR0
+ 372              		.cfi_endproc
+ 373              	.LFE2:
+ 374              		.size	PGA_1_Start, .-PGA_1_Start
+ 375              		.section	.text.PGA_1_PumpControl,"ax",%progbits
+ 376              		.align	2
+ 377              		.global	PGA_1_PumpControl
+ 378              		.code	16
+ 379              		.thumb_func
+ 380              		.type	PGA_1_PumpControl, %function
+ 381              	PGA_1_PumpControl:
+ 382              	.LFB6:
+ 242:Generated_Source\PSoC4/PGA_1.c **** 
+ 243:Generated_Source\PSoC4/PGA_1.c **** 
+ 244:Generated_Source\PSoC4/PGA_1.c **** /*******************************************************************************
+ 245:Generated_Source\PSoC4/PGA_1.c **** * Function Name: PGA_1_PumpControl
+ 246:Generated_Source\PSoC4/PGA_1.c **** ****************************************************************************//**
+ 247:Generated_Source\PSoC4/PGA_1.c **** *
+ 248:Generated_Source\PSoC4/PGA_1.c **** *  Allows the user to turn the amplifier's boost pump on or off.
+ 249:Generated_Source\PSoC4/PGA_1.c **** *  By Default the PGA_1_Init() function turns the pump on.
+ 250:Generated_Source\PSoC4/PGA_1.c **** *  Charge-pump must be turned on to provide
+ 251:Generated_Source\PSoC4/PGA_1.c **** *  rail-rail input common mode. Each op amp has a charge pump that can be
+ 252:Generated_Source\PSoC4/PGA_1.c **** *  controlled individually. The pump can be turned off for low input range
+ 253:Generated_Source\PSoC4/PGA_1.c **** *  levels. When the pump is turned off, the pump supply will be shorted to vdda.
+ 254:Generated_Source\PSoC4/PGA_1.c **** *  Shutting down the charge pump allows the op-amp to achieve low power modes.
+ 255:Generated_Source\PSoC4/PGA_1.c **** *  
+ 256:Generated_Source\PSoC4/PGA_1.c **** * \param onOff
+ 257:Generated_Source\PSoC4/PGA_1.c **** *  The boost pump setting. Possible values:
+ 258:Generated_Source\PSoC4/PGA_1.c **** *   * PGA_1_BOOST_OFF - Turn off the pump.
+ 259:Generated_Source\PSoC4/PGA_1.c **** *   * PGA_1_BOOST_ON  - Turn on the pump.
+ 260:Generated_Source\PSoC4/PGA_1.c **** *
+ 261:Generated_Source\PSoC4/PGA_1.c **** **********************************************************************************/
+ 262:Generated_Source\PSoC4/PGA_1.c **** void PGA_1_PumpControl(uint32 onOff)
+ 263:Generated_Source\PSoC4/PGA_1.c **** {
+ 383              		.loc 1 263 0
+ 384              		.cfi_startproc
+ 385              		@ args = 0, pretend = 0, frame = 0
+ 386              		@ frame_needed = 0, uses_anonymous_args = 0
+ 387              		@ link register save eliminated.
+ 388              	.LVL13:
+ 264:Generated_Source\PSoC4/PGA_1.c ****     if(onOff == PGA_1_BOOST_ON)
+ 389              		.loc 1 264 0
+ 390 0000 0128     		cmp	r0, #1
+ 391 0002 06D1     		bne	.L22
+ 265:Generated_Source\PSoC4/PGA_1.c ****     {
+ 266:Generated_Source\PSoC4/PGA_1.c ****         PGA_1_OA_RES_CTRL_REG |= PGA_1_OA_PUMP_EN;
+ 392              		.loc 1 266 0
+ 393 0004 064A     		ldr	r2, .L24
+ 394 0006 1368     		ldr	r3, [r2]
+ 395 0008 8021     		movs	r1, #128
+ 396 000a 0901     		lsls	r1, r1, #4
+ 397 000c 0B43     		orrs	r3, r1
+ 398 000e 1360     		str	r3, [r2]
+ 399 0010 04E0     		b	.L21
+ 400              	.L22:
+ 267:Generated_Source\PSoC4/PGA_1.c ****     }
+ 268:Generated_Source\PSoC4/PGA_1.c ****     else
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 13
+
+
+ 269:Generated_Source\PSoC4/PGA_1.c ****     {
+ 270:Generated_Source\PSoC4/PGA_1.c ****         PGA_1_OA_RES_CTRL_REG &= (uint32)~PGA_1_OA_PUMP_EN;
+ 401              		.loc 1 270 0
+ 402 0012 034A     		ldr	r2, .L24
+ 403 0014 1168     		ldr	r1, [r2]
+ 404 0016 034B     		ldr	r3, .L24+4
+ 405 0018 0B40     		ands	r3, r1
+ 406 001a 1360     		str	r3, [r2]
+ 407              	.L21:
+ 271:Generated_Source\PSoC4/PGA_1.c ****     }
+ 272:Generated_Source\PSoC4/PGA_1.c **** }
+ 408              		.loc 1 272 0
+ 409              		@ sp needed
+ 410 001c 7047     		bx	lr
+ 411              	.L25:
+ 412 001e C046     		.align	2
+ 413              	.L24:
+ 414 0020 08003040 		.word	1076887560
+ 415 0024 FFF7FFFF 		.word	-2049
+ 416              		.cfi_endproc
+ 417              	.LFE6:
+ 418              		.size	PGA_1_PumpControl, .-PGA_1_PumpControl
+ 419              		.global	PGA_1_compTab
+ 420              		.global	PGA_1_internalGainPower
+ 421              		.global	PGA_1_initVar
+ 422              		.section	.rodata
+ 423              		.align	2
+ 424              		.set	.LANCHOR1,. + 0
+ 425              		.type	PGA_1_compTab, %object
+ 426              		.size	PGA_1_compTab, 72
+ 427              	PGA_1_compTab:
+ 428 0000 0200000F 		.word	251658242
+ 429 0004 0200000F 		.word	251658242
+ 430 0008 0200000F 		.word	251658242
+ 431 000c 02000008 		.word	134217730
+ 432 0010 02000009 		.word	150994946
+ 433 0014 02000009 		.word	150994946
+ 434 0018 01000003 		.word	50331649
+ 435 001c 02000005 		.word	83886082
+ 436 0020 02000004 		.word	67108866
+ 437 0024 01000000 		.word	1
+ 438 0028 02000002 		.word	33554434
+ 439 002c 02000003 		.word	50331650
+ 440 0030 01000000 		.word	1
+ 441 0034 02000000 		.word	2
+ 442 0038 02000001 		.word	16777218
+ 443 003c 01000000 		.word	1
+ 444 0040 01000000 		.word	1
+ 445 0044 01000000 		.word	1
+ 446              		.bss
+ 447              		.align	2
+ 448              		.set	.LANCHOR0,. + 0
+ 449              		.type	PGA_1_internalGainPower, %object
+ 450              		.size	PGA_1_internalGainPower, 4
+ 451              	PGA_1_internalGainPower:
+ 452 0000 00000000 		.space	4
+ 453              		.type	PGA_1_initVar, %object
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 14
+
+
+ 454              		.size	PGA_1_initVar, 1
+ 455              	PGA_1_initVar:
+ 456 0004 00       		.space	1
+ 457              		.text
+ 458              	.Letext0:
+ 459              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
+ 460              		.section	.debug_info,"",%progbits
+ 461              	.Ldebug_info0:
+ 462 0000 05020000 		.4byte	0x205
+ 463 0004 0400     		.2byte	0x4
+ 464 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 465 000a 04       		.byte	0x4
+ 466 000b 01       		.uleb128 0x1
+ 467 000c DD010000 		.4byte	.LASF30
+ 468 0010 0C       		.byte	0xc
+ 469 0011 20000000 		.4byte	.LASF31
+ 470 0015 C7000000 		.4byte	.LASF32
+ 471 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 472 001d 00000000 		.4byte	0
+ 473 0021 00000000 		.4byte	.Ldebug_line0
+ 474 0025 02       		.uleb128 0x2
+ 475 0026 01       		.byte	0x1
+ 476 0027 06       		.byte	0x6
+ 477 0028 6F020000 		.4byte	.LASF0
+ 478 002c 02       		.uleb128 0x2
+ 479 002d 01       		.byte	0x1
+ 480 002e 08       		.byte	0x8
+ 481 002f 53000000 		.4byte	.LASF1
+ 482 0033 02       		.uleb128 0x2
+ 483 0034 02       		.byte	0x2
+ 484 0035 05       		.byte	0x5
+ 485 0036 AE010000 		.4byte	.LASF2
+ 486 003a 02       		.uleb128 0x2
+ 487 003b 02       		.byte	0x2
+ 488 003c 07       		.byte	0x7
+ 489 003d 84000000 		.4byte	.LASF3
+ 490 0041 02       		.uleb128 0x2
+ 491 0042 04       		.byte	0x4
+ 492 0043 05       		.byte	0x5
+ 493 0044 C5010000 		.4byte	.LASF4
+ 494 0048 02       		.uleb128 0x2
+ 495 0049 04       		.byte	0x4
+ 496 004a 07       		.byte	0x7
+ 497 004b 72000000 		.4byte	.LASF5
+ 498 004f 02       		.uleb128 0x2
+ 499 0050 08       		.byte	0x8
+ 500 0051 05       		.byte	0x5
+ 501 0052 71010000 		.4byte	.LASF6
+ 502 0056 02       		.uleb128 0x2
+ 503 0057 08       		.byte	0x8
+ 504 0058 07       		.byte	0x7
+ 505 0059 38010000 		.4byte	.LASF7
+ 506 005d 03       		.uleb128 0x3
+ 507 005e 04       		.byte	0x4
+ 508 005f 05       		.byte	0x5
+ 509 0060 696E7400 		.ascii	"int\000"
+ 510 0064 02       		.uleb128 0x2
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 15
+
+
+ 511 0065 04       		.byte	0x4
+ 512 0066 07       		.byte	0x7
+ 513 0067 BA000000 		.4byte	.LASF8
+ 514 006b 04       		.uleb128 0x4
+ 515 006c B8010000 		.4byte	.LASF9
+ 516 0070 02       		.byte	0x2
+ 517 0071 FC01     		.2byte	0x1fc
+ 518 0073 2C000000 		.4byte	0x2c
+ 519 0077 04       		.uleb128 0x4
+ 520 0078 B3000000 		.4byte	.LASF10
+ 521 007c 02       		.byte	0x2
+ 522 007d FE01     		.2byte	0x1fe
+ 523 007f 48000000 		.4byte	0x48
+ 524 0083 02       		.uleb128 0x2
+ 525 0084 04       		.byte	0x4
+ 526 0085 04       		.byte	0x4
+ 527 0086 4D000000 		.4byte	.LASF11
+ 528 008a 02       		.uleb128 0x2
+ 529 008b 08       		.byte	0x8
+ 530 008c 04       		.byte	0x4
+ 531 008d A1000000 		.4byte	.LASF12
+ 532 0091 02       		.uleb128 0x2
+ 533 0092 01       		.byte	0x1
+ 534 0093 08       		.byte	0x8
+ 535 0094 7F010000 		.4byte	.LASF13
+ 536 0098 04       		.uleb128 0x4
+ 537 0099 0C000000 		.4byte	.LASF14
+ 538 009d 02       		.byte	0x2
+ 539 009e A802     		.2byte	0x2a8
+ 540 00a0 A4000000 		.4byte	0xa4
+ 541 00a4 05       		.uleb128 0x5
+ 542 00a5 77000000 		.4byte	0x77
+ 543 00a9 06       		.uleb128 0x6
+ 544 00aa 2B010000 		.4byte	.LASF15
+ 545 00ae 01       		.byte	0x1
+ 546 00af 64       		.byte	0x64
+ 547 00b0 00000000 		.4byte	.LFB1
+ 548 00b4 1C000000 		.4byte	.LFE1-.LFB1
+ 549 00b8 01       		.uleb128 0x1
+ 550 00b9 9C       		.byte	0x9c
+ 551 00ba 06       		.uleb128 0x6
+ 552 00bb A8000000 		.4byte	.LASF16
+ 553 00bf 01       		.byte	0x1
+ 554 00c0 8D       		.byte	0x8d
+ 555 00c1 00000000 		.4byte	.LFB3
+ 556 00c5 10000000 		.4byte	.LFE3-.LFB3
+ 557 00c9 01       		.uleb128 0x1
+ 558 00ca 9C       		.byte	0x9c
+ 559 00cb 07       		.uleb128 0x7
+ 560 00cc CE010000 		.4byte	.LASF17
+ 561 00d0 01       		.byte	0x1
+ 562 00d1 A4       		.byte	0xa4
+ 563 00d2 00000000 		.4byte	.LFB4
+ 564 00d6 7C000000 		.4byte	.LFE4-.LFB4
+ 565 00da 01       		.uleb128 0x1
+ 566 00db 9C       		.byte	0x9c
+ 567 00dc FF000000 		.4byte	0xff
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 16
+
+
+ 568 00e0 08       		.uleb128 0x8
+ 569 00e1 67000000 		.4byte	.LASF19
+ 570 00e5 01       		.byte	0x1
+ 571 00e6 A4       		.byte	0xa4
+ 572 00e7 77000000 		.4byte	0x77
+ 573 00eb 00000000 		.4byte	.LLST0
+ 574 00ef 09       		.uleb128 0x9
+ 575 00f0 BE010000 		.4byte	.LASF21
+ 576 00f4 01       		.byte	0x1
+ 577 00f5 A6       		.byte	0xa6
+ 578 00f6 77000000 		.4byte	0x77
+ 579 00fa 21000000 		.4byte	.LLST1
+ 580 00fe 00       		.byte	0
+ 581 00ff 07       		.uleb128 0x7
+ 582 0100 4F010000 		.4byte	.LASF18
+ 583 0104 01       		.byte	0x1
+ 584 0105 D2       		.byte	0xd2
+ 585 0106 00000000 		.4byte	.LFB5
+ 586 010a 7C000000 		.4byte	.LFE5-.LFB5
+ 587 010e 01       		.uleb128 0x1
+ 588 010f 9C       		.byte	0x9c
+ 589 0110 33010000 		.4byte	0x133
+ 590 0114 08       		.uleb128 0x8
+ 591 0115 97000000 		.4byte	.LASF20
+ 592 0119 01       		.byte	0x1
+ 593 011a D2       		.byte	0xd2
+ 594 011b 77000000 		.4byte	0x77
+ 595 011f 34000000 		.4byte	.LLST2
+ 596 0123 09       		.uleb128 0x9
+ 597 0124 BE010000 		.4byte	.LASF21
+ 598 0128 01       		.byte	0x1
+ 599 0129 D4       		.byte	0xd4
+ 600 012a 77000000 		.4byte	0x77
+ 601 012e 55000000 		.4byte	.LLST3
+ 602 0132 00       		.byte	0
+ 603 0133 07       		.uleb128 0x7
+ 604 0134 5D010000 		.4byte	.LASF22
+ 605 0138 01       		.byte	0x1
+ 606 0139 45       		.byte	0x45
+ 607 013a 00000000 		.4byte	.LFB0
+ 608 013e 4C000000 		.4byte	.LFE0-.LFB0
+ 609 0142 01       		.uleb128 0x1
+ 610 0143 9C       		.byte	0x9c
+ 611 0144 61010000 		.4byte	0x161
+ 612 0148 0A       		.uleb128 0xa
+ 613 0149 32000000 		.4byte	.LVL9
+ 614 014d A9000000 		.4byte	0xa9
+ 615 0151 0B       		.uleb128 0xb
+ 616 0152 38000000 		.4byte	.LVL10
+ 617 0156 FF000000 		.4byte	0xff
+ 618 015a 0C       		.uleb128 0xc
+ 619 015b 01       		.uleb128 0x1
+ 620 015c 50       		.byte	0x50
+ 621 015d 01       		.uleb128 0x1
+ 622 015e 30       		.byte	0x30
+ 623 015f 00       		.byte	0
+ 624 0160 00       		.byte	0
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 17
+
+
+ 625 0161 07       		.uleb128 0x7
+ 626 0162 00000000 		.4byte	.LASF23
+ 627 0166 01       		.byte	0x1
+ 628 0167 7A       		.byte	0x7a
+ 629 0168 00000000 		.4byte	.LFB2
+ 630 016c 20000000 		.4byte	.LFE2-.LFB2
+ 631 0170 01       		.uleb128 0x1
+ 632 0171 9C       		.byte	0x9c
+ 633 0172 89010000 		.4byte	0x189
+ 634 0176 0A       		.uleb128 0xa
+ 635 0177 0E000000 		.4byte	.LVL11
+ 636 017b 33010000 		.4byte	0x133
+ 637 017f 0A       		.uleb128 0xa
+ 638 0180 18000000 		.4byte	.LVL12
+ 639 0184 A9000000 		.4byte	0xa9
+ 640 0188 00       		.byte	0
+ 641 0189 0D       		.uleb128 0xd
+ 642 018a 9C010000 		.4byte	.LASF24
+ 643 018e 01       		.byte	0x1
+ 644 018f 0601     		.2byte	0x106
+ 645 0191 00000000 		.4byte	.LFB6
+ 646 0195 28000000 		.4byte	.LFE6-.LFB6
+ 647 0199 01       		.uleb128 0x1
+ 648 019a 9C       		.byte	0x9c
+ 649 019b AE010000 		.4byte	0x1ae
+ 650 019f 0E       		.uleb128 0xe
+ 651 01a0 61000000 		.4byte	.LASF25
+ 652 01a4 01       		.byte	0x1
+ 653 01a5 0601     		.2byte	0x106
+ 654 01a7 77000000 		.4byte	0x77
+ 655 01ab 01       		.uleb128 0x1
+ 656 01ac 50       		.byte	0x50
+ 657 01ad 00       		.byte	0
+ 658 01ae 0F       		.uleb128 0xf
+ 659 01af 3F000000 		.4byte	.LASF26
+ 660 01b3 01       		.byte	0x1
+ 661 01b4 13       		.byte	0x13
+ 662 01b5 6B000000 		.4byte	0x6b
+ 663 01b9 05       		.uleb128 0x5
+ 664 01ba 03       		.byte	0x3
+ 665 01bb 00000000 		.4byte	PGA_1_initVar
+ 666 01bf 0F       		.uleb128 0xf
+ 667 01c0 84010000 		.4byte	.LASF27
+ 668 01c4 01       		.byte	0x1
+ 669 01c5 15       		.byte	0x15
+ 670 01c6 77000000 		.4byte	0x77
+ 671 01ca 05       		.uleb128 0x5
+ 672 01cb 03       		.byte	0x3
+ 673 01cc 00000000 		.4byte	PGA_1_internalGainPower
+ 674 01d0 10       		.uleb128 0x10
+ 675 01d1 ED010000 		.4byte	0x1ed
+ 676 01d5 E6010000 		.4byte	0x1e6
+ 677 01d9 11       		.uleb128 0x11
+ 678 01da E6010000 		.4byte	0x1e6
+ 679 01de 05       		.byte	0x5
+ 680 01df 11       		.uleb128 0x11
+ 681 01e0 E6010000 		.4byte	0x1e6
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 18
+
+
+ 682 01e4 02       		.byte	0x2
+ 683 01e5 00       		.byte	0
+ 684 01e6 02       		.uleb128 0x2
+ 685 01e7 04       		.byte	0x4
+ 686 01e8 07       		.byte	0x7
+ 687 01e9 68010000 		.4byte	.LASF28
+ 688 01ed 12       		.uleb128 0x12
+ 689 01ee 77000000 		.4byte	0x77
+ 690 01f2 0F       		.uleb128 0xf
+ 691 01f3 12000000 		.4byte	.LASF29
+ 692 01f7 01       		.byte	0x1
+ 693 01f8 28       		.byte	0x28
+ 694 01f9 03020000 		.4byte	0x203
+ 695 01fd 05       		.uleb128 0x5
+ 696 01fe 03       		.byte	0x3
+ 697 01ff 00000000 		.4byte	PGA_1_compTab
+ 698 0203 12       		.uleb128 0x12
+ 699 0204 D0010000 		.4byte	0x1d0
+ 700 0208 00       		.byte	0
+ 701              		.section	.debug_abbrev,"",%progbits
+ 702              	.Ldebug_abbrev0:
+ 703 0000 01       		.uleb128 0x1
+ 704 0001 11       		.uleb128 0x11
+ 705 0002 01       		.byte	0x1
+ 706 0003 25       		.uleb128 0x25
+ 707 0004 0E       		.uleb128 0xe
+ 708 0005 13       		.uleb128 0x13
+ 709 0006 0B       		.uleb128 0xb
+ 710 0007 03       		.uleb128 0x3
+ 711 0008 0E       		.uleb128 0xe
+ 712 0009 1B       		.uleb128 0x1b
+ 713 000a 0E       		.uleb128 0xe
+ 714 000b 55       		.uleb128 0x55
+ 715 000c 17       		.uleb128 0x17
+ 716 000d 11       		.uleb128 0x11
+ 717 000e 01       		.uleb128 0x1
+ 718 000f 10       		.uleb128 0x10
+ 719 0010 17       		.uleb128 0x17
+ 720 0011 00       		.byte	0
+ 721 0012 00       		.byte	0
+ 722 0013 02       		.uleb128 0x2
+ 723 0014 24       		.uleb128 0x24
+ 724 0015 00       		.byte	0
+ 725 0016 0B       		.uleb128 0xb
+ 726 0017 0B       		.uleb128 0xb
+ 727 0018 3E       		.uleb128 0x3e
+ 728 0019 0B       		.uleb128 0xb
+ 729 001a 03       		.uleb128 0x3
+ 730 001b 0E       		.uleb128 0xe
+ 731 001c 00       		.byte	0
+ 732 001d 00       		.byte	0
+ 733 001e 03       		.uleb128 0x3
+ 734 001f 24       		.uleb128 0x24
+ 735 0020 00       		.byte	0
+ 736 0021 0B       		.uleb128 0xb
+ 737 0022 0B       		.uleb128 0xb
+ 738 0023 3E       		.uleb128 0x3e
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 19
+
+
+ 739 0024 0B       		.uleb128 0xb
+ 740 0025 03       		.uleb128 0x3
+ 741 0026 08       		.uleb128 0x8
+ 742 0027 00       		.byte	0
+ 743 0028 00       		.byte	0
+ 744 0029 04       		.uleb128 0x4
+ 745 002a 16       		.uleb128 0x16
+ 746 002b 00       		.byte	0
+ 747 002c 03       		.uleb128 0x3
+ 748 002d 0E       		.uleb128 0xe
+ 749 002e 3A       		.uleb128 0x3a
+ 750 002f 0B       		.uleb128 0xb
+ 751 0030 3B       		.uleb128 0x3b
+ 752 0031 05       		.uleb128 0x5
+ 753 0032 49       		.uleb128 0x49
+ 754 0033 13       		.uleb128 0x13
+ 755 0034 00       		.byte	0
+ 756 0035 00       		.byte	0
+ 757 0036 05       		.uleb128 0x5
+ 758 0037 35       		.uleb128 0x35
+ 759 0038 00       		.byte	0
+ 760 0039 49       		.uleb128 0x49
+ 761 003a 13       		.uleb128 0x13
+ 762 003b 00       		.byte	0
+ 763 003c 00       		.byte	0
+ 764 003d 06       		.uleb128 0x6
+ 765 003e 2E       		.uleb128 0x2e
+ 766 003f 00       		.byte	0
+ 767 0040 3F       		.uleb128 0x3f
+ 768 0041 19       		.uleb128 0x19
+ 769 0042 03       		.uleb128 0x3
+ 770 0043 0E       		.uleb128 0xe
+ 771 0044 3A       		.uleb128 0x3a
+ 772 0045 0B       		.uleb128 0xb
+ 773 0046 3B       		.uleb128 0x3b
+ 774 0047 0B       		.uleb128 0xb
+ 775 0048 27       		.uleb128 0x27
+ 776 0049 19       		.uleb128 0x19
+ 777 004a 11       		.uleb128 0x11
+ 778 004b 01       		.uleb128 0x1
+ 779 004c 12       		.uleb128 0x12
+ 780 004d 06       		.uleb128 0x6
+ 781 004e 40       		.uleb128 0x40
+ 782 004f 18       		.uleb128 0x18
+ 783 0050 9742     		.uleb128 0x2117
+ 784 0052 19       		.uleb128 0x19
+ 785 0053 00       		.byte	0
+ 786 0054 00       		.byte	0
+ 787 0055 07       		.uleb128 0x7
+ 788 0056 2E       		.uleb128 0x2e
+ 789 0057 01       		.byte	0x1
+ 790 0058 3F       		.uleb128 0x3f
+ 791 0059 19       		.uleb128 0x19
+ 792 005a 03       		.uleb128 0x3
+ 793 005b 0E       		.uleb128 0xe
+ 794 005c 3A       		.uleb128 0x3a
+ 795 005d 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 20
+
+
+ 796 005e 3B       		.uleb128 0x3b
+ 797 005f 0B       		.uleb128 0xb
+ 798 0060 27       		.uleb128 0x27
+ 799 0061 19       		.uleb128 0x19
+ 800 0062 11       		.uleb128 0x11
+ 801 0063 01       		.uleb128 0x1
+ 802 0064 12       		.uleb128 0x12
+ 803 0065 06       		.uleb128 0x6
+ 804 0066 40       		.uleb128 0x40
+ 805 0067 18       		.uleb128 0x18
+ 806 0068 9742     		.uleb128 0x2117
+ 807 006a 19       		.uleb128 0x19
+ 808 006b 01       		.uleb128 0x1
+ 809 006c 13       		.uleb128 0x13
+ 810 006d 00       		.byte	0
+ 811 006e 00       		.byte	0
+ 812 006f 08       		.uleb128 0x8
+ 813 0070 05       		.uleb128 0x5
+ 814 0071 00       		.byte	0
+ 815 0072 03       		.uleb128 0x3
+ 816 0073 0E       		.uleb128 0xe
+ 817 0074 3A       		.uleb128 0x3a
+ 818 0075 0B       		.uleb128 0xb
+ 819 0076 3B       		.uleb128 0x3b
+ 820 0077 0B       		.uleb128 0xb
+ 821 0078 49       		.uleb128 0x49
+ 822 0079 13       		.uleb128 0x13
+ 823 007a 02       		.uleb128 0x2
+ 824 007b 17       		.uleb128 0x17
+ 825 007c 00       		.byte	0
+ 826 007d 00       		.byte	0
+ 827 007e 09       		.uleb128 0x9
+ 828 007f 34       		.uleb128 0x34
+ 829 0080 00       		.byte	0
+ 830 0081 03       		.uleb128 0x3
+ 831 0082 0E       		.uleb128 0xe
+ 832 0083 3A       		.uleb128 0x3a
+ 833 0084 0B       		.uleb128 0xb
+ 834 0085 3B       		.uleb128 0x3b
+ 835 0086 0B       		.uleb128 0xb
+ 836 0087 49       		.uleb128 0x49
+ 837 0088 13       		.uleb128 0x13
+ 838 0089 02       		.uleb128 0x2
+ 839 008a 17       		.uleb128 0x17
+ 840 008b 00       		.byte	0
+ 841 008c 00       		.byte	0
+ 842 008d 0A       		.uleb128 0xa
+ 843 008e 898201   		.uleb128 0x4109
+ 844 0091 00       		.byte	0
+ 845 0092 11       		.uleb128 0x11
+ 846 0093 01       		.uleb128 0x1
+ 847 0094 31       		.uleb128 0x31
+ 848 0095 13       		.uleb128 0x13
+ 849 0096 00       		.byte	0
+ 850 0097 00       		.byte	0
+ 851 0098 0B       		.uleb128 0xb
+ 852 0099 898201   		.uleb128 0x4109
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 21
+
+
+ 853 009c 01       		.byte	0x1
+ 854 009d 11       		.uleb128 0x11
+ 855 009e 01       		.uleb128 0x1
+ 856 009f 31       		.uleb128 0x31
+ 857 00a0 13       		.uleb128 0x13
+ 858 00a1 00       		.byte	0
+ 859 00a2 00       		.byte	0
+ 860 00a3 0C       		.uleb128 0xc
+ 861 00a4 8A8201   		.uleb128 0x410a
+ 862 00a7 00       		.byte	0
+ 863 00a8 02       		.uleb128 0x2
+ 864 00a9 18       		.uleb128 0x18
+ 865 00aa 9142     		.uleb128 0x2111
+ 866 00ac 18       		.uleb128 0x18
+ 867 00ad 00       		.byte	0
+ 868 00ae 00       		.byte	0
+ 869 00af 0D       		.uleb128 0xd
+ 870 00b0 2E       		.uleb128 0x2e
+ 871 00b1 01       		.byte	0x1
+ 872 00b2 3F       		.uleb128 0x3f
+ 873 00b3 19       		.uleb128 0x19
+ 874 00b4 03       		.uleb128 0x3
+ 875 00b5 0E       		.uleb128 0xe
+ 876 00b6 3A       		.uleb128 0x3a
+ 877 00b7 0B       		.uleb128 0xb
+ 878 00b8 3B       		.uleb128 0x3b
+ 879 00b9 05       		.uleb128 0x5
+ 880 00ba 27       		.uleb128 0x27
+ 881 00bb 19       		.uleb128 0x19
+ 882 00bc 11       		.uleb128 0x11
+ 883 00bd 01       		.uleb128 0x1
+ 884 00be 12       		.uleb128 0x12
+ 885 00bf 06       		.uleb128 0x6
+ 886 00c0 40       		.uleb128 0x40
+ 887 00c1 18       		.uleb128 0x18
+ 888 00c2 9742     		.uleb128 0x2117
+ 889 00c4 19       		.uleb128 0x19
+ 890 00c5 01       		.uleb128 0x1
+ 891 00c6 13       		.uleb128 0x13
+ 892 00c7 00       		.byte	0
+ 893 00c8 00       		.byte	0
+ 894 00c9 0E       		.uleb128 0xe
+ 895 00ca 05       		.uleb128 0x5
+ 896 00cb 00       		.byte	0
+ 897 00cc 03       		.uleb128 0x3
+ 898 00cd 0E       		.uleb128 0xe
+ 899 00ce 3A       		.uleb128 0x3a
+ 900 00cf 0B       		.uleb128 0xb
+ 901 00d0 3B       		.uleb128 0x3b
+ 902 00d1 05       		.uleb128 0x5
+ 903 00d2 49       		.uleb128 0x49
+ 904 00d3 13       		.uleb128 0x13
+ 905 00d4 02       		.uleb128 0x2
+ 906 00d5 18       		.uleb128 0x18
+ 907 00d6 00       		.byte	0
+ 908 00d7 00       		.byte	0
+ 909 00d8 0F       		.uleb128 0xf
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 22
+
+
+ 910 00d9 34       		.uleb128 0x34
+ 911 00da 00       		.byte	0
+ 912 00db 03       		.uleb128 0x3
+ 913 00dc 0E       		.uleb128 0xe
+ 914 00dd 3A       		.uleb128 0x3a
+ 915 00de 0B       		.uleb128 0xb
+ 916 00df 3B       		.uleb128 0x3b
+ 917 00e0 0B       		.uleb128 0xb
+ 918 00e1 49       		.uleb128 0x49
+ 919 00e2 13       		.uleb128 0x13
+ 920 00e3 3F       		.uleb128 0x3f
+ 921 00e4 19       		.uleb128 0x19
+ 922 00e5 02       		.uleb128 0x2
+ 923 00e6 18       		.uleb128 0x18
+ 924 00e7 00       		.byte	0
+ 925 00e8 00       		.byte	0
+ 926 00e9 10       		.uleb128 0x10
+ 927 00ea 01       		.uleb128 0x1
+ 928 00eb 01       		.byte	0x1
+ 929 00ec 49       		.uleb128 0x49
+ 930 00ed 13       		.uleb128 0x13
+ 931 00ee 01       		.uleb128 0x1
+ 932 00ef 13       		.uleb128 0x13
+ 933 00f0 00       		.byte	0
+ 934 00f1 00       		.byte	0
+ 935 00f2 11       		.uleb128 0x11
+ 936 00f3 21       		.uleb128 0x21
+ 937 00f4 00       		.byte	0
+ 938 00f5 49       		.uleb128 0x49
+ 939 00f6 13       		.uleb128 0x13
+ 940 00f7 2F       		.uleb128 0x2f
+ 941 00f8 0B       		.uleb128 0xb
+ 942 00f9 00       		.byte	0
+ 943 00fa 00       		.byte	0
+ 944 00fb 12       		.uleb128 0x12
+ 945 00fc 26       		.uleb128 0x26
+ 946 00fd 00       		.byte	0
+ 947 00fe 49       		.uleb128 0x49
+ 948 00ff 13       		.uleb128 0x13
+ 949 0100 00       		.byte	0
+ 950 0101 00       		.byte	0
+ 951 0102 00       		.byte	0
+ 952              		.section	.debug_loc,"",%progbits
+ 953              	.Ldebug_loc0:
+ 954              	.LLST0:
+ 955 0000 00000000 		.4byte	.LVL0
+ 956 0004 10000000 		.4byte	.LVL1
+ 957 0008 0100     		.2byte	0x1
+ 958 000a 50       		.byte	0x50
+ 959 000b 10000000 		.4byte	.LVL1
+ 960 000f 7C000000 		.4byte	.LFE4
+ 961 0013 0400     		.2byte	0x4
+ 962 0015 F3       		.byte	0xf3
+ 963 0016 01       		.uleb128 0x1
+ 964 0017 50       		.byte	0x50
+ 965 0018 9F       		.byte	0x9f
+ 966 0019 00000000 		.4byte	0
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 23
+
+
+ 967 001d 00000000 		.4byte	0
+ 968              	.LLST1:
+ 969 0021 1E000000 		.4byte	.LVL2
+ 970 0025 24000000 		.4byte	.LVL3
+ 971 0029 0100     		.2byte	0x1
+ 972 002b 54       		.byte	0x54
+ 973 002c 00000000 		.4byte	0
+ 974 0030 00000000 		.4byte	0
+ 975              	.LLST2:
+ 976 0034 00000000 		.4byte	.LVL4
+ 977 0038 0C000000 		.4byte	.LVL5
+ 978 003c 0100     		.2byte	0x1
+ 979 003e 50       		.byte	0x50
+ 980 003f 0C000000 		.4byte	.LVL5
+ 981 0043 7C000000 		.4byte	.LFE5
+ 982 0047 0400     		.2byte	0x4
+ 983 0049 F3       		.byte	0xf3
+ 984 004a 01       		.uleb128 0x1
+ 985 004b 50       		.byte	0x50
+ 986 004c 9F       		.byte	0x9f
+ 987 004d 00000000 		.4byte	0
+ 988 0051 00000000 		.4byte	0
+ 989              	.LLST3:
+ 990 0055 20000000 		.4byte	.LVL6
+ 991 0059 24000000 		.4byte	.LVL7
+ 992 005d 0100     		.2byte	0x1
+ 993 005f 52       		.byte	0x52
+ 994 0060 24000000 		.4byte	.LVL7
+ 995 0064 28000000 		.4byte	.LVL8
+ 996 0068 0A00     		.2byte	0xa
+ 997 006a 71       		.byte	0x71
+ 998 006b 00       		.sleb128 0
+ 999 006c 11       		.byte	0x11
+ 1000 006d FFFFC387 		.sleb128 -252641281
+ 1000      7F
+ 1001 0072 1A       		.byte	0x1a
+ 1002 0073 9F       		.byte	0x9f
+ 1003 0074 00000000 		.4byte	0
+ 1004 0078 00000000 		.4byte	0
+ 1005              		.section	.debug_aranges,"",%progbits
+ 1006 0000 4C000000 		.4byte	0x4c
+ 1007 0004 0200     		.2byte	0x2
+ 1008 0006 00000000 		.4byte	.Ldebug_info0
+ 1009 000a 04       		.byte	0x4
+ 1010 000b 00       		.byte	0
+ 1011 000c 0000     		.2byte	0
+ 1012 000e 0000     		.2byte	0
+ 1013 0010 00000000 		.4byte	.LFB1
+ 1014 0014 1C000000 		.4byte	.LFE1-.LFB1
+ 1015 0018 00000000 		.4byte	.LFB3
+ 1016 001c 10000000 		.4byte	.LFE3-.LFB3
+ 1017 0020 00000000 		.4byte	.LFB4
+ 1018 0024 7C000000 		.4byte	.LFE4-.LFB4
+ 1019 0028 00000000 		.4byte	.LFB5
+ 1020 002c 7C000000 		.4byte	.LFE5-.LFB5
+ 1021 0030 00000000 		.4byte	.LFB0
+ 1022 0034 4C000000 		.4byte	.LFE0-.LFB0
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 24
+
+
+ 1023 0038 00000000 		.4byte	.LFB2
+ 1024 003c 20000000 		.4byte	.LFE2-.LFB2
+ 1025 0040 00000000 		.4byte	.LFB6
+ 1026 0044 28000000 		.4byte	.LFE6-.LFB6
+ 1027 0048 00000000 		.4byte	0
+ 1028 004c 00000000 		.4byte	0
+ 1029              		.section	.debug_ranges,"",%progbits
+ 1030              	.Ldebug_ranges0:
+ 1031 0000 00000000 		.4byte	.LFB1
+ 1032 0004 1C000000 		.4byte	.LFE1
+ 1033 0008 00000000 		.4byte	.LFB3
+ 1034 000c 10000000 		.4byte	.LFE3
+ 1035 0010 00000000 		.4byte	.LFB4
+ 1036 0014 7C000000 		.4byte	.LFE4
+ 1037 0018 00000000 		.4byte	.LFB5
+ 1038 001c 7C000000 		.4byte	.LFE5
+ 1039 0020 00000000 		.4byte	.LFB0
+ 1040 0024 4C000000 		.4byte	.LFE0
+ 1041 0028 00000000 		.4byte	.LFB2
+ 1042 002c 20000000 		.4byte	.LFE2
+ 1043 0030 00000000 		.4byte	.LFB6
+ 1044 0034 28000000 		.4byte	.LFE6
+ 1045 0038 00000000 		.4byte	0
+ 1046 003c 00000000 		.4byte	0
+ 1047              		.section	.debug_line,"",%progbits
+ 1048              	.Ldebug_line0:
+ 1049 0000 DE000000 		.section	.debug_str,"MS",%progbits,1
+ 1049      02004200 
+ 1049      00000201 
+ 1049      FB0E0D00 
+ 1049      01010101 
+ 1050              	.LASF23:
+ 1051 0000 5047415F 		.ascii	"PGA_1_Start\000"
+ 1051      315F5374 
+ 1051      61727400 
+ 1052              	.LASF14:
+ 1053 000c 72656733 		.ascii	"reg32\000"
+ 1053      3200
+ 1054              	.LASF29:
+ 1055 0012 5047415F 		.ascii	"PGA_1_compTab\000"
+ 1055      315F636F 
+ 1055      6D705461 
+ 1055      6200
+ 1056              	.LASF31:
+ 1057 0020 47656E65 		.ascii	"Generated_Source\\PSoC4\\PGA_1.c\000"
+ 1057      72617465 
+ 1057      645F536F 
+ 1057      75726365 
+ 1057      5C50536F 
+ 1058              	.LASF26:
+ 1059 003f 5047415F 		.ascii	"PGA_1_initVar\000"
+ 1059      315F696E 
+ 1059      69745661 
+ 1059      7200
+ 1060              	.LASF11:
+ 1061 004d 666C6F61 		.ascii	"float\000"
+ 1061      7400
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 25
+
+
+ 1062              	.LASF1:
+ 1063 0053 756E7369 		.ascii	"unsigned char\000"
+ 1063      676E6564 
+ 1063      20636861 
+ 1063      7200
+ 1064              	.LASF25:
+ 1065 0061 6F6E4F66 		.ascii	"onOff\000"
+ 1065      6600
+ 1066              	.LASF19:
+ 1067 0067 706F7765 		.ascii	"powerLevel\000"
+ 1067      724C6576 
+ 1067      656C00
+ 1068              	.LASF5:
+ 1069 0072 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1069      20756E73 
+ 1069      69676E65 
+ 1069      6420696E 
+ 1069      7400
+ 1070              	.LASF3:
+ 1071 0084 73686F72 		.ascii	"short unsigned int\000"
+ 1071      7420756E 
+ 1071      7369676E 
+ 1071      65642069 
+ 1071      6E7400
+ 1072              	.LASF20:
+ 1073 0097 6761696E 		.ascii	"gainLevel\000"
+ 1073      4C657665 
+ 1073      6C00
+ 1074              	.LASF12:
+ 1075 00a1 646F7562 		.ascii	"double\000"
+ 1075      6C6500
+ 1076              	.LASF16:
+ 1077 00a8 5047415F 		.ascii	"PGA_1_Stop\000"
+ 1077      315F5374 
+ 1077      6F7000
+ 1078              	.LASF10:
+ 1079 00b3 75696E74 		.ascii	"uint32\000"
+ 1079      333200
+ 1080              	.LASF8:
+ 1081 00ba 756E7369 		.ascii	"unsigned int\000"
+ 1081      676E6564 
+ 1081      20696E74 
+ 1081      00
+ 1082              	.LASF32:
+ 1083 00c7 433A5C55 		.ascii	"C:\\Users\\Crowling\\OneDrive\\Documents\\GitHub\\L"
+ 1083      73657273 
+ 1083      5C43726F 
+ 1083      776C696E 
+ 1083      675C4F6E 
+ 1084 00f4 692D4365 		.ascii	"i-CellTesting_Script\\Internal_Main\\Internal_Main."
+ 1084      6C6C5465 
+ 1084      7374696E 
+ 1084      675F5363 
+ 1084      72697074 
+ 1085 0125 63796473 		.ascii	"cydsn\000"
+ 1085      6E00
+ 1086              	.LASF15:
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 26
+
+
+ 1087 012b 5047415F 		.ascii	"PGA_1_Enable\000"
+ 1087      315F456E 
+ 1087      61626C65 
+ 1087      00
+ 1088              	.LASF7:
+ 1089 0138 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1089      206C6F6E 
+ 1089      6720756E 
+ 1089      7369676E 
+ 1089      65642069 
+ 1090              	.LASF18:
+ 1091 014f 5047415F 		.ascii	"PGA_1_SetGain\000"
+ 1091      315F5365 
+ 1091      74476169 
+ 1091      6E00
+ 1092              	.LASF22:
+ 1093 015d 5047415F 		.ascii	"PGA_1_Init\000"
+ 1093      315F496E 
+ 1093      697400
+ 1094              	.LASF28:
+ 1095 0168 73697A65 		.ascii	"sizetype\000"
+ 1095      74797065 
+ 1095      00
+ 1096              	.LASF6:
+ 1097 0171 6C6F6E67 		.ascii	"long long int\000"
+ 1097      206C6F6E 
+ 1097      6720696E 
+ 1097      7400
+ 1098              	.LASF13:
+ 1099 017f 63686172 		.ascii	"char\000"
+ 1099      00
+ 1100              	.LASF27:
+ 1101 0184 5047415F 		.ascii	"PGA_1_internalGainPower\000"
+ 1101      315F696E 
+ 1101      7465726E 
+ 1101      616C4761 
+ 1101      696E506F 
+ 1102              	.LASF24:
+ 1103 019c 5047415F 		.ascii	"PGA_1_PumpControl\000"
+ 1103      315F5075 
+ 1103      6D70436F 
+ 1103      6E74726F 
+ 1103      6C00
+ 1104              	.LASF2:
+ 1105 01ae 73686F72 		.ascii	"short int\000"
+ 1105      7420696E 
+ 1105      7400
+ 1106              	.LASF9:
+ 1107 01b8 75696E74 		.ascii	"uint8\000"
+ 1107      3800
+ 1108              	.LASF21:
+ 1109 01be 6C6F6354 		.ascii	"locTmp\000"
+ 1109      6D7000
+ 1110              	.LASF4:
+ 1111 01c5 6C6F6E67 		.ascii	"long int\000"
+ 1111      20696E74 
+ 1111      00
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccQ9kA97.s 			page 27
+
+
+ 1112              	.LASF17:
+ 1113 01ce 5047415F 		.ascii	"PGA_1_SetPower\000"
+ 1113      315F5365 
+ 1113      74506F77 
+ 1113      657200
+ 1114              	.LASF30:
+ 1115 01dd 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1115      43313120 
+ 1115      352E342E 
+ 1115      31203230 
+ 1115      31363036 
+ 1116 0210 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 1116      20726576 
+ 1116      6973696F 
+ 1116      6E203233 
+ 1116      37373135 
+ 1117 0243 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 1117      67202D66 
+ 1117      66756E63 
+ 1117      74696F6E 
+ 1117      2D736563 
+ 1118              	.LASF0:
+ 1119 026f 7369676E 		.ascii	"signed char\000"
+ 1119      65642063 
+ 1119      68617200 
+ 1120              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
