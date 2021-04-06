@@ -180,12 +180,27 @@ static void ClockSetup(void)
 	CY_SET_REG32((void *)CYREG_PERI_DIV_CMD, 0x8000FF40u);
 	CY_SET_REG32((void *)CYREG_PERI_DIV_16_CTL1, 0x00000100u);
 	CY_SET_REG32((void *)CYREG_PERI_DIV_CMD, 0x8000FF41u);
+	CY_SET_REG32((void *)CYREG_PERI_DIV_24_5_CTL, 0x02DC6B00u);
+	CY_SET_REG32((void *)CYREG_PERI_DIV_CMD, 0x8000FFC0u);
+	CY_SET_REG32((void *)CYREG_PERI_DIV_16_CTL3, 0x00001000u);
+	CY_SET_REG32((void *)CYREG_PERI_DIV_CMD, 0x8000FF43u);
+	CY_SET_REG32((void *)CYREG_PERI_DIV_16_CTL2, 0x00000E00u);
+	CY_SET_REG32((void *)CYREG_PERI_DIV_CMD, 0x8000FF42u);
 
 	/* CYDEV_CLK_SELECT Starting address: CYDEV_CLK_SELECT */
 	CY_SET_REG32((void *)(CYREG_CLK_SELECT), 0x00000020u);
 
 	/* CYDEV_PERI_PCLK_CTL12 Starting address: CYDEV_PERI_PCLK_CTL12 */
 	CY_SET_REG32((void *)(CYREG_PERI_PCLK_CTL12), 0x00000041u);
+
+	/* CYDEV_PERI_PCLK_CTL4 Starting address: CYDEV_PERI_PCLK_CTL4 */
+	CY_SET_REG32((void *)(CYREG_PERI_PCLK_CTL4), 0x000000C0u);
+
+	/* CYDEV_PERI_PCLK_CTL1 Starting address: CYDEV_PERI_PCLK_CTL1 */
+	CY_SET_REG32((void *)(CYREG_PERI_PCLK_CTL1), 0x00000043u);
+
+	/* CYDEV_PERI_PCLK_CTL0 Starting address: CYDEV_PERI_PCLK_CTL0 */
+	CY_SET_REG32((void *)(CYREG_PERI_PCLK_CTL0), 0x00000042u);
 
 	(void)CyIntSetVector(11u, &CySysTimerIsr);
 	CyIntEnable(11u);
@@ -282,10 +297,10 @@ void AMux_2_Set(uint8 channel)
 {
 	switch (channel) {
 		case 0u:
-			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW, (0x10u));
+			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW, (0x02u));
 			break;
 		case 1u:
-			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW, (0x02u));
+			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW, (0x10u));
 			break;
 		default:
 			break;
@@ -310,10 +325,10 @@ void AMux_2_Unset(uint8 channel)
 {
 	switch (channel) {
 		case 0u:
-			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW_CLR, (0x10u));
+			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW_CLR, (0x02u));
 			break;
 		case 1u:
-			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW_CLR, (0x02u));
+			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW_CLR, (0x10u));
 			break;
 		default:
 			break;
@@ -409,7 +424,8 @@ void cyfitter_cfg(void)
 
 	{
 		/* HSIOM Starting address: CYDEV_HSIOM_BASE */
-		CY_SET_REG32((void *)(CYDEV_HSIOM_BASE), 0x000000EEu);
+		CY_SET_REG32((void *)(CYDEV_HSIOM_BASE), 0x009900EEu);
+		CY_SET_REG32((void *)(CYREG_HSIOM_PORT_SEL3), 0x000000EEu);
 
 		/* PASS_SAR_TRIG_SEL Starting address: CYDEV_PASS_SAR_TRIG_SEL */
 		CY_SET_REG32((void *)(CYREG_PASS_SAR_TRIG_SEL), 0x00000000u);
@@ -418,7 +434,8 @@ void cyfitter_cfg(void)
 
 	/* Perform second pass device configuration. These items must be configured in specific order after the regular configuration is done. */
 	/* IOPINS0_0 Starting address: CYDEV_GPIO_PRT0_BASE */
-	CY_SET_REG32((void *)(CYREG_GPIO_PRT0_PC), 0x00000036u);
+	CY_SET_REG32((void *)(CYDEV_GPIO_PRT0_BASE), 0x00000020u);
+	CY_SET_REG32((void *)(CYREG_GPIO_PRT0_PC), 0x00031DB6u);
 
 	/* IOPINS0_1 Starting address: CYDEV_GPIO_PRT1_BASE */
 	CY_SET_REG32((void *)(CYDEV_GPIO_PRT1_BASE), 0x00000002u);
@@ -427,6 +444,10 @@ void cyfitter_cfg(void)
 	/* IOPINS0_2 Starting address: CYDEV_GPIO_PRT2_BASE */
 	CY_SET_REG32((void *)(CYDEV_GPIO_PRT2_BASE), 0x000000BEu);
 	CY_SET_REG32((void *)(CYREG_GPIO_PRT2_PC2), 0x000000BEu);
+
+	/* IOPINS0_3 Starting address: CYDEV_GPIO_PRT3_BASE */
+	CY_SET_REG32((void *)(CYDEV_GPIO_PRT3_BASE), 0x00000003u);
+	CY_SET_REG32((void *)(CYREG_GPIO_PRT3_PC), 0x00000024u);
 
 
 	/* Setup clocks based on selections from Clock DWR */

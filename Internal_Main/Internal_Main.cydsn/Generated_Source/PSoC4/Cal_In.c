@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Cal_In.c  
+* File Name: Cal_in.c  
 * Version 2.20
 *
 * Description:
@@ -13,35 +13,35 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "Cal_In.h"
+#include "Cal_in.h"
 
 
-#if defined(Cal_In__PC)
-    #define Cal_In_SetP4PinDriveMode(shift, mode)  \
+#if defined(Cal_in__PC)
+    #define Cal_in_SetP4PinDriveMode(shift, mode)  \
     do { \
-        Cal_In_PC =   (Cal_In_PC & \
-                                (uint32)(~(uint32)(Cal_In_DRIVE_MODE_IND_MASK << \
-                                (Cal_In_DRIVE_MODE_BITS * (shift))))) | \
+        Cal_in_PC =   (Cal_in_PC & \
+                                (uint32)(~(uint32)(Cal_in_DRIVE_MODE_IND_MASK << \
+                                (Cal_in_DRIVE_MODE_BITS * (shift))))) | \
                                 (uint32)((uint32)(mode) << \
-                                (Cal_In_DRIVE_MODE_BITS * (shift))); \
+                                (Cal_in_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 #else
     #if (CY_PSOC4_4200L)
-        #define Cal_In_SetP4PinDriveMode(shift, mode)  \
+        #define Cal_in_SetP4PinDriveMode(shift, mode)  \
         do { \
-            Cal_In_USBIO_CTRL_REG = (Cal_In_USBIO_CTRL_REG & \
-                                    (uint32)(~(uint32)(Cal_In_DRIVE_MODE_IND_MASK << \
-                                    (Cal_In_DRIVE_MODE_BITS * (shift))))) | \
+            Cal_in_USBIO_CTRL_REG = (Cal_in_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(Cal_in_DRIVE_MODE_IND_MASK << \
+                                    (Cal_in_DRIVE_MODE_BITS * (shift))))) | \
                                     (uint32)((uint32)(mode) << \
-                                    (Cal_In_DRIVE_MODE_BITS * (shift))); \
+                                    (Cal_in_DRIVE_MODE_BITS * (shift))); \
         } while (0)
     #endif
 #endif
   
 
-#if defined(Cal_In__PC) || (CY_PSOC4_4200L) 
+#if defined(Cal_in__PC) || (CY_PSOC4_4200L) 
     /*******************************************************************************
-    * Function Name: Cal_In_SetDriveMode
+    * Function Name: Cal_in_SetDriveMode
     ****************************************************************************//**
     *
     * \brief Sets the drive mode for each of the Pins component's pins.
@@ -67,17 +67,17 @@
     *  APIs (primary method) or disable interrupts around this function.
     *
     * \funcusage
-    *  \snippet Cal_In_SUT.c usage_Cal_In_SetDriveMode
+    *  \snippet Cal_in_SUT.c usage_Cal_in_SetDriveMode
     *******************************************************************************/
-    void Cal_In_SetDriveMode(uint8 mode)
+    void Cal_in_SetDriveMode(uint8 mode)
     {
-		Cal_In_SetP4PinDriveMode(Cal_In__0__SHIFT, mode);
+		Cal_in_SetP4PinDriveMode(Cal_in__0__SHIFT, mode);
     }
 #endif
 
 
 /*******************************************************************************
-* Function Name: Cal_In_Write
+* Function Name: Cal_in_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -106,18 +106,18 @@
 *  this function.
 *
 * \funcusage
-*  \snippet Cal_In_SUT.c usage_Cal_In_Write
+*  \snippet Cal_in_SUT.c usage_Cal_in_Write
 *******************************************************************************/
-void Cal_In_Write(uint8 value)
+void Cal_in_Write(uint8 value)
 {
-    uint8 drVal = (uint8)(Cal_In_DR & (uint8)(~Cal_In_MASK));
-    drVal = (drVal | ((uint8)(value << Cal_In_SHIFT) & Cal_In_MASK));
-    Cal_In_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(Cal_in_DR & (uint8)(~Cal_in_MASK));
+    drVal = (drVal | ((uint8)(value << Cal_in_SHIFT) & Cal_in_MASK));
+    Cal_in_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: Cal_In_Read
+* Function Name: Cal_in_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void Cal_In_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet Cal_In_SUT.c usage_Cal_In_Read  
+*  \snippet Cal_in_SUT.c usage_Cal_in_Read  
 *******************************************************************************/
-uint8 Cal_In_Read(void)
+uint8 Cal_in_Read(void)
 {
-    return (uint8)((Cal_In_PS & Cal_In_MASK) >> Cal_In_SHIFT);
+    return (uint8)((Cal_in_PS & Cal_in_MASK) >> Cal_in_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: Cal_In_ReadDataReg
+* Function Name: Cal_in_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 Cal_In_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred Cal_In_Read() API because the 
-* Cal_In_ReadDataReg() reads the data register instead of the status 
+* preferred Cal_in_Read() API because the 
+* Cal_in_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,16 +159,16 @@ uint8 Cal_In_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet Cal_In_SUT.c usage_Cal_In_ReadDataReg 
+*  \snippet Cal_in_SUT.c usage_Cal_in_ReadDataReg 
 *******************************************************************************/
-uint8 Cal_In_ReadDataReg(void)
+uint8 Cal_in_ReadDataReg(void)
 {
-    return (uint8)((Cal_In_DR & Cal_In_MASK) >> Cal_In_SHIFT);
+    return (uint8)((Cal_in_DR & Cal_in_MASK) >> Cal_in_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: Cal_In_SetInterruptMode
+* Function Name: Cal_in_SetInterruptMode
 ****************************************************************************//**
 *
 * \brief Configures the interrupt mode for each of the Pins component's
@@ -181,12 +181,12 @@ uint8 Cal_In_ReadDataReg(void)
 * \param position
 *  The pin position as listed in the Pins component. You may OR these to be 
 *  able to configure the interrupt mode of multiple pins within a Pins 
-*  component. Or you may use Cal_In_INTR_ALL to configure the
+*  component. Or you may use Cal_in_INTR_ALL to configure the
 *  interrupt mode of all the pins in the Pins component.       
-*  - Cal_In_0_INTR       (First pin in the list)
-*  - Cal_In_1_INTR       (Second pin in the list)
+*  - Cal_in_0_INTR       (First pin in the list)
+*  - Cal_in_1_INTR       (Second pin in the list)
 *  - ...
-*  - Cal_In_INTR_ALL     (All pins in Pins component)
+*  - Cal_in_INTR_ALL     (All pins in Pins component)
 *
 * \param mode
 *  Interrupt mode for the selected pins. Valid options are documented in
@@ -202,19 +202,19 @@ uint8 Cal_In_ReadDataReg(void)
 *  port.
 *
 * \funcusage
-*  \snippet Cal_In_SUT.c usage_Cal_In_SetInterruptMode
+*  \snippet Cal_in_SUT.c usage_Cal_in_SetInterruptMode
 *******************************************************************************/
-void Cal_In_SetInterruptMode(uint16 position, uint16 mode)
+void Cal_in_SetInterruptMode(uint16 position, uint16 mode)
 {
     uint32 intrCfg;
     
-    intrCfg =  Cal_In_INTCFG & (uint32)(~(uint32)position);
-    Cal_In_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+    intrCfg =  Cal_in_INTCFG & (uint32)(~(uint32)position);
+    Cal_in_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
 }
 
 
 /*******************************************************************************
-* Function Name: Cal_In_ClearInterrupt
+* Function Name: Cal_in_ClearInterrupt
 ****************************************************************************//**
 *
 * \brief Clears any active interrupts attached with the component and returns 
@@ -231,13 +231,13 @@ void Cal_In_SetInterruptMode(uint16 position, uint16 mode)
 *  those associated with the Pins component.
 *
 * \funcusage
-*  \snippet Cal_In_SUT.c usage_Cal_In_ClearInterrupt
+*  \snippet Cal_in_SUT.c usage_Cal_in_ClearInterrupt
 *******************************************************************************/
-uint8 Cal_In_ClearInterrupt(void)
+uint8 Cal_in_ClearInterrupt(void)
 {
-	uint8 maskedStatus = (uint8)(Cal_In_INTSTAT & Cal_In_MASK);
-	Cal_In_INTSTAT = maskedStatus;
-    return maskedStatus >> Cal_In_SHIFT;
+	uint8 maskedStatus = (uint8)(Cal_in_INTSTAT & Cal_in_MASK);
+	Cal_in_INTSTAT = maskedStatus;
+    return maskedStatus >> Cal_in_SHIFT;
 }
 
 

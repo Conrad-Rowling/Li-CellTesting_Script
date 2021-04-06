@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Battery_In.h  
+* File Name: Battery_in.h  
 * Version 2.20
 *
 * Description:
@@ -12,12 +12,12 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_Battery_In_H) /* Pins Battery_In_H */
-#define CY_PINS_Battery_In_H
+#if !defined(CY_PINS_Battery_in_H) /* Pins Battery_in_H */
+#define CY_PINS_Battery_in_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
-#include "Battery_In_aliases.h"
+#include "Battery_in_aliases.h"
 
 
 /***************************************
@@ -35,7 +35,7 @@ typedef struct
     uint32 pcState; /**< State of the port control register */
     uint32 sioState; /**< State of the SIO configuration */
     uint32 usbState; /**< State of the USBIO regulator */
-} Battery_In_BACKUP_STRUCT;
+} Battery_in_BACKUP_STRUCT;
 
 /** @} structures */
 
@@ -47,89 +47,89 @@ typedef struct
 * \addtogroup group_general
 * @{
 */
-uint8   Battery_In_Read(void);
-void    Battery_In_Write(uint8 value);
-uint8   Battery_In_ReadDataReg(void);
-#if defined(Battery_In__PC) || (CY_PSOC4_4200L) 
-    void    Battery_In_SetDriveMode(uint8 mode);
+uint8   Battery_in_Read(void);
+void    Battery_in_Write(uint8 value);
+uint8   Battery_in_ReadDataReg(void);
+#if defined(Battery_in__PC) || (CY_PSOC4_4200L) 
+    void    Battery_in_SetDriveMode(uint8 mode);
 #endif
-void    Battery_In_SetInterruptMode(uint16 position, uint16 mode);
-uint8   Battery_In_ClearInterrupt(void);
+void    Battery_in_SetInterruptMode(uint16 position, uint16 mode);
+uint8   Battery_in_ClearInterrupt(void);
 /** @} general */
 
 /**
 * \addtogroup group_power
 * @{
 */
-void Battery_In_Sleep(void); 
-void Battery_In_Wakeup(void);
+void Battery_in_Sleep(void); 
+void Battery_in_Wakeup(void);
 /** @} power */
 
 
 /***************************************
 *           API Constants        
 ***************************************/
-#if defined(Battery_In__PC) || (CY_PSOC4_4200L) 
+#if defined(Battery_in__PC) || (CY_PSOC4_4200L) 
     /* Drive Modes */
-    #define Battery_In_DRIVE_MODE_BITS        (3)
-    #define Battery_In_DRIVE_MODE_IND_MASK    (0xFFFFFFFFu >> (32 - Battery_In_DRIVE_MODE_BITS))
+    #define Battery_in_DRIVE_MODE_BITS        (3)
+    #define Battery_in_DRIVE_MODE_IND_MASK    (0xFFFFFFFFu >> (32 - Battery_in_DRIVE_MODE_BITS))
 
     /**
     * \addtogroup group_constants
     * @{
     */
         /** \addtogroup driveMode Drive mode constants
-         * \brief Constants to be passed as "mode" parameter in the Battery_In_SetDriveMode() function.
+         * \brief Constants to be passed as "mode" parameter in the Battery_in_SetDriveMode() function.
          *  @{
          */
-        #define Battery_In_DM_ALG_HIZ         (0x00u) /**< \brief High Impedance Analog   */
-        #define Battery_In_DM_DIG_HIZ         (0x01u) /**< \brief High Impedance Digital  */
-        #define Battery_In_DM_RES_UP          (0x02u) /**< \brief Resistive Pull Up       */
-        #define Battery_In_DM_RES_DWN         (0x03u) /**< \brief Resistive Pull Down     */
-        #define Battery_In_DM_OD_LO           (0x04u) /**< \brief Open Drain, Drives Low  */
-        #define Battery_In_DM_OD_HI           (0x05u) /**< \brief Open Drain, Drives High */
-        #define Battery_In_DM_STRONG          (0x06u) /**< \brief Strong Drive            */
-        #define Battery_In_DM_RES_UPDWN       (0x07u) /**< \brief Resistive Pull Up/Down  */
+        #define Battery_in_DM_ALG_HIZ         (0x00u) /**< \brief High Impedance Analog   */
+        #define Battery_in_DM_DIG_HIZ         (0x01u) /**< \brief High Impedance Digital  */
+        #define Battery_in_DM_RES_UP          (0x02u) /**< \brief Resistive Pull Up       */
+        #define Battery_in_DM_RES_DWN         (0x03u) /**< \brief Resistive Pull Down     */
+        #define Battery_in_DM_OD_LO           (0x04u) /**< \brief Open Drain, Drives Low  */
+        #define Battery_in_DM_OD_HI           (0x05u) /**< \brief Open Drain, Drives High */
+        #define Battery_in_DM_STRONG          (0x06u) /**< \brief Strong Drive            */
+        #define Battery_in_DM_RES_UPDWN       (0x07u) /**< \brief Resistive Pull Up/Down  */
         /** @} driveMode */
     /** @} group_constants */
 #endif
 
 /* Digital Port Constants */
-#define Battery_In_MASK               Battery_In__MASK
-#define Battery_In_SHIFT              Battery_In__SHIFT
-#define Battery_In_WIDTH              1u
+#define Battery_in_MASK               Battery_in__MASK
+#define Battery_in_SHIFT              Battery_in__SHIFT
+#define Battery_in_WIDTH              1u
 
 /**
 * \addtogroup group_constants
 * @{
 */
     /** \addtogroup intrMode Interrupt constants
-     * \brief Constants to be passed as "mode" parameter in Battery_In_SetInterruptMode() function.
+     * \brief Constants to be passed as "mode" parameter in Battery_in_SetInterruptMode() function.
      *  @{
      */
-        #define Battery_In_INTR_NONE      ((uint16)(0x0000u)) /**< \brief Disabled             */
-        #define Battery_In_INTR_RISING    ((uint16)(0x5555u)) /**< \brief Rising edge trigger  */
-        #define Battery_In_INTR_FALLING   ((uint16)(0xaaaau)) /**< \brief Falling edge trigger */
-        #define Battery_In_INTR_BOTH      ((uint16)(0xffffu)) /**< \brief Both edge trigger    */
+        #define Battery_in_INTR_NONE      ((uint16)(0x0000u)) /**< \brief Disabled             */
+        #define Battery_in_INTR_RISING    ((uint16)(0x5555u)) /**< \brief Rising edge trigger  */
+        #define Battery_in_INTR_FALLING   ((uint16)(0xaaaau)) /**< \brief Falling edge trigger */
+        #define Battery_in_INTR_BOTH      ((uint16)(0xffffu)) /**< \brief Both edge trigger    */
     /** @} intrMode */
 /** @} group_constants */
 
 /* SIO LPM definition */
-#if defined(Battery_In__SIO)
-    #define Battery_In_SIO_LPM_MASK       (0x03u)
+#if defined(Battery_in__SIO)
+    #define Battery_in_SIO_LPM_MASK       (0x03u)
 #endif
 
 /* USBIO definitions */
-#if !defined(Battery_In__PC) && (CY_PSOC4_4200L)
-    #define Battery_In_USBIO_ENABLE               ((uint32)0x80000000u)
-    #define Battery_In_USBIO_DISABLE              ((uint32)(~Battery_In_USBIO_ENABLE))
-    #define Battery_In_USBIO_SUSPEND_SHIFT        CYFLD_USBDEVv2_USB_SUSPEND__OFFSET
-    #define Battery_In_USBIO_SUSPEND_DEL_SHIFT    CYFLD_USBDEVv2_USB_SUSPEND_DEL__OFFSET
-    #define Battery_In_USBIO_ENTER_SLEEP          ((uint32)((1u << Battery_In_USBIO_SUSPEND_SHIFT) \
-                                                        | (1u << Battery_In_USBIO_SUSPEND_DEL_SHIFT)))
-    #define Battery_In_USBIO_EXIT_SLEEP_PH1       ((uint32)~((uint32)(1u << Battery_In_USBIO_SUSPEND_SHIFT)))
-    #define Battery_In_USBIO_EXIT_SLEEP_PH2       ((uint32)~((uint32)(1u << Battery_In_USBIO_SUSPEND_DEL_SHIFT)))
-    #define Battery_In_USBIO_CR1_OFF              ((uint32)0xfffffffeu)
+#if !defined(Battery_in__PC) && (CY_PSOC4_4200L)
+    #define Battery_in_USBIO_ENABLE               ((uint32)0x80000000u)
+    #define Battery_in_USBIO_DISABLE              ((uint32)(~Battery_in_USBIO_ENABLE))
+    #define Battery_in_USBIO_SUSPEND_SHIFT        CYFLD_USBDEVv2_USB_SUSPEND__OFFSET
+    #define Battery_in_USBIO_SUSPEND_DEL_SHIFT    CYFLD_USBDEVv2_USB_SUSPEND_DEL__OFFSET
+    #define Battery_in_USBIO_ENTER_SLEEP          ((uint32)((1u << Battery_in_USBIO_SUSPEND_SHIFT) \
+                                                        | (1u << Battery_in_USBIO_SUSPEND_DEL_SHIFT)))
+    #define Battery_in_USBIO_EXIT_SLEEP_PH1       ((uint32)~((uint32)(1u << Battery_in_USBIO_SUSPEND_SHIFT)))
+    #define Battery_in_USBIO_EXIT_SLEEP_PH2       ((uint32)~((uint32)(1u << Battery_in_USBIO_SUSPEND_DEL_SHIFT)))
+    #define Battery_in_USBIO_CR1_OFF              ((uint32)0xfffffffeu)
 #endif
 
 
@@ -137,36 +137,36 @@ void Battery_In_Wakeup(void);
 *             Registers        
 ***************************************/
 /* Main Port Registers */
-#if defined(Battery_In__PC)
+#if defined(Battery_in__PC)
     /* Port Configuration */
-    #define Battery_In_PC                 (* (reg32 *) Battery_In__PC)
+    #define Battery_in_PC                 (* (reg32 *) Battery_in__PC)
 #endif
 /* Pin State */
-#define Battery_In_PS                     (* (reg32 *) Battery_In__PS)
+#define Battery_in_PS                     (* (reg32 *) Battery_in__PS)
 /* Data Register */
-#define Battery_In_DR                     (* (reg32 *) Battery_In__DR)
+#define Battery_in_DR                     (* (reg32 *) Battery_in__DR)
 /* Input Buffer Disable Override */
-#define Battery_In_INP_DIS                (* (reg32 *) Battery_In__PC2)
+#define Battery_in_INP_DIS                (* (reg32 *) Battery_in__PC2)
 
 /* Interrupt configuration Registers */
-#define Battery_In_INTCFG                 (* (reg32 *) Battery_In__INTCFG)
-#define Battery_In_INTSTAT                (* (reg32 *) Battery_In__INTSTAT)
+#define Battery_in_INTCFG                 (* (reg32 *) Battery_in__INTCFG)
+#define Battery_in_INTSTAT                (* (reg32 *) Battery_in__INTSTAT)
 
 /* "Interrupt cause" register for Combined Port Interrupt (AllPortInt) in GSRef component */
 #if defined (CYREG_GPIO_INTR_CAUSE)
-    #define Battery_In_INTR_CAUSE         (* (reg32 *) CYREG_GPIO_INTR_CAUSE)
+    #define Battery_in_INTR_CAUSE         (* (reg32 *) CYREG_GPIO_INTR_CAUSE)
 #endif
 
 /* SIO register */
-#if defined(Battery_In__SIO)
-    #define Battery_In_SIO_REG            (* (reg32 *) Battery_In__SIO)
-#endif /* (Battery_In__SIO_CFG) */
+#if defined(Battery_in__SIO)
+    #define Battery_in_SIO_REG            (* (reg32 *) Battery_in__SIO)
+#endif /* (Battery_in__SIO_CFG) */
 
 /* USBIO registers */
-#if !defined(Battery_In__PC) && (CY_PSOC4_4200L)
-    #define Battery_In_USB_POWER_REG       (* (reg32 *) CYREG_USBDEVv2_USB_POWER_CTRL)
-    #define Battery_In_CR1_REG             (* (reg32 *) CYREG_USBDEVv2_CR1)
-    #define Battery_In_USBIO_CTRL_REG      (* (reg32 *) CYREG_USBDEVv2_USB_USBIO_CTRL)
+#if !defined(Battery_in__PC) && (CY_PSOC4_4200L)
+    #define Battery_in_USB_POWER_REG       (* (reg32 *) CYREG_USBDEVv2_USB_POWER_CTRL)
+    #define Battery_in_CR1_REG             (* (reg32 *) CYREG_USBDEVv2_CR1)
+    #define Battery_in_USBIO_CTRL_REG      (* (reg32 *) CYREG_USBDEVv2_USB_USBIO_CTRL)
 #endif    
     
     
@@ -178,11 +178,11 @@ void Battery_In_Wakeup(void);
 * \addtogroup group_deprecated
 * @{
 */
-#define Battery_In_DRIVE_MODE_SHIFT       (0x00u)
-#define Battery_In_DRIVE_MODE_MASK        (0x07u << Battery_In_DRIVE_MODE_SHIFT)
+#define Battery_in_DRIVE_MODE_SHIFT       (0x00u)
+#define Battery_in_DRIVE_MODE_MASK        (0x07u << Battery_in_DRIVE_MODE_SHIFT)
 /** @} deprecated */
 
-#endif /* End Pins Battery_In_H */
+#endif /* End Pins Battery_in_H */
 
 
 /* [] END OF FILE */

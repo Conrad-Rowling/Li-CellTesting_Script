@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Cal_In.h  
+* File Name: Cal_in.h  
 * Version 2.20
 *
 * Description:
@@ -12,12 +12,12 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_Cal_In_H) /* Pins Cal_In_H */
-#define CY_PINS_Cal_In_H
+#if !defined(CY_PINS_Cal_in_H) /* Pins Cal_in_H */
+#define CY_PINS_Cal_in_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
-#include "Cal_In_aliases.h"
+#include "Cal_in_aliases.h"
 
 
 /***************************************
@@ -35,7 +35,7 @@ typedef struct
     uint32 pcState; /**< State of the port control register */
     uint32 sioState; /**< State of the SIO configuration */
     uint32 usbState; /**< State of the USBIO regulator */
-} Cal_In_BACKUP_STRUCT;
+} Cal_in_BACKUP_STRUCT;
 
 /** @} structures */
 
@@ -47,89 +47,89 @@ typedef struct
 * \addtogroup group_general
 * @{
 */
-uint8   Cal_In_Read(void);
-void    Cal_In_Write(uint8 value);
-uint8   Cal_In_ReadDataReg(void);
-#if defined(Cal_In__PC) || (CY_PSOC4_4200L) 
-    void    Cal_In_SetDriveMode(uint8 mode);
+uint8   Cal_in_Read(void);
+void    Cal_in_Write(uint8 value);
+uint8   Cal_in_ReadDataReg(void);
+#if defined(Cal_in__PC) || (CY_PSOC4_4200L) 
+    void    Cal_in_SetDriveMode(uint8 mode);
 #endif
-void    Cal_In_SetInterruptMode(uint16 position, uint16 mode);
-uint8   Cal_In_ClearInterrupt(void);
+void    Cal_in_SetInterruptMode(uint16 position, uint16 mode);
+uint8   Cal_in_ClearInterrupt(void);
 /** @} general */
 
 /**
 * \addtogroup group_power
 * @{
 */
-void Cal_In_Sleep(void); 
-void Cal_In_Wakeup(void);
+void Cal_in_Sleep(void); 
+void Cal_in_Wakeup(void);
 /** @} power */
 
 
 /***************************************
 *           API Constants        
 ***************************************/
-#if defined(Cal_In__PC) || (CY_PSOC4_4200L) 
+#if defined(Cal_in__PC) || (CY_PSOC4_4200L) 
     /* Drive Modes */
-    #define Cal_In_DRIVE_MODE_BITS        (3)
-    #define Cal_In_DRIVE_MODE_IND_MASK    (0xFFFFFFFFu >> (32 - Cal_In_DRIVE_MODE_BITS))
+    #define Cal_in_DRIVE_MODE_BITS        (3)
+    #define Cal_in_DRIVE_MODE_IND_MASK    (0xFFFFFFFFu >> (32 - Cal_in_DRIVE_MODE_BITS))
 
     /**
     * \addtogroup group_constants
     * @{
     */
         /** \addtogroup driveMode Drive mode constants
-         * \brief Constants to be passed as "mode" parameter in the Cal_In_SetDriveMode() function.
+         * \brief Constants to be passed as "mode" parameter in the Cal_in_SetDriveMode() function.
          *  @{
          */
-        #define Cal_In_DM_ALG_HIZ         (0x00u) /**< \brief High Impedance Analog   */
-        #define Cal_In_DM_DIG_HIZ         (0x01u) /**< \brief High Impedance Digital  */
-        #define Cal_In_DM_RES_UP          (0x02u) /**< \brief Resistive Pull Up       */
-        #define Cal_In_DM_RES_DWN         (0x03u) /**< \brief Resistive Pull Down     */
-        #define Cal_In_DM_OD_LO           (0x04u) /**< \brief Open Drain, Drives Low  */
-        #define Cal_In_DM_OD_HI           (0x05u) /**< \brief Open Drain, Drives High */
-        #define Cal_In_DM_STRONG          (0x06u) /**< \brief Strong Drive            */
-        #define Cal_In_DM_RES_UPDWN       (0x07u) /**< \brief Resistive Pull Up/Down  */
+        #define Cal_in_DM_ALG_HIZ         (0x00u) /**< \brief High Impedance Analog   */
+        #define Cal_in_DM_DIG_HIZ         (0x01u) /**< \brief High Impedance Digital  */
+        #define Cal_in_DM_RES_UP          (0x02u) /**< \brief Resistive Pull Up       */
+        #define Cal_in_DM_RES_DWN         (0x03u) /**< \brief Resistive Pull Down     */
+        #define Cal_in_DM_OD_LO           (0x04u) /**< \brief Open Drain, Drives Low  */
+        #define Cal_in_DM_OD_HI           (0x05u) /**< \brief Open Drain, Drives High */
+        #define Cal_in_DM_STRONG          (0x06u) /**< \brief Strong Drive            */
+        #define Cal_in_DM_RES_UPDWN       (0x07u) /**< \brief Resistive Pull Up/Down  */
         /** @} driveMode */
     /** @} group_constants */
 #endif
 
 /* Digital Port Constants */
-#define Cal_In_MASK               Cal_In__MASK
-#define Cal_In_SHIFT              Cal_In__SHIFT
-#define Cal_In_WIDTH              1u
+#define Cal_in_MASK               Cal_in__MASK
+#define Cal_in_SHIFT              Cal_in__SHIFT
+#define Cal_in_WIDTH              1u
 
 /**
 * \addtogroup group_constants
 * @{
 */
     /** \addtogroup intrMode Interrupt constants
-     * \brief Constants to be passed as "mode" parameter in Cal_In_SetInterruptMode() function.
+     * \brief Constants to be passed as "mode" parameter in Cal_in_SetInterruptMode() function.
      *  @{
      */
-        #define Cal_In_INTR_NONE      ((uint16)(0x0000u)) /**< \brief Disabled             */
-        #define Cal_In_INTR_RISING    ((uint16)(0x5555u)) /**< \brief Rising edge trigger  */
-        #define Cal_In_INTR_FALLING   ((uint16)(0xaaaau)) /**< \brief Falling edge trigger */
-        #define Cal_In_INTR_BOTH      ((uint16)(0xffffu)) /**< \brief Both edge trigger    */
+        #define Cal_in_INTR_NONE      ((uint16)(0x0000u)) /**< \brief Disabled             */
+        #define Cal_in_INTR_RISING    ((uint16)(0x5555u)) /**< \brief Rising edge trigger  */
+        #define Cal_in_INTR_FALLING   ((uint16)(0xaaaau)) /**< \brief Falling edge trigger */
+        #define Cal_in_INTR_BOTH      ((uint16)(0xffffu)) /**< \brief Both edge trigger    */
     /** @} intrMode */
 /** @} group_constants */
 
 /* SIO LPM definition */
-#if defined(Cal_In__SIO)
-    #define Cal_In_SIO_LPM_MASK       (0x03u)
+#if defined(Cal_in__SIO)
+    #define Cal_in_SIO_LPM_MASK       (0x03u)
 #endif
 
 /* USBIO definitions */
-#if !defined(Cal_In__PC) && (CY_PSOC4_4200L)
-    #define Cal_In_USBIO_ENABLE               ((uint32)0x80000000u)
-    #define Cal_In_USBIO_DISABLE              ((uint32)(~Cal_In_USBIO_ENABLE))
-    #define Cal_In_USBIO_SUSPEND_SHIFT        CYFLD_USBDEVv2_USB_SUSPEND__OFFSET
-    #define Cal_In_USBIO_SUSPEND_DEL_SHIFT    CYFLD_USBDEVv2_USB_SUSPEND_DEL__OFFSET
-    #define Cal_In_USBIO_ENTER_SLEEP          ((uint32)((1u << Cal_In_USBIO_SUSPEND_SHIFT) \
-                                                        | (1u << Cal_In_USBIO_SUSPEND_DEL_SHIFT)))
-    #define Cal_In_USBIO_EXIT_SLEEP_PH1       ((uint32)~((uint32)(1u << Cal_In_USBIO_SUSPEND_SHIFT)))
-    #define Cal_In_USBIO_EXIT_SLEEP_PH2       ((uint32)~((uint32)(1u << Cal_In_USBIO_SUSPEND_DEL_SHIFT)))
-    #define Cal_In_USBIO_CR1_OFF              ((uint32)0xfffffffeu)
+#if !defined(Cal_in__PC) && (CY_PSOC4_4200L)
+    #define Cal_in_USBIO_ENABLE               ((uint32)0x80000000u)
+    #define Cal_in_USBIO_DISABLE              ((uint32)(~Cal_in_USBIO_ENABLE))
+    #define Cal_in_USBIO_SUSPEND_SHIFT        CYFLD_USBDEVv2_USB_SUSPEND__OFFSET
+    #define Cal_in_USBIO_SUSPEND_DEL_SHIFT    CYFLD_USBDEVv2_USB_SUSPEND_DEL__OFFSET
+    #define Cal_in_USBIO_ENTER_SLEEP          ((uint32)((1u << Cal_in_USBIO_SUSPEND_SHIFT) \
+                                                        | (1u << Cal_in_USBIO_SUSPEND_DEL_SHIFT)))
+    #define Cal_in_USBIO_EXIT_SLEEP_PH1       ((uint32)~((uint32)(1u << Cal_in_USBIO_SUSPEND_SHIFT)))
+    #define Cal_in_USBIO_EXIT_SLEEP_PH2       ((uint32)~((uint32)(1u << Cal_in_USBIO_SUSPEND_DEL_SHIFT)))
+    #define Cal_in_USBIO_CR1_OFF              ((uint32)0xfffffffeu)
 #endif
 
 
@@ -137,36 +137,36 @@ void Cal_In_Wakeup(void);
 *             Registers        
 ***************************************/
 /* Main Port Registers */
-#if defined(Cal_In__PC)
+#if defined(Cal_in__PC)
     /* Port Configuration */
-    #define Cal_In_PC                 (* (reg32 *) Cal_In__PC)
+    #define Cal_in_PC                 (* (reg32 *) Cal_in__PC)
 #endif
 /* Pin State */
-#define Cal_In_PS                     (* (reg32 *) Cal_In__PS)
+#define Cal_in_PS                     (* (reg32 *) Cal_in__PS)
 /* Data Register */
-#define Cal_In_DR                     (* (reg32 *) Cal_In__DR)
+#define Cal_in_DR                     (* (reg32 *) Cal_in__DR)
 /* Input Buffer Disable Override */
-#define Cal_In_INP_DIS                (* (reg32 *) Cal_In__PC2)
+#define Cal_in_INP_DIS                (* (reg32 *) Cal_in__PC2)
 
 /* Interrupt configuration Registers */
-#define Cal_In_INTCFG                 (* (reg32 *) Cal_In__INTCFG)
-#define Cal_In_INTSTAT                (* (reg32 *) Cal_In__INTSTAT)
+#define Cal_in_INTCFG                 (* (reg32 *) Cal_in__INTCFG)
+#define Cal_in_INTSTAT                (* (reg32 *) Cal_in__INTSTAT)
 
 /* "Interrupt cause" register for Combined Port Interrupt (AllPortInt) in GSRef component */
 #if defined (CYREG_GPIO_INTR_CAUSE)
-    #define Cal_In_INTR_CAUSE         (* (reg32 *) CYREG_GPIO_INTR_CAUSE)
+    #define Cal_in_INTR_CAUSE         (* (reg32 *) CYREG_GPIO_INTR_CAUSE)
 #endif
 
 /* SIO register */
-#if defined(Cal_In__SIO)
-    #define Cal_In_SIO_REG            (* (reg32 *) Cal_In__SIO)
-#endif /* (Cal_In__SIO_CFG) */
+#if defined(Cal_in__SIO)
+    #define Cal_in_SIO_REG            (* (reg32 *) Cal_in__SIO)
+#endif /* (Cal_in__SIO_CFG) */
 
 /* USBIO registers */
-#if !defined(Cal_In__PC) && (CY_PSOC4_4200L)
-    #define Cal_In_USB_POWER_REG       (* (reg32 *) CYREG_USBDEVv2_USB_POWER_CTRL)
-    #define Cal_In_CR1_REG             (* (reg32 *) CYREG_USBDEVv2_CR1)
-    #define Cal_In_USBIO_CTRL_REG      (* (reg32 *) CYREG_USBDEVv2_USB_USBIO_CTRL)
+#if !defined(Cal_in__PC) && (CY_PSOC4_4200L)
+    #define Cal_in_USB_POWER_REG       (* (reg32 *) CYREG_USBDEVv2_USB_POWER_CTRL)
+    #define Cal_in_CR1_REG             (* (reg32 *) CYREG_USBDEVv2_CR1)
+    #define Cal_in_USBIO_CTRL_REG      (* (reg32 *) CYREG_USBDEVv2_USB_USBIO_CTRL)
 #endif    
     
     
@@ -178,11 +178,11 @@ void Cal_In_Wakeup(void);
 * \addtogroup group_deprecated
 * @{
 */
-#define Cal_In_DRIVE_MODE_SHIFT       (0x00u)
-#define Cal_In_DRIVE_MODE_MASK        (0x07u << Cal_In_DRIVE_MODE_SHIFT)
+#define Cal_in_DRIVE_MODE_SHIFT       (0x00u)
+#define Cal_in_DRIVE_MODE_MASK        (0x07u << Cal_in_DRIVE_MODE_SHIFT)
 /** @} deprecated */
 
-#endif /* End Pins Cal_In_H */
+#endif /* End Pins Cal_in_H */
 
 
 /* [] END OF FILE */

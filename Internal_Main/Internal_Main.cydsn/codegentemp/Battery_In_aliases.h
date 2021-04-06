@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Battery_In.h  
+* File Name: Battery_in.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_Battery_In_ALIASES_H) /* Pins Battery_In_ALIASES_H */
-#define CY_PINS_Battery_In_ALIASES_H
+#if !defined(CY_PINS_Battery_in_ALIASES_H) /* Pins Battery_in_ALIASES_H */
+#define CY_PINS_Battery_in_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -26,17 +26,17 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define Battery_In_0			(Battery_In__0__PC)
-#define Battery_In_0_PS		(Battery_In__0__PS)
-#define Battery_In_0_PC		(Battery_In__0__PC)
-#define Battery_In_0_DR		(Battery_In__0__DR)
-#define Battery_In_0_SHIFT	(Battery_In__0__SHIFT)
-#define Battery_In_0_INTR	((uint16)((uint16)0x0003u << (Battery_In__0__SHIFT*2u)))
+#define Battery_in_0			(Battery_in__0__PC)
+#define Battery_in_0_PS		(Battery_in__0__PS)
+#define Battery_in_0_PC		(Battery_in__0__PC)
+#define Battery_in_0_DR		(Battery_in__0__DR)
+#define Battery_in_0_SHIFT	(Battery_in__0__SHIFT)
+#define Battery_in_0_INTR	((uint16)((uint16)0x0003u << (Battery_in__0__SHIFT*2u)))
 
-#define Battery_In_INTR_ALL	 ((uint16)(Battery_In_0_INTR))
+#define Battery_in_INTR_ALL	 ((uint16)(Battery_in_0_INTR))
 
 
-#endif /* End Pins Battery_In_ALIASES_H */
+#endif /* End Pins Battery_in_ALIASES_H */
 
 
 /* [] END OF FILE */

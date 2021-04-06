@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Cal_In.h  
+* File Name: Cal_in.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_Cal_In_ALIASES_H) /* Pins Cal_In_ALIASES_H */
-#define CY_PINS_Cal_In_ALIASES_H
+#if !defined(CY_PINS_Cal_in_ALIASES_H) /* Pins Cal_in_ALIASES_H */
+#define CY_PINS_Cal_in_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -26,17 +26,17 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define Cal_In_0			(Cal_In__0__PC)
-#define Cal_In_0_PS		(Cal_In__0__PS)
-#define Cal_In_0_PC		(Cal_In__0__PC)
-#define Cal_In_0_DR		(Cal_In__0__DR)
-#define Cal_In_0_SHIFT	(Cal_In__0__SHIFT)
-#define Cal_In_0_INTR	((uint16)((uint16)0x0003u << (Cal_In__0__SHIFT*2u)))
+#define Cal_in_0			(Cal_in__0__PC)
+#define Cal_in_0_PS		(Cal_in__0__PS)
+#define Cal_in_0_PC		(Cal_in__0__PC)
+#define Cal_in_0_DR		(Cal_in__0__DR)
+#define Cal_in_0_SHIFT	(Cal_in__0__SHIFT)
+#define Cal_in_0_INTR	((uint16)((uint16)0x0003u << (Cal_in__0__SHIFT*2u)))
 
-#define Cal_In_INTR_ALL	 ((uint16)(Cal_In_0_INTR))
+#define Cal_in_INTR_ALL	 ((uint16)(Cal_in_0_INTR))
 
 
-#endif /* End Pins Cal_In_ALIASES_H */
+#endif /* End Pins Cal_in_ALIASES_H */
 
 
 /* [] END OF FILE */
