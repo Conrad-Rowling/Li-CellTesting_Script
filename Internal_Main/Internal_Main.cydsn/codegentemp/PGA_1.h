@@ -25,7 +25,7 @@
 * Conditional Compilation Parameters
 ***************************************/
 
-#define PGA_1_VREF_MODE              (1u)
+#define PGA_1_VREF_MODE              (0u)
 #define PGA_1_OUTPUT_MODE            (0u)
 #define PGA_1_DEEPSLEEP_SUPPORT      (0u)
 

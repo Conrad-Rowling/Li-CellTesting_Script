@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Pin_3.c  
+* File Name: UART_1_tx.c  
 * Version 2.20
 *
 * Description:
@@ -13,35 +13,35 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "Pin_3.h"
+#include "UART_1_tx.h"
 
 
-#if defined(Pin_3__PC)
-    #define Pin_3_SetP4PinDriveMode(shift, mode)  \
+#if defined(UART_1_tx__PC)
+    #define UART_1_tx_SetP4PinDriveMode(shift, mode)  \
     do { \
-        Pin_3_PC =   (Pin_3_PC & \
-                                (uint32)(~(uint32)(Pin_3_DRIVE_MODE_IND_MASK << \
-                                (Pin_3_DRIVE_MODE_BITS * (shift))))) | \
+        UART_1_tx_PC =   (UART_1_tx_PC & \
+                                (uint32)(~(uint32)(UART_1_tx_DRIVE_MODE_IND_MASK << \
+                                (UART_1_tx_DRIVE_MODE_BITS * (shift))))) | \
                                 (uint32)((uint32)(mode) << \
-                                (Pin_3_DRIVE_MODE_BITS * (shift))); \
+                                (UART_1_tx_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 #else
     #if (CY_PSOC4_4200L)
-        #define Pin_3_SetP4PinDriveMode(shift, mode)  \
+        #define UART_1_tx_SetP4PinDriveMode(shift, mode)  \
         do { \
-            Pin_3_USBIO_CTRL_REG = (Pin_3_USBIO_CTRL_REG & \
-                                    (uint32)(~(uint32)(Pin_3_DRIVE_MODE_IND_MASK << \
-                                    (Pin_3_DRIVE_MODE_BITS * (shift))))) | \
+            UART_1_tx_USBIO_CTRL_REG = (UART_1_tx_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(UART_1_tx_DRIVE_MODE_IND_MASK << \
+                                    (UART_1_tx_DRIVE_MODE_BITS * (shift))))) | \
                                     (uint32)((uint32)(mode) << \
-                                    (Pin_3_DRIVE_MODE_BITS * (shift))); \
+                                    (UART_1_tx_DRIVE_MODE_BITS * (shift))); \
         } while (0)
     #endif
 #endif
   
 
-#if defined(Pin_3__PC) || (CY_PSOC4_4200L) 
+#if defined(UART_1_tx__PC) || (CY_PSOC4_4200L) 
     /*******************************************************************************
-    * Function Name: Pin_3_SetDriveMode
+    * Function Name: UART_1_tx_SetDriveMode
     ****************************************************************************//**
     *
     * \brief Sets the drive mode for each of the Pins component's pins.
@@ -67,17 +67,17 @@
     *  APIs (primary method) or disable interrupts around this function.
     *
     * \funcusage
-    *  \snippet Pin_3_SUT.c usage_Pin_3_SetDriveMode
+    *  \snippet UART_1_tx_SUT.c usage_UART_1_tx_SetDriveMode
     *******************************************************************************/
-    void Pin_3_SetDriveMode(uint8 mode)
+    void UART_1_tx_SetDriveMode(uint8 mode)
     {
-		Pin_3_SetP4PinDriveMode(Pin_3__0__SHIFT, mode);
+		UART_1_tx_SetP4PinDriveMode(UART_1_tx__0__SHIFT, mode);
     }
 #endif
 
 
 /*******************************************************************************
-* Function Name: Pin_3_Write
+* Function Name: UART_1_tx_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -106,18 +106,18 @@
 *  this function.
 *
 * \funcusage
-*  \snippet Pin_3_SUT.c usage_Pin_3_Write
+*  \snippet UART_1_tx_SUT.c usage_UART_1_tx_Write
 *******************************************************************************/
-void Pin_3_Write(uint8 value)
+void UART_1_tx_Write(uint8 value)
 {
-    uint8 drVal = (uint8)(Pin_3_DR & (uint8)(~Pin_3_MASK));
-    drVal = (drVal | ((uint8)(value << Pin_3_SHIFT) & Pin_3_MASK));
-    Pin_3_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(UART_1_tx_DR & (uint8)(~UART_1_tx_MASK));
+    drVal = (drVal | ((uint8)(value << UART_1_tx_SHIFT) & UART_1_tx_MASK));
+    UART_1_tx_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: Pin_3_Read
+* Function Name: UART_1_tx_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void Pin_3_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet Pin_3_SUT.c usage_Pin_3_Read  
+*  \snippet UART_1_tx_SUT.c usage_UART_1_tx_Read  
 *******************************************************************************/
-uint8 Pin_3_Read(void)
+uint8 UART_1_tx_Read(void)
 {
-    return (uint8)((Pin_3_PS & Pin_3_MASK) >> Pin_3_SHIFT);
+    return (uint8)((UART_1_tx_PS & UART_1_tx_MASK) >> UART_1_tx_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: Pin_3_ReadDataReg
+* Function Name: UART_1_tx_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 Pin_3_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred Pin_3_Read() API because the 
-* Pin_3_ReadDataReg() reads the data register instead of the status 
+* preferred UART_1_tx_Read() API because the 
+* UART_1_tx_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,16 +159,16 @@ uint8 Pin_3_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet Pin_3_SUT.c usage_Pin_3_ReadDataReg 
+*  \snippet UART_1_tx_SUT.c usage_UART_1_tx_ReadDataReg 
 *******************************************************************************/
-uint8 Pin_3_ReadDataReg(void)
+uint8 UART_1_tx_ReadDataReg(void)
 {
-    return (uint8)((Pin_3_DR & Pin_3_MASK) >> Pin_3_SHIFT);
+    return (uint8)((UART_1_tx_DR & UART_1_tx_MASK) >> UART_1_tx_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: Pin_3_SetInterruptMode
+* Function Name: UART_1_tx_SetInterruptMode
 ****************************************************************************//**
 *
 * \brief Configures the interrupt mode for each of the Pins component's
@@ -181,12 +181,12 @@ uint8 Pin_3_ReadDataReg(void)
 * \param position
 *  The pin position as listed in the Pins component. You may OR these to be 
 *  able to configure the interrupt mode of multiple pins within a Pins 
-*  component. Or you may use Pin_3_INTR_ALL to configure the
+*  component. Or you may use UART_1_tx_INTR_ALL to configure the
 *  interrupt mode of all the pins in the Pins component.       
-*  - Pin_3_0_INTR       (First pin in the list)
-*  - Pin_3_1_INTR       (Second pin in the list)
+*  - UART_1_tx_0_INTR       (First pin in the list)
+*  - UART_1_tx_1_INTR       (Second pin in the list)
 *  - ...
-*  - Pin_3_INTR_ALL     (All pins in Pins component)
+*  - UART_1_tx_INTR_ALL     (All pins in Pins component)
 *
 * \param mode
 *  Interrupt mode for the selected pins. Valid options are documented in
@@ -202,19 +202,19 @@ uint8 Pin_3_ReadDataReg(void)
 *  port.
 *
 * \funcusage
-*  \snippet Pin_3_SUT.c usage_Pin_3_SetInterruptMode
+*  \snippet UART_1_tx_SUT.c usage_UART_1_tx_SetInterruptMode
 *******************************************************************************/
-void Pin_3_SetInterruptMode(uint16 position, uint16 mode)
+void UART_1_tx_SetInterruptMode(uint16 position, uint16 mode)
 {
     uint32 intrCfg;
     
-    intrCfg =  Pin_3_INTCFG & (uint32)(~(uint32)position);
-    Pin_3_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+    intrCfg =  UART_1_tx_INTCFG & (uint32)(~(uint32)position);
+    UART_1_tx_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
 }
 
 
 /*******************************************************************************
-* Function Name: Pin_3_ClearInterrupt
+* Function Name: UART_1_tx_ClearInterrupt
 ****************************************************************************//**
 *
 * \brief Clears any active interrupts attached with the component and returns 
@@ -231,13 +231,13 @@ void Pin_3_SetInterruptMode(uint16 position, uint16 mode)
 *  those associated with the Pins component.
 *
 * \funcusage
-*  \snippet Pin_3_SUT.c usage_Pin_3_ClearInterrupt
+*  \snippet UART_1_tx_SUT.c usage_UART_1_tx_ClearInterrupt
 *******************************************************************************/
-uint8 Pin_3_ClearInterrupt(void)
+uint8 UART_1_tx_ClearInterrupt(void)
 {
-	uint8 maskedStatus = (uint8)(Pin_3_INTSTAT & Pin_3_MASK);
-	Pin_3_INTSTAT = maskedStatus;
-    return maskedStatus >> Pin_3_SHIFT;
+	uint8 maskedStatus = (uint8)(UART_1_tx_INTSTAT & UART_1_tx_MASK);
+	UART_1_tx_INTSTAT = maskedStatus;
+    return maskedStatus >> UART_1_tx_SHIFT;
 }
 
 

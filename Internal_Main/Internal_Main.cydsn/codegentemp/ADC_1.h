@@ -245,10 +245,10 @@ The parameters that are set in the customizer are redefined as constants here.
 #define ADC_1_CFG0_NOMINAL_CLOCK_FREQ      (12000000u)
 #define ADC_1_CFG0_CHANNEL_EN              (0x1u)
 /* Sample Control Register */
-#define ADC_1_CFG0_SUB_RESOLUTION          (0u)
+#define ADC_1_CFG0_SUB_RESOLUTION          (1u)
 #define ADC_1_CFG0_SINGLE_ENDED_FORMAT     (0uL)
 #define ADC_1_CFG0_DIFFERENTIAL_FORMAT     (1uL)
-#define ADC_1_CFG0_SAMPLES_AVERAGED        (0uL)
+#define ADC_1_CFG0_SAMPLES_AVERAGED        (1uL)
 #define ADC_1_CFG0_RANGE_INTR_MASK         (0x0u)
 #define ADC_1_CFG0_SATURATE_INTR_MASK      (0x0u)
 #define ADC_1_CFG0_VNEG_INPUT_SEL          (7)
@@ -1603,9 +1603,9 @@ extern const uint32 CYCODE ADC_1_InputsPlacement[ADC_1_TOTAL_CHANNELS_NUM];
 #define ADC_1_CFG0_VREF_SOURCE VREFSOURCE_VBGR
 #define ADC_1_CFG0_VREF_BYPASS True
 #define ADC_1_CFG0_VNEG_SOURCE VNEGSOURCE_VREFSHORT
-#define ADC_1_CFG0_NUM_SAMPLES_AVERAGED TWO_SAMPLES
+#define ADC_1_CFG0_NUM_SAMPLES_AVERAGED FOUR_SAMPLES
 #define ADC_1_CFG0_AVERAGING_MODE SEQUENTIAL_AVG
-#define ADC_1_CFG0_ALT_RES EIGHT_BIT
+#define ADC_1_CFG0_ALT_RES TEN_BIT
 #define ADC_1_CFG0_FILTER_TYPE LOW_PASS
 #define ADC_1_CFG0_FILTER_F1_KHZ 10
 #define ADC_1_CFG0_FILTER_F2_KHZ -1

@@ -1,20 +1,11 @@
-/* ========================================
- *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
- *
- * ========================================
-*/
+
 #include "project.h"
 #include <stdio.h>
 #include <stdlib.h>
 
 #define NUM_R_THERMISTORS 5 // excluding the thermistor at Position 1
 #define NUM_BAT_THERMISTORS 6 // excluding the thermistor at Position 1
+#define SHUNT_CONDUCTANCE 1.2 
 #define AMP_GAIN 21.3
 #define V_REF 40.0
 
@@ -73,7 +64,7 @@ int32 PointerTest(int32 array){
         printf("\r\n array %ld\r\n", array);
         pointer = pointer + ((array - pointer ) >> 4);
     }
-    result = (result >> 8) + ((result & 0x00000080) >> 7);
+    result = (pointer >> 8) + ((pointer & 0x00000080) >> 7);
     return result;      
 }
 
@@ -82,11 +73,9 @@ int main(void)
     uint32 shuntCount; //Voltage measured from shunt in 12-bit res
     float shuntVal;
     uint32 vrgndCount;
-    float vrgndVal;
     uint32 vrefCount;
     float vrefVal;
-    
-    uint32 filterTest;
+    char string[30];
     
     uint32 userInput;
     int8 stopFlag = 0;      
@@ -102,11 +91,14 @@ int main(void)
         
         if (userInput == 71)  //Type Capital G into Putty
         {
+            Timer_1_Start();
             stopFlag = 0;
             PVref_1_Start();
             PVref_1_Enable();
             
             while(!stopFlag){
+                
+                AMux_2_Select(1);
                 
                 AMux_1_Select(0);                              
                 ADC_1_StartConvert();                           
@@ -120,29 +112,36 @@ int main(void)
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 shuntCount = ADC_1_GetResult32(0);
                 ADC_1_StopConvert();
-                shuntVal = FilterSignal(shuntCount);
+                shuntCount = FilterSignal(shuntCount);
                 
                 AMux_1_Select(2);                               // Mux Select
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrgndCount = ADC_1_GetResult32(0);
                 ADC_1_StopConvert();
-                vrgndVal = FilterSignal(shuntCount);
+                vrgndCount = FilterSignal(shuntCount);
                 
-                shuntVal = shuntVal - vrgndVal;
-                shuntVal = (vrefVal/V_REF);
+                shuntCount = shuntCount - vrgndCount;
+                shuntVal = ADC_1_CountsTo_mVolts(shuntCount, 0);
+                shuntVal = (shuntVal*SHUNT_CONDUCTANCE)/(vrefVal/V_REF);
                 
-                
-                
-                
-            
-                if (userInput == 83){              // 83 is ASCII for stop 
-                    stopFlag = 1; 
+                // 83 is ASCII for STOP 
+                if (userInput == 83){              
+                    stopFlag = 1;
+                    Timer_1_Stop();
                     CellTestStop();
+                }
+                
+                CyDelayUs(250);
+                
+                if (Timer_1_ReadCounter() > 4){
+                    sprintf(string, "Shunt Value: %f", shuntVal); 
+                    UART_1_UartPutString(string);
+                    UART_1_UartPutString("\n\r");
+                    Timer_1_WriteCounter(0);
                 }
             }
         }
-        
     }
 }
 

@@ -75,7 +75,7 @@ extern uint8  Timer_1_initVar;
 #define Timer_1_TC_RUN_MODE                    (0lu)
 #define Timer_1_TC_COUNTER_MODE                (0lu)
 #define Timer_1_TC_COMP_CAP_MODE               (2lu)
-#define Timer_1_TC_PRESCALER                   (7lu)
+#define Timer_1_TC_PRESCALER                   (6lu)
 
 /* Signal modes */
 #define Timer_1_TC_RELOAD_SIGNAL_MODE          (0lu)
