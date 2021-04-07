@@ -1,13 +1,13 @@
 -- Project:   Internal_Main
--- Generated: 04/06/2021 02:25:54
+-- Generated: 04/06/2021 03:07:43
 -- PSoC Creator  4.4
 
 ENTITY Internal_Main IS
     PORT(
         \I2C_1:sda(0)_PAD\ : INOUT std_ulogic;
         \I2C_1:scl(0)_PAD\ : INOUT std_ulogic;
-        RED_LED(0)_PAD : OUT std_ulogic;
-        RELAY(0)_PAD : OUT std_ulogic;
+        BLUE_LED(0)_PAD : OUT std_ulogic;
+        RELAY_EN(0)_PAD : OUT std_ulogic;
         Pin_3(0)_PAD : OUT std_ulogic;
         Pin_4(0)_PAD : IN std_ulogic);
     ATTRIBUTE voltage_VDDIO_A OF __DEFAULT__ : ENTITY IS 3.3e0;
@@ -23,8 +23,9 @@ ENTITY Internal_Main IS
 END Internal_Main;
 
 ARCHITECTURE __DEFAULT__ OF Internal_Main IS
-    SIGNAL Battery_in(0)__PA : bit;
-    SIGNAL Cal_in(0)__PA : bit;
+    SIGNAL BLUE_LED(0)__PA : bit;
+    SIGNAL Battery_In(0)__PA : bit;
+    SIGNAL Cal_In(0)__PA : bit;
     SIGNAL ClockBlock_ExtClk : bit;
     SIGNAL ClockBlock_HFClk : bit;
     ATTRIBUTE global_signal OF ClockBlock_HFClk : SIGNAL IS true;
@@ -33,51 +34,42 @@ ARCHITECTURE __DEFAULT__ OF Internal_Main IS
     SIGNAL ClockBlock_LFClk : bit;
     SIGNAL ClockBlock_SysClk : bit;
     SIGNAL ClockBlock_WCO : bit;
-    SIGNAL Net_1068 : bit;
-    SIGNAL Net_1077 : bit;
-    SIGNAL Net_1084 : bit;
-    SIGNAL Net_1085 : bit;
-    SIGNAL Net_1086 : bit;
-    SIGNAL Net_1328_ff4 : bit;
-    ATTRIBUTE global_signal OF Net_1328_ff4 : SIGNAL IS true;
-    SIGNAL Net_2090 : bit;
-    SIGNAL Net_2092 : bit;
-    SIGNAL Net_2093 : bit;
-    SIGNAL Net_2094 : bit;
-    SIGNAL Net_2095 : bit;
-    SIGNAL Net_2099 : bit;
-    SIGNAL Net_2190 : bit;
-    SIGNAL Net_2191 : bit;
-    SIGNAL Net_2234 : bit;
-    SIGNAL Net_2243 : bit;
-    SIGNAL Net_2251 : bit;
-    SIGNAL Net_2303 : bit;
-    SIGNAL Net_2304 : bit;
-    SIGNAL Net_2305_0 : bit;
-    SIGNAL Net_2305_1 : bit;
-    SIGNAL Net_2305_2 : bit;
-    SIGNAL Net_2305_3 : bit;
-    SIGNAL Net_2306 : bit;
-    SIGNAL Net_2307_0 : bit;
-    SIGNAL Net_2307_1 : bit;
-    SIGNAL Net_2307_10 : bit;
-    SIGNAL Net_2307_11 : bit;
-    SIGNAL Net_2307_2 : bit;
-    SIGNAL Net_2307_3 : bit;
-    SIGNAL Net_2307_4 : bit;
-    SIGNAL Net_2307_5 : bit;
-    SIGNAL Net_2307_6 : bit;
-    SIGNAL Net_2307_7 : bit;
-    SIGNAL Net_2307_8 : bit;
-    SIGNAL Net_2307_9 : bit;
-    SIGNAL Net_2308 : bit;
+    SIGNAL Net_143 : bit;
+    SIGNAL Net_15 : bit;
+    SIGNAL Net_154 : bit;
+    SIGNAL Net_1566 : bit;
+    SIGNAL Net_16 : bit;
+    SIGNAL Net_163 : bit;
+    SIGNAL Net_170 : bit;
+    SIGNAL Net_171 : bit;
+    SIGNAL Net_172 : bit;
+    SIGNAL Net_176 : bit;
+    SIGNAL Net_17_0 : bit;
+    SIGNAL Net_17_1 : bit;
+    SIGNAL Net_17_2 : bit;
+    SIGNAL Net_17_3 : bit;
+    SIGNAL Net_18 : bit;
+    SIGNAL Net_185 : bit;
+    SIGNAL Net_193 : bit;
+    SIGNAL Net_19_0 : bit;
+    SIGNAL Net_19_1 : bit;
+    SIGNAL Net_19_10 : bit;
+    SIGNAL Net_19_11 : bit;
+    SIGNAL Net_19_2 : bit;
+    SIGNAL Net_19_3 : bit;
+    SIGNAL Net_19_4 : bit;
+    SIGNAL Net_19_5 : bit;
+    SIGNAL Net_19_6 : bit;
+    SIGNAL Net_19_7 : bit;
+    SIGNAL Net_19_8 : bit;
+    SIGNAL Net_19_9 : bit;
+    SIGNAL Net_20 : bit;
     SIGNAL Pin_2(0)__PA : bit;
     SIGNAL Pin_3(0)__PA : bit;
     SIGNAL Pin_4(0)__PA : bit;
-    SIGNAL RED_LED(0)__PA : bit;
-    SIGNAL RELAY(0)__PA : bit;
-    SIGNAL Shunt_gnd(0)__PA : bit;
-    SIGNAL Shunt_in(0)__PA : bit;
+    SIGNAL RELAY_EN(0)__PA : bit;
+    SIGNAL Shunt_Gnd(0)__PA : bit;
+    SIGNAL Shunt_In(0)__PA : bit;
     SIGNAL \\\ADC_1:Bypass(0)\\__PA\ : bit;
     SIGNAL \ADC_1:Net_423\ : bit;
     SIGNAL \ADC_1:sarClock_ff12\ : bit;
@@ -120,12 +112,12 @@ ARCHITECTURE __DEFAULT__ OF Internal_Main IS
     ATTRIBUTE Location OF ctb0_resistor_string : LABEL IS "F(RSB,0)";
     ATTRIBUTE Location OF ClockGenBlock : LABEL IS "F(CLK_GEN,0)";
     ATTRIBUTE Location OF \ADC_1:Bypass(0)\ : LABEL IS "P2[7]";
-    ATTRIBUTE Location OF Cal_in(0) : LABEL IS "P2[5]";
+    ATTRIBUTE Location OF Cal_In(0) : LABEL IS "P2[5]";
     ATTRIBUTE Location OF Pin_2(0) : LABEL IS "P2[1]";
     ATTRIBUTE Location OF bgRef(0) : LABEL IS "P2[2]";
-    ATTRIBUTE Location OF Shunt_in(0) : LABEL IS "P2[4]";
-    ATTRIBUTE Location OF Shunt_gnd(0) : LABEL IS "P2[3]";
-    ATTRIBUTE Location OF Battery_in(0) : LABEL IS "P1[1]";
+    ATTRIBUTE Location OF Shunt_In(0) : LABEL IS "P2[4]";
+    ATTRIBUTE Location OF Shunt_Gnd(0) : LABEL IS "P2[3]";
+    ATTRIBUTE Location OF Battery_In(0) : LABEL IS "P1[1]";
     ATTRIBUTE Location OF \ADC_1:cy_psoc4_sar_1\ : LABEL IS "F(SARADC,0)";
     ATTRIBUTE Location OF CyDesignWideVoltageReference : LABEL IS "F(REF,0)";
     ATTRIBUTE Location OF \PVref_1:cy_psoc4_pref\ : LABEL IS "F(REF,1)";
@@ -315,21 +307,6 @@ ARCHITECTURE __DEFAULT__ OF Internal_Main IS
             tr_rx_req : OUT std_ulogic;
             tr_tx_req : OUT std_ulogic);
     END COMPONENT;
-    COMPONENT m0s8tcpwmcell
-        PORT (
-            clock : IN std_ulogic;
-            capture : IN std_ulogic;
-            count : IN std_ulogic;
-            reload : IN std_ulogic;
-            stop : IN std_ulogic;
-            start : IN std_ulogic;
-            tr_underflow : OUT std_ulogic;
-            tr_overflow : OUT std_ulogic;
-            tr_compare_match : OUT std_ulogic;
-            line : OUT std_ulogic;
-            line_compl : OUT std_ulogic;
-            interrupt : OUT std_ulogic);
-    END COMPONENT;
     COMPONENT p4abufcell
         PORT (
             ctb_dsi_comp : OUT std_ulogic;
@@ -404,8 +381,7 @@ BEGIN
             wco => ClockBlock_WCO,
             ff_div_12 => \ADC_1:sarClock_ff12\,
             ff_div_0 => \I2C_1:Net_847_ff0\,
-            ff_div_1 => \UART_1:Net_847_ff1\,
-            ff_div_4 => Net_1328_ff4);
+            ff_div_1 => \UART_1:Net_847_ff1\);
 
     \ADC_1:Bypass\:logicalport
         GENERIC MAP(
@@ -496,7 +472,7 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    Cal_in:logicalport
+    Cal_In:logicalport
         GENERIC MAP(
             drive_mode => "000",
             ibuf_enabled => "0",
@@ -567,16 +543,16 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    Cal_in(0):iocell
+    Cal_In(0):iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "Cal_in",
+            logicalport => "Cal_In",
             logicalport_pin_id => 0,
             io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
         PORT MAP(
-            pa_out => Cal_in(0)__PA,
+            pa_out => Cal_In(0)__PA,
             oe => open,
             in_clock => open,
             in_clock_en => '1',
@@ -763,7 +739,7 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    Shunt_in:logicalport
+    Shunt_In:logicalport
         GENERIC MAP(
             drive_mode => "000",
             ibuf_enabled => "0",
@@ -834,16 +810,16 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    Shunt_in(0):iocell
+    Shunt_In(0):iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "Shunt_in",
+            logicalport => "Shunt_In",
             logicalport_pin_id => 0,
             io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
         PORT MAP(
-            pa_out => Shunt_in(0)__PA,
+            pa_out => Shunt_In(0)__PA,
             oe => open,
             in_clock => open,
             in_clock_en => '1',
@@ -852,7 +828,7 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    Shunt_gnd:logicalport
+    Shunt_Gnd:logicalport
         GENERIC MAP(
             drive_mode => "000",
             ibuf_enabled => "0",
@@ -923,16 +899,16 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    Shunt_gnd(0):iocell
+    Shunt_Gnd(0):iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "Shunt_gnd",
+            logicalport => "Shunt_Gnd",
             logicalport_pin_id => 0,
             io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
         PORT MAP(
-            pa_out => Shunt_gnd(0)__PA,
+            pa_out => Shunt_Gnd(0)__PA,
             oe => open,
             in_clock => open,
             in_clock_en => '1',
@@ -941,7 +917,7 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    Battery_in:logicalport
+    Battery_In:logicalport
         GENERIC MAP(
             drive_mode => "000",
             ibuf_enabled => "0",
@@ -1012,16 +988,16 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    Battery_in(0):iocell
+    Battery_In(0):iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "Battery_in",
+            logicalport => "Battery_In",
             logicalport_pin_id => 0,
             io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
         PORT MAP(
-            pa_out => Battery_in(0)__PA,
+            pa_out => Battery_In(0)__PA,
             oe => open,
             in_clock => open,
             in_clock_en => '1',
@@ -1112,7 +1088,7 @@ BEGIN
         PORT MAP(
             pa_out => \\\I2C_1:sda(0)\\__PA\,
             oe => open,
-            fb => Net_1085,
+            fb => Net_171,
             pin_input => open,
             pad_in => \I2C_1:sda(0)_PAD\,
             in_clock => open,
@@ -1204,7 +1180,7 @@ BEGIN
         PORT MAP(
             pa_out => \\\I2C_1:scl(0)\\__PA\,
             oe => open,
-            fb => Net_1084,
+            fb => Net_170,
             pin_input => open,
             pad_in => \I2C_1:scl(0)_PAD\,
             in_clock => open,
@@ -1214,7 +1190,7 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    RED_LED:logicalport
+    BLUE_LED:logicalport
         GENERIC MAP(
             drive_mode => "110",
             ibuf_enabled => "1",
@@ -1285,18 +1261,18 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    RED_LED(0):iocell
+    BLUE_LED(0):iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "RED_LED",
+            logicalport => "BLUE_LED",
             logicalport_pin_id => 0,
             io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
         PORT MAP(
-            pa_out => RED_LED(0)__PA,
+            pa_out => BLUE_LED(0)__PA,
             oe => open,
-            pad_in => RED_LED(0)_PAD,
+            pad_in => BLUE_LED(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -1304,7 +1280,7 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    RELAY:logicalport
+    RELAY_EN:logicalport
         GENERIC MAP(
             drive_mode => "110",
             ibuf_enabled => "1",
@@ -1375,18 +1351,18 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    RELAY(0):iocell
+    RELAY_EN(0):iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "RELAY",
+            logicalport => "RELAY_EN",
             logicalport_pin_id => 0,
             io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
         PORT MAP(
-            pa_out => RELAY(0)__PA,
+            pa_out => RELAY_EN(0)__PA,
             oe => open,
-            pad_in => RELAY(0)_PAD,
+            pad_in => RELAY_EN(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -1476,7 +1452,7 @@ BEGIN
         PORT MAP(
             pa_out => Pin_3(0)__PA,
             oe => open,
-            pin_input => Net_2191,
+            pin_input => Net_1566,
             pad_out => Pin_3(0)_PAD,
             pad_in => Pin_3(0)_PAD,
             in_clock => open,
@@ -1568,7 +1544,7 @@ BEGIN
         PORT MAP(
             pa_out => Pin_4(0)__PA,
             oe => open,
-            fb => Net_2190,
+            fb => Net_143,
             pad_in => Pin_4(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
@@ -1582,26 +1558,26 @@ BEGIN
             cy_registers => "")
         PORT MAP(
             clock => \ADC_1:sarClock_ff12\,
-            sample_done => Net_2304,
-            chan_id_valid => Net_2306,
-            chan_id_3 => Net_2305_3,
-            chan_id_2 => Net_2305_2,
-            chan_id_1 => Net_2305_1,
-            chan_id_0 => Net_2305_0,
-            data_valid => Net_2308,
-            data_11 => Net_2307_11,
-            data_10 => Net_2307_10,
-            data_9 => Net_2307_9,
-            data_8 => Net_2307_8,
-            data_7 => Net_2307_7,
-            data_6 => Net_2307_6,
-            data_5 => Net_2307_5,
-            data_4 => Net_2307_4,
-            data_3 => Net_2307_3,
-            data_2 => Net_2307_2,
-            data_1 => Net_2307_1,
-            data_0 => Net_2307_0,
-            tr_sar_out => Net_2303,
+            sample_done => Net_16,
+            chan_id_valid => Net_18,
+            chan_id_3 => Net_17_3,
+            chan_id_2 => Net_17_2,
+            chan_id_1 => Net_17_1,
+            chan_id_0 => Net_17_0,
+            data_valid => Net_20,
+            data_11 => Net_19_11,
+            data_10 => Net_19_10,
+            data_9 => Net_19_9,
+            data_8 => Net_19_8,
+            data_7 => Net_19_7,
+            data_6 => Net_19_6,
+            data_5 => Net_19_5,
+            data_4 => Net_19_4,
+            data_3 => Net_19_3,
+            data_2 => Net_19_2,
+            data_1 => Net_19_1,
+            data_0 => Net_19_0,
+            tr_sar_out => Net_15,
             irq => \ADC_1:Net_423\,
             sw_negvref => open,
             cfg_st_sel_1 => open,
@@ -1655,32 +1631,15 @@ BEGIN
         PORT MAP(
             ctb_dsi_comp => \Opamp_2:Net_12\);
 
-    \Timer_1:cy_m0s8_tcpwm_1\:m0s8tcpwmcell
-        GENERIC MAP(
-            cy_registers => "")
-        PORT MAP(
-            clock => Net_1328_ff4,
-            capture => '0',
-            count => '1',
-            reload => '0',
-            stop => '0',
-            start => '0',
-            tr_underflow => Net_2099,
-            tr_overflow => Net_2095,
-            tr_compare_match => Net_2090,
-            line => Net_2093,
-            line_compl => Net_2094,
-            interrupt => Net_2092);
-
     \UART_1:SCB\:m0s8scbcell
         GENERIC MAP(
             cy_registers => "",
             scb_mode => 2)
         PORT MAP(
             clock => \UART_1:Net_847_ff1\,
-            interrupt => Net_2234,
-            uart_rx => Net_2190,
-            uart_tx => Net_2191,
+            interrupt => Net_176,
+            uart_rx => Net_143,
+            uart_tx => Net_1566,
             uart_cts => open,
             uart_rts => \UART_1:rts_wire\,
             mosi_m => \UART_1:mosi_m_wire\,
@@ -1694,15 +1653,15 @@ BEGIN
             miso_s => \UART_1:miso_s_wire\,
             select_s => open,
             sclk_s => open,
-            tr_tx_req => Net_2251,
-            tr_rx_req => Net_2243);
+            tr_tx_req => Net_193,
+            tr_rx_req => Net_185);
 
     \I2C_1:SCB_IRQ\:interrupt
         GENERIC MAP(
             int_type => "10",
             is_nmi => 0)
         PORT MAP(
-            interrupt => Net_1068,
+            interrupt => Net_154,
             clock => ClockBlock_HFClk);
 
     \I2C_1:SCB\:m0s8scbcell
@@ -1711,7 +1670,7 @@ BEGIN
             scb_mode => 0)
         PORT MAP(
             clock => \I2C_1:Net_847_ff0\,
-            interrupt => Net_1068,
+            interrupt => Net_154,
             uart_rx => open,
             uart_tx => \I2C_1:tx_wire\,
             uart_cts => open,
@@ -1727,9 +1686,9 @@ BEGIN
             miso_s => \I2C_1:miso_s_wire\,
             select_s => open,
             sclk_s => open,
-            i2c_scl => Net_1084,
-            i2c_sda => Net_1085,
-            tr_tx_req => Net_1086,
-            tr_rx_req => Net_1077);
+            i2c_scl => Net_170,
+            i2c_sda => Net_171,
+            tr_tx_req => Net_172,
+            tr_rx_req => Net_163);
 
 END __DEFAULT__;

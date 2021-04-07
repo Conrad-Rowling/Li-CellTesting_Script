@@ -180,8 +180,6 @@ static void ClockSetup(void)
 	CY_SET_REG32((void *)CYREG_PERI_DIV_CMD, 0x8000FF40u);
 	CY_SET_REG32((void *)CYREG_PERI_DIV_16_CTL1, 0x00000100u);
 	CY_SET_REG32((void *)CYREG_PERI_DIV_CMD, 0x8000FF41u);
-	CY_SET_REG32((void *)CYREG_PERI_DIV_24_5_CTL, 0x02DC6B00u);
-	CY_SET_REG32((void *)CYREG_PERI_DIV_CMD, 0x8000FFC0u);
 	CY_SET_REG32((void *)CYREG_PERI_DIV_16_CTL3, 0x00001000u);
 	CY_SET_REG32((void *)CYREG_PERI_DIV_CMD, 0x8000FF43u);
 	CY_SET_REG32((void *)CYREG_PERI_DIV_16_CTL2, 0x00000E00u);
@@ -192,9 +190,6 @@ static void ClockSetup(void)
 
 	/* CYDEV_PERI_PCLK_CTL12 Starting address: CYDEV_PERI_PCLK_CTL12 */
 	CY_SET_REG32((void *)(CYREG_PERI_PCLK_CTL12), 0x00000041u);
-
-	/* CYDEV_PERI_PCLK_CTL4 Starting address: CYDEV_PERI_PCLK_CTL4 */
-	CY_SET_REG32((void *)(CYREG_PERI_PCLK_CTL4), 0x000000C0u);
 
 	/* CYDEV_PERI_PCLK_CTL1 Starting address: CYDEV_PERI_PCLK_CTL1 */
 	CY_SET_REG32((void *)(CYREG_PERI_PCLK_CTL1), 0x00000043u);
@@ -297,10 +292,10 @@ void AMux_2_Set(uint8 channel)
 {
 	switch (channel) {
 		case 0u:
-			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW, (0x02u));
+			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW, (0x10u));
 			break;
 		case 1u:
-			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW, (0x10u));
+			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW, (0x02u));
 			break;
 		default:
 			break;
@@ -325,10 +320,10 @@ void AMux_2_Unset(uint8 channel)
 {
 	switch (channel) {
 		case 0u:
-			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW_CLR, (0x02u));
+			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW_CLR, (0x10u));
 			break;
 		case 1u:
-			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW_CLR, (0x10u));
+			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW_CLR, (0x02u));
 			break;
 		default:
 			break;

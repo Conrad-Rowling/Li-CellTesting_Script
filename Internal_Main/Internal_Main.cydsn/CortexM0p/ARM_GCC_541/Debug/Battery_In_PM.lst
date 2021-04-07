@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 1
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccaNIQbm.s 			page 1
 
 
    1              		.syntax unified
@@ -19,17 +19,17 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 1
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.section	.text.Battery_in_Sleep,"ax",%progbits
+  19              		.section	.text.Battery_In_Sleep,"ax",%progbits
   20              		.align	2
-  21              		.global	Battery_in_Sleep
+  21              		.global	Battery_In_Sleep
   22              		.code	16
   23              		.thumb_func
-  24              		.type	Battery_in_Sleep, %function
-  25              	Battery_in_Sleep:
+  24              		.type	Battery_In_Sleep, %function
+  25              	Battery_In_Sleep:
   26              	.LFB0:
   27              		.file 1 "Generated_Source\\PSoC4\\Battery_in_PM.c"
    1:Generated_Source\PSoC4/Battery_in_PM.c **** /*******************************************************************************
-   2:Generated_Source\PSoC4/Battery_in_PM.c **** * File Name: Battery_in.c  
+   2:Generated_Source\PSoC4/Battery_in_PM.c **** * File Name: Battery_In.c  
    3:Generated_Source\PSoC4/Battery_in_PM.c **** * Version 2.20
    4:Generated_Source\PSoC4/Battery_in_PM.c **** *
    5:Generated_Source\PSoC4/Battery_in_PM.c **** * Description:
@@ -45,20 +45,20 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 1
   15:Generated_Source\PSoC4/Battery_in_PM.c **** *******************************************************************************/
   16:Generated_Source\PSoC4/Battery_in_PM.c **** 
   17:Generated_Source\PSoC4/Battery_in_PM.c **** #include "cytypes.h"
-  18:Generated_Source\PSoC4/Battery_in_PM.c **** #include "Battery_in.h"
+  18:Generated_Source\PSoC4/Battery_in_PM.c **** #include "Battery_In.h"
   19:Generated_Source\PSoC4/Battery_in_PM.c **** 
-  20:Generated_Source\PSoC4/Battery_in_PM.c **** static Battery_in_BACKUP_STRUCT  Battery_in_backup = {0u, 0u, 0u};
+  20:Generated_Source\PSoC4/Battery_in_PM.c **** static Battery_In_BACKUP_STRUCT  Battery_In_backup = {0u, 0u, 0u};
   21:Generated_Source\PSoC4/Battery_in_PM.c **** 
   22:Generated_Source\PSoC4/Battery_in_PM.c **** 
   23:Generated_Source\PSoC4/Battery_in_PM.c **** /*******************************************************************************
-  24:Generated_Source\PSoC4/Battery_in_PM.c **** * Function Name: Battery_in_Sleep
+  24:Generated_Source\PSoC4/Battery_in_PM.c **** * Function Name: Battery_In_Sleep
   25:Generated_Source\PSoC4/Battery_in_PM.c **** ****************************************************************************//**
   26:Generated_Source\PSoC4/Battery_in_PM.c **** *
   27:Generated_Source\PSoC4/Battery_in_PM.c **** * \brief Stores the pin configuration and prepares the pin for entering chip 
   28:Generated_Source\PSoC4/Battery_in_PM.c **** *  deep-sleep/hibernate modes. This function applies only to SIO and USBIO pins.
   29:Generated_Source\PSoC4/Battery_in_PM.c **** *  It should not be called for GPIO or GPIO_OVT pins.
   30:Generated_Source\PSoC4/Battery_in_PM.c **** *
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 2
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccaNIQbm.s 			page 2
 
 
   31:Generated_Source\PSoC4/Battery_in_PM.c **** * <b>Note</b> This function is available in PSoC 4 only.
@@ -72,17 +72,17 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 1
   39:Generated_Source\PSoC4/Battery_in_PM.c **** *  deep-sleep/hibernate modes.
   40:Generated_Source\PSoC4/Battery_in_PM.c **** *
   41:Generated_Source\PSoC4/Battery_in_PM.c **** * \funcusage
-  42:Generated_Source\PSoC4/Battery_in_PM.c **** *  \snippet Battery_in_SUT.c usage_Battery_in_Sleep_Wakeup
+  42:Generated_Source\PSoC4/Battery_in_PM.c **** *  \snippet Battery_In_SUT.c usage_Battery_In_Sleep_Wakeup
   43:Generated_Source\PSoC4/Battery_in_PM.c **** *******************************************************************************/
-  44:Generated_Source\PSoC4/Battery_in_PM.c **** void Battery_in_Sleep(void)
+  44:Generated_Source\PSoC4/Battery_in_PM.c **** void Battery_In_Sleep(void)
   45:Generated_Source\PSoC4/Battery_in_PM.c **** {
   28              		.loc 1 45 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
-  46:Generated_Source\PSoC4/Battery_in_PM.c ****     #if defined(Battery_in__PC)
-  47:Generated_Source\PSoC4/Battery_in_PM.c ****         Battery_in_backup.pcState = Battery_in_PC;
+  46:Generated_Source\PSoC4/Battery_in_PM.c ****     #if defined(Battery_In__PC)
+  47:Generated_Source\PSoC4/Battery_in_PM.c ****         Battery_In_backup.pcState = Battery_In_PC;
   33              		.loc 1 47 0
   34 0000 024B     		ldr	r3, .L2
   35 0002 1A68     		ldr	r2, [r3]
@@ -91,15 +91,15 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 1
   48:Generated_Source\PSoC4/Battery_in_PM.c ****     #else
   49:Generated_Source\PSoC4/Battery_in_PM.c ****         #if (CY_PSOC4_4200L)
   50:Generated_Source\PSoC4/Battery_in_PM.c ****             /* Save the regulator state and put the PHY into suspend mode */
-  51:Generated_Source\PSoC4/Battery_in_PM.c ****             Battery_in_backup.usbState = Battery_in_CR1_REG;
-  52:Generated_Source\PSoC4/Battery_in_PM.c ****             Battery_in_USB_POWER_REG |= Battery_in_USBIO_ENTER_SLEEP;
-  53:Generated_Source\PSoC4/Battery_in_PM.c ****             Battery_in_CR1_REG &= Battery_in_USBIO_CR1_OFF;
+  51:Generated_Source\PSoC4/Battery_in_PM.c ****             Battery_In_backup.usbState = Battery_In_CR1_REG;
+  52:Generated_Source\PSoC4/Battery_in_PM.c ****             Battery_In_USB_POWER_REG |= Battery_In_USBIO_ENTER_SLEEP;
+  53:Generated_Source\PSoC4/Battery_in_PM.c ****             Battery_In_CR1_REG &= Battery_In_USBIO_CR1_OFF;
   54:Generated_Source\PSoC4/Battery_in_PM.c ****         #endif
   55:Generated_Source\PSoC4/Battery_in_PM.c ****     #endif
-  56:Generated_Source\PSoC4/Battery_in_PM.c ****     #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Battery_in__SIO)
-  57:Generated_Source\PSoC4/Battery_in_PM.c ****         Battery_in_backup.sioState = Battery_in_SIO_REG;
+  56:Generated_Source\PSoC4/Battery_in_PM.c ****     #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Battery_In__SIO)
+  57:Generated_Source\PSoC4/Battery_in_PM.c ****         Battery_In_backup.sioState = Battery_In_SIO_REG;
   58:Generated_Source\PSoC4/Battery_in_PM.c ****         /* SIO requires unregulated output buffer and single ended input buffer */
-  59:Generated_Source\PSoC4/Battery_in_PM.c ****         Battery_in_SIO_REG &= (uint32)(~Battery_in_SIO_LPM_MASK);
+  59:Generated_Source\PSoC4/Battery_in_PM.c ****         Battery_In_SIO_REG &= (uint32)(~Battery_In_SIO_LPM_MASK);
   60:Generated_Source\PSoC4/Battery_in_PM.c ****     #endif  
   61:Generated_Source\PSoC4/Battery_in_PM.c **** }
   38              		.loc 1 61 0
@@ -112,22 +112,22 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 1
   45 0010 00000000 		.word	.LANCHOR0
   46              		.cfi_endproc
   47              	.LFE0:
-  48              		.size	Battery_in_Sleep, .-Battery_in_Sleep
-  49              		.section	.text.Battery_in_Wakeup,"ax",%progbits
+  48              		.size	Battery_In_Sleep, .-Battery_In_Sleep
+  49              		.section	.text.Battery_In_Wakeup,"ax",%progbits
   50              		.align	2
-  51              		.global	Battery_in_Wakeup
+  51              		.global	Battery_In_Wakeup
   52              		.code	16
   53              		.thumb_func
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 3
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccaNIQbm.s 			page 3
 
 
-  54              		.type	Battery_in_Wakeup, %function
-  55              	Battery_in_Wakeup:
+  54              		.type	Battery_In_Wakeup, %function
+  55              	Battery_In_Wakeup:
   56              	.LFB1:
   62:Generated_Source\PSoC4/Battery_in_PM.c **** 
   63:Generated_Source\PSoC4/Battery_in_PM.c **** 
   64:Generated_Source\PSoC4/Battery_in_PM.c **** /*******************************************************************************
-  65:Generated_Source\PSoC4/Battery_in_PM.c **** * Function Name: Battery_in_Wakeup
+  65:Generated_Source\PSoC4/Battery_in_PM.c **** * Function Name: Battery_In_Wakeup
   66:Generated_Source\PSoC4/Battery_in_PM.c **** ****************************************************************************//**
   67:Generated_Source\PSoC4/Battery_in_PM.c **** *
   68:Generated_Source\PSoC4/Battery_in_PM.c **** * \brief Restores the pin configuration that was saved during Pin_Sleep(). This 
@@ -142,17 +142,17 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 1
   77:Generated_Source\PSoC4/Battery_in_PM.c **** *  None
   78:Generated_Source\PSoC4/Battery_in_PM.c **** *  
   79:Generated_Source\PSoC4/Battery_in_PM.c **** * \funcusage
-  80:Generated_Source\PSoC4/Battery_in_PM.c **** *  Refer to Battery_in_Sleep() for an example usage.
+  80:Generated_Source\PSoC4/Battery_in_PM.c **** *  Refer to Battery_In_Sleep() for an example usage.
   81:Generated_Source\PSoC4/Battery_in_PM.c **** *******************************************************************************/
-  82:Generated_Source\PSoC4/Battery_in_PM.c **** void Battery_in_Wakeup(void)
+  82:Generated_Source\PSoC4/Battery_in_PM.c **** void Battery_In_Wakeup(void)
   83:Generated_Source\PSoC4/Battery_in_PM.c **** {
   57              		.loc 1 83 0
   58              		.cfi_startproc
   59              		@ args = 0, pretend = 0, frame = 0
   60              		@ frame_needed = 0, uses_anonymous_args = 0
   61              		@ link register save eliminated.
-  84:Generated_Source\PSoC4/Battery_in_PM.c ****     #if defined(Battery_in__PC)
-  85:Generated_Source\PSoC4/Battery_in_PM.c ****         Battery_in_PC = Battery_in_backup.pcState;
+  84:Generated_Source\PSoC4/Battery_in_PM.c ****     #if defined(Battery_In__PC)
+  85:Generated_Source\PSoC4/Battery_in_PM.c ****         Battery_In_PC = Battery_In_backup.pcState;
   62              		.loc 1 85 0
   63 0000 024B     		ldr	r3, .L5
   64 0002 1A68     		ldr	r2, [r3]
@@ -161,13 +161,13 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 1
   86:Generated_Source\PSoC4/Battery_in_PM.c ****     #else
   87:Generated_Source\PSoC4/Battery_in_PM.c ****         #if (CY_PSOC4_4200L)
   88:Generated_Source\PSoC4/Battery_in_PM.c ****             /* Restore the regulator state and come out of suspend mode */
-  89:Generated_Source\PSoC4/Battery_in_PM.c ****             Battery_in_USB_POWER_REG &= Battery_in_USBIO_EXIT_SLEEP_PH1;
-  90:Generated_Source\PSoC4/Battery_in_PM.c ****             Battery_in_CR1_REG = Battery_in_backup.usbState;
-  91:Generated_Source\PSoC4/Battery_in_PM.c ****             Battery_in_USB_POWER_REG &= Battery_in_USBIO_EXIT_SLEEP_PH2;
+  89:Generated_Source\PSoC4/Battery_in_PM.c ****             Battery_In_USB_POWER_REG &= Battery_In_USBIO_EXIT_SLEEP_PH1;
+  90:Generated_Source\PSoC4/Battery_in_PM.c ****             Battery_In_CR1_REG = Battery_In_backup.usbState;
+  91:Generated_Source\PSoC4/Battery_in_PM.c ****             Battery_In_USB_POWER_REG &= Battery_In_USBIO_EXIT_SLEEP_PH2;
   92:Generated_Source\PSoC4/Battery_in_PM.c ****         #endif
   93:Generated_Source\PSoC4/Battery_in_PM.c ****     #endif
-  94:Generated_Source\PSoC4/Battery_in_PM.c ****     #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Battery_in__SIO)
-  95:Generated_Source\PSoC4/Battery_in_PM.c ****         Battery_in_SIO_REG = Battery_in_backup.sioState;
+  94:Generated_Source\PSoC4/Battery_in_PM.c ****     #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Battery_In__SIO)
+  95:Generated_Source\PSoC4/Battery_in_PM.c ****         Battery_In_SIO_REG = Battery_In_backup.sioState;
   96:Generated_Source\PSoC4/Battery_in_PM.c ****     #endif
   97:Generated_Source\PSoC4/Battery_in_PM.c **** }
   67              		.loc 1 97 0
@@ -178,25 +178,25 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 1
   72              	.L5:
   73 000c 00000000 		.word	.LANCHOR0
   74 0010 08010440 		.word	1074004232
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 4
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccaNIQbm.s 			page 4
 
 
   75              		.cfi_endproc
   76              	.LFE1:
-  77              		.size	Battery_in_Wakeup, .-Battery_in_Wakeup
+  77              		.size	Battery_In_Wakeup, .-Battery_In_Wakeup
   78              		.bss
   79              		.align	2
   80              		.set	.LANCHOR0,. + 0
-  81              		.type	Battery_in_backup, %object
-  82              		.size	Battery_in_backup, 12
-  83              	Battery_in_backup:
+  81              		.type	Battery_In_backup, %object
+  82              		.size	Battery_In_backup, 12
+  83              	Battery_In_backup:
   84 0000 00000000 		.space	12
   84      00000000 
   84      00000000 
   85              		.text
   86              	.Letext0:
   87              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
-  88              		.file 3 "Generated_Source\\PSoC4\\Battery_in.h"
+  88              		.file 3 "Generated_Source\\PSoC4\\Battery_In.h"
   89              		.section	.debug_info,"",%progbits
   90              	.Ldebug_info0:
   91 0000 05010000 		.4byte	0x105
@@ -207,7 +207,7 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 1
   96 000c 63010000 		.4byte	.LASF20
   97 0010 0C       		.byte	0xc
   98 0011 01020000 		.4byte	.LASF21
-  99 0015 75000000 		.4byte	.LASF22
+  99 0015 A0000000 		.4byte	.LASF22
  100 0019 00000000 		.4byte	.Ldebug_ranges0+0
  101 001d 00000000 		.4byte	0
  102 0021 00000000 		.4byte	.Ldebug_line0
@@ -218,15 +218,15 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 1
  107 002c 02       		.uleb128 0x2
  108 002d 01       		.byte	0x1
  109 002e 08       		.byte	0x8
- 110 002f 15000000 		.4byte	.LASF1
+ 110 002f 39000000 		.4byte	.LASF1
  111 0033 02       		.uleb128 0x2
  112 0034 02       		.byte	0x2
  113 0035 05       		.byte	0x5
- 114 0036 2F010000 		.4byte	.LASF2
+ 114 0036 48010000 		.4byte	.LASF2
  115 003a 02       		.uleb128 0x2
  116 003b 02       		.byte	0x2
  117 003c 07       		.byte	0x7
- 118 003d 35000000 		.4byte	.LASF3
+ 118 003d 59000000 		.4byte	.LASF3
  119 0041 02       		.uleb128 0x2
  120 0042 04       		.byte	0x4
  121 0043 05       		.byte	0x5
@@ -234,18 +234,18 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 1
  123 0048 02       		.uleb128 0x2
  124 0049 04       		.byte	0x4
  125 004a 07       		.byte	0x7
- 126 004b 23000000 		.4byte	.LASF5
+ 126 004b 47000000 		.4byte	.LASF5
  127 004f 02       		.uleb128 0x2
  128 0050 08       		.byte	0x8
  129 0051 05       		.byte	0x5
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 5
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccaNIQbm.s 			page 5
 
 
- 130 0052 1C010000 		.4byte	.LASF6
+ 130 0052 24010000 		.4byte	.LASF6
  131 0056 02       		.uleb128 0x2
  132 0057 08       		.byte	0x8
  133 0058 07       		.byte	0x7
- 134 0059 D9000000 		.4byte	.LASF7
+ 134 0059 04010000 		.4byte	.LASF7
  135 005d 03       		.uleb128 0x3
  136 005e 04       		.byte	0x4
  137 005f 05       		.byte	0x5
@@ -253,24 +253,24 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 1
  139 0064 02       		.uleb128 0x2
  140 0065 04       		.byte	0x4
  141 0066 07       		.byte	0x7
- 142 0067 68000000 		.4byte	.LASF8
+ 142 0067 93000000 		.4byte	.LASF8
  143 006b 04       		.uleb128 0x4
- 144 006c 61000000 		.4byte	.LASF12
+ 144 006c 8C000000 		.4byte	.LASF12
  145 0070 02       		.byte	0x2
  146 0071 FE01     		.2byte	0x1fe
  147 0073 48000000 		.4byte	0x48
  148 0077 02       		.uleb128 0x2
  149 0078 04       		.byte	0x4
  150 0079 04       		.byte	0x4
- 151 007a 0F000000 		.4byte	.LASF9
+ 151 007a 33000000 		.4byte	.LASF9
  152 007e 02       		.uleb128 0x2
  153 007f 08       		.byte	0x8
  154 0080 04       		.byte	0x4
- 155 0081 48000000 		.4byte	.LASF10
+ 155 0081 85000000 		.4byte	.LASF10
  156 0085 02       		.uleb128 0x2
  157 0086 01       		.byte	0x1
  158 0087 08       		.byte	0x8
- 159 0088 2A010000 		.4byte	.LASF11
+ 159 0088 32010000 		.4byte	.LASF11
  160 008c 04       		.uleb128 0x4
  161 008d 00000000 		.4byte	.LASF13
  162 0091 02       		.byte	0x2
@@ -284,13 +284,13 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 1
  170 00a0 21       		.byte	0x21
  171 00a1 CA000000 		.4byte	0xca
  172 00a5 07       		.uleb128 0x7
- 173 00a6 39010000 		.4byte	.LASF14
+ 173 00a6 52010000 		.4byte	.LASF14
  174 00aa 03       		.byte	0x3
  175 00ab 23       		.byte	0x23
  176 00ac 6B000000 		.4byte	0x6b
  177 00b0 00       		.byte	0
  178 00b1 07       		.uleb128 0x7
- 179 00b2 13010000 		.4byte	.LASF15
+ 179 00b2 1B010000 		.4byte	.LASF15
  180 00b6 03       		.byte	0x3
  181 00b7 24       		.byte	0x24
  182 00b8 6B000000 		.4byte	0x6b
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 1
  184 00bd 07       		.uleb128 0x7
  185 00be 06000000 		.4byte	.LASF16
  186 00c2 03       		.byte	0x3
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 6
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccaNIQbm.s 			page 6
 
 
  187 00c3 25       		.byte	0x25
@@ -306,12 +306,12 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 1
  189 00c8 08       		.byte	0x8
  190 00c9 00       		.byte	0
  191 00ca 08       		.uleb128 0x8
- 192 00cb 41010000 		.4byte	.LASF17
+ 192 00cb 6C000000 		.4byte	.LASF17
  193 00cf 03       		.byte	0x3
  194 00d0 26       		.byte	0x26
  195 00d1 9D000000 		.4byte	0x9d
  196 00d5 09       		.uleb128 0x9
- 197 00d6 02010000 		.4byte	.LASF18
+ 197 00d6 37010000 		.4byte	.LASF18
  198 00da 01       		.byte	0x1
  199 00db 2C       		.byte	0x2c
  200 00dc 00000000 		.4byte	.LFB0
@@ -319,7 +319,7 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 1
  202 00e4 01       		.uleb128 0x1
  203 00e5 9C       		.byte	0x9c
  204 00e6 09       		.uleb128 0x9
- 205 00e7 F0000000 		.4byte	.LASF19
+ 205 00e7 21000000 		.4byte	.LASF19
  206 00eb 01       		.byte	0x1
  207 00ec 52       		.byte	0x52
  208 00ed 00000000 		.4byte	.LFB1
@@ -327,13 +327,13 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 1
  210 00f5 01       		.uleb128 0x1
  211 00f6 9C       		.byte	0x9c
  212 00f7 0A       		.uleb128 0xa
- 213 00f8 4F000000 		.4byte	.LASF23
+ 213 00f8 0F000000 		.4byte	.LASF23
  214 00fc 01       		.byte	0x1
  215 00fd 14       		.byte	0x14
  216 00fe CA000000 		.4byte	0xca
  217 0102 05       		.uleb128 0x5
  218 0103 03       		.byte	0x3
- 219 0104 00000000 		.4byte	Battery_in_backup
+ 219 0104 00000000 		.4byte	Battery_In_backup
  220 0108 00       		.byte	0
  221              		.section	.debug_abbrev,"",%progbits
  222              	.Ldebug_abbrev0:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 1
  241 0012 00       		.byte	0
  242 0013 02       		.uleb128 0x2
  243 0014 24       		.uleb128 0x24
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 7
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccaNIQbm.s 			page 7
 
 
  244 0015 00       		.byte	0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 1
  298 004b 0D       		.uleb128 0xd
  299 004c 00       		.byte	0
  300 004d 03       		.uleb128 0x3
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 8
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccaNIQbm.s 			page 8
 
 
  301 004e 0E       		.uleb128 0xe
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 1
  355 0085 3B       		.uleb128 0x3b
  356 0086 0B       		.uleb128 0xb
  357 0087 49       		.uleb128 0x49
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 9
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccaNIQbm.s 			page 9
 
 
  358 0088 13       		.uleb128 0x13
@@ -523,105 +523,105 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 1
  392 0006 75736253 		.ascii	"usbState\000"
  392      74617465 
  392      00
- 393              	.LASF9:
- 394 000f 666C6F61 		.ascii	"float\000"
- 394      7400
- 395              	.LASF1:
- 396 0015 756E7369 		.ascii	"unsigned char\000"
- 396      676E6564 
- 396      20636861 
- 396      7200
- 397              	.LASF5:
- 398 0023 6C6F6E67 		.ascii	"long unsigned int\000"
- 398      20756E73 
- 398      69676E65 
- 398      6420696E 
+ 393              	.LASF23:
+ 394 000f 42617474 		.ascii	"Battery_In_backup\000"
+ 394      6572795F 
+ 394      496E5F62 
+ 394      61636B75 
+ 394      7000
+ 395              	.LASF19:
+ 396 0021 42617474 		.ascii	"Battery_In_Wakeup\000"
+ 396      6572795F 
+ 396      496E5F57 
+ 396      616B6575 
+ 396      7000
+ 397              	.LASF9:
+ 398 0033 666C6F61 		.ascii	"float\000"
  398      7400
- 399              	.LASF3:
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 10
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccaNIQbm.s 			page 10
 
 
- 400 0035 73686F72 		.ascii	"short unsigned int\000"
- 400      7420756E 
- 400      7369676E 
- 400      65642069 
- 400      6E7400
- 401              	.LASF10:
- 402 0048 646F7562 		.ascii	"double\000"
- 402      6C6500
- 403              	.LASF23:
- 404 004f 42617474 		.ascii	"Battery_in_backup\000"
- 404      6572795F 
- 404      696E5F62 
- 404      61636B75 
- 404      7000
- 405              	.LASF12:
- 406 0061 75696E74 		.ascii	"uint32\000"
- 406      333200
- 407              	.LASF8:
- 408 0068 756E7369 		.ascii	"unsigned int\000"
- 408      676E6564 
- 408      20696E74 
- 408      00
- 409              	.LASF22:
- 410 0075 433A5C55 		.ascii	"C:\\Users\\Crowling\\OneDrive\\Documents\\GitHub\\L"
- 410      73657273 
- 410      5C43726F 
- 410      776C696E 
- 410      675C4F6E 
- 411 00a2 692D4365 		.ascii	"i-CellTesting_Script\\Internal_Main\\Internal_Main."
- 411      6C6C5465 
- 411      7374696E 
- 411      675F5363 
- 411      72697074 
- 412 00d3 63796473 		.ascii	"cydsn\000"
- 412      6E00
- 413              	.LASF7:
- 414 00d9 6C6F6E67 		.ascii	"long long unsigned int\000"
- 414      206C6F6E 
- 414      6720756E 
- 414      7369676E 
- 414      65642069 
- 415              	.LASF19:
- 416 00f0 42617474 		.ascii	"Battery_in_Wakeup\000"
- 416      6572795F 
- 416      696E5F57 
- 416      616B6575 
- 416      7000
- 417              	.LASF18:
- 418 0102 42617474 		.ascii	"Battery_in_Sleep\000"
- 418      6572795F 
- 418      696E5F53 
- 418      6C656570 
- 418      00
+ 399              	.LASF1:
+ 400 0039 756E7369 		.ascii	"unsigned char\000"
+ 400      676E6564 
+ 400      20636861 
+ 400      7200
+ 401              	.LASF5:
+ 402 0047 6C6F6E67 		.ascii	"long unsigned int\000"
+ 402      20756E73 
+ 402      69676E65 
+ 402      6420696E 
+ 402      7400
+ 403              	.LASF3:
+ 404 0059 73686F72 		.ascii	"short unsigned int\000"
+ 404      7420756E 
+ 404      7369676E 
+ 404      65642069 
+ 404      6E7400
+ 405              	.LASF17:
+ 406 006c 42617474 		.ascii	"Battery_In_BACKUP_STRUCT\000"
+ 406      6572795F 
+ 406      496E5F42 
+ 406      41434B55 
+ 406      505F5354 
+ 407              	.LASF10:
+ 408 0085 646F7562 		.ascii	"double\000"
+ 408      6C6500
+ 409              	.LASF12:
+ 410 008c 75696E74 		.ascii	"uint32\000"
+ 410      333200
+ 411              	.LASF8:
+ 412 0093 756E7369 		.ascii	"unsigned int\000"
+ 412      676E6564 
+ 412      20696E74 
+ 412      00
+ 413              	.LASF22:
+ 414 00a0 433A5C55 		.ascii	"C:\\Users\\Crowling\\OneDrive\\Documents\\GitHub\\L"
+ 414      73657273 
+ 414      5C43726F 
+ 414      776C696E 
+ 414      675C4F6E 
+ 415 00cd 692D4365 		.ascii	"i-CellTesting_Script\\Internal_Main\\Internal_Main."
+ 415      6C6C5465 
+ 415      7374696E 
+ 415      675F5363 
+ 415      72697074 
+ 416 00fe 63796473 		.ascii	"cydsn\000"
+ 416      6E00
+ 417              	.LASF7:
+ 418 0104 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 418      206C6F6E 
+ 418      6720756E 
+ 418      7369676E 
+ 418      65642069 
  419              	.LASF15:
- 420 0113 73696F53 		.ascii	"sioState\000"
+ 420 011b 73696F53 		.ascii	"sioState\000"
  420      74617465 
  420      00
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccxKV4Jk.s 			page 11
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\ccaNIQbm.s 			page 11
 
 
  421              	.LASF6:
- 422 011c 6C6F6E67 		.ascii	"long long int\000"
+ 422 0124 6C6F6E67 		.ascii	"long long int\000"
  422      206C6F6E 
  422      6720696E 
  422      7400
  423              	.LASF11:
- 424 012a 63686172 		.ascii	"char\000"
+ 424 0132 63686172 		.ascii	"char\000"
  424      00
- 425              	.LASF2:
- 426 012f 73686F72 		.ascii	"short int\000"
- 426      7420696E 
- 426      7400
- 427              	.LASF14:
- 428 0139 70635374 		.ascii	"pcState\000"
- 428      61746500 
- 429              	.LASF17:
- 430 0141 42617474 		.ascii	"Battery_in_BACKUP_STRUCT\000"
- 430      6572795F 
- 430      696E5F42 
- 430      41434B55 
- 430      505F5354 
+ 425              	.LASF18:
+ 426 0137 42617474 		.ascii	"Battery_In_Sleep\000"
+ 426      6572795F 
+ 426      496E5F53 
+ 426      6C656570 
+ 426      00
+ 427              	.LASF2:
+ 428 0148 73686F72 		.ascii	"short int\000"
+ 428      7420696E 
+ 428      7400
+ 429              	.LASF14:
+ 430 0152 70635374 		.ascii	"pcState\000"
+ 430      61746500 
  431              	.LASF4:
  432 015a 6C6F6E67 		.ascii	"long int\000"
  432      20696E74 
