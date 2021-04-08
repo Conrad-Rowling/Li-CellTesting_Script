@@ -7,7 +7,7 @@
 #define NUM_BAT_THERMISTORS 6 // excluding the thermistor at Position 1
 #define SHUNT_CONDUCTANCE 1.2 
 #define AMP_GAIN 21.3
-#define V_REF 40.0
+#define V_REF 50.0
 
 void CellTestStart(){
     AMux_1_Start();
