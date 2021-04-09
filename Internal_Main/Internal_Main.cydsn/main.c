@@ -89,6 +89,9 @@ int main(void)
         CyDelay(1000);
         userInput = UART_1_UartGetChar();
         
+        sprintf(string, "Enter G to start Test:"); 
+        UART_1_UartPutString(string);
+        
         if (userInput == 71)  //Type Capital G into Putty
         {
             Timer_1_Start();

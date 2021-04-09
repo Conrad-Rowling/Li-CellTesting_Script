@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
   28:Generated_Source\PSoC4/PGA_1.c **** * or (PGA_1_C_FB_MASK)
   29:Generated_Source\PSoC4/PGA_1.c **** *
   30:Generated_Source\PSoC4/PGA_1.c **** * Also there is an OpAmp compensation recomended setting (for certain 
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 2
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 2
 
 
   31:Generated_Source\PSoC4/PGA_1.c **** * gain and power setting) under the mask 0x00000003u
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
   85:Generated_Source\PSoC4/PGA_1.c ****     
   86:Generated_Source\PSoC4/PGA_1.c ****     /* Set default gain and correspondent Cfb and OA_trim values */
   87:Generated_Source\PSoC4/PGA_1.c ****     PGA_1_SetGain(PGA_1_GAIN);
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 3
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 3
 
 
   88:Generated_Source\PSoC4/PGA_1.c **** }
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  109:Generated_Source\PSoC4/PGA_1.c **** *
  110:Generated_Source\PSoC4/PGA_1.c **** *  Enables the amplifier operation (calls PGA_1_Enable).
  111:Generated_Source\PSoC4/PGA_1.c **** *  Also on the first call (after the system reset) initializes all the component
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 4
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 4
 
 
  112:Generated_Source\PSoC4/PGA_1.c **** *  related registers with default values (calls PGA_1_Init).
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
   82              		.section	.text.PGA_1_SetPower,"ax",%progbits
   83              		.align	2
   84              		.global	PGA_1_SetPower
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 5
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 5
 
 
   85              		.code	16
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  113              	.LVL1:
  114 0010 1843     		orrs	r0, r3
  115 0012 2860     		str	r0, [r5]
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 6
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 6
 
 
  171:Generated_Source\PSoC4/PGA_1.c ****     
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  159              		.loc 1 181 0
  160              		@ sp needed
  161 0060 04BC     		pop	{r2}
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 7
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 7
 
 
  162 0062 9046     		mov	r8, r2
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  186              		@ frame_needed = 0, uses_anonymous_args = 0
  187              	.LVL4:
  188 0000 30B5     		push	{r4, r5, lr}
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 8
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 8
 
 
  189              		.cfi_def_cfa_offset 12
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  230 003c F022     		movs	r2, #240
  231 003e 1205     		lsls	r2, r2, #20
  232 0040 1A40     		ands	r2, r3
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 9
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 9
 
 
  233 0042 2B00     		movs	r3, r5
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  270 007c 084A     		ldr	r2, .L13+28
  271 007e 1360     		str	r3, [r2]
  241:Generated_Source\PSoC4/PGA_1.c **** }
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 10
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 10
 
 
  272              		.loc 1 241 0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
   77:Generated_Source\PSoC4/PGA_1.c ****     
  322              		.loc 1 77 0
  323 001e 1A68     		ldr	r2, [r3]
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 11
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 11
 
 
  324 0020 8021     		movs	r1, #128
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  372 0004 1B79     		ldrb	r3, [r3, #4]
  373 0006 002B     		cmp	r3, #0
  374 0008 04D1     		bne	.L20
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 12
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 12
 
 
  126:Generated_Source\PSoC4/PGA_1.c ****         PGA_1_initVar = 1u;
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  263:Generated_Source\PSoC4/PGA_1.c **** {
  404              		.loc 1 263 0
  405              		.cfi_startproc
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 13
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 13
 
 
  406              		@ args = 0, pretend = 0, frame = 0
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  451 0008 0200000F 		.word	251658242
  452 000c 02000008 		.word	134217730
  453 0010 02000009 		.word	150994946
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 14
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 14
 
 
  454 0014 02000009 		.word	150994946
@@ -815,48 +815,48 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  485 0006 00000000 		.4byte	.Ldebug_abbrev0
  486 000a 04       		.byte	0x4
  487 000b 01       		.uleb128 0x1
- 488 000c DA010000 		.4byte	.LASF30
+ 488 000c DD010000 		.4byte	.LASF30
  489 0010 0C       		.byte	0xc
- 490 0011 81000000 		.4byte	.LASF31
- 491 0015 12000000 		.4byte	.LASF32
+ 490 0011 20000000 		.4byte	.LASF31
+ 491 0015 C7000000 		.4byte	.LASF32
  492 0019 00000000 		.4byte	.Ldebug_ranges0+0
  493 001d 00000000 		.4byte	0
  494 0021 00000000 		.4byte	.Ldebug_line0
  495 0025 02       		.uleb128 0x2
  496 0026 01       		.byte	0x1
  497 0027 06       		.byte	0x6
- 498 0028 6C020000 		.4byte	.LASF0
+ 498 0028 6F020000 		.4byte	.LASF0
  499 002c 02       		.uleb128 0x2
  500 002d 01       		.byte	0x1
  501 002e 08       		.byte	0x8
- 502 002f B4000000 		.4byte	.LASF1
+ 502 002f 53000000 		.4byte	.LASF1
  503 0033 02       		.uleb128 0x2
  504 0034 02       		.byte	0x2
  505 0035 05       		.byte	0x5
- 506 0036 AB010000 		.4byte	.LASF2
+ 506 0036 AE010000 		.4byte	.LASF2
  507 003a 02       		.uleb128 0x2
  508 003b 02       		.byte	0x2
  509 003c 07       		.byte	0x7
- 510 003d E5000000 		.4byte	.LASF3
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 15
+ 510 003d 84000000 		.4byte	.LASF3
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 15
 
 
  511 0041 02       		.uleb128 0x2
  512 0042 04       		.byte	0x4
  513 0043 05       		.byte	0x5
- 514 0044 C2010000 		.4byte	.LASF4
+ 514 0044 C5010000 		.4byte	.LASF4
  515 0048 02       		.uleb128 0x2
  516 0049 04       		.byte	0x4
  517 004a 07       		.byte	0x7
- 518 004b D3000000 		.4byte	.LASF5
+ 518 004b 72000000 		.4byte	.LASF5
  519 004f 02       		.uleb128 0x2
  520 0050 08       		.byte	0x8
  521 0051 05       		.byte	0x5
- 522 0052 6E010000 		.4byte	.LASF6
+ 522 0052 71010000 		.4byte	.LASF6
  523 0056 02       		.uleb128 0x2
  524 0057 08       		.byte	0x8
  525 0058 07       		.byte	0x7
- 526 0059 35010000 		.4byte	.LASF7
+ 526 0059 38010000 		.4byte	.LASF7
  527 005d 03       		.uleb128 0x3
  528 005e 04       		.byte	0x4
  529 005f 05       		.byte	0x5
@@ -864,29 +864,29 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  531 0064 02       		.uleb128 0x2
  532 0065 04       		.byte	0x4
  533 0066 07       		.byte	0x7
- 534 0067 1B010000 		.4byte	.LASF8
+ 534 0067 BA000000 		.4byte	.LASF8
  535 006b 04       		.uleb128 0x4
- 536 006c B5010000 		.4byte	.LASF9
+ 536 006c B8010000 		.4byte	.LASF9
  537 0070 02       		.byte	0x2
  538 0071 FC01     		.2byte	0x1fc
  539 0073 2C000000 		.4byte	0x2c
  540 0077 04       		.uleb128 0x4
- 541 0078 14010000 		.4byte	.LASF10
+ 541 0078 B3000000 		.4byte	.LASF10
  542 007c 02       		.byte	0x2
  543 007d FE01     		.2byte	0x1fe
  544 007f 48000000 		.4byte	0x48
  545 0083 02       		.uleb128 0x2
  546 0084 04       		.byte	0x4
  547 0085 04       		.byte	0x4
- 548 0086 AE000000 		.4byte	.LASF11
+ 548 0086 4D000000 		.4byte	.LASF11
  549 008a 02       		.uleb128 0x2
  550 008b 08       		.byte	0x8
  551 008c 04       		.byte	0x4
- 552 008d 02010000 		.4byte	.LASF12
+ 552 008d A1000000 		.4byte	.LASF12
  553 0091 02       		.uleb128 0x2
  554 0092 01       		.byte	0x1
  555 0093 08       		.byte	0x8
- 556 0094 7C010000 		.4byte	.LASF13
+ 556 0094 7F010000 		.4byte	.LASF13
  557 0098 04       		.uleb128 0x4
  558 0099 0C000000 		.4byte	.LASF14
  559 009d 02       		.byte	0x2
@@ -895,10 +895,10 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  562 00a4 05       		.uleb128 0x5
  563 00a5 77000000 		.4byte	0x77
  564 00a9 06       		.uleb128 0x6
- 565 00aa 28010000 		.4byte	.LASF15
+ 565 00aa 2B010000 		.4byte	.LASF15
  566 00ae 01       		.byte	0x1
  567 00af 64       		.byte	0x64
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 16
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 16
 
 
  568 00b0 00000000 		.4byte	.LFB1
@@ -906,7 +906,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  570 00b8 01       		.uleb128 0x1
  571 00b9 9C       		.byte	0x9c
  572 00ba 06       		.uleb128 0x6
- 573 00bb 09010000 		.4byte	.LASF16
+ 573 00bb A8000000 		.4byte	.LASF16
  574 00bf 01       		.byte	0x1
  575 00c0 8D       		.byte	0x8d
  576 00c1 00000000 		.4byte	.LFB3
@@ -914,7 +914,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  578 00c9 01       		.uleb128 0x1
  579 00ca 9C       		.byte	0x9c
  580 00cb 07       		.uleb128 0x7
- 581 00cc CB010000 		.4byte	.LASF17
+ 581 00cc CE010000 		.4byte	.LASF17
  582 00d0 01       		.byte	0x1
  583 00d1 A4       		.byte	0xa4
  584 00d2 00000000 		.4byte	.LFB4
@@ -923,20 +923,20 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  587 00db 9C       		.byte	0x9c
  588 00dc FF000000 		.4byte	0xff
  589 00e0 08       		.uleb128 0x8
- 590 00e1 C8000000 		.4byte	.LASF19
+ 590 00e1 67000000 		.4byte	.LASF19
  591 00e5 01       		.byte	0x1
  592 00e6 A4       		.byte	0xa4
  593 00e7 77000000 		.4byte	0x77
  594 00eb 00000000 		.4byte	.LLST0
  595 00ef 09       		.uleb128 0x9
- 596 00f0 BB010000 		.4byte	.LASF21
+ 596 00f0 BE010000 		.4byte	.LASF21
  597 00f4 01       		.byte	0x1
  598 00f5 A6       		.byte	0xa6
  599 00f6 77000000 		.4byte	0x77
  600 00fa 21000000 		.4byte	.LLST1
  601 00fe 00       		.byte	0
  602 00ff 07       		.uleb128 0x7
- 603 0100 4C010000 		.4byte	.LASF18
+ 603 0100 4F010000 		.4byte	.LASF18
  604 0104 01       		.byte	0x1
  605 0105 D2       		.byte	0xd2
  606 0106 00000000 		.4byte	.LFB5
@@ -945,23 +945,23 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  609 010f 9C       		.byte	0x9c
  610 0110 33010000 		.4byte	0x133
  611 0114 08       		.uleb128 0x8
- 612 0115 F8000000 		.4byte	.LASF20
+ 612 0115 97000000 		.4byte	.LASF20
  613 0119 01       		.byte	0x1
  614 011a D2       		.byte	0xd2
  615 011b 77000000 		.4byte	0x77
  616 011f 34000000 		.4byte	.LLST2
  617 0123 09       		.uleb128 0x9
- 618 0124 BB010000 		.4byte	.LASF21
+ 618 0124 BE010000 		.4byte	.LASF21
  619 0128 01       		.byte	0x1
  620 0129 D4       		.byte	0xd4
  621 012a 77000000 		.4byte	0x77
  622 012e 55000000 		.4byte	.LLST3
  623 0132 00       		.byte	0
  624 0133 07       		.uleb128 0x7
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 17
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 17
 
 
- 625 0134 5A010000 		.4byte	.LASF22
+ 625 0134 5D010000 		.4byte	.LASF22
  626 0138 01       		.byte	0x1
  627 0139 45       		.byte	0x45
  628 013a 00000000 		.4byte	.LFB0
@@ -999,7 +999,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  660 0184 A9000000 		.4byte	0xa9
  661 0188 00       		.byte	0
  662 0189 0D       		.uleb128 0xd
- 663 018a 99010000 		.4byte	.LASF24
+ 663 018a 9C010000 		.4byte	.LASF24
  664 018e 01       		.byte	0x1
  665 018f 0601     		.2byte	0x106
  666 0191 00000000 		.4byte	.LFB6
@@ -1008,7 +1008,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  669 019a 9C       		.byte	0x9c
  670 019b AE010000 		.4byte	0x1ae
  671 019f 0E       		.uleb128 0xe
- 672 01a0 C2000000 		.4byte	.LASF25
+ 672 01a0 61000000 		.4byte	.LASF25
  673 01a4 01       		.byte	0x1
  674 01a5 0601     		.2byte	0x106
  675 01a7 77000000 		.4byte	0x77
@@ -1016,9 +1016,9 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  677 01ac 50       		.byte	0x50
  678 01ad 00       		.byte	0
  679 01ae 0F       		.uleb128 0xf
- 680 01af A0000000 		.4byte	.LASF26
+ 680 01af 3F000000 		.4byte	.LASF26
  681 01b3 01       		.byte	0x1
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 18
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 18
 
 
  682 01b4 13       		.byte	0x13
@@ -1027,7 +1027,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  685 01ba 03       		.byte	0x3
  686 01bb 00000000 		.4byte	PGA_1_initVar
  687 01bf 0F       		.uleb128 0xf
- 688 01c0 81010000 		.4byte	.LASF27
+ 688 01c0 84010000 		.4byte	.LASF27
  689 01c4 01       		.byte	0x1
  690 01c5 15       		.byte	0x15
  691 01c6 77000000 		.4byte	0x77
@@ -1047,11 +1047,11 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  705 01e6 02       		.uleb128 0x2
  706 01e7 04       		.byte	0x4
  707 01e8 07       		.byte	0x7
- 708 01e9 65010000 		.4byte	.LASF28
+ 708 01e9 68010000 		.4byte	.LASF28
  709 01ed 12       		.uleb128 0x12
  710 01ee 77000000 		.4byte	0x77
  711 01f2 0F       		.uleb128 0xf
- 712 01f3 73000000 		.4byte	.LASF29
+ 712 01f3 12000000 		.4byte	.LASF29
  713 01f7 01       		.byte	0x1
  714 01f8 28       		.byte	0x28
  715 01f9 03020000 		.4byte	0x203
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  736 000c 17       		.uleb128 0x17
  737 000d 11       		.uleb128 0x11
  738 000e 01       		.uleb128 0x1
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 19
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 19
 
 
  739 000f 10       		.uleb128 0x10
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  793 0045 0B       		.uleb128 0xb
  794 0046 3B       		.uleb128 0x3b
  795 0047 0B       		.uleb128 0xb
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 20
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 20
 
 
  796 0048 27       		.uleb128 0x27
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  850 0080 00       		.byte	0
  851 0081 03       		.uleb128 0x3
  852 0082 0E       		.uleb128 0xe
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 21
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 21
 
 
  853 0083 3A       		.uleb128 0x3a
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  907 00c0 40       		.uleb128 0x40
  908 00c1 18       		.uleb128 0x18
  909 00c2 9742     		.uleb128 0x2117
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 22
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 22
 
 
  910 00c4 19       		.uleb128 0x19
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  964 00fa 00       		.byte	0
  965 00fb 12       		.uleb128 0x12
  966 00fc 26       		.uleb128 0x26
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 23
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 23
 
 
  967 00fd 00       		.byte	0
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  1021 006d FFFFC387 		.sleb128 -252641281
  1021      7F
  1022 0072 1A       		.byte	0x1a
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 24
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 24
 
 
  1023 0073 9F       		.byte	0x9f
@@ -1438,172 +1438,173 @@ ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 1
  1072      315F5374 
  1072      61727400 
  1073              	.LASF14:
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 25
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 25
 
 
  1074 000c 72656733 		.ascii	"reg32\000"
  1074      3200
- 1075              	.LASF32:
- 1076 0012 433A5C55 		.ascii	"C:\\Users\\samue\\OneDrive\\Documents\\GitHub\\Li-C"
- 1076      73657273 
- 1076      5C73616D 
- 1076      75655C4F 
- 1076      6E654472 
- 1077 003f 656C6C54 		.ascii	"ellTesting_Script\\Internal_Main\\Internal_Main.cyd"
- 1077      65737469 
- 1077      6E675F53 
- 1077      63726970 
- 1077      745C496E 
- 1078 0070 736E00   		.ascii	"sn\000"
- 1079              	.LASF29:
- 1080 0073 5047415F 		.ascii	"PGA_1_compTab\000"
- 1080      315F636F 
- 1080      6D705461 
- 1080      6200
- 1081              	.LASF31:
- 1082 0081 47656E65 		.ascii	"Generated_Source\\PSoC4\\PGA_1.c\000"
- 1082      72617465 
- 1082      645F536F 
- 1082      75726365 
- 1082      5C50536F 
- 1083              	.LASF26:
- 1084 00a0 5047415F 		.ascii	"PGA_1_initVar\000"
- 1084      315F696E 
- 1084      69745661 
+ 1075              	.LASF29:
+ 1076 0012 5047415F 		.ascii	"PGA_1_compTab\000"
+ 1076      315F636F 
+ 1076      6D705461 
+ 1076      6200
+ 1077              	.LASF31:
+ 1078 0020 47656E65 		.ascii	"Generated_Source\\PSoC4\\PGA_1.c\000"
+ 1078      72617465 
+ 1078      645F536F 
+ 1078      75726365 
+ 1078      5C50536F 
+ 1079              	.LASF26:
+ 1080 003f 5047415F 		.ascii	"PGA_1_initVar\000"
+ 1080      315F696E 
+ 1080      69745661 
+ 1080      7200
+ 1081              	.LASF11:
+ 1082 004d 666C6F61 		.ascii	"float\000"
+ 1082      7400
+ 1083              	.LASF1:
+ 1084 0053 756E7369 		.ascii	"unsigned char\000"
+ 1084      676E6564 
+ 1084      20636861 
  1084      7200
- 1085              	.LASF11:
- 1086 00ae 666C6F61 		.ascii	"float\000"
- 1086      7400
- 1087              	.LASF1:
- 1088 00b4 756E7369 		.ascii	"unsigned char\000"
- 1088      676E6564 
- 1088      20636861 
- 1088      7200
- 1089              	.LASF25:
- 1090 00c2 6F6E4F66 		.ascii	"onOff\000"
- 1090      6600
- 1091              	.LASF19:
- 1092 00c8 706F7765 		.ascii	"powerLevel\000"
- 1092      724C6576 
- 1092      656C00
- 1093              	.LASF5:
- 1094 00d3 6C6F6E67 		.ascii	"long unsigned int\000"
- 1094      20756E73 
- 1094      69676E65 
- 1094      6420696E 
- 1094      7400
- 1095              	.LASF3:
- 1096 00e5 73686F72 		.ascii	"short unsigned int\000"
- 1096      7420756E 
- 1096      7369676E 
- 1096      65642069 
- 1096      6E7400
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 26
+ 1085              	.LASF25:
+ 1086 0061 6F6E4F66 		.ascii	"onOff\000"
+ 1086      6600
+ 1087              	.LASF19:
+ 1088 0067 706F7765 		.ascii	"powerLevel\000"
+ 1088      724C6576 
+ 1088      656C00
+ 1089              	.LASF5:
+ 1090 0072 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1090      20756E73 
+ 1090      69676E65 
+ 1090      6420696E 
+ 1090      7400
+ 1091              	.LASF3:
+ 1092 0084 73686F72 		.ascii	"short unsigned int\000"
+ 1092      7420756E 
+ 1092      7369676E 
+ 1092      65642069 
+ 1092      6E7400
+ 1093              	.LASF20:
+ 1094 0097 6761696E 		.ascii	"gainLevel\000"
+ 1094      4C657665 
+ 1094      6C00
+ 1095              	.LASF12:
+ 1096 00a1 646F7562 		.ascii	"double\000"
+ 1096      6C6500
+ 1097              	.LASF16:
+ 1098 00a8 5047415F 		.ascii	"PGA_1_Stop\000"
+ 1098      315F5374 
+ 1098      6F7000
+ 1099              	.LASF10:
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 26
 
 
- 1097              	.LASF20:
- 1098 00f8 6761696E 		.ascii	"gainLevel\000"
- 1098      4C657665 
- 1098      6C00
- 1099              	.LASF12:
- 1100 0102 646F7562 		.ascii	"double\000"
- 1100      6C6500
- 1101              	.LASF16:
- 1102 0109 5047415F 		.ascii	"PGA_1_Stop\000"
- 1102      315F5374 
- 1102      6F7000
- 1103              	.LASF10:
- 1104 0114 75696E74 		.ascii	"uint32\000"
- 1104      333200
- 1105              	.LASF8:
- 1106 011b 756E7369 		.ascii	"unsigned int\000"
- 1106      676E6564 
- 1106      20696E74 
- 1106      00
+ 1100 00b3 75696E74 		.ascii	"uint32\000"
+ 1100      333200
+ 1101              	.LASF8:
+ 1102 00ba 756E7369 		.ascii	"unsigned int\000"
+ 1102      676E6564 
+ 1102      20696E74 
+ 1102      00
+ 1103              	.LASF32:
+ 1104 00c7 433A5C55 		.ascii	"C:\\Users\\Crowling\\OneDrive\\Documents\\GitHub\\L"
+ 1104      73657273 
+ 1104      5C43726F 
+ 1104      776C696E 
+ 1104      675C4F6E 
+ 1105 00f4 692D4365 		.ascii	"i-CellTesting_Script\\Internal_Main\\Internal_Main."
+ 1105      6C6C5465 
+ 1105      7374696E 
+ 1105      675F5363 
+ 1105      72697074 
+ 1106 0125 63796473 		.ascii	"cydsn\000"
+ 1106      6E00
  1107              	.LASF15:
- 1108 0128 5047415F 		.ascii	"PGA_1_Enable\000"
+ 1108 012b 5047415F 		.ascii	"PGA_1_Enable\000"
  1108      315F456E 
  1108      61626C65 
  1108      00
  1109              	.LASF7:
- 1110 0135 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1110 0138 6C6F6E67 		.ascii	"long long unsigned int\000"
  1110      206C6F6E 
  1110      6720756E 
  1110      7369676E 
  1110      65642069 
  1111              	.LASF18:
- 1112 014c 5047415F 		.ascii	"PGA_1_SetGain\000"
+ 1112 014f 5047415F 		.ascii	"PGA_1_SetGain\000"
  1112      315F5365 
  1112      74476169 
  1112      6E00
  1113              	.LASF22:
- 1114 015a 5047415F 		.ascii	"PGA_1_Init\000"
+ 1114 015d 5047415F 		.ascii	"PGA_1_Init\000"
  1114      315F496E 
  1114      697400
  1115              	.LASF28:
- 1116 0165 73697A65 		.ascii	"sizetype\000"
+ 1116 0168 73697A65 		.ascii	"sizetype\000"
  1116      74797065 
  1116      00
  1117              	.LASF6:
- 1118 016e 6C6F6E67 		.ascii	"long long int\000"
+ 1118 0171 6C6F6E67 		.ascii	"long long int\000"
  1118      206C6F6E 
  1118      6720696E 
  1118      7400
  1119              	.LASF13:
- 1120 017c 63686172 		.ascii	"char\000"
+ 1120 017f 63686172 		.ascii	"char\000"
  1120      00
  1121              	.LASF27:
- 1122 0181 5047415F 		.ascii	"PGA_1_internalGainPower\000"
+ 1122 0184 5047415F 		.ascii	"PGA_1_internalGainPower\000"
  1122      315F696E 
  1122      7465726E 
  1122      616C4761 
+ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cceCglef.s 			page 27
+
+
  1122      696E506F 
-ARM GAS  C:\Users\samue\AppData\Local\Temp\cc58GTf8.s 			page 27
-
-
  1123              	.LASF24:
- 1124 0199 5047415F 		.ascii	"PGA_1_PumpControl\000"
+ 1124 019c 5047415F 		.ascii	"PGA_1_PumpControl\000"
  1124      315F5075 
  1124      6D70436F 
  1124      6E74726F 
  1124      6C00
  1125              	.LASF2:
- 1126 01ab 73686F72 		.ascii	"short int\000"
+ 1126 01ae 73686F72 		.ascii	"short int\000"
  1126      7420696E 
  1126      7400
  1127              	.LASF9:
- 1128 01b5 75696E74 		.ascii	"uint8\000"
+ 1128 01b8 75696E74 		.ascii	"uint8\000"
  1128      3800
  1129              	.LASF21:
- 1130 01bb 6C6F6354 		.ascii	"locTmp\000"
+ 1130 01be 6C6F6354 		.ascii	"locTmp\000"
  1130      6D7000
  1131              	.LASF4:
- 1132 01c2 6C6F6E67 		.ascii	"long int\000"
+ 1132 01c5 6C6F6E67 		.ascii	"long int\000"
  1132      20696E74 
  1132      00
  1133              	.LASF17:
- 1134 01cb 5047415F 		.ascii	"PGA_1_SetPower\000"
+ 1134 01ce 5047415F 		.ascii	"PGA_1_SetPower\000"
  1134      315F5365 
  1134      74506F77 
  1134      657200
  1135              	.LASF30:
- 1136 01da 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1136 01dd 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  1136      43313120 
  1136      352E342E 
  1136      31203230 
  1136      31363036 
- 1137 020d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 1137 0210 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
  1137      20726576 
  1137      6973696F 
  1137      6E203233 
  1137      37373135 
- 1138 0240 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 1138 0243 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
  1138      67202D66 
  1138      66756E63 
  1138      74696F6E 
  1138      2D736563 
  1139              	.LASF0:
- 1140 026c 7369676E 		.ascii	"signed char\000"
+ 1140 026f 7369676E 		.ascii	"signed char\000"
  1140      65642063 
  1140      68617200 
  1141              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
