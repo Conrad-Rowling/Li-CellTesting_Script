@@ -17,7 +17,7 @@ void CellTestStart(){
     ADC_1_Start();
     UART_1_Start();
     BLUE_LED_Write(0);
-    RELAY_EN_Write(1);
+    RELAY_EN_Write(0);
 }
 
 void CellTestStop(){
@@ -108,7 +108,8 @@ int main(void)
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrefCount = ADC_1_GetResult32(0);
                 ADC_1_StopConvert();
-                vrefVal = FilterSignal(vrefCount);
+                vrefCount = FilterSignal(vrefCount);
+                vrefVal = ADC_1_CountsTo_mVolts(vrefCount, 0)/1000.0;
                 
                 AMux_1_Select(1);                               // Mux Select
                 ADC_1_StartConvert();                           // Start the Read the ADC
@@ -124,9 +125,9 @@ int main(void)
                 ADC_1_StopConvert();
                 vrgndCount = FilterSignal(shuntCount);
                 
-                shuntCount = shuntCount - vrgndCount;
+                //shuntCount = shuntCount - vrgndCount;
                 shuntVal = ADC_1_CountsTo_mVolts(shuntCount, 0);
-                shuntVal = (shuntVal*SHUNT_CONDUCTANCE)/(vrefVal/V_REF);
+                //shuntVal = (shuntVal*SHUNT_CONDUCTANCE)/(vrefVal/V_REF);
                 
                 // 83 is ASCII for STOP 
                 if (userInput == 83){              
@@ -142,7 +143,7 @@ int main(void)
                 CyDelayUs(250);
                 
                 if (Timer_1_ReadCounter() > 4){
-                    sprintf(string, "Shunt Value: %f", shuntVal); 
+                    sprintf(string, "Shunt Value: %3.3f", shuntVal); 
                     UART_1_UartPutString(string);
                     UART_1_UartPutString("\n\r");
                     Timer_1_WriteCounter(0);
