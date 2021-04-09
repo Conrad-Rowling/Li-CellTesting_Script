@@ -23,10 +23,10 @@ void CellTestStart(){
 void CellTestStop(){
     PVref_1_Stop();
 }
-int32 FilterSignal(int32 ADCSample){
+int32 FilterSignal(int32 ADCSample, uint8 channel){
     
     // MOVING AVERAGE
-	static int32 filteredValue = {0};
+	static int32 filteredValue[3] = {0,0};
 	
 	/* Filtered value rounded-off to 20-bits */
 	int32 filValueRounded;
@@ -35,18 +35,18 @@ int32 FilterSignal(int32 ADCSample){
 	ADCSample <<= 8;
 	   
 	/* Pass the filter input as it is for fast changes in input  - if the least significant bits change by a factor of 100*/
-    if((ADCSample > (filteredValue + (100*256))) || (ADCSample < (filteredValue - (100*256)))){
-        filteredValue = ADCSample;     
+    if((ADCSample > (filteredValue[channel] + (100*256))) || (ADCSample < (filteredValue[channel] - (100*256)))){
+        filteredValue[channel] = ADCSample;     
     }
     
     /* If not the first sample then based on filter coefficient, filter the input signal */
     else{
         /* IIR filter */
-		filteredValue = filteredValue + ((ADCSample - filteredValue) >> 4);		 
+		filteredValue[channel] = filteredValue[channel] + ((ADCSample - filteredValue[channel]) >> 4);		 
 	}
     
 	/* Compensate filter result for  left shift of 8 and round off */
-	filValueRounded = (filteredValue >> 8) + ((filteredValue & 0x00000080) >> 7);
+	filValueRounded = (filteredValue[channel] >> 8) + ((filteredValue[channel] & 0x00000080) >> 7);
     return filValueRounded;
 }
 int32 PointerTest(int32 array){
@@ -70,14 +70,14 @@ int32 PointerTest(int32 array){
 
 int main(void)
 {
-    uint32 shuntCount; //Voltage measured from shunt in 12-bit res
+    int32 shuntCount; //Voltage measured from shunt in 12-bit res
     float shuntVal;
-    uint32 vrgndCount;
-    uint32 vrefCount;
+    int32 vrgndCount;
+    int32 vrefCount;
     float vrefVal;
     char string[30];
     
-    uint32 userInput;
+    int32 userInput;
     int8 stopFlag = 0;      
     
     CellTestStart();
@@ -108,25 +108,25 @@ int main(void)
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrefCount = ADC_1_GetResult32(0);
                 ADC_1_StopConvert();
-                vrefCount = FilterSignal(vrefCount);
-                vrefVal = ADC_1_CountsTo_mVolts(vrefCount, 0)/1000.0;
+                vrefCount = FilterSignal(vrefCount, 0);
+                vrefVal = ADC_1_CountsTo_Volts(0, vrefCount);
                 
                 AMux_1_Select(1);                               // Mux Select
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 shuntCount = ADC_1_GetResult32(0);
                 ADC_1_StopConvert();
-                shuntCount = FilterSignal(shuntCount);
+                shuntCount = FilterSignal(shuntCount, 1);
                 
                 AMux_1_Select(2);                               // Mux Select
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrgndCount = ADC_1_GetResult32(0);
                 ADC_1_StopConvert();
-                vrgndCount = FilterSignal(shuntCount);
+                vrgndCount = FilterSignal(shuntCount, 2);
                 
                 //shuntCount = shuntCount - vrgndCount;
-                shuntVal = ADC_1_CountsTo_mVolts(shuntCount, 0);
+                shuntVal = ADC_1_CountsTo_mVolts(0, shuntCount);
                 //shuntVal = (shuntVal*SHUNT_CONDUCTANCE)/(vrefVal/V_REF);
                 
                 // 83 is ASCII for STOP 
