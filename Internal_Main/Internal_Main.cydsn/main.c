@@ -83,14 +83,14 @@ int main(void)
     CellTestStart();
     CyGlobalIntEnable;
     
+    sprintf(string, "\r\nEnter G to start Test: \r\n"); 
+    UART_1_UartPutString(string);
+    
     for(;;)
     {
         BLUE_LED_Write(1);
         CyDelay(1000);
         userInput = UART_1_UartGetChar();
-        
-        sprintf(string, "Enter G to start Test:"); 
-        UART_1_UartPutString(string);
         
         if (userInput == 71)  //Type Capital G into Putty
         {
@@ -133,6 +133,10 @@ int main(void)
                     stopFlag = 1;
                     Timer_1_Stop();
                     CellTestStop();
+                    sprintf(string, "\r\n Test Halted \r\n"); 
+                    UART_1_UartPutString(string);
+                    sprintf(string, "\r\n Enter G to Resume Test: \r\n"); 
+                    UART_1_UartPutString(string);
                 }
                 
                 CyDelayUs(250);
