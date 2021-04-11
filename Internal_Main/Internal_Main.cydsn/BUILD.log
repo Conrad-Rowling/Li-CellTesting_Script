@@ -1,14 +1,57 @@
---------------- Build Started: 04/08/2021 23:13:32 Project: Internal_Main, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
-The code generation step is up to date.
+--------------- Build Started: 04/10/2021 17:51:45 Project: Internal_Main, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+cydsfit.exe -.appdatapath "C:\Users\Tucker Zischka\AppData\Local\Cypress Semiconductor\PSoC Creator\4.4" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p "C:\Users\Tucker Zischka\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\Internal_Main.cyprj" -d CY8C4145LQI-PS433 -s "C:\Users\Tucker Zischka\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\Generated_Source\PSoC4" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+ADD: sdb.M0065: information: Analog terminal "Cal_In.analog_0" on TopDesign is unconnected.
+ * C:\Users\Tucker Zischka\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\TopDesign\TopDesign.cysch (Signal: Net_86)
+ * C:\Users\Tucker Zischka\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\TopDesign\TopDesign.cysch (Shape_7.3)
+ADD: sdb.M0065: information: Analog terminal "Shunt_Gnd.analog_0" on TopDesign is unconnected.
+ * C:\Users\Tucker Zischka\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\TopDesign\TopDesign.cysch (Signal: Net_88)
+ * C:\Users\Tucker Zischka\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\TopDesign\TopDesign.cysch (Shape_15.3)
+ADD: sdb.M0065: information: Analog terminal "Opamp_2.Vout" on TopDesign is unconnected.
+ * C:\Users\Tucker Zischka\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\TopDesign\TopDesign.cysch (Signal: Net_115)
+ * C:\Users\Tucker Zischka\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\TopDesign\TopDesign.cysch (Shape_137)
+ * C:\Users\Tucker Zischka\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\TopDesign\TopDesign.cysch (Shape_139.10)
+ * C:\Users\Tucker Zischka\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\TopDesign\TopDesign.cysch (Shape_140)
+ * C:\Users\Tucker Zischka\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\TopDesign\TopDesign.cysch (Shape_232)
+HDL Generation...
+Synthesis...
+Tech Mapping...
+ADD: pft.M0040: information: The following 1 pin(s) will be assigned a location by the fitter: \ADC_1:Bypass(0)\
+Analog Placement...
+Analog Routing...
+Analog Code Generation...
+Digital Placement...
+Digital Routing...
+Bitstream Generation...
+Bitstream Verification...
+Static timing analysis...
+API Generation...
+Dependency Generation...
+Cleanup...
 arm-none-eabi-gcc.exe -mcpu=cortex-m0plus -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0p\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM0p\ARM_GCC_541\Debug\main.o
-arm-none-eabi-ar.exe -rs .\CortexM0p\ARM_GCC_541\Debug\Internal_Main.a .\CortexM0p\ARM_GCC_541\Debug\ADC_1.o .\CortexM0p\ARM_GCC_541\Debug\ADC_1_INIT.o .\CortexM0p\ARM_GCC_541\Debug\ADC_1_INT.o .\CortexM0p\ARM_GCC_541\Debug\ADC_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\AMux_1.o .\CortexM0p\ARM_GCC_541\Debug\PVref_1.o .\CortexM0p\ARM_GCC_541\Debug\PVref_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\Cal_in.o .\CortexM0p\ARM_GCC_541\Debug\Cal_in_PM.o .\CortexM0p\ARM_GCC_541\Debug\PGA_1.o .\CortexM0p\ARM_GCC_541\Debug\PGA_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\AMux_2.o .\CortexM0p\ARM_GCC_541\Debug\Pin_2.o .\CortexM0p\ARM_GCC_541\Debug\Pin_2_PM.o .\CortexM0p\ARM_GCC_541\Debug\Opamp_1.o .\CortexM0p\ARM_GCC_541\Debug\Opamp_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\bgRef.o .\CortexM0p\ARM_GCC_541\Debug\bgRef_PM.o .\CortexM0p\ARM_GCC_541\Debug\Shunt_in.o .\CortexM0p\ARM_GCC_541\Debug\Shunt_in_PM.o .\CortexM0p\ARM_GCC_541\Debug\Shunt_gnd.o .\CortexM0p\ARM_GCC_541\Debug\Shunt_gnd_PM.o .\CortexM0p\ARM_GCC_541\Debug\Battery_in.o .\CortexM0p\ARM_GCC_541\Debug\Battery_in_PM.o .\CortexM0p\ARM_GCC_541\Debug\Opamp_2.o .\CortexM0p\ARM_GCC_541\Debug\Opamp_2_PM.o .\CortexM0p\ARM_GCC_541\Debug\ADC_1_intSarClock.o .\CortexM0p\ARM_GCC_541\Debug\ADC_1_IRQ.o .\CortexM0p\ARM_GCC_541\Debug\ADC_1_intUabClock.o .\CortexM0p\ARM_GCC_541\Debug\CyFlash.o .\CortexM0p\ARM_GCC_541\Debug\CyLib.o .\CortexM0p\ARM_GCC_541\Debug\cyPm.o .\CortexM0p\ARM_GCC_541\Debug\cyutils.o .\CortexM0p\ARM_GCC_541\Debug\CyDMA.o .\CortexM0p\ARM_GCC_541\Debug\CyLFClk.o .\CortexM0p\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM0p\ARM_GCC_541\Debug\UART_1.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_SPI_UART.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_SPI_UART_INT.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_UART.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_BOOT.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_UART_BOOT.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_I2C_INT.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_I2C.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_I2C_BOOT.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_I2C_MASTER.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_BOOT.o .\CortexM0p\ARM_GCC_541\Debug\BLUE_LED.o .\CortexM0p\ARM_GCC_541\Debug\BLUE_LED_PM.o .\CortexM0p\ARM_GCC_541\Debug\RELAY_EN.o .\CortexM0p\ARM_GCC_541\Debug\RELAY_EN_PM.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_SCBCLK.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_SCBCLK.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_sda.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_sda_PM.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_scl.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_scl_PM.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_SCB_IRQ.o .\CortexM0p\ARM_GCC_541\Debug\Timer_1.o .\CortexM0p\ARM_GCC_541\Debug\Timer_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\Clock_1.o .\CortexM0p\ARM_GCC_541\Debug\Pin_1.o .\CortexM0p\ARM_GCC_541\Debug\Pin_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\CyBootAsmGnu.o
+main.c: In function 'main':
+main.c:137:11: warning: unused variable 'vrgndVal' [-Wunused-variable]
+     float vrgndVal; 
+           ^
+main.c:136:11: warning: unused variable 'vrefVal' [-Wunused-variable]
+     float vrefVal;
+           ^
+main.c:135:11: warning: unused variable 'vrefCount' [-Wunused-variable]
+     int32 vrefCount;
+           ^
+main.c:134:11: warning: unused variable 'vrgndCount' [-Wunused-variable]
+     int32 vrgndCount;
+           ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m0plus -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0p\ARM_GCC_541\Debug/cyfitter_cfg.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\cyfitter_cfg.c -o .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m0plus -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0p\ARM_GCC_541\Debug/Cm0plusStart.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC4\Cm0plusStart.c -o .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o
+arm-none-eabi-ar.exe -rs .\CortexM0p\ARM_GCC_541\Debug\Internal_Main.a .\CortexM0p\ARM_GCC_541\Debug\ADC_1.o .\CortexM0p\ARM_GCC_541\Debug\ADC_1_INIT.o .\CortexM0p\ARM_GCC_541\Debug\ADC_1_INT.o .\CortexM0p\ARM_GCC_541\Debug\ADC_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\PVref_1.o .\CortexM0p\ARM_GCC_541\Debug\PVref_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\Cal_in.o .\CortexM0p\ARM_GCC_541\Debug\Cal_in_PM.o .\CortexM0p\ARM_GCC_541\Debug\PGA_1.o .\CortexM0p\ARM_GCC_541\Debug\PGA_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\Pin_2.o .\CortexM0p\ARM_GCC_541\Debug\Pin_2_PM.o .\CortexM0p\ARM_GCC_541\Debug\Opamp_1.o .\CortexM0p\ARM_GCC_541\Debug\Opamp_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\bgRef.o .\CortexM0p\ARM_GCC_541\Debug\bgRef_PM.o .\CortexM0p\ARM_GCC_541\Debug\Shunt_in.o .\CortexM0p\ARM_GCC_541\Debug\Shunt_in_PM.o .\CortexM0p\ARM_GCC_541\Debug\Shunt_gnd.o .\CortexM0p\ARM_GCC_541\Debug\Shunt_gnd_PM.o .\CortexM0p\ARM_GCC_541\Debug\Battery_in.o .\CortexM0p\ARM_GCC_541\Debug\Battery_in_PM.o .\CortexM0p\ARM_GCC_541\Debug\Opamp_2.o .\CortexM0p\ARM_GCC_541\Debug\Opamp_2_PM.o .\CortexM0p\ARM_GCC_541\Debug\ADC_1_intSarClock.o .\CortexM0p\ARM_GCC_541\Debug\ADC_1_IRQ.o .\CortexM0p\ARM_GCC_541\Debug\ADC_1_intUabClock.o .\CortexM0p\ARM_GCC_541\Debug\CyFlash.o .\CortexM0p\ARM_GCC_541\Debug\CyLib.o .\CortexM0p\ARM_GCC_541\Debug\cyPm.o .\CortexM0p\ARM_GCC_541\Debug\cyutils.o .\CortexM0p\ARM_GCC_541\Debug\CyDMA.o .\CortexM0p\ARM_GCC_541\Debug\CyLFClk.o .\CortexM0p\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM0p\ARM_GCC_541\Debug\UART_1.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_SPI_UART.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_SPI_UART_INT.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_UART.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_BOOT.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_UART_BOOT.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_I2C_INT.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_I2C.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_I2C_BOOT.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_I2C_MASTER.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_BOOT.o .\CortexM0p\ARM_GCC_541\Debug\BLUE_LED.o .\CortexM0p\ARM_GCC_541\Debug\BLUE_LED_PM.o .\CortexM0p\ARM_GCC_541\Debug\RELAY_EN.o .\CortexM0p\ARM_GCC_541\Debug\RELAY_EN_PM.o .\CortexM0p\ARM_GCC_541\Debug\UART_1_SCBCLK.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_SCBCLK.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_sda.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_sda_PM.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_scl.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_scl_PM.o .\CortexM0p\ARM_GCC_541\Debug\I2C_1_SCB_IRQ.o .\CortexM0p\ARM_GCC_541\Debug\Timer_1.o .\CortexM0p\ARM_GCC_541\Debug\Timer_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\Clock_1.o .\CortexM0p\ARM_GCC_541\Debug\Pin_1.o .\CortexM0p\ARM_GCC_541\Debug\Pin_1_PM.o .\CortexM0p\ARM_GCC_541\Debug\CyBootAsmGnu.o
 arm-none-eabi-ar.exe: creating .\CortexM0p\ARM_GCC_541\Debug\Internal_Main.a
-arm-none-eabi-gcc.exe -Wl,--start-group -o C:\Users\Crowling\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\CortexM0p\ARM_GCC_541\Debug\Internal_Main.elf .\CortexM0p\ARM_GCC_541\Debug\main.o .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM0p\ARM_GCC_541\Debug\cymetadata.o .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o .\CortexM0p\ARM_GCC_541\Debug\Internal_Main.a -mcpu=cortex-m0plus -mthumb -L Generated_Source\PSoC4 -Wl,-Map,.\CortexM0p\ARM_GCC_541\Debug/Internal_Main.map -T Generated_Source\PSoC4\cm0plusgcc.ld -specs=nano.specs -u _printf_float -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
-cyelftool.exe -C C:\Users\Crowling\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\CortexM0p\ARM_GCC_541\Debug\Internal_Main.elf --flash_row_size 128 --flash_size 32768 --flash_offset 0x00000000
+arm-none-eabi-gcc.exe -Wl,--start-group -o "C:\Users\Tucker Zischka\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\CortexM0p\ARM_GCC_541\Debug\Internal_Main.elf" .\CortexM0p\ARM_GCC_541\Debug\main.o .\CortexM0p\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM0p\ARM_GCC_541\Debug\cymetadata.o .\CortexM0p\ARM_GCC_541\Debug\Cm0plusStart.o .\CortexM0p\ARM_GCC_541\Debug\Internal_Main.a -mcpu=cortex-m0plus -mthumb -L Generated_Source\PSoC4 -Wl,-Map,.\CortexM0p\ARM_GCC_541\Debug/Internal_Main.map -T Generated_Source\PSoC4\cm0plusgcc.ld -specs=nano.specs -u _printf_float -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
+cyelftool.exe -C "C:\Users\Tucker Zischka\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\CortexM0p\ARM_GCC_541\Debug\Internal_Main.elf" --flash_row_size 128 --flash_size 32768 --flash_offset 0x00000000
 No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
-cyelftool.exe -S C:\Users\Crowling\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\CortexM0p\ARM_GCC_541\Debug\Internal_Main.elf
-Flash used: 23240 of 32768 bytes (70.9%).
-SRAM used: 2004 of 4096 bytes (48.9%). Stack: 1024 bytes. Heap: 512 bytes.
---------------- Build Succeeded: 04/08/2021 23:13:33 ---------------
+cyelftool.exe -S "C:\Users\Tucker Zischka\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\CortexM0p\ARM_GCC_541\Debug\Internal_Main.elf"
+Flash used: 22464 of 32768 bytes (68.6%).
+SRAM used: 1996 of 4096 bytes (48.7%). Stack: 1024 bytes. Heap: 512 bytes.
+--------------- Build Succeeded: 04/10/2021 17:52:00 ---------------

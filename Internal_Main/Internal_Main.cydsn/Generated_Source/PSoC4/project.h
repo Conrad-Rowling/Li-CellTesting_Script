@@ -20,13 +20,11 @@
 #include "cydisabledsheets.h"
 #include "ADC_1.h"
 #include "ADC_1_FILTER.h"
-#include "AMux_1.h"
 #include "PVref_1.h"
 #include "Cal_In.h"
 #include "Cal_In_aliases.h"
 #include "PGA_1.h"
 #include "PGA_1_PVT.h"
-#include "AMux_2.h"
 #include "Opamp_1.h"
 #include "bgRef.h"
 #include "bgRef_aliases.h"
@@ -75,9 +73,9 @@
 #include "cytypes.h"
 #include "cypins.h"
 #include "core_cm0plus_psoc4.h"
+#include "cy_em_eeprom.h"
 #include "CyDMA.h"
 #include "CyLFClk.h"
-#include "cy_em_eeprom.h"
 
 /*[]*/
 

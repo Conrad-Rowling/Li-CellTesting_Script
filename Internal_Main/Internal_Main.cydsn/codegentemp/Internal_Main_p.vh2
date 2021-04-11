@@ -1,9 +1,11 @@
 -- Project:   Internal_Main
--- Generated: 04/08/2021 23:11:10
+-- Generated: 04/10/2021 17:51:53
 -- PSoC Creator  4.4
 
 ENTITY Internal_Main IS
     PORT(
+        Cal_In(0)_PAD : INOUT std_ulogic;
+        Shunt_Gnd(0)_PAD : INOUT std_ulogic;
         \I2C_1:sda(0)_PAD\ : INOUT std_ulogic;
         \I2C_1:scl(0)_PAD\ : INOUT std_ulogic;
         BLUE_LED(0)_PAD : OUT std_ulogic;
@@ -135,7 +137,7 @@ ARCHITECTURE __DEFAULT__ OF Internal_Main IS
     ATTRIBUTE Location OF \PVref_1:cy_psoc4_pref\ : LABEL IS "F(REF,1)";
     ATTRIBUTE Location OF \PGA_1:cy_psoc4_abuf\ : LABEL IS "F(OA,0)";
     ATTRIBUTE Location OF \Opamp_1:cy_psoc4_abuf\ : LABEL IS "F(OA,1)";
-    ATTRIBUTE Location OF \Opamp_2:cy_psoc4_abuf\ : LABEL IS "F(OA,2)";
+    ATTRIBUTE Location OF \Opamp_2:cy_psoc4_abuf\ : LABEL IS "F(OA,3)";
     COMPONENT interrupt
         PORT (
             interrupt : IN std_ulogic;
@@ -582,6 +584,7 @@ BEGIN
         PORT MAP(
             pa_out => Cal_In(0)__PA,
             oe => open,
+            pad_in => Cal_In(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -849,6 +852,7 @@ BEGIN
         PORT MAP(
             pa_out => Shunt_Gnd(0)__PA,
             oe => open,
+            pad_in => Shunt_Gnd(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
