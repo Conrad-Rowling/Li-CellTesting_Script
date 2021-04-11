@@ -1,16 +1,17 @@
 /* ========================================
- * Version: 1.1
+ * Version: 1.2
  * Last Modified: 4.10.2021 
- * Formula Racing @ UC Davis, Electrical Senior Design, 2021
- *
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF Formula Racing @ UC Davis and the electricool gang.
- *
+ * Formula Racing @ UC Davis, Electrical Senior Design, & the Electricool gang, 2021
  * ========================================
 */
+
+// ToDo =======================================
+// 1) Figure out why the ADC jumps around alot to narrow down the error
+// 1.1) Add in the Shunt_GND and CAL_in functionality into the code 
+// 2) Add in the Muxes into the program
+// 3) Correct the output of the serial terminal
+// 4) Add in Safety features
+
 #include "project.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -38,6 +39,7 @@ void CellTestStart(){
     //AMux_2_Start();
     Opamp_1_Start();
     Opamp_2_Start();
+    PGA_1_Start(); 
     ADC_1_Start();
     UART_1_Start();
     BLUE_LED_Write(0);
