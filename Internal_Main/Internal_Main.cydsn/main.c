@@ -96,34 +96,6 @@ int32 FilterSignal(int32 ADCSample, uint8 channel){
 }
 
 
-/*******************************************************************************
-* Function Name: PointerTest()
-****************************************************************************//**
-* 
-* God if I know what this does.... 
-*
-*******************************************************************************/
-int32 PointerTest(int32 array){
-    array <<= 8;
-    static int32 pointer = {0};
-    int32 result;
-    if (array > pointer){
-        printf("\r\n pointer %ld \r\n", pointer);
-        printf("\r\n array %ld\r\n", array);
-        pointer = array;
-    }
-    
-    else{
-        printf("\r\n POINTER %ld\r\n", pointer);
-        printf("\r\n array %ld\r\n", array);
-        pointer = pointer + ((array - pointer ) >> 4);
-    }
-    result = (pointer >> 8) + ((pointer & 0x00000080) >> 7);
-    return result;      
-}
-
-
-
 
 // ======================================
 // Main Function
@@ -207,6 +179,8 @@ int main(void)
                 //shuntVal = (shuntVal*SHUNT_CONDUCTANCE)/(vrefVal/V_REF);
                 
                 // Stop the Test.... 
+                userInput = UART_1_UartGetChar();
+                
                 if (userInput == 83){ // 83 is ASCII for STOP t     
                     stopFlag = 1;
                     Timer_1_Stop();
