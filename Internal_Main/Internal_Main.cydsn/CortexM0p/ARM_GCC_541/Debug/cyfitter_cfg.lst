@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 1
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 1
   29:Generated_Source\PSoC4/cyfitter_cfg.c **** #if defined(__GNUC__) || defined(__ARMCC_VERSION)
   30:Generated_Source\PSoC4/cyfitter_cfg.c ****     #define CYPACKED 
   31:Generated_Source\PSoC4/cyfitter_cfg.c ****     #define CYPACKED_ATTR __attribute__ ((packed))
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 2
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 2
 
 
   32:Generated_Source\PSoC4/cyfitter_cfg.c ****     #define CYALIGNED __attribute__ ((aligned))
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 1
   86:Generated_Source\PSoC4/cyfitter_cfg.c **** }
   87:Generated_Source\PSoC4/cyfitter_cfg.c **** CY_CFG_UNUSED
   88:Generated_Source\PSoC4/cyfitter_cfg.c **** static void CYCONFIGCPYCODE(void *dest, const void *src, size_t n);
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 3
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 3
 
 
   89:Generated_Source\PSoC4/cyfitter_cfg.c **** CY_CFG_UNUSED
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 1
  143:Generated_Source\PSoC4/cyfitter_cfg.c ****     /* `#END` */
  144:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  145:Generated_Source\PSoC4/cyfitter_cfg.c ****     while(1) {}
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 4
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 4
 
 
  146:Generated_Source\PSoC4/cyfitter_cfg.c **** #endif /* CY_CFG_CLOCK_STARTUP_ERROR_CALLBACK */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 1
   47 0014 1A60     		str	r2, [r3]
  180:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)CYREG_PERI_DIV_CMD, 0x8000FF40u);
   48              		.loc 1 180 0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 5
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 5
 
 
   49 0016 8023     		movs	r3, #128
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 1
   89 0052 1A60     		str	r2, [r3]
  195:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  196:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* CYDEV_PERI_PCLK_CTL4 Starting address: CYDEV_PERI_PCLK_CTL4 */
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 6
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 6
 
 
  197:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYREG_PERI_PCLK_CTL4), 0x000000C0u);
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 1
  129 008c 00030040 		.word	1073742592
  130 0090 40FF0080 		.word	-2147418304
  131 0094 04030040 		.word	1073742596
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 7
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 7
 
 
  132 0098 41FF0080 		.word	-2147418303
@@ -411,87 +411,85 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 1
  233:Generated_Source\PSoC4/cyfitter_cfg.c **** static void AnalogSetDefault(void)
  234:Generated_Source\PSoC4/cyfitter_cfg.c **** {
  235:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_CTB_CTRL, 0x80000000u);
- 236:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_OA0_SW, 0x21000040u);
+ 236:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_OA0_SW, 0x21000008u);
  237:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_OA1_SW, 0x00080080u);
- 238:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_CTBBUS_SW, 0x00100004u);
- 239:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB1_CTB_CTRL, 0x80000000u);
- 240:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB1_OA0_SW, 0x00040008u);
- 241:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_CTRL, 0x80000000u);
- 242:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_SARMUXVPLUS_SW, 0x01000000u);
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 8
+ 238:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB1_CTB_CTRL, 0x80000000u);
+ 239:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_CTRL, 0x80000000u);
+ 240:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_SARMUXVPLUS_SW, 0x01000001u);
+ 241:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_CTB0VREF_SW, 0x00020000u);
+ 242:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_PASS_CTRL, 0x00000003u);
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 8
 
 
- 243:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_CTB0VREF_SW, 0x00020000u);
- 244:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_PASS_CTRL, 0x00000003u);
- 245:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_PRB_CTRL, 0x80000001u);
- 246:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_PRB_REF0, 0x000000F1u);
- 247:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_DSAB_DSAB_CTRL, 0x00000020u);
- 248:Generated_Source\PSoC4/cyfitter_cfg.c **** 	SetAnalogRoutingPumps(1);
- 249:Generated_Source\PSoC4/cyfitter_cfg.c **** }
- 250:Generated_Source\PSoC4/cyfitter_cfg.c **** 
- 251:Generated_Source\PSoC4/cyfitter_cfg.c **** 
- 252:Generated_Source\PSoC4/cyfitter_cfg.c **** /*******************************************************************************
- 253:Generated_Source\PSoC4/cyfitter_cfg.c **** * Function Name: SetAnalogRoutingPumps
- 254:Generated_Source\PSoC4/cyfitter_cfg.c **** ********************************************************************************
- 255:Generated_Source\PSoC4/cyfitter_cfg.c **** *
- 256:Generated_Source\PSoC4/cyfitter_cfg.c **** * Summary:
- 257:Generated_Source\PSoC4/cyfitter_cfg.c **** * Enables or disables the analog pumps feeding analog routing switches.
- 258:Generated_Source\PSoC4/cyfitter_cfg.c **** * Intended to be called at startup, based on the Vdda system configuration;
- 259:Generated_Source\PSoC4/cyfitter_cfg.c **** * may be called during operation when the user informs us that the Vdda voltage crossed the pump th
- 260:Generated_Source\PSoC4/cyfitter_cfg.c **** *
- 261:Generated_Source\PSoC4/cyfitter_cfg.c **** * Parameters:
- 262:Generated_Source\PSoC4/cyfitter_cfg.c **** *  enabled - 1 to enable the pumps, 0 to disable the pumps
- 263:Generated_Source\PSoC4/cyfitter_cfg.c **** *
- 264:Generated_Source\PSoC4/cyfitter_cfg.c **** * Return:
- 265:Generated_Source\PSoC4/cyfitter_cfg.c **** *  void
- 266:Generated_Source\PSoC4/cyfitter_cfg.c **** *
- 267:Generated_Source\PSoC4/cyfitter_cfg.c **** *******************************************************************************/
- 268:Generated_Source\PSoC4/cyfitter_cfg.c **** void SetAnalogRoutingPumps(uint8 enabled)
- 269:Generated_Source\PSoC4/cyfitter_cfg.c **** {
- 158              		.loc 1 269 0
+ 243:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_PRB_CTRL, 0x80000001u);
+ 244:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_PRB_REF0, 0x000000F1u);
+ 245:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_DSAB_DSAB_CTRL, 0x00000020u);
+ 246:Generated_Source\PSoC4/cyfitter_cfg.c **** 	SetAnalogRoutingPumps(1);
+ 247:Generated_Source\PSoC4/cyfitter_cfg.c **** }
+ 248:Generated_Source\PSoC4/cyfitter_cfg.c **** 
+ 249:Generated_Source\PSoC4/cyfitter_cfg.c **** 
+ 250:Generated_Source\PSoC4/cyfitter_cfg.c **** /*******************************************************************************
+ 251:Generated_Source\PSoC4/cyfitter_cfg.c **** * Function Name: SetAnalogRoutingPumps
+ 252:Generated_Source\PSoC4/cyfitter_cfg.c **** ********************************************************************************
+ 253:Generated_Source\PSoC4/cyfitter_cfg.c **** *
+ 254:Generated_Source\PSoC4/cyfitter_cfg.c **** * Summary:
+ 255:Generated_Source\PSoC4/cyfitter_cfg.c **** * Enables or disables the analog pumps feeding analog routing switches.
+ 256:Generated_Source\PSoC4/cyfitter_cfg.c **** * Intended to be called at startup, based on the Vdda system configuration;
+ 257:Generated_Source\PSoC4/cyfitter_cfg.c **** * may be called during operation when the user informs us that the Vdda voltage crossed the pump th
+ 258:Generated_Source\PSoC4/cyfitter_cfg.c **** *
+ 259:Generated_Source\PSoC4/cyfitter_cfg.c **** * Parameters:
+ 260:Generated_Source\PSoC4/cyfitter_cfg.c **** *  enabled - 1 to enable the pumps, 0 to disable the pumps
+ 261:Generated_Source\PSoC4/cyfitter_cfg.c **** *
+ 262:Generated_Source\PSoC4/cyfitter_cfg.c **** * Return:
+ 263:Generated_Source\PSoC4/cyfitter_cfg.c **** *  void
+ 264:Generated_Source\PSoC4/cyfitter_cfg.c **** *
+ 265:Generated_Source\PSoC4/cyfitter_cfg.c **** *******************************************************************************/
+ 266:Generated_Source\PSoC4/cyfitter_cfg.c **** void SetAnalogRoutingPumps(uint8 enabled)
+ 267:Generated_Source\PSoC4/cyfitter_cfg.c **** {
+ 158              		.loc 1 267 0
  159              		.cfi_startproc
  160              		@ args = 0, pretend = 0, frame = 0
  161              		@ frame_needed = 0, uses_anonymous_args = 0
  162              		@ link register save eliminated.
  163              	.LVL4:
- 270:Generated_Source\PSoC4/cyfitter_cfg.c **** 	uint32 regValue = CY_GET_XTND_REG32((void *)(CYREG_SAR_PUMP_CTRL));
- 164              		.loc 1 270 0
+ 268:Generated_Source\PSoC4/cyfitter_cfg.c **** 	uint32 regValue = CY_GET_XTND_REG32((void *)(CYREG_SAR_PUMP_CTRL));
+ 164              		.loc 1 268 0
  165 0000 064B     		ldr	r3, .L7
  166 0002 1B68     		ldr	r3, [r3]
  167              	.LVL5:
- 271:Generated_Source\PSoC4/cyfitter_cfg.c **** 	if (enabled != 0u)
- 168              		.loc 1 271 0
+ 269:Generated_Source\PSoC4/cyfitter_cfg.c **** 	if (enabled != 0u)
+ 168              		.loc 1 269 0
  169 0004 0028     		cmp	r0, #0
  170 0006 03D0     		beq	.L5
- 272:Generated_Source\PSoC4/cyfitter_cfg.c **** 	{
- 273:Generated_Source\PSoC4/cyfitter_cfg.c **** 		regValue |= 0x80000000u;
- 171              		.loc 1 273 0
+ 270:Generated_Source\PSoC4/cyfitter_cfg.c **** 	{
+ 271:Generated_Source\PSoC4/cyfitter_cfg.c **** 		regValue |= 0x80000000u;
+ 171              		.loc 1 271 0
  172 0008 8022     		movs	r2, #128
  173 000a 1206     		lsls	r2, r2, #24
  174 000c 1343     		orrs	r3, r2
  175              	.LVL6:
  176 000e 01E0     		b	.L6
  177              	.L5:
- 274:Generated_Source\PSoC4/cyfitter_cfg.c **** 	}
- 275:Generated_Source\PSoC4/cyfitter_cfg.c **** 	else
- 276:Generated_Source\PSoC4/cyfitter_cfg.c **** 	{
- 277:Generated_Source\PSoC4/cyfitter_cfg.c **** 		regValue &= ~0x80000000u;
- 178              		.loc 1 277 0
+ 272:Generated_Source\PSoC4/cyfitter_cfg.c **** 	}
+ 273:Generated_Source\PSoC4/cyfitter_cfg.c **** 	else
+ 274:Generated_Source\PSoC4/cyfitter_cfg.c **** 	{
+ 275:Generated_Source\PSoC4/cyfitter_cfg.c **** 		regValue &= ~0x80000000u;
+ 178              		.loc 1 275 0
  179 0010 5B00     		lsls	r3, r3, #1
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 9
-
-
  180              	.LVL7:
  181 0012 5B08     		lsrs	r3, r3, #1
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 9
+
+
  182              	.LVL8:
  183              	.L6:
- 278:Generated_Source\PSoC4/cyfitter_cfg.c **** 	}
- 279:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void *)(CYREG_SAR_PUMP_CTRL), regValue);
- 184              		.loc 1 279 0
+ 276:Generated_Source\PSoC4/cyfitter_cfg.c **** 	}
+ 277:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void *)(CYREG_SAR_PUMP_CTRL), regValue);
+ 184              		.loc 1 277 0
  185 0014 014A     		ldr	r2, .L7
  186 0016 1360     		str	r3, [r2]
- 280:Generated_Source\PSoC4/cyfitter_cfg.c **** }
- 187              		.loc 1 280 0
+ 278:Generated_Source\PSoC4/cyfitter_cfg.c **** }
+ 187              		.loc 1 278 0
  188              		@ sp needed
  189 0018 7047     		bx	lr
  190              	.L8:
@@ -517,1357 +515,1159 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 1
  209              		.cfi_def_cfa_offset 8
  210              		.cfi_offset 4, -8
  211              		.cfi_offset 14, -4
- 235:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_OA0_SW, 0x21000040u);
+ 235:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_OA0_SW, 0x21000008u);
  212              		.loc 1 235 0
  213 0002 8023     		movs	r3, #128
  214 0004 1B06     		lsls	r3, r3, #24
- 215 0006 154A     		ldr	r2, .L10
+ 215 0006 114A     		ldr	r2, .L10
  216 0008 1360     		str	r3, [r2]
  236:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_OA1_SW, 0x00080080u);
  217              		.loc 1 236 0
- 218 000a 1549     		ldr	r1, .L10+4
- 219 000c 154A     		ldr	r2, .L10+8
+ 218 000a 1149     		ldr	r1, .L10+4
+ 219 000c 114A     		ldr	r2, .L10+8
  220 000e 1160     		str	r1, [r2]
- 237:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_CTBBUS_SW, 0x00100004u);
+ 237:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB1_CTB_CTRL, 0x80000000u);
  221              		.loc 1 237 0
- 222 0010 1549     		ldr	r1, .L10+12
- 223 0012 164A     		ldr	r2, .L10+16
+ 222 0010 1149     		ldr	r1, .L10+12
+ 223 0012 124A     		ldr	r2, .L10+16
  224 0014 1160     		str	r1, [r2]
- 238:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB1_CTB_CTRL, 0x80000000u);
+ 238:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_CTRL, 0x80000000u);
  225              		.loc 1 238 0
- 226 0016 1649     		ldr	r1, .L10+20
- 227 0018 164A     		ldr	r2, .L10+24
- 228 001a 1160     		str	r1, [r2]
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 10
+ 226 0016 124A     		ldr	r2, .L10+20
+ 227 0018 1360     		str	r3, [r2]
+ 239:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_SARMUXVPLUS_SW, 0x01000001u);
+ 228              		.loc 1 239 0
+ 229 001a 124A     		ldr	r2, .L10+24
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 10
 
 
- 239:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB1_OA0_SW, 0x00040008u);
- 229              		.loc 1 239 0
- 230 001c 164A     		ldr	r2, .L10+28
- 231 001e 1360     		str	r3, [r2]
- 240:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_CTRL, 0x80000000u);
- 232              		.loc 1 240 0
- 233 0020 1649     		ldr	r1, .L10+32
- 234 0022 174A     		ldr	r2, .L10+36
- 235 0024 1160     		str	r1, [r2]
- 241:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_SARMUXVPLUS_SW, 0x01000000u);
- 236              		.loc 1 241 0
- 237 0026 174A     		ldr	r2, .L10+40
- 238 0028 1360     		str	r3, [r2]
- 242:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_CTB0VREF_SW, 0x00020000u);
- 239              		.loc 1 242 0
- 240 002a 8022     		movs	r2, #128
- 241 002c 5204     		lsls	r2, r2, #17
- 242 002e 164B     		ldr	r3, .L10+44
+ 230 001c 1360     		str	r3, [r2]
+ 240:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_CTB0VREF_SW, 0x00020000u);
+ 231              		.loc 1 240 0
+ 232 001e 124A     		ldr	r2, .L10+28
+ 233 0020 124B     		ldr	r3, .L10+32
+ 234 0022 1A60     		str	r2, [r3]
+ 241:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_PASS_CTRL, 0x00000003u);
+ 235              		.loc 1 241 0
+ 236 0024 8022     		movs	r2, #128
+ 237 0026 9202     		lsls	r2, r2, #10
+ 238 0028 114B     		ldr	r3, .L10+36
+ 239 002a 1A60     		str	r2, [r3]
+ 242:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_PRB_CTRL, 0x80000001u);
+ 240              		.loc 1 242 0
+ 241 002c 0322     		movs	r2, #3
+ 242 002e 114B     		ldr	r3, .L10+40
  243 0030 1A60     		str	r2, [r3]
- 243:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_PASS_CTRL, 0x00000003u);
+ 243:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_PRB_REF0, 0x000000F1u);
  244              		.loc 1 243 0
- 245 0032 8022     		movs	r2, #128
- 246 0034 9202     		lsls	r2, r2, #10
- 247 0036 154B     		ldr	r3, .L10+48
- 248 0038 1A60     		str	r2, [r3]
- 244:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_PRB_CTRL, 0x80000001u);
- 249              		.loc 1 244 0
- 250 003a 0322     		movs	r2, #3
- 251 003c 144B     		ldr	r3, .L10+52
- 252 003e 1A60     		str	r2, [r3]
- 245:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_PRB_REF0, 0x000000F1u);
- 253              		.loc 1 245 0
- 254 0040 144A     		ldr	r2, .L10+56
- 255 0042 154B     		ldr	r3, .L10+60
- 256 0044 1A60     		str	r2, [r3]
- 246:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_DSAB_DSAB_CTRL, 0x00000020u);
- 257              		.loc 1 246 0
- 258 0046 F122     		movs	r2, #241
- 259 0048 144B     		ldr	r3, .L10+64
- 260 004a 1A60     		str	r2, [r3]
- 247:Generated_Source\PSoC4/cyfitter_cfg.c **** 	SetAnalogRoutingPumps(1);
- 261              		.loc 1 247 0
- 262 004c D13A     		subs	r2, r2, #209
- 263 004e 144B     		ldr	r3, .L10+68
- 264 0050 1A60     		str	r2, [r3]
- 248:Generated_Source\PSoC4/cyfitter_cfg.c **** }
- 265              		.loc 1 248 0
- 266 0052 0120     		movs	r0, #1
- 267 0054 FFF7FEFF 		bl	SetAnalogRoutingPumps
- 268              	.LVL9:
- 249:Generated_Source\PSoC4/cyfitter_cfg.c **** 
- 269              		.loc 1 249 0
- 270              		@ sp needed
- 271 0058 10BD     		pop	{r4, pc}
- 272              	.L11:
- 273 005a C046     		.align	2
- 274              	.L10:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 11
+ 245 0032 114A     		ldr	r2, .L10+44
+ 246 0034 114B     		ldr	r3, .L10+48
+ 247 0036 1A60     		str	r2, [r3]
+ 244:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_DSAB_DSAB_CTRL, 0x00000020u);
+ 248              		.loc 1 244 0
+ 249 0038 F122     		movs	r2, #241
+ 250 003a 114B     		ldr	r3, .L10+52
+ 251 003c 1A60     		str	r2, [r3]
+ 245:Generated_Source\PSoC4/cyfitter_cfg.c **** 	SetAnalogRoutingPumps(1);
+ 252              		.loc 1 245 0
+ 253 003e D13A     		subs	r2, r2, #209
+ 254 0040 104B     		ldr	r3, .L10+56
+ 255 0042 1A60     		str	r2, [r3]
+ 246:Generated_Source\PSoC4/cyfitter_cfg.c **** }
+ 256              		.loc 1 246 0
+ 257 0044 0120     		movs	r0, #1
+ 258 0046 FFF7FEFF 		bl	SetAnalogRoutingPumps
+ 259              	.LVL9:
+ 247:Generated_Source\PSoC4/cyfitter_cfg.c **** 
+ 260              		.loc 1 247 0
+ 261              		@ sp needed
+ 262 004a 10BD     		pop	{r4, pc}
+ 263              	.L11:
+ 264              		.align	2
+ 265              	.L10:
+ 266 004c 00003040 		.word	1076887552
+ 267 0050 08000021 		.word	553648136
+ 268 0054 80003040 		.word	1076887680
+ 269 0058 80000800 		.word	524416
+ 270 005c 88003040 		.word	1076887688
+ 271 0060 00003140 		.word	1076953088
+ 272 0064 00003840 		.word	1077411840
+ 273 0068 01000001 		.word	16777217
+ 274 006c 10003840 		.word	1077411856
+ 275 0070 40013840 		.word	1077412160
+ 276 0074 08013F40 		.word	1077870856
+ 277 0078 01000080 		.word	-2147483647
+ 278 007c 00023F40 		.word	1077871104
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 11
 
 
- 275 005c 00003040 		.word	1076887552
- 276 0060 40000021 		.word	553648192
- 277 0064 80003040 		.word	1076887680
- 278 0068 80000800 		.word	524416
- 279 006c 88003040 		.word	1076887688
- 280 0070 04001000 		.word	1048580
- 281 0074 90003040 		.word	1076887696
- 282 0078 00003140 		.word	1076953088
- 283 007c 08000400 		.word	262152
- 284 0080 80003140 		.word	1076953216
- 285 0084 00003840 		.word	1077411840
- 286 0088 10003840 		.word	1077411856
- 287 008c 40013840 		.word	1077412160
- 288 0090 08013F40 		.word	1077870856
- 289 0094 01000080 		.word	-2147483647
- 290 0098 00023F40 		.word	1077871104
- 291 009c 04023F40 		.word	1077871108
- 292 00a0 000E3F40 		.word	1077874176
- 293              		.cfi_endproc
- 294              	.LFE5:
- 295              		.size	AnalogSetDefault, .-AnalogSetDefault
- 296              		.section	.text.AMux_2_Set,"ax",%progbits
- 297              		.align	2
- 298              		.global	AMux_2_Set
- 299              		.code	16
- 300              		.thumb_func
- 301              		.type	AMux_2_Set, %function
- 302              	AMux_2_Set:
- 303              	.LFB7:
- 281:Generated_Source\PSoC4/cyfitter_cfg.c **** 
- 282:Generated_Source\PSoC4/cyfitter_cfg.c **** 
- 283:Generated_Source\PSoC4/cyfitter_cfg.c **** #define CY_AMUX_UNUSED CYREG_CM0P_ROM_DWT
- 284:Generated_Source\PSoC4/cyfitter_cfg.c **** /*******************************************************************************
- 285:Generated_Source\PSoC4/cyfitter_cfg.c **** * Function Name: AMux_2_Set
- 286:Generated_Source\PSoC4/cyfitter_cfg.c **** ********************************************************************************
- 287:Generated_Source\PSoC4/cyfitter_cfg.c **** * Summary:
- 288:Generated_Source\PSoC4/cyfitter_cfg.c **** *  This function is used to set a particular channel as active on the AMux.
- 289:Generated_Source\PSoC4/cyfitter_cfg.c **** *
- 290:Generated_Source\PSoC4/cyfitter_cfg.c **** * Parameters:  
- 291:Generated_Source\PSoC4/cyfitter_cfg.c **** *   channel - The mux channel input to set as active
- 292:Generated_Source\PSoC4/cyfitter_cfg.c **** *
- 293:Generated_Source\PSoC4/cyfitter_cfg.c **** * Return:
- 294:Generated_Source\PSoC4/cyfitter_cfg.c **** *   void
- 295:Generated_Source\PSoC4/cyfitter_cfg.c **** *
- 296:Generated_Source\PSoC4/cyfitter_cfg.c **** *******************************************************************************/
- 297:Generated_Source\PSoC4/cyfitter_cfg.c **** void AMux_2_Set(uint8 channel)
- 298:Generated_Source\PSoC4/cyfitter_cfg.c **** {
- 304              		.loc 1 298 0
- 305              		.cfi_startproc
- 306              		@ args = 0, pretend = 0, frame = 0
- 307              		@ frame_needed = 0, uses_anonymous_args = 0
- 308              		@ link register save eliminated.
- 309              	.LVL10:
- 299:Generated_Source\PSoC4/cyfitter_cfg.c **** 	switch (channel) {
- 310              		.loc 1 299 0
- 311 0000 0028     		cmp	r0, #0
- 312 0002 02D0     		beq	.L14
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 12
+ 279 0080 04023F40 		.word	1077871108
+ 280 0084 000E3F40 		.word	1077874176
+ 281              		.cfi_endproc
+ 282              	.LFE5:
+ 283              		.size	AnalogSetDefault, .-AnalogSetDefault
+ 284              		.section	.text.AMux_1_Set,"ax",%progbits
+ 285              		.align	2
+ 286              		.global	AMux_1_Set
+ 287              		.code	16
+ 288              		.thumb_func
+ 289              		.type	AMux_1_Set, %function
+ 290              	AMux_1_Set:
+ 291              	.LFB7:
+ 279:Generated_Source\PSoC4/cyfitter_cfg.c **** 
+ 280:Generated_Source\PSoC4/cyfitter_cfg.c **** 
+ 281:Generated_Source\PSoC4/cyfitter_cfg.c **** #define CY_AMUX_UNUSED CYREG_CM0P_ROM_DWT
+ 282:Generated_Source\PSoC4/cyfitter_cfg.c **** /*******************************************************************************
+ 283:Generated_Source\PSoC4/cyfitter_cfg.c **** * Function Name: AMux_1_Set
+ 284:Generated_Source\PSoC4/cyfitter_cfg.c **** ********************************************************************************
+ 285:Generated_Source\PSoC4/cyfitter_cfg.c **** * Summary:
+ 286:Generated_Source\PSoC4/cyfitter_cfg.c **** *  This function is used to set a particular channel as active on the AMux.
+ 287:Generated_Source\PSoC4/cyfitter_cfg.c **** *
+ 288:Generated_Source\PSoC4/cyfitter_cfg.c **** * Parameters:  
+ 289:Generated_Source\PSoC4/cyfitter_cfg.c **** *   channel - The mux channel input to set as active
+ 290:Generated_Source\PSoC4/cyfitter_cfg.c **** *
+ 291:Generated_Source\PSoC4/cyfitter_cfg.c **** * Return:
+ 292:Generated_Source\PSoC4/cyfitter_cfg.c **** *   void
+ 293:Generated_Source\PSoC4/cyfitter_cfg.c **** *
+ 294:Generated_Source\PSoC4/cyfitter_cfg.c **** *******************************************************************************/
+ 295:Generated_Source\PSoC4/cyfitter_cfg.c **** void AMux_1_Set(uint8 channel)
+ 296:Generated_Source\PSoC4/cyfitter_cfg.c **** {
+ 292              		.loc 1 296 0
+ 293              		.cfi_startproc
+ 294              		@ args = 0, pretend = 0, frame = 0
+ 295              		@ frame_needed = 0, uses_anonymous_args = 0
+ 296              		@ link register save eliminated.
+ 297              	.LVL10:
+ 297:Generated_Source\PSoC4/cyfitter_cfg.c **** 	switch (channel) {
+ 298              		.loc 1 297 0
+ 299 0000 0128     		cmp	r0, #1
+ 300 0002 08D0     		beq	.L14
+ 301 0004 0028     		cmp	r0, #0
+ 302 0006 02D0     		beq	.L15
+ 303 0008 0228     		cmp	r0, #2
+ 304 000a 0CD0     		beq	.L16
+ 305 000c 0EE0     		b	.L12
+ 306              	.L15:
+ 298:Generated_Source\PSoC4/cyfitter_cfg.c **** 		case 0u:
+ 299:Generated_Source\PSoC4/cyfitter_cfg.c **** 			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x20u));
+ 307              		.loc 1 299 0
+ 308 000e 2022     		movs	r2, #32
+ 309 0010 074B     		ldr	r3, .L17
+ 310 0012 1A60     		str	r2, [r3]
+ 300:Generated_Source\PSoC4/cyfitter_cfg.c **** 			break;
+ 311              		.loc 1 300 0
+ 312 0014 0AE0     		b	.L12
+ 313              	.L14:
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 12
 
 
- 313 0004 0128     		cmp	r0, #1
- 314 0006 04D0     		beq	.L15
- 315 0008 06E0     		b	.L12
- 316              	.L14:
- 300:Generated_Source\PSoC4/cyfitter_cfg.c **** 		case 0u:
- 301:Generated_Source\PSoC4/cyfitter_cfg.c **** 			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW, (0x10u));
- 317              		.loc 1 301 0
- 318 000a 1022     		movs	r2, #16
- 319 000c 034B     		ldr	r3, .L16
- 320 000e 1A60     		str	r2, [r3]
- 302:Generated_Source\PSoC4/cyfitter_cfg.c **** 			break;
- 321              		.loc 1 302 0
- 322 0010 02E0     		b	.L12
- 323              	.L15:
- 303:Generated_Source\PSoC4/cyfitter_cfg.c **** 		case 1u:
- 304:Generated_Source\PSoC4/cyfitter_cfg.c **** 			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW, (0x01u));
- 324              		.loc 1 304 0
- 325 0012 0122     		movs	r2, #1
- 326 0014 014B     		ldr	r3, .L16
- 327 0016 1A60     		str	r2, [r3]
- 328              	.L12:
- 305:Generated_Source\PSoC4/cyfitter_cfg.c **** 			break;
- 306:Generated_Source\PSoC4/cyfitter_cfg.c **** 		default:
+ 301:Generated_Source\PSoC4/cyfitter_cfg.c **** 		case 1u:
+ 302:Generated_Source\PSoC4/cyfitter_cfg.c **** 			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW, (0x20u));
+ 314              		.loc 1 302 0
+ 315 0016 2022     		movs	r2, #32
+ 316 0018 064B     		ldr	r3, .L17+4
+ 317 001a 1A60     		str	r2, [r3]
+ 303:Generated_Source\PSoC4/cyfitter_cfg.c **** 			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x100000u));
+ 318              		.loc 1 303 0
+ 319 001c 8022     		movs	r2, #128
+ 320 001e 5203     		lsls	r2, r2, #13
+ 321 0020 034B     		ldr	r3, .L17
+ 322 0022 1A60     		str	r2, [r3]
+ 304:Generated_Source\PSoC4/cyfitter_cfg.c **** 			break;
+ 323              		.loc 1 304 0
+ 324 0024 02E0     		b	.L12
+ 325              	.L16:
+ 305:Generated_Source\PSoC4/cyfitter_cfg.c **** 		case 2u:
+ 306:Generated_Source\PSoC4/cyfitter_cfg.c **** 			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x04u));
+ 326              		.loc 1 306 0
+ 327 0026 0422     		movs	r2, #4
+ 328 0028 014B     		ldr	r3, .L17
+ 329 002a 1A60     		str	r2, [r3]
+ 330              	.L12:
  307:Generated_Source\PSoC4/cyfitter_cfg.c **** 			break;
- 308:Generated_Source\PSoC4/cyfitter_cfg.c **** 	}
- 309:Generated_Source\PSoC4/cyfitter_cfg.c **** }
- 329              		.loc 1 309 0
- 330              		@ sp needed
- 331 0018 7047     		bx	lr
- 332              	.L17:
- 333 001a C046     		.align	2
- 334              	.L16:
- 335 001c 10003840 		.word	1077411856
- 336              		.cfi_endproc
- 337              	.LFE7:
- 338              		.size	AMux_2_Set, .-AMux_2_Set
- 339              		.section	.text.AMux_2_Unset,"ax",%progbits
- 340              		.align	2
- 341              		.global	AMux_2_Unset
- 342              		.code	16
- 343              		.thumb_func
- 344              		.type	AMux_2_Unset, %function
- 345              	AMux_2_Unset:
- 346              	.LFB8:
- 310:Generated_Source\PSoC4/cyfitter_cfg.c **** 
- 311:Generated_Source\PSoC4/cyfitter_cfg.c **** /*******************************************************************************
- 312:Generated_Source\PSoC4/cyfitter_cfg.c **** * Function Name: AMux_2_Unset
- 313:Generated_Source\PSoC4/cyfitter_cfg.c **** ********************************************************************************
- 314:Generated_Source\PSoC4/cyfitter_cfg.c **** * Summary:
- 315:Generated_Source\PSoC4/cyfitter_cfg.c **** *  This function is used to clear a particular channel from being active on the
- 316:Generated_Source\PSoC4/cyfitter_cfg.c **** *  AMux.
- 317:Generated_Source\PSoC4/cyfitter_cfg.c **** *
- 318:Generated_Source\PSoC4/cyfitter_cfg.c **** * Parameters:  
- 319:Generated_Source\PSoC4/cyfitter_cfg.c **** *   channel - The mux channel input to mark inactive
- 320:Generated_Source\PSoC4/cyfitter_cfg.c **** *
- 321:Generated_Source\PSoC4/cyfitter_cfg.c **** * Return:
- 322:Generated_Source\PSoC4/cyfitter_cfg.c **** *   void
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 13
+ 308:Generated_Source\PSoC4/cyfitter_cfg.c **** 		default:
+ 309:Generated_Source\PSoC4/cyfitter_cfg.c **** 			break;
+ 310:Generated_Source\PSoC4/cyfitter_cfg.c **** 	}
+ 311:Generated_Source\PSoC4/cyfitter_cfg.c **** }
+ 331              		.loc 1 311 0
+ 332              		@ sp needed
+ 333 002c 7047     		bx	lr
+ 334              	.L18:
+ 335 002e C046     		.align	2
+ 336              	.L17:
+ 337 0030 90003040 		.word	1076887696
+ 338 0034 90003140 		.word	1076953232
+ 339              		.cfi_endproc
+ 340              	.LFE7:
+ 341              		.size	AMux_1_Set, .-AMux_1_Set
+ 342              		.section	.text.AMux_1_Unset,"ax",%progbits
+ 343              		.align	2
+ 344              		.global	AMux_1_Unset
+ 345              		.code	16
+ 346              		.thumb_func
+ 347              		.type	AMux_1_Unset, %function
+ 348              	AMux_1_Unset:
+ 349              	.LFB8:
+ 312:Generated_Source\PSoC4/cyfitter_cfg.c **** 
+ 313:Generated_Source\PSoC4/cyfitter_cfg.c **** /*******************************************************************************
+ 314:Generated_Source\PSoC4/cyfitter_cfg.c **** * Function Name: AMux_1_Unset
+ 315:Generated_Source\PSoC4/cyfitter_cfg.c **** ********************************************************************************
+ 316:Generated_Source\PSoC4/cyfitter_cfg.c **** * Summary:
+ 317:Generated_Source\PSoC4/cyfitter_cfg.c **** *  This function is used to clear a particular channel from being active on the
+ 318:Generated_Source\PSoC4/cyfitter_cfg.c **** *  AMux.
+ 319:Generated_Source\PSoC4/cyfitter_cfg.c **** *
+ 320:Generated_Source\PSoC4/cyfitter_cfg.c **** * Parameters:  
+ 321:Generated_Source\PSoC4/cyfitter_cfg.c **** *   channel - The mux channel input to mark inactive
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 13
 
 
- 323:Generated_Source\PSoC4/cyfitter_cfg.c **** *
- 324:Generated_Source\PSoC4/cyfitter_cfg.c **** *******************************************************************************/
- 325:Generated_Source\PSoC4/cyfitter_cfg.c **** void AMux_2_Unset(uint8 channel)
- 326:Generated_Source\PSoC4/cyfitter_cfg.c **** {
- 347              		.loc 1 326 0
- 348              		.cfi_startproc
- 349              		@ args = 0, pretend = 0, frame = 0
- 350              		@ frame_needed = 0, uses_anonymous_args = 0
- 351              		@ link register save eliminated.
- 352              	.LVL11:
- 327:Generated_Source\PSoC4/cyfitter_cfg.c **** 	switch (channel) {
- 353              		.loc 1 327 0
- 354 0000 0028     		cmp	r0, #0
- 355 0002 02D0     		beq	.L20
- 356 0004 0128     		cmp	r0, #1
- 357 0006 04D0     		beq	.L21
- 358 0008 06E0     		b	.L18
- 359              	.L20:
- 328:Generated_Source\PSoC4/cyfitter_cfg.c **** 		case 0u:
- 329:Generated_Source\PSoC4/cyfitter_cfg.c **** 			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW_CLR, (0x10u));
- 360              		.loc 1 329 0
- 361 000a 1022     		movs	r2, #16
- 362 000c 034B     		ldr	r3, .L22
- 363 000e 1A60     		str	r2, [r3]
- 330:Generated_Source\PSoC4/cyfitter_cfg.c **** 			break;
- 364              		.loc 1 330 0
- 365 0010 02E0     		b	.L18
- 366              	.L21:
- 331:Generated_Source\PSoC4/cyfitter_cfg.c **** 		case 1u:
- 332:Generated_Source\PSoC4/cyfitter_cfg.c **** 			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW_CLR, (0x01u));
- 367              		.loc 1 332 0
- 368 0012 0122     		movs	r2, #1
- 369 0014 014B     		ldr	r3, .L22
- 370 0016 1A60     		str	r2, [r3]
- 371              	.L18:
- 333:Generated_Source\PSoC4/cyfitter_cfg.c **** 			break;
- 334:Generated_Source\PSoC4/cyfitter_cfg.c **** 		default:
- 335:Generated_Source\PSoC4/cyfitter_cfg.c **** 			break;
- 336:Generated_Source\PSoC4/cyfitter_cfg.c **** 	}
- 337:Generated_Source\PSoC4/cyfitter_cfg.c **** }
- 372              		.loc 1 337 0
- 373              		@ sp needed
- 374 0018 7047     		bx	lr
- 375              	.L23:
- 376 001a C046     		.align	2
- 377              	.L22:
- 378 001c 14003840 		.word	1077411860
- 379              		.cfi_endproc
- 380              	.LFE8:
- 381              		.size	AMux_2_Unset, .-AMux_2_Unset
- 382              		.section	.text.AMux_1_Set,"ax",%progbits
- 383              		.align	2
- 384              		.global	AMux_1_Set
- 385              		.code	16
- 386              		.thumb_func
- 387              		.type	AMux_1_Set, %function
- 388              	AMux_1_Set:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 14
+ 322:Generated_Source\PSoC4/cyfitter_cfg.c **** *
+ 323:Generated_Source\PSoC4/cyfitter_cfg.c **** * Return:
+ 324:Generated_Source\PSoC4/cyfitter_cfg.c **** *   void
+ 325:Generated_Source\PSoC4/cyfitter_cfg.c **** *
+ 326:Generated_Source\PSoC4/cyfitter_cfg.c **** *******************************************************************************/
+ 327:Generated_Source\PSoC4/cyfitter_cfg.c **** void AMux_1_Unset(uint8 channel)
+ 328:Generated_Source\PSoC4/cyfitter_cfg.c **** {
+ 350              		.loc 1 328 0
+ 351              		.cfi_startproc
+ 352              		@ args = 0, pretend = 0, frame = 0
+ 353              		@ frame_needed = 0, uses_anonymous_args = 0
+ 354              		@ link register save eliminated.
+ 355              	.LVL11:
+ 329:Generated_Source\PSoC4/cyfitter_cfg.c **** 	switch (channel) {
+ 356              		.loc 1 329 0
+ 357 0000 0128     		cmp	r0, #1
+ 358 0002 08D0     		beq	.L21
+ 359 0004 0028     		cmp	r0, #0
+ 360 0006 02D0     		beq	.L22
+ 361 0008 0228     		cmp	r0, #2
+ 362 000a 0CD0     		beq	.L23
+ 363 000c 0EE0     		b	.L19
+ 364              	.L22:
+ 330:Generated_Source\PSoC4/cyfitter_cfg.c **** 		case 0u:
+ 331:Generated_Source\PSoC4/cyfitter_cfg.c **** 			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x20u));
+ 365              		.loc 1 331 0
+ 366 000e 2022     		movs	r2, #32
+ 367 0010 074B     		ldr	r3, .L24
+ 368 0012 1A60     		str	r2, [r3]
+ 332:Generated_Source\PSoC4/cyfitter_cfg.c **** 			break;
+ 369              		.loc 1 332 0
+ 370 0014 0AE0     		b	.L19
+ 371              	.L21:
+ 333:Generated_Source\PSoC4/cyfitter_cfg.c **** 		case 1u:
+ 334:Generated_Source\PSoC4/cyfitter_cfg.c **** 			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW_CLEAR, (0x20u));
+ 372              		.loc 1 334 0
+ 373 0016 2022     		movs	r2, #32
+ 374 0018 064B     		ldr	r3, .L24+4
+ 375 001a 1A60     		str	r2, [r3]
+ 335:Generated_Source\PSoC4/cyfitter_cfg.c **** 			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x100000u));
+ 376              		.loc 1 335 0
+ 377 001c 8022     		movs	r2, #128
+ 378 001e 5203     		lsls	r2, r2, #13
+ 379 0020 034B     		ldr	r3, .L24
+ 380 0022 1A60     		str	r2, [r3]
+ 336:Generated_Source\PSoC4/cyfitter_cfg.c **** 			break;
+ 381              		.loc 1 336 0
+ 382 0024 02E0     		b	.L19
+ 383              	.L23:
+ 337:Generated_Source\PSoC4/cyfitter_cfg.c **** 		case 2u:
+ 338:Generated_Source\PSoC4/cyfitter_cfg.c **** 			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x04u));
+ 384              		.loc 1 338 0
+ 385 0026 0422     		movs	r2, #4
+ 386 0028 014B     		ldr	r3, .L24
+ 387 002a 1A60     		str	r2, [r3]
+ 388              	.L19:
+ 339:Generated_Source\PSoC4/cyfitter_cfg.c **** 			break;
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 14
 
 
- 389              	.LFB9:
- 338:Generated_Source\PSoC4/cyfitter_cfg.c **** 
- 339:Generated_Source\PSoC4/cyfitter_cfg.c **** /*******************************************************************************
- 340:Generated_Source\PSoC4/cyfitter_cfg.c **** * Function Name: AMux_1_Set
- 341:Generated_Source\PSoC4/cyfitter_cfg.c **** ********************************************************************************
- 342:Generated_Source\PSoC4/cyfitter_cfg.c **** * Summary:
- 343:Generated_Source\PSoC4/cyfitter_cfg.c **** *  This function is used to set a particular channel as active on the AMux.
- 344:Generated_Source\PSoC4/cyfitter_cfg.c **** *
- 345:Generated_Source\PSoC4/cyfitter_cfg.c **** * Parameters:  
- 346:Generated_Source\PSoC4/cyfitter_cfg.c **** *   channel - The mux channel input to set as active
- 347:Generated_Source\PSoC4/cyfitter_cfg.c **** *
- 348:Generated_Source\PSoC4/cyfitter_cfg.c **** * Return:
- 349:Generated_Source\PSoC4/cyfitter_cfg.c **** *   void
- 350:Generated_Source\PSoC4/cyfitter_cfg.c **** *
- 351:Generated_Source\PSoC4/cyfitter_cfg.c **** *******************************************************************************/
- 352:Generated_Source\PSoC4/cyfitter_cfg.c **** void AMux_1_Set(uint8 channel)
- 353:Generated_Source\PSoC4/cyfitter_cfg.c **** {
- 390              		.loc 1 353 0
- 391              		.cfi_startproc
- 392              		@ args = 0, pretend = 0, frame = 0
- 393              		@ frame_needed = 0, uses_anonymous_args = 0
- 394              		@ link register save eliminated.
- 395              	.LVL12:
- 354:Generated_Source\PSoC4/cyfitter_cfg.c **** 	switch (channel) {
- 396              		.loc 1 354 0
- 397 0000 0028     		cmp	r0, #0
- 398 0002 02D0     		beq	.L26
- 399 0004 0128     		cmp	r0, #1
- 400 0006 05D0     		beq	.L27
- 401 0008 0CE0     		b	.L24
- 402              	.L26:
- 355:Generated_Source\PSoC4/cyfitter_cfg.c **** 		case 0u:
- 356:Generated_Source\PSoC4/cyfitter_cfg.c **** 			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x40000u));
- 403              		.loc 1 356 0
- 404 000a 8022     		movs	r2, #128
- 405 000c D202     		lsls	r2, r2, #11
- 406 000e 064B     		ldr	r3, .L28
- 407 0010 1A60     		str	r2, [r3]
- 357:Generated_Source\PSoC4/cyfitter_cfg.c **** 			break;
- 408              		.loc 1 357 0
- 409 0012 07E0     		b	.L24
- 410              	.L27:
- 358:Generated_Source\PSoC4/cyfitter_cfg.c **** 		case 1u:
- 359:Generated_Source\PSoC4/cyfitter_cfg.c **** 			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW, (0x40000u));
- 411              		.loc 1 359 0
- 412 0014 8022     		movs	r2, #128
- 413 0016 D202     		lsls	r2, r2, #11
- 414 0018 044B     		ldr	r3, .L28+4
- 415 001a 1A60     		str	r2, [r3]
- 360:Generated_Source\PSoC4/cyfitter_cfg.c **** 			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x800000u));
- 416              		.loc 1 360 0
- 417 001c 8022     		movs	r2, #128
- 418 001e 1204     		lsls	r2, r2, #16
- 419 0020 014B     		ldr	r3, .L28
- 420 0022 1A60     		str	r2, [r3]
- 421              	.L24:
- 361:Generated_Source\PSoC4/cyfitter_cfg.c **** 			break;
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 15
+ 340:Generated_Source\PSoC4/cyfitter_cfg.c **** 		default:
+ 341:Generated_Source\PSoC4/cyfitter_cfg.c **** 			break;
+ 342:Generated_Source\PSoC4/cyfitter_cfg.c **** 	}
+ 343:Generated_Source\PSoC4/cyfitter_cfg.c **** }
+ 389              		.loc 1 343 0
+ 390              		@ sp needed
+ 391 002c 7047     		bx	lr
+ 392              	.L25:
+ 393 002e C046     		.align	2
+ 394              	.L24:
+ 395 0030 94003040 		.word	1076887700
+ 396 0034 94003140 		.word	1076953236
+ 397              		.cfi_endproc
+ 398              	.LFE8:
+ 399              		.size	AMux_1_Unset, .-AMux_1_Unset
+ 400              		.section	.psocinit
+ 401              		.align	2
+ 402              		.global	cyfitter_cfg
+ 403              		.code	16
+ 404              		.thumb_func
+ 405              		.type	cyfitter_cfg, %function
+ 406              	cyfitter_cfg:
+ 407              	.LFB9:
+ 344:Generated_Source\PSoC4/cyfitter_cfg.c **** 
+ 345:Generated_Source\PSoC4/cyfitter_cfg.c **** 
+ 346:Generated_Source\PSoC4/cyfitter_cfg.c **** 
+ 347:Generated_Source\PSoC4/cyfitter_cfg.c **** /*******************************************************************************
+ 348:Generated_Source\PSoC4/cyfitter_cfg.c **** * Function Name: cyfitter_cfg
+ 349:Generated_Source\PSoC4/cyfitter_cfg.c **** ********************************************************************************
+ 350:Generated_Source\PSoC4/cyfitter_cfg.c **** * Summary:
+ 351:Generated_Source\PSoC4/cyfitter_cfg.c **** *  This function is called by the start-up code for the selected device. It
+ 352:Generated_Source\PSoC4/cyfitter_cfg.c **** *  performs all of the necessary device configuration based on the design
+ 353:Generated_Source\PSoC4/cyfitter_cfg.c **** *  settings.  This includes settings from the Design Wide Resources (DWR) such
+ 354:Generated_Source\PSoC4/cyfitter_cfg.c **** *  as Clocks and Pins as well as any component configuration that is necessary.
+ 355:Generated_Source\PSoC4/cyfitter_cfg.c **** *
+ 356:Generated_Source\PSoC4/cyfitter_cfg.c **** * Parameters:
+ 357:Generated_Source\PSoC4/cyfitter_cfg.c **** *   void
+ 358:Generated_Source\PSoC4/cyfitter_cfg.c **** *
+ 359:Generated_Source\PSoC4/cyfitter_cfg.c **** * Return:
+ 360:Generated_Source\PSoC4/cyfitter_cfg.c **** *   void
+ 361:Generated_Source\PSoC4/cyfitter_cfg.c **** *
+ 362:Generated_Source\PSoC4/cyfitter_cfg.c **** *******************************************************************************/
+ 363:Generated_Source\PSoC4/cyfitter_cfg.c **** CY_CFG_SECTION
+ 364:Generated_Source\PSoC4/cyfitter_cfg.c **** void cyfitter_cfg(void)
+ 365:Generated_Source\PSoC4/cyfitter_cfg.c **** {
+ 408              		.loc 1 365 0
+ 409              		.cfi_startproc
+ 410              		@ args = 0, pretend = 0, frame = 0
+ 411              		@ frame_needed = 0, uses_anonymous_args = 0
+ 412 00d4 10B5     		push	{r4, lr}
+ 413              		.cfi_def_cfa_offset 8
+ 414              		.cfi_offset 4, -8
+ 415              		.cfi_offset 14, -4
+ 366:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* Disable interrupts by default. Let user enable if/when they want. */
+ 367:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CyGlobalIntDisable;
+ 416              		.loc 1 367 0
+ 417              		.syntax divided
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 15
 
 
- 362:Generated_Source\PSoC4/cyfitter_cfg.c **** 		default:
- 363:Generated_Source\PSoC4/cyfitter_cfg.c **** 			break;
- 364:Generated_Source\PSoC4/cyfitter_cfg.c **** 	}
- 365:Generated_Source\PSoC4/cyfitter_cfg.c **** }
- 422              		.loc 1 365 0
- 423              		@ sp needed
- 424 0024 7047     		bx	lr
- 425              	.L29:
- 426 0026 C046     		.align	2
- 427              	.L28:
- 428 0028 90003040 		.word	1076887696
- 429 002c 90003140 		.word	1076953232
- 430              		.cfi_endproc
- 431              	.LFE9:
- 432              		.size	AMux_1_Set, .-AMux_1_Set
- 433              		.section	.text.AMux_1_Unset,"ax",%progbits
- 434              		.align	2
- 435              		.global	AMux_1_Unset
- 436              		.code	16
- 437              		.thumb_func
- 438              		.type	AMux_1_Unset, %function
- 439              	AMux_1_Unset:
- 440              	.LFB10:
- 366:Generated_Source\PSoC4/cyfitter_cfg.c **** 
- 367:Generated_Source\PSoC4/cyfitter_cfg.c **** /*******************************************************************************
- 368:Generated_Source\PSoC4/cyfitter_cfg.c **** * Function Name: AMux_1_Unset
- 369:Generated_Source\PSoC4/cyfitter_cfg.c **** ********************************************************************************
- 370:Generated_Source\PSoC4/cyfitter_cfg.c **** * Summary:
- 371:Generated_Source\PSoC4/cyfitter_cfg.c **** *  This function is used to clear a particular channel from being active on the
- 372:Generated_Source\PSoC4/cyfitter_cfg.c **** *  AMux.
- 373:Generated_Source\PSoC4/cyfitter_cfg.c **** *
- 374:Generated_Source\PSoC4/cyfitter_cfg.c **** * Parameters:  
- 375:Generated_Source\PSoC4/cyfitter_cfg.c **** *   channel - The mux channel input to mark inactive
- 376:Generated_Source\PSoC4/cyfitter_cfg.c **** *
- 377:Generated_Source\PSoC4/cyfitter_cfg.c **** * Return:
- 378:Generated_Source\PSoC4/cyfitter_cfg.c **** *   void
- 379:Generated_Source\PSoC4/cyfitter_cfg.c **** *
- 380:Generated_Source\PSoC4/cyfitter_cfg.c **** *******************************************************************************/
- 381:Generated_Source\PSoC4/cyfitter_cfg.c **** void AMux_1_Unset(uint8 channel)
- 382:Generated_Source\PSoC4/cyfitter_cfg.c **** {
- 441              		.loc 1 382 0
- 442              		.cfi_startproc
- 443              		@ args = 0, pretend = 0, frame = 0
- 444              		@ frame_needed = 0, uses_anonymous_args = 0
- 445              		@ link register save eliminated.
- 446              	.LVL13:
- 383:Generated_Source\PSoC4/cyfitter_cfg.c **** 	switch (channel) {
- 447              		.loc 1 383 0
- 448 0000 0028     		cmp	r0, #0
- 449 0002 02D0     		beq	.L32
- 450 0004 0128     		cmp	r0, #1
- 451 0006 05D0     		beq	.L33
- 452 0008 0CE0     		b	.L30
- 453              	.L32:
- 384:Generated_Source\PSoC4/cyfitter_cfg.c **** 		case 0u:
- 385:Generated_Source\PSoC4/cyfitter_cfg.c **** 			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x40000u));
- 454              		.loc 1 385 0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 16
+ 418              	@ 367 "Generated_Source\PSoC4\cyfitter_cfg.c" 1
+ 419 00d6 72B6     		CPSID   i
+ 420              	@ 0 "" 2
+ 368:Generated_Source\PSoC4/cyfitter_cfg.c **** 
+ 369:Generated_Source\PSoC4/cyfitter_cfg.c **** 	{
+ 370:Generated_Source\PSoC4/cyfitter_cfg.c **** 		/* HSIOM Starting address: CYDEV_HSIOM_BASE */
+ 371:Generated_Source\PSoC4/cyfitter_cfg.c **** 		CY_SET_REG32((void *)(CYDEV_HSIOM_BASE), 0x009900EEu);
+ 421              		.loc 1 371 0
+ 422              		.thumb
+ 423              		.syntax unified
+ 424 00d8 124A     		ldr	r2, .L27
+ 425 00da 134B     		ldr	r3, .L27+4
+ 426 00dc 1A60     		str	r2, [r3]
+ 372:Generated_Source\PSoC4/cyfitter_cfg.c **** 		CY_SET_REG32((void *)(CYREG_HSIOM_PORT_SEL3), 0xEE000000u);
+ 427              		.loc 1 372 0
+ 428 00de EE22     		movs	r2, #238
+ 429 00e0 1206     		lsls	r2, r2, #24
+ 430 00e2 124B     		ldr	r3, .L27+8
+ 431 00e4 1A60     		str	r2, [r3]
+ 373:Generated_Source\PSoC4/cyfitter_cfg.c **** 
+ 374:Generated_Source\PSoC4/cyfitter_cfg.c **** 		/* PASS_SAR_TRIG_SEL Starting address: CYDEV_PASS_SAR_TRIG_SEL */
+ 375:Generated_Source\PSoC4/cyfitter_cfg.c **** 		CY_SET_REG32((void *)(CYREG_PASS_SAR_TRIG_SEL), 0x00000000u);
+ 432              		.loc 1 375 0
+ 433 00e6 0022     		movs	r2, #0
+ 434 00e8 114B     		ldr	r3, .L27+12
+ 435 00ea 1A60     		str	r2, [r3]
+ 376:Generated_Source\PSoC4/cyfitter_cfg.c **** 
+ 377:Generated_Source\PSoC4/cyfitter_cfg.c **** 	}
+ 378:Generated_Source\PSoC4/cyfitter_cfg.c **** 
+ 379:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* Perform second pass device configuration. These items must be configured in specific order afte
+ 380:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* IOPINS0_0 Starting address: CYDEV_GPIO_PRT0_BASE */
+ 381:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYDEV_GPIO_PRT0_BASE), 0x00000020u);
+ 436              		.loc 1 381 0
+ 437 00ec 2023     		movs	r3, #32
+ 438 00ee 114A     		ldr	r2, .L27+16
+ 439 00f0 1360     		str	r3, [r2]
+ 382:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYREG_GPIO_PRT0_PC), 0x00031DB6u);
+ 440              		.loc 1 382 0
+ 441 00f2 1149     		ldr	r1, .L27+20
+ 442 00f4 114A     		ldr	r2, .L27+24
+ 443 00f6 1160     		str	r1, [r2]
+ 383:Generated_Source\PSoC4/cyfitter_cfg.c **** 
+ 384:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* IOPINS0_1 Starting address: CYDEV_GPIO_PRT1_BASE */
+ 385:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYDEV_GPIO_PRT1_BASE), 0x00000020u);
+ 444              		.loc 1 385 0
+ 445 00f8 114A     		ldr	r2, .L27+28
+ 446 00fa 1360     		str	r3, [r2]
+ 386:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYREG_GPIO_PRT1_PC2), 0x00000020u);
+ 447              		.loc 1 386 0
+ 448 00fc 114A     		ldr	r2, .L27+32
+ 449 00fe 1360     		str	r3, [r2]
+ 387:Generated_Source\PSoC4/cyfitter_cfg.c **** 
+ 388:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* IOPINS0_2 Starting address: CYDEV_GPIO_PRT2_BASE */
+ 389:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYDEV_GPIO_PRT2_BASE), 0x000000AFu);
+ 450              		.loc 1 389 0
+ 451 0100 8F33     		adds	r3, r3, #143
+ 452 0102 114A     		ldr	r2, .L27+36
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 16
 
 
- 455 000a 8022     		movs	r2, #128
- 456 000c D202     		lsls	r2, r2, #11
- 457 000e 064B     		ldr	r3, .L34
- 458 0010 1A60     		str	r2, [r3]
- 386:Generated_Source\PSoC4/cyfitter_cfg.c **** 			break;
- 459              		.loc 1 386 0
- 460 0012 07E0     		b	.L30
- 461              	.L33:
- 387:Generated_Source\PSoC4/cyfitter_cfg.c **** 		case 1u:
- 388:Generated_Source\PSoC4/cyfitter_cfg.c **** 			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW_CLEAR, (0x40000u));
- 462              		.loc 1 388 0
- 463 0014 8022     		movs	r2, #128
- 464 0016 D202     		lsls	r2, r2, #11
- 465 0018 044B     		ldr	r3, .L34+4
- 466 001a 1A60     		str	r2, [r3]
- 389:Generated_Source\PSoC4/cyfitter_cfg.c **** 			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x800000u));
- 467              		.loc 1 389 0
- 468 001c 8022     		movs	r2, #128
- 469 001e 1204     		lsls	r2, r2, #16
- 470 0020 014B     		ldr	r3, .L34
- 471 0022 1A60     		str	r2, [r3]
- 472              	.L30:
- 390:Generated_Source\PSoC4/cyfitter_cfg.c **** 			break;
- 391:Generated_Source\PSoC4/cyfitter_cfg.c **** 		default:
- 392:Generated_Source\PSoC4/cyfitter_cfg.c **** 			break;
- 393:Generated_Source\PSoC4/cyfitter_cfg.c **** 	}
- 394:Generated_Source\PSoC4/cyfitter_cfg.c **** }
- 473              		.loc 1 394 0
- 474              		@ sp needed
- 475 0024 7047     		bx	lr
- 476              	.L35:
- 477 0026 C046     		.align	2
- 478              	.L34:
- 479 0028 94003040 		.word	1076887700
- 480 002c 94003140 		.word	1076953236
- 481              		.cfi_endproc
- 482              	.LFE10:
- 483              		.size	AMux_1_Unset, .-AMux_1_Unset
- 484              		.section	.psocinit
- 485              		.align	2
- 486              		.global	cyfitter_cfg
- 487              		.code	16
- 488              		.thumb_func
- 489              		.type	cyfitter_cfg, %function
- 490              	cyfitter_cfg:
- 491              	.LFB11:
+ 453 0104 1360     		str	r3, [r2]
+ 390:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYREG_GPIO_PRT2_PC2), 0x000000AFu);
+ 454              		.loc 1 390 0
+ 455 0106 114A     		ldr	r2, .L27+40
+ 456 0108 1360     		str	r3, [r2]
+ 391:Generated_Source\PSoC4/cyfitter_cfg.c **** 
+ 392:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* IOPINS0_3 Starting address: CYDEV_GPIO_PRT3_BASE */
+ 393:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYDEV_GPIO_PRT3_BASE), 0x000000C0u);
+ 457              		.loc 1 393 0
+ 458 010a C022     		movs	r2, #192
+ 459 010c 104B     		ldr	r3, .L27+44
+ 460 010e 1A60     		str	r2, [r3]
+ 394:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYREG_GPIO_PRT3_PC), 0x00900000u);
+ 461              		.loc 1 394 0
+ 462 0110 9022     		movs	r2, #144
+ 463 0112 1204     		lsls	r2, r2, #16
+ 464 0114 0F4B     		ldr	r3, .L27+48
+ 465 0116 1A60     		str	r2, [r3]
  395:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  396:Generated_Source\PSoC4/cyfitter_cfg.c **** 
- 397:Generated_Source\PSoC4/cyfitter_cfg.c **** 
- 398:Generated_Source\PSoC4/cyfitter_cfg.c **** /*******************************************************************************
- 399:Generated_Source\PSoC4/cyfitter_cfg.c **** * Function Name: cyfitter_cfg
- 400:Generated_Source\PSoC4/cyfitter_cfg.c **** ********************************************************************************
- 401:Generated_Source\PSoC4/cyfitter_cfg.c **** * Summary:
- 402:Generated_Source\PSoC4/cyfitter_cfg.c **** *  This function is called by the start-up code for the selected device. It
- 403:Generated_Source\PSoC4/cyfitter_cfg.c **** *  performs all of the necessary device configuration based on the design
- 404:Generated_Source\PSoC4/cyfitter_cfg.c **** *  settings.  This includes settings from the Design Wide Resources (DWR) such
- 405:Generated_Source\PSoC4/cyfitter_cfg.c **** *  as Clocks and Pins as well as any component configuration that is necessary.
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 17
+ 397:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* Setup clocks based on selections from Clock DWR */
+ 398:Generated_Source\PSoC4/cyfitter_cfg.c **** 	ClockSetup();
+ 466              		.loc 1 398 0
+ 467 0118 FFF772FF 		bl	ClockSetup
+ 468              	.LVL12:
+ 399:Generated_Source\PSoC4/cyfitter_cfg.c **** 
+ 400:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* Perform basic analog initialization to defaults */
+ 401:Generated_Source\PSoC4/cyfitter_cfg.c **** 	AnalogSetDefault();
+ 469              		.loc 1 401 0
+ 470 011c FFF7FEFF 		bl	AnalogSetDefault
+ 471              	.LVL13:
+ 402:Generated_Source\PSoC4/cyfitter_cfg.c **** 
+ 403:Generated_Source\PSoC4/cyfitter_cfg.c **** }
+ 472              		.loc 1 403 0
+ 473              		@ sp needed
+ 474 0120 10BD     		pop	{r4, pc}
+ 475              	.L28:
+ 476 0122 C046     		.align	2
+ 477              	.L27:
+ 478 0124 EE009900 		.word	10027246
+ 479 0128 00000240 		.word	1073872896
+ 480 012c 00030240 		.word	1073873664
+ 481 0130 04013F40 		.word	1077870852
+ 482 0134 00000440 		.word	1074003968
+ 483 0138 B61D0300 		.word	204214
+ 484 013c 08000440 		.word	1074003976
+ 485 0140 00010440 		.word	1074004224
+ 486 0144 18010440 		.word	1074004248
+ 487 0148 00020440 		.word	1074004480
+ 488 014c 18020440 		.word	1074004504
+ 489 0150 00030440 		.word	1074004736
+ 490 0154 08030440 		.word	1074004744
+ 491              		.cfi_endproc
+ 492              	.LFE9:
+ 493              		.size	cyfitter_cfg, .-cyfitter_cfg
+ 494              		.text
+ 495              	.Letext0:
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 17
 
 
- 406:Generated_Source\PSoC4/cyfitter_cfg.c **** *
- 407:Generated_Source\PSoC4/cyfitter_cfg.c **** * Parameters:
- 408:Generated_Source\PSoC4/cyfitter_cfg.c **** *   void
- 409:Generated_Source\PSoC4/cyfitter_cfg.c **** *
- 410:Generated_Source\PSoC4/cyfitter_cfg.c **** * Return:
- 411:Generated_Source\PSoC4/cyfitter_cfg.c **** *   void
- 412:Generated_Source\PSoC4/cyfitter_cfg.c **** *
- 413:Generated_Source\PSoC4/cyfitter_cfg.c **** *******************************************************************************/
- 414:Generated_Source\PSoC4/cyfitter_cfg.c **** CY_CFG_SECTION
- 415:Generated_Source\PSoC4/cyfitter_cfg.c **** void cyfitter_cfg(void)
- 416:Generated_Source\PSoC4/cyfitter_cfg.c **** {
- 492              		.loc 1 416 0
- 493              		.cfi_startproc
- 494              		@ args = 0, pretend = 0, frame = 0
- 495              		@ frame_needed = 0, uses_anonymous_args = 0
- 496 00d4 10B5     		push	{r4, lr}
- 497              		.cfi_def_cfa_offset 8
- 498              		.cfi_offset 4, -8
- 499              		.cfi_offset 14, -4
- 417:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* Disable interrupts by default. Let user enable if/when they want. */
- 418:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CyGlobalIntDisable;
- 500              		.loc 1 418 0
- 501              		.syntax divided
- 502              	@ 418 "Generated_Source\PSoC4\cyfitter_cfg.c" 1
- 503 00d6 72B6     		CPSID   i
- 504              	@ 0 "" 2
- 419:Generated_Source\PSoC4/cyfitter_cfg.c **** 
- 420:Generated_Source\PSoC4/cyfitter_cfg.c **** 	{
- 421:Generated_Source\PSoC4/cyfitter_cfg.c **** 		/* HSIOM Starting address: CYDEV_HSIOM_BASE */
- 422:Generated_Source\PSoC4/cyfitter_cfg.c **** 		CY_SET_REG32((void *)(CYDEV_HSIOM_BASE), 0x009900EEu);
- 505              		.loc 1 422 0
- 506              		.thumb
- 507              		.syntax unified
- 508 00d8 124A     		ldr	r2, .L37
- 509 00da 134B     		ldr	r3, .L37+4
- 510 00dc 1A60     		str	r2, [r3]
- 423:Generated_Source\PSoC4/cyfitter_cfg.c **** 		CY_SET_REG32((void *)(CYREG_HSIOM_PORT_SEL3), 0xEE000000u);
- 511              		.loc 1 423 0
- 512 00de EE22     		movs	r2, #238
- 513 00e0 1206     		lsls	r2, r2, #24
- 514 00e2 124B     		ldr	r3, .L37+8
- 515 00e4 1A60     		str	r2, [r3]
- 424:Generated_Source\PSoC4/cyfitter_cfg.c **** 
- 425:Generated_Source\PSoC4/cyfitter_cfg.c **** 		/* PASS_SAR_TRIG_SEL Starting address: CYDEV_PASS_SAR_TRIG_SEL */
- 426:Generated_Source\PSoC4/cyfitter_cfg.c **** 		CY_SET_REG32((void *)(CYREG_PASS_SAR_TRIG_SEL), 0x00000000u);
- 516              		.loc 1 426 0
- 517 00e6 0022     		movs	r2, #0
- 518 00e8 114B     		ldr	r3, .L37+12
- 519 00ea 1A60     		str	r2, [r3]
- 427:Generated_Source\PSoC4/cyfitter_cfg.c **** 
- 428:Generated_Source\PSoC4/cyfitter_cfg.c **** 	}
- 429:Generated_Source\PSoC4/cyfitter_cfg.c **** 
- 430:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* Perform second pass device configuration. These items must be configured in specific order afte
- 431:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* IOPINS0_0 Starting address: CYDEV_GPIO_PRT0_BASE */
- 432:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYDEV_GPIO_PRT0_BASE), 0x00000020u);
- 520              		.loc 1 432 0
- 521 00ec 2023     		movs	r3, #32
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 18
+ 496              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
+ 497              		.file 3 "Generated_Source\\PSoC4\\CyLib.h"
+ 498              		.file 4 "Generated_Source\\PSoC4\\CyLFClk.h"
+ 499              		.section	.debug_info,"",%progbits
+ 500              	.Ldebug_info0:
+ 501 0000 0B020000 		.4byte	0x20b
+ 502 0004 0400     		.2byte	0x4
+ 503 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 504 000a 04       		.byte	0x4
+ 505 000b 01       		.uleb128 0x1
+ 506 000c B8010000 		.4byte	.LASF29
+ 507 0010 0C       		.byte	0xc
+ 508 0011 56020000 		.4byte	.LASF30
+ 509 0015 A9000000 		.4byte	.LASF31
+ 510 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 511 001d 00000000 		.4byte	0
+ 512 0021 00000000 		.4byte	.Ldebug_line0
+ 513 0025 02       		.uleb128 0x2
+ 514 0026 04       		.byte	0x4
+ 515 0027 05       		.byte	0x5
+ 516 0028 696E7400 		.ascii	"int\000"
+ 517 002c 03       		.uleb128 0x3
+ 518 002d 04       		.byte	0x4
+ 519 002e 07       		.byte	0x7
+ 520 002f 31010000 		.4byte	.LASF0
+ 521 0033 03       		.uleb128 0x3
+ 522 0034 08       		.byte	0x8
+ 523 0035 05       		.byte	0x5
+ 524 0036 5E010000 		.4byte	.LASF1
+ 525 003a 03       		.uleb128 0x3
+ 526 003b 08       		.byte	0x8
+ 527 003c 04       		.byte	0x4
+ 528 003d AC010000 		.4byte	.LASF2
+ 529 0041 03       		.uleb128 0x3
+ 530 0042 01       		.byte	0x1
+ 531 0043 06       		.byte	0x6
+ 532 0044 4A020000 		.4byte	.LASF3
+ 533 0048 03       		.uleb128 0x3
+ 534 0049 01       		.byte	0x1
+ 535 004a 08       		.byte	0x8
+ 536 004b 76000000 		.4byte	.LASF4
+ 537 004f 03       		.uleb128 0x3
+ 538 0050 02       		.byte	0x2
+ 539 0051 05       		.byte	0x5
+ 540 0052 79010000 		.4byte	.LASF5
+ 541 0056 03       		.uleb128 0x3
+ 542 0057 02       		.byte	0x2
+ 543 0058 07       		.byte	0x7
+ 544 0059 5D000000 		.4byte	.LASF6
+ 545 005d 03       		.uleb128 0x3
+ 546 005e 04       		.byte	0x4
+ 547 005f 05       		.byte	0x5
+ 548 0060 A3010000 		.4byte	.LASF7
+ 549 0064 03       		.uleb128 0x3
+ 550 0065 04       		.byte	0x4
+ 551 0066 07       		.byte	0x7
+ 552 0067 84000000 		.4byte	.LASF8
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 18
 
 
- 522 00ee 114A     		ldr	r2, .L37+16
- 523 00f0 1360     		str	r3, [r2]
- 433:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYREG_GPIO_PRT0_PC), 0x00031DB6u);
- 524              		.loc 1 433 0
- 525 00f2 1149     		ldr	r1, .L37+20
- 526 00f4 114A     		ldr	r2, .L37+24
- 527 00f6 1160     		str	r1, [r2]
- 434:Generated_Source\PSoC4/cyfitter_cfg.c **** 
- 435:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* IOPINS0_1 Starting address: CYDEV_GPIO_PRT1_BASE */
- 436:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYDEV_GPIO_PRT1_BASE), 0x00000020u);
- 528              		.loc 1 436 0
- 529 00f8 114A     		ldr	r2, .L37+28
- 530 00fa 1360     		str	r3, [r2]
- 437:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYREG_GPIO_PRT1_PC2), 0x00000020u);
- 531              		.loc 1 437 0
- 532 00fc 114A     		ldr	r2, .L37+32
- 533 00fe 1360     		str	r3, [r2]
- 438:Generated_Source\PSoC4/cyfitter_cfg.c **** 
- 439:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* IOPINS0_2 Starting address: CYDEV_GPIO_PRT2_BASE */
- 440:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYDEV_GPIO_PRT2_BASE), 0x000000AFu);
- 534              		.loc 1 440 0
- 535 0100 8F33     		adds	r3, r3, #143
- 536 0102 114A     		ldr	r2, .L37+36
- 537 0104 1360     		str	r3, [r2]
- 441:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYREG_GPIO_PRT2_PC2), 0x000000AFu);
- 538              		.loc 1 441 0
- 539 0106 114A     		ldr	r2, .L37+40
- 540 0108 1360     		str	r3, [r2]
- 442:Generated_Source\PSoC4/cyfitter_cfg.c **** 
- 443:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* IOPINS0_3 Starting address: CYDEV_GPIO_PRT3_BASE */
- 444:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYDEV_GPIO_PRT3_BASE), 0x000000C0u);
- 541              		.loc 1 444 0
- 542 010a C022     		movs	r2, #192
- 543 010c 104B     		ldr	r3, .L37+44
- 544 010e 1A60     		str	r2, [r3]
- 445:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)(CYREG_GPIO_PRT3_PC), 0x00900000u);
- 545              		.loc 1 445 0
- 546 0110 9022     		movs	r2, #144
- 547 0112 1204     		lsls	r2, r2, #16
- 548 0114 0F4B     		ldr	r3, .L37+48
- 549 0116 1A60     		str	r2, [r3]
- 446:Generated_Source\PSoC4/cyfitter_cfg.c **** 
- 447:Generated_Source\PSoC4/cyfitter_cfg.c **** 
- 448:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* Setup clocks based on selections from Clock DWR */
- 449:Generated_Source\PSoC4/cyfitter_cfg.c **** 	ClockSetup();
- 550              		.loc 1 449 0
- 551 0118 FFF772FF 		bl	ClockSetup
- 552              	.LVL14:
- 450:Generated_Source\PSoC4/cyfitter_cfg.c **** 
- 451:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* Perform basic analog initialization to defaults */
- 452:Generated_Source\PSoC4/cyfitter_cfg.c **** 	AnalogSetDefault();
- 553              		.loc 1 452 0
- 554 011c FFF7FEFF 		bl	AnalogSetDefault
- 555              	.LVL15:
- 453:Generated_Source\PSoC4/cyfitter_cfg.c **** 
- 454:Generated_Source\PSoC4/cyfitter_cfg.c **** }
- 556              		.loc 1 454 0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 19
+ 553 006b 03       		.uleb128 0x3
+ 554 006c 08       		.byte	0x8
+ 555 006d 07       		.byte	0x7
+ 556 006e 3E010000 		.4byte	.LASF9
+ 557 0072 03       		.uleb128 0x3
+ 558 0073 04       		.byte	0x4
+ 559 0074 07       		.byte	0x7
+ 560 0075 55010000 		.4byte	.LASF10
+ 561 0079 03       		.uleb128 0x3
+ 562 007a 01       		.byte	0x1
+ 563 007b 08       		.byte	0x8
+ 564 007c 6C010000 		.4byte	.LASF11
+ 565 0080 04       		.uleb128 0x4
+ 566 0081 96000000 		.4byte	.LASF12
+ 567 0085 02       		.byte	0x2
+ 568 0086 FC01     		.2byte	0x1fc
+ 569 0088 48000000 		.4byte	0x48
+ 570 008c 04       		.uleb128 0x4
+ 571 008d 2A010000 		.4byte	.LASF13
+ 572 0091 02       		.byte	0x2
+ 573 0092 FE01     		.2byte	0x1fe
+ 574 0094 64000000 		.4byte	0x64
+ 575 0098 03       		.uleb128 0x3
+ 576 0099 04       		.byte	0x4
+ 577 009a 04       		.byte	0x4
+ 578 009b 70000000 		.4byte	.LASF14
+ 579 009f 03       		.uleb128 0x3
+ 580 00a0 08       		.byte	0x8
+ 581 00a1 04       		.byte	0x4
+ 582 00a2 17010000 		.4byte	.LASF15
+ 583 00a6 04       		.uleb128 0x4
+ 584 00a7 00000000 		.4byte	.LASF16
+ 585 00ab 02       		.byte	0x2
+ 586 00ac A802     		.2byte	0x2a8
+ 587 00ae B2000000 		.4byte	0xb2
+ 588 00b2 05       		.uleb128 0x5
+ 589 00b3 8C000000 		.4byte	0x8c
+ 590 00b7 06       		.uleb128 0x6
+ 591 00b8 52000000 		.4byte	.LASF17
+ 592 00bc 01       		.byte	0x1
+ 593 00bd AA       		.byte	0xaa
+ 594 00be 00000000 		.4byte	.LFB4
+ 595 00c2 D4000000 		.4byte	.LFE4-.LFB4
+ 596 00c6 01       		.uleb128 0x1
+ 597 00c7 9C       		.byte	0x9c
+ 598 00c8 15010000 		.4byte	0x115
+ 599 00cc 07       		.uleb128 0x7
+ 600 00cd 0E000000 		.4byte	.LVL0
+ 601 00d1 E2010000 		.4byte	0x1e2
+ 602 00d5 DF000000 		.4byte	0xdf
+ 603 00d9 08       		.uleb128 0x8
+ 604 00da 01       		.uleb128 0x1
+ 605 00db 50       		.byte	0x50
+ 606 00dc 01       		.uleb128 0x1
+ 607 00dd 48       		.byte	0x48
+ 608 00de 00       		.byte	0
+ 609 00df 07       		.uleb128 0x7
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 19
 
 
- 557              		@ sp needed
- 558 0120 10BD     		pop	{r4, pc}
- 559              	.L38:
- 560 0122 C046     		.align	2
- 561              	.L37:
- 562 0124 EE009900 		.word	10027246
- 563 0128 00000240 		.word	1073872896
- 564 012c 00030240 		.word	1073873664
- 565 0130 04013F40 		.word	1077870852
- 566 0134 00000440 		.word	1074003968
- 567 0138 B61D0300 		.word	204214
- 568 013c 08000440 		.word	1074003976
- 569 0140 00010440 		.word	1074004224
- 570 0144 18010440 		.word	1074004248
- 571 0148 00020440 		.word	1074004480
- 572 014c 18020440 		.word	1074004504
- 573 0150 00030440 		.word	1074004736
- 574 0154 08030440 		.word	1074004744
- 575              		.cfi_endproc
- 576              	.LFE11:
- 577              		.size	cyfitter_cfg, .-cyfitter_cfg
- 578              		.text
- 579              	.Letext0:
- 580              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
- 581              		.file 3 "Generated_Source\\PSoC4\\CyLib.h"
- 582              		.file 4 "Generated_Source\\PSoC4\\CyLFClk.h"
- 583              		.section	.debug_info,"",%progbits
- 584              	.Ldebug_info0:
- 585 0000 55020000 		.4byte	0x255
- 586 0004 0400     		.2byte	0x4
- 587 0006 00000000 		.4byte	.Ldebug_abbrev0
- 588 000a 04       		.byte	0x4
- 589 000b 01       		.uleb128 0x1
- 590 000c D0010000 		.4byte	.LASF31
- 591 0010 0C       		.byte	0xc
- 592 0011 6E020000 		.4byte	.LASF32
- 593 0015 C1000000 		.4byte	.LASF33
- 594 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 595 001d 00000000 		.4byte	0
- 596 0021 00000000 		.4byte	.Ldebug_line0
- 597 0025 02       		.uleb128 0x2
- 598 0026 04       		.byte	0x4
- 599 0027 05       		.byte	0x5
- 600 0028 696E7400 		.ascii	"int\000"
- 601 002c 03       		.uleb128 0x3
- 602 002d 04       		.byte	0x4
- 603 002e 07       		.byte	0x7
- 604 002f 49010000 		.4byte	.LASF0
- 605 0033 03       		.uleb128 0x3
- 606 0034 08       		.byte	0x8
- 607 0035 05       		.byte	0x5
- 608 0036 76010000 		.4byte	.LASF1
- 609 003a 03       		.uleb128 0x3
- 610 003b 08       		.byte	0x8
- 611 003c 04       		.byte	0x4
- 612 003d C4010000 		.4byte	.LASF2
- 613 0041 03       		.uleb128 0x3
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 20
+ 610 00e0 6E000000 		.4byte	.LVL1
+ 611 00e4 ED010000 		.4byte	0x1ed
+ 612 00e8 F2000000 		.4byte	0xf2
+ 613 00ec 08       		.uleb128 0x8
+ 614 00ed 01       		.uleb128 0x1
+ 615 00ee 50       		.byte	0x50
+ 616 00ef 01       		.uleb128 0x1
+ 617 00f0 3B       		.byte	0x3b
+ 618 00f1 00       		.byte	0
+ 619 00f2 07       		.uleb128 0x7
+ 620 00f3 74000000 		.4byte	.LVL2
+ 621 00f7 F8010000 		.4byte	0x1f8
+ 622 00fb 05010000 		.4byte	0x105
+ 623 00ff 08       		.uleb128 0x8
+ 624 0100 01       		.uleb128 0x1
+ 625 0101 50       		.byte	0x50
+ 626 0102 01       		.uleb128 0x1
+ 627 0103 3B       		.byte	0x3b
+ 628 0104 00       		.byte	0
+ 629 0105 09       		.uleb128 0x9
+ 630 0106 80000000 		.4byte	.LVL3
+ 631 010a 03020000 		.4byte	0x203
+ 632 010e 08       		.uleb128 0x8
+ 633 010f 01       		.uleb128 0x1
+ 634 0110 50       		.byte	0x50
+ 635 0111 01       		.uleb128 0x1
+ 636 0112 30       		.byte	0x30
+ 637 0113 00       		.byte	0
+ 638 0114 00       		.byte	0
+ 639 0115 0A       		.uleb128 0xa
+ 640 0116 01010000 		.4byte	.LASF19
+ 641 011a 01       		.byte	0x1
+ 642 011b 0A01     		.2byte	0x10a
+ 643 011d 00000000 		.4byte	.LFB6
+ 644 0121 20000000 		.4byte	.LFE6-.LFB6
+ 645 0125 01       		.uleb128 0x1
+ 646 0126 9C       		.byte	0x9c
+ 647 0127 4A010000 		.4byte	0x14a
+ 648 012b 0B       		.uleb128 0xb
+ 649 012c 71010000 		.4byte	.LASF21
+ 650 0130 01       		.byte	0x1
+ 651 0131 0A01     		.2byte	0x10a
+ 652 0133 80000000 		.4byte	0x80
+ 653 0137 01       		.uleb128 0x1
+ 654 0138 50       		.byte	0x50
+ 655 0139 0C       		.uleb128 0xc
+ 656 013a 7C020000 		.4byte	.LASF32
+ 657 013e 01       		.byte	0x1
+ 658 013f 0C01     		.2byte	0x10c
+ 659 0141 8C000000 		.4byte	0x8c
+ 660 0145 00000000 		.4byte	.LLST0
+ 661 0149 00       		.byte	0
+ 662 014a 06       		.uleb128 0x6
+ 663 014b 0E000000 		.4byte	.LASF18
+ 664 014f 01       		.byte	0x1
+ 665 0150 E9       		.byte	0xe9
+ 666 0151 00000000 		.4byte	.LFB5
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 20
 
 
- 614 0042 01       		.byte	0x1
- 615 0043 06       		.byte	0x6
- 616 0044 62020000 		.4byte	.LASF3
- 617 0048 03       		.uleb128 0x3
- 618 0049 01       		.byte	0x1
- 619 004a 08       		.byte	0x8
- 620 004b 8E000000 		.4byte	.LASF4
- 621 004f 03       		.uleb128 0x3
- 622 0050 02       		.byte	0x2
- 623 0051 05       		.byte	0x5
- 624 0052 91010000 		.4byte	.LASF5
- 625 0056 03       		.uleb128 0x3
- 626 0057 02       		.byte	0x2
- 627 0058 07       		.byte	0x7
- 628 0059 68000000 		.4byte	.LASF6
- 629 005d 03       		.uleb128 0x3
- 630 005e 04       		.byte	0x4
- 631 005f 05       		.byte	0x5
- 632 0060 BB010000 		.4byte	.LASF7
- 633 0064 03       		.uleb128 0x3
- 634 0065 04       		.byte	0x4
- 635 0066 07       		.byte	0x7
- 636 0067 9C000000 		.4byte	.LASF8
- 637 006b 03       		.uleb128 0x3
- 638 006c 08       		.byte	0x8
- 639 006d 07       		.byte	0x7
- 640 006e 56010000 		.4byte	.LASF9
- 641 0072 03       		.uleb128 0x3
- 642 0073 04       		.byte	0x4
- 643 0074 07       		.byte	0x7
- 644 0075 6D010000 		.4byte	.LASF10
- 645 0079 03       		.uleb128 0x3
- 646 007a 01       		.byte	0x1
- 647 007b 08       		.byte	0x8
- 648 007c 84010000 		.4byte	.LASF11
- 649 0080 04       		.uleb128 0x4
- 650 0081 AE000000 		.4byte	.LASF12
- 651 0085 02       		.byte	0x2
- 652 0086 FC01     		.2byte	0x1fc
- 653 0088 48000000 		.4byte	0x48
- 654 008c 04       		.uleb128 0x4
- 655 008d 42010000 		.4byte	.LASF13
- 656 0091 02       		.byte	0x2
- 657 0092 FE01     		.2byte	0x1fe
- 658 0094 64000000 		.4byte	0x64
- 659 0098 03       		.uleb128 0x3
- 660 0099 04       		.byte	0x4
- 661 009a 04       		.byte	0x4
- 662 009b 88000000 		.4byte	.LASF14
- 663 009f 03       		.uleb128 0x3
- 664 00a0 08       		.byte	0x8
- 665 00a1 04       		.byte	0x4
- 666 00a2 2F010000 		.4byte	.LASF15
- 667 00a6 04       		.uleb128 0x4
- 668 00a7 00000000 		.4byte	.LASF16
- 669 00ab 02       		.byte	0x2
- 670 00ac A802     		.2byte	0x2a8
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 21
+ 667 0155 88000000 		.4byte	.LFE5-.LFB5
+ 668 0159 01       		.uleb128 0x1
+ 669 015a 9C       		.byte	0x9c
+ 670 015b 6F010000 		.4byte	0x16f
+ 671 015f 09       		.uleb128 0x9
+ 672 0160 4A000000 		.4byte	.LVL9
+ 673 0164 15010000 		.4byte	0x115
+ 674 0168 08       		.uleb128 0x8
+ 675 0169 01       		.uleb128 0x1
+ 676 016a 50       		.byte	0x50
+ 677 016b 01       		.uleb128 0x1
+ 678 016c 31       		.byte	0x31
+ 679 016d 00       		.byte	0
+ 680 016e 00       		.byte	0
+ 681 016f 0A       		.uleb128 0xa
+ 682 0170 98010000 		.4byte	.LASF20
+ 683 0174 01       		.byte	0x1
+ 684 0175 2701     		.2byte	0x127
+ 685 0177 00000000 		.4byte	.LFB7
+ 686 017b 38000000 		.4byte	.LFE7-.LFB7
+ 687 017f 01       		.uleb128 0x1
+ 688 0180 9C       		.byte	0x9c
+ 689 0181 94010000 		.4byte	0x194
+ 690 0185 0B       		.uleb128 0xb
+ 691 0186 06000000 		.4byte	.LASF22
+ 692 018a 01       		.byte	0x1
+ 693 018b 2701     		.2byte	0x127
+ 694 018d 80000000 		.4byte	0x80
+ 695 0191 01       		.uleb128 0x1
+ 696 0192 50       		.byte	0x50
+ 697 0193 00       		.byte	0
+ 698 0194 0A       		.uleb128 0xa
+ 699 0195 36000000 		.4byte	.LASF23
+ 700 0199 01       		.byte	0x1
+ 701 019a 4701     		.2byte	0x147
+ 702 019c 00000000 		.4byte	.LFB8
+ 703 01a0 38000000 		.4byte	.LFE8-.LFB8
+ 704 01a4 01       		.uleb128 0x1
+ 705 01a5 9C       		.byte	0x9c
+ 706 01a6 B9010000 		.4byte	0x1b9
+ 707 01aa 0B       		.uleb128 0xb
+ 708 01ab 06000000 		.4byte	.LASF22
+ 709 01af 01       		.byte	0x1
+ 710 01b0 4701     		.2byte	0x147
+ 711 01b2 80000000 		.4byte	0x80
+ 712 01b6 01       		.uleb128 0x1
+ 713 01b7 50       		.byte	0x50
+ 714 01b8 00       		.byte	0
+ 715 01b9 0A       		.uleb128 0xa
+ 716 01ba 9C000000 		.4byte	.LASF24
+ 717 01be 01       		.byte	0x1
+ 718 01bf 6C01     		.2byte	0x16c
+ 719 01c1 D4000000 		.4byte	.LFB9
+ 720 01c5 84000000 		.4byte	.LFE9-.LFB9
+ 721 01c9 01       		.uleb128 0x1
+ 722 01ca 9C       		.byte	0x9c
+ 723 01cb E2010000 		.4byte	0x1e2
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 21
 
 
- 671 00ae B2000000 		.4byte	0xb2
- 672 00b2 05       		.uleb128 0x5
- 673 00b3 8C000000 		.4byte	0x8c
- 674 00b7 06       		.uleb128 0x6
- 675 00b8 5D000000 		.4byte	.LASF17
- 676 00bc 01       		.byte	0x1
- 677 00bd AA       		.byte	0xaa
- 678 00be 00000000 		.4byte	.LFB4
- 679 00c2 D4000000 		.4byte	.LFE4-.LFB4
- 680 00c6 01       		.uleb128 0x1
- 681 00c7 9C       		.byte	0x9c
- 682 00c8 15010000 		.4byte	0x115
- 683 00cc 07       		.uleb128 0x7
- 684 00cd 0E000000 		.4byte	.LVL0
- 685 00d1 2C020000 		.4byte	0x22c
- 686 00d5 DF000000 		.4byte	0xdf
- 687 00d9 08       		.uleb128 0x8
- 688 00da 01       		.uleb128 0x1
- 689 00db 50       		.byte	0x50
- 690 00dc 01       		.uleb128 0x1
- 691 00dd 48       		.byte	0x48
- 692 00de 00       		.byte	0
- 693 00df 07       		.uleb128 0x7
- 694 00e0 6E000000 		.4byte	.LVL1
- 695 00e4 37020000 		.4byte	0x237
- 696 00e8 F2000000 		.4byte	0xf2
- 697 00ec 08       		.uleb128 0x8
- 698 00ed 01       		.uleb128 0x1
- 699 00ee 50       		.byte	0x50
- 700 00ef 01       		.uleb128 0x1
- 701 00f0 3B       		.byte	0x3b
- 702 00f1 00       		.byte	0
- 703 00f2 07       		.uleb128 0x7
- 704 00f3 74000000 		.4byte	.LVL2
- 705 00f7 42020000 		.4byte	0x242
- 706 00fb 05010000 		.4byte	0x105
- 707 00ff 08       		.uleb128 0x8
- 708 0100 01       		.uleb128 0x1
- 709 0101 50       		.byte	0x50
- 710 0102 01       		.uleb128 0x1
- 711 0103 3B       		.byte	0x3b
- 712 0104 00       		.byte	0
- 713 0105 09       		.uleb128 0x9
- 714 0106 80000000 		.4byte	.LVL3
- 715 010a 4D020000 		.4byte	0x24d
- 716 010e 08       		.uleb128 0x8
- 717 010f 01       		.uleb128 0x1
- 718 0110 50       		.byte	0x50
- 719 0111 01       		.uleb128 0x1
- 720 0112 30       		.byte	0x30
- 721 0113 00       		.byte	0
- 722 0114 00       		.byte	0
- 723 0115 0A       		.uleb128 0xa
- 724 0116 19010000 		.4byte	.LASF19
- 725 011a 01       		.byte	0x1
- 726 011b 0C01     		.2byte	0x10c
- 727 011d 00000000 		.4byte	.LFB6
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 22
+ 724 01cf 0D       		.uleb128 0xd
+ 725 01d0 1C010000 		.4byte	.LVL12
+ 726 01d4 B7000000 		.4byte	0xb7
+ 727 01d8 0D       		.uleb128 0xd
+ 728 01d9 20010000 		.4byte	.LVL13
+ 729 01dd 4A010000 		.4byte	0x14a
+ 730 01e1 00       		.byte	0
+ 731 01e2 0E       		.uleb128 0xe
+ 732 01e3 83010000 		.4byte	.LASF25
+ 733 01e7 83010000 		.4byte	.LASF25
+ 734 01eb 03       		.byte	0x3
+ 735 01ec 6C       		.byte	0x6c
+ 736 01ed 0E       		.uleb128 0xe
+ 737 01ee 43000000 		.4byte	.LASF26
+ 738 01f2 43000000 		.4byte	.LASF26
+ 739 01f6 03       		.byte	0x3
+ 740 01f7 D0       		.byte	0xd0
+ 741 01f8 0E       		.uleb128 0xe
+ 742 01f9 1E010000 		.4byte	.LASF27
+ 743 01fd 1E010000 		.4byte	.LASF27
+ 744 0201 03       		.byte	0x3
+ 745 0202 D6       		.byte	0xd6
+ 746 0203 0E       		.uleb128 0xe
+ 747 0204 1F000000 		.4byte	.LASF28
+ 748 0208 1F000000 		.4byte	.LASF28
+ 749 020c 04       		.byte	0x4
+ 750 020d 9F       		.byte	0x9f
+ 751 020e 00       		.byte	0
+ 752              		.section	.debug_abbrev,"",%progbits
+ 753              	.Ldebug_abbrev0:
+ 754 0000 01       		.uleb128 0x1
+ 755 0001 11       		.uleb128 0x11
+ 756 0002 01       		.byte	0x1
+ 757 0003 25       		.uleb128 0x25
+ 758 0004 0E       		.uleb128 0xe
+ 759 0005 13       		.uleb128 0x13
+ 760 0006 0B       		.uleb128 0xb
+ 761 0007 03       		.uleb128 0x3
+ 762 0008 0E       		.uleb128 0xe
+ 763 0009 1B       		.uleb128 0x1b
+ 764 000a 0E       		.uleb128 0xe
+ 765 000b 55       		.uleb128 0x55
+ 766 000c 17       		.uleb128 0x17
+ 767 000d 11       		.uleb128 0x11
+ 768 000e 01       		.uleb128 0x1
+ 769 000f 10       		.uleb128 0x10
+ 770 0010 17       		.uleb128 0x17
+ 771 0011 00       		.byte	0
+ 772 0012 00       		.byte	0
+ 773 0013 02       		.uleb128 0x2
+ 774 0014 24       		.uleb128 0x24
+ 775 0015 00       		.byte	0
+ 776 0016 0B       		.uleb128 0xb
+ 777 0017 0B       		.uleb128 0xb
+ 778 0018 3E       		.uleb128 0x3e
+ 779 0019 0B       		.uleb128 0xb
+ 780 001a 03       		.uleb128 0x3
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 22
 
 
- 728 0121 20000000 		.4byte	.LFE6-.LFB6
- 729 0125 01       		.uleb128 0x1
- 730 0126 9C       		.byte	0x9c
- 731 0127 4A010000 		.4byte	0x14a
- 732 012b 0B       		.uleb128 0xb
- 733 012c 89010000 		.4byte	.LASF21
- 734 0130 01       		.byte	0x1
- 735 0131 0C01     		.2byte	0x10c
- 736 0133 80000000 		.4byte	0x80
- 737 0137 01       		.uleb128 0x1
- 738 0138 50       		.byte	0x50
- 739 0139 0C       		.uleb128 0xc
- 740 013a 94020000 		.4byte	.LASF34
- 741 013e 01       		.byte	0x1
- 742 013f 0E01     		.2byte	0x10e
- 743 0141 8C000000 		.4byte	0x8c
- 744 0145 00000000 		.4byte	.LLST0
- 745 0149 00       		.byte	0
- 746 014a 06       		.uleb128 0x6
- 747 014b 0E000000 		.4byte	.LASF18
- 748 014f 01       		.byte	0x1
- 749 0150 E9       		.byte	0xe9
- 750 0151 00000000 		.4byte	.LFB5
- 751 0155 A4000000 		.4byte	.LFE5-.LFB5
- 752 0159 01       		.uleb128 0x1
- 753 015a 9C       		.byte	0x9c
- 754 015b 6F010000 		.4byte	0x16f
- 755 015f 09       		.uleb128 0x9
- 756 0160 58000000 		.4byte	.LVL9
- 757 0164 15010000 		.4byte	0x115
- 758 0168 08       		.uleb128 0x8
- 759 0169 01       		.uleb128 0x1
- 760 016a 50       		.byte	0x50
- 761 016b 01       		.uleb128 0x1
- 762 016c 31       		.byte	0x31
- 763 016d 00       		.byte	0
- 764 016e 00       		.byte	0
- 765 016f 0A       		.uleb128 0xa
- 766 0170 52000000 		.4byte	.LASF20
- 767 0174 01       		.byte	0x1
- 768 0175 2901     		.2byte	0x129
- 769 0177 00000000 		.4byte	.LFB7
- 770 017b 20000000 		.4byte	.LFE7-.LFB7
- 771 017f 01       		.uleb128 0x1
- 772 0180 9C       		.byte	0x9c
- 773 0181 94010000 		.4byte	0x194
- 774 0185 0B       		.uleb128 0xb
- 775 0186 06000000 		.4byte	.LASF22
- 776 018a 01       		.byte	0x1
- 777 018b 2901     		.2byte	0x129
- 778 018d 80000000 		.4byte	0x80
- 779 0191 01       		.uleb128 0x1
- 780 0192 50       		.byte	0x50
- 781 0193 00       		.byte	0
- 782 0194 0A       		.uleb128 0xa
- 783 0195 7B000000 		.4byte	.LASF23
- 784 0199 01       		.byte	0x1
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 23
+ 781 001b 08       		.uleb128 0x8
+ 782 001c 00       		.byte	0
+ 783 001d 00       		.byte	0
+ 784 001e 03       		.uleb128 0x3
+ 785 001f 24       		.uleb128 0x24
+ 786 0020 00       		.byte	0
+ 787 0021 0B       		.uleb128 0xb
+ 788 0022 0B       		.uleb128 0xb
+ 789 0023 3E       		.uleb128 0x3e
+ 790 0024 0B       		.uleb128 0xb
+ 791 0025 03       		.uleb128 0x3
+ 792 0026 0E       		.uleb128 0xe
+ 793 0027 00       		.byte	0
+ 794 0028 00       		.byte	0
+ 795 0029 04       		.uleb128 0x4
+ 796 002a 16       		.uleb128 0x16
+ 797 002b 00       		.byte	0
+ 798 002c 03       		.uleb128 0x3
+ 799 002d 0E       		.uleb128 0xe
+ 800 002e 3A       		.uleb128 0x3a
+ 801 002f 0B       		.uleb128 0xb
+ 802 0030 3B       		.uleb128 0x3b
+ 803 0031 05       		.uleb128 0x5
+ 804 0032 49       		.uleb128 0x49
+ 805 0033 13       		.uleb128 0x13
+ 806 0034 00       		.byte	0
+ 807 0035 00       		.byte	0
+ 808 0036 05       		.uleb128 0x5
+ 809 0037 35       		.uleb128 0x35
+ 810 0038 00       		.byte	0
+ 811 0039 49       		.uleb128 0x49
+ 812 003a 13       		.uleb128 0x13
+ 813 003b 00       		.byte	0
+ 814 003c 00       		.byte	0
+ 815 003d 06       		.uleb128 0x6
+ 816 003e 2E       		.uleb128 0x2e
+ 817 003f 01       		.byte	0x1
+ 818 0040 03       		.uleb128 0x3
+ 819 0041 0E       		.uleb128 0xe
+ 820 0042 3A       		.uleb128 0x3a
+ 821 0043 0B       		.uleb128 0xb
+ 822 0044 3B       		.uleb128 0x3b
+ 823 0045 0B       		.uleb128 0xb
+ 824 0046 27       		.uleb128 0x27
+ 825 0047 19       		.uleb128 0x19
+ 826 0048 11       		.uleb128 0x11
+ 827 0049 01       		.uleb128 0x1
+ 828 004a 12       		.uleb128 0x12
+ 829 004b 06       		.uleb128 0x6
+ 830 004c 40       		.uleb128 0x40
+ 831 004d 18       		.uleb128 0x18
+ 832 004e 9742     		.uleb128 0x2117
+ 833 0050 19       		.uleb128 0x19
+ 834 0051 01       		.uleb128 0x1
+ 835 0052 13       		.uleb128 0x13
+ 836 0053 00       		.byte	0
+ 837 0054 00       		.byte	0
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 23
 
 
- 785 019a 4501     		.2byte	0x145
- 786 019c 00000000 		.4byte	.LFB8
- 787 01a0 20000000 		.4byte	.LFE8-.LFB8
- 788 01a4 01       		.uleb128 0x1
- 789 01a5 9C       		.byte	0x9c
- 790 01a6 B9010000 		.4byte	0x1b9
- 791 01aa 0B       		.uleb128 0xb
- 792 01ab 06000000 		.4byte	.LASF22
- 793 01af 01       		.byte	0x1
- 794 01b0 4501     		.2byte	0x145
- 795 01b2 80000000 		.4byte	0x80
- 796 01b6 01       		.uleb128 0x1
- 797 01b7 50       		.byte	0x50
- 798 01b8 00       		.byte	0
- 799 01b9 0A       		.uleb128 0xa
- 800 01ba B0010000 		.4byte	.LASF24
- 801 01be 01       		.byte	0x1
- 802 01bf 6001     		.2byte	0x160
- 803 01c1 00000000 		.4byte	.LFB9
- 804 01c5 30000000 		.4byte	.LFE9-.LFB9
- 805 01c9 01       		.uleb128 0x1
- 806 01ca 9C       		.byte	0x9c
- 807 01cb DE010000 		.4byte	0x1de
- 808 01cf 0B       		.uleb128 0xb
- 809 01d0 06000000 		.4byte	.LASF22
- 810 01d4 01       		.byte	0x1
- 811 01d5 6001     		.2byte	0x160
- 812 01d7 80000000 		.4byte	0x80
- 813 01db 01       		.uleb128 0x1
- 814 01dc 50       		.byte	0x50
- 815 01dd 00       		.byte	0
- 816 01de 0A       		.uleb128 0xa
- 817 01df 36000000 		.4byte	.LASF25
- 818 01e3 01       		.byte	0x1
- 819 01e4 7D01     		.2byte	0x17d
- 820 01e6 00000000 		.4byte	.LFB10
- 821 01ea 30000000 		.4byte	.LFE10-.LFB10
- 822 01ee 01       		.uleb128 0x1
- 823 01ef 9C       		.byte	0x9c
- 824 01f0 03020000 		.4byte	0x203
- 825 01f4 0B       		.uleb128 0xb
- 826 01f5 06000000 		.4byte	.LASF22
- 827 01f9 01       		.byte	0x1
- 828 01fa 7D01     		.2byte	0x17d
- 829 01fc 80000000 		.4byte	0x80
- 830 0200 01       		.uleb128 0x1
- 831 0201 50       		.byte	0x50
- 832 0202 00       		.byte	0
- 833 0203 0A       		.uleb128 0xa
- 834 0204 B4000000 		.4byte	.LASF26
- 835 0208 01       		.byte	0x1
- 836 0209 9F01     		.2byte	0x19f
- 837 020b D4000000 		.4byte	.LFB11
- 838 020f 84000000 		.4byte	.LFE11-.LFB11
- 839 0213 01       		.uleb128 0x1
- 840 0214 9C       		.byte	0x9c
- 841 0215 2C020000 		.4byte	0x22c
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 24
+ 838 0055 07       		.uleb128 0x7
+ 839 0056 898201   		.uleb128 0x4109
+ 840 0059 01       		.byte	0x1
+ 841 005a 11       		.uleb128 0x11
+ 842 005b 01       		.uleb128 0x1
+ 843 005c 31       		.uleb128 0x31
+ 844 005d 13       		.uleb128 0x13
+ 845 005e 01       		.uleb128 0x1
+ 846 005f 13       		.uleb128 0x13
+ 847 0060 00       		.byte	0
+ 848 0061 00       		.byte	0
+ 849 0062 08       		.uleb128 0x8
+ 850 0063 8A8201   		.uleb128 0x410a
+ 851 0066 00       		.byte	0
+ 852 0067 02       		.uleb128 0x2
+ 853 0068 18       		.uleb128 0x18
+ 854 0069 9142     		.uleb128 0x2111
+ 855 006b 18       		.uleb128 0x18
+ 856 006c 00       		.byte	0
+ 857 006d 00       		.byte	0
+ 858 006e 09       		.uleb128 0x9
+ 859 006f 898201   		.uleb128 0x4109
+ 860 0072 01       		.byte	0x1
+ 861 0073 11       		.uleb128 0x11
+ 862 0074 01       		.uleb128 0x1
+ 863 0075 31       		.uleb128 0x31
+ 864 0076 13       		.uleb128 0x13
+ 865 0077 00       		.byte	0
+ 866 0078 00       		.byte	0
+ 867 0079 0A       		.uleb128 0xa
+ 868 007a 2E       		.uleb128 0x2e
+ 869 007b 01       		.byte	0x1
+ 870 007c 3F       		.uleb128 0x3f
+ 871 007d 19       		.uleb128 0x19
+ 872 007e 03       		.uleb128 0x3
+ 873 007f 0E       		.uleb128 0xe
+ 874 0080 3A       		.uleb128 0x3a
+ 875 0081 0B       		.uleb128 0xb
+ 876 0082 3B       		.uleb128 0x3b
+ 877 0083 05       		.uleb128 0x5
+ 878 0084 27       		.uleb128 0x27
+ 879 0085 19       		.uleb128 0x19
+ 880 0086 11       		.uleb128 0x11
+ 881 0087 01       		.uleb128 0x1
+ 882 0088 12       		.uleb128 0x12
+ 883 0089 06       		.uleb128 0x6
+ 884 008a 40       		.uleb128 0x40
+ 885 008b 18       		.uleb128 0x18
+ 886 008c 9742     		.uleb128 0x2117
+ 887 008e 19       		.uleb128 0x19
+ 888 008f 01       		.uleb128 0x1
+ 889 0090 13       		.uleb128 0x13
+ 890 0091 00       		.byte	0
+ 891 0092 00       		.byte	0
+ 892 0093 0B       		.uleb128 0xb
+ 893 0094 05       		.uleb128 0x5
+ 894 0095 00       		.byte	0
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 24
 
 
- 842 0219 0D       		.uleb128 0xd
- 843 021a 1C010000 		.4byte	.LVL14
- 844 021e B7000000 		.4byte	0xb7
- 845 0222 0D       		.uleb128 0xd
- 846 0223 20010000 		.4byte	.LVL15
- 847 0227 4A010000 		.4byte	0x14a
- 848 022b 00       		.byte	0
- 849 022c 0E       		.uleb128 0xe
- 850 022d 9B010000 		.4byte	.LASF27
- 851 0231 9B010000 		.4byte	.LASF27
- 852 0235 03       		.byte	0x3
- 853 0236 6C       		.byte	0x6c
- 854 0237 0E       		.uleb128 0xe
- 855 0238 43000000 		.4byte	.LASF28
- 856 023c 43000000 		.4byte	.LASF28
- 857 0240 03       		.byte	0x3
- 858 0241 D0       		.byte	0xd0
- 859 0242 0E       		.uleb128 0xe
- 860 0243 36010000 		.4byte	.LASF29
- 861 0247 36010000 		.4byte	.LASF29
- 862 024b 03       		.byte	0x3
- 863 024c D6       		.byte	0xd6
- 864 024d 0E       		.uleb128 0xe
- 865 024e 1F000000 		.4byte	.LASF30
- 866 0252 1F000000 		.4byte	.LASF30
- 867 0256 04       		.byte	0x4
- 868 0257 9F       		.byte	0x9f
- 869 0258 00       		.byte	0
- 870              		.section	.debug_abbrev,"",%progbits
- 871              	.Ldebug_abbrev0:
- 872 0000 01       		.uleb128 0x1
- 873 0001 11       		.uleb128 0x11
- 874 0002 01       		.byte	0x1
- 875 0003 25       		.uleb128 0x25
- 876 0004 0E       		.uleb128 0xe
- 877 0005 13       		.uleb128 0x13
- 878 0006 0B       		.uleb128 0xb
- 879 0007 03       		.uleb128 0x3
- 880 0008 0E       		.uleb128 0xe
- 881 0009 1B       		.uleb128 0x1b
- 882 000a 0E       		.uleb128 0xe
- 883 000b 55       		.uleb128 0x55
- 884 000c 17       		.uleb128 0x17
- 885 000d 11       		.uleb128 0x11
- 886 000e 01       		.uleb128 0x1
- 887 000f 10       		.uleb128 0x10
- 888 0010 17       		.uleb128 0x17
- 889 0011 00       		.byte	0
- 890 0012 00       		.byte	0
- 891 0013 02       		.uleb128 0x2
- 892 0014 24       		.uleb128 0x24
- 893 0015 00       		.byte	0
- 894 0016 0B       		.uleb128 0xb
- 895 0017 0B       		.uleb128 0xb
- 896 0018 3E       		.uleb128 0x3e
- 897 0019 0B       		.uleb128 0xb
- 898 001a 03       		.uleb128 0x3
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 25
+ 895 0096 03       		.uleb128 0x3
+ 896 0097 0E       		.uleb128 0xe
+ 897 0098 3A       		.uleb128 0x3a
+ 898 0099 0B       		.uleb128 0xb
+ 899 009a 3B       		.uleb128 0x3b
+ 900 009b 05       		.uleb128 0x5
+ 901 009c 49       		.uleb128 0x49
+ 902 009d 13       		.uleb128 0x13
+ 903 009e 02       		.uleb128 0x2
+ 904 009f 18       		.uleb128 0x18
+ 905 00a0 00       		.byte	0
+ 906 00a1 00       		.byte	0
+ 907 00a2 0C       		.uleb128 0xc
+ 908 00a3 34       		.uleb128 0x34
+ 909 00a4 00       		.byte	0
+ 910 00a5 03       		.uleb128 0x3
+ 911 00a6 0E       		.uleb128 0xe
+ 912 00a7 3A       		.uleb128 0x3a
+ 913 00a8 0B       		.uleb128 0xb
+ 914 00a9 3B       		.uleb128 0x3b
+ 915 00aa 05       		.uleb128 0x5
+ 916 00ab 49       		.uleb128 0x49
+ 917 00ac 13       		.uleb128 0x13
+ 918 00ad 02       		.uleb128 0x2
+ 919 00ae 17       		.uleb128 0x17
+ 920 00af 00       		.byte	0
+ 921 00b0 00       		.byte	0
+ 922 00b1 0D       		.uleb128 0xd
+ 923 00b2 898201   		.uleb128 0x4109
+ 924 00b5 00       		.byte	0
+ 925 00b6 11       		.uleb128 0x11
+ 926 00b7 01       		.uleb128 0x1
+ 927 00b8 31       		.uleb128 0x31
+ 928 00b9 13       		.uleb128 0x13
+ 929 00ba 00       		.byte	0
+ 930 00bb 00       		.byte	0
+ 931 00bc 0E       		.uleb128 0xe
+ 932 00bd 2E       		.uleb128 0x2e
+ 933 00be 00       		.byte	0
+ 934 00bf 3F       		.uleb128 0x3f
+ 935 00c0 19       		.uleb128 0x19
+ 936 00c1 3C       		.uleb128 0x3c
+ 937 00c2 19       		.uleb128 0x19
+ 938 00c3 6E       		.uleb128 0x6e
+ 939 00c4 0E       		.uleb128 0xe
+ 940 00c5 03       		.uleb128 0x3
+ 941 00c6 0E       		.uleb128 0xe
+ 942 00c7 3A       		.uleb128 0x3a
+ 943 00c8 0B       		.uleb128 0xb
+ 944 00c9 3B       		.uleb128 0x3b
+ 945 00ca 0B       		.uleb128 0xb
+ 946 00cb 00       		.byte	0
+ 947 00cc 00       		.byte	0
+ 948 00cd 00       		.byte	0
+ 949              		.section	.debug_loc,"",%progbits
+ 950              	.Ldebug_loc0:
+ 951              	.LLST0:
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 25
 
 
- 899 001b 08       		.uleb128 0x8
- 900 001c 00       		.byte	0
- 901 001d 00       		.byte	0
- 902 001e 03       		.uleb128 0x3
- 903 001f 24       		.uleb128 0x24
- 904 0020 00       		.byte	0
- 905 0021 0B       		.uleb128 0xb
- 906 0022 0B       		.uleb128 0xb
- 907 0023 3E       		.uleb128 0x3e
- 908 0024 0B       		.uleb128 0xb
- 909 0025 03       		.uleb128 0x3
- 910 0026 0E       		.uleb128 0xe
- 911 0027 00       		.byte	0
- 912 0028 00       		.byte	0
- 913 0029 04       		.uleb128 0x4
- 914 002a 16       		.uleb128 0x16
- 915 002b 00       		.byte	0
- 916 002c 03       		.uleb128 0x3
- 917 002d 0E       		.uleb128 0xe
- 918 002e 3A       		.uleb128 0x3a
- 919 002f 0B       		.uleb128 0xb
- 920 0030 3B       		.uleb128 0x3b
- 921 0031 05       		.uleb128 0x5
- 922 0032 49       		.uleb128 0x49
- 923 0033 13       		.uleb128 0x13
- 924 0034 00       		.byte	0
- 925 0035 00       		.byte	0
- 926 0036 05       		.uleb128 0x5
- 927 0037 35       		.uleb128 0x35
- 928 0038 00       		.byte	0
- 929 0039 49       		.uleb128 0x49
- 930 003a 13       		.uleb128 0x13
- 931 003b 00       		.byte	0
- 932 003c 00       		.byte	0
- 933 003d 06       		.uleb128 0x6
- 934 003e 2E       		.uleb128 0x2e
- 935 003f 01       		.byte	0x1
- 936 0040 03       		.uleb128 0x3
- 937 0041 0E       		.uleb128 0xe
- 938 0042 3A       		.uleb128 0x3a
- 939 0043 0B       		.uleb128 0xb
- 940 0044 3B       		.uleb128 0x3b
- 941 0045 0B       		.uleb128 0xb
- 942 0046 27       		.uleb128 0x27
- 943 0047 19       		.uleb128 0x19
- 944 0048 11       		.uleb128 0x11
- 945 0049 01       		.uleb128 0x1
- 946 004a 12       		.uleb128 0x12
- 947 004b 06       		.uleb128 0x6
- 948 004c 40       		.uleb128 0x40
- 949 004d 18       		.uleb128 0x18
- 950 004e 9742     		.uleb128 0x2117
- 951 0050 19       		.uleb128 0x19
- 952 0051 01       		.uleb128 0x1
- 953 0052 13       		.uleb128 0x13
- 954 0053 00       		.byte	0
- 955 0054 00       		.byte	0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 26
+ 952 0000 04000000 		.4byte	.LVL5
+ 953 0004 12000000 		.4byte	.LVL7
+ 954 0008 0100     		.2byte	0x1
+ 955 000a 53       		.byte	0x53
+ 956 000b 14000000 		.4byte	.LVL8
+ 957 000f 20000000 		.4byte	.LFE6
+ 958 0013 0100     		.2byte	0x1
+ 959 0015 53       		.byte	0x53
+ 960 0016 00000000 		.4byte	0
+ 961 001a 00000000 		.4byte	0
+ 962              		.section	.debug_aranges,"",%progbits
+ 963 0000 44000000 		.4byte	0x44
+ 964 0004 0200     		.2byte	0x2
+ 965 0006 00000000 		.4byte	.Ldebug_info0
+ 966 000a 04       		.byte	0x4
+ 967 000b 00       		.byte	0
+ 968 000c 0000     		.2byte	0
+ 969 000e 0000     		.2byte	0
+ 970 0010 00000000 		.4byte	.LFB4
+ 971 0014 D4000000 		.4byte	.LFE4-.LFB4
+ 972 0018 00000000 		.4byte	.LFB6
+ 973 001c 20000000 		.4byte	.LFE6-.LFB6
+ 974 0020 00000000 		.4byte	.LFB5
+ 975 0024 88000000 		.4byte	.LFE5-.LFB5
+ 976 0028 00000000 		.4byte	.LFB7
+ 977 002c 38000000 		.4byte	.LFE7-.LFB7
+ 978 0030 00000000 		.4byte	.LFB8
+ 979 0034 38000000 		.4byte	.LFE8-.LFB8
+ 980 0038 D4000000 		.4byte	.LFB9
+ 981 003c 84000000 		.4byte	.LFE9-.LFB9
+ 982 0040 00000000 		.4byte	0
+ 983 0044 00000000 		.4byte	0
+ 984              		.section	.debug_ranges,"",%progbits
+ 985              	.Ldebug_ranges0:
+ 986 0000 00000000 		.4byte	.LFB4
+ 987 0004 D4000000 		.4byte	.LFE4
+ 988 0008 00000000 		.4byte	.LFB6
+ 989 000c 20000000 		.4byte	.LFE6
+ 990 0010 00000000 		.4byte	.LFB5
+ 991 0014 88000000 		.4byte	.LFE5
+ 992 0018 00000000 		.4byte	.LFB7
+ 993 001c 38000000 		.4byte	.LFE7
+ 994 0020 00000000 		.4byte	.LFB8
+ 995 0024 38000000 		.4byte	.LFE8
+ 996 0028 D4000000 		.4byte	.LFB9
+ 997 002c 58010000 		.4byte	.LFE9
+ 998 0030 00000000 		.4byte	0
+ 999 0034 00000000 		.4byte	0
+ 1000              		.section	.debug_line,"",%progbits
+ 1001              	.Ldebug_line0:
+ 1002 0000 06010000 		.section	.debug_str,"MS",%progbits,1
+ 1002      02006100 
+ 1002      00000201 
+ 1002      FB0E0D00 
+ 1002      01010101 
+ 1003              	.LASF16:
+ 1004 0000 72656733 		.ascii	"reg32\000"
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 26
 
 
- 956 0055 07       		.uleb128 0x7
- 957 0056 898201   		.uleb128 0x4109
- 958 0059 01       		.byte	0x1
- 959 005a 11       		.uleb128 0x11
- 960 005b 01       		.uleb128 0x1
- 961 005c 31       		.uleb128 0x31
- 962 005d 13       		.uleb128 0x13
- 963 005e 01       		.uleb128 0x1
- 964 005f 13       		.uleb128 0x13
- 965 0060 00       		.byte	0
- 966 0061 00       		.byte	0
- 967 0062 08       		.uleb128 0x8
- 968 0063 8A8201   		.uleb128 0x410a
- 969 0066 00       		.byte	0
- 970 0067 02       		.uleb128 0x2
- 971 0068 18       		.uleb128 0x18
- 972 0069 9142     		.uleb128 0x2111
- 973 006b 18       		.uleb128 0x18
- 974 006c 00       		.byte	0
- 975 006d 00       		.byte	0
- 976 006e 09       		.uleb128 0x9
- 977 006f 898201   		.uleb128 0x4109
- 978 0072 01       		.byte	0x1
- 979 0073 11       		.uleb128 0x11
- 980 0074 01       		.uleb128 0x1
- 981 0075 31       		.uleb128 0x31
- 982 0076 13       		.uleb128 0x13
- 983 0077 00       		.byte	0
- 984 0078 00       		.byte	0
- 985 0079 0A       		.uleb128 0xa
- 986 007a 2E       		.uleb128 0x2e
- 987 007b 01       		.byte	0x1
- 988 007c 3F       		.uleb128 0x3f
- 989 007d 19       		.uleb128 0x19
- 990 007e 03       		.uleb128 0x3
- 991 007f 0E       		.uleb128 0xe
- 992 0080 3A       		.uleb128 0x3a
- 993 0081 0B       		.uleb128 0xb
- 994 0082 3B       		.uleb128 0x3b
- 995 0083 05       		.uleb128 0x5
- 996 0084 27       		.uleb128 0x27
- 997 0085 19       		.uleb128 0x19
- 998 0086 11       		.uleb128 0x11
- 999 0087 01       		.uleb128 0x1
- 1000 0088 12       		.uleb128 0x12
- 1001 0089 06       		.uleb128 0x6
- 1002 008a 40       		.uleb128 0x40
- 1003 008b 18       		.uleb128 0x18
- 1004 008c 9742     		.uleb128 0x2117
- 1005 008e 19       		.uleb128 0x19
- 1006 008f 01       		.uleb128 0x1
- 1007 0090 13       		.uleb128 0x13
- 1008 0091 00       		.byte	0
- 1009 0092 00       		.byte	0
- 1010 0093 0B       		.uleb128 0xb
- 1011 0094 05       		.uleb128 0x5
- 1012 0095 00       		.byte	0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 27
+ 1004      3200
+ 1005              	.LASF22:
+ 1006 0006 6368616E 		.ascii	"channel\000"
+ 1006      6E656C00 
+ 1007              	.LASF18:
+ 1008 000e 416E616C 		.ascii	"AnalogSetDefault\000"
+ 1008      6F675365 
+ 1008      74446566 
+ 1008      61756C74 
+ 1008      00
+ 1009              	.LASF28:
+ 1010 001f 43795379 		.ascii	"CySysClkSetTimerSource\000"
+ 1010      73436C6B 
+ 1010      53657454 
+ 1010      696D6572 
+ 1010      536F7572 
+ 1011              	.LASF23:
+ 1012 0036 414D7578 		.ascii	"AMux_1_Unset\000"
+ 1012      5F315F55 
+ 1012      6E736574 
+ 1012      00
+ 1013              	.LASF26:
+ 1014 0043 4379496E 		.ascii	"CyIntSetVector\000"
+ 1014      74536574 
+ 1014      56656374 
+ 1014      6F7200
+ 1015              	.LASF17:
+ 1016 0052 436C6F63 		.ascii	"ClockSetup\000"
+ 1016      6B536574 
+ 1016      757000
+ 1017              	.LASF6:
+ 1018 005d 73686F72 		.ascii	"short unsigned int\000"
+ 1018      7420756E 
+ 1018      7369676E 
+ 1018      65642069 
+ 1018      6E7400
+ 1019              	.LASF14:
+ 1020 0070 666C6F61 		.ascii	"float\000"
+ 1020      7400
+ 1021              	.LASF4:
+ 1022 0076 756E7369 		.ascii	"unsigned char\000"
+ 1022      676E6564 
+ 1022      20636861 
+ 1022      7200
+ 1023              	.LASF8:
+ 1024 0084 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1024      20756E73 
+ 1024      69676E65 
+ 1024      6420696E 
+ 1024      7400
+ 1025              	.LASF12:
+ 1026 0096 75696E74 		.ascii	"uint8\000"
+ 1026      3800
+ 1027              	.LASF24:
+ 1028 009c 63796669 		.ascii	"cyfitter_cfg\000"
+ 1028      74746572 
+ 1028      5F636667 
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 27
 
 
- 1013 0096 03       		.uleb128 0x3
- 1014 0097 0E       		.uleb128 0xe
- 1015 0098 3A       		.uleb128 0x3a
- 1016 0099 0B       		.uleb128 0xb
- 1017 009a 3B       		.uleb128 0x3b
- 1018 009b 05       		.uleb128 0x5
- 1019 009c 49       		.uleb128 0x49
- 1020 009d 13       		.uleb128 0x13
- 1021 009e 02       		.uleb128 0x2
- 1022 009f 18       		.uleb128 0x18
- 1023 00a0 00       		.byte	0
- 1024 00a1 00       		.byte	0
- 1025 00a2 0C       		.uleb128 0xc
- 1026 00a3 34       		.uleb128 0x34
- 1027 00a4 00       		.byte	0
- 1028 00a5 03       		.uleb128 0x3
- 1029 00a6 0E       		.uleb128 0xe
- 1030 00a7 3A       		.uleb128 0x3a
- 1031 00a8 0B       		.uleb128 0xb
- 1032 00a9 3B       		.uleb128 0x3b
- 1033 00aa 05       		.uleb128 0x5
- 1034 00ab 49       		.uleb128 0x49
- 1035 00ac 13       		.uleb128 0x13
- 1036 00ad 02       		.uleb128 0x2
- 1037 00ae 17       		.uleb128 0x17
- 1038 00af 00       		.byte	0
- 1039 00b0 00       		.byte	0
- 1040 00b1 0D       		.uleb128 0xd
- 1041 00b2 898201   		.uleb128 0x4109
- 1042 00b5 00       		.byte	0
- 1043 00b6 11       		.uleb128 0x11
- 1044 00b7 01       		.uleb128 0x1
- 1045 00b8 31       		.uleb128 0x31
- 1046 00b9 13       		.uleb128 0x13
- 1047 00ba 00       		.byte	0
- 1048 00bb 00       		.byte	0
- 1049 00bc 0E       		.uleb128 0xe
- 1050 00bd 2E       		.uleb128 0x2e
- 1051 00be 00       		.byte	0
- 1052 00bf 3F       		.uleb128 0x3f
- 1053 00c0 19       		.uleb128 0x19
- 1054 00c1 3C       		.uleb128 0x3c
- 1055 00c2 19       		.uleb128 0x19
- 1056 00c3 6E       		.uleb128 0x6e
- 1057 00c4 0E       		.uleb128 0xe
- 1058 00c5 03       		.uleb128 0x3
- 1059 00c6 0E       		.uleb128 0xe
- 1060 00c7 3A       		.uleb128 0x3a
- 1061 00c8 0B       		.uleb128 0xb
- 1062 00c9 3B       		.uleb128 0x3b
- 1063 00ca 0B       		.uleb128 0xb
- 1064 00cb 00       		.byte	0
- 1065 00cc 00       		.byte	0
- 1066 00cd 00       		.byte	0
- 1067              		.section	.debug_loc,"",%progbits
- 1068              	.Ldebug_loc0:
- 1069              	.LLST0:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 28
+ 1028      00
+ 1029              	.LASF31:
+ 1030 00a9 433A5C55 		.ascii	"C:\\Users\\cdrow\\Documents\\GitHub\\Li-CellTesting"
+ 1030      73657273 
+ 1030      5C636472 
+ 1030      6F775C44 
+ 1030      6F63756D 
+ 1031 00d7 5F536372 		.ascii	"_Script\\Internal_Main\\Internal_Main.cydsn\000"
+ 1031      6970745C 
+ 1031      496E7465 
+ 1031      726E616C 
+ 1031      5F4D6169 
+ 1032              	.LASF19:
+ 1033 0101 53657441 		.ascii	"SetAnalogRoutingPumps\000"
+ 1033      6E616C6F 
+ 1033      67526F75 
+ 1033      74696E67 
+ 1033      50756D70 
+ 1034              	.LASF15:
+ 1035 0117 646F7562 		.ascii	"double\000"
+ 1035      6C6500
+ 1036              	.LASF27:
+ 1037 011e 4379496E 		.ascii	"CyIntEnable\000"
+ 1037      74456E61 
+ 1037      626C6500 
+ 1038              	.LASF13:
+ 1039 012a 75696E74 		.ascii	"uint32\000"
+ 1039      333200
+ 1040              	.LASF0:
+ 1041 0131 756E7369 		.ascii	"unsigned int\000"
+ 1041      676E6564 
+ 1041      20696E74 
+ 1041      00
+ 1042              	.LASF9:
+ 1043 013e 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1043      206C6F6E 
+ 1043      6720756E 
+ 1043      7369676E 
+ 1043      65642069 
+ 1044              	.LASF10:
+ 1045 0155 73697A65 		.ascii	"sizetype\000"
+ 1045      74797065 
+ 1045      00
+ 1046              	.LASF1:
+ 1047 015e 6C6F6E67 		.ascii	"long long int\000"
+ 1047      206C6F6E 
+ 1047      6720696E 
+ 1047      7400
+ 1048              	.LASF11:
+ 1049 016c 63686172 		.ascii	"char\000"
+ 1049      00
+ 1050              	.LASF21:
+ 1051 0171 656E6162 		.ascii	"enabled\000"
+ 1051      6C656400 
+ 1052              	.LASF5:
+ 1053 0179 73686F72 		.ascii	"short int\000"
+ 1053      7420696E 
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\cchaGPRy.s 			page 28
 
 
- 1070 0000 04000000 		.4byte	.LVL5
- 1071 0004 12000000 		.4byte	.LVL7
- 1072 0008 0100     		.2byte	0x1
- 1073 000a 53       		.byte	0x53
- 1074 000b 14000000 		.4byte	.LVL8
- 1075 000f 20000000 		.4byte	.LFE6
- 1076 0013 0100     		.2byte	0x1
- 1077 0015 53       		.byte	0x53
- 1078 0016 00000000 		.4byte	0
- 1079 001a 00000000 		.4byte	0
- 1080              		.section	.debug_aranges,"",%progbits
- 1081 0000 54000000 		.4byte	0x54
- 1082 0004 0200     		.2byte	0x2
- 1083 0006 00000000 		.4byte	.Ldebug_info0
- 1084 000a 04       		.byte	0x4
- 1085 000b 00       		.byte	0
- 1086 000c 0000     		.2byte	0
- 1087 000e 0000     		.2byte	0
- 1088 0010 00000000 		.4byte	.LFB4
- 1089 0014 D4000000 		.4byte	.LFE4-.LFB4
- 1090 0018 00000000 		.4byte	.LFB6
- 1091 001c 20000000 		.4byte	.LFE6-.LFB6
- 1092 0020 00000000 		.4byte	.LFB5
- 1093 0024 A4000000 		.4byte	.LFE5-.LFB5
- 1094 0028 00000000 		.4byte	.LFB7
- 1095 002c 20000000 		.4byte	.LFE7-.LFB7
- 1096 0030 00000000 		.4byte	.LFB8
- 1097 0034 20000000 		.4byte	.LFE8-.LFB8
- 1098 0038 00000000 		.4byte	.LFB9
- 1099 003c 30000000 		.4byte	.LFE9-.LFB9
- 1100 0040 00000000 		.4byte	.LFB10
- 1101 0044 30000000 		.4byte	.LFE10-.LFB10
- 1102 0048 D4000000 		.4byte	.LFB11
- 1103 004c 84000000 		.4byte	.LFE11-.LFB11
- 1104 0050 00000000 		.4byte	0
- 1105 0054 00000000 		.4byte	0
- 1106              		.section	.debug_ranges,"",%progbits
- 1107              	.Ldebug_ranges0:
- 1108 0000 00000000 		.4byte	.LFB4
- 1109 0004 D4000000 		.4byte	.LFE4
- 1110 0008 00000000 		.4byte	.LFB6
- 1111 000c 20000000 		.4byte	.LFE6
- 1112 0010 00000000 		.4byte	.LFB5
- 1113 0014 A4000000 		.4byte	.LFE5
- 1114 0018 00000000 		.4byte	.LFB7
- 1115 001c 20000000 		.4byte	.LFE7
- 1116 0020 00000000 		.4byte	.LFB8
- 1117 0024 20000000 		.4byte	.LFE8
- 1118 0028 00000000 		.4byte	.LFB9
- 1119 002c 30000000 		.4byte	.LFE9
- 1120 0030 00000000 		.4byte	.LFB10
- 1121 0034 30000000 		.4byte	.LFE10
- 1122 0038 D4000000 		.4byte	.LFB11
- 1123 003c 58010000 		.4byte	.LFE11
- 1124 0040 00000000 		.4byte	0
- 1125 0044 00000000 		.4byte	0
- 1126              		.section	.debug_line,"",%progbits
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 29
-
-
- 1127              	.Ldebug_line0:
- 1128 0000 2E010000 		.section	.debug_str,"MS",%progbits,1
- 1128      02006100 
- 1128      00000201 
- 1128      FB0E0D00 
- 1128      01010101 
- 1129              	.LASF16:
- 1130 0000 72656733 		.ascii	"reg32\000"
- 1130      3200
- 1131              	.LASF22:
- 1132 0006 6368616E 		.ascii	"channel\000"
- 1132      6E656C00 
- 1133              	.LASF18:
- 1134 000e 416E616C 		.ascii	"AnalogSetDefault\000"
- 1134      6F675365 
- 1134      74446566 
- 1134      61756C74 
- 1134      00
- 1135              	.LASF30:
- 1136 001f 43795379 		.ascii	"CySysClkSetTimerSource\000"
- 1136      73436C6B 
- 1136      53657454 
- 1136      696D6572 
- 1136      536F7572 
- 1137              	.LASF25:
- 1138 0036 414D7578 		.ascii	"AMux_1_Unset\000"
- 1138      5F315F55 
- 1138      6E736574 
- 1138      00
- 1139              	.LASF28:
- 1140 0043 4379496E 		.ascii	"CyIntSetVector\000"
- 1140      74536574 
- 1140      56656374 
- 1140      6F7200
- 1141              	.LASF20:
- 1142 0052 414D7578 		.ascii	"AMux_2_Set\000"
- 1142      5F325F53 
- 1142      657400
- 1143              	.LASF17:
- 1144 005d 436C6F63 		.ascii	"ClockSetup\000"
- 1144      6B536574 
- 1144      757000
- 1145              	.LASF6:
- 1146 0068 73686F72 		.ascii	"short unsigned int\000"
- 1146      7420756E 
- 1146      7369676E 
- 1146      65642069 
- 1146      6E7400
- 1147              	.LASF23:
- 1148 007b 414D7578 		.ascii	"AMux_2_Unset\000"
- 1148      5F325F55 
- 1148      6E736574 
- 1148      00
- 1149              	.LASF14:
- 1150 0088 666C6F61 		.ascii	"float\000"
- 1150      7400
- 1151              	.LASF4:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 30
-
-
- 1152 008e 756E7369 		.ascii	"unsigned char\000"
- 1152      676E6564 
- 1152      20636861 
- 1152      7200
- 1153              	.LASF8:
- 1154 009c 6C6F6E67 		.ascii	"long unsigned int\000"
- 1154      20756E73 
- 1154      69676E65 
- 1154      6420696E 
- 1154      7400
- 1155              	.LASF12:
- 1156 00ae 75696E74 		.ascii	"uint8\000"
- 1156      3800
- 1157              	.LASF26:
- 1158 00b4 63796669 		.ascii	"cyfitter_cfg\000"
- 1158      74746572 
- 1158      5F636667 
- 1158      00
- 1159              	.LASF33:
- 1160 00c1 433A5C55 		.ascii	"C:\\Users\\cdrow\\Documents\\GitHub\\Li-CellTesting"
- 1160      73657273 
- 1160      5C636472 
- 1160      6F775C44 
- 1160      6F63756D 
- 1161 00ef 5F536372 		.ascii	"_Script\\Internal_Main\\Internal_Main.cydsn\000"
- 1161      6970745C 
- 1161      496E7465 
- 1161      726E616C 
- 1161      5F4D6169 
- 1162              	.LASF19:
- 1163 0119 53657441 		.ascii	"SetAnalogRoutingPumps\000"
- 1163      6E616C6F 
- 1163      67526F75 
- 1163      74696E67 
- 1163      50756D70 
- 1164              	.LASF15:
- 1165 012f 646F7562 		.ascii	"double\000"
- 1165      6C6500
- 1166              	.LASF29:
- 1167 0136 4379496E 		.ascii	"CyIntEnable\000"
- 1167      74456E61 
- 1167      626C6500 
- 1168              	.LASF13:
- 1169 0142 75696E74 		.ascii	"uint32\000"
- 1169      333200
- 1170              	.LASF0:
- 1171 0149 756E7369 		.ascii	"unsigned int\000"
- 1171      676E6564 
- 1171      20696E74 
- 1171      00
- 1172              	.LASF9:
- 1173 0156 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1173      206C6F6E 
- 1173      6720756E 
- 1173      7369676E 
- 1173      65642069 
- 1174              	.LASF10:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 31
-
-
- 1175 016d 73697A65 		.ascii	"sizetype\000"
- 1175      74797065 
- 1175      00
- 1176              	.LASF1:
- 1177 0176 6C6F6E67 		.ascii	"long long int\000"
- 1177      206C6F6E 
- 1177      6720696E 
- 1177      7400
- 1178              	.LASF11:
- 1179 0184 63686172 		.ascii	"char\000"
- 1179      00
- 1180              	.LASF21:
- 1181 0189 656E6162 		.ascii	"enabled\000"
- 1181      6C656400 
- 1182              	.LASF5:
- 1183 0191 73686F72 		.ascii	"short int\000"
- 1183      7420696E 
- 1183      7400
- 1184              	.LASF27:
- 1185 019b 43795379 		.ascii	"CySysClkWriteImoFreq\000"
- 1185      73436C6B 
- 1185      57726974 
- 1185      65496D6F 
- 1185      46726571 
- 1186              	.LASF24:
- 1187 01b0 414D7578 		.ascii	"AMux_1_Set\000"
- 1187      5F315F53 
- 1187      657400
- 1188              	.LASF7:
- 1189 01bb 6C6F6E67 		.ascii	"long int\000"
- 1189      20696E74 
- 1189      00
- 1190              	.LASF2:
- 1191 01c4 6C6F6E67 		.ascii	"long double\000"
- 1191      20646F75 
- 1191      626C6500 
- 1192              	.LASF31:
- 1193 01d0 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1193      43313120 
- 1193      352E342E 
- 1193      31203230 
- 1193      31363036 
- 1194 0203 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
- 1194      20726576 
- 1194      6973696F 
- 1194      6E203233 
- 1194      37373135 
- 1195 0236 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
- 1195      67202D66 
- 1195      66756E63 
- 1195      74696F6E 
- 1195      2D736563 
- 1196              	.LASF3:
- 1197 0262 7369676E 		.ascii	"signed char\000"
- 1197      65642063 
- 1197      68617200 
- 1198              	.LASF32:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccgCoaQa.s 			page 32
-
-
- 1199 026e 47656E65 		.ascii	"Generated_Source\\PSoC4\\cyfitter_cfg.c\000"
- 1199      72617465 
- 1199      645F536F 
- 1199      75726365 
- 1199      5C50536F 
- 1200              	.LASF34:
- 1201 0294 72656756 		.ascii	"regValue\000"
- 1201      616C7565 
- 1201      00
- 1202              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 1053      7400
+ 1054              	.LASF25:
+ 1055 0183 43795379 		.ascii	"CySysClkWriteImoFreq\000"
+ 1055      73436C6B 
+ 1055      57726974 
+ 1055      65496D6F 
+ 1055      46726571 
+ 1056              	.LASF20:
+ 1057 0198 414D7578 		.ascii	"AMux_1_Set\000"
+ 1057      5F315F53 
+ 1057      657400
+ 1058              	.LASF7:
+ 1059 01a3 6C6F6E67 		.ascii	"long int\000"
+ 1059      20696E74 
+ 1059      00
+ 1060              	.LASF2:
+ 1061 01ac 6C6F6E67 		.ascii	"long double\000"
+ 1061      20646F75 
+ 1061      626C6500 
+ 1062              	.LASF29:
+ 1063 01b8 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1063      43313120 
+ 1063      352E342E 
+ 1063      31203230 
+ 1063      31363036 
+ 1064 01eb 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 1064      20726576 
+ 1064      6973696F 
+ 1064      6E203233 
+ 1064      37373135 
+ 1065 021e 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 1065      67202D66 
+ 1065      66756E63 
+ 1065      74696F6E 
+ 1065      2D736563 
+ 1066              	.LASF3:
+ 1067 024a 7369676E 		.ascii	"signed char\000"
+ 1067      65642063 
+ 1067      68617200 
+ 1068              	.LASF30:
+ 1069 0256 47656E65 		.ascii	"Generated_Source\\PSoC4\\cyfitter_cfg.c\000"
+ 1069      72617465 
+ 1069      645F536F 
+ 1069      75726365 
+ 1069      5C50536F 
+ 1070              	.LASF32:
+ 1071 027c 72656756 		.ascii	"regValue\000"
+ 1071      616C7565 
+ 1071      00
+ 1072              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

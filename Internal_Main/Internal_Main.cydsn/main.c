@@ -36,9 +36,9 @@
 *******************************************************************************/
 void CellTestStart(){
     AMux_1_Start();
-    AMux_2_Start();
+    // AMux_2_Start();
     Opamp_1_Start();
-    Opamp_2_Start();
+    //Opamp_2_Start();
     //Opamp_3_Start();
     PGA_1_Start(); 
     ADC_1_Start();
@@ -145,60 +145,38 @@ int main(void)
             // Continue Executing While the no test errors are evident
             while(!stopFlag){
                 
-                // Select the Shunt voltage Reading                 
-                CyDelay(1);
-                
-                // Shunt Calibarte In 
-                                            
-
-                
-                
                 // Shunt In
-                AMux_1_Select(0); 
-                AMux_2_Select(1);
-//                                              // Mux Select
-                ADC_1_StartConvert();                           // Start the Read the ADC
-                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-                gainCount = ADC_1_GetResult32(0);
-                ADC_1_StopConvert();
-                gainCount = FilterSignal(gainCount, 1);
-                gainVal = ADC_1_CountsTo_mVolts(0, gainCount);
-                //gainVal = gainVal - adcOff;
                 
-                AMux_1_Select(0); 
+                AMux_1_Select(1); 
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);               
                 shuntCount = ADC_1_GetResult32(0);
                 ADC_1_StopConvert();
                 shuntCount = FilterSignal(shuntCount, 2);
-                shuntVal = ADC_1_CountsTo_mVolts(0, shuntCount);
-                //shuntVal = shuntVal - adcOff;                
+                shuntVal = ADC_1_CountsTo_mVolts(0, shuntCount);                
                 
                 // Shunt Ground Reading                
-                AMux_1_Select(1);
-                AMux_2_Select(1);
-                
+                AMux_1_Select(2);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrgndCount = ADC_1_GetResult32(0);
                 ADC_1_StopConvert();
                 vrgndCount = FilterSignal(vrgndCount, 3);
                 vrgndVal = ADC_1_CountsTo_mVolts(0, vrgndCount);
-                vrgndVal = vrgndVal - adcOff;
                 
-                ADC_1_StartConvert();                           
+                AMux_1_Select(0);
+                ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrefCount = ADC_1_GetResult32(0);
                 ADC_1_StopConvert();
-                vrefCount = FilterSignal(vrefCount, 0);
-                vrefVal = ADC_1_CountsTo_mVolts(0, vrefCount); //actually comes in as shunt GND
-                adcOff = vrefVal - V_REF;
+                vrefCount = FilterSignal(vrefCount, 3);
+                vrefVal = ADC_1_CountsTo_mVolts(0, vrefCount);
                 
                 
                 // Shunt Calcuation...
                 //
-                gainReal = 21.3; 
-                vrgndVal = vrefVal/gainReal;
+                gainReal = (vrefVal - vrgndVal)/35; 
+                vrgndVal = vrgndVal/gainReal;
                 shuntVal = shuntVal/gainReal;
                 shuntVal = shuntVal - vrgndVal;
                 
@@ -220,7 +198,7 @@ int main(void)
                 
                 // Print the Shunt Value
                 if (Timer_1_ReadCounter() > 1){
-                    sprintf(string, "Shunt : %3.3f, GND : %3.3f, Vref : %3.3f, Vref*Av : %3.3f, Av : %3.3f ", shuntVal, vrgndVal, vrefVal, gainVal, gainReal); 
+                    sprintf(string, "Shunt : %3.3f, GND : %3.3f, Vref : %3.3f, Av : %3.3f ", shuntVal, vrgndVal, vrefVal, gainReal); 
                     UART_1_UartPutString(string);
                     UART_1_UartPutString("\n\r");
                     Timer_1_WriteCounter(0);
