@@ -35,10 +35,13 @@
 *
 *******************************************************************************/
 void CellTestStart(){
-    //AMux_1_Start();
-    //AMux_2_Start();
+    AMux_1_Start();
+    
+    AMux_2_Start();
+    
     Opamp_1_Start();
     Opamp_2_Start();
+    //Opamp_3_Start();
     PGA_1_Start(); 
     ADC_1_Start();
     UART_1_Start();
@@ -107,8 +110,12 @@ int main(void)
     float shuntVal;
     int32 vrgndCount;
     int32 vrefCount;
+    int32 gainCount;
+    float gainVal;
     float vrefVal;
     float vrgndVal; 
+    float adcOff;
+    float gainReal;
     char string[30];
     
     int32 userInput;
@@ -131,6 +138,7 @@ int main(void)
         // Start the Test Commmand
         if (userInput == 71)  //Type Capital G into Putty
         {
+            
             Timer_1_Start();
             stopFlag = 0;
             PVref_1_Start(); 
@@ -140,43 +148,62 @@ int main(void)
             while(!stopFlag){
                 
                 // Select the Shunt voltage Reading 
-                //AMux_2_Select(1);
+                AMux_2_Select(1);
                 
                 // Shunt Calibarte In 
-                /*
-                AMux_1_Select(0);                              
+                                            
                 ADC_1_StartConvert();                           
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrefCount = ADC_1_GetResult32(0);
                 ADC_1_StopConvert();
                 //vrefCount = FilterSignal(vrefCount, 0);
-                vrefVal = ADC_1_CountsTo_Volts(0, vrefCount);
-                */
+                vrefVal = ADC_1_CountsTo_mVolts(0, vrefCount);
+                adcOff = 0;
+                
                 
                 // Shunt In
-                //AMux_1_Select(1);                               // Mux Select
+                AMux_1_Select(0); 
+                AMux_2_Select(2);
+                                              // Mux Select
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
+                gainCount = ADC_1_GetResult32(0);
+                ADC_1_StopConvert();
+                gainVal = ADC_1_CountsTo_mVolts(0, shuntCount);
+                //gainVal = gainVal - adcOff;
+                
+                AMux_1_Select(1);
+
+                //AMux_1_Select(1);                               // Mux Select
+                ADC_1_StartConvert();                           // Start the Read the ADC
+                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);               
                 shuntCount = ADC_1_GetResult32(0);
                 ADC_1_StopConvert();
                 shuntVal = ADC_1_CountsTo_mVolts(0, shuntCount);
+                //shuntVal = shuntVal - adcOff;
                 //shuntCount = FilterSignal(shuntCount, 1);
                 
-                // Shunt Ground Reading
-                /*
+                
+                // Shunt Ground Reading                
                 AMux_1_Select(2);                               // Mux Select
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrgndCount = ADC_1_GetResult32(0);
                 ADC_1_StopConvert();
                 vrgndVal = ADC_1_CountsTo_mVolts(0, vrgndCount);
+                vrgndVal = vrgndVal - adcOff;
                 //vrgndCount = FilterSignal(shuntCount, 2);
-                */
+                
                 
                 // Shunt Calcuation...
+                //shuntVal = shuntVal - vrgndVal;
+                gainReal = gainVal/V_REF;
+                vrgndVal = vrgndVal/gainReal;
+                
+             
                 //shuntCount = shuntCount - vrgndCount; 
                 //shuntVal = ADC_1_CountsTo_mVolts(0, shuntCount);
-                //shuntVal = (shuntVal*SHUNT_CONDUCTANCE)/(vrefVal/V_REF);
+                //shuntVal = shuntVal/gainReal;
                 
                 // Stop the Test.... 
                 userInput = UART_1_UartGetChar();
@@ -195,7 +222,7 @@ int main(void)
                 
                 // Print the Shunt Value
                 if (Timer_1_ReadCounter() > 1){
-                    sprintf(string, "Shunt Value: %3.3f", shuntVal); 
+                    sprintf(string, "Shunt : %3.3f, GND : %3.3f, Vref : %3.3f, Vref*Av : %3.3f, Av : %3.3f ", shuntVal, vrgndVal, vrefVal, gainVal, gainReal); 
                     UART_1_UartPutString(string);
                     UART_1_UartPutString("\n\r");
                     Timer_1_WriteCounter(0);

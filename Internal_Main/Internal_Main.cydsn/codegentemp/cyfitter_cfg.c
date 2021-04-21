@@ -233,12 +233,13 @@ static void AnalogSetDefault(void);
 static void AnalogSetDefault(void)
 {
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_CTB_CTRL, 0x80000000u);
-	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_OA0_SW, 0x20800004u);
-	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_OA1_SW, 0x0A080080u);
+	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_OA0_SW, 0x21000060u);
+	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_OA1_SW, 0x00080080u);
+	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_CTBBUS_SW, 0x00100004u);
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB1_CTB_CTRL, 0x80000000u);
-	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB1_OA0_SW, 0x00040002u);
+	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB1_OA0_SW, 0x00040008u);
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_CTRL, 0x80000000u);
-	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_SARMUXCOREIO0_SW, 0x01000001u);
+	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_SARMUXVPLUS_SW, 0x01000000u);
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_CTB0VREF_SW, 0x00020000u);
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_PASS_CTRL, 0x00000003u);
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_PRB_CTRL, 0x80000001u);
@@ -279,6 +280,127 @@ void SetAnalogRoutingPumps(uint8 enabled)
 }
 
 
+#define CY_AMUX_UNUSED CYREG_CM0P_ROM_DWT
+/*******************************************************************************
+* Function Name: AMux_2_Set
+********************************************************************************
+* Summary:
+*  This function is used to set a particular channel as active on the AMux.
+*
+* Parameters:  
+*   channel - The mux channel input to set as active
+*
+* Return:
+*   void
+*
+*******************************************************************************/
+void AMux_2_Set(uint8 channel)
+{
+	switch (channel) {
+		case 0u:
+			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW, (0x10u));
+			break;
+		case 1u:
+			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW, (0x01u));
+			break;
+		default:
+			break;
+	}
+}
+
+/*******************************************************************************
+* Function Name: AMux_2_Unset
+********************************************************************************
+* Summary:
+*  This function is used to clear a particular channel from being active on the
+*  AMux.
+*
+* Parameters:  
+*   channel - The mux channel input to mark inactive
+*
+* Return:
+*   void
+*
+*******************************************************************************/
+void AMux_2_Unset(uint8 channel)
+{
+	switch (channel) {
+		case 0u:
+			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW_CLR, (0x10u));
+			break;
+		case 1u:
+			CY_SET_REG32((void CYXDATA *)CYREG_ART_SARMUXVPLUS_SW_CLR, (0x01u));
+			break;
+		default:
+			break;
+	}
+}
+
+/*******************************************************************************
+* Function Name: AMux_1_Set
+********************************************************************************
+* Summary:
+*  This function is used to set a particular channel as active on the AMux.
+*
+* Parameters:  
+*   channel - The mux channel input to set as active
+*
+* Return:
+*   void
+*
+*******************************************************************************/
+void AMux_1_Set(uint8 channel)
+{
+	switch (channel) {
+		case 0u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_OA0_SW, (0x8000u));
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x400000u));
+			break;
+		case 1u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x40000u));
+			break;
+		case 2u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW, (0x40000u));
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x800000u));
+			break;
+		default:
+			break;
+	}
+}
+
+/*******************************************************************************
+* Function Name: AMux_1_Unset
+********************************************************************************
+* Summary:
+*  This function is used to clear a particular channel from being active on the
+*  AMux.
+*
+* Parameters:  
+*   channel - The mux channel input to mark inactive
+*
+* Return:
+*   void
+*
+*******************************************************************************/
+void AMux_1_Unset(uint8 channel)
+{
+	switch (channel) {
+		case 0u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_OA0_SW_CLEAR, (0x8000u));
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x400000u));
+			break;
+		case 1u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x40000u));
+			break;
+		case 2u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW_CLEAR, (0x40000u));
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x800000u));
+			break;
+		default:
+			break;
+	}
+}
+
 
 
 /*******************************************************************************
@@ -315,17 +437,16 @@ void cyfitter_cfg(void)
 
 	/* Perform second pass device configuration. These items must be configured in specific order after the regular configuration is done. */
 	/* IOPINS0_0 Starting address: CYDEV_GPIO_PRT0_BASE */
-	CY_SET_REG32((void *)(CYDEV_GPIO_PRT0_BASE), 0x00000068u);
-	CY_SET_REG32((void *)(CYREG_GPIO_PRT0_PC), 0x00C311B6u);
-	CY_SET_REG32((void *)(CYREG_GPIO_PRT0_PC2), 0x00000048u);
+	CY_SET_REG32((void *)(CYDEV_GPIO_PRT0_BASE), 0x00000020u);
+	CY_SET_REG32((void *)(CYREG_GPIO_PRT0_PC), 0x00031DB6u);
 
 	/* IOPINS0_1 Starting address: CYDEV_GPIO_PRT1_BASE */
-	CY_SET_REG32((void *)(CYDEV_GPIO_PRT1_BASE), 0x00000002u);
-	CY_SET_REG32((void *)(CYREG_GPIO_PRT1_PC2), 0x00000002u);
+	CY_SET_REG32((void *)(CYDEV_GPIO_PRT1_BASE), 0x00000020u);
+	CY_SET_REG32((void *)(CYREG_GPIO_PRT1_PC2), 0x00000020u);
 
 	/* IOPINS0_2 Starting address: CYDEV_GPIO_PRT2_BASE */
-	CY_SET_REG32((void *)(CYDEV_GPIO_PRT2_BASE), 0x0000009Du);
-	CY_SET_REG32((void *)(CYREG_GPIO_PRT2_PC2), 0x0000009Du);
+	CY_SET_REG32((void *)(CYDEV_GPIO_PRT2_BASE), 0x000000AFu);
+	CY_SET_REG32((void *)(CYREG_GPIO_PRT2_PC2), 0x000000AFu);
 
 	/* IOPINS0_3 Starting address: CYDEV_GPIO_PRT3_BASE */
 	CY_SET_REG32((void *)(CYDEV_GPIO_PRT3_BASE), 0x000000C0u);

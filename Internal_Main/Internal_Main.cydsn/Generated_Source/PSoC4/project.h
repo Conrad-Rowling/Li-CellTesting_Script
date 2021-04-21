@@ -59,8 +59,8 @@
 #include "Pin_1_aliases.h"
 #include "Pin_2.h"
 #include "Pin_2_aliases.h"
-#include "AmpOut.h"
-#include "AmpOut_aliases.h"
+#include "AMux_1.h"
+#include "AMux_2.h"
 #include "ADC_1_intSarClock.h"
 #include "ADC_1_IRQ.h"
 #include "ADC_1_intUabClock.h"
@@ -77,9 +77,9 @@
 #include "cytypes.h"
 #include "cypins.h"
 #include "core_cm0plus_psoc4.h"
-#include "cy_em_eeprom.h"
 #include "CyDMA.h"
 #include "CyLFClk.h"
+#include "cy_em_eeprom.h"
 
 /*[]*/
 

@@ -1,11 +1,10 @@
 -- Project:   Internal_Main
--- Generated: 04/10/2021 21:30:34
+-- Generated: 04/20/2021 18:36:50
 -- PSoC Creator  4.4
 
 ENTITY Internal_Main IS
     PORT(
-        Cal_In(0)_PAD : INOUT std_ulogic;
-        Shunt_Gnd(0)_PAD : INOUT std_ulogic;
+        Battery_In(0)_PAD : INOUT std_ulogic;
         \I2C_1:sda(0)_PAD\ : INOUT std_ulogic;
         \I2C_1:scl(0)_PAD\ : INOUT std_ulogic;
         BLUE_LED(0)_PAD : OUT std_ulogic;
@@ -25,7 +24,6 @@ ENTITY Internal_Main IS
 END Internal_Main;
 
 ARCHITECTURE __DEFAULT__ OF Internal_Main IS
-    SIGNAL AmpOut(0)__PA : bit;
     SIGNAL BLUE_LED(0)__PA : bit;
     SIGNAL Battery_In(0)__PA : bit;
     SIGNAL Cal_In(0)__PA : bit;
@@ -123,16 +121,17 @@ ARCHITECTURE __DEFAULT__ OF Internal_Main IS
     ATTRIBUTE Location OF ctb0_resistor_string : LABEL IS "F(RSB,0)";
     ATTRIBUTE Location OF ClockGenBlock : LABEL IS "F(CLK_GEN,0)";
     ATTRIBUTE Location OF \ADC_1:Bypass(0)\ : LABEL IS "P2[7]";
-    ATTRIBUTE Location OF GND_ref(0) : LABEL IS "P2[4]";
+    ATTRIBUTE Location OF GND_ref(0) : LABEL IS "P2[1]";
+    ATTRIBUTE Location OF Cal_In(0) : LABEL IS "P2[2]";
     ATTRIBUTE Location OF bgRef(0) : LABEL IS "P2[3]";
-    ATTRIBUTE Location OF Shunt_In(0) : LABEL IS "P2[0]";
-    ATTRIBUTE Location OF Battery_In(0) : LABEL IS "P1[1]";
+    ATTRIBUTE Location OF Shunt_In(0) : LABEL IS "P2[5]";
+    ATTRIBUTE Location OF Shunt_Gnd(0) : LABEL IS "P1[5]";
+    ATTRIBUTE Location OF Battery_In(0) : LABEL IS "P2[0]";
     ATTRIBUTE Location OF \I2C_1:sda(0)\ : LABEL IS "P3[7]";
     ATTRIBUTE Location OF \I2C_1:scl(0)\ : LABEL IS "P3[6]";
     ATTRIBUTE Location OF BLUE_LED(0) : LABEL IS "P0[2]";
     ATTRIBUTE Location OF Pin_1(0) : LABEL IS "P0[4]";
     ATTRIBUTE Location OF Pin_2(0) : LABEL IS "P0[5]";
-    ATTRIBUTE Location OF AmpOut(0) : LABEL IS "P2[2]";
     ATTRIBUTE Location OF \ADC_1:cy_psoc4_sar_1\ : LABEL IS "F(SARADC,0)";
     ATTRIBUTE Location OF CyDesignWideVoltageReference : LABEL IS "F(REF,0)";
     ATTRIBUTE Location OF \PVref_1:cy_psoc4_pref\ : LABEL IS "F(REF,1)";
@@ -674,7 +673,6 @@ BEGIN
         PORT MAP(
             pa_out => Cal_In(0)__PA,
             oe => open,
-            pad_in => Cal_In(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -942,7 +940,6 @@ BEGIN
         PORT MAP(
             pa_out => Shunt_Gnd(0)__PA,
             oe => open,
-            pad_in => Shunt_Gnd(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -1032,6 +1029,7 @@ BEGIN
         PORT MAP(
             pa_out => Battery_In(0)__PA,
             oe => open,
+            pad_in => Battery_In(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -1579,95 +1577,6 @@ BEGIN
             pin_input => Net_196,
             pad_out => Pin_2(0)_PAD,
             pad_in => Pin_2(0)_PAD,
-            in_clock => open,
-            in_clock_en => '1',
-            in_reset => '0',
-            out_clock => open,
-            out_clock_en => '1',
-            out_reset => '0');
-
-    AmpOut:logicalport
-        GENERIC MAP(
-            drive_mode => "000",
-            ibuf_enabled => "0",
-            id => "94da9f04-2d5e-4806-ab84-eb2b66639900",
-            init_dr_st => "1",
-            input_buffer_sel => "00",
-            input_clk_en => 0,
-            input_sync => "0",
-            input_sync_mode => "0",
-            intr_mode => "00",
-            invert_in_clock => 0,
-            invert_in_clock_en => 0,
-            invert_in_reset => 0,
-            invert_out_clock => 0,
-            invert_out_clock_en => 0,
-            invert_out_reset => 0,
-            io_voltage => "",
-            layout_mode => "CONTIGUOUS",
-            oe_conn => "0",
-            oe_reset => 0,
-            oe_sync => "0",
-            output_clk_en => 0,
-            output_clock_mode => "0",
-            output_conn => "0",
-            output_mode => "0",
-            output_reset => 0,
-            output_sync => "0",
-            ovt_hyst_trim => "0",
-            ovt_needed => "0",
-            ovt_slew_control => "00",
-            pa_in_clock => -1,
-            pa_in_clock_en => -1,
-            pa_in_reset => -1,
-            pa_out_clock => -1,
-            pa_out_clock_en => -1,
-            pa_out_reset => -1,
-            pin_aliases => "",
-            pin_mode => "A",
-            por_state => 4,
-            port_alias_group => "",
-            port_alias_required => 0,
-            sio_group_cnt => 0,
-            sio_hifreq => "00000000",
-            sio_hyst => "1",
-            sio_ibuf => "00000000",
-            sio_info => "00",
-            sio_obuf => "00000000",
-            sio_refsel => "00000000",
-            sio_vohsel => "00000000",
-            sio_vtrip => "00000000",
-            slew_rate => "0",
-            spanning => 0,
-            sw_only => 0,
-            use_annotation => "0",
-            vtrip => "10",
-            width => 1,
-            in_clk_inv => 0,
-            in_clken_inv => 0,
-            in_clken_mode => 1,
-            in_rst_inv => 0,
-            out_clk_inv => 0,
-            out_clken_inv => 0,
-            out_clken_mode => 1,
-            out_rst_inv => 0)
-        PORT MAP(
-            in_clock_en => open,
-            in_reset => open,
-            out_clock_en => open,
-            out_reset => open);
-
-    AmpOut(0):iocell
-        GENERIC MAP(
-            in_sync_mode => 0,
-            out_sync_mode => 0,
-            oe_sync_mode => 0,
-            logicalport => "AmpOut",
-            logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
-        PORT MAP(
-            pa_out => AmpOut(0)__PA,
-            oe => open,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
