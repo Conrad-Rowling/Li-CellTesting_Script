@@ -1,6 +1,6 @@
 // ======================================================================
 // Internal_Main.v generated from TopDesign.cysch
-// 04/20/2021 at 18:36
+// 04/20/2021 at 18:59
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -2309,7 +2309,7 @@ module PVref_P4_v1_0_1 (
 
 endmodule
 
-// PGA_P4_v1_10(DeepSleepOperation=0, Gain=0, OutputBuffer=0, Power=3, Vref_Input=1, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=PGA_P4_v1_10, CY_CONFIG_TITLE=PGA_1, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=PGA_1, CY_INSTANCE_SHORT_NAME=PGA_1, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=10, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=PGA_1, )
+// PGA_P4_v1_10(DeepSleepOperation=0, Gain=9, OutputBuffer=0, Power=3, Vref_Input=1, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=PGA_P4_v1_10, CY_CONFIG_TITLE=PGA_1, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=PGA_1, CY_INSTANCE_SHORT_NAME=PGA_1, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=10, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=PGA_1, )
 module PGA_P4_v1_10_2 (
     Vin,
     Vout,
@@ -3126,16 +3126,16 @@ module top ;
           wire [3:0] Net_558;
           wire  Net_557;
           wire  Net_556;
+    electrical  Net_661;
+    electrical  Net_660;
+    electrical  Net_688;
+    electrical  Net_682;
     electrical  Net_681;
     electrical  Net_667;
     electrical  Net_240;
     electrical  Net_463;
     electrical  Net_674;
-    electrical  Net_664;
-    electrical  Net_659;
     electrical  Net_665;
-    electrical  Net_661;
-    electrical  Net_660;
     electrical  Net_108;
           wire  Net_1629;
     electrical  Net_126;
@@ -3317,7 +3317,7 @@ module top ;
 	assign tmpOE__Cal_In_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
     PGA_P4_v1_10_2 PGA_1 (
-        .Vin(Net_664),
+        .Vin(Net_688),
         .Vout(Net_674),
         .Vref(Net_665));
 
@@ -3762,7 +3762,7 @@ module top ;
 
     OpAmp_P4_v1_20_4 Opamp_2 (
         .Vminus(Net_669),
-        .Vout(Net_659),
+        .Vout(Net_682),
         .Vplus(Net_667));
 
     SCB_P4_v4_0_5 UART_1 (
@@ -4144,14 +4144,13 @@ module top ;
     cy_psoc3_amux_v1_0 AMux_1(
         .muxin({
             Net_661,
-            Net_660,
-            Net_659
+            Net_660
             }),
-        .vout(Net_664)
+        .vout(Net_688)
         );
     
-    defparam AMux_1.muxin_width = 3;
-    defparam AMux_1.init_mux_sel = 3'h0;
+    defparam AMux_1.muxin_width = 2;
+    defparam AMux_1.init_mux_sel = 2'h0;
     defparam AMux_1.one_active = 0;
     defparam AMux_1.connect_mode = 1;
     
@@ -4163,7 +4162,7 @@ module top ;
     cy_psoc3_amux_v1_0 AMux_2(
         .muxin({
             Net_674,
-            Net_659
+            Net_682
             }),
         .vout(Net_463)
         );

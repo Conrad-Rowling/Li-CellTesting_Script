@@ -74,7 +74,7 @@ void CellTestStop(){
 int32 FilterSignal(int32 ADCSample, uint8 channel){
     
     // MOVING AVERAGE
-	static int32 filteredValue[3] = {0,0};
+	static int32 filteredValue[4] = {0,0};
 	
 	/* Filtered value rounded-off to 20-bits */
 	int32 filValueRounded;
@@ -147,8 +147,9 @@ int main(void)
             // Continue Executing While the no test errors are evident
             while(!stopFlag){
                 
-                // Select the Shunt voltage Reading 
+                // Select the Shunt voltage Reading                 
                 AMux_2_Select(1);
+                CyDelay(1);
                 
                 // Shunt Calibarte In 
                                             
@@ -156,54 +157,57 @@ int main(void)
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrefCount = ADC_1_GetResult32(0);
                 ADC_1_StopConvert();
-                //vrefCount = FilterSignal(vrefCount, 0);
+                vrefCount = FilterSignal(vrefCount, 0);
                 vrefVal = ADC_1_CountsTo_mVolts(0, vrefCount);
-                adcOff = 0;
+                adcOff = vrefVal - V_REF;
                 
                 
                 // Shunt In
                 AMux_1_Select(0); 
-                AMux_2_Select(2);
+                CyDelay(1);
+                AMux_2_Select(1);
+                CyDelay(1);
                                               // Mux Select
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 gainCount = ADC_1_GetResult32(0);
                 ADC_1_StopConvert();
-                gainVal = ADC_1_CountsTo_mVolts(0, shuntCount);
+                gainCount = FilterSignal(gainCount, 1);
+                //gainVal = ADC_1_CountsTo_mVolts(0, shuntCount);
                 //gainVal = gainVal - adcOff;
                 
-                AMux_1_Select(1);
-
-                //AMux_1_Select(1);                               // Mux Select
+                AMux_1_Select(0); 
+                CyDelay(1);// Mux Select
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);               
                 shuntCount = ADC_1_GetResult32(0);
                 ADC_1_StopConvert();
+                shuntCount = FilterSignal(shuntCount, 2);
                 shuntVal = ADC_1_CountsTo_mVolts(0, shuntCount);
                 //shuntVal = shuntVal - adcOff;
-                //shuntCount = FilterSignal(shuntCount, 1);
+
                 
                 
                 // Shunt Ground Reading                
-                AMux_1_Select(2);                               // Mux Select
+                AMux_1_Select(1);
+                CyDelay(1); // Mux Select
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrgndCount = ADC_1_GetResult32(0);
                 ADC_1_StopConvert();
+                vrgndCount = FilterSignal(shuntCount, 3);
                 vrgndVal = ADC_1_CountsTo_mVolts(0, vrgndCount);
-                vrgndVal = vrgndVal - adcOff;
-                //vrgndCount = FilterSignal(shuntCount, 2);
+                //vrgndVal = vrgndVal - adcOff;
+
                 
                 
                 // Shunt Calcuation...
-                //shuntVal = shuntVal - vrgndVal;
-                gainReal = gainVal/V_REF;
-                vrgndVal = vrgndVal/gainReal;
+                //
+                gainReal = 21.3; //gainVal/V_REF;
                 
-             
-                //shuntCount = shuntCount - vrgndCount; 
-                //shuntVal = ADC_1_CountsTo_mVolts(0, shuntCount);
-                //shuntVal = shuntVal/gainReal;
+                vrgndVal = vrefVal/gainReal;              
+                shuntVal = shuntVal/gainReal;
+                shuntVal = shuntVal - vrgndVal;
                 
                 // Stop the Test.... 
                 userInput = UART_1_UartGetChar();

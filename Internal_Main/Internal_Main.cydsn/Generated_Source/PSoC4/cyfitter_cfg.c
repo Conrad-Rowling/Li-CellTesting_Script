@@ -233,7 +233,7 @@ static void AnalogSetDefault(void);
 static void AnalogSetDefault(void)
 {
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_CTB_CTRL, 0x80000000u);
-	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_OA0_SW, 0x21000060u);
+	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_OA0_SW, 0x21000040u);
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_OA1_SW, 0x00080080u);
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_CTBBUS_SW, 0x00100004u);
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB1_CTB_CTRL, 0x80000000u);
@@ -353,13 +353,9 @@ void AMux_1_Set(uint8 channel)
 {
 	switch (channel) {
 		case 0u:
-			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_OA0_SW, (0x8000u));
-			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x400000u));
-			break;
-		case 1u:
 			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x40000u));
 			break;
-		case 2u:
+		case 1u:
 			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW, (0x40000u));
 			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x800000u));
 			break;
@@ -386,13 +382,9 @@ void AMux_1_Unset(uint8 channel)
 {
 	switch (channel) {
 		case 0u:
-			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_OA0_SW_CLEAR, (0x8000u));
-			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x400000u));
-			break;
-		case 1u:
 			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x40000u));
 			break;
-		case 2u:
+		case 1u:
 			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW_CLEAR, (0x40000u));
 			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x800000u));
 			break;
