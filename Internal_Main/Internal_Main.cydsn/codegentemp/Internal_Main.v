@@ -1,6 +1,6 @@
 // ======================================================================
 // Internal_Main.v generated from TopDesign.cysch
-// 04/20/2021 at 18:59
+// 04/20/2021 at 20:13
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -3126,6 +3126,7 @@ module top ;
           wire [3:0] Net_558;
           wire  Net_557;
           wire  Net_556;
+    electrical  Net_690;
     electrical  Net_661;
     electrical  Net_660;
     electrical  Net_688;
@@ -3134,7 +3135,6 @@ module top ;
     electrical  Net_667;
     electrical  Net_240;
     electrical  Net_463;
-    electrical  Net_674;
     electrical  Net_665;
     electrical  Net_108;
           wire  Net_1629;
@@ -3318,7 +3318,7 @@ module top ;
 
     PGA_P4_v1_10_2 PGA_1 (
         .Vin(Net_688),
-        .Vout(Net_674),
+        .Vout(Net_690),
         .Vref(Net_665));
 
     cy_annotation_universal_v1_0 GND_1 (
@@ -4161,7 +4161,7 @@ module top ;
     
     cy_psoc3_amux_v1_0 AMux_2(
         .muxin({
-            Net_674,
+            Net_690,
             Net_682
             }),
         .vout(Net_463)

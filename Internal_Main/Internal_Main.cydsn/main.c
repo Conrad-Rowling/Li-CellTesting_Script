@@ -36,9 +36,7 @@
 *******************************************************************************/
 void CellTestStart(){
     AMux_1_Start();
-    
     AMux_2_Start();
-    
     Opamp_1_Start();
     Opamp_2_Start();
     //Opamp_3_Start();
@@ -148,66 +146,62 @@ int main(void)
             while(!stopFlag){
                 
                 // Select the Shunt voltage Reading                 
-                AMux_2_Select(1);
                 CyDelay(1);
                 
                 // Shunt Calibarte In 
                                             
-                ADC_1_StartConvert();                           
-                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-                vrefCount = ADC_1_GetResult32(0);
-                ADC_1_StopConvert();
-                vrefCount = FilterSignal(vrefCount, 0);
-                vrefVal = ADC_1_CountsTo_mVolts(0, vrefCount);
-                adcOff = vrefVal - V_REF;
+
                 
                 
                 // Shunt In
                 AMux_1_Select(0); 
-                CyDelay(1);
                 AMux_2_Select(1);
-                CyDelay(1);
-                                              // Mux Select
+//                                              // Mux Select
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 gainCount = ADC_1_GetResult32(0);
                 ADC_1_StopConvert();
                 gainCount = FilterSignal(gainCount, 1);
-                //gainVal = ADC_1_CountsTo_mVolts(0, shuntCount);
+                gainVal = ADC_1_CountsTo_mVolts(0, gainCount);
                 //gainVal = gainVal - adcOff;
                 
                 AMux_1_Select(0); 
-                CyDelay(1);// Mux Select
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);               
                 shuntCount = ADC_1_GetResult32(0);
                 ADC_1_StopConvert();
                 shuntCount = FilterSignal(shuntCount, 2);
                 shuntVal = ADC_1_CountsTo_mVolts(0, shuntCount);
-                //shuntVal = shuntVal - adcOff;
-
-                
+                //shuntVal = shuntVal - adcOff;                
                 
                 // Shunt Ground Reading                
                 AMux_1_Select(1);
-                CyDelay(1); // Mux Select
+                AMux_2_Select(1);
+                
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrgndCount = ADC_1_GetResult32(0);
                 ADC_1_StopConvert();
-                vrgndCount = FilterSignal(shuntCount, 3);
+                vrgndCount = FilterSignal(vrgndCount, 3);
                 vrgndVal = ADC_1_CountsTo_mVolts(0, vrgndCount);
-                //vrgndVal = vrgndVal - adcOff;
-
+                vrgndVal = vrgndVal - adcOff;
+                
+                ADC_1_StartConvert();                           
+                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
+                vrefCount = ADC_1_GetResult32(0);
+                ADC_1_StopConvert();
+                vrefCount = FilterSignal(vrefCount, 0);
+                vrefVal = ADC_1_CountsTo_mVolts(0, vrefCount); //actually comes in as shunt GND
+                adcOff = vrefVal - V_REF;
                 
                 
                 // Shunt Calcuation...
                 //
-                gainReal = 21.3; //gainVal/V_REF;
-                
-                vrgndVal = vrefVal/gainReal;              
+                gainReal = 21.3; 
+                vrgndVal = vrefVal/gainReal;
                 shuntVal = shuntVal/gainReal;
                 shuntVal = shuntVal - vrgndVal;
+                
                 
                 // Stop the Test.... 
                 userInput = UART_1_UartGetChar();

@@ -2,7 +2,7 @@
 --	Conversion of Internal_Main.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Tue Apr 20 18:59:08 2021
+--	Tue Apr 20 20:13:50 2021
 --
 
 USE cypress.cypress.all;
@@ -530,7 +530,7 @@ TERMINAL \PGA_1:Net_18\ : bit;
 TERMINAL \PGA_1:Net_39\ : bit;
 TERMINAL \PGA_1:Net_19\ : bit;
 SIGNAL \PGA_1:Net_12\ : bit;
-TERMINAL Net_674 : bit;
+TERMINAL Net_690 : bit;
 TERMINAL \PGA_1:Net_51\ : bit;
 TERMINAL \Opamp_1:Net_9\ : bit;
 TERMINAL \Opamp_1:Net_18\ : bit;
@@ -2741,7 +2741,7 @@ Cal_In:cy_psoc3_pins_v1_10
 \PGA_1:cy_analog_virtualmux_2_connect\:cy_connect_v1_0
 	GENERIC MAP(sig_width=>1,
 		is_net_join=>'0')
-	PORT MAP(signal1=>Net_674,
+	PORT MAP(signal1=>Net_690,
 		signal2=>\PGA_1:Net_18\);
 \PGA_1:cy_analog_noconnect_1\:cy_analog_noconnect_v1_0
 	PORT MAP(noconnect=>\PGA_1:Net_29\);
@@ -3672,7 +3672,7 @@ AMux_2:cy_psoc3_amux_v1_0
 		init_mux_sel=>"00",
 		api_type=>0,
 		connect_mode=>1)
-	PORT MAP(muxin=>(Net_674, Net_682),
+	PORT MAP(muxin=>(Net_690, Net_682),
 		hw_ctrl_en=>(others => zero),
 		vout=>Net_463);
 
