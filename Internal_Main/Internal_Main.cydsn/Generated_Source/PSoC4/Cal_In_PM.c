@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Cal_in.c  
+* File Name: Cal_In.c  
 * Version 2.20
 *
 * Description:
@@ -15,13 +15,13 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "Cal_in.h"
+#include "Cal_In.h"
 
-static Cal_in_BACKUP_STRUCT  Cal_in_backup = {0u, 0u, 0u};
+static Cal_In_BACKUP_STRUCT  Cal_In_backup = {0u, 0u, 0u};
 
 
 /*******************************************************************************
-* Function Name: Cal_in_Sleep
+* Function Name: Cal_In_Sleep
 ****************************************************************************//**
 *
 * \brief Stores the pin configuration and prepares the pin for entering chip 
@@ -39,30 +39,30 @@ static Cal_in_BACKUP_STRUCT  Cal_in_backup = {0u, 0u, 0u};
 *  deep-sleep/hibernate modes.
 *
 * \funcusage
-*  \snippet Cal_in_SUT.c usage_Cal_in_Sleep_Wakeup
+*  \snippet Cal_In_SUT.c usage_Cal_In_Sleep_Wakeup
 *******************************************************************************/
-void Cal_in_Sleep(void)
+void Cal_In_Sleep(void)
 {
-    #if defined(Cal_in__PC)
-        Cal_in_backup.pcState = Cal_in_PC;
+    #if defined(Cal_In__PC)
+        Cal_In_backup.pcState = Cal_In_PC;
     #else
         #if (CY_PSOC4_4200L)
             /* Save the regulator state and put the PHY into suspend mode */
-            Cal_in_backup.usbState = Cal_in_CR1_REG;
-            Cal_in_USB_POWER_REG |= Cal_in_USBIO_ENTER_SLEEP;
-            Cal_in_CR1_REG &= Cal_in_USBIO_CR1_OFF;
+            Cal_In_backup.usbState = Cal_In_CR1_REG;
+            Cal_In_USB_POWER_REG |= Cal_In_USBIO_ENTER_SLEEP;
+            Cal_In_CR1_REG &= Cal_In_USBIO_CR1_OFF;
         #endif
     #endif
-    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Cal_in__SIO)
-        Cal_in_backup.sioState = Cal_in_SIO_REG;
+    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Cal_In__SIO)
+        Cal_In_backup.sioState = Cal_In_SIO_REG;
         /* SIO requires unregulated output buffer and single ended input buffer */
-        Cal_in_SIO_REG &= (uint32)(~Cal_in_SIO_LPM_MASK);
+        Cal_In_SIO_REG &= (uint32)(~Cal_In_SIO_LPM_MASK);
     #endif  
 }
 
 
 /*******************************************************************************
-* Function Name: Cal_in_Wakeup
+* Function Name: Cal_In_Wakeup
 ****************************************************************************//**
 *
 * \brief Restores the pin configuration that was saved during Pin_Sleep(). This 
@@ -77,22 +77,22 @@ void Cal_in_Sleep(void)
 *  None
 *  
 * \funcusage
-*  Refer to Cal_in_Sleep() for an example usage.
+*  Refer to Cal_In_Sleep() for an example usage.
 *******************************************************************************/
-void Cal_in_Wakeup(void)
+void Cal_In_Wakeup(void)
 {
-    #if defined(Cal_in__PC)
-        Cal_in_PC = Cal_in_backup.pcState;
+    #if defined(Cal_In__PC)
+        Cal_In_PC = Cal_In_backup.pcState;
     #else
         #if (CY_PSOC4_4200L)
             /* Restore the regulator state and come out of suspend mode */
-            Cal_in_USB_POWER_REG &= Cal_in_USBIO_EXIT_SLEEP_PH1;
-            Cal_in_CR1_REG = Cal_in_backup.usbState;
-            Cal_in_USB_POWER_REG &= Cal_in_USBIO_EXIT_SLEEP_PH2;
+            Cal_In_USB_POWER_REG &= Cal_In_USBIO_EXIT_SLEEP_PH1;
+            Cal_In_CR1_REG = Cal_In_backup.usbState;
+            Cal_In_USB_POWER_REG &= Cal_In_USBIO_EXIT_SLEEP_PH2;
         #endif
     #endif
-    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Cal_in__SIO)
-        Cal_in_SIO_REG = Cal_in_backup.sioState;
+    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Cal_In__SIO)
+        Cal_In_SIO_REG = Cal_In_backup.sioState;
     #endif
 }
 

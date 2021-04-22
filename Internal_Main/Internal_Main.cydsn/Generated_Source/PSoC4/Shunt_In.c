@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Shunt_in.c  
+* File Name: Shunt_In.c  
 * Version 2.20
 *
 * Description:
@@ -13,35 +13,35 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "Shunt_in.h"
+#include "Shunt_In.h"
 
 
-#if defined(Shunt_in__PC)
-    #define Shunt_in_SetP4PinDriveMode(shift, mode)  \
+#if defined(Shunt_In__PC)
+    #define Shunt_In_SetP4PinDriveMode(shift, mode)  \
     do { \
-        Shunt_in_PC =   (Shunt_in_PC & \
-                                (uint32)(~(uint32)(Shunt_in_DRIVE_MODE_IND_MASK << \
-                                (Shunt_in_DRIVE_MODE_BITS * (shift))))) | \
+        Shunt_In_PC =   (Shunt_In_PC & \
+                                (uint32)(~(uint32)(Shunt_In_DRIVE_MODE_IND_MASK << \
+                                (Shunt_In_DRIVE_MODE_BITS * (shift))))) | \
                                 (uint32)((uint32)(mode) << \
-                                (Shunt_in_DRIVE_MODE_BITS * (shift))); \
+                                (Shunt_In_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 #else
     #if (CY_PSOC4_4200L)
-        #define Shunt_in_SetP4PinDriveMode(shift, mode)  \
+        #define Shunt_In_SetP4PinDriveMode(shift, mode)  \
         do { \
-            Shunt_in_USBIO_CTRL_REG = (Shunt_in_USBIO_CTRL_REG & \
-                                    (uint32)(~(uint32)(Shunt_in_DRIVE_MODE_IND_MASK << \
-                                    (Shunt_in_DRIVE_MODE_BITS * (shift))))) | \
+            Shunt_In_USBIO_CTRL_REG = (Shunt_In_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(Shunt_In_DRIVE_MODE_IND_MASK << \
+                                    (Shunt_In_DRIVE_MODE_BITS * (shift))))) | \
                                     (uint32)((uint32)(mode) << \
-                                    (Shunt_in_DRIVE_MODE_BITS * (shift))); \
+                                    (Shunt_In_DRIVE_MODE_BITS * (shift))); \
         } while (0)
     #endif
 #endif
   
 
-#if defined(Shunt_in__PC) || (CY_PSOC4_4200L) 
+#if defined(Shunt_In__PC) || (CY_PSOC4_4200L) 
     /*******************************************************************************
-    * Function Name: Shunt_in_SetDriveMode
+    * Function Name: Shunt_In_SetDriveMode
     ****************************************************************************//**
     *
     * \brief Sets the drive mode for each of the Pins component's pins.
@@ -67,17 +67,17 @@
     *  APIs (primary method) or disable interrupts around this function.
     *
     * \funcusage
-    *  \snippet Shunt_in_SUT.c usage_Shunt_in_SetDriveMode
+    *  \snippet Shunt_In_SUT.c usage_Shunt_In_SetDriveMode
     *******************************************************************************/
-    void Shunt_in_SetDriveMode(uint8 mode)
+    void Shunt_In_SetDriveMode(uint8 mode)
     {
-		Shunt_in_SetP4PinDriveMode(Shunt_in__0__SHIFT, mode);
+		Shunt_In_SetP4PinDriveMode(Shunt_In__0__SHIFT, mode);
     }
 #endif
 
 
 /*******************************************************************************
-* Function Name: Shunt_in_Write
+* Function Name: Shunt_In_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -106,18 +106,18 @@
 *  this function.
 *
 * \funcusage
-*  \snippet Shunt_in_SUT.c usage_Shunt_in_Write
+*  \snippet Shunt_In_SUT.c usage_Shunt_In_Write
 *******************************************************************************/
-void Shunt_in_Write(uint8 value)
+void Shunt_In_Write(uint8 value)
 {
-    uint8 drVal = (uint8)(Shunt_in_DR & (uint8)(~Shunt_in_MASK));
-    drVal = (drVal | ((uint8)(value << Shunt_in_SHIFT) & Shunt_in_MASK));
-    Shunt_in_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(Shunt_In_DR & (uint8)(~Shunt_In_MASK));
+    drVal = (drVal | ((uint8)(value << Shunt_In_SHIFT) & Shunt_In_MASK));
+    Shunt_In_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: Shunt_in_Read
+* Function Name: Shunt_In_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void Shunt_in_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet Shunt_in_SUT.c usage_Shunt_in_Read  
+*  \snippet Shunt_In_SUT.c usage_Shunt_In_Read  
 *******************************************************************************/
-uint8 Shunt_in_Read(void)
+uint8 Shunt_In_Read(void)
 {
-    return (uint8)((Shunt_in_PS & Shunt_in_MASK) >> Shunt_in_SHIFT);
+    return (uint8)((Shunt_In_PS & Shunt_In_MASK) >> Shunt_In_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: Shunt_in_ReadDataReg
+* Function Name: Shunt_In_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 Shunt_in_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred Shunt_in_Read() API because the 
-* Shunt_in_ReadDataReg() reads the data register instead of the status 
+* preferred Shunt_In_Read() API because the 
+* Shunt_In_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,16 +159,16 @@ uint8 Shunt_in_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet Shunt_in_SUT.c usage_Shunt_in_ReadDataReg 
+*  \snippet Shunt_In_SUT.c usage_Shunt_In_ReadDataReg 
 *******************************************************************************/
-uint8 Shunt_in_ReadDataReg(void)
+uint8 Shunt_In_ReadDataReg(void)
 {
-    return (uint8)((Shunt_in_DR & Shunt_in_MASK) >> Shunt_in_SHIFT);
+    return (uint8)((Shunt_In_DR & Shunt_In_MASK) >> Shunt_In_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: Shunt_in_SetInterruptMode
+* Function Name: Shunt_In_SetInterruptMode
 ****************************************************************************//**
 *
 * \brief Configures the interrupt mode for each of the Pins component's
@@ -181,12 +181,12 @@ uint8 Shunt_in_ReadDataReg(void)
 * \param position
 *  The pin position as listed in the Pins component. You may OR these to be 
 *  able to configure the interrupt mode of multiple pins within a Pins 
-*  component. Or you may use Shunt_in_INTR_ALL to configure the
+*  component. Or you may use Shunt_In_INTR_ALL to configure the
 *  interrupt mode of all the pins in the Pins component.       
-*  - Shunt_in_0_INTR       (First pin in the list)
-*  - Shunt_in_1_INTR       (Second pin in the list)
+*  - Shunt_In_0_INTR       (First pin in the list)
+*  - Shunt_In_1_INTR       (Second pin in the list)
 *  - ...
-*  - Shunt_in_INTR_ALL     (All pins in Pins component)
+*  - Shunt_In_INTR_ALL     (All pins in Pins component)
 *
 * \param mode
 *  Interrupt mode for the selected pins. Valid options are documented in
@@ -202,19 +202,19 @@ uint8 Shunt_in_ReadDataReg(void)
 *  port.
 *
 * \funcusage
-*  \snippet Shunt_in_SUT.c usage_Shunt_in_SetInterruptMode
+*  \snippet Shunt_In_SUT.c usage_Shunt_In_SetInterruptMode
 *******************************************************************************/
-void Shunt_in_SetInterruptMode(uint16 position, uint16 mode)
+void Shunt_In_SetInterruptMode(uint16 position, uint16 mode)
 {
     uint32 intrCfg;
     
-    intrCfg =  Shunt_in_INTCFG & (uint32)(~(uint32)position);
-    Shunt_in_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+    intrCfg =  Shunt_In_INTCFG & (uint32)(~(uint32)position);
+    Shunt_In_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
 }
 
 
 /*******************************************************************************
-* Function Name: Shunt_in_ClearInterrupt
+* Function Name: Shunt_In_ClearInterrupt
 ****************************************************************************//**
 *
 * \brief Clears any active interrupts attached with the component and returns 
@@ -231,13 +231,13 @@ void Shunt_in_SetInterruptMode(uint16 position, uint16 mode)
 *  those associated with the Pins component.
 *
 * \funcusage
-*  \snippet Shunt_in_SUT.c usage_Shunt_in_ClearInterrupt
+*  \snippet Shunt_In_SUT.c usage_Shunt_In_ClearInterrupt
 *******************************************************************************/
-uint8 Shunt_in_ClearInterrupt(void)
+uint8 Shunt_In_ClearInterrupt(void)
 {
-	uint8 maskedStatus = (uint8)(Shunt_in_INTSTAT & Shunt_in_MASK);
-	Shunt_in_INTSTAT = maskedStatus;
-    return maskedStatus >> Shunt_in_SHIFT;
+	uint8 maskedStatus = (uint8)(Shunt_In_INTSTAT & Shunt_In_MASK);
+	Shunt_In_INTSTAT = maskedStatus;
+    return maskedStatus >> Shunt_In_SHIFT;
 }
 
 

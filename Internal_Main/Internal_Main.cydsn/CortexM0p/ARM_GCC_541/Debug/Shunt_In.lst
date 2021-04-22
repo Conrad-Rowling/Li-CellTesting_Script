@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccrwTrAA.s 			page 1
 
 
    1              		.syntax unified
@@ -15,7 +15,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
   12              		.eabi_attribute 18, 4
   13              		.thumb
   14              		.syntax unified
-  15              		.file	"Shunt_in.c"
+  15              		.file	"Shunt_In.c"
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
@@ -27,90 +27,90 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
   24              		.type	Shunt_In_SetDriveMode, %function
   25              	Shunt_In_SetDriveMode:
   26              	.LFB0:
-  27              		.file 1 "Generated_Source\\PSoC4\\Shunt_in.c"
-   1:Generated_Source\PSoC4/Shunt_in.c **** /*******************************************************************************
-   2:Generated_Source\PSoC4/Shunt_in.c **** * File Name: Shunt_In.c  
-   3:Generated_Source\PSoC4/Shunt_in.c **** * Version 2.20
-   4:Generated_Source\PSoC4/Shunt_in.c **** *
-   5:Generated_Source\PSoC4/Shunt_in.c **** * Description:
-   6:Generated_Source\PSoC4/Shunt_in.c **** *  This file contains API to enable firmware control of a Pins component.
-   7:Generated_Source\PSoC4/Shunt_in.c **** *
-   8:Generated_Source\PSoC4/Shunt_in.c **** ********************************************************************************
-   9:Generated_Source\PSoC4/Shunt_in.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
-  10:Generated_Source\PSoC4/Shunt_in.c **** * You may use this file only in accordance with the license, terms, conditions, 
-  11:Generated_Source\PSoC4/Shunt_in.c **** * disclaimers, and limitations in the end user license agreement accompanying 
-  12:Generated_Source\PSoC4/Shunt_in.c **** * the software package with which this file was provided.
-  13:Generated_Source\PSoC4/Shunt_in.c **** *******************************************************************************/
-  14:Generated_Source\PSoC4/Shunt_in.c **** 
-  15:Generated_Source\PSoC4/Shunt_in.c **** #include "cytypes.h"
-  16:Generated_Source\PSoC4/Shunt_in.c **** #include "Shunt_In.h"
-  17:Generated_Source\PSoC4/Shunt_in.c **** 
-  18:Generated_Source\PSoC4/Shunt_in.c **** 
-  19:Generated_Source\PSoC4/Shunt_in.c **** #if defined(Shunt_In__PC)
-  20:Generated_Source\PSoC4/Shunt_in.c ****     #define Shunt_In_SetP4PinDriveMode(shift, mode)  \
-  21:Generated_Source\PSoC4/Shunt_in.c ****     do { \
-  22:Generated_Source\PSoC4/Shunt_in.c ****         Shunt_In_PC =   (Shunt_In_PC & \
-  23:Generated_Source\PSoC4/Shunt_in.c ****                                 (uint32)(~(uint32)(Shunt_In_DRIVE_MODE_IND_MASK << \
-  24:Generated_Source\PSoC4/Shunt_in.c ****                                 (Shunt_In_DRIVE_MODE_BITS * (shift))))) | \
-  25:Generated_Source\PSoC4/Shunt_in.c ****                                 (uint32)((uint32)(mode) << \
-  26:Generated_Source\PSoC4/Shunt_in.c ****                                 (Shunt_In_DRIVE_MODE_BITS * (shift))); \
-  27:Generated_Source\PSoC4/Shunt_in.c ****     } while (0)
-  28:Generated_Source\PSoC4/Shunt_in.c **** #else
-  29:Generated_Source\PSoC4/Shunt_in.c ****     #if (CY_PSOC4_4200L)
-  30:Generated_Source\PSoC4/Shunt_in.c ****         #define Shunt_In_SetP4PinDriveMode(shift, mode)  \
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 2
+  27              		.file 1 "Generated_Source\\PSoC4\\Shunt_In.c"
+   1:Generated_Source\PSoC4/Shunt_In.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/Shunt_In.c **** * File Name: Shunt_In.c  
+   3:Generated_Source\PSoC4/Shunt_In.c **** * Version 2.20
+   4:Generated_Source\PSoC4/Shunt_In.c **** *
+   5:Generated_Source\PSoC4/Shunt_In.c **** * Description:
+   6:Generated_Source\PSoC4/Shunt_In.c **** *  This file contains API to enable firmware control of a Pins component.
+   7:Generated_Source\PSoC4/Shunt_In.c **** *
+   8:Generated_Source\PSoC4/Shunt_In.c **** ********************************************************************************
+   9:Generated_Source\PSoC4/Shunt_In.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  10:Generated_Source\PSoC4/Shunt_In.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  11:Generated_Source\PSoC4/Shunt_In.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  12:Generated_Source\PSoC4/Shunt_In.c **** * the software package with which this file was provided.
+  13:Generated_Source\PSoC4/Shunt_In.c **** *******************************************************************************/
+  14:Generated_Source\PSoC4/Shunt_In.c **** 
+  15:Generated_Source\PSoC4/Shunt_In.c **** #include "cytypes.h"
+  16:Generated_Source\PSoC4/Shunt_In.c **** #include "Shunt_In.h"
+  17:Generated_Source\PSoC4/Shunt_In.c **** 
+  18:Generated_Source\PSoC4/Shunt_In.c **** 
+  19:Generated_Source\PSoC4/Shunt_In.c **** #if defined(Shunt_In__PC)
+  20:Generated_Source\PSoC4/Shunt_In.c ****     #define Shunt_In_SetP4PinDriveMode(shift, mode)  \
+  21:Generated_Source\PSoC4/Shunt_In.c ****     do { \
+  22:Generated_Source\PSoC4/Shunt_In.c ****         Shunt_In_PC =   (Shunt_In_PC & \
+  23:Generated_Source\PSoC4/Shunt_In.c ****                                 (uint32)(~(uint32)(Shunt_In_DRIVE_MODE_IND_MASK << \
+  24:Generated_Source\PSoC4/Shunt_In.c ****                                 (Shunt_In_DRIVE_MODE_BITS * (shift))))) | \
+  25:Generated_Source\PSoC4/Shunt_In.c ****                                 (uint32)((uint32)(mode) << \
+  26:Generated_Source\PSoC4/Shunt_In.c ****                                 (Shunt_In_DRIVE_MODE_BITS * (shift))); \
+  27:Generated_Source\PSoC4/Shunt_In.c ****     } while (0)
+  28:Generated_Source\PSoC4/Shunt_In.c **** #else
+  29:Generated_Source\PSoC4/Shunt_In.c ****     #if (CY_PSOC4_4200L)
+  30:Generated_Source\PSoC4/Shunt_In.c ****         #define Shunt_In_SetP4PinDriveMode(shift, mode)  \
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccrwTrAA.s 			page 2
 
 
-  31:Generated_Source\PSoC4/Shunt_in.c ****         do { \
-  32:Generated_Source\PSoC4/Shunt_in.c ****             Shunt_In_USBIO_CTRL_REG = (Shunt_In_USBIO_CTRL_REG & \
-  33:Generated_Source\PSoC4/Shunt_in.c ****                                     (uint32)(~(uint32)(Shunt_In_DRIVE_MODE_IND_MASK << \
-  34:Generated_Source\PSoC4/Shunt_in.c ****                                     (Shunt_In_DRIVE_MODE_BITS * (shift))))) | \
-  35:Generated_Source\PSoC4/Shunt_in.c ****                                     (uint32)((uint32)(mode) << \
-  36:Generated_Source\PSoC4/Shunt_in.c ****                                     (Shunt_In_DRIVE_MODE_BITS * (shift))); \
-  37:Generated_Source\PSoC4/Shunt_in.c ****         } while (0)
-  38:Generated_Source\PSoC4/Shunt_in.c ****     #endif
-  39:Generated_Source\PSoC4/Shunt_in.c **** #endif
-  40:Generated_Source\PSoC4/Shunt_in.c ****   
-  41:Generated_Source\PSoC4/Shunt_in.c **** 
-  42:Generated_Source\PSoC4/Shunt_in.c **** #if defined(Shunt_In__PC) || (CY_PSOC4_4200L) 
-  43:Generated_Source\PSoC4/Shunt_in.c ****     /*******************************************************************************
-  44:Generated_Source\PSoC4/Shunt_in.c ****     * Function Name: Shunt_In_SetDriveMode
-  45:Generated_Source\PSoC4/Shunt_in.c ****     ****************************************************************************//**
-  46:Generated_Source\PSoC4/Shunt_in.c ****     *
-  47:Generated_Source\PSoC4/Shunt_in.c ****     * \brief Sets the drive mode for each of the Pins component's pins.
-  48:Generated_Source\PSoC4/Shunt_in.c ****     * 
-  49:Generated_Source\PSoC4/Shunt_in.c ****     * <b>Note</b> This affects all pins in the Pins component instance. Use the
-  50:Generated_Source\PSoC4/Shunt_in.c ****     * Per-Pin APIs if you wish to control individual pin's drive modes.
-  51:Generated_Source\PSoC4/Shunt_in.c ****     *
-  52:Generated_Source\PSoC4/Shunt_in.c ****     * <b>Note</b> USBIOs have limited drive functionality. Refer to the Drive Mode
-  53:Generated_Source\PSoC4/Shunt_in.c ****     * parameter for more information.
-  54:Generated_Source\PSoC4/Shunt_in.c ****     *
-  55:Generated_Source\PSoC4/Shunt_in.c ****     * \param mode
-  56:Generated_Source\PSoC4/Shunt_in.c ****     *  Mode for the selected signals. Valid options are documented in 
-  57:Generated_Source\PSoC4/Shunt_in.c ****     *  \ref driveMode.
-  58:Generated_Source\PSoC4/Shunt_in.c ****     *
-  59:Generated_Source\PSoC4/Shunt_in.c ****     * \return
-  60:Generated_Source\PSoC4/Shunt_in.c ****     *  None
-  61:Generated_Source\PSoC4/Shunt_in.c ****     *
-  62:Generated_Source\PSoC4/Shunt_in.c ****     * \sideeffect
-  63:Generated_Source\PSoC4/Shunt_in.c ****     *  If you use read-modify-write operations that are not atomic, the ISR can
-  64:Generated_Source\PSoC4/Shunt_in.c ****     *  cause corruption of this function. An ISR that interrupts this function 
-  65:Generated_Source\PSoC4/Shunt_in.c ****     *  and performs writes to the Pins component Drive Mode registers can cause 
-  66:Generated_Source\PSoC4/Shunt_in.c ****     *  corrupted port data. To avoid this issue, you should either use the Per-Pin
-  67:Generated_Source\PSoC4/Shunt_in.c ****     *  APIs (primary method) or disable interrupts around this function.
-  68:Generated_Source\PSoC4/Shunt_in.c ****     *
-  69:Generated_Source\PSoC4/Shunt_in.c ****     * \funcusage
-  70:Generated_Source\PSoC4/Shunt_in.c ****     *  \snippet Shunt_In_SUT.c usage_Shunt_In_SetDriveMode
-  71:Generated_Source\PSoC4/Shunt_in.c ****     *******************************************************************************/
-  72:Generated_Source\PSoC4/Shunt_in.c ****     void Shunt_In_SetDriveMode(uint8 mode)
-  73:Generated_Source\PSoC4/Shunt_in.c ****     {
+  31:Generated_Source\PSoC4/Shunt_In.c ****         do { \
+  32:Generated_Source\PSoC4/Shunt_In.c ****             Shunt_In_USBIO_CTRL_REG = (Shunt_In_USBIO_CTRL_REG & \
+  33:Generated_Source\PSoC4/Shunt_In.c ****                                     (uint32)(~(uint32)(Shunt_In_DRIVE_MODE_IND_MASK << \
+  34:Generated_Source\PSoC4/Shunt_In.c ****                                     (Shunt_In_DRIVE_MODE_BITS * (shift))))) | \
+  35:Generated_Source\PSoC4/Shunt_In.c ****                                     (uint32)((uint32)(mode) << \
+  36:Generated_Source\PSoC4/Shunt_In.c ****                                     (Shunt_In_DRIVE_MODE_BITS * (shift))); \
+  37:Generated_Source\PSoC4/Shunt_In.c ****         } while (0)
+  38:Generated_Source\PSoC4/Shunt_In.c ****     #endif
+  39:Generated_Source\PSoC4/Shunt_In.c **** #endif
+  40:Generated_Source\PSoC4/Shunt_In.c ****   
+  41:Generated_Source\PSoC4/Shunt_In.c **** 
+  42:Generated_Source\PSoC4/Shunt_In.c **** #if defined(Shunt_In__PC) || (CY_PSOC4_4200L) 
+  43:Generated_Source\PSoC4/Shunt_In.c ****     /*******************************************************************************
+  44:Generated_Source\PSoC4/Shunt_In.c ****     * Function Name: Shunt_In_SetDriveMode
+  45:Generated_Source\PSoC4/Shunt_In.c ****     ****************************************************************************//**
+  46:Generated_Source\PSoC4/Shunt_In.c ****     *
+  47:Generated_Source\PSoC4/Shunt_In.c ****     * \brief Sets the drive mode for each of the Pins component's pins.
+  48:Generated_Source\PSoC4/Shunt_In.c ****     * 
+  49:Generated_Source\PSoC4/Shunt_In.c ****     * <b>Note</b> This affects all pins in the Pins component instance. Use the
+  50:Generated_Source\PSoC4/Shunt_In.c ****     * Per-Pin APIs if you wish to control individual pin's drive modes.
+  51:Generated_Source\PSoC4/Shunt_In.c ****     *
+  52:Generated_Source\PSoC4/Shunt_In.c ****     * <b>Note</b> USBIOs have limited drive functionality. Refer to the Drive Mode
+  53:Generated_Source\PSoC4/Shunt_In.c ****     * parameter for more information.
+  54:Generated_Source\PSoC4/Shunt_In.c ****     *
+  55:Generated_Source\PSoC4/Shunt_In.c ****     * \param mode
+  56:Generated_Source\PSoC4/Shunt_In.c ****     *  Mode for the selected signals. Valid options are documented in 
+  57:Generated_Source\PSoC4/Shunt_In.c ****     *  \ref driveMode.
+  58:Generated_Source\PSoC4/Shunt_In.c ****     *
+  59:Generated_Source\PSoC4/Shunt_In.c ****     * \return
+  60:Generated_Source\PSoC4/Shunt_In.c ****     *  None
+  61:Generated_Source\PSoC4/Shunt_In.c ****     *
+  62:Generated_Source\PSoC4/Shunt_In.c ****     * \sideeffect
+  63:Generated_Source\PSoC4/Shunt_In.c ****     *  If you use read-modify-write operations that are not atomic, the ISR can
+  64:Generated_Source\PSoC4/Shunt_In.c ****     *  cause corruption of this function. An ISR that interrupts this function 
+  65:Generated_Source\PSoC4/Shunt_In.c ****     *  and performs writes to the Pins component Drive Mode registers can cause 
+  66:Generated_Source\PSoC4/Shunt_In.c ****     *  corrupted port data. To avoid this issue, you should either use the Per-Pin
+  67:Generated_Source\PSoC4/Shunt_In.c ****     *  APIs (primary method) or disable interrupts around this function.
+  68:Generated_Source\PSoC4/Shunt_In.c ****     *
+  69:Generated_Source\PSoC4/Shunt_In.c ****     * \funcusage
+  70:Generated_Source\PSoC4/Shunt_In.c ****     *  \snippet Shunt_In_SUT.c usage_Shunt_In_SetDriveMode
+  71:Generated_Source\PSoC4/Shunt_In.c ****     *******************************************************************************/
+  72:Generated_Source\PSoC4/Shunt_In.c ****     void Shunt_In_SetDriveMode(uint8 mode)
+  73:Generated_Source\PSoC4/Shunt_In.c ****     {
   28              		.loc 1 73 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
   33              	.LVL0:
-  74:Generated_Source\PSoC4/Shunt_in.c **** 		Shunt_In_SetP4PinDriveMode(Shunt_In__0__SHIFT, mode);
+  74:Generated_Source\PSoC4/Shunt_In.c **** 		Shunt_In_SetP4PinDriveMode(Shunt_In__0__SHIFT, mode);
   34              		.loc 1 74 0
   35 0000 034A     		ldr	r2, .L2
   36 0002 1168     		ldr	r1, [r2]
@@ -118,12 +118,12 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
   38 0006 0B40     		ands	r3, r1
   39 0008 C003     		lsls	r0, r0, #15
   40              	.LVL1:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 3
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccrwTrAA.s 			page 3
 
 
   41 000a 1843     		orrs	r0, r3
   42 000c 1060     		str	r0, [r2]
-  75:Generated_Source\PSoC4/Shunt_in.c ****     }
+  75:Generated_Source\PSoC4/Shunt_In.c ****     }
   43              		.loc 1 75 0
   44              		@ sp needed
   45 000e 7047     		bx	lr
@@ -143,53 +143,53 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
   59              		.type	Shunt_In_Write, %function
   60              	Shunt_In_Write:
   61              	.LFB1:
-  76:Generated_Source\PSoC4/Shunt_in.c **** #endif
-  77:Generated_Source\PSoC4/Shunt_in.c **** 
-  78:Generated_Source\PSoC4/Shunt_in.c **** 
-  79:Generated_Source\PSoC4/Shunt_in.c **** /*******************************************************************************
-  80:Generated_Source\PSoC4/Shunt_in.c **** * Function Name: Shunt_In_Write
-  81:Generated_Source\PSoC4/Shunt_in.c **** ****************************************************************************//**
-  82:Generated_Source\PSoC4/Shunt_in.c **** *
-  83:Generated_Source\PSoC4/Shunt_in.c **** * \brief Writes the value to the physical port (data output register), masking
-  84:Generated_Source\PSoC4/Shunt_in.c **** *  and shifting the bits appropriately. 
-  85:Generated_Source\PSoC4/Shunt_in.c **** *
-  86:Generated_Source\PSoC4/Shunt_in.c **** * The data output register controls the signal applied to the physical pin in 
-  87:Generated_Source\PSoC4/Shunt_in.c **** * conjunction with the drive mode parameter. This function avoids changing 
-  88:Generated_Source\PSoC4/Shunt_in.c **** * other bits in the port by using the appropriate method (read-modify-write or
-  89:Generated_Source\PSoC4/Shunt_in.c **** * bit banding).
-  90:Generated_Source\PSoC4/Shunt_in.c **** *
-  91:Generated_Source\PSoC4/Shunt_in.c **** * <b>Note</b> This function should not be used on a hardware digital output pin 
-  92:Generated_Source\PSoC4/Shunt_in.c **** * as it is driven by the hardware signal attached to it.
-  93:Generated_Source\PSoC4/Shunt_in.c **** *
-  94:Generated_Source\PSoC4/Shunt_in.c **** * \param value
-  95:Generated_Source\PSoC4/Shunt_in.c **** *  Value to write to the component instance.
-  96:Generated_Source\PSoC4/Shunt_in.c **** *
-  97:Generated_Source\PSoC4/Shunt_in.c **** * \return 
-  98:Generated_Source\PSoC4/Shunt_in.c **** *  None 
-  99:Generated_Source\PSoC4/Shunt_in.c **** *
- 100:Generated_Source\PSoC4/Shunt_in.c **** * \sideeffect
- 101:Generated_Source\PSoC4/Shunt_in.c **** *  If you use read-modify-write operations that are not atomic; the Interrupt 
- 102:Generated_Source\PSoC4/Shunt_in.c **** *  Service Routines (ISR) can cause corruption of this function. An ISR that 
- 103:Generated_Source\PSoC4/Shunt_in.c **** *  interrupts this function and performs writes to the Pins component data 
- 104:Generated_Source\PSoC4/Shunt_in.c **** *  register can cause corrupted port data. To avoid this issue, you should 
- 105:Generated_Source\PSoC4/Shunt_in.c **** *  either use the Per-Pin APIs (primary method) or disable interrupts around 
- 106:Generated_Source\PSoC4/Shunt_in.c **** *  this function.
- 107:Generated_Source\PSoC4/Shunt_in.c **** *
- 108:Generated_Source\PSoC4/Shunt_in.c **** * \funcusage
- 109:Generated_Source\PSoC4/Shunt_in.c **** *  \snippet Shunt_In_SUT.c usage_Shunt_In_Write
- 110:Generated_Source\PSoC4/Shunt_in.c **** *******************************************************************************/
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 4
+  76:Generated_Source\PSoC4/Shunt_In.c **** #endif
+  77:Generated_Source\PSoC4/Shunt_In.c **** 
+  78:Generated_Source\PSoC4/Shunt_In.c **** 
+  79:Generated_Source\PSoC4/Shunt_In.c **** /*******************************************************************************
+  80:Generated_Source\PSoC4/Shunt_In.c **** * Function Name: Shunt_In_Write
+  81:Generated_Source\PSoC4/Shunt_In.c **** ****************************************************************************//**
+  82:Generated_Source\PSoC4/Shunt_In.c **** *
+  83:Generated_Source\PSoC4/Shunt_In.c **** * \brief Writes the value to the physical port (data output register), masking
+  84:Generated_Source\PSoC4/Shunt_In.c **** *  and shifting the bits appropriately. 
+  85:Generated_Source\PSoC4/Shunt_In.c **** *
+  86:Generated_Source\PSoC4/Shunt_In.c **** * The data output register controls the signal applied to the physical pin in 
+  87:Generated_Source\PSoC4/Shunt_In.c **** * conjunction with the drive mode parameter. This function avoids changing 
+  88:Generated_Source\PSoC4/Shunt_In.c **** * other bits in the port by using the appropriate method (read-modify-write or
+  89:Generated_Source\PSoC4/Shunt_In.c **** * bit banding).
+  90:Generated_Source\PSoC4/Shunt_In.c **** *
+  91:Generated_Source\PSoC4/Shunt_In.c **** * <b>Note</b> This function should not be used on a hardware digital output pin 
+  92:Generated_Source\PSoC4/Shunt_In.c **** * as it is driven by the hardware signal attached to it.
+  93:Generated_Source\PSoC4/Shunt_In.c **** *
+  94:Generated_Source\PSoC4/Shunt_In.c **** * \param value
+  95:Generated_Source\PSoC4/Shunt_In.c **** *  Value to write to the component instance.
+  96:Generated_Source\PSoC4/Shunt_In.c **** *
+  97:Generated_Source\PSoC4/Shunt_In.c **** * \return 
+  98:Generated_Source\PSoC4/Shunt_In.c **** *  None 
+  99:Generated_Source\PSoC4/Shunt_In.c **** *
+ 100:Generated_Source\PSoC4/Shunt_In.c **** * \sideeffect
+ 101:Generated_Source\PSoC4/Shunt_In.c **** *  If you use read-modify-write operations that are not atomic; the Interrupt 
+ 102:Generated_Source\PSoC4/Shunt_In.c **** *  Service Routines (ISR) can cause corruption of this function. An ISR that 
+ 103:Generated_Source\PSoC4/Shunt_In.c **** *  interrupts this function and performs writes to the Pins component data 
+ 104:Generated_Source\PSoC4/Shunt_In.c **** *  register can cause corrupted port data. To avoid this issue, you should 
+ 105:Generated_Source\PSoC4/Shunt_In.c **** *  either use the Per-Pin APIs (primary method) or disable interrupts around 
+ 106:Generated_Source\PSoC4/Shunt_In.c **** *  this function.
+ 107:Generated_Source\PSoC4/Shunt_In.c **** *
+ 108:Generated_Source\PSoC4/Shunt_In.c **** * \funcusage
+ 109:Generated_Source\PSoC4/Shunt_In.c **** *  \snippet Shunt_In_SUT.c usage_Shunt_In_Write
+ 110:Generated_Source\PSoC4/Shunt_In.c **** *******************************************************************************/
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccrwTrAA.s 			page 4
 
 
- 111:Generated_Source\PSoC4/Shunt_in.c **** void Shunt_In_Write(uint8 value)
- 112:Generated_Source\PSoC4/Shunt_in.c **** {
+ 111:Generated_Source\PSoC4/Shunt_In.c **** void Shunt_In_Write(uint8 value)
+ 112:Generated_Source\PSoC4/Shunt_In.c **** {
   62              		.loc 1 112 0
   63              		.cfi_startproc
   64              		@ args = 0, pretend = 0, frame = 0
   65              		@ frame_needed = 0, uses_anonymous_args = 0
   66              		@ link register save eliminated.
   67              	.LVL2:
- 113:Generated_Source\PSoC4/Shunt_in.c ****     uint8 drVal = (uint8)(Shunt_In_DR & (uint8)(~Shunt_In_MASK));
+ 113:Generated_Source\PSoC4/Shunt_In.c ****     uint8 drVal = (uint8)(Shunt_In_DR & (uint8)(~Shunt_In_MASK));
   68              		.loc 1 113 0
   69 0000 0449     		ldr	r1, .L5
   70 0002 0A68     		ldr	r2, [r1]
@@ -197,17 +197,17 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
   72 0006 2023     		movs	r3, #32
   73 0008 9A43     		bics	r2, r3
   74              	.LVL3:
- 114:Generated_Source\PSoC4/Shunt_in.c ****     drVal = (drVal | ((uint8)(value << Shunt_In_SHIFT) & Shunt_In_MASK));
+ 114:Generated_Source\PSoC4/Shunt_In.c ****     drVal = (drVal | ((uint8)(value << Shunt_In_SHIFT) & Shunt_In_MASK));
   75              		.loc 1 114 0
   76 000a 4001     		lsls	r0, r0, #5
   77              	.LVL4:
   78 000c 1840     		ands	r0, r3
   79 000e 1043     		orrs	r0, r2
   80              	.LVL5:
- 115:Generated_Source\PSoC4/Shunt_in.c ****     Shunt_In_DR = (uint32)drVal;
+ 115:Generated_Source\PSoC4/Shunt_In.c ****     Shunt_In_DR = (uint32)drVal;
   81              		.loc 1 115 0
   82 0010 0860     		str	r0, [r1]
- 116:Generated_Source\PSoC4/Shunt_in.c **** }
+ 116:Generated_Source\PSoC4/Shunt_In.c **** }
   83              		.loc 1 116 0
   84              		@ sp needed
   85 0012 7047     		bx	lr
@@ -226,43 +226,43 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
   98              		.type	Shunt_In_Read, %function
   99              	Shunt_In_Read:
  100              	.LFB2:
- 117:Generated_Source\PSoC4/Shunt_in.c **** 
- 118:Generated_Source\PSoC4/Shunt_in.c **** 
- 119:Generated_Source\PSoC4/Shunt_in.c **** /*******************************************************************************
- 120:Generated_Source\PSoC4/Shunt_in.c **** * Function Name: Shunt_In_Read
- 121:Generated_Source\PSoC4/Shunt_in.c **** ****************************************************************************//**
- 122:Generated_Source\PSoC4/Shunt_in.c **** *
- 123:Generated_Source\PSoC4/Shunt_in.c **** * \brief Reads the associated physical port (pin status register) and masks 
- 124:Generated_Source\PSoC4/Shunt_in.c **** *  the required bits according to the width and bit position of the component
- 125:Generated_Source\PSoC4/Shunt_in.c **** *  instance. 
- 126:Generated_Source\PSoC4/Shunt_in.c **** *
- 127:Generated_Source\PSoC4/Shunt_in.c **** * The pin's status register returns the current logic level present on the 
- 128:Generated_Source\PSoC4/Shunt_in.c **** * physical pin.
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 5
+ 117:Generated_Source\PSoC4/Shunt_In.c **** 
+ 118:Generated_Source\PSoC4/Shunt_In.c **** 
+ 119:Generated_Source\PSoC4/Shunt_In.c **** /*******************************************************************************
+ 120:Generated_Source\PSoC4/Shunt_In.c **** * Function Name: Shunt_In_Read
+ 121:Generated_Source\PSoC4/Shunt_In.c **** ****************************************************************************//**
+ 122:Generated_Source\PSoC4/Shunt_In.c **** *
+ 123:Generated_Source\PSoC4/Shunt_In.c **** * \brief Reads the associated physical port (pin status register) and masks 
+ 124:Generated_Source\PSoC4/Shunt_In.c **** *  the required bits according to the width and bit position of the component
+ 125:Generated_Source\PSoC4/Shunt_In.c **** *  instance. 
+ 126:Generated_Source\PSoC4/Shunt_In.c **** *
+ 127:Generated_Source\PSoC4/Shunt_In.c **** * The pin's status register returns the current logic level present on the 
+ 128:Generated_Source\PSoC4/Shunt_In.c **** * physical pin.
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccrwTrAA.s 			page 5
 
 
- 129:Generated_Source\PSoC4/Shunt_in.c **** *
- 130:Generated_Source\PSoC4/Shunt_in.c **** * \return 
- 131:Generated_Source\PSoC4/Shunt_in.c **** *  The current value for the pins in the component as a right justified number.
- 132:Generated_Source\PSoC4/Shunt_in.c **** *
- 133:Generated_Source\PSoC4/Shunt_in.c **** * \funcusage
- 134:Generated_Source\PSoC4/Shunt_in.c **** *  \snippet Shunt_In_SUT.c usage_Shunt_In_Read  
- 135:Generated_Source\PSoC4/Shunt_in.c **** *******************************************************************************/
- 136:Generated_Source\PSoC4/Shunt_in.c **** uint8 Shunt_In_Read(void)
- 137:Generated_Source\PSoC4/Shunt_in.c **** {
+ 129:Generated_Source\PSoC4/Shunt_In.c **** *
+ 130:Generated_Source\PSoC4/Shunt_In.c **** * \return 
+ 131:Generated_Source\PSoC4/Shunt_In.c **** *  The current value for the pins in the component as a right justified number.
+ 132:Generated_Source\PSoC4/Shunt_In.c **** *
+ 133:Generated_Source\PSoC4/Shunt_In.c **** * \funcusage
+ 134:Generated_Source\PSoC4/Shunt_In.c **** *  \snippet Shunt_In_SUT.c usage_Shunt_In_Read  
+ 135:Generated_Source\PSoC4/Shunt_In.c **** *******************************************************************************/
+ 136:Generated_Source\PSoC4/Shunt_In.c **** uint8 Shunt_In_Read(void)
+ 137:Generated_Source\PSoC4/Shunt_In.c **** {
  101              		.loc 1 137 0
  102              		.cfi_startproc
  103              		@ args = 0, pretend = 0, frame = 0
  104              		@ frame_needed = 0, uses_anonymous_args = 0
  105              		@ link register save eliminated.
- 138:Generated_Source\PSoC4/Shunt_in.c ****     return (uint8)((Shunt_In_PS & Shunt_In_MASK) >> Shunt_In_SHIFT);
+ 138:Generated_Source\PSoC4/Shunt_In.c ****     return (uint8)((Shunt_In_PS & Shunt_In_MASK) >> Shunt_In_SHIFT);
  106              		.loc 1 138 0
  107 0000 024B     		ldr	r3, .L8
  108 0002 1868     		ldr	r0, [r3]
  109 0004 4009     		lsrs	r0, r0, #5
  110 0006 0123     		movs	r3, #1
  111 0008 1840     		ands	r0, r3
- 139:Generated_Source\PSoC4/Shunt_in.c **** }
+ 139:Generated_Source\PSoC4/Shunt_In.c **** }
  112              		.loc 1 139 0
  113              		@ sp needed
  114 000a 7047     		bx	lr
@@ -281,48 +281,48 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
  127              		.type	Shunt_In_ReadDataReg, %function
  128              	Shunt_In_ReadDataReg:
  129              	.LFB3:
- 140:Generated_Source\PSoC4/Shunt_in.c **** 
- 141:Generated_Source\PSoC4/Shunt_in.c **** 
- 142:Generated_Source\PSoC4/Shunt_in.c **** /*******************************************************************************
- 143:Generated_Source\PSoC4/Shunt_in.c **** * Function Name: Shunt_In_ReadDataReg
- 144:Generated_Source\PSoC4/Shunt_in.c **** ****************************************************************************//**
- 145:Generated_Source\PSoC4/Shunt_in.c **** *
- 146:Generated_Source\PSoC4/Shunt_in.c **** * \brief Reads the associated physical port's data output register and masks 
- 147:Generated_Source\PSoC4/Shunt_in.c **** *  the correct bits according to the width and bit position of the component 
- 148:Generated_Source\PSoC4/Shunt_in.c **** *  instance. 
- 149:Generated_Source\PSoC4/Shunt_in.c **** *
- 150:Generated_Source\PSoC4/Shunt_in.c **** * The data output register controls the signal applied to the physical pin in 
- 151:Generated_Source\PSoC4/Shunt_in.c **** * conjunction with the drive mode parameter. This is not the same as the 
- 152:Generated_Source\PSoC4/Shunt_in.c **** * preferred Shunt_In_Read() API because the 
- 153:Generated_Source\PSoC4/Shunt_in.c **** * Shunt_In_ReadDataReg() reads the data register instead of the status 
- 154:Generated_Source\PSoC4/Shunt_in.c **** * register. For output pins this is a useful function to determine the value 
- 155:Generated_Source\PSoC4/Shunt_in.c **** * just written to the pin.
- 156:Generated_Source\PSoC4/Shunt_in.c **** *
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 6
+ 140:Generated_Source\PSoC4/Shunt_In.c **** 
+ 141:Generated_Source\PSoC4/Shunt_In.c **** 
+ 142:Generated_Source\PSoC4/Shunt_In.c **** /*******************************************************************************
+ 143:Generated_Source\PSoC4/Shunt_In.c **** * Function Name: Shunt_In_ReadDataReg
+ 144:Generated_Source\PSoC4/Shunt_In.c **** ****************************************************************************//**
+ 145:Generated_Source\PSoC4/Shunt_In.c **** *
+ 146:Generated_Source\PSoC4/Shunt_In.c **** * \brief Reads the associated physical port's data output register and masks 
+ 147:Generated_Source\PSoC4/Shunt_In.c **** *  the correct bits according to the width and bit position of the component 
+ 148:Generated_Source\PSoC4/Shunt_In.c **** *  instance. 
+ 149:Generated_Source\PSoC4/Shunt_In.c **** *
+ 150:Generated_Source\PSoC4/Shunt_In.c **** * The data output register controls the signal applied to the physical pin in 
+ 151:Generated_Source\PSoC4/Shunt_In.c **** * conjunction with the drive mode parameter. This is not the same as the 
+ 152:Generated_Source\PSoC4/Shunt_In.c **** * preferred Shunt_In_Read() API because the 
+ 153:Generated_Source\PSoC4/Shunt_In.c **** * Shunt_In_ReadDataReg() reads the data register instead of the status 
+ 154:Generated_Source\PSoC4/Shunt_In.c **** * register. For output pins this is a useful function to determine the value 
+ 155:Generated_Source\PSoC4/Shunt_In.c **** * just written to the pin.
+ 156:Generated_Source\PSoC4/Shunt_In.c **** *
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccrwTrAA.s 			page 6
 
 
- 157:Generated_Source\PSoC4/Shunt_in.c **** * \return 
- 158:Generated_Source\PSoC4/Shunt_in.c **** *  The current value of the data register masked and shifted into a right 
- 159:Generated_Source\PSoC4/Shunt_in.c **** *  justified number for the component instance.
- 160:Generated_Source\PSoC4/Shunt_in.c **** *
- 161:Generated_Source\PSoC4/Shunt_in.c **** * \funcusage
- 162:Generated_Source\PSoC4/Shunt_in.c **** *  \snippet Shunt_In_SUT.c usage_Shunt_In_ReadDataReg 
- 163:Generated_Source\PSoC4/Shunt_in.c **** *******************************************************************************/
- 164:Generated_Source\PSoC4/Shunt_in.c **** uint8 Shunt_In_ReadDataReg(void)
- 165:Generated_Source\PSoC4/Shunt_in.c **** {
+ 157:Generated_Source\PSoC4/Shunt_In.c **** * \return 
+ 158:Generated_Source\PSoC4/Shunt_In.c **** *  The current value of the data register masked and shifted into a right 
+ 159:Generated_Source\PSoC4/Shunt_In.c **** *  justified number for the component instance.
+ 160:Generated_Source\PSoC4/Shunt_In.c **** *
+ 161:Generated_Source\PSoC4/Shunt_In.c **** * \funcusage
+ 162:Generated_Source\PSoC4/Shunt_In.c **** *  \snippet Shunt_In_SUT.c usage_Shunt_In_ReadDataReg 
+ 163:Generated_Source\PSoC4/Shunt_In.c **** *******************************************************************************/
+ 164:Generated_Source\PSoC4/Shunt_In.c **** uint8 Shunt_In_ReadDataReg(void)
+ 165:Generated_Source\PSoC4/Shunt_In.c **** {
  130              		.loc 1 165 0
  131              		.cfi_startproc
  132              		@ args = 0, pretend = 0, frame = 0
  133              		@ frame_needed = 0, uses_anonymous_args = 0
  134              		@ link register save eliminated.
- 166:Generated_Source\PSoC4/Shunt_in.c ****     return (uint8)((Shunt_In_DR & Shunt_In_MASK) >> Shunt_In_SHIFT);
+ 166:Generated_Source\PSoC4/Shunt_In.c ****     return (uint8)((Shunt_In_DR & Shunt_In_MASK) >> Shunt_In_SHIFT);
  135              		.loc 1 166 0
  136 0000 024B     		ldr	r3, .L11
  137 0002 1868     		ldr	r0, [r3]
  138 0004 4009     		lsrs	r0, r0, #5
  139 0006 0123     		movs	r3, #1
  140 0008 1840     		ands	r0, r3
- 167:Generated_Source\PSoC4/Shunt_in.c **** }
+ 167:Generated_Source\PSoC4/Shunt_In.c **** }
  141              		.loc 1 167 0
  142              		@ sp needed
  143 000a 7047     		bx	lr
@@ -341,71 +341,71 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
  156              		.type	Shunt_In_SetInterruptMode, %function
  157              	Shunt_In_SetInterruptMode:
  158              	.LFB4:
- 168:Generated_Source\PSoC4/Shunt_in.c **** 
- 169:Generated_Source\PSoC4/Shunt_in.c **** 
- 170:Generated_Source\PSoC4/Shunt_in.c **** /*******************************************************************************
- 171:Generated_Source\PSoC4/Shunt_in.c **** * Function Name: Shunt_In_SetInterruptMode
- 172:Generated_Source\PSoC4/Shunt_in.c **** ****************************************************************************//**
- 173:Generated_Source\PSoC4/Shunt_in.c **** *
- 174:Generated_Source\PSoC4/Shunt_in.c **** * \brief Configures the interrupt mode for each of the Pins component's
- 175:Generated_Source\PSoC4/Shunt_in.c **** *  pins. Alternatively you may set the interrupt mode for all the pins
- 176:Generated_Source\PSoC4/Shunt_in.c **** *  specified in the Pins component.
- 177:Generated_Source\PSoC4/Shunt_in.c **** *
- 178:Generated_Source\PSoC4/Shunt_in.c **** *  <b>Note</b> The interrupt is port-wide and therefore any enabled pin
- 179:Generated_Source\PSoC4/Shunt_in.c **** *  interrupt may trigger it.
- 180:Generated_Source\PSoC4/Shunt_in.c **** *
- 181:Generated_Source\PSoC4/Shunt_in.c **** * \param position
- 182:Generated_Source\PSoC4/Shunt_in.c **** *  The pin position as listed in the Pins component. You may OR these to be 
- 183:Generated_Source\PSoC4/Shunt_in.c **** *  able to configure the interrupt mode of multiple pins within a Pins 
- 184:Generated_Source\PSoC4/Shunt_in.c **** *  component. Or you may use Shunt_In_INTR_ALL to configure the
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 7
+ 168:Generated_Source\PSoC4/Shunt_In.c **** 
+ 169:Generated_Source\PSoC4/Shunt_In.c **** 
+ 170:Generated_Source\PSoC4/Shunt_In.c **** /*******************************************************************************
+ 171:Generated_Source\PSoC4/Shunt_In.c **** * Function Name: Shunt_In_SetInterruptMode
+ 172:Generated_Source\PSoC4/Shunt_In.c **** ****************************************************************************//**
+ 173:Generated_Source\PSoC4/Shunt_In.c **** *
+ 174:Generated_Source\PSoC4/Shunt_In.c **** * \brief Configures the interrupt mode for each of the Pins component's
+ 175:Generated_Source\PSoC4/Shunt_In.c **** *  pins. Alternatively you may set the interrupt mode for all the pins
+ 176:Generated_Source\PSoC4/Shunt_In.c **** *  specified in the Pins component.
+ 177:Generated_Source\PSoC4/Shunt_In.c **** *
+ 178:Generated_Source\PSoC4/Shunt_In.c **** *  <b>Note</b> The interrupt is port-wide and therefore any enabled pin
+ 179:Generated_Source\PSoC4/Shunt_In.c **** *  interrupt may trigger it.
+ 180:Generated_Source\PSoC4/Shunt_In.c **** *
+ 181:Generated_Source\PSoC4/Shunt_In.c **** * \param position
+ 182:Generated_Source\PSoC4/Shunt_In.c **** *  The pin position as listed in the Pins component. You may OR these to be 
+ 183:Generated_Source\PSoC4/Shunt_In.c **** *  able to configure the interrupt mode of multiple pins within a Pins 
+ 184:Generated_Source\PSoC4/Shunt_In.c **** *  component. Or you may use Shunt_In_INTR_ALL to configure the
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccrwTrAA.s 			page 7
 
 
- 185:Generated_Source\PSoC4/Shunt_in.c **** *  interrupt mode of all the pins in the Pins component.       
- 186:Generated_Source\PSoC4/Shunt_in.c **** *  - Shunt_In_0_INTR       (First pin in the list)
- 187:Generated_Source\PSoC4/Shunt_in.c **** *  - Shunt_In_1_INTR       (Second pin in the list)
- 188:Generated_Source\PSoC4/Shunt_in.c **** *  - ...
- 189:Generated_Source\PSoC4/Shunt_in.c **** *  - Shunt_In_INTR_ALL     (All pins in Pins component)
- 190:Generated_Source\PSoC4/Shunt_in.c **** *
- 191:Generated_Source\PSoC4/Shunt_in.c **** * \param mode
- 192:Generated_Source\PSoC4/Shunt_in.c **** *  Interrupt mode for the selected pins. Valid options are documented in
- 193:Generated_Source\PSoC4/Shunt_in.c **** *  \ref intrMode.
- 194:Generated_Source\PSoC4/Shunt_in.c **** *
- 195:Generated_Source\PSoC4/Shunt_in.c **** * \return 
- 196:Generated_Source\PSoC4/Shunt_in.c **** *  None
- 197:Generated_Source\PSoC4/Shunt_in.c **** *  
- 198:Generated_Source\PSoC4/Shunt_in.c **** * \sideeffect
- 199:Generated_Source\PSoC4/Shunt_in.c **** *  It is recommended that the interrupt be disabled before calling this 
- 200:Generated_Source\PSoC4/Shunt_in.c **** *  function to avoid unintended interrupt requests. Note that the interrupt
- 201:Generated_Source\PSoC4/Shunt_in.c **** *  type is port wide, and therefore will trigger for any enabled pin on the 
- 202:Generated_Source\PSoC4/Shunt_in.c **** *  port.
- 203:Generated_Source\PSoC4/Shunt_in.c **** *
- 204:Generated_Source\PSoC4/Shunt_in.c **** * \funcusage
- 205:Generated_Source\PSoC4/Shunt_in.c **** *  \snippet Shunt_In_SUT.c usage_Shunt_In_SetInterruptMode
- 206:Generated_Source\PSoC4/Shunt_in.c **** *******************************************************************************/
- 207:Generated_Source\PSoC4/Shunt_in.c **** void Shunt_In_SetInterruptMode(uint16 position, uint16 mode)
- 208:Generated_Source\PSoC4/Shunt_in.c **** {
+ 185:Generated_Source\PSoC4/Shunt_In.c **** *  interrupt mode of all the pins in the Pins component.       
+ 186:Generated_Source\PSoC4/Shunt_In.c **** *  - Shunt_In_0_INTR       (First pin in the list)
+ 187:Generated_Source\PSoC4/Shunt_In.c **** *  - Shunt_In_1_INTR       (Second pin in the list)
+ 188:Generated_Source\PSoC4/Shunt_In.c **** *  - ...
+ 189:Generated_Source\PSoC4/Shunt_In.c **** *  - Shunt_In_INTR_ALL     (All pins in Pins component)
+ 190:Generated_Source\PSoC4/Shunt_In.c **** *
+ 191:Generated_Source\PSoC4/Shunt_In.c **** * \param mode
+ 192:Generated_Source\PSoC4/Shunt_In.c **** *  Interrupt mode for the selected pins. Valid options are documented in
+ 193:Generated_Source\PSoC4/Shunt_In.c **** *  \ref intrMode.
+ 194:Generated_Source\PSoC4/Shunt_In.c **** *
+ 195:Generated_Source\PSoC4/Shunt_In.c **** * \return 
+ 196:Generated_Source\PSoC4/Shunt_In.c **** *  None
+ 197:Generated_Source\PSoC4/Shunt_In.c **** *  
+ 198:Generated_Source\PSoC4/Shunt_In.c **** * \sideeffect
+ 199:Generated_Source\PSoC4/Shunt_In.c **** *  It is recommended that the interrupt be disabled before calling this 
+ 200:Generated_Source\PSoC4/Shunt_In.c **** *  function to avoid unintended interrupt requests. Note that the interrupt
+ 201:Generated_Source\PSoC4/Shunt_In.c **** *  type is port wide, and therefore will trigger for any enabled pin on the 
+ 202:Generated_Source\PSoC4/Shunt_In.c **** *  port.
+ 203:Generated_Source\PSoC4/Shunt_In.c **** *
+ 204:Generated_Source\PSoC4/Shunt_In.c **** * \funcusage
+ 205:Generated_Source\PSoC4/Shunt_In.c **** *  \snippet Shunt_In_SUT.c usage_Shunt_In_SetInterruptMode
+ 206:Generated_Source\PSoC4/Shunt_In.c **** *******************************************************************************/
+ 207:Generated_Source\PSoC4/Shunt_In.c **** void Shunt_In_SetInterruptMode(uint16 position, uint16 mode)
+ 208:Generated_Source\PSoC4/Shunt_In.c **** {
  159              		.loc 1 208 0
  160              		.cfi_startproc
  161              		@ args = 0, pretend = 0, frame = 0
  162              		@ frame_needed = 0, uses_anonymous_args = 0
  163              		@ link register save eliminated.
  164              	.LVL6:
- 209:Generated_Source\PSoC4/Shunt_in.c ****     uint32 intrCfg;
- 210:Generated_Source\PSoC4/Shunt_in.c ****     
- 211:Generated_Source\PSoC4/Shunt_in.c ****     intrCfg =  Shunt_In_INTCFG & (uint32)(~(uint32)position);
+ 209:Generated_Source\PSoC4/Shunt_In.c ****     uint32 intrCfg;
+ 210:Generated_Source\PSoC4/Shunt_In.c ****     
+ 211:Generated_Source\PSoC4/Shunt_In.c ****     intrCfg =  Shunt_In_INTCFG & (uint32)(~(uint32)position);
  165              		.loc 1 211 0
  166 0000 034A     		ldr	r2, .L14
  167 0002 1368     		ldr	r3, [r2]
  168 0004 8343     		bics	r3, r0
  169              	.LVL7:
- 212:Generated_Source\PSoC4/Shunt_in.c ****     Shunt_In_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+ 212:Generated_Source\PSoC4/Shunt_In.c ****     Shunt_In_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
  170              		.loc 1 212 0
  171 0006 0840     		ands	r0, r1
  172              	.LVL8:
  173 0008 1843     		orrs	r0, r3
  174 000a 1060     		str	r0, [r2]
- 213:Generated_Source\PSoC4/Shunt_in.c **** }
+ 213:Generated_Source\PSoC4/Shunt_In.c **** }
  175              		.loc 1 213 0
  176              		@ sp needed
  177 000c 7047     		bx	lr
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
  184              		.size	Shunt_In_SetInterruptMode, .-Shunt_In_SetInterruptMode
  185              		.section	.text.Shunt_In_ClearInterrupt,"ax",%progbits
  186              		.align	2
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 8
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccrwTrAA.s 			page 8
 
 
  187              		.global	Shunt_In_ClearInterrupt
@@ -427,58 +427,58 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
  190              		.type	Shunt_In_ClearInterrupt, %function
  191              	Shunt_In_ClearInterrupt:
  192              	.LFB5:
- 214:Generated_Source\PSoC4/Shunt_in.c **** 
- 215:Generated_Source\PSoC4/Shunt_in.c **** 
- 216:Generated_Source\PSoC4/Shunt_in.c **** /*******************************************************************************
- 217:Generated_Source\PSoC4/Shunt_in.c **** * Function Name: Shunt_In_ClearInterrupt
- 218:Generated_Source\PSoC4/Shunt_in.c **** ****************************************************************************//**
- 219:Generated_Source\PSoC4/Shunt_in.c **** *
- 220:Generated_Source\PSoC4/Shunt_in.c **** * \brief Clears any active interrupts attached with the component and returns 
- 221:Generated_Source\PSoC4/Shunt_in.c **** *  the value of the interrupt status register allowing determination of which
- 222:Generated_Source\PSoC4/Shunt_in.c **** *  pins generated an interrupt event.
- 223:Generated_Source\PSoC4/Shunt_in.c **** *
- 224:Generated_Source\PSoC4/Shunt_in.c **** * \return 
- 225:Generated_Source\PSoC4/Shunt_in.c **** *  The right-shifted current value of the interrupt status register. Each pin 
- 226:Generated_Source\PSoC4/Shunt_in.c **** *  has one bit set if it generated an interrupt event. For example, bit 0 is 
- 227:Generated_Source\PSoC4/Shunt_in.c **** *  for pin 0 and bit 1 is for pin 1 of the Pins component.
- 228:Generated_Source\PSoC4/Shunt_in.c **** *  
- 229:Generated_Source\PSoC4/Shunt_in.c **** * \sideeffect
- 230:Generated_Source\PSoC4/Shunt_in.c **** *  Clears all bits of the physical port's interrupt status register, not just
- 231:Generated_Source\PSoC4/Shunt_in.c **** *  those associated with the Pins component.
- 232:Generated_Source\PSoC4/Shunt_in.c **** *
- 233:Generated_Source\PSoC4/Shunt_in.c **** * \funcusage
- 234:Generated_Source\PSoC4/Shunt_in.c **** *  \snippet Shunt_In_SUT.c usage_Shunt_In_ClearInterrupt
- 235:Generated_Source\PSoC4/Shunt_in.c **** *******************************************************************************/
- 236:Generated_Source\PSoC4/Shunt_in.c **** uint8 Shunt_In_ClearInterrupt(void)
- 237:Generated_Source\PSoC4/Shunt_in.c **** {
+ 214:Generated_Source\PSoC4/Shunt_In.c **** 
+ 215:Generated_Source\PSoC4/Shunt_In.c **** 
+ 216:Generated_Source\PSoC4/Shunt_In.c **** /*******************************************************************************
+ 217:Generated_Source\PSoC4/Shunt_In.c **** * Function Name: Shunt_In_ClearInterrupt
+ 218:Generated_Source\PSoC4/Shunt_In.c **** ****************************************************************************//**
+ 219:Generated_Source\PSoC4/Shunt_In.c **** *
+ 220:Generated_Source\PSoC4/Shunt_In.c **** * \brief Clears any active interrupts attached with the component and returns 
+ 221:Generated_Source\PSoC4/Shunt_In.c **** *  the value of the interrupt status register allowing determination of which
+ 222:Generated_Source\PSoC4/Shunt_In.c **** *  pins generated an interrupt event.
+ 223:Generated_Source\PSoC4/Shunt_In.c **** *
+ 224:Generated_Source\PSoC4/Shunt_In.c **** * \return 
+ 225:Generated_Source\PSoC4/Shunt_In.c **** *  The right-shifted current value of the interrupt status register. Each pin 
+ 226:Generated_Source\PSoC4/Shunt_In.c **** *  has one bit set if it generated an interrupt event. For example, bit 0 is 
+ 227:Generated_Source\PSoC4/Shunt_In.c **** *  for pin 0 and bit 1 is for pin 1 of the Pins component.
+ 228:Generated_Source\PSoC4/Shunt_In.c **** *  
+ 229:Generated_Source\PSoC4/Shunt_In.c **** * \sideeffect
+ 230:Generated_Source\PSoC4/Shunt_In.c **** *  Clears all bits of the physical port's interrupt status register, not just
+ 231:Generated_Source\PSoC4/Shunt_In.c **** *  those associated with the Pins component.
+ 232:Generated_Source\PSoC4/Shunt_In.c **** *
+ 233:Generated_Source\PSoC4/Shunt_In.c **** * \funcusage
+ 234:Generated_Source\PSoC4/Shunt_In.c **** *  \snippet Shunt_In_SUT.c usage_Shunt_In_ClearInterrupt
+ 235:Generated_Source\PSoC4/Shunt_In.c **** *******************************************************************************/
+ 236:Generated_Source\PSoC4/Shunt_In.c **** uint8 Shunt_In_ClearInterrupt(void)
+ 237:Generated_Source\PSoC4/Shunt_In.c **** {
  193              		.loc 1 237 0
  194              		.cfi_startproc
  195              		@ args = 0, pretend = 0, frame = 0
  196              		@ frame_needed = 0, uses_anonymous_args = 0
  197              		@ link register save eliminated.
- 238:Generated_Source\PSoC4/Shunt_in.c **** 	uint8 maskedStatus = (uint8)(Shunt_In_INTSTAT & Shunt_In_MASK);
+ 238:Generated_Source\PSoC4/Shunt_In.c **** 	uint8 maskedStatus = (uint8)(Shunt_In_INTSTAT & Shunt_In_MASK);
  198              		.loc 1 238 0
  199 0000 034A     		ldr	r2, .L17
  200 0002 1068     		ldr	r0, [r2]
  201 0004 2023     		movs	r3, #32
  202 0006 1840     		ands	r0, r3
  203              	.LVL9:
- 239:Generated_Source\PSoC4/Shunt_in.c **** 	Shunt_In_INTSTAT = maskedStatus;
+ 239:Generated_Source\PSoC4/Shunt_In.c **** 	Shunt_In_INTSTAT = maskedStatus;
  204              		.loc 1 239 0
  205 0008 1060     		str	r0, [r2]
- 240:Generated_Source\PSoC4/Shunt_in.c ****     return maskedStatus >> Shunt_In_SHIFT;
+ 240:Generated_Source\PSoC4/Shunt_In.c ****     return maskedStatus >> Shunt_In_SHIFT;
  206              		.loc 1 240 0
  207 000a 4009     		lsrs	r0, r0, #5
  208              	.LVL10:
  209 000c C0B2     		uxtb	r0, r0
- 241:Generated_Source\PSoC4/Shunt_in.c **** }
+ 241:Generated_Source\PSoC4/Shunt_In.c **** }
  210              		.loc 1 241 0
  211              		@ sp needed
  212 000e 7047     		bx	lr
  213              	.L18:
  214              		.align	2
  215              	.L17:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 9
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccrwTrAA.s 			page 9
 
 
  216 0010 10020440 		.word	1074004496
@@ -497,7 +497,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
  229 000b 01       		.uleb128 0x1
  230 000c C7010000 		.4byte	.LASF28
  231 0010 0C       		.byte	0xc
- 232 0011 26000000 		.4byte	.LASF29
+ 232 0011 82000000 		.4byte	.LASF29
  233 0015 A4000000 		.4byte	.LASF30
  234 0019 00000000 		.4byte	.Ldebug_ranges0+0
  235 001d 00000000 		.4byte	0
@@ -509,7 +509,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
  241 002c 02       		.uleb128 0x2
  242 002d 01       		.byte	0x1
  243 002e 08       		.byte	0x8
- 244 002f 5C000000 		.4byte	.LASF1
+ 244 002f 3A000000 		.4byte	.LASF1
  245 0033 02       		.uleb128 0x2
  246 0034 02       		.byte	0x2
  247 0035 05       		.byte	0x5
@@ -517,7 +517,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
  249 003a 02       		.uleb128 0x2
  250 003b 02       		.byte	0x2
  251 003c 07       		.byte	0x7
- 252 003d 91000000 		.4byte	.LASF3
+ 252 003d 6F000000 		.4byte	.LASF3
  253 0041 02       		.uleb128 0x2
  254 0042 04       		.byte	0x4
  255 0043 05       		.byte	0x5
@@ -525,7 +525,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
  257 0048 02       		.uleb128 0x2
  258 0049 04       		.byte	0x4
  259 004a 07       		.byte	0x7
- 260 004b 7F000000 		.4byte	.LASF5
+ 260 004b 5D000000 		.4byte	.LASF5
  261 004f 02       		.uleb128 0x2
  262 0050 08       		.byte	0x8
  263 0051 05       		.byte	0x5
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
  270 005e 04       		.byte	0x4
  271 005f 05       		.byte	0x5
  272 0060 696E7400 		.ascii	"int\000"
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 10
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccrwTrAA.s 			page 10
 
 
  273 0064 02       		.uleb128 0x2
@@ -563,7 +563,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
  292 008f 02       		.uleb128 0x2
  293 0090 04       		.byte	0x4
  294 0091 04       		.byte	0x4
- 295 0092 48000000 		.4byte	.LASF12
+ 295 0092 26000000 		.4byte	.LASF12
  296 0096 02       		.uleb128 0x2
  297 0097 08       		.byte	0x8
  298 0098 04       		.byte	0x4
@@ -596,9 +596,9 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
  325 00d5 00000000 		.4byte	.LLST0
  326 00d9 00       		.byte	0
  327 00da 06       		.uleb128 0x6
- 328 00db 6A000000 		.4byte	.LASF17
+ 328 00db 48000000 		.4byte	.LASF17
  329 00df 01       		.byte	0x1
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 11
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccrwTrAA.s 			page 11
 
 
  330 00e0 6F       		.byte	0x6f
@@ -614,14 +614,14 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
  340 00f6 6B000000 		.4byte	0x6b
  341 00fa 21000000 		.4byte	.LLST1
  342 00fe 08       		.uleb128 0x8
- 343 00ff 79000000 		.4byte	.LASF24
+ 343 00ff 57000000 		.4byte	.LASF24
  344 0103 01       		.byte	0x1
  345 0104 71       		.byte	0x71
  346 0105 6B000000 		.4byte	0x6b
  347 0109 42000000 		.4byte	.LLST2
  348 010d 00       		.byte	0
  349 010e 09       		.uleb128 0x9
- 350 010f 4E000000 		.4byte	.LASF20
+ 350 010f 2C000000 		.4byte	.LASF20
  351 0113 01       		.byte	0x1
  352 0114 88       		.byte	0x88
  353 0115 6B000000 		.4byte	0x6b
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
  384 0161 01       		.byte	0x1
  385 0162 CF       		.byte	0xcf
  386 0163 77000000 		.4byte	0x77
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 12
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccrwTrAA.s 			page 12
 
 
  387 0167 01       		.uleb128 0x1
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
  441 0019 0B       		.uleb128 0xb
  442 001a 03       		.uleb128 0x3
  443 001b 0E       		.uleb128 0xe
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 13
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccrwTrAA.s 			page 13
 
 
  444 001c 00       		.byte	0
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
  498 0053 01       		.uleb128 0x1
  499 0054 13       		.uleb128 0x13
  500 0055 00       		.byte	0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 14
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccrwTrAA.s 			page 14
 
 
  501 0056 00       		.byte	0
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
  555 008d 00       		.byte	0
  556 008e 00       		.byte	0
  557 008f 0A       		.uleb128 0xa
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 15
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccrwTrAA.s 			page 15
 
 
  558 0090 05       		.uleb128 0x5
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
  612 00c7 00       		.byte	0
  613              		.section	.debug_loc,"",%progbits
  614              	.Ldebug_loc0:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 16
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccrwTrAA.s 			page 16
 
 
  615              	.LLST0:
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
  669 0081 08000000 		.4byte	.LVL9
  670 0085 0C000000 		.4byte	.LVL10
  671 0089 0100     		.2byte	0x1
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 17
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccrwTrAA.s 			page 17
 
 
  672 008b 50       		.byte	0x50
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
  722      01010101 
  723              	.LASF15:
  724 0000 72656733 		.ascii	"reg32\000"
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 18
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccrwTrAA.s 			page 18
 
 
  724      3200
@@ -1031,45 +1031,45 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
  728      5F536574 
  728      496E7465 
  728      72727570 
- 729              	.LASF29:
- 730 0026 47656E65 		.ascii	"Generated_Source\\PSoC4\\Shunt_in.c\000"
- 730      72617465 
- 730      645F536F 
- 730      75726365 
- 730      5C50536F 
- 731              	.LASF12:
- 732 0048 666C6F61 		.ascii	"float\000"
- 732      7400
- 733              	.LASF20:
- 734 004e 5368756E 		.ascii	"Shunt_In_Read\000"
- 734      745F496E 
- 734      5F526561 
- 734      6400
- 735              	.LASF1:
- 736 005c 756E7369 		.ascii	"unsigned char\000"
- 736      676E6564 
- 736      20636861 
- 736      7200
- 737              	.LASF17:
- 738 006a 5368756E 		.ascii	"Shunt_In_Write\000"
- 738      745F496E 
- 738      5F577269 
- 738      746500
- 739              	.LASF24:
- 740 0079 64725661 		.ascii	"drVal\000"
- 740      6C00
- 741              	.LASF5:
- 742 007f 6C6F6E67 		.ascii	"long unsigned int\000"
- 742      20756E73 
- 742      69676E65 
- 742      6420696E 
- 742      7400
- 743              	.LASF3:
- 744 0091 73686F72 		.ascii	"short unsigned int\000"
- 744      7420756E 
- 744      7369676E 
- 744      65642069 
- 744      6E7400
+ 729              	.LASF12:
+ 730 0026 666C6F61 		.ascii	"float\000"
+ 730      7400
+ 731              	.LASF20:
+ 732 002c 5368756E 		.ascii	"Shunt_In_Read\000"
+ 732      745F496E 
+ 732      5F526561 
+ 732      6400
+ 733              	.LASF1:
+ 734 003a 756E7369 		.ascii	"unsigned char\000"
+ 734      676E6564 
+ 734      20636861 
+ 734      7200
+ 735              	.LASF17:
+ 736 0048 5368756E 		.ascii	"Shunt_In_Write\000"
+ 736      745F496E 
+ 736      5F577269 
+ 736      746500
+ 737              	.LASF24:
+ 738 0057 64725661 		.ascii	"drVal\000"
+ 738      6C00
+ 739              	.LASF5:
+ 740 005d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 740      20756E73 
+ 740      69676E65 
+ 740      6420696E 
+ 740      7400
+ 741              	.LASF3:
+ 742 006f 73686F72 		.ascii	"short unsigned int\000"
+ 742      7420756E 
+ 742      7369676E 
+ 742      65642069 
+ 742      6E7400
+ 743              	.LASF29:
+ 744 0082 47656E65 		.ascii	"Generated_Source\\PSoC4\\Shunt_In.c\000"
+ 744      72617465 
+ 744      645F536F 
+ 744      75726365 
+ 744      5C50536F 
  745              	.LASF30:
  746 00a4 433A5C55 		.ascii	"C:\\Users\\cdrow\\Documents\\GitHub\\Li-CellTesting"
  746      73657273 
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
  746      6F63756D 
  747 00d2 5F536372 		.ascii	"_Script\\Internal_Main\\Internal_Main.cydsn\000"
  747      6970745C 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 19
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccrwTrAA.s 			page 19
 
 
  747      496E7465 
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 1
  773      3800
  774              	.LASF23:
  775 0187 706F7369 		.ascii	"position\000"
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccn0zZhs.s 			page 20
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccrwTrAA.s 			page 20
 
 
  775      74696F6E 

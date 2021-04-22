@@ -16,17 +16,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define NUM_R_THERMISTORS 5 // excluding the thermistor at Position 1
-#define NUM_BAT_THERMISTORS 6 // excluding the thermistor at Position 1
-#define SHUNT_CONDUCTANCE 1.2 
-#define AMP_GAIN 21.3
-#define V_REF 50.0
-
+#define V_REF_RELATIVE  35          //know voltage of VRef - VRGnd (mV)           
+#define V_TEST_START    20
 
 // =============================
 // Function Definitions
 // =============================
 
+
+/*******************************************************************************
+* Function Name: Print_Headers
+****************************************************************************//**
+*
+* Formats the headers for exporting the UART terminal to a comma delimited Excel file
+*
+*******************************************************************************/
+void Print_Headers()
+{
+    char hstr[60]; 
+    sprintf(hstr,"\r\n");
+    UART_1_UartPutString(hstr);
+    sprintf(hstr,"\r\n Voltage(Ideal) (mV), Voltage(Measured) (mV), VirtualGND (mV), VRef (mV), Calculated Gain \r\n");
+    UART_1_UartPutString(hstr);
+    sprintf(hstr,"\r\n");
+    UART_1_UartPutString(hstr);
+}
 /*******************************************************************************
 * Function Name: CellTestStart()
 ****************************************************************************//**
@@ -36,17 +50,10 @@
 *******************************************************************************/
 void CellTestStart(){
     AMux_1_Start();
-    // AMux_2_Start();
-    Opamp_1_Start();
-    //Opamp_2_Start();
-    //Opamp_3_Start();
     PGA_1_Start(); 
     ADC_1_Start();
     UART_1_Start();
     BLUE_LED_Write(0);
-    RELAY_EN_Write(0);
-    PVref_1_Start(); 
-    PVref_1_Enable();
 }
 
 
@@ -54,11 +61,14 @@ void CellTestStart(){
 * Function Name: CellTestStop()
 ****************************************************************************//**
 * 
-* Stop all of the units and functionality
+* Turns off stuff (placeholder when more equipment is used)
 *
 *******************************************************************************/
-void CellTestStop(){
-    PVref_1_Stop();
+void HaltTest(){
+    char string[30];
+    Timer_1_Stop();
+    sprintf(string, "0, 0, 0, 0, 0\r\n"); 
+    UART_1_UartPutString(string);
 }
 
 
@@ -66,7 +76,8 @@ void CellTestStop(){
 * Function Name: FilterSignal()
 ****************************************************************************//**
 * 
-* Filter the incomming singal using a moving average and ....
+* Moving window average (more or less) - takes input value, compares it to the last value on the given channel.
+* If its much bigger, it takes the new value in. If not, it rounds the difference out.
 *
 *******************************************************************************/
 int32 FilterSignal(int32 ADCSample, uint8 channel){
@@ -104,82 +115,96 @@ int32 FilterSignal(int32 ADCSample, uint8 channel){
 int main(void)
 {
     // Variable Creation
-    int32 shuntCount; //Voltage measured from shunt in 12-bit res
-    float shuntVal;
-    int32 vrgndCount;
-    int32 vrefCount;
-    int32 gainCount;
-    float gainVal;
-    float vrefVal;
-    float vrgndVal; 
-    float adcOff;
-    float gainReal;
-    char string[30];
     
-    int32 userInput;
-    int8 stopFlag = 0;      
+    int32 vtestIdeal = V_TEST_START;
+    
+    int32 vtestCount;           //test voltage adc counts
+    float vtestVal;             //test voltage (mV)
+    
+    int32 vrgndCount;           //virtual gnd voltage adc counts
+    float vrgndVal;             //virtual gnd voltage (mV)
+    
+    int32 vrefCount;            //reference voltage adc counts
+    float vrefVal;              //reference voltage (mV)
+    
+    float gainReal;             //calculated gain of the amplifier
+    char string[60];            //for printing over UART
+    
+    int32 userInput;            //reading UART input
+    int8 stopFlag = 0;          //boolean flag to stop the test
     
     //Initialization
+    
     CellTestStart();
     CyGlobalIntEnable;
     
+    //UART INFO PRINTING
+    sprintf(string, "At any point in the test to increment the Test Voltage: Enter 'S' \r\n"); 
+    UART_1_UartPutString(string);
+    sprintf(string, "The Test Voltage will increment by in 5 mV in the data logger \r\n");
+    UART_1_UartPutString(string);
     sprintf(string, "\r\nEnter G to start Test: \r\n"); 
+    UART_1_UartPutString(string);
+    sprintf(string,"\r\n Voltage(Ideal) (mV), Voltage(Measured) (mV), VirtualGND (mV), VRef (mV), Calculated Gain \r\n");
     UART_1_UartPutString(string);
     
     // Main For Loop
     for(;;)
     {
         BLUE_LED_Write(1);
-        CyDelay(1000);
+        CyDelay(10);
         userInput = UART_1_UartGetChar();
         
         // Start the Test Commmand
+        
         if (userInput == 71)  //Type Capital G into Putty
-        {
-            
+        {            
             Timer_1_Start();
             stopFlag = 0;
-            PVref_1_Start(); 
-            PVref_1_Enable();
             
             // Continue Executing While the no test errors are evident
             while(!stopFlag){
                 
-                // Shunt In
+                // Test Voltage Reading
                 
                 AMux_1_Select(1); 
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);               
-                shuntCount = ADC_1_GetResult32(0);
+                vtestCount = ADC_1_GetResult32(0);              // vtest in unitless counts
                 ADC_1_StopConvert();
-                shuntCount = FilterSignal(shuntCount, 2);
-                shuntVal = ADC_1_CountsTo_mVolts(0, shuntCount);                
+                vtestCount = FilterSignal(vtestCount, 2);
+                vtestVal = ADC_1_CountsTo_mVolts(0, vtestCount);// vtest in mV                
                 
-                // Shunt Ground Reading                
+                // Virtual Ground Reading 
+                
                 AMux_1_Select(2);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-                vrgndCount = ADC_1_GetResult32(0);
-                ADC_1_StopConvert();
+                vrgndCount = ADC_1_GetResult32(0);              // vrgnd in unitless counts
+                ADC_1_StopConvert();                            
                 vrgndCount = FilterSignal(vrgndCount, 3);
-                vrgndVal = ADC_1_CountsTo_mVolts(0, vrgndCount);
+                vrgndVal = ADC_1_CountsTo_mVolts(0, vrgndCount);// vrgnd in mV
+                
+                // Reference Voltage Reading
                 
                 AMux_1_Select(0);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-                vrefCount = ADC_1_GetResult32(0);
+                vrefCount = ADC_1_GetResult32(0);               // vref in unitless counts
                 ADC_1_StopConvert();
                 vrefCount = FilterSignal(vrefCount, 3);
-                vrefVal = ADC_1_CountsTo_mVolts(0, vrefCount);
+                vrefVal = ADC_1_CountsTo_mVolts(0, vrefCount);  // vref in mV
                 
                 
-                // Shunt Calcuation...
-                //
-                gainReal = (vrefVal - vrgndVal)/35; 
-                vrgndVal = vrgndVal/gainReal;
-                shuntVal = shuntVal/gainReal;
-                shuntVal = shuntVal - vrgndVal;
+                // After rapid samples - to ensure similar adc/amp conditions
+                // Calculations are made
                 
+                gainReal = (vrefVal - vrgndVal)/V_REF_RELATIVE;     // The actual op-amp gain
+                vrgndVal = vrgndVal/gainReal;                       // Find the virtual ground value
+                vtestVal = vtestVal/gainReal;                       // Find the test point value
+                vtestVal = vtestVal - vrgndVal;                     // Take the difference to negate op-amp offset
+                
+                // This is the test voltage relative to virtual gnd
                 
                 // Stop the Test.... 
                 userInput = UART_1_UartGetChar();
@@ -187,20 +212,17 @@ int main(void)
                 if (userInput == 83){ // 83 is ASCII for STOP t     
                     stopFlag = 1;
                     Timer_1_Stop();
-                    CellTestStop();
-                    sprintf(string, "\r\n Test Halted \r\n"); 
+                    sprintf(string, "0, 0, 0, 0, 0\r\n"); 
                     UART_1_UartPutString(string);
-                    sprintf(string, "\r\n Enter G to Resume Test: \r\n"); 
-                    UART_1_UartPutString(string);
-                }
-                
+                    vtestIdeal = vtestIdeal + 5;
+                }                         
+     
                 CyDelayUs(250);
                 
-                // Print the Shunt Value
+                // Print the values
                 if (Timer_1_ReadCounter() > 1){
-                    sprintf(string, "Shunt : %3.3f, GND : %3.3f, Vref : %3.3f, Av : %3.3f ", shuntVal, vrgndVal, vrefVal, gainReal); 
+                    sprintf(string, "%ld, %3.3f, %3.3f, %3.3f, %3.3f \r\n", vtestIdeal, vtestVal, vrgndVal, vrefVal, gainReal); 
                     UART_1_UartPutString(string);
-                    UART_1_UartPutString("\n\r");
                     Timer_1_WriteCounter(0);
                 }
             }

@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Shunt_gnd.c  
+* File Name: Shunt_Gnd.c  
 * Version 2.20
 *
 * Description:
@@ -15,13 +15,13 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "Shunt_gnd.h"
+#include "Shunt_Gnd.h"
 
-static Shunt_gnd_BACKUP_STRUCT  Shunt_gnd_backup = {0u, 0u, 0u};
+static Shunt_Gnd_BACKUP_STRUCT  Shunt_Gnd_backup = {0u, 0u, 0u};
 
 
 /*******************************************************************************
-* Function Name: Shunt_gnd_Sleep
+* Function Name: Shunt_Gnd_Sleep
 ****************************************************************************//**
 *
 * \brief Stores the pin configuration and prepares the pin for entering chip 
@@ -39,30 +39,30 @@ static Shunt_gnd_BACKUP_STRUCT  Shunt_gnd_backup = {0u, 0u, 0u};
 *  deep-sleep/hibernate modes.
 *
 * \funcusage
-*  \snippet Shunt_gnd_SUT.c usage_Shunt_gnd_Sleep_Wakeup
+*  \snippet Shunt_Gnd_SUT.c usage_Shunt_Gnd_Sleep_Wakeup
 *******************************************************************************/
-void Shunt_gnd_Sleep(void)
+void Shunt_Gnd_Sleep(void)
 {
-    #if defined(Shunt_gnd__PC)
-        Shunt_gnd_backup.pcState = Shunt_gnd_PC;
+    #if defined(Shunt_Gnd__PC)
+        Shunt_Gnd_backup.pcState = Shunt_Gnd_PC;
     #else
         #if (CY_PSOC4_4200L)
             /* Save the regulator state and put the PHY into suspend mode */
-            Shunt_gnd_backup.usbState = Shunt_gnd_CR1_REG;
-            Shunt_gnd_USB_POWER_REG |= Shunt_gnd_USBIO_ENTER_SLEEP;
-            Shunt_gnd_CR1_REG &= Shunt_gnd_USBIO_CR1_OFF;
+            Shunt_Gnd_backup.usbState = Shunt_Gnd_CR1_REG;
+            Shunt_Gnd_USB_POWER_REG |= Shunt_Gnd_USBIO_ENTER_SLEEP;
+            Shunt_Gnd_CR1_REG &= Shunt_Gnd_USBIO_CR1_OFF;
         #endif
     #endif
-    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Shunt_gnd__SIO)
-        Shunt_gnd_backup.sioState = Shunt_gnd_SIO_REG;
+    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Shunt_Gnd__SIO)
+        Shunt_Gnd_backup.sioState = Shunt_Gnd_SIO_REG;
         /* SIO requires unregulated output buffer and single ended input buffer */
-        Shunt_gnd_SIO_REG &= (uint32)(~Shunt_gnd_SIO_LPM_MASK);
+        Shunt_Gnd_SIO_REG &= (uint32)(~Shunt_Gnd_SIO_LPM_MASK);
     #endif  
 }
 
 
 /*******************************************************************************
-* Function Name: Shunt_gnd_Wakeup
+* Function Name: Shunt_Gnd_Wakeup
 ****************************************************************************//**
 *
 * \brief Restores the pin configuration that was saved during Pin_Sleep(). This 
@@ -77,22 +77,22 @@ void Shunt_gnd_Sleep(void)
 *  None
 *  
 * \funcusage
-*  Refer to Shunt_gnd_Sleep() for an example usage.
+*  Refer to Shunt_Gnd_Sleep() for an example usage.
 *******************************************************************************/
-void Shunt_gnd_Wakeup(void)
+void Shunt_Gnd_Wakeup(void)
 {
-    #if defined(Shunt_gnd__PC)
-        Shunt_gnd_PC = Shunt_gnd_backup.pcState;
+    #if defined(Shunt_Gnd__PC)
+        Shunt_Gnd_PC = Shunt_Gnd_backup.pcState;
     #else
         #if (CY_PSOC4_4200L)
             /* Restore the regulator state and come out of suspend mode */
-            Shunt_gnd_USB_POWER_REG &= Shunt_gnd_USBIO_EXIT_SLEEP_PH1;
-            Shunt_gnd_CR1_REG = Shunt_gnd_backup.usbState;
-            Shunt_gnd_USB_POWER_REG &= Shunt_gnd_USBIO_EXIT_SLEEP_PH2;
+            Shunt_Gnd_USB_POWER_REG &= Shunt_Gnd_USBIO_EXIT_SLEEP_PH1;
+            Shunt_Gnd_CR1_REG = Shunt_Gnd_backup.usbState;
+            Shunt_Gnd_USB_POWER_REG &= Shunt_Gnd_USBIO_EXIT_SLEEP_PH2;
         #endif
     #endif
-    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Shunt_gnd__SIO)
-        Shunt_gnd_SIO_REG = Shunt_gnd_backup.sioState;
+    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Shunt_Gnd__SIO)
+        Shunt_Gnd_SIO_REG = Shunt_Gnd_backup.sioState;
     #endif
 }
 

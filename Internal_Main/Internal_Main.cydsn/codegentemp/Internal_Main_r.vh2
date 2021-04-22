@@ -1,10 +1,9 @@
 -- Project:   Internal_Main
--- Generated: 04/20/2021 20:38:47
+-- Generated: 04/21/2021 16:03:30
 -- PSoC Creator  4.4
 
 ENTITY Internal_Main IS
     PORT(
-        Battery_In(0)_PAD : INOUT std_ulogic;
         \I2C_1:sda(0)_PAD\ : INOUT std_ulogic;
         \I2C_1:scl(0)_PAD\ : INOUT std_ulogic;
         BLUE_LED(0)_PAD : OUT std_ulogic;
@@ -25,7 +24,6 @@ END Internal_Main;
 
 ARCHITECTURE __DEFAULT__ OF Internal_Main IS
     SIGNAL BLUE_LED(0)__PA : bit;
-    SIGNAL Battery_In(0)__PA : bit;
     SIGNAL Cal_In(0)__PA : bit;
     SIGNAL ClockBlock_ExtClk : bit;
     SIGNAL ClockBlock_HFClk : bit;
@@ -43,11 +41,6 @@ ARCHITECTURE __DEFAULT__ OF Internal_Main IS
     SIGNAL Net_170 : bit;
     SIGNAL Net_171 : bit;
     SIGNAL Net_172 : bit;
-    SIGNAL Net_176 : bit;
-    SIGNAL Net_185 : bit;
-    SIGNAL Net_193 : bit;
-    SIGNAL Net_195 : bit;
-    SIGNAL Net_196 : bit;
     SIGNAL Net_198 : bit;
     SIGNAL Net_200 : bit;
     SIGNAL Net_201 : bit;
@@ -74,6 +67,11 @@ ARCHITECTURE __DEFAULT__ OF Internal_Main IS
     SIGNAL Net_560_8 : bit;
     SIGNAL Net_560_9 : bit;
     SIGNAL Net_561 : bit;
+    SIGNAL Net_702 : bit;
+    SIGNAL Net_703 : bit;
+    SIGNAL Net_726 : bit;
+    SIGNAL Net_735 : bit;
+    SIGNAL Net_743 : bit;
     SIGNAL Pin_1(0)__PA : bit;
     SIGNAL Pin_2(0)__PA : bit;
     SIGNAL RELAY_EN(0)__PA : bit;
@@ -96,7 +94,6 @@ ARCHITECTURE __DEFAULT__ OF Internal_Main IS
     SIGNAL \I2C_1:select_m_wire_2\ : bit;
     SIGNAL \I2C_1:select_m_wire_3\ : bit;
     SIGNAL \I2C_1:tx_wire\ : bit;
-    SIGNAL \Opamp_1:Net_12\ : bit;
     SIGNAL \PGA_1:Net_12\ : bit;
     SIGNAL \UART_1:Net_847_ff1\ : bit;
     ATTRIBUTE global_signal OF \UART_1:Net_847_ff1\ : SIGNAL IS true;
@@ -112,7 +109,6 @@ ARCHITECTURE __DEFAULT__ OF Internal_Main IS
     ATTRIBUTE POWER OF __ONE__ : SIGNAL IS true;
     SIGNAL __ZERO__ : bit;
     ATTRIBUTE GROUND OF __ZERO__ : SIGNAL IS true;
-    SIGNAL bgRef(0)__PA : bit;
     SIGNAL one : bit;
     ATTRIBUTE POWER OF one : SIGNAL IS true;
     SIGNAL zero : bit;
@@ -123,10 +119,8 @@ ARCHITECTURE __DEFAULT__ OF Internal_Main IS
     ATTRIBUTE Location OF \ADC_1:Bypass(0)\ : LABEL IS "P2[7]";
     ATTRIBUTE Location OF GND_ref(0) : LABEL IS "P2[1]";
     ATTRIBUTE Location OF Cal_In(0) : LABEL IS "P2[2]";
-    ATTRIBUTE Location OF bgRef(0) : LABEL IS "P2[3]";
     ATTRIBUTE Location OF Shunt_In(0) : LABEL IS "P2[5]";
     ATTRIBUTE Location OF Shunt_Gnd(0) : LABEL IS "P1[5]";
-    ATTRIBUTE Location OF Battery_In(0) : LABEL IS "P2[0]";
     ATTRIBUTE Location OF \I2C_1:sda(0)\ : LABEL IS "P3[7]";
     ATTRIBUTE Location OF \I2C_1:scl(0)\ : LABEL IS "P3[6]";
     ATTRIBUTE Location OF BLUE_LED(0) : LABEL IS "P0[2]";
@@ -136,9 +130,7 @@ ARCHITECTURE __DEFAULT__ OF Internal_Main IS
     ATTRIBUTE Location OF \ADC_1:cy_psoc4_sar_1\ : LABEL IS "F(SARADC,0)";
     ATTRIBUTE Location OF \ADC_1:IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(15)]";
     ATTRIBUTE Location OF CyDesignWideVoltageReference : LABEL IS "F(REF,0)";
-    ATTRIBUTE Location OF \PVref_1:cy_psoc4_pref\ : LABEL IS "F(REF,1)";
     ATTRIBUTE Location OF \PGA_1:cy_psoc4_abuf\ : LABEL IS "F(OA,0)";
-    ATTRIBUTE Location OF \Opamp_1:cy_psoc4_abuf\ : LABEL IS "F(OA,1)";
     ATTRIBUTE Location OF \UART_1:SCB\ : LABEL IS "F(SCB,1)";
     ATTRIBUTE Location OF \I2C_1:SCB_IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(10)]";
     ATTRIBUTE Location OF \I2C_1:SCB\ : LABEL IS "F(SCB,2)";
@@ -686,95 +678,6 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    bgRef:logicalport
-        GENERIC MAP(
-            drive_mode => "000",
-            ibuf_enabled => "0",
-            id => "cd806cab-6a0c-493c-8c29-30ebe04899bc",
-            init_dr_st => "1",
-            input_buffer_sel => "00",
-            input_clk_en => 0,
-            input_sync => "0",
-            input_sync_mode => "0",
-            intr_mode => "00",
-            invert_in_clock => 0,
-            invert_in_clock_en => 0,
-            invert_in_reset => 0,
-            invert_out_clock => 0,
-            invert_out_clock_en => 0,
-            invert_out_reset => 0,
-            io_voltage => "",
-            layout_mode => "CONTIGUOUS",
-            oe_conn => "0",
-            oe_reset => 0,
-            oe_sync => "0",
-            output_clk_en => 0,
-            output_clock_mode => "0",
-            output_conn => "0",
-            output_mode => "0",
-            output_reset => 0,
-            output_sync => "0",
-            ovt_hyst_trim => "0",
-            ovt_needed => "0",
-            ovt_slew_control => "00",
-            pa_in_clock => -1,
-            pa_in_clock_en => -1,
-            pa_in_reset => -1,
-            pa_out_clock => -1,
-            pa_out_clock_en => -1,
-            pa_out_reset => -1,
-            pin_aliases => "",
-            pin_mode => "A",
-            por_state => 4,
-            port_alias_group => "",
-            port_alias_required => 0,
-            sio_group_cnt => 0,
-            sio_hifreq => "00000000",
-            sio_hyst => "1",
-            sio_ibuf => "00000000",
-            sio_info => "00",
-            sio_obuf => "00000000",
-            sio_refsel => "00000000",
-            sio_vohsel => "00000000",
-            sio_vtrip => "00000000",
-            slew_rate => "0",
-            spanning => 0,
-            sw_only => 0,
-            use_annotation => "1",
-            vtrip => "10",
-            width => 1,
-            in_clk_inv => 0,
-            in_clken_inv => 0,
-            in_clken_mode => 1,
-            in_rst_inv => 0,
-            out_clk_inv => 0,
-            out_clken_inv => 0,
-            out_clken_mode => 1,
-            out_rst_inv => 0)
-        PORT MAP(
-            in_clock_en => open,
-            in_reset => open,
-            out_clock_en => open,
-            out_reset => open);
-
-    bgRef(0):iocell
-        GENERIC MAP(
-            in_sync_mode => 0,
-            out_sync_mode => 0,
-            oe_sync_mode => 0,
-            logicalport => "bgRef",
-            logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
-        PORT MAP(
-            pa_out => bgRef(0)__PA,
-            oe => open,
-            in_clock => open,
-            in_clock_en => '1',
-            in_reset => '0',
-            out_clock => open,
-            out_clock_en => '1',
-            out_reset => '0');
-
     Shunt_In:logicalport
         GENERIC MAP(
             drive_mode => "000",
@@ -946,96 +849,6 @@ BEGIN
         PORT MAP(
             pa_out => Shunt_Gnd(0)__PA,
             oe => open,
-            in_clock => open,
-            in_clock_en => '1',
-            in_reset => '0',
-            out_clock => open,
-            out_clock_en => '1',
-            out_reset => '0');
-
-    Battery_In:logicalport
-        GENERIC MAP(
-            drive_mode => "000",
-            ibuf_enabled => "0",
-            id => "8be5379b-3a58-43ba-a1e5-6ead07abfc6a",
-            init_dr_st => "1",
-            input_buffer_sel => "00",
-            input_clk_en => 0,
-            input_sync => "0",
-            input_sync_mode => "0",
-            intr_mode => "00",
-            invert_in_clock => 0,
-            invert_in_clock_en => 0,
-            invert_in_reset => 0,
-            invert_out_clock => 0,
-            invert_out_clock_en => 0,
-            invert_out_reset => 0,
-            io_voltage => "",
-            layout_mode => "CONTIGUOUS",
-            oe_conn => "0",
-            oe_reset => 0,
-            oe_sync => "0",
-            output_clk_en => 0,
-            output_clock_mode => "0",
-            output_conn => "0",
-            output_mode => "0",
-            output_reset => 0,
-            output_sync => "0",
-            ovt_hyst_trim => "0",
-            ovt_needed => "0",
-            ovt_slew_control => "00",
-            pa_in_clock => -1,
-            pa_in_clock_en => -1,
-            pa_in_reset => -1,
-            pa_out_clock => -1,
-            pa_out_clock_en => -1,
-            pa_out_reset => -1,
-            pin_aliases => "",
-            pin_mode => "A",
-            por_state => 4,
-            port_alias_group => "",
-            port_alias_required => 0,
-            sio_group_cnt => 0,
-            sio_hifreq => "00000000",
-            sio_hyst => "1",
-            sio_ibuf => "00000000",
-            sio_info => "00",
-            sio_obuf => "00000000",
-            sio_refsel => "00000000",
-            sio_vohsel => "00000000",
-            sio_vtrip => "00000000",
-            slew_rate => "0",
-            spanning => 0,
-            sw_only => 0,
-            use_annotation => "1",
-            vtrip => "10",
-            width => 1,
-            in_clk_inv => 0,
-            in_clken_inv => 0,
-            in_clken_mode => 1,
-            in_rst_inv => 0,
-            out_clk_inv => 0,
-            out_clken_inv => 0,
-            out_clken_mode => 1,
-            out_rst_inv => 0)
-        PORT MAP(
-            in_clock_en => open,
-            in_reset => open,
-            out_clock_en => open,
-            out_reset => open);
-
-    Battery_In(0):iocell
-        GENERIC MAP(
-            in_sync_mode => 0,
-            out_sync_mode => 0,
-            oe_sync_mode => 0,
-            logicalport => "Battery_In",
-            logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
-        PORT MAP(
-            pa_out => Battery_In(0)__PA,
-            oe => open,
-            pad_in => Battery_In(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -1489,7 +1302,7 @@ BEGIN
         PORT MAP(
             pa_out => Pin_1(0)__PA,
             oe => open,
-            fb => Net_195,
+            fb => Net_703,
             pad_in => Pin_1(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
@@ -1580,7 +1393,7 @@ BEGIN
         PORT MAP(
             pa_out => Pin_2(0)__PA,
             oe => open,
-            pin_input => Net_196,
+            pin_input => Net_702,
             pad_out => Pin_2(0)_PAD,
             pad_in => Pin_2(0)_PAD,
             in_clock => open,
@@ -1635,12 +1448,6 @@ BEGIN
 
     CyDesignWideVoltageReference:p4prefcell;
 
-    \PVref_1:cy_psoc4_pref\:p4prefcell
-        GENERIC MAP(
-            cy_registers => "",
-            referenceid => 0,
-            tapid => 0);
-
     \PGA_1:cy_psoc4_abuf\:p4abufcell
         GENERIC MAP(
             cy_registers => "",
@@ -1650,24 +1457,15 @@ BEGIN
         PORT MAP(
             ctb_dsi_comp => \PGA_1:Net_12\);
 
-    \Opamp_1:cy_psoc4_abuf\:p4abufcell
-        GENERIC MAP(
-            cy_registers => "",
-            deepsleep_available => 0,
-            has_resistor => 0,
-            needs_dsab => 0)
-        PORT MAP(
-            ctb_dsi_comp => \Opamp_1:Net_12\);
-
     \UART_1:SCB\:m0s8scbcell
         GENERIC MAP(
             cy_registers => "",
             scb_mode => 2)
         PORT MAP(
             clock => \UART_1:Net_847_ff1\,
-            interrupt => Net_176,
-            uart_rx => Net_195,
-            uart_tx => Net_196,
+            interrupt => Net_726,
+            uart_rx => Net_703,
+            uart_tx => Net_702,
             uart_cts => open,
             uart_rts => \UART_1:rts_wire\,
             mosi_m => \UART_1:mosi_m_wire\,
@@ -1681,8 +1479,8 @@ BEGIN
             miso_s => \UART_1:miso_s_wire\,
             select_s => open,
             sclk_s => open,
-            tr_tx_req => Net_193,
-            tr_rx_req => Net_185);
+            tr_tx_req => Net_743,
+            tr_rx_req => Net_735);
 
     \I2C_1:SCB_IRQ\:interrupt
         GENERIC MAP(

@@ -1,6 +1,6 @@
 // ======================================================================
 // Internal_Main.v generated from TopDesign.cysch
-// 04/20/2021 at 20:38
+// 04/21/2021 at 16:03
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -2294,23 +2294,8 @@ module Scan_ADC_v3_10_0 (
 
 endmodule
 
-// PVref_P4_v1_0(RefSource=0, SelOutputVoltage=16, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=PVref_P4_v1_0, CY_CONFIG_TITLE=PVref_1, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=PVref_1, CY_INSTANCE_SHORT_NAME=PVref_1, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=PVref_1, )
-module PVref_P4_v1_0_1 (
-    Vout);
-    inout       Vout;
-    electrical  Vout;
-
-
-
-    cy_psoc4_pref_v1_0 cy_psoc4_pref (
-        .vout(Vout));
-
-
-
-endmodule
-
 // PGA_P4_v1_10(DeepSleepOperation=0, Gain=9, OutputBuffer=0, Power=3, Vref_Input=1, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=PGA_P4_v1_10, CY_CONFIG_TITLE=PGA_1, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=PGA_1, CY_INSTANCE_SHORT_NAME=PGA_1, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=10, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=PGA_1, )
-module PGA_P4_v1_10_2 (
+module PGA_P4_v1_10_1 (
     Vin,
     Vout,
     Vref);
@@ -2358,53 +2343,8 @@ module PGA_P4_v1_10_2 (
 
 endmodule
 
-// OpAmp_P4_v1_20(Compensation=3, DeepSleepSupport=false, Mode=1, OutputCurrent=1, Power=2, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=OpAmp_P4_v1_20, CY_CONFIG_TITLE=Opamp_1, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=Opamp_1, CY_INSTANCE_SHORT_NAME=Opamp_1, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=20, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=Opamp_1, )
-module OpAmp_P4_v1_20_3 (
-    Vminus,
-    Vout,
-    Vplus);
-    inout       Vminus;
-    electrical  Vminus;
-    inout       Vout;
-    electrical  Vout;
-    inout       Vplus;
-    electrical  Vplus;
-
-
-          wire  Net_12;
-    electrical  Net_29;
-    electrical  Net_19;
-    electrical  Net_18;
-    electrical  Net_9;
-
-    cy_psoc4_abuf_v1_0 cy_psoc4_abuf (
-        .cmpout(Net_12),
-        .rs_bot(Net_29),
-        .vminus(Net_9),
-        .vout1(Net_18),
-        .vout10(Net_19),
-        .vplus(Vplus));
-    defparam cy_psoc4_abuf.deepsleep_available = 0;
-    defparam cy_psoc4_abuf.has_resistor = 0;
-    defparam cy_psoc4_abuf.needs_dsab = 0;
-
-	// cy_analog_virtualmux_1 (cy_analog_virtualmux_v1_0)
-	cy_connect_v1_0 cy_analog_virtualmux_1_connect(Net_9, Vout);
-	defparam cy_analog_virtualmux_1_connect.sig_width = 1;
-
-	// cy_analog_virtualmux_2 (cy_analog_virtualmux_v1_0)
-	cy_connect_v1_0 cy_analog_virtualmux_2_connect(Vout, Net_19);
-	defparam cy_analog_virtualmux_2_connect.sig_width = 1;
-
-    cy_analog_noconnect_v1_0 cy_analog_noconnect_1 (
-        .noconnect(Net_29));
-
-
-
-endmodule
-
 // SCB_P4_v4_0(ApplySbClockParam=false, BitWidthReplacementStringRx=uint8, BitWidthReplacementStringTx=uint8, BufNum=1, Cond=#, DBGW_SCB_IP_V0=false, DBGW_SCB_IP_V1=false, DBGW_SCB_IP_V2=true, DW_Hide_i2c=true, DW_Hide_Scbv0Feature=true, DW_Hide_Scbv2Feature=false, DW_Hide_Spi=true, DW_Hide_Uart=false, DW_Hide_UartFlowControl=false, DW_INTR_SPI_EC=, DW_INTR_SPI_EC_MASK=, DW_INTR_SPI_EC_MASKED=, DW_SPI_CTRL=, DW_SPI_STATUS=, DW_UART_CTRL=UART_1_SCB__UART_CTRL, DW_UART_FLOW_CTRL=UART_1_SCB__UART_FLOW_CTRL, DW_UART_RX_CTRL=UART_1_SCB__UART_RX_CTRL, DW_UART_TX_CTRL=UART_1_SCB__UART_TX_CTRL, EndCond=#endif, EzI2cBitWidthReplacementString=uint16, EzI2cBusVoltage=3.3, EzI2cByteModeEnable=false, EzI2cClkFreqDes=1550, EzI2cClockFromTerm=false, EzI2cClockStretching=true, EzI2cDataRate=100, EzI2cIsPrimarySlaveAddressHex=true, EzI2cIsSecondarySlaveAddressHex=true, EzI2cMedianFilterEnable=true, EzI2cNumberOfAddresses=0, EzI2cOvsFactor=16, EzI2cPrimarySlaveAddress=8, EzI2cSecondarySlaveAddress=9, EzI2cShowTerminals=false, EzI2cSlaveAddressMask=254, EzI2cSlewRate=0, EzI2cSubAddressSize=0, EzI2cWakeEnable=false, I2cAcceptAddress=false, I2cAcceptGeneralCall=false, I2cBusVoltage=3.3, I2cBusVoltageLevel=, I2cByteModeEnable=false, I2cClkFreqDes=1550, I2cClockFromTerm=false, I2cDataRate=100, I2cExternIntrHandler=false, I2cIsSlaveAddressHex=true, I2cIsSlaveAddressMaskHex=true, I2cManualOversampleControl=true, I2cMedianFilterEnable=true, I2cMode=1, I2cOvsFactor=16, I2cOvsFactorHigh=8, I2cOvsFactorLow=8, I2cShowTerminals=false, I2cSlaveAddress=8, I2cSlaveAddressMask=254, I2cSlewRate=0, I2cSlewRateSettings=0, I2cTermsEnable=false, I2cWakeEnable=false, PinLocationP4A=true, PinName0Unconfig=uart_rx_i2c_scl_spi_mosi, PinName0UnconfigWake=uart_rx_wake_i2c_scl_spi_mosi, PinName1Unconfig=uart_tx_i2c_sda_spi_miso, PinName2Unconfig=uart_cts_spi_sclk, PinName3Unconfig=uart_rts_spi_ss0, Pn0Unconfig=RX_SCL_MOSI, Pn0UnconfigWake=RX_WAKE_SCL_MOSI, Pn1Unconfig=TX_SDA_MISO, Pn2Unconfig=CTS_SCLK, Pn3Unconfig=RTS_SS0, RemoveI2cPins=true, RemoveMisoSdaTx=true, RemoveMosiSclRx=true, RemoveMosiSclRxWake=true, RemoveScbClk=false, RemoveScbIrq=true, RemoveSpiMasterMiso=true, RemoveSpiMasterMosi=true, RemoveSpiMasterPins=true, RemoveSpiMasterSclk=true, RemoveSpiMasterSs0Pin=true, RemoveSpiMasterSs1Pin=true, RemoveSpiMasterSs2Pin=true, RemoveSpiMasterSs3Pin=true, RemoveSpiSclk=true, RemoveSpiSlaveMiso=true, RemoveSpiSlaveMosi=true, RemoveSpiSlavePins=true, RemoveSpiSs0=true, RemoveSpiSs1=true, RemoveSpiSs2=true, RemoveSpiSs3=true, RemoveUartCtsPin=true, RemoveUartRtsPin=true, RemoveUartRxPin=true, RemoveUartRxTxPin=true, RemoveUartRxWake=true, RemoveUartRxWakeupIrq=true, RemoveUartTxPin=true, RxTriggerOutputEnable=false, ScbClkFreqDes=1382.4, ScbClkMinusTolerance=5, ScbClkPlusTolerance=5, ScbClockSelect=1, ScbClockTermEnable=false, ScbCustomIntrHandlerEnable=true, ScbInterruptTermEnable=false, ScbMisoSdaTxEnable=true, ScbMode=4, ScbModeHw=2, ScbMosiSclRxEnable=true, ScbRxWakeIrqEnable=false, ScbSclkEnable=false, ScbSs0Enable=false, ScbSs1Enable=false, ScbSs2Enable=false, ScbSs3Enable=false, ScbSymbolVisibility=3, SpiBitRate=1000, SpiBitsOrder=1, SpiByteModeEnable=false, SpiClkFreqDes=16000, SpiClockFromTerm=false, SpiFreeRunningSclk=false, SpiInterruptMode=0, SpiIntrMasterSpiDone=false, SpiIntrRxFull=false, SpiIntrRxNotEmpty=false, SpiIntrRxOverflow=false, SpiIntrRxTrigger=false, SpiIntrRxUnderflow=false, SpiIntrSlaveBusError=false, SpiIntrTxEmpty=false, SpiIntrTxNotFull=false, SpiIntrTxOverflow=false, SpiIntrTxTrigger=false, SpiIntrTxUnderflow=false, SpiLateMisoSampleEnable=false, SpiManualOversampleControl=true, SpiMasterMode=false, SpiMedianFilterEnable=false, SpimMisoTermEnable=false, SpimMosiTermEnable=false, SpiMode=0, SpimSclkTermEnable=false, SpimSs0TermEnable=false, SpimSs1TermEnable=false, SpimSs2TermEnable=false, SpimSs3TermEnable=false, SpiNumberOfRxDataBits=8, SpiNumberOfSelectLines=1, SpiNumberOfTxDataBits=8, SpiOvsFactor=16, SpiRemoveMiso=false, SpiRemoveMosi=false, SpiRemoveSclk=false, SpiRxBufferSize=8, SpiRxIntrMask=0, SpiRxOutputEnable=false, SpiRxTriggerLevel=7, SpiSclkMode=0, SpiSlaveMode=false, SpiSmartioEnable=false, SpisMisoTermEnable=false, SpisMosiTermEnable=false, SpiSs0Polarity=0, SpiSs1Polarity=0, SpiSs2Polarity=0, SpiSs3Polarity=0, SpisSclkTermEnable=false, SpisSsTermEnable=false, SpiSubMode=0, SpiTransferSeparation=1, SpiTxBufferSize=8, SpiTxIntrMask=0, SpiTxOutputEnable=false, SpiTxTriggerLevel=0, SpiWakeEnable=false, TriggerOutputEnable=false, TxTriggerOutputEnable=false, UartByteModeEnable=false, UartClkFreqDes=1382.4, UartClockFromTerm=false, UartCtsEnable=false, UartCtsPolarity=0, UartCtsTermEnable=false, UartDataRate=115200, UartDirection=3, UartDropOnFrameErr=false, UartDropOnParityErr=false, UartInterruptMode=0, UartIntrRxBreakDetected=false, UartIntrRxFrameErr=false, UartIntrRxFull=false, UartIntrRxNotEmpty=false, UartIntrRxOverflow=false, UartIntrRxParityErr=false, UartIntrRxTrigger=false, UartIntrRxUnderflow=false, UartIntrTxEmpty=false, UartIntrTxNotFull=false, UartIntrTxOverflow=false, UartIntrTxTrigger=false, UartIntrTxUartDone=false, UartIntrTxUartLostArb=false, UartIntrTxUartNack=false, UartIntrTxUnderflow=false, UartIrdaLowPower=false, UartIrdaPolarity=0, UartMedianFilterEnable=false, UartMpEnable=false, UartMpRxAcceptAddress=false, UartMpRxAddress=2, UartMpRxAddressMask=255, UartNumberOfDataBits=8, UartNumberOfStopBits=2, UartOvsFactor=12, UartParityType=2, UartRtsEnable=false, UartRtsPolarity=0, UartRtsTermEnable=false, UartRtsTriggerLevel=4, UartRxBreakWidth=11, UartRxBufferSize=8, UartRxEnable=true, UartRxIntrMask=0, UartRxOutputEnable=false, UartRxTermEnable=true, UartRxTriggerLevel=7, UartRxTxTermEnable=false, UartSmartioEnable=true, UartSmCardRetryOnNack=false, UartSubMode=0, UartTxBufferSize=8, UartTxEnable=true, UartTxIntrMask=0, UartTxOutputEnable=false, UartTxTermEnable=true, UartTxTriggerLevel=0, UartWakeEnable=false, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=SCB_P4_v4_0, CY_CONFIG_TITLE=UART_1, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=UART_1, CY_INSTANCE_SHORT_NAME=UART_1, CY_MAJOR_VERSION=4, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=UART_1, )
-module SCB_P4_v4_0_4 (
+module SCB_P4_v4_0_2 (
     clock,
     cts_in,
     interrupt,
@@ -2580,7 +2520,7 @@ module SCB_P4_v4_0_4 (
 endmodule
 
 // SCB_P4_v4_0(ApplySbClockParam=false, BitWidthReplacementStringRx=uint8, BitWidthReplacementStringTx=uint8, BufNum=1, Cond=#, DBGW_SCB_IP_V0=false, DBGW_SCB_IP_V1=false, DBGW_SCB_IP_V2=true, DW_Hide_i2c=false, DW_Hide_Scbv0Feature=true, DW_Hide_Scbv2Feature=false, DW_Hide_Spi=true, DW_Hide_Uart=true, DW_Hide_UartFlowControl=true, DW_INTR_SPI_EC=, DW_INTR_SPI_EC_MASK=, DW_INTR_SPI_EC_MASKED=, DW_SPI_CTRL=, DW_SPI_STATUS=, DW_UART_CTRL=, DW_UART_FLOW_CTRL=, DW_UART_RX_CTRL=, DW_UART_TX_CTRL=, EndCond=#endif, EzI2cBitWidthReplacementString=uint16, EzI2cBusVoltage=3.3, EzI2cByteModeEnable=false, EzI2cClkFreqDes=1550, EzI2cClockFromTerm=false, EzI2cClockStretching=true, EzI2cDataRate=100, EzI2cIsPrimarySlaveAddressHex=true, EzI2cIsSecondarySlaveAddressHex=true, EzI2cMedianFilterEnable=true, EzI2cNumberOfAddresses=0, EzI2cOvsFactor=16, EzI2cPrimarySlaveAddress=8, EzI2cSecondarySlaveAddress=9, EzI2cShowTerminals=false, EzI2cSlaveAddressMask=254, EzI2cSlewRate=0, EzI2cSubAddressSize=0, EzI2cWakeEnable=false, I2cAcceptAddress=false, I2cAcceptGeneralCall=false, I2cBusVoltage=3.3, I2cBusVoltageLevel=, I2cByteModeEnable=false, I2cClkFreqDes=1550, I2cClockFromTerm=false, I2cDataRate=100, I2cExternIntrHandler=false, I2cIsSlaveAddressHex=true, I2cIsSlaveAddressMaskHex=true, I2cManualOversampleControl=false, I2cMedianFilterEnable=true, I2cMode=2, I2cOvsFactor=16, I2cOvsFactorHigh=8, I2cOvsFactorLow=8, I2cShowTerminals=false, I2cSlaveAddress=8, I2cSlaveAddressMask=254, I2cSlewRate=0, I2cSlewRateSettings=0, I2cTermsEnable=false, I2cWakeEnable=false, PinLocationP4A=true, PinName0Unconfig=uart_rx_i2c_scl_spi_mosi, PinName0UnconfigWake=uart_rx_wake_i2c_scl_spi_mosi, PinName1Unconfig=uart_tx_i2c_sda_spi_miso, PinName2Unconfig=uart_cts_spi_sclk, PinName3Unconfig=uart_rts_spi_ss0, Pn0Unconfig=RX_SCL_MOSI, Pn0UnconfigWake=RX_WAKE_SCL_MOSI, Pn1Unconfig=TX_SDA_MISO, Pn2Unconfig=CTS_SCLK, Pn3Unconfig=RTS_SS0, RemoveI2cPins=false, RemoveMisoSdaTx=true, RemoveMosiSclRx=true, RemoveMosiSclRxWake=true, RemoveScbClk=false, RemoveScbIrq=false, RemoveSpiMasterMiso=true, RemoveSpiMasterMosi=true, RemoveSpiMasterPins=true, RemoveSpiMasterSclk=true, RemoveSpiMasterSs0Pin=true, RemoveSpiMasterSs1Pin=true, RemoveSpiMasterSs2Pin=true, RemoveSpiMasterSs3Pin=true, RemoveSpiSclk=true, RemoveSpiSlaveMiso=true, RemoveSpiSlaveMosi=true, RemoveSpiSlavePins=true, RemoveSpiSs0=true, RemoveSpiSs1=true, RemoveSpiSs2=true, RemoveSpiSs3=true, RemoveUartCtsPin=true, RemoveUartRtsPin=true, RemoveUartRxPin=true, RemoveUartRxTxPin=true, RemoveUartRxWake=true, RemoveUartRxWakeupIrq=true, RemoveUartTxPin=true, RxTriggerOutputEnable=false, ScbClkFreqDes=1550, ScbClkMinusTolerance=0, ScbClkPlusTolerance=106.451612903226, ScbClockSelect=1, ScbClockTermEnable=false, ScbCustomIntrHandlerEnable=true, ScbInterruptTermEnable=false, ScbMisoSdaTxEnable=true, ScbMode=1, ScbModeHw=0, ScbMosiSclRxEnable=true, ScbRxWakeIrqEnable=false, ScbSclkEnable=false, ScbSs0Enable=false, ScbSs1Enable=false, ScbSs2Enable=false, ScbSs3Enable=false, ScbSymbolVisibility=0, SpiBitRate=1000, SpiBitsOrder=1, SpiByteModeEnable=false, SpiClkFreqDes=16000, SpiClockFromTerm=false, SpiFreeRunningSclk=false, SpiInterruptMode=0, SpiIntrMasterSpiDone=false, SpiIntrRxFull=false, SpiIntrRxNotEmpty=false, SpiIntrRxOverflow=false, SpiIntrRxTrigger=false, SpiIntrRxUnderflow=false, SpiIntrSlaveBusError=false, SpiIntrTxEmpty=false, SpiIntrTxNotFull=false, SpiIntrTxOverflow=false, SpiIntrTxTrigger=false, SpiIntrTxUnderflow=false, SpiLateMisoSampleEnable=false, SpiManualOversampleControl=true, SpiMasterMode=false, SpiMedianFilterEnable=false, SpimMisoTermEnable=false, SpimMosiTermEnable=false, SpiMode=0, SpimSclkTermEnable=false, SpimSs0TermEnable=false, SpimSs1TermEnable=false, SpimSs2TermEnable=false, SpimSs3TermEnable=false, SpiNumberOfRxDataBits=8, SpiNumberOfSelectLines=1, SpiNumberOfTxDataBits=8, SpiOvsFactor=16, SpiRemoveMiso=false, SpiRemoveMosi=false, SpiRemoveSclk=false, SpiRxBufferSize=8, SpiRxIntrMask=0, SpiRxOutputEnable=false, SpiRxTriggerLevel=7, SpiSclkMode=0, SpiSlaveMode=false, SpiSmartioEnable=false, SpisMisoTermEnable=false, SpisMosiTermEnable=false, SpiSs0Polarity=0, SpiSs1Polarity=0, SpiSs2Polarity=0, SpiSs3Polarity=0, SpisSclkTermEnable=false, SpisSsTermEnable=false, SpiSubMode=0, SpiTransferSeparation=1, SpiTxBufferSize=8, SpiTxIntrMask=0, SpiTxOutputEnable=false, SpiTxTriggerLevel=0, SpiWakeEnable=false, TriggerOutputEnable=false, TxTriggerOutputEnable=false, UartByteModeEnable=false, UartClkFreqDes=1382.4, UartClockFromTerm=false, UartCtsEnable=false, UartCtsPolarity=0, UartCtsTermEnable=false, UartDataRate=115200, UartDirection=3, UartDropOnFrameErr=false, UartDropOnParityErr=false, UartInterruptMode=0, UartIntrRxBreakDetected=false, UartIntrRxFrameErr=false, UartIntrRxFull=false, UartIntrRxNotEmpty=false, UartIntrRxOverflow=false, UartIntrRxParityErr=false, UartIntrRxTrigger=false, UartIntrRxUnderflow=false, UartIntrTxEmpty=false, UartIntrTxNotFull=false, UartIntrTxOverflow=false, UartIntrTxTrigger=false, UartIntrTxUartDone=false, UartIntrTxUartLostArb=false, UartIntrTxUartNack=false, UartIntrTxUnderflow=false, UartIrdaLowPower=false, UartIrdaPolarity=0, UartMedianFilterEnable=false, UartMpEnable=false, UartMpRxAcceptAddress=false, UartMpRxAddress=2, UartMpRxAddressMask=255, UartNumberOfDataBits=8, UartNumberOfStopBits=2, UartOvsFactor=12, UartParityType=2, UartRtsEnable=false, UartRtsPolarity=0, UartRtsTermEnable=false, UartRtsTriggerLevel=4, UartRxBreakWidth=11, UartRxBufferSize=8, UartRxEnable=false, UartRxIntrMask=0, UartRxOutputEnable=false, UartRxTermEnable=false, UartRxTriggerLevel=7, UartRxTxTermEnable=false, UartSmartioEnable=false, UartSmCardRetryOnNack=false, UartSubMode=0, UartTxBufferSize=8, UartTxEnable=false, UartTxIntrMask=0, UartTxOutputEnable=false, UartTxTermEnable=false, UartTxTriggerLevel=0, UartWakeEnable=false, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=SCB_P4_v4_0, CY_CONFIG_TITLE=I2C_1, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=I2C_1, CY_INSTANCE_SHORT_NAME=I2C_1, CY_MAJOR_VERSION=4, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=I2C_1, )
-module SCB_P4_v4_0_5 (
+module SCB_P4_v4_0_3 (
     clock,
     cts_in,
     interrupt,
@@ -2911,7 +2851,7 @@ module SCB_P4_v4_0_5 (
 endmodule
 
 // TCPWM_P4_v2_10(Clock_CheckTolerance=true, Clock_desired_freq=12, Clock_desired_freq_unit=6, Clock_divisor=1, Clock_FractDividerDenominator=0, Clock_FractDividerNumerator=0, Clock_FractDividerUsed=false, Clock_is_direct=false, Clock_is_divider=false, Clock_is_freq=true, Clock_minus_tolerance=5, Clock_ph_align_clock_id=, Clock_ph_align_clock_name=, Clock_plus_tolerance=5, Clock_source_clock_id=, Clock_source_clock_name=, PinVisibility_index=false, PinVisibility_kill=false, PinVisibility_phiA=false, PinVisibility_phiB=false, PinVisibility_switch=false, PWMCompare=65535, PWMCompareBuf=65535, PWMCompareSwap=0, PWMCountMode=3, PWMCountPresent=false, PWMDeadTimeCycle=0, PWMInterruptMask=1, PWMKillEvent=0, PWMLinenSignal=0, PWMLineSignal=0, PWMMode=4, PWMPeriod=65535, PWMPeriodBuf=65535, PWMPeriodSwap=0, PWMPrescaler=0, PWMReloadMode=0, PWMReloadPresent=false, PWMRunMode=0, PWMSetAlign=0, PWMStartMode=0, PWMStartPresent=false, PWMStopEvent=0, PWMStopMode=0, PWMStopPresent=false, PWMSwitchMode=0, PWMSwitchPresent=false, QuadAutoStart=true, QuadEncodingModes=0, QuadIndexMode=0, QuadIndexPresent=false, QuadInterruptMask=1, QuadPhiAMode=3, QuadPhiBMode=3, QuadStopMode=0, QuadStopPresent=false, TCCaptureMode=0, TCCapturePresent=false, TCCompare=65535, TCCompareBuf=65535, TCCompareSwap=0, TCCompCapMode=2, TCCountingModes=0, TCCountMode=3, TCCountPresent=false, TCInterruptMask=1, TCPeriod=65535, TCPrescaler=6, TCPWMCapturePresent=false, TCPWMConfig=1, TCPWMCountPresent=false, TCPWMReloadPresent=false, TCPWMStartPresent=false, TCPWMStopPresent=false, TCReloadMode=0, TCReloadPresent=false, TCRunMode=0, TCStartMode=0, TCStartPresent=false, TCStopMode=0, TCStopPresent=false, TermMode_capture=0, TermMode_cc=0, TermMode_clock=0, TermMode_count=0, TermMode_interrupt=0, TermMode_line=0, TermMode_line_n=0, TermMode_ov=0, TermMode_reload=0, TermMode_start=0, TermMode_stop=0, TermMode_un=0, TermModeStates=, TermVisibility_capture=false, TermVisibility_cc=true, TermVisibility_clock=true, TermVisibility_count=false, TermVisibility_interrupt=true, TermVisibility_line=false, TermVisibility_line_n=false, TermVisibility_ov=true, TermVisibility_reload=false, TermVisibility_start=false, TermVisibility_stop=false, TermVisibility_un=true, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=TCPWM_P4_v2_10, CY_CONFIG_TITLE=Timer_1, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=Timer_1, CY_INSTANCE_SHORT_NAME=Timer_1, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=10, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=Timer_1, )
-module TCPWM_P4_v2_10_6 (
+module TCPWM_P4_v2_10_4 (
     capture,
     cc,
     clock,
@@ -3043,33 +2983,28 @@ module top ;
           wire  Net_154;
           wire  Net_153;
           wire  Net_152;
-          wire  Net_196;
-          wire  Net_193;
-          wire  Net_192;
-          wire  Net_191;
-          wire  Net_190;
-          wire  Net_189;
-          wire  Net_188;
-          wire  Net_187;
-          wire  Net_186;
-          wire  Net_195;
-          wire  Net_185;
-          wire  Net_184;
-          wire  Net_183;
-          wire  Net_182;
-          wire  Net_181;
-          wire  Net_180;
-          wire  Net_179;
-          wire  Net_178;
-          wire  Net_177;
-          wire  Net_176;
-          wire  Net_175;
-          wire  Net_174;
-    electrical  Net_120;
-    electrical  Net_130;
-    electrical  Net_123;
-    electrical  Net_76;
-    electrical  Net_77;
+          wire  Net_702;
+          wire  Net_743;
+          wire  Net_742;
+          wire  Net_741;
+          wire  Net_740;
+          wire  Net_739;
+          wire  Net_738;
+          wire  Net_737;
+          wire  Net_736;
+          wire  Net_703;
+          wire  Net_735;
+          wire  Net_734;
+          wire  Net_733;
+          wire  Net_732;
+          wire  Net_731;
+          wire  Net_730;
+          wire  Net_729;
+          wire  Net_728;
+          wire  Net_727;
+          wire  Net_726;
+          wire  Net_725;
+          wire  Net_724;
     electrical  Net_565;
     electrical  Net_564;
     electrical [1:0] Net_563;
@@ -3080,23 +3015,19 @@ module top ;
           wire [3:0] Net_558;
           wire  Net_557;
           wire  Net_556;
+    electrical  Net_751;
+    electrical  Net_690;
+    electrical  Net_240;
     electrical  Net_667;
+    electrical  Net_95;
+    electrical  Net_108;
+    electrical  Net_98;
     electrical  Net_661;
     electrical  Net_660;
     electrical  Net_697;
-    electrical  Net_690;
     electrical  Net_681;
-    electrical  Net_240;
     electrical  Net_665;
-    electrical  Net_108;
           wire  Net_1629;
-    electrical  Net_126;
-    electrical  Net_125;
-    electrical  Net_99;
-    electrical  Net_84;
-    electrical  Net_95;
-    electrical  Net_98;
-    electrical  Net_101;
 
     Scan_ADC_v3_10_0 ADC_1 (
         .eos(Net_556),
@@ -3188,9 +3119,6 @@ module top ;
 
 	assign tmpOE__GND_ref_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
-    PVref_P4_v1_0_1 PVref_1 (
-        .Vout(Net_84));
-
 	wire [0:0] tmpOE__Cal_In_net;
 	wire [0:0] tmpFB_0__Cal_In_net;
 	wire [0:0] tmpIO_0__Cal_In_net;
@@ -3268,7 +3196,7 @@ module top ;
 
 	assign tmpOE__Cal_In_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
-    PGA_P4_v1_10_2 PGA_1 (
+    PGA_P4_v1_10_1 PGA_1 (
         .Vin(Net_697),
         .Vout(Net_690),
         .Vref(Net_665));
@@ -3281,88 +3209,6 @@ module top ;
     defparam GND_1.comp_name = "Gnd_v1_0";
     defparam GND_1.port_names = "T1";
     defparam GND_1.width = 1;
-
-    OpAmp_P4_v1_20_3 Opamp_1 (
-        .Vminus(Net_77),
-        .Vout(Net_76),
-        .Vplus(Net_84));
-
-	wire [0:0] tmpOE__bgRef_net;
-	wire [0:0] tmpFB_0__bgRef_net;
-	wire [0:0] tmpIO_0__bgRef_net;
-	wire [0:0] tmpINTERRUPT_0__bgRef_net;
-	electrical [0:0] tmpSIOVREF__bgRef_net;
-
-	cy_psoc3_pins_v1_10
-		#(.id("cd806cab-6a0c-493c-8c29-30ebe04899bc"),
-		  .drive_mode(3'b000),
-		  .ibuf_enabled(1'b0),
-		  .init_dr_st(1'b1),
-		  .input_clk_en(0),
-		  .input_sync(1'b0),
-		  .input_sync_mode(1'b0),
-		  .intr_mode(2'b00),
-		  .invert_in_clock(0),
-		  .invert_in_clock_en(0),
-		  .invert_in_reset(0),
-		  .invert_out_clock(0),
-		  .invert_out_clock_en(0),
-		  .invert_out_reset(0),
-		  .io_voltage(""),
-		  .layout_mode("CONTIGUOUS"),
-		  .oe_conn(1'b0),
-		  .oe_reset(0),
-		  .oe_sync(1'b0),
-		  .output_clk_en(0),
-		  .output_clock_mode(1'b0),
-		  .output_conn(1'b0),
-		  .output_mode(1'b0),
-		  .output_reset(0),
-		  .output_sync(1'b0),
-		  .pa_in_clock(-1),
-		  .pa_in_clock_en(-1),
-		  .pa_in_reset(-1),
-		  .pa_out_clock(-1),
-		  .pa_out_clock_en(-1),
-		  .pa_out_reset(-1),
-		  .pin_aliases(""),
-		  .pin_mode("A"),
-		  .por_state(4),
-		  .sio_group_cnt(0),
-		  .sio_hyst(1'b1),
-		  .sio_ibuf(""),
-		  .sio_info(2'b00),
-		  .sio_obuf(""),
-		  .sio_refsel(""),
-		  .sio_vtrip(""),
-		  .sio_hifreq(""),
-		  .sio_vohsel(""),
-		  .slew_rate(1'b0),
-		  .spanning(0),
-		  .use_annotation(1'b1),
-		  .vtrip(2'b10),
-		  .width(1),
-		  .ovt_hyst_trim(1'b0),
-		  .ovt_needed(1'b0),
-		  .ovt_slew_control(2'b00),
-		  .input_buffer_sel(2'b00))
-		bgRef
-		 (.oe(tmpOE__bgRef_net),
-		  .y({1'b0}),
-		  .fb({tmpFB_0__bgRef_net[0:0]}),
-		  .analog({Net_76}),
-		  .io({tmpIO_0__bgRef_net[0:0]}),
-		  .siovref(tmpSIOVREF__bgRef_net),
-		  .interrupt({tmpINTERRUPT_0__bgRef_net[0:0]}),
-		  .annotation({Net_99}),
-		  .in_clock({1'b0}),
-		  .in_clock_en({1'b1}),
-		  .in_reset({1'b0}),
-		  .out_clock({1'b0}),
-		  .out_clock_en({1'b1}),
-		  .out_reset({1'b0}));
-
-	assign tmpOE__bgRef_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
 	wire [0:0] tmpOE__Shunt_In_net;
 	wire [0:0] tmpFB_0__Shunt_In_net;
@@ -3518,36 +3364,6 @@ module top ;
 
 	assign tmpOE__Shunt_Gnd_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
-    cy_annotation_universal_v1_0 R_1 (
-        .connect({
-            Net_99,
-            Net_95
-        })
-    );
-    defparam R_1.comp_name = "Resistor_v1_0";
-    defparam R_1.port_names = "T1, T2";
-    defparam R_1.width = 2;
-
-    cy_annotation_universal_v1_0 R_2 (
-        .connect({
-            Net_240,
-            Net_98
-        })
-    );
-    defparam R_2.comp_name = "Resistor_v1_0";
-    defparam R_2.port_names = "T1, T2";
-    defparam R_2.width = 2;
-
-    cy_annotation_universal_v1_0 R_3 (
-        .connect({
-            Net_95,
-            Net_101
-        })
-    );
-    defparam R_3.comp_name = "Resistor_v1_0";
-    defparam R_3.port_names = "T1, T2";
-    defparam R_3.width = 2;
-
     cy_annotation_universal_v1_0 R_4 (
         .connect({
             Net_98,
@@ -3558,25 +3374,15 @@ module top ;
     defparam R_4.port_names = "T1, T2";
     defparam R_4.width = 2;
 
-    cy_annotation_universal_v1_0 R_5 (
+    cy_annotation_universal_v1_0 Bat_1 (
         .connect({
-            Net_99,
-            Net_240
+            Net_108,
+            Net_751
         })
     );
-    defparam R_5.comp_name = "Resistor_v1_0";
-    defparam R_5.port_names = "T1, T2";
-    defparam R_5.width = 2;
-
-    cy_annotation_universal_v1_0 R_6 (
-        .connect({
-            Net_101,
-            Net_108
-        })
-    );
-    defparam R_6.comp_name = "Resistor_v1_0";
-    defparam R_6.port_names = "T1, T2";
-    defparam R_6.width = 2;
+    defparam Bat_1.comp_name = "Battery_v1_0";
+    defparam Bat_1.port_names = "Neg, Pos";
+    defparam Bat_1.width = 2;
 
     cy_annotation_universal_v1_0 GND_2 (
         .connect({
@@ -3587,156 +3393,42 @@ module top ;
     defparam GND_2.port_names = "T1";
     defparam GND_2.width = 1;
 
-    cy_annotation_universal_v1_0 Bat_1 (
+    cy_annotation_universal_v1_0 R_1 (
         .connect({
-            Net_123,
-            Net_126
+            Net_240,
+            Net_98,
+            Net_95
         })
     );
-    defparam Bat_1.comp_name = "Battery_v1_0";
-    defparam Bat_1.port_names = "Neg, Pos";
-    defparam Bat_1.width = 2;
+    defparam R_1.comp_name = "Potentiometer_v1_0";
+    defparam R_1.port_names = "T1, T2, W";
+    defparam R_1.width = 3;
 
-    cy_annotation_universal_v1_0 GND_3 (
-        .connect({
-            Net_123
-        })
-    );
-    defparam GND_3.comp_name = "Gnd_v1_0";
-    defparam GND_3.port_names = "T1";
-    defparam GND_3.width = 1;
-
-	wire [0:0] tmpOE__Battery_In_net;
-	wire [0:0] tmpFB_0__Battery_In_net;
-	wire [0:0] tmpIO_0__Battery_In_net;
-	wire [0:0] tmpINTERRUPT_0__Battery_In_net;
-	electrical [0:0] tmpSIOVREF__Battery_In_net;
-
-	cy_psoc3_pins_v1_10
-		#(.id("8be5379b-3a58-43ba-a1e5-6ead07abfc6a"),
-		  .drive_mode(3'b000),
-		  .ibuf_enabled(1'b0),
-		  .init_dr_st(1'b1),
-		  .input_clk_en(0),
-		  .input_sync(1'b0),
-		  .input_sync_mode(1'b0),
-		  .intr_mode(2'b00),
-		  .invert_in_clock(0),
-		  .invert_in_clock_en(0),
-		  .invert_in_reset(0),
-		  .invert_out_clock(0),
-		  .invert_out_clock_en(0),
-		  .invert_out_reset(0),
-		  .io_voltage(""),
-		  .layout_mode("CONTIGUOUS"),
-		  .oe_conn(1'b0),
-		  .oe_reset(0),
-		  .oe_sync(1'b0),
-		  .output_clk_en(0),
-		  .output_clock_mode(1'b0),
-		  .output_conn(1'b0),
-		  .output_mode(1'b0),
-		  .output_reset(0),
-		  .output_sync(1'b0),
-		  .pa_in_clock(-1),
-		  .pa_in_clock_en(-1),
-		  .pa_in_reset(-1),
-		  .pa_out_clock(-1),
-		  .pa_out_clock_en(-1),
-		  .pa_out_reset(-1),
-		  .pin_aliases(""),
-		  .pin_mode("A"),
-		  .por_state(4),
-		  .sio_group_cnt(0),
-		  .sio_hyst(1'b1),
-		  .sio_ibuf(""),
-		  .sio_info(2'b00),
-		  .sio_obuf(""),
-		  .sio_refsel(""),
-		  .sio_vtrip(""),
-		  .sio_hifreq(""),
-		  .sio_vohsel(""),
-		  .slew_rate(1'b0),
-		  .spanning(0),
-		  .use_annotation(1'b1),
-		  .vtrip(2'b10),
-		  .width(1),
-		  .ovt_hyst_trim(1'b0),
-		  .ovt_needed(1'b0),
-		  .ovt_slew_control(2'b00),
-		  .input_buffer_sel(2'b00))
-		Battery_In
-		 (.oe(tmpOE__Battery_In_net),
-		  .y({1'b0}),
-		  .fb({tmpFB_0__Battery_In_net[0:0]}),
-		  .analog({Net_130}),
-		  .io({tmpIO_0__Battery_In_net[0:0]}),
-		  .siovref(tmpSIOVREF__Battery_In_net),
-		  .interrupt({tmpINTERRUPT_0__Battery_In_net[0:0]}),
-		  .annotation({Net_125}),
-		  .in_clock({1'b0}),
-		  .in_clock_en({1'b1}),
-		  .in_reset({1'b0}),
-		  .out_clock({1'b0}),
-		  .out_clock_en({1'b1}),
-		  .out_reset({1'b0}));
-
-	assign tmpOE__Battery_In_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
-
-    cy_annotation_universal_v1_0 R_7 (
-        .connect({
-            Net_126,
-            Net_125
-        })
-    );
-    defparam R_7.comp_name = "Resistor_v1_0";
-    defparam R_7.port_names = "T1, T2";
-    defparam R_7.width = 2;
-
-    cy_annotation_universal_v1_0 R_8 (
-        .connect({
-            Net_125,
-            Net_120
-        })
-    );
-    defparam R_8.comp_name = "Resistor_v1_0";
-    defparam R_8.port_names = "T1, T2";
-    defparam R_8.width = 2;
-
-    cy_annotation_universal_v1_0 GND_4 (
-        .connect({
-            Net_120
-        })
-    );
-    defparam GND_4.comp_name = "Gnd_v1_0";
-    defparam GND_4.port_names = "T1";
-    defparam GND_4.width = 1;
-
-    SCB_P4_v4_0_4 UART_1 (
+    SCB_P4_v4_0_2 UART_1 (
         .clock(1'b0),
         .cts_in(1'b0),
-        .interrupt(Net_176),
+        .interrupt(Net_726),
         .m_miso(1'b0),
-        .m_mosi(Net_178),
-        .m_sclk(Net_179),
-        .m_ss0(Net_180),
-        .m_ss1(Net_181),
-        .m_ss2(Net_182),
-        .m_ss3(Net_183),
-        .rts_out(Net_184),
-        .rx_dma_out(Net_185),
-        .rx_in(Net_195),
-        .rx_tx_out(Net_186),
-        .s_miso(Net_187),
+        .m_mosi(Net_728),
+        .m_sclk(Net_729),
+        .m_ss0(Net_730),
+        .m_ss1(Net_731),
+        .m_ss2(Net_732),
+        .m_ss3(Net_733),
+        .rts_out(Net_734),
+        .rx_dma_out(Net_735),
+        .rx_in(Net_703),
+        .rx_tx_out(Net_736),
+        .s_miso(Net_737),
         .s_mosi(1'b0),
         .s_sclk(1'b0),
         .s_ss(1'b0),
-        .scl_b(Net_191),
-        .sda_b(Net_192),
-        .tx_dma_out(Net_193),
-        .tx_out(Net_196));
+        .scl_b(Net_741),
+        .sda_b(Net_742),
+        .tx_dma_out(Net_743),
+        .tx_out(Net_702));
 
-    SCB_P4_v4_0_5 I2C_1 (
+    SCB_P4_v4_0_3 I2C_1 (
         .clock(1'b0),
         .cts_in(1'b0),
         .interrupt(Net_154),
@@ -3910,7 +3602,7 @@ module top ;
 
 	assign tmpOE__RELAY_EN_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
-    TCPWM_P4_v2_10_6 Timer_1 (
+    TCPWM_P4_v2_10_4 Timer_1 (
         .capture(1'b0),
         .cc(Net_198),
         .clock(Net_1629),
@@ -3997,7 +3689,7 @@ module top ;
 		Pin_1
 		 (.oe(tmpOE__Pin_1_net),
 		  .y({1'b0}),
-		  .fb({Net_195}),
+		  .fb({Net_703}),
 		  .io({tmpIO_0__Pin_1_net[0:0]}),
 		  .siovref(tmpSIOVREF__Pin_1_net),
 		  .interrupt({tmpINTERRUPT_0__Pin_1_net[0:0]}),
@@ -4071,7 +3763,7 @@ module top ;
 		  .input_buffer_sel(2'b00))
 		Pin_2
 		 (.oe(tmpOE__Pin_2_net),
-		  .y({Net_196}),
+		  .y({Net_702}),
 		  .fb({tmpFB_0__Pin_2_net[0:0]}),
 		  .io({tmpIO_0__Pin_2_net[0:0]}),
 		  .siovref(tmpSIOVREF__Pin_2_net),
@@ -4103,6 +3795,16 @@ module top ;
     defparam AMux_1.connect_mode = 1;
     
     // -- AMux AMux_1 end --
+
+    cy_annotation_universal_v1_0 R_2 (
+        .connect({
+            Net_751,
+            Net_240
+        })
+    );
+    defparam R_2.comp_name = "Resistor_v1_0";
+    defparam R_2.port_names = "T1, T2";
+    defparam R_2.width = 2;
 
 
 
