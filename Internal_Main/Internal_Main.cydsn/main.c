@@ -212,8 +212,6 @@ int main(void)
                 if (userInput == 83){ // 83 is ASCII for STOP t     
                     stopFlag = 1;
                     Timer_1_Stop();
-                    sprintf(string, "0, 0, 0, 0, 0\r\n"); 
-                    UART_1_UartPutString(string);
                     vtestIdeal = vtestIdeal + 5;
                 }                         
      
