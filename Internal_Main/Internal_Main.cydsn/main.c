@@ -133,8 +133,6 @@ int main(void)
     int32 userInput;            //reading UART input
     int8 stopFlag = 0;          //boolean flag to stop the test
     
-    uint8 batteryArray[32];
-    uint8 resistorArray[32];
     //Initialization
     
     CellTestStart();
@@ -146,6 +144,8 @@ int main(void)
     sprintf(string, "The Test Voltage will increment by in 5 mV in the data logger \r\n");
     UART_1_UartPutString(string);
     sprintf(string, "\r\nEnter G to start Test: \r\n"); 
+    UART_1_UartPutString(string);
+    sprintf(string,"\r\n Voltage(Ideal) (mV), Voltage(Measured) (mV), VirtualGND (mV), VRef (mV), Calculated Gain \r\n");
     UART_1_UartPutString(string);
     
     // Main For Loop
@@ -205,20 +205,6 @@ int main(void)
                 vtestVal = vtestVal - vrgndVal;                     // Take the difference to negate op-amp offset
                 
                 // This is the test voltage relative to virtual gnd
-                I2C_1_I2CMasterReadBuf(0x08, batteryArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
-                for(uint i = 2; i < 13; i=i+2){
-                sprintf(string, "%d.%d, ", batteryArray[i], batteryArray[i+1]);
-                UART_1_UartPutString(string);    
-                }
-                
-                // Ready Power Resistors Temperature Array via I2C and append to print string
-                I2C_1_I2CMasterReadBuf(0x09, resistorArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);                
-                for(uint i = 2; i < 11; i=i+2){
-                sprintf(string, "%d.%d, ", resistorArray[i], resistorArray[i+1]);
-                UART_1_UartPutString(string);    
-                }
-                
-                sprintf(string, "\r\n");
                 
                 // Stop the Test.... 
                 userInput = UART_1_UartGetChar();
