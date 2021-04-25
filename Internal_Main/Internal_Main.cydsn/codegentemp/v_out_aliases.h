@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Shunt_Gnd.h  
+* File Name: v_out.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_Shunt_Gnd_ALIASES_H) /* Pins Shunt_Gnd_ALIASES_H */
-#define CY_PINS_Shunt_Gnd_ALIASES_H
+#if !defined(CY_PINS_v_out_ALIASES_H) /* Pins v_out_ALIASES_H */
+#define CY_PINS_v_out_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -26,17 +26,17 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define Shunt_Gnd_0			(Shunt_Gnd__0__PC)
-#define Shunt_Gnd_0_PS		(Shunt_Gnd__0__PS)
-#define Shunt_Gnd_0_PC		(Shunt_Gnd__0__PC)
-#define Shunt_Gnd_0_DR		(Shunt_Gnd__0__DR)
-#define Shunt_Gnd_0_SHIFT	(Shunt_Gnd__0__SHIFT)
-#define Shunt_Gnd_0_INTR	((uint16)((uint16)0x0003u << (Shunt_Gnd__0__SHIFT*2u)))
+#define v_out_0			(v_out__0__PC)
+#define v_out_0_PS		(v_out__0__PS)
+#define v_out_0_PC		(v_out__0__PC)
+#define v_out_0_DR		(v_out__0__DR)
+#define v_out_0_SHIFT	(v_out__0__SHIFT)
+#define v_out_0_INTR	((uint16)((uint16)0x0003u << (v_out__0__SHIFT*2u)))
 
-#define Shunt_Gnd_INTR_ALL	 ((uint16)(Shunt_Gnd_0_INTR))
+#define v_out_INTR_ALL	 ((uint16)(v_out_0_INTR))
 
 
-#endif /* End Pins Shunt_Gnd_ALIASES_H */
+#endif /* End Pins v_out_ALIASES_H */
 
 
 /* [] END OF FILE */

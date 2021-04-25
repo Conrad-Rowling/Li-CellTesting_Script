@@ -1,6 +1,6 @@
 /* ========================================
- * Version: 1.2
- * Last Modified: 4.10.2021 
+ * Version: 1.3
+ * Last Modified: 4.24.2021 
  * Formula Racing @ UC Davis, Electrical Senior Design, & the Electricool gang, 2021
  * ========================================
 */
@@ -17,7 +17,7 @@
 #include <stdlib.h>
 
 #define V_REF_RELATIVE  35          //know voltage of VRef - VRGnd (mV)           
-#define V_TEST_START    20
+#define V_TEST_START    0
 
 // =============================
 // Function Definitions
@@ -53,6 +53,7 @@ void CellTestStart(){
     PGA_1_Start(); 
     ADC_1_Start();
     UART_1_Start();
+    PVref_1_Start();
     BLUE_LED_Write(0);
 }
 
@@ -165,8 +166,12 @@ int main(void)
             // Continue Executing While the no test errors are evident
             while(!stopFlag){
                 
-                // Test Voltage Reading
+                // Start 1.2 V Reference
                 
+                void PVref_P4_Enable (void );
+                
+                // Test Voltage Reading
+          
                 AMux_1_Select(1); 
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);               

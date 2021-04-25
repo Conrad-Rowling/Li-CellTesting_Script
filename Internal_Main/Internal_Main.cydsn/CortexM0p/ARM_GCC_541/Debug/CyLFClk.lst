@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
   29:Generated_Source\PSoC4/CyLFClk.c ****     static volatile uint16 defaultIloTrimRegValue = CY_SYS_CLK_ILO_TRIM_DEFAULT_VALUE;
   30:Generated_Source\PSoC4/CyLFClk.c **** #endif /* (CY_IP_SRSSV2 && (!CY_IP_CPUSS)) */
   31:Generated_Source\PSoC4/CyLFClk.c **** 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 2
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 2
 
 
   32:Generated_Source\PSoC4/CyLFClk.c **** #if(CY_IP_SRSSV2)
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
   86:Generated_Source\PSoC4/CyLFClk.c **** }
   87:Generated_Source\PSoC4/CyLFClk.c **** 
   88:Generated_Source\PSoC4/CyLFClk.c **** 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 3
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 3
 
 
   89:Generated_Source\PSoC4/CyLFClk.c **** /*******************************************************************************
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  143:Generated_Source\PSoC4/CyLFClk.c **** }
  144:Generated_Source\PSoC4/CyLFClk.c **** 
  145:Generated_Source\PSoC4/CyLFClk.c **** 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 4
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 4
 
 
  146:Generated_Source\PSoC4/CyLFClk.c **** /******************************************************************************
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  200:Generated_Source\PSoC4/CyLFClk.c **** ******************************************************************************/
  201:Generated_Source\PSoC4/CyLFClk.c **** void CySysClkIloStopMeasurement(void)
  202:Generated_Source\PSoC4/CyLFClk.c **** {
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 5
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 5
 
 
  203:Generated_Source\PSoC4/CyLFClk.c ****     /* Set default configurations in 11...8 DFT register bits to zero */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  257:Generated_Source\PSoC4/CyLFClk.c **** *
  258:Generated_Source\PSoC4/CyLFClk.c **** * \return CYRET_INVALID_STATE - Indicates that measurement not started. 
  259:Generated_Source\PSoC4/CyLFClk.c **** * The user should call CySysClkIloStartMeasurement() API before calling 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 6
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 6
 
 
  260:Generated_Source\PSoC4/CyLFClk.c **** * this API.
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  314:Generated_Source\PSoC4/CyLFClk.c ****                             iloCompensatedCycles = (((CY_SYS_CNT_REG2_REG * cydelayFreqHz) / (cydel
  315:Generated_Source\PSoC4/CyLFClk.c ****                                                    CY_SYS_CLK_SYS_CLK_DEVIDER)) / CY_SYS_CLK_ILO_FR
  316:Generated_Source\PSoC4/CyLFClk.c ****                                                    (desiredDelayInCounts / CY_SYS_CLK_ILO_FREQ_3LSB
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 7
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 7
 
 
  317:Generated_Source\PSoC4/CyLFClk.c ****                         }
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  371:Generated_Source\PSoC4/CyLFClk.c ****     {
  372:Generated_Source\PSoC4/CyLFClk.c ****         /* Prohibits writing to WDT registers and ILO/WCO registers when not equal to 0 */
  373:Generated_Source\PSoC4/CyLFClk.c ****         return ((0u != (CY_SYS_CLK_ILO_CONFIG_REG & (uint32)(CY_SYS_CLK_ILO_CONFIG_ENABLE))) ?
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 8
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 8
 
 
  374:Generated_Source\PSoC4/CyLFClk.c ****             (uint32) 1u :
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  428:Generated_Source\PSoC4/CyLFClk.c **** * CY_SYS_CLK_PERTHOUSAND) / DesiredIloFreq);
  429:Generated_Source\PSoC4/CyLFClk.c **** *
  430:Generated_Source\PSoC4/CyLFClk.c **** * DesiredIloFreq  = 32000, CY_SYS_CLK_PERTHOUSAND = 1000;
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 9
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 9
 
 
  431:Generated_Source\PSoC4/CyLFClk.c **** *
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  485:Generated_Source\PSoC4/CyLFClk.c ****             } while((CYRET_SUCCESS != trimRunningStatus) && 
  486:Generated_Source\PSoC4/CyLFClk.c ****               (CYRET_INVALID_STATE != trimRunningStatus) && 
  487:Generated_Source\PSoC4/CyLFClk.c ****                                (0u != timeOutClocks));
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 10
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 10
 
 
  488:Generated_Source\PSoC4/CyLFClk.c **** 
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  542:Generated_Source\PSoC4/CyLFClk.c **** *********************************************************************************
  543:Generated_Source\PSoC4/CyLFClk.c **** *
  544:Generated_Source\PSoC4/CyLFClk.c **** * \internal
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 11
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 11
 
 
  545:Generated_Source\PSoC4/CyLFClk.c **** * Function calculates ILO accuracy and check is error range is higher than 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  599:Generated_Source\PSoC4/CyLFClk.c ****                 CY_SYS_CLK_HALF_OF_STEP) / CY_SYS_CLK_ERROR_STEP);
  600:Generated_Source\PSoC4/CyLFClk.c ****             }
  601:Generated_Source\PSoC4/CyLFClk.c ****             currentIloTrimValue = (CY_SYS_CLK_ILO_TRIM_REG & CY_SYS_CLK_ILO_TRIM_MASK);
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 12
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 12
 
 
  602:Generated_Source\PSoC4/CyLFClk.c ****             trimStep = (int32) currentIloTrimValue - trimStep;
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  656:Generated_Source\PSoC4/CyLFClk.c ****                                        (defaultIloTrimRegValue & CY_SYS_CLK_ILO_TRIM_MASK));
  657:Generated_Source\PSoC4/CyLFClk.c ****         }
  658:Generated_Source\PSoC4/CyLFClk.c ****         else
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 13
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 13
 
 
  659:Generated_Source\PSoC4/CyLFClk.c ****         {
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  713:Generated_Source\PSoC4/CyLFClk.c ****     * \note For PSoC 4000S / PSoC 4100S / PSoC Analog Coprocessor devices LFCLK can
  714:Generated_Source\PSoC4/CyLFClk.c ****     * only be sourced from ILO even though WCO is available.
  715:Generated_Source\PSoC4/CyLFClk.c ****     *
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 14
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 14
 
 
  716:Generated_Source\PSoC4/CyLFClk.c ****     * \param
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  770:Generated_Source\PSoC4/CyLFClk.c ****     *******************************************************************************/
  771:Generated_Source\PSoC4/CyLFClk.c ****     void CySysClkWcoStart(void)
  772:Generated_Source\PSoC4/CyLFClk.c ****     {
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 15
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 15
 
 
  773:Generated_Source\PSoC4/CyLFClk.c ****         CySysClkWcoSetHighPowerMode();
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  827:Generated_Source\PSoC4/CyLFClk.c ****                 (uint32) 1u :
  828:Generated_Source\PSoC4/CyLFClk.c ****                 (uint32) 0u);
  829:Generated_Source\PSoC4/CyLFClk.c ****     }
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 16
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 16
 
 
  830:Generated_Source\PSoC4/CyLFClk.c **** 
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  884:Generated_Source\PSoC4/CyLFClk.c ****     * In addition to generating 32.768 kHz clock from external crystals, WCO 
  885:Generated_Source\PSoC4/CyLFClk.c ****     * can be sourced by external clock source using wco_out pin. The API help to
  886:Generated_Source\PSoC4/CyLFClk.c ****     * lets you select between the sources: External crystal or external pin.
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 17
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 17
 
 
  887:Generated_Source\PSoC4/CyLFClk.c ****     *
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  941:Generated_Source\PSoC4/CyLFClk.c ****     * Locks out configuration changes to the Watchdog timer registers and ILO
  942:Generated_Source\PSoC4/CyLFClk.c ****     * configuration register.
  943:Generated_Source\PSoC4/CyLFClk.c ****     *
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 18
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 18
 
 
  944:Generated_Source\PSoC4/CyLFClk.c ****     * After this function is called, ILO clock can't be disabled until
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  998:Generated_Source\PSoC4/CyLFClk.c **** 
  999:Generated_Source\PSoC4/CyLFClk.c ****     /*******************************************************************************
 1000:Generated_Source\PSoC4/CyLFClk.c ****     * Function Name: CySysWdtGetEnabledStatus
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 19
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 19
 
 
 1001:Generated_Source\PSoC4/CyLFClk.c ****     ****************************************************************************//**
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 1055:Generated_Source\PSoC4/CyLFClk.c ****             configRegValue = CY_SYS_WDT_CONFIG_REG &
 1056:Generated_Source\PSoC4/CyLFClk.c ****                                 (uint32)~((uint32)(CY_SYS_WDT_MODE_MASK << (counterNum * CY_SYS_WDT
 1057:Generated_Source\PSoC4/CyLFClk.c ****             configRegValue |= (uint32)((mode & CY_SYS_WDT_MODE_MASK) << (counterNum * CY_SYS_WDT_CN
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 20
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 20
 
 
 1058:Generated_Source\PSoC4/CyLFClk.c ****             CY_SYS_WDT_CONFIG_REG = configRegValue;
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 1112:Generated_Source\PSoC4/CyLFClk.c ****         {
 1113:Generated_Source\PSoC4/CyLFClk.c ****             configRegValue = CY_SYS_WDT_CONFIG_REG & (uint32)~((uint32)((uint32)1u << 
 1114:Generated_Source\PSoC4/CyLFClk.c ****                                      ((counterNum * CY_SYS_WDT_CNT_SHIFT) + CY_SYS_WDT_CNT_MATCH_CL
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 21
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 21
 
 
 1115:Generated_Source\PSoC4/CyLFClk.c **** 
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 1169:Generated_Source\PSoC4/CyLFClk.c ****     *
 1170:Generated_Source\PSoC4/CyLFClk.c ****     * PSoC 4100 / PSoC 4200: This function enables ILO.
 1171:Generated_Source\PSoC4/CyLFClk.c ****     *
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 22
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 22
 
 
 1172:Generated_Source\PSoC4/CyLFClk.c ****     * PSoC 4100 BLE / PSoC 4200 BLE / PSoC4200L / PSoC 4100M 
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 1226:Generated_Source\PSoC4/CyLFClk.c ****     void CySysWdtDisable(uint32 counterMask)
 1227:Generated_Source\PSoC4/CyLFClk.c ****     {
 1228:Generated_Source\PSoC4/CyLFClk.c ****         if (0uL == CySysWdtLocked())
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 23
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 23
 
 
 1229:Generated_Source\PSoC4/CyLFClk.c ****         {
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 1283:Generated_Source\PSoC4/CyLFClk.c ****     *
 1284:Generated_Source\PSoC4/CyLFClk.c ****     *******************************************************************************/
 1285:Generated_Source\PSoC4/CyLFClk.c ****     void CySysWdtSetCascade(uint32 cascadeMask)
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 24
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 24
 
 
 1286:Generated_Source\PSoC4/CyLFClk.c ****     {
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 1340:Generated_Source\PSoC4/CyLFClk.c ****         CYASSERT((counterNum == CY_SYS_WDT_COUNTER0) ||
 1341:Generated_Source\PSoC4/CyLFClk.c ****                  (counterNum == CY_SYS_WDT_COUNTER1));
 1342:Generated_Source\PSoC4/CyLFClk.c **** 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 25
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 25
 
 
 1343:Generated_Source\PSoC4/CyLFClk.c ****         /* Wait for previous changes to come into effect */
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 1397:Generated_Source\PSoC4/CyLFClk.c ****     *******************************************************************************/
 1398:Generated_Source\PSoC4/CyLFClk.c ****     uint32 CySysWdtGetToggleBit(void)
 1399:Generated_Source\PSoC4/CyLFClk.c ****     {
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 26
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 26
 
 
 1400:Generated_Source\PSoC4/CyLFClk.c ****         return ((CY_SYS_WDT_CONFIG_REG >> CY_SYS_WDT_CONFIG_BITS2_POS) & CY_SYS_WDT_CONFIG_BITS2_MA
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 1454:Generated_Source\PSoC4/CyLFClk.c ****             /* WDT Counter 2 */
 1455:Generated_Source\PSoC4/CyLFClk.c ****             case 2u:
 1456:Generated_Source\PSoC4/CyLFClk.c ****                 regValue = CY_SYS_WDT_CTRHIGH_REG;
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 27
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 27
 
 
 1457:Generated_Source\PSoC4/CyLFClk.c ****             break;
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 1511:Generated_Source\PSoC4/CyLFClk.c ****     {
 1512:Generated_Source\PSoC4/CyLFClk.c ****         uint8 interruptState;
 1513:Generated_Source\PSoC4/CyLFClk.c ****         uint32 wdtLockState;
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 28
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 28
 
 
 1514:Generated_Source\PSoC4/CyLFClk.c **** 
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 1568:Generated_Source\PSoC4/CyLFClk.c ****     void CySysWdtResetCounters(uint32 countersMask)
 1569:Generated_Source\PSoC4/CyLFClk.c ****     {
 1570:Generated_Source\PSoC4/CyLFClk.c ****         /* Set new WDT reset value */
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 29
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 29
 
 
 1571:Generated_Source\PSoC4/CyLFClk.c ****         CY_SYS_WDT_CONTROL_REG |= (countersMask & CY_SYS_WDT_COUNTERS_RESET);
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 1625:Generated_Source\PSoC4/CyLFClk.c ****     {
 1626:Generated_Source\PSoC4/CyLFClk.c ****         cyWdtCallback retCallback = (void *)0;
 1627:Generated_Source\PSoC4/CyLFClk.c **** 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 30
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 30
 
 
 1628:Generated_Source\PSoC4/CyLFClk.c ****         if(counterNum < CY_WDT_NUM_OF_WDT)
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 1682:Generated_Source\PSoC4/CyLFClk.c ****         else
 1683:Generated_Source\PSoC4/CyLFClk.c ****         {
 1684:Generated_Source\PSoC4/CyLFClk.c ****             CYASSERT(0u != 0u);
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 31
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 31
 
 
 1685:Generated_Source\PSoC4/CyLFClk.c ****         }
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 1739:Generated_Source\PSoC4/CyLFClk.c ****         if(0u != (CY_SYS_WDT_COUNTER2_INT & CY_SYS_WDT_CONTROL_REG))
 1740:Generated_Source\PSoC4/CyLFClk.c ****         {
 1741:Generated_Source\PSoC4/CyLFClk.c ****             if(0u != (CY_SYS_WDT_COUNTER2_INT & wdtIsrMask))
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 32
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 32
 
 
 1742:Generated_Source\PSoC4/CyLFClk.c ****             {
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 1796:Generated_Source\PSoC4/CyLFClk.c ****                 CySysWdtClearInterrupt(CY_SYS_WDT_COUNTER1_INT);
 1797:Generated_Source\PSoC4/CyLFClk.c ****             }
 1798:Generated_Source\PSoC4/CyLFClk.c ****             else if(CY_SYS_WDT_MODE_RESET == CySysWdtGetMode(counterNum))
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 33
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 33
 
 
 1799:Generated_Source\PSoC4/CyLFClk.c ****             {
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 1853:Generated_Source\PSoC4/CyLFClk.c ****         else if (0u != CySysWdtGetEnabledStatus(CY_SYS_WDT_COUNTER2))
 1854:Generated_Source\PSoC4/CyLFClk.c ****         {
 1855:Generated_Source\PSoC4/CyLFClk.c ****             lfclkPosedgeEnabledWdtCounter = CY_SYS_WDT_COUNTER2;
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 34
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 34
 
 
 1856:Generated_Source\PSoC4/CyLFClk.c ****         }
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 1910:Generated_Source\PSoC4/CyLFClk.c ****     *
 1911:Generated_Source\PSoC4/CyLFClk.c ****     * \brief Reads the enabled status of the WDT counter.
 1912:Generated_Source\PSoC4/CyLFClk.c ****     *
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 35
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 35
 
 
 1913:Generated_Source\PSoC4/CyLFClk.c ****     * \return The status of the WDT counter:
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 1967:Generated_Source\PSoC4/CyLFClk.c ****     *
 1968:Generated_Source\PSoC4/CyLFClk.c ****     *******************************************************************************/
 1969:Generated_Source\PSoC4/CyLFClk.c ****     void CySysWdtSetMatch(uint32 match)
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 36
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 36
 
 
 1970:Generated_Source\PSoC4/CyLFClk.c ****     {
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 2024:Generated_Source\PSoC4/CyLFClk.c ****     }
 2025:Generated_Source\PSoC4/CyLFClk.c **** 
 2026:Generated_Source\PSoC4/CyLFClk.c **** 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 37
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 37
 
 
 2027:Generated_Source\PSoC4/CyLFClk.c ****     /*******************************************************************************
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 2081:Generated_Source\PSoC4/CyLFClk.c ****     * After unmasking interrupts from WDT, they are passed to CPU.
 2082:Generated_Source\PSoC4/CyLFClk.c ****     * This function does not impact the reset generation.
 2083:Generated_Source\PSoC4/CyLFClk.c ****     *
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 38
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 38
 
 
 2084:Generated_Source\PSoC4/CyLFClk.c ****     *******************************************************************************/
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 2138:Generated_Source\PSoC4/CyLFClk.c ****     * by using CySysWdtSetIsrCallback() API.
 2139:Generated_Source\PSoC4/CyLFClk.c ****     *
 2140:Generated_Source\PSoC4/CyLFClk.c ****     *
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 39
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 39
 
 
 2141:Generated_Source\PSoC4/CyLFClk.c ****     * \details
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
   40 0008 7047     		bx	lr
   41              	.L3:
   42 000a C046     		.align	2
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 40
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 40
 
 
   43              	.L2:
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
   92 0000 024A     		ldr	r2, .L8
   93 0002 1368     		ldr	r3, [r2]
   94 0004 5B00     		lsls	r3, r3, #1
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 41
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 41
 
 
   95 0006 5B08     		lsrs	r3, r3, #1
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  144 0024 FFF0FFFF 		.word	-3841
  145 0028 18000340 		.word	1073938456
  146 002c F0F0FFFF 		.word	-3856
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 42
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 42
 
 
  147 0030 08090000 		.word	2312
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  197              	.LFB5:
  268:Generated_Source\PSoC4/CyLFClk.c ****     uint32 iloCompensatedCycles;
  198              		.loc 1 268 0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 43
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 43
 
 
  199              		.cfi_startproc
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  244              		.loc 1 287 0
  245 0034 2D4B     		ldr	r3, .L28+24
  246 0036 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 44
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 44
 
 
  247 0038 002B     		cmp	r3, #0
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  294              	.LVL13:
  295 007e 0BE0     		b	.L20
  296              	.LVL14:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 45
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 45
 
 
  297              	.L19:
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  341              	.LVL22:
  342 00b4 0CE0     		b	.L17
  343              	.LVL23:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 46
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 46
 
 
  344              	.L21:
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  394 00ec 1C000340 		.word	1073938460
  395 00f0 20000340 		.word	1073938464
  396 00f4 71020000 		.word	625
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 47
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 47
 
 
  397 00f8 C4090000 		.word	2500
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
   27:Generated_Source\PSoC4/CyLFClk.h ****     CY_SYS_TIMER_WAIT = 0u,
   28:Generated_Source\PSoC4/CyLFClk.h ****     CY_SYS_TIMER_INTERRUPT = 1u
   29:Generated_Source\PSoC4/CyLFClk.h **** } cy_sys_timer_delaytype_enum;
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 48
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 48
 
 
   30:Generated_Source\PSoC4/CyLFClk.h **** 
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
   84:Generated_Source\PSoC4/CyLFClk.h ****     uint32 CySysClkWcoEnabled(void);
   85:Generated_Source\PSoC4/CyLFClk.h **** 
   86:Generated_Source\PSoC4/CyLFClk.h **** #endif /* (CY_IP_WCO) */
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 49
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 49
 
 
   87:Generated_Source\PSoC4/CyLFClk.h **** 
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  141:Generated_Source\PSoC4/CyLFClk.h ****     void   CySysWdtSetIgnoreBits(uint32 bitsNum);
  142:Generated_Source\PSoC4/CyLFClk.h ****     uint32 CySysWdtGetIgnoreBits(void);
  143:Generated_Source\PSoC4/CyLFClk.h ****     void   CySysWdtClearInterrupt(void);
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 50
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 50
 
 
  144:Generated_Source\PSoC4/CyLFClk.h ****     void   CySysWdtMaskInterrupt(void);
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  198:Generated_Source\PSoC4/CyLFClk.h **** /* CySysClkIloStart()/CySysClkIloStop() - implementation definitions */
  199:Generated_Source\PSoC4/CyLFClk.h **** #define CY_SYS_CLK_ILO_CONFIG_ENABLE                    ((uint32)(( uint32 )0x01u << 31u))
  200:Generated_Source\PSoC4/CyLFClk.h **** #define CY_SYS_CLK_DFT_SELECT_DEFAULT_MASK              ((uint32)(( uint32 )0x0fu << 8u ))
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 51
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 51
 
 
  201:Generated_Source\PSoC4/CyLFClk.h **** 
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  255:Generated_Source\PSoC4/CyLFClk.h **** /* CySysClkSetTimerSource() - implementation definitions */
  256:Generated_Source\PSoC4/CyLFClk.h **** #if (CY_IP_SRSSLT && CY_IP_WCO && CY_IP_WCO_WDT_EN)
  257:Generated_Source\PSoC4/CyLFClk.h ****     #define CY_SYS_CLK_TIMER_SEL_MASK                   ((uint32)(( uint32 )0x03u << 30u))
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 52
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 52
 
 
  258:Generated_Source\PSoC4/CyLFClk.h **** #endif /* (CY_IP_SRSSLT && CY_IP_WCO && CY_IP_WCO_WDT_EN) */
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  312:Generated_Source\PSoC4/CyLFClk.h ****     #define CY_SYS_CLK_WCO_CONFIG_LPM_ENABLE            (( uint32 )(( uint32 )0x01u << 31u))
  313:Generated_Source\PSoC4/CyLFClk.h **** 
  314:Generated_Source\PSoC4/CyLFClk.h ****     /* WCO Status Register */
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 53
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 53
 
 
  315:Generated_Source\PSoC4/CyLFClk.h ****     #define CY_SYS_CLK_WCO_STATUS_OUT_BLNK_A            (( uint32 )(( uint32 )0x01u <<  0u))
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  369:Generated_Source\PSoC4/CyLFClk.h ****     #define CY_SYS_WDT_COUNTER2                 (0x02u)
  370:Generated_Source\PSoC4/CyLFClk.h **** 
  371:Generated_Source\PSoC4/CyLFClk.h ****     #define CY_SYS_WDT_COUNTER0_OFFSET          (0x00u)
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 54
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 54
 
 
  372:Generated_Source\PSoC4/CyLFClk.h ****     #define CY_SYS_WDT_COUNTER1_OFFSET          (0x02u)
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  426:Generated_Source\PSoC4/CyLFClk.h **** 
  427:Generated_Source\PSoC4/CyLFClk.h **** #if (CY_IP_SRSSLT && CY_IP_WCO && CY_IP_WCO_WDT_EN)
  428:Generated_Source\PSoC4/CyLFClk.h **** 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 55
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 55
 
 
  429:Generated_Source\PSoC4/CyLFClk.h ****     #define CY_SYS_TIMER_MODE_NONE              (0u)
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  483:Generated_Source\PSoC4/CyLFClk.h ****         ((CY_SYS_CLK_TIMER_SRC_ILO == (CY_SYS_WCO_WDT_CONFIG_REG & CY_SYS_CLK_TIMER_SEL_MASK)) ? \
  484:Generated_Source\PSoC4/CyLFClk.h ****                                             (CY_SYS_TIMER_1ILO_DELAY_US) : \
  485:Generated_Source\PSoC4/CyLFClk.h ****                                             (CY_SYS_TIMER_1WCO_DELAY_US))
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 56
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 56
 
 
  486:Generated_Source\PSoC4/CyLFClk.h **** 
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  540:Generated_Source\PSoC4/CyLFClk.h **** /* DFT TST Counter 1 Register*/
  541:Generated_Source\PSoC4/CyLFClk.h **** #define CY_SYS_CNT_REG1_REG                              (*(reg32*) CYREG_TST_TRIM_CNTR1)
  542:Generated_Source\PSoC4/CyLFClk.h **** #define CY_SYS_CNT_REG1_PTR                              ( (reg32*) CYREG_TST_TRIM_CNTR1)
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 57
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 57
 
 
  543:Generated_Source\PSoC4/CyLFClk.h **** 
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  597:Generated_Source\PSoC4/CyLFClk.h ****     #define CY_SYS_WDT_CTRLOW_REG               (*(reg32 *) CYREG_WDT_CTRLOW)
  598:Generated_Source\PSoC4/CyLFClk.h ****     #define CY_SYS_WDT_CTRLOW_PTR               ( (reg32 *) CYREG_WDT_CTRLOW)
  599:Generated_Source\PSoC4/CyLFClk.h **** 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 58
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 58
 
 
  600:Generated_Source\PSoC4/CyLFClk.h ****     #define CY_SYS_WDT_CTRHIGH_REG              (*(reg32 *) CYREG_WDT_CTRHIGH)
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  654:Generated_Source\PSoC4/CyLFClk.h ****     * Summary:
  655:Generated_Source\PSoC4/CyLFClk.h ****     *  Sets the high power mode for the 32 KHz WCO.
  656:Generated_Source\PSoC4/CyLFClk.h ****     *
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 59
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 59
 
 
  657:Generated_Source\PSoC4/CyLFClk.h ****     *******************************************************************************/
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  775:Generated_Source\PSoC4/CyLFClk.c **** 
  461              		.loc 1 775 0
  462              		@ sp needed
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 60
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 60
 
 
  463 0036 10BD     		pop	{r4, pc}
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  513              	.LFB7:
  790:Generated_Source\PSoC4/CyLFClk.c ****         #if (CY_IP_SRSSV2)
  514              		.loc 1 790 0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 61
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 61
 
 
  515              		.cfi_startproc
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  564 0006 0124     		movs	r4, #1
  565 0008 1C40     		ands	r4, r3
  566              	.LVL40:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 62
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 62
 
 
  857:Generated_Source\PSoC4/CyLFClk.c ****         {
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  612              	.LVL46:
  613 003c FFF7FEFF 		bl	CyHalt
  614              	.LVL47:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 63
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 63
 
 
  615              	.L45:
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  924:Generated_Source\PSoC4/CyLFClk.c ****                                         (clockSel << CY_SYS_CLK_WCO_SELECT_PIN_OFFSET);
  663              		.loc 1 924 0
  664 001a 1C43     		orrs	r4, r3
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 64
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 64
 
 
  665 001c 1460     		str	r4, [r2]
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  714              		.cfi_endproc
  715              	.LFE11:
  716              		.size	CySysWdtGetEnabledStatus, .-CySysWdtGetEnabledStatus
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 65
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 65
 
 
  717              		.section	.text.CySysWdtEnable,"ax",%progbits
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  765              		.align	2
  766              	.L61:
  767 0008 6588EDAC 		.word	-1393719195
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 66
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 66
 
 
  768 000c 38000340 		.word	1073938488
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  817              		.loc 1 1986 0
  818              		.cfi_startproc
  819              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 67
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 67
 
 
  820              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  869              	CySysWdtSetIgnoreBits:
  870              	.LFB17:
 2021:Generated_Source\PSoC4/CyLFClk.c ****         bitsNum = ((uint32)(bitsNum << CY_SYS_WDT_IGNORE_BITS_SHIFT) & CY_SYS_WDT_IGNORE_BITS_MASK)
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 68
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 68
 
 
  871              		.loc 1 2021 0
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  920 0004 000C     		lsrs	r0, r0, #16
  921 0006 0F23     		movs	r3, #15
  922 0008 1840     		ands	r0, r3
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 69
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 69
 
 
 2041:Generated_Source\PSoC4/CyLFClk.c **** 
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  972              		@ args = 0, pretend = 0, frame = 0
  973              		@ frame_needed = 0, uses_anonymous_args = 0
  974              		@ link register save eliminated.
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 70
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 70
 
 
 2072:Generated_Source\PSoC4/CyLFClk.c ****     }
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  1024              		.thumb_func
  1025              		.type	CySysWdtSetInterruptCallback, %function
  1026              	CySysWdtSetInterruptCallback:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 71
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 71
 
 
  1027              	.LFB22:
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  1074 0008 00000000 		.word	.LANCHOR0
  1075              		.cfi_endproc
  1076              	.LFE23:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 72
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 72
 
 
  1077              		.size	CySysWdtGetInterruptCallback, .-CySysWdtGetInterruptCallback
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 2184:Generated_Source\PSoC4/CyLFClk.c **** /*******************************************************************************
 2185:Generated_Source\PSoC4/CyLFClk.c **** * Function Name: CySysClkSetTimerSource
 2186:Generated_Source\PSoC4/CyLFClk.c **** ****************************************************************************//**
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 73
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 73
 
 
 2187:Generated_Source\PSoC4/CyLFClk.c **** *
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 2220:Generated_Source\PSoC4/CyLFClk.c ****             CyDelayUs(CY_SYS_4TIMER_DELAY_US);
  1145              		.loc 1 2220 0
  1146 0016 134B     		ldr	r3, .L103+4
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 74
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 74
 
 
  1147 0018 1B68     		ldr	r3, [r3]
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  1190 0054 00E0     		b	.L100
  1191              	.L102:
  1192 0056 0122     		movs	r2, #1
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 75
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 75
 
 
  1193              	.L100:
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  1221              	.LVL73:
  1222 0000 10B5     		push	{r4, lr}
  1223              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 76
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 76
 
 
  1224              		.cfi_offset 4, -8
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 2270:Generated_Source\PSoC4/CyLFClk.c ****     * \param mode
 2271:Generated_Source\PSoC4/CyLFClk.c ****     *  CY_SYS_TIMER_MODE_NONE - Free running.<br>
 2272:Generated_Source\PSoC4/CyLFClk.c ****     * CY_SYS_TIMER_MODE_INT - The interrupt generated on match for counter 0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 77
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 77
 
 
 2273:Generated_Source\PSoC4/CyLFClk.c ****     * and 1, and on bit toggle for counter 2.
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 2291:Generated_Source\PSoC4/CyLFClk.c ****         {
 2292:Generated_Source\PSoC4/CyLFClk.c ****             configRegValue = CY_SYS_WCO_WDT_CONFIG_REG &
  1299              		.loc 1 2292 0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 78
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 78
 
 
  1300 0024 054A     		ldr	r2, .L113
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 2307:Generated_Source\PSoC4/CyLFClk.c ****     *
 2308:Generated_Source\PSoC4/CyLFClk.c ****     * \return The mode of the counter. The same enumerated values as the mode 
 2309:Generated_Source\PSoC4/CyLFClk.c ****     * parameter used in CySysTimerSetMode().
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 79
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 79
 
 
 2310:Generated_Source\PSoC4/CyLFClk.c ****     *
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 2330:Generated_Source\PSoC4/CyLFClk.c ****     * \param enable 0 to disable appropriate counter <br>
 2331:Generated_Source\PSoC4/CyLFClk.c ****     * 1 to enable appropriate counter
 2332:Generated_Source\PSoC4/CyLFClk.c ****     *
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 80
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 80
 
 
 2333:Generated_Source\PSoC4/CyLFClk.c ****     * \details
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  1408              		.loc 1 2349 0
  1409 0022 0122     		movs	r2, #1
  1410 0024 A240     		lsls	r2, r2, r4
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 81
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 81
 
 
  1411 0026 9343     		bics	r3, r2
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  1441              		.cfi_startproc
  1442              		@ args = 0, pretend = 0, frame = 0
  1443              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 82
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 82
 
 
  1444              	.LVL99:
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 2384:Generated_Source\PSoC4/CyLFClk.c ****     * Function Name: CySysTimerEnable
 2385:Generated_Source\PSoC4/CyLFClk.c ****     ****************************************************************************//**
 2386:Generated_Source\PSoC4/CyLFClk.c ****     *
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 83
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 83
 
 
 2387:Generated_Source\PSoC4/CyLFClk.c ****     * \brief Enables the specified DeepSleep Timer counters. All the counters 
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  1514              	.L128:
 2415:Generated_Source\PSoC4/CyLFClk.c ****             {
 2416:Generated_Source\PSoC4/CyLFClk.c ****                 /* Wait for changes to come into effect */
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 84
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 84
 
 
 2417:Generated_Source\PSoC4/CyLFClk.c ****             }
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  1550              		.global	CySysTimerDisable
  1551              		.code	16
  1552              		.thumb_func
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 85
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 85
 
 
  1553              		.type	CySysTimerDisable, %function
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  1582              	.L137:
 2461:Generated_Source\PSoC4/CyLFClk.c ****             {
 2462:Generated_Source\PSoC4/CyLFClk.c ****                 /* Wait for changes to come into effect */
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 86
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 86
 
 
 2463:Generated_Source\PSoC4/CyLFClk.c ****             }
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  1617              		.align	2
  1618              		.global	CySysTimerSetCascade
  1619              		.code	16
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 87
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 87
 
 
  1620              		.thumb_func
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  1639 0006 FFF7FEFF 		bl	CySysTimerGetEnabledStatus
  1640              	.LVL117:
  1641 000a 0400     		movs	r4, r0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 88
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 88
 
 
 2518:Generated_Source\PSoC4/CyLFClk.c ****                             CySysTimerGetEnabledStatus(CY_SYS_TIMER1) |
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  1683              		.section	.text.CySysTimerGetCascade,"ax",%progbits
  1684              		.align	2
  1685              		.global	CySysTimerGetCascade
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 89
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 89
 
 
  1686              		.code	16
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 2549:Generated_Source\PSoC4/CyLFClk.c **** 
 2550:Generated_Source\PSoC4/CyLFClk.c ****     /*******************************************************************************
 2551:Generated_Source\PSoC4/CyLFClk.c ****     * Function Name: CySysTimerSetMatch
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 90
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 90
 
 
 2552:Generated_Source\PSoC4/CyLFClk.c ****     ****************************************************************************//**
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  1754              	.LVL128:
 2572:Generated_Source\PSoC4/CyLFClk.c **** 
 2573:Generated_Source\PSoC4/CyLFClk.c ****         regValue = CY_SYS_WCO_WDT_MATCH_REG;
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 91
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 91
 
 
  1755              		.loc 1 2573 0 is_stmt 1 discriminator 4
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  1803              		.type	CySysTimerSetToggleBit, %function
  1804              	CySysTimerSetToggleBit:
  1805              	.LFB37:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 92
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 92
 
 
 2580:Generated_Source\PSoC4/CyLFClk.c **** 
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  1831              	.LVL139:
 2609:Generated_Source\PSoC4/CyLFClk.c ****             configRegValue |= ((bits & CY_SYS_TIMER_CONFIG_BITS2_MASK) << CY_SYS_TIMER_CONFIG_BITS2
  1832              		.loc 1 2609 0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 93
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 93
 
 
  1833 0018 2006     		lsls	r0, r4, #24
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  1870 0002 1868     		ldr	r0, [r3]
  1871 0004 000E     		lsrs	r0, r0, #24
  1872 0006 1F23     		movs	r3, #31
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 94
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 94
 
 
  1873 0008 1840     		ands	r0, r3
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  1909              	.LVL145:
  1910              	.L168:
 2645:Generated_Source\PSoC4/CyLFClk.c ****                  (counterNum == CY_SYS_TIMER1));
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 95
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 95
 
 
 2646:Generated_Source\PSoC4/CyLFClk.c **** 
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  1945              		.cfi_offset 14, -4
  1946              	.LVL148:
 2666:Generated_Source\PSoC4/CyLFClk.c ****         uint32 regValue = 0u;
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 96
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 96
 
 
 2667:Generated_Source\PSoC4/CyLFClk.c **** 
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  1984              	.L177:
 2684:Generated_Source\PSoC4/CyLFClk.c **** 
 2685:Generated_Source\PSoC4/CyLFClk.c ****             default:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 97
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 97
 
 
 2686:Generated_Source\PSoC4/CyLFClk.c ****                 CYASSERT(0u != 0u);
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2014              		.cfi_startproc
  2015              		@ args = 0, pretend = 0, frame = 0
  2016              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 98
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 98
 
 
  2017              		@ link register save eliminated.
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2050              		.cfi_offset 14, -4
  2051 0002 0400     		movs	r4, r0
 2731:Generated_Source\PSoC4/CyLFClk.c ****         uint8 interruptState;
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 99
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 99
 
 
 2732:Generated_Source\PSoC4/CyLFClk.c ****         interruptState = CyEnterCriticalSection();
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2088              		.thumb_func
  2089              		.type	CySysTimerSetInterruptCallback, %function
  2090              	CySysTimerSetInterruptCallback:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 100
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 100
 
 
  2091              	.LFB43:
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 2778:Generated_Source\PSoC4/CyLFClk.c ****         {
 2779:Generated_Source\PSoC4/CyLFClk.c ****             CYASSERT(0u != 0u);
  2117              		.loc 1 2779 0 discriminator 1
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 101
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 101
 
 
  2118 0012 0020     		movs	r0, #0
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2149 0000 10B5     		push	{r4, lr}
  2150              		.cfi_def_cfa_offset 8
  2151              		.cfi_offset 4, -8
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 102
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 102
 
 
  2152              		.cfi_offset 14, -4
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2192              	CySysTimerEnableIsr:
  2193              	.LFB45:
 2815:Generated_Source\PSoC4/CyLFClk.c **** 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 103
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 103
 
 
 2816:Generated_Source\PSoC4/CyLFClk.c **** 
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2225              	.LVL184:
  2226 0020 FFF7FEFF 		bl	CyHalt
  2227              	.LVL185:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 104
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 104
 
 
  2228              	.L196:
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2264 0008 054B     		ldr	r3, .L204
  2265 000a C158     		ldr	r1, [r0, r3]
  2266 000c 054A     		ldr	r2, .L204+4
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 105
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 105
 
 
  2267 000e 1368     		ldr	r3, [r2]
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 2880:Generated_Source\PSoC4/CyLFClk.c ****     *
 2881:Generated_Source\PSoC4/CyLFClk.c ****     *******************************************************************************/
 2882:Generated_Source\PSoC4/CyLFClk.c ****     void CySysTimerIsr(void)
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 106
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 106
 
 
 2883:Generated_Source\PSoC4/CyLFClk.c ****     {
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2339 0032 FFF7FEFF 		bl	CySysTimerClearInterrupt
  2340              	.LVL192:
  2341              	.L207:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 107
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 107
 
 
 2896:Generated_Source\PSoC4/CyLFClk.c ****         }
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 2911:Generated_Source\PSoC4/CyLFClk.c **** 
 2912:Generated_Source\PSoC4/CyLFClk.c ****         if(0u != (CY_SYS_TIMER2_INT & CY_SYS_WCO_WDT_CONTROL_REG))
  2381              		.loc 1 2912 0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 108
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 108
 
 
  2382 0070 084B     		ldr	r3, .L213
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2425              	CySysTimerResetCounters:
  2426              	.LFB48:
 2924:Generated_Source\PSoC4/CyLFClk.c **** 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 109
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 109
 
 
 2925:Generated_Source\PSoC4/CyLFClk.c **** 
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2453              	.L217:
  2454 0018 10020640 		.word	1074135568
  2455 001c 08080800 		.word	526344
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 110
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 110
 
 
  2456              		.cfi_endproc
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 2996:Generated_Source\PSoC4/CyLFClk.c ****     * This can be configured in two ways:
 2997:Generated_Source\PSoC4/CyLFClk.c ****     * - Through the DWR page. Open the "Clocks" tab, click the "Edit Clocks..."
 2998:Generated_Source\PSoC4/CyLFClk.c ****     * button, in the "Configure System Clocks" window click on the
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 111
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 111
 
 
 2999:Generated_Source\PSoC4/CyLFClk.c ****     * "Low Frequency Clocks" tab and choose the appropriate option for the used
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 3053:Generated_Source\PSoC4/CyLFClk.c ****                                                             (delay <= CY_SYS_UINT16_MAX_VAL))
 3054:Generated_Source\PSoC4/CyLFClk.c ****             {
 3055:Generated_Source\PSoC4/CyLFClk.c ****                 regValue   = CySysTimerGetCount(counterNum);
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 112
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 112
 
 
 3056:Generated_Source\PSoC4/CyLFClk.c ****                 matchValue = (regValue + delay) & (uint32)CY_SYS_UINT16_MAX_VAL;
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 3110:Generated_Source\PSoC4/CyLFClk.c ****     * CySysWdtSetClearOnMatch() for WDT or CySysTimerSetClearOnMatch() for DeepSleep
 3111:Generated_Source\PSoC4/CyLFClk.c ****     * Timer function with the "enable" parameter equal to zero for the used WDT 
 3112:Generated_Source\PSoC4/CyLFClk.c ****     * or DeepSleep Timer counter.
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 113
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 113
 
 
 3113:Generated_Source\PSoC4/CyLFClk.c ****     *
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2472 0000 70B5     		push	{r4, r5, r6, lr}
  2473              		.cfi_def_cfa_offset 16
  2474              		.cfi_offset 4, -16
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 114
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 114
 
 
  2475              		.cfi_offset 5, -12
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
 3198:Generated_Source\PSoC4/CyLFClk.c ****                                                         (match <= CY_SYS_UINT16_MAX_VAL))
 3199:Generated_Source\PSoC4/CyLFClk.c ****         {
 3200:Generated_Source\PSoC4/CyLFClk.c ****             if(delayType == CY_SYS_TIMER_WAIT)
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 115
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 115
 
 
  2493              		.loc 1 3200 0 is_stmt 1
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2530 0048 5361     		str	r3, [r2, #20]
 3218:Generated_Source\PSoC4/CyLFClk.c ****                 timerIsrMask |= tmpValue;
  2531              		.loc 1 3218 0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 116
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 116
 
 
  2532 004a 074A     		ldr	r2, .L225+12
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2577              		.cfi_offset 14, -4
  2578 0002 0400     		movs	r4, r0
  2579 0004 0E00     		movs	r6, r1
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 117
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 117
 
 
  2580 0006 1500     		movs	r5, r2
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2626              		.size	CySysTimerDelay, .-CySysTimerDelay
  2627              		.section	.rodata
  2628              		.align	2
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 118
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 118
 
 
  2629              		.set	.LANCHOR1,. + 0
@@ -7067,10 +7067,10 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2670 0006 00000000 		.4byte	.Ldebug_abbrev0
  2671 000a 04       		.byte	0x4
  2672 000b 01       		.uleb128 0x1
- 2673 000c D1060000 		.4byte	.LASF113
+ 2673 000c 79060000 		.4byte	.LASF113
  2674 0010 0C       		.byte	0xc
- 2675 0011 76060000 		.4byte	.LASF114
- 2676 0015 5C050000 		.4byte	.LASF115
+ 2675 0011 1E060000 		.4byte	.LASF114
+ 2676 0015 F4070000 		.4byte	.LASF115
  2677 0019 00000000 		.4byte	.Ldebug_ranges0+0
  2678 001d 00000000 		.4byte	0
  2679 0021 00000000 		.4byte	.Ldebug_line0
@@ -7078,17 +7078,17 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2681 0026 01       		.byte	0x1
  2682 0027 06       		.byte	0x6
  2683 0028 E9000000 		.4byte	.LASF0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 119
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 119
 
 
  2684 002c 02       		.uleb128 0x2
  2685 002d 01       		.byte	0x1
  2686 002e 08       		.byte	0x8
- 2687 002f BB050000 		.4byte	.LASF1
+ 2687 002f 63050000 		.4byte	.LASF1
  2688 0033 02       		.uleb128 0x2
  2689 0034 02       		.byte	0x2
  2690 0035 05       		.byte	0x5
- 2691 0036 E7050000 		.4byte	.LASF2
+ 2691 0036 8F050000 		.4byte	.LASF2
  2692 003a 02       		.uleb128 0x2
  2693 003b 02       		.byte	0x2
  2694 003c 07       		.byte	0x7
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2738 0092 F7040000 		.4byte	.LASF12
  2739 0096 02       		.uleb128 0x2
  2740 0097 08       		.byte	0x8
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 120
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 120
 
 
  2741 0098 04       		.byte	0x4
@@ -7146,9 +7146,9 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2743 009d 02       		.uleb128 0x2
  2744 009e 01       		.byte	0x1
  2745 009f 08       		.byte	0x8
- 2746 00a0 7B070000 		.4byte	.LASF14
+ 2746 00a0 23070000 		.4byte	.LASF14
  2747 00a4 04       		.uleb128 0x4
- 2748 00a5 4C080000 		.4byte	.LASF15
+ 2748 00a5 55080000 		.4byte	.LASF15
  2749 00a9 03       		.byte	0x3
  2750 00aa 9E02     		.2byte	0x29e
  2751 00ac 48000000 		.4byte	0x48
@@ -7173,7 +7173,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2770 00d5 A2040000 		.4byte	.LASF17
  2771 00d9 00       		.byte	0
  2772 00da 09       		.uleb128 0x9
- 2773 00db 9C080000 		.4byte	.LASF18
+ 2773 00db A5080000 		.4byte	.LASF18
  2774 00df 01       		.byte	0x1
  2775 00e0 00       		.byte	0
  2776 00e1 0A       		.uleb128 0xa
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2795 0109 02       		.uleb128 0x2
  2796 010a 04       		.byte	0x4
  2797 010b 07       		.byte	0x7
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 121
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 121
 
 
  2798 010c 4E040000 		.4byte	.LASF23
@@ -7242,7 +7242,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2836 0162 01       		.uleb128 0x1
  2837 0163 9C       		.byte	0x9c
  2838 0164 0E       		.uleb128 0xe
- 2839 0165 45060000 		.4byte	.LASF26
+ 2839 0165 ED050000 		.4byte	.LASF26
  2840 0169 01       		.byte	0x1
  2841 016a A8       		.byte	0xa8
  2842 016b 00000000 		.4byte	.LFB3
@@ -7258,10 +7258,10 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2852 0184 01       		.uleb128 0x1
  2853 0185 9C       		.byte	0x9c
  2854 0186 0F       		.uleb128 0xf
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 122
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 122
 
 
- 2855 0187 86080000 		.4byte	.LASF38
+ 2855 0187 8F080000 		.4byte	.LASF38
  2856 018b 01       		.byte	0x1
  2857 018c 0B01     		.2byte	0x10b
  2858 018e A4000000 		.4byte	0xa4
@@ -7289,13 +7289,13 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2880 01c8 83000000 		.4byte	0x83
  2881 01cc 2B010000 		.4byte	.LLST2
  2882 01d0 11       		.uleb128 0x11
- 2883 01d1 D8070000 		.4byte	.LASF32
+ 2883 01d1 80070000 		.4byte	.LASF32
  2884 01d5 01       		.byte	0x1
  2885 01d6 0E01     		.2byte	0x10e
  2886 01d8 83000000 		.4byte	0x83
  2887 01dc 55010000 		.4byte	.LLST3
  2888 01e0 0D       		.uleb128 0xd
- 2889 01e1 C9050000 		.4byte	.LASF33
+ 2889 01e1 71050000 		.4byte	.LASF33
  2890 01e5 01       		.byte	0x1
  2891 01e6 0F01     		.2byte	0x10f
  2892 01e8 83000000 		.4byte	0x83
@@ -7318,11 +7318,11 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2909 0213 06       		.uleb128 0x6
  2910 0214 04       		.byte	0x4
  2911 0215 83000000 		.4byte	0x83
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 123
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 123
 
 
  2912 0219 12       		.uleb128 0x12
- 2913 021a ED070000 		.4byte	.LASF36
+ 2913 021a 95070000 		.4byte	.LASF36
  2914 021e 01       		.byte	0x1
  2915 021f 0303     		.2byte	0x303
  2916 0221 00000000 		.4byte	.LFB6
@@ -7347,7 +7347,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2935 0254 01       		.uleb128 0x1
  2936 0255 9C       		.byte	0x9c
  2937 0256 12       		.uleb128 0x12
- 2938 0257 C1060000 		.4byte	.LASF37
+ 2938 0257 69060000 		.4byte	.LASF37
  2939 025b 01       		.byte	0x1
  2940 025c 1503     		.2byte	0x315
  2941 025e 00000000 		.4byte	.LFB7
@@ -7360,7 +7360,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2948 0271 40020000 		.4byte	0x240
  2949 0275 00       		.byte	0
  2950 0276 16       		.uleb128 0x16
- 2951 0277 63070000 		.4byte	.LASF39
+ 2951 0277 0B070000 		.4byte	.LASF39
  2952 027b 01       		.byte	0x1
  2953 027c 5303     		.2byte	0x353
  2954 027e 83000000 		.4byte	0x83
@@ -7370,7 +7370,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2958 028b 9C       		.byte	0x9c
  2959 028c D0020000 		.4byte	0x2d0
  2960 0290 10       		.uleb128 0x10
- 2961 0291 80070000 		.4byte	.LASF40
+ 2961 0291 28070000 		.4byte	.LASF40
  2962 0295 01       		.byte	0x1
  2963 0296 5303     		.2byte	0x353
  2964 0298 83000000 		.4byte	0x83
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  2966 02a0 11       		.uleb128 0x11
  2967 02a1 DC030000 		.4byte	.LASF41
  2968 02a5 01       		.byte	0x1
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 124
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 124
 
 
  2969 02a6 5503     		.2byte	0x355
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3023 0323 01       		.uleb128 0x1
  3024 0324 9C       		.byte	0x9c
  3025 0325 19       		.uleb128 0x19
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 125
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 125
 
 
  3026 0326 59020000 		.4byte	.LASF46
@@ -7449,7 +7449,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3031 0335 01       		.uleb128 0x1
  3032 0336 9C       		.byte	0x9c
  3033 0337 19       		.uleb128 0x19
- 3034 0338 09060000 		.4byte	.LASF47
+ 3034 0338 B1050000 		.4byte	.LASF47
  3035 033c 01       		.byte	0x1
  3036 033d A107     		.2byte	0x7a1
  3037 033f 00000000 		.4byte	.LFB13
@@ -7482,7 +7482,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3064 0384 01       		.uleb128 0x1
  3065 0385 9C       		.byte	0x9c
  3066 0386 14       		.uleb128 0x14
- 3067 0387 85070000 		.4byte	.LASF51
+ 3067 0387 2D070000 		.4byte	.LASF51
  3068 038b 01       		.byte	0x1
  3069 038c D007     		.2byte	0x7d0
  3070 038e 83000000 		.4byte	0x83
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3080 03a8 20000000 		.4byte	.LFE17-.LFB17
  3081 03ac 01       		.uleb128 0x1
  3082 03ad 9C       		.byte	0x9c
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 126
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 126
 
 
  3083 03ae C3030000 		.4byte	0x3c3
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3137 042f 3708     		.2byte	0x837
  3138 0431 EC000000 		.4byte	0xec
  3139 0435 13030000 		.4byte	.LLST11
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 127
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 127
 
 
  3140 0439 11       		.uleb128 0x11
@@ -7591,7 +7591,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3167 047b D9030000 		.4byte	0x3d9
  3168 047f 00       		.byte	0
  3169 0480 12       		.uleb128 0x12
- 3170 0481 AA060000 		.4byte	.LASF63
+ 3170 0481 52060000 		.4byte	.LASF63
  3171 0485 01       		.byte	0x1
  3172 0486 A108     		.2byte	0x8a1
  3173 0488 00000000 		.4byte	.LFB26
@@ -7618,7 +7618,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3194 04c0 2A000000 		.4byte	.LVL69
  3195 04c4 E40C0000 		.4byte	0xce4
  3196 04c8 15       		.uleb128 0x15
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 128
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 128
 
 
  3197 04c9 2E000000 		.4byte	.LVL70
@@ -7628,7 +7628,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3201 04d6 FA0C0000 		.4byte	0xcfa
  3202 04da 00       		.byte	0
  3203 04db 16       		.uleb128 0x16
- 3204 04dc 2A060000 		.4byte	.LASF66
+ 3204 04dc D2050000 		.4byte	.LASF66
  3205 04e0 01       		.byte	0x1
  3206 04e1 CD08     		.2byte	0x8cd
  3207 04e3 83000000 		.4byte	0x83
@@ -7669,16 +7669,16 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3242 0533 83000000 		.4byte	0x83
  3243 0537 BF030000 		.4byte	.LLST16
  3244 053b 10       		.uleb128 0x10
- 3245 053c 80070000 		.4byte	.LASF40
+ 3245 053c 28070000 		.4byte	.LASF40
  3246 0540 01       		.byte	0x1
  3247 0541 EA08     		.2byte	0x8ea
  3248 0543 83000000 		.4byte	0x83
  3249 0547 EB030000 		.4byte	.LLST17
  3250 054b 11       		.uleb128 0x11
- 3251 054c 08080000 		.4byte	.LASF69
+ 3251 054c B0070000 		.4byte	.LASF69
  3252 0550 01       		.byte	0x1
  3253 0551 EC08     		.2byte	0x8ec
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 129
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 129
 
 
  3254 0553 83000000 		.4byte	0x83
@@ -7738,7 +7738,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3308 05c5 00000000 		.4byte	.LFB30
  3309 05c9 34000000 		.4byte	.LFE30-.LFB30
  3310 05cd 01       		.uleb128 0x1
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 130
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 130
 
 
  3311 05ce 9C       		.byte	0x9c
@@ -7756,7 +7756,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3323 05eb 83000000 		.4byte	0x83
  3324 05ef 8D040000 		.4byte	.LLST21
  3325 05f3 11       		.uleb128 0x11
- 3326 05f4 08080000 		.4byte	.LASF69
+ 3326 05f4 B0070000 		.4byte	.LASF69
  3327 05f8 01       		.byte	0x1
  3328 05f9 2609     		.2byte	0x926
  3329 05fb 83000000 		.4byte	0x83
@@ -7783,7 +7783,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3350 0625 00       		.byte	0
  3351 0626 00       		.byte	0
  3352 0627 16       		.uleb128 0x16
- 3353 0628 96070000 		.4byte	.LASF73
+ 3353 0628 3E070000 		.4byte	.LASF73
  3354 062c 01       		.byte	0x1
  3355 062d 4509     		.2byte	0x945
  3356 062f 83000000 		.4byte	0x83
@@ -7798,7 +7798,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3365 0647 4509     		.2byte	0x945
  3366 0649 83000000 		.4byte	0x83
  3367 064d D7040000 		.4byte	.LLST23
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 131
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 131
 
 
  3368 0651 17       		.uleb128 0x17
@@ -7812,7 +7812,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3376 065f 00       		.byte	0
  3377 0660 00       		.byte	0
  3378 0661 12       		.uleb128 0x12
- 3379 0662 19060000 		.4byte	.LASF74
+ 3379 0662 C1050000 		.4byte	.LASF74
  3380 0666 01       		.byte	0x1
  3381 0667 6809     		.2byte	0x968
  3382 0669 00000000 		.4byte	.LFB32
@@ -7857,8 +7857,8 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3421 06bb 00       		.byte	0
  3422 06bc 00       		.byte	0
  3423 06bd 12       		.uleb128 0x12
- 3424 06be 3A080000 		.4byte	.LASF76
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 132
+ 3424 06be E2070000 		.4byte	.LASF76
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 132
 
 
  3425 06c2 01       		.byte	0x1
@@ -7914,22 +7914,22 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3475 072a 9C       		.byte	0x9c
  3476 072b 93070000 		.4byte	0x793
  3477 072f 10       		.uleb128 0x10
- 3478 0730 2E080000 		.4byte	.LASF78
+ 3478 0730 D6070000 		.4byte	.LASF78
  3479 0734 01       		.byte	0x1
  3480 0735 D009     		.2byte	0x9d0
  3481 0737 83000000 		.4byte	0x83
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 133
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 133
 
 
  3482 073b 5B050000 		.4byte	.LLST26
  3483 073f 11       		.uleb128 0x11
- 3484 0740 08080000 		.4byte	.LASF69
+ 3484 0740 B0070000 		.4byte	.LASF69
  3485 0744 01       		.byte	0x1
  3486 0745 D209     		.2byte	0x9d2
  3487 0747 83000000 		.4byte	0x83
  3488 074b 87050000 		.4byte	.LLST27
  3489 074f 0D       		.uleb128 0xd
- 3490 0750 61060000 		.4byte	.LASF79
+ 3490 0750 09060000 		.4byte	.LASF79
  3491 0754 01       		.byte	0x1
  3492 0755 D309     		.2byte	0x9d3
  3493 0757 83000000 		.4byte	0x83
@@ -7975,10 +7975,10 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3533 07a7 01       		.uleb128 0x1
  3534 07a8 9C       		.byte	0x9c
  3535 07a9 12       		.uleb128 0x12
- 3536 07aa 97060000 		.4byte	.LASF81
+ 3536 07aa 3F060000 		.4byte	.LASF81
  3537 07ae 01       		.byte	0x1
  3538 07af 030A     		.2byte	0xa03
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 134
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 134
 
 
  3539 07b1 00000000 		.4byte	.LFB36
@@ -8022,7 +8022,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3577 0810 E40C0000 		.4byte	0xce4
  3578 0814 00       		.byte	0
  3579 0815 12       		.uleb128 0x12
- 3580 0816 17080000 		.4byte	.LASF83
+ 3580 0816 BF070000 		.4byte	.LASF83
  3581 081a 01       		.byte	0x1
  3582 081b 290A     		.2byte	0xa29
  3583 081d 00000000 		.4byte	.LFB37
@@ -8037,8 +8037,8 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3592 0833 83000000 		.4byte	0x83
  3593 0837 1B060000 		.4byte	.LLST31
  3594 083b 11       		.uleb128 0x11
- 3595 083c 08080000 		.4byte	.LASF69
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 135
+ 3595 083c B0070000 		.4byte	.LASF69
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 135
 
 
  3596 0840 01       		.byte	0x1
@@ -8098,7 +8098,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3650 08b7 00000000 		.4byte	.LFB40
  3651 08bb 3C000000 		.4byte	.LFE40-.LFB40
  3652 08bf 01       		.uleb128 0x1
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 136
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 136
 
 
  3653 08c0 9C       		.byte	0x9c
@@ -8135,7 +8135,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3684 0909 01       		.uleb128 0x1
  3685 090a 9C       		.byte	0x9c
  3686 090b 12       		.uleb128 0x12
- 3687 090c 55080000 		.4byte	.LASF89
+ 3687 090c 5E080000 		.4byte	.LASF89
  3688 0910 01       		.byte	0x1
  3689 0911 A90A     		.2byte	0xaa9
  3690 0913 00000000 		.4byte	.LFB42
@@ -8158,7 +8158,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3707 0941 15       		.uleb128 0x15
  3708 0942 08000000 		.4byte	.LVL161
  3709 0946 EF0C0000 		.4byte	0xcef
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 137
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 137
 
 
  3710 094a 15       		.uleb128 0x15
@@ -8166,7 +8166,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3712 094f FA0C0000 		.4byte	0xcfa
  3713 0953 00       		.byte	0
  3714 0954 16       		.uleb128 0x16
- 3715 0955 B9070000 		.4byte	.LASF90
+ 3715 0955 61070000 		.4byte	.LASF90
  3716 0959 01       		.byte	0x1
  3717 095a D00A     		.2byte	0xad0
  3718 095c F7000000 		.4byte	0xf7
@@ -8218,7 +8218,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3764 09cd 01       		.byte	0x1
  3765 09ce F00A     		.2byte	0xaf0
  3766 09d0 83000000 		.4byte	0x83
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 138
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 138
 
 
  3767 09d4 42080000 		.4byte	.LLST41
@@ -8278,7 +8278,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3821 0a4a 240B     		.2byte	0xb24
  3822 0a4c 83000000 		.4byte	0x83
  3823 0a50 EC080000 		.4byte	.LLST44
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 139
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 139
 
 
  3824 0a54 17       		.uleb128 0x17
@@ -8334,11 +8334,11 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3874 0ab2 00       		.byte	0
  3875 0ab3 00       		.byte	0
  3876 0ab4 12       		.uleb128 0x12
- 3877 0ab5 F1050000 		.4byte	.LASF96
+ 3877 0ab5 99050000 		.4byte	.LASF96
  3878 0ab9 01       		.byte	0x1
  3879 0aba 7F0B     		.2byte	0xb7f
  3880 0abc 00000000 		.4byte	.LFB48
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 140
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 140
 
 
  3881 0ac0 20000000 		.4byte	.LFE48-.LFB48
@@ -8368,7 +8368,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3905 0af9 83000000 		.4byte	0x83
  3906 0afd 47090000 		.4byte	.LLST46
  3907 0b01 10       		.uleb128 0x10
- 3908 0b02 FE070000 		.4byte	.LASF99
+ 3908 0b02 A6070000 		.4byte	.LASF99
  3909 0b06 01       		.byte	0x1
  3910 0b07 580C     		.2byte	0xc58
  3911 0b09 E1000000 		.4byte	0xe1
@@ -8380,7 +8380,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3917 0b19 83000000 		.4byte	0x83
  3918 0b1d 94090000 		.4byte	.LLST48
  3919 0b21 11       		.uleb128 0x11
- 3920 0b22 B0070000 		.4byte	.LASF100
+ 3920 0b22 58070000 		.4byte	.LASF100
  3921 0b26 01       		.byte	0x1
  3922 0b27 5A0C     		.2byte	0xc5a
  3923 0b29 83000000 		.4byte	0x83
@@ -8398,7 +8398,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3935 0b44 00       		.byte	0
  3936 0b45 1B       		.uleb128 0x1b
  3937 0b46 24000000 		.4byte	.LVL201
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 141
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 141
 
 
  3938 0b4a AB080000 		.4byte	0x8ab
@@ -8458,7 +8458,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3992 0ba8 9C       		.byte	0x9c
  3993 0ba9 4F0C0000 		.4byte	0xc4f
  3994 0bad 10       		.uleb128 0x10
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 142
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 142
 
 
  3995 0bae 2E000000 		.4byte	.LASF67
@@ -8467,13 +8467,13 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  3998 0bb5 83000000 		.4byte	0x83
  3999 0bb9 E9090000 		.4byte	.LLST50
  4000 0bbd 10       		.uleb128 0x10
- 4001 0bbe FE070000 		.4byte	.LASF99
+ 4001 0bbe A6070000 		.4byte	.LASF99
  4002 0bc2 01       		.byte	0x1
  4003 0bc3 D70B     		.2byte	0xbd7
  4004 0bc5 E1000000 		.4byte	0xe1
  4005 0bc9 150A0000 		.4byte	.LLST51
  4006 0bcd 10       		.uleb128 0x10
- 4007 0bce E1050000 		.4byte	.LASF102
+ 4007 0bce 89050000 		.4byte	.LASF102
  4008 0bd2 01       		.byte	0x1
  4009 0bd3 D70B     		.2byte	0xbd7
  4010 0bd5 83000000 		.4byte	0x83
@@ -8518,7 +8518,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  4049 0c2e 3F0C0000 		.4byte	0xc3f
  4050 0c32 18       		.uleb128 0x18
  4051 0c33 01       		.uleb128 0x1
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 143
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 143
 
 
  4052 0c34 50       		.byte	0x50
@@ -8543,7 +8543,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  4071 0c4d 00       		.byte	0
  4072 0c4e 00       		.byte	0
  4073 0c4f 1C       		.uleb128 0x1c
- 4074 0c50 6E080000 		.4byte	.LASF104
+ 4074 0c50 77080000 		.4byte	.LASF104
  4075 0c54 01       		.byte	0x1
  4076 0c55 37       		.byte	0x37
  4077 0c56 BC000000 		.4byte	0xbc
@@ -8578,7 +8578,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  4106 0c97 1F       		.uleb128 0x1f
  4107 0c98 710C0000 		.4byte	0xc71
  4108 0c9c 1D       		.uleb128 0x1d
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 144
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 144
 
 
  4109 0c9d F7000000 		.4byte	0xf7
@@ -8609,8 +8609,8 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  4134 0cd4 E7       		.byte	0xe7
  4135 0cd5 83000000 		.4byte	0x83
  4136 0cd9 21       		.uleb128 0x21
- 4137 0cda B4050000 		.4byte	.LASF109
- 4138 0cde B4050000 		.4byte	.LASF109
+ 4137 0cda 5C050000 		.4byte	.LASF109
+ 4138 0cde 5C050000 		.4byte	.LASF109
  4139 0ce2 04       		.byte	0x4
  4140 0ce3 FA       		.byte	0xfa
  4141 0ce4 21       		.uleb128 0x21
@@ -8638,7 +8638,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  4163 0004 0E       		.uleb128 0xe
  4164 0005 13       		.uleb128 0x13
  4165 0006 0B       		.uleb128 0xb
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 145
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 145
 
 
  4166 0007 03       		.uleb128 0x3
@@ -8698,7 +8698,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  4220 003d 06       		.uleb128 0x6
  4221 003e 0F       		.uleb128 0xf
  4222 003f 00       		.byte	0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 146
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 146
 
 
  4223 0040 0B       		.uleb128 0xb
@@ -8758,7 +8758,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  4277 0076 0E       		.uleb128 0xe
  4278 0077 3A       		.uleb128 0x3a
  4279 0078 0B       		.uleb128 0xb
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 147
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 147
 
 
  4280 0079 3B       		.uleb128 0x3b
@@ -8818,7 +8818,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  4334 00b0 0E       		.uleb128 0xe
  4335 00b1 3A       		.uleb128 0x3a
  4336 00b2 0B       		.uleb128 0xb
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 148
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 148
 
 
  4337 00b3 3B       		.uleb128 0x3b
@@ -8878,7 +8878,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  4391 00eb 00       		.byte	0
  4392 00ec 00       		.byte	0
  4393 00ed 11       		.uleb128 0x11
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 149
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 149
 
 
  4394 00ee 34       		.uleb128 0x34
@@ -8938,7 +8938,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  4448 0125 14       		.uleb128 0x14
  4449 0126 2E       		.uleb128 0x2e
  4450 0127 00       		.byte	0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 150
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 150
 
 
  4451 0128 3F       		.uleb128 0x3f
@@ -8998,7 +8998,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  4505 0162 01       		.uleb128 0x1
  4506 0163 13       		.uleb128 0x13
  4507 0164 00       		.byte	0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 151
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 151
 
 
  4508 0165 00       		.byte	0
@@ -9058,7 +9058,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  4562 01a1 19       		.uleb128 0x19
  4563 01a2 11       		.uleb128 0x11
  4564 01a3 01       		.uleb128 0x1
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 152
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 152
 
 
  4565 01a4 12       		.uleb128 0x12
@@ -9118,7 +9118,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  4619 01dd 1F       		.uleb128 0x1f
  4620 01de 26       		.uleb128 0x26
  4621 01df 00       		.byte	0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 153
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 153
 
 
  4622 01e0 49       		.uleb128 0x49
@@ -9178,7 +9178,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  4676 001d B4000000 		.4byte	.LVL22
  4677 0021 0100     		.2byte	0x1
  4678 0023 50       		.byte	0x50
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 154
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 154
 
 
  4679 0024 B4000000 		.4byte	.LVL22
@@ -9238,7 +9238,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  4733 00a0 50       		.byte	0x50
  4734 00a1 C8000000 		.4byte	.LVL32
  4735 00a5 CA000000 		.4byte	.LVL33
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 155
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 155
 
 
  4736 00a9 0400     		.2byte	0x4
@@ -9298,7 +9298,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  4790 0127 00000000 		.4byte	0
  4791              	.LLST2:
  4792 012b 7E000000 		.4byte	.LVL13
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 156
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 156
 
 
  4793 012f 80000000 		.4byte	.LVL14
@@ -9358,7 +9358,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  4847 01be 9F       		.byte	0x9f
  4848 01bf D0000000 		.4byte	.LVL36
  4849 01c3 0C010000 		.4byte	.LFE5
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 157
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 157
 
 
  4850 01c7 0100     		.2byte	0x1
@@ -9418,7 +9418,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  4904 0247 50       		.byte	0x50
  4905 0248 00000000 		.4byte	0
  4906 024c 00000000 		.4byte	0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 158
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 158
 
 
  4907              	.LLST8:
@@ -9478,7 +9478,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  4961 02c9 25       		.byte	0x25
  4962 02ca 9F       		.byte	0x9f
  4963 02cb 00000000 		.4byte	0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 159
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 159
 
 
  4964 02cf 00000000 		.4byte	0
@@ -9538,7 +9538,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  5018 034c 00000000 		.4byte	0
  5019 0350 00000000 		.4byte	0
  5020              	.LLST13:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 160
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 160
 
 
  5021 0354 00000000 		.4byte	.LVL67
@@ -9598,7 +9598,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  5075 03df F3       		.byte	0xf3
  5076 03e0 01       		.uleb128 0x1
  5077 03e1 50       		.byte	0x50
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 161
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 161
 
 
  5078 03e2 9F       		.byte	0x9f
@@ -9658,7 +9658,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  5132 046b 50       		.byte	0x50
  5133 046c 0C000000 		.4byte	.LVL91
  5134 0470 20000000 		.4byte	.LVL94
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 162
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 162
 
 
  5135 0474 0100     		.2byte	0x1
@@ -9718,7 +9718,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  5189 04f9 50       		.byte	0x50
  5190 04fa 9F       		.byte	0x9f
  5191 04fb 00000000 		.4byte	0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 163
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 163
 
 
  5192 04ff 00000000 		.4byte	0
@@ -9778,7 +9778,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  5246 0583 00000000 		.4byte	0
  5247              	.LLST27:
  5248 0587 22000000 		.4byte	.LVL121
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 164
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 164
 
 
  5249 058b 26000000 		.4byte	.LVL122
@@ -9838,7 +9838,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  5303 0613 00000000 		.4byte	0
  5304 0617 00000000 		.4byte	0
  5305              	.LLST31:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 165
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 165
 
 
  5306 061b 00000000 		.4byte	.LVL135
@@ -9898,7 +9898,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  5360 06a6 50       		.byte	0x50
  5361 06a7 14000000 		.4byte	.LVL149
  5362 06ab 1A000000 		.4byte	.LVL151
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 166
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 166
 
 
  5363 06af 0400     		.2byte	0x4
@@ -9958,7 +9958,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  5417 072a 9F       		.byte	0x9f
  5418 072b 20000000 		.4byte	.LVL153
  5419 072f 22000000 		.4byte	.LVL154
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 167
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 167
 
 
  5420 0733 0100     		.2byte	0x1
@@ -10018,7 +10018,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  5474 07bb 50       		.byte	0x50
  5475 07bc 08000000 		.4byte	.LVL167
  5476 07c0 12000000 		.4byte	.LVL169
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 168
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 168
 
 
  5477 07c4 0400     		.2byte	0x4
@@ -10078,7 +10078,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  5531 0842 00000000 		.4byte	.LVL173
  5532 0846 08000000 		.4byte	.LVL175
  5533 084a 0100     		.2byte	0x1
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 169
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 169
 
 
  5534 084c 50       		.byte	0x50
@@ -10138,7 +10138,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  5588 08cb 1E000000 		.4byte	.LVL183
  5589 08cf 20000000 		.4byte	.LVL184
  5590 08d3 0100     		.2byte	0x1
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 170
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 170
 
 
  5591 08d5 50       		.byte	0x50
@@ -10198,7 +10198,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  5645 0952 0F000000 		.4byte	.LVL200-1
  5646 0956 5A000000 		.4byte	.LVL209
  5647 095a 0100     		.2byte	0x1
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 171
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 171
 
 
  5648 095c 54       		.byte	0x54
@@ -10258,7 +10258,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  5702 09e0 56       		.byte	0x56
  5703 09e1 00000000 		.4byte	0
  5704 09e5 00000000 		.4byte	0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 172
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 172
 
 
  5705              	.LLST50:
@@ -10318,7 +10318,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  5759 0a6c 50       		.byte	0x50
  5760 0a6d 00000000 		.4byte	0
  5761 0a71 00000000 		.4byte	0
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 173
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 173
 
 
  5762              	.LLST54:
@@ -10378,7 +10378,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  5816 00ac 10000000 		.4byte	.LFE19-.LFB19
  5817 00b0 00000000 		.4byte	.LFB20
  5818 00b4 10000000 		.4byte	.LFE20-.LFB20
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 174
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 174
 
 
  5819 00b8 00000000 		.4byte	.LFB21
@@ -10438,7 +10438,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  5873 0190 00000000 		.4byte	.LFB50
  5874 0194 6C000000 		.4byte	.LFE50-.LFB50
  5875 0198 00000000 		.4byte	.LFB49
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 175
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 175
 
 
  5876 019c 3C000000 		.4byte	.LFE49-.LFB49
@@ -10498,7 +10498,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  5930 00c4 18000000 		.4byte	.LFE24
  5931 00c8 00000000 		.4byte	.LFB26
  5932 00cc 68000000 		.4byte	.LFE26
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 176
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 176
 
 
  5933 00d0 00000000 		.4byte	.LFB27
@@ -10558,7 +10558,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  5985      00000201 
  5985      FB0E0D00 
  5985      01010101 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 177
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 177
 
 
  5986              	.LASF10:
@@ -10618,7 +10618,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  6006              	.LASF93:
  6007 00ab 43795379 		.ascii	"CySysTimerEnableIsr\000"
  6007      7354696D 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 178
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 178
 
 
  6007      6572456E 
@@ -10678,7 +10678,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  6029 0165 62697473 		.ascii	"bits\000"
  6029      00
  6030              	.LASF4:
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 179
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 179
 
 
  6031 016a 6C6F6E67 		.ascii	"long int\000"
@@ -10738,7 +10738,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  6055      496C6F53 
  6055      746F704D 
  6055      65617375 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 180
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 180
 
 
  6056              	.LASF105:
@@ -10798,7 +10798,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  6076              	.LASF52:
  6077 02da 43795379 		.ascii	"CySysWdtSetIgnoreBits\000"
  6077      73576474 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 181
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 181
 
 
  6077      53657449 
@@ -10858,7 +10858,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  6097      7354696D 
  6097      65724765 
  6097      74546F67 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 182
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 182
 
 
  6097      676C6542 
@@ -10918,7 +10918,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  6121 0457 6C6F6E67 		.ascii	"long double\000"
  6121      20646F75 
  6121      626C6500 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 183
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 183
 
 
  6122              	.LASF50:
@@ -10978,7 +10978,7 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  6143      65724465 
  6143      6C617955 
  6143      6E74696C 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 184
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 184
 
 
  6144              	.LASF57:
@@ -11001,218 +11001,219 @@ ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 1
  6151      65724469 
  6151      7361626C 
  6151      65497372 
- 6152              	.LASF115:
- 6153 055c 433A5C55 		.ascii	"C:\\Users\\cdrow\\Documents\\GitHub\\Li-CellTesting"
- 6153      73657273 
- 6153      5C636472 
- 6153      6F775C44 
- 6153      6F63756D 
- 6154 058a 5F536372 		.ascii	"_Script\\Internal_Main\\Internal_Main.cydsn\000"
- 6154      6970745C 
- 6154      496E7465 
- 6154      726E616C 
- 6154      5F4D6169 
- 6155              	.LASF109:
- 6156 05b4 43794861 		.ascii	"CyHalt\000"
- 6156      6C7400
- 6157              	.LASF1:
- 6158 05bb 756E7369 		.ascii	"unsigned char\000"
- 6158      676E6564 
- 6158      20636861 
- 6158      7200
- 6159              	.LASF33:
- 6160 05c9 636F6D70 		.ascii	"compensateRunningStatus\000"
- 6160      656E7361 
- 6160      74655275 
- 6160      6E6E696E 
- 6160      67537461 
- 6161              	.LASF102:
- 6162 05e1 64656C61 		.ascii	"delay\000"
- 6162      7900
- 6163              	.LASF2:
- 6164 05e7 73686F72 		.ascii	"short int\000"
- 6164      7420696E 
- 6164      7400
- 6165              	.LASF96:
- 6166 05f1 43795379 		.ascii	"CySysTimerResetCounters\000"
- 6166      7354696D 
- 6166      65725265 
- 6166      73657443 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 185
+ 6152              	.LASF109:
+ 6153 055c 43794861 		.ascii	"CyHalt\000"
+ 6153      6C7400
+ 6154              	.LASF1:
+ 6155 0563 756E7369 		.ascii	"unsigned char\000"
+ 6155      676E6564 
+ 6155      20636861 
+ 6155      7200
+ 6156              	.LASF33:
+ 6157 0571 636F6D70 		.ascii	"compensateRunningStatus\000"
+ 6157      656E7361 
+ 6157      74655275 
+ 6157      6E6E696E 
+ 6157      67537461 
+ 6158              	.LASF102:
+ 6159 0589 64656C61 		.ascii	"delay\000"
+ 6159      7900
+ 6160              	.LASF2:
+ 6161 058f 73686F72 		.ascii	"short int\000"
+ 6161      7420696E 
+ 6161      7400
+ 6162              	.LASF96:
+ 6163 0599 43795379 		.ascii	"CySysTimerResetCounters\000"
+ 6163      7354696D 
+ 6163      65725265 
+ 6163      73657443 
+ 6163      6F756E74 
+ 6164              	.LASF47:
+ 6165 05b1 43795379 		.ascii	"CySysWdtDisable\000"
+ 6165      73576474 
+ 6165      44697361 
+ 6165      626C6500 
+ 6166              	.LASF74:
+ 6167 05c1 43795379 		.ascii	"CySysTimerEnable\000"
+ 6167      7354696D 
+ 6167      6572456E 
+ 6167      61626C65 
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 185
 
 
- 6166      6F756E74 
- 6167              	.LASF47:
- 6168 0609 43795379 		.ascii	"CySysWdtDisable\000"
- 6168      73576474 
- 6168      44697361 
- 6168      626C6500 
- 6169              	.LASF74:
- 6170 0619 43795379 		.ascii	"CySysTimerEnable\000"
- 6170      7354696D 
- 6170      6572456E 
- 6170      61626C65 
- 6170      00
- 6171              	.LASF66:
- 6172 062a 43795379 		.ascii	"CySysTimerGetEnabledStatus\000"
- 6172      7354696D 
- 6172      65724765 
- 6172      74456E61 
- 6172      626C6564 
- 6173              	.LASF26:
- 6174 0645 43795379 		.ascii	"CySysClkIloStartMeasurement\000"
- 6174      73436C6B 
- 6174      496C6F53 
- 6174      74617274 
- 6174      4D656173 
- 6175              	.LASF79:
- 6176 0661 636F756E 		.ascii	"countersEnableStatus\000"
- 6176      74657273 
- 6176      456E6162 
- 6176      6C655374 
- 6176      61747573 
- 6177              	.LASF114:
- 6178 0676 47656E65 		.ascii	"Generated_Source\\PSoC4\\CyLFClk.c\000"
- 6178      72617465 
- 6178      645F536F 
- 6178      75726365 
- 6178      5C50536F 
- 6179              	.LASF81:
- 6180 0697 43795379 		.ascii	"CySysTimerSetMatch\000"
- 6180      7354696D 
- 6180      65725365 
- 6180      744D6174 
- 6180      636800
- 6181              	.LASF63:
- 6182 06aa 43795379 		.ascii	"CySysClkSetTimerSource\000"
- 6182      73436C6B 
- 6182      53657454 
- 6182      696D6572 
- 6182      536F7572 
- 6183              	.LASF37:
- 6184 06c1 43795379 		.ascii	"CySysClkWcoStop\000"
- 6184      73436C6B 
- 6184      57636F53 
- 6184      746F7000 
- 6185              	.LASF113:
- 6186 06d1 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 6186      43313120 
- 6186      352E342E 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 186
+ 6167      00
+ 6168              	.LASF66:
+ 6169 05d2 43795379 		.ascii	"CySysTimerGetEnabledStatus\000"
+ 6169      7354696D 
+ 6169      65724765 
+ 6169      74456E61 
+ 6169      626C6564 
+ 6170              	.LASF26:
+ 6171 05ed 43795379 		.ascii	"CySysClkIloStartMeasurement\000"
+ 6171      73436C6B 
+ 6171      496C6F53 
+ 6171      74617274 
+ 6171      4D656173 
+ 6172              	.LASF79:
+ 6173 0609 636F756E 		.ascii	"countersEnableStatus\000"
+ 6173      74657273 
+ 6173      456E6162 
+ 6173      6C655374 
+ 6173      61747573 
+ 6174              	.LASF114:
+ 6175 061e 47656E65 		.ascii	"Generated_Source\\PSoC4\\CyLFClk.c\000"
+ 6175      72617465 
+ 6175      645F536F 
+ 6175      75726365 
+ 6175      5C50536F 
+ 6176              	.LASF81:
+ 6177 063f 43795379 		.ascii	"CySysTimerSetMatch\000"
+ 6177      7354696D 
+ 6177      65725365 
+ 6177      744D6174 
+ 6177      636800
+ 6178              	.LASF63:
+ 6179 0652 43795379 		.ascii	"CySysClkSetTimerSource\000"
+ 6179      73436C6B 
+ 6179      53657454 
+ 6179      696D6572 
+ 6179      536F7572 
+ 6180              	.LASF37:
+ 6181 0669 43795379 		.ascii	"CySysClkWcoStop\000"
+ 6181      73436C6B 
+ 6181      57636F53 
+ 6181      746F7000 
+ 6182              	.LASF113:
+ 6183 0679 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 6183      43313120 
+ 6183      352E342E 
+ 6183      31203230 
+ 6183      31363036 
+ 6184 06ac 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
+ 6184      20726576 
+ 6184      6973696F 
+ 6184      6E203233 
+ 6184      37373135 
+ 6185 06df 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
+ 6185      67202D66 
+ 6185      66756E63 
+ 6185      74696F6E 
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 186
 
 
- 6186      31203230 
- 6186      31363036 
- 6187 0704 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
- 6187      20726576 
- 6187      6973696F 
- 6187      6E203233 
- 6187      37373135 
- 6188 0737 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
- 6188      67202D66 
- 6188      66756E63 
- 6188      74696F6E 
- 6188      2D736563 
- 6189              	.LASF39:
- 6190 0763 43795379 		.ascii	"CySysClkWcoSetPowerMode\000"
- 6190      73436C6B 
- 6190      57636F53 
- 6190      6574506F 
- 6190      7765724D 
- 6191              	.LASF14:
- 6192 077b 63686172 		.ascii	"char\000"
- 6192      00
- 6193              	.LASF40:
- 6194 0780 6D6F6465 		.ascii	"mode\000"
- 6194      00
- 6195              	.LASF51:
- 6196 0785 43795379 		.ascii	"CySysWdtGetCount\000"
- 6196      73576474 
- 6196      47657443 
- 6196      6F756E74 
- 6196      00
- 6197              	.LASF73:
- 6198 0796 43795379 		.ascii	"CySysTimerGetClearOnMatch\000"
- 6198      7354696D 
- 6198      65724765 
- 6198      74436C65 
- 6198      61724F6E 
- 6199              	.LASF100:
- 6200 07b0 746D7056 		.ascii	"tmpValue\000"
- 6200      616C7565 
- 6200      00
- 6201              	.LASF90:
- 6202 07b9 43795379 		.ascii	"CySysTimerSetInterruptCallback\000"
- 6202      7354696D 
- 6202      65725365 
- 6202      74496E74 
- 6202      65727275 
- 6203              	.LASF32:
- 6204 07d8 64657369 		.ascii	"desiredDelayInCounts\000"
- 6204      72656444 
- 6204      656C6179 
- 6204      496E436F 
- 6204      756E7473 
- 6205              	.LASF36:
- 6206 07ed 43795379 		.ascii	"CySysClkWcoStart\000"
- 6206      73436C6B 
- 6206      57636F53 
- 6206      74617274 
-ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccvk7vgq.s 			page 187
+ 6185      2D736563 
+ 6186              	.LASF39:
+ 6187 070b 43795379 		.ascii	"CySysClkWcoSetPowerMode\000"
+ 6187      73436C6B 
+ 6187      57636F53 
+ 6187      6574506F 
+ 6187      7765724D 
+ 6188              	.LASF14:
+ 6189 0723 63686172 		.ascii	"char\000"
+ 6189      00
+ 6190              	.LASF40:
+ 6191 0728 6D6F6465 		.ascii	"mode\000"
+ 6191      00
+ 6192              	.LASF51:
+ 6193 072d 43795379 		.ascii	"CySysWdtGetCount\000"
+ 6193      73576474 
+ 6193      47657443 
+ 6193      6F756E74 
+ 6193      00
+ 6194              	.LASF73:
+ 6195 073e 43795379 		.ascii	"CySysTimerGetClearOnMatch\000"
+ 6195      7354696D 
+ 6195      65724765 
+ 6195      74436C65 
+ 6195      61724F6E 
+ 6196              	.LASF100:
+ 6197 0758 746D7056 		.ascii	"tmpValue\000"
+ 6197      616C7565 
+ 6197      00
+ 6198              	.LASF90:
+ 6199 0761 43795379 		.ascii	"CySysTimerSetInterruptCallback\000"
+ 6199      7354696D 
+ 6199      65725365 
+ 6199      74496E74 
+ 6199      65727275 
+ 6200              	.LASF32:
+ 6201 0780 64657369 		.ascii	"desiredDelayInCounts\000"
+ 6201      72656444 
+ 6201      656C6179 
+ 6201      496E436F 
+ 6201      756E7473 
+ 6202              	.LASF36:
+ 6203 0795 43795379 		.ascii	"CySysClkWcoStart\000"
+ 6203      73436C6B 
+ 6203      57636F53 
+ 6203      74617274 
+ 6203      00
+ 6204              	.LASF99:
+ 6205 07a6 64656C61 		.ascii	"delayType\000"
+ 6205      79547970 
+ 6205      6500
+ 6206              	.LASF69:
+ 6207 07b0 636F6E66 		.ascii	"configRegValue\000"
+ 6207      69675265 
+ 6207      6756616C 
+ 6207      756500
+ 6208              	.LASF83:
+ARM GAS  C:\Users\samue\AppData\Local\Temp\ccRsP5io.s 			page 187
 
 
- 6206      00
- 6207              	.LASF99:
- 6208 07fe 64656C61 		.ascii	"delayType\000"
- 6208      79547970 
- 6208      6500
- 6209              	.LASF69:
- 6210 0808 636F6E66 		.ascii	"configRegValue\000"
- 6210      69675265 
- 6210      6756616C 
- 6210      756500
- 6211              	.LASF83:
- 6212 0817 43795379 		.ascii	"CySysTimerSetToggleBit\000"
- 6212      7354696D 
- 6212      65725365 
- 6212      74546F67 
- 6212      676C6542 
- 6213              	.LASF78:
- 6214 082e 63617363 		.ascii	"cascadeMask\000"
- 6214      6164654D 
- 6214      61736B00 
- 6215              	.LASF76:
- 6216 083a 43795379 		.ascii	"CySysTimerDisable\000"
- 6216      7354696D 
- 6216      65724469 
- 6216      7361626C 
- 6216      6500
- 6217              	.LASF15:
- 6218 084c 63797374 		.ascii	"cystatus\000"
- 6218      61747573 
- 6218      00
- 6219              	.LASF89:
- 6220 0855 43795379 		.ascii	"CySysTimerClearInterrupt\000"
- 6220      7354696D 
- 6220      6572436C 
- 6220      65617249 
- 6220      6E746572 
- 6221              	.LASF104:
- 6222 086e 64697361 		.ascii	"disableTimerServicedIsr\000"
- 6222      626C6554 
- 6222      696D6572 
- 6222      53657276 
- 6222      69636564 
- 6223              	.LASF38:
- 6224 0886 43795379 		.ascii	"CySysClkIloCompensate\000"
- 6224      73436C6B 
- 6224      496C6F43 
- 6224      6F6D7065 
- 6224      6E736174 
- 6225              	.LASF18:
- 6226 089c 43595F53 		.ascii	"CY_SYS_TIMER_INTERRUPT\000"
- 6226      59535F54 
- 6226      494D4552 
- 6226      5F494E54 
- 6226      45525255 
- 6227              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 6209 07bf 43795379 		.ascii	"CySysTimerSetToggleBit\000"
+ 6209      7354696D 
+ 6209      65725365 
+ 6209      74546F67 
+ 6209      676C6542 
+ 6210              	.LASF78:
+ 6211 07d6 63617363 		.ascii	"cascadeMask\000"
+ 6211      6164654D 
+ 6211      61736B00 
+ 6212              	.LASF76:
+ 6213 07e2 43795379 		.ascii	"CySysTimerDisable\000"
+ 6213      7354696D 
+ 6213      65724469 
+ 6213      7361626C 
+ 6213      6500
+ 6214              	.LASF115:
+ 6215 07f4 433A5C55 		.ascii	"C:\\Users\\samue\\OneDrive\\Documents\\GitHub\\Li-C"
+ 6215      73657273 
+ 6215      5C73616D 
+ 6215      75655C4F 
+ 6215      6E654472 
+ 6216 0821 656C6C54 		.ascii	"ellTesting_Script\\Internal_Main\\Internal_Main.cyd"
+ 6216      65737469 
+ 6216      6E675F53 
+ 6216      63726970 
+ 6216      745C496E 
+ 6217 0852 736E00   		.ascii	"sn\000"
+ 6218              	.LASF15:
+ 6219 0855 63797374 		.ascii	"cystatus\000"
+ 6219      61747573 
+ 6219      00
+ 6220              	.LASF89:
+ 6221 085e 43795379 		.ascii	"CySysTimerClearInterrupt\000"
+ 6221      7354696D 
+ 6221      6572436C 
+ 6221      65617249 
+ 6221      6E746572 
+ 6222              	.LASF104:
+ 6223 0877 64697361 		.ascii	"disableTimerServicedIsr\000"
+ 6223      626C6554 
+ 6223      696D6572 
+ 6223      53657276 
+ 6223      69636564 
+ 6224              	.LASF38:
+ 6225 088f 43795379 		.ascii	"CySysClkIloCompensate\000"
+ 6225      73436C6B 
+ 6225      496C6F43 
+ 6225      6F6D7065 
+ 6225      6E736174 
+ 6226              	.LASF18:
+ 6227 08a5 43595F53 		.ascii	"CY_SYS_TIMER_INTERRUPT\000"
+ 6227      59535F54 
+ 6227      494D4552 
+ 6227      5F494E54 
+ 6227      45525255 
+ 6228              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
