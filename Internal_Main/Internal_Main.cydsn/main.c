@@ -1,6 +1,6 @@
 /* ========================================
- * Version: 1.3
- * Last Modified: 4.24.2021 
+ * Version: 2.1
+ * Last Modified: 4.25.2021 
  * Formula Racing @ UC Davis, Electrical Senior Design, & the Electricool gang, 2021
  * ========================================
 */
@@ -18,6 +18,7 @@
 
 #define V_REF_RELATIVE  35          //know voltage of VRef - VRGnd (mV)           
 #define V_TEST_START    0
+ 
 
 // =============================
 // Function Definitions
@@ -54,6 +55,7 @@ void CellTestStart(){
     ADC_1_Start();
     UART_1_Start();
     PVref_1_Start();
+    PVref_1_Enable();
     BLUE_LED_Write(0);
 }
 
@@ -65,10 +67,28 @@ void CellTestStart(){
 * Turns off stuff (placeholder when more equipment is used)
 *
 *******************************************************************************/
-void HaltTest(){
+void HaltTest(int stopCode){
     char string[30];
     Timer_1_Stop();
-    sprintf(string, "0, 0, 0, 0, 0\r\n"); 
+    switch (stopCode) { 
+    case 1: 
+        sprintf(string, "!!! Test halted because of Cell is completely discharged !!!\n\r"); 
+        break; 
+    case 2: 
+        sprintf(string, "!!! Test halted because of cell Overheating !!!\n\r"); 
+        break; 
+        
+    case 3: 
+        sprintf(string, "!!! Test halted beacuase of power resistor overheating !!!\n\r"); 
+        break; 
+        
+    case 4: 
+        sprintf(string, "!!! Test Halted by user !!!\n\r"); 
+        break;
+    default: 
+        sprintf(string, "!!! Test Halted for Unknown Reason !!!\n\r"); 
+    }
+    
     UART_1_UartPutString(string);
 }
 
@@ -119,20 +139,21 @@ int main(void)
     
     int32 vtestIdeal = V_TEST_START;
     
-    int32 vtestCount;           //test voltage adc counts
-    float vtestVal;             //test voltage (mV)
+    int32 vtestCount;           // Test voltage adc counts
+    float vtestVal;             // Test voltage (mV)
     
-    int32 vrgndCount;           //virtual gnd voltage adc counts
-    float vrgndVal;             //virtual gnd voltage (mV)
+    int32 vrgndCount;           // Virtual gnd voltage adc counts
+    float vrgndVal;             // Virtual gnd voltage (mV)
     
-    int32 vrefCount;            //reference voltage adc counts
-    float vrefVal;              //reference voltage (mV)
+    int32 vrefCount;            // Reference voltage adc counts
+    float vrefVal;              // Reference voltage (mV)
     
-    float gainReal;             //calculated gain of the amplifier
-    char string[60];            //for printing over UART
+    float gainReal;             // Calculated gain of the amplifier
+    char string[60];            // For printing over UART
     
-    int32 userInput;            //reading UART input
-    int8 stopFlag = 0;          //boolean flag to stop the test
+    int32 userInput;            // Reading UART input
+    int8 stopFlag = 0;          // Boolean flag to stop the test
+    int8 stopCode = 0;          // Code for determining the reason why test was stopped
     
     //Initialization
     
@@ -162,16 +183,14 @@ int main(void)
         {            
             Timer_1_Start();
             stopFlag = 0;
+            stopCode = 0; 
             
             // Continue Executing While the no test errors are evident
             while(!stopFlag){
                 
-                // Start 1.2 V Reference
-                
-                void PVref_P4_Enable (void );
-                
-                // Test Voltage Reading
-          
+                //================================
+                // Test Voltage Reading (vtest)
+                //================================
                 AMux_1_Select(1); 
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);               
@@ -180,30 +199,33 @@ int main(void)
                 vtestCount = FilterSignal(vtestCount, 2);
                 vtestVal = ADC_1_CountsTo_mVolts(0, vtestCount);// vtest in mV                
                 
-                // Virtual Ground Reading 
                 
+                //================================
+                // Virtual Ground Reading (vrgnd)
+                //================================
                 AMux_1_Select(2);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrgndCount = ADC_1_GetResult32(0);              // vrgnd in unitless counts
                 ADC_1_StopConvert();                            
-                vrgndCount = FilterSignal(vrgndCount, 3);
+                vrgndCount = FilterSignal(vrgndCount, 3);       // Channel 3 because...
                 vrgndVal = ADC_1_CountsTo_mVolts(0, vrgndCount);// vrgnd in mV
                 
-                // Reference Voltage Reading
                 
+                //================================
+                // Reference Voltage Reading (vref)
+                //================================
                 AMux_1_Select(0);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrefCount = ADC_1_GetResult32(0);               // vref in unitless counts
-                ADC_1_StopConvert();
-                vrefCount = FilterSignal(vrefCount, 3);
+                ADC_1_StopConvert();    
+                vrefCount = FilterSignal(vrefCount, 3);         // Channel 3 because ...
                 vrefVal = ADC_1_CountsTo_mVolts(0, vrefCount);  // vref in mV
                 
                 
                 // After rapid samples - to ensure similar adc/amp conditions
                 // Calculations are made
-                
                 gainReal = (vrefVal - vrgndVal)/V_REF_RELATIVE;     // The actual op-amp gain
                 vrgndVal = vrgndVal/gainReal;                       // Find the virtual ground value
                 vtestVal = vtestVal/gainReal;                       // Find the test point value
@@ -212,22 +234,54 @@ int main(void)
                 // This is the test voltage relative to virtual gnd
                 
                 // Stop the Test.... 
-                userInput = UART_1_UartGetChar();
-                
-                if (userInput == 83){ // 83 is ASCII for STOP t     
+                //userInput = UART_1_UartGetChar();
+                //if (userInput == 83){ // 83 is ASCII for STOP t     
+                if (UART_1_UartGetChar() == 83) {
                     stopFlag = 1;
+                    stopCode = 4; 
                     Timer_1_Stop();
                     vtestIdeal = vtestIdeal + 5;
                 }                         
-     
+                
                 CyDelayUs(250);
                 
                 // Print the values
-                if (Timer_1_ReadCounter() > 1){
+                if (Timer_1_ReadCounter() > 1){ 
                     sprintf(string, "%ld, %3.3f, %3.3f, %3.3f, %3.3f \r\n", vtestIdeal, vtestVal, vrgndVal, vrefVal, gainReal); 
                     UART_1_UartPutString(string);
                     Timer_1_WriteCounter(0);
                 }
+                
+                
+                //==========================
+                // Shutdown Features 
+                //==========================
+                
+                /*
+                // Over Heating Protection
+                for(uint i = 2; i < 12; i=i+2){
+                    if (batteryArray[i] > BATTERY_HIGH_TEMP){
+                        stopFlag = 1; 
+                        stopCode = 2; 
+                        sprintf(string1, "\r\n ERROR - High Temperature on Battery: %d.%d, on Thermistor %d \r\n", batteryArray[i], batteryArray[i+1], i);
+                        UART_1_UartPutString(string1); 
+                    }
+                    if (resistorArray[i] > RESISTOR_HIGH_TEMP){ 
+                        stopFlag = 1; 
+                        stopCode = 3; 
+                        sprintf(string1, "\r\n ERROR - High Temperature on Resistor: %d.%d, on Thermistor %d \r\n", resistorArray[i], resistorArray[i+1], i);
+                        UART_1_UartPutString(string1);   
+                    }
+                }
+                
+                // Battery Voltage Detection
+                 if(vmBatmV < 2.5) {
+                    stopFlag = 1; 
+                    stopCode = 1;
+                    sprintf(string1, "\r\n ERROR - Cell Discharged: %f \r\n", vmBatmV); 
+                    UART_1_UartPutString(string1); 
+                }                
+                */
             }
         }
     }
