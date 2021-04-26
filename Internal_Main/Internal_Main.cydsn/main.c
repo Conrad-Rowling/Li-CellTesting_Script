@@ -17,7 +17,7 @@
 #include <stdlib.h>
 
 #define V_REF_RELATIVE  35          //know voltage of VRef - VRGnd (mV)           
-#define V_TEST_START    20
+#define V_TEST_START    5
 
 // =============================
 // Function Definitions
@@ -172,8 +172,9 @@ int main(void)
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);               
                 vtestCount = ADC_1_GetResult32(0);              // vtest in unitless counts
                 ADC_1_StopConvert();
-                vtestCount = FilterSignal(vtestCount, 2);
-                vtestVal = ADC_1_CountsTo_mVolts(0, vtestCount);// vtest in mV                
+                vtestCount = FilterSignal(vtestCount, 1);
+                vtestVal = ADC_1_CountsTo_mVolts(0, vtestCount);// vtest in mV    
+                CyDelayUs(250);
                 
                 // Virtual Ground Reading 
                 
@@ -182,8 +183,9 @@ int main(void)
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrgndCount = ADC_1_GetResult32(0);              // vrgnd in unitless counts
                 ADC_1_StopConvert();                            
-                vrgndCount = FilterSignal(vrgndCount, 3);
+                vrgndCount = FilterSignal(vrgndCount, 2);
                 vrgndVal = ADC_1_CountsTo_mVolts(0, vrgndCount);// vrgnd in mV
+                CyDelayUs(250);
                 
                 // Reference Voltage Reading
                 
@@ -194,6 +196,7 @@ int main(void)
                 ADC_1_StopConvert();
                 vrefCount = FilterSignal(vrefCount, 3);
                 vrefVal = ADC_1_CountsTo_mVolts(0, vrefCount);  // vref in mV
+                CyDelayUs(250);
                 
                 
                 // After rapid samples - to ensure similar adc/amp conditions
