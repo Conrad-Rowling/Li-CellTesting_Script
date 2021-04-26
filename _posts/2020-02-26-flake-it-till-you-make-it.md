@@ -3,7 +3,7 @@ layout: post
 title: How does a Mux Work?
 subtitle: seriously.. wtf
 cover-img: /assets/img/path.jpg
-thumbnail-img: /assets/img/thumb.png
+thumbnail-img: /assets/img/mux.png
 share-img: /assets/img/path.jpg
 tags: [books, test]
 ---
