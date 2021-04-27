@@ -19,6 +19,8 @@
 #define V_REF_RELATIVE  35          //know voltage of VRef - VRGnd (mV)           
 #define V_TEST_START    5
 
+CY_ISR_PROTO(
+
 // =============================
 // Function Definitions
 // =============================
@@ -56,6 +58,9 @@ void CellTestStart(){
     BLUE_LED_Write(0);
 }
 
+CY_ISR(sample_routine){
+    startFlag = 1;
+}
 
 /*******************************************************************************
 * Function Name: CellTestStop()
@@ -132,10 +137,12 @@ int main(void)
     
     int32 userInput;            //reading UART input
     int8 stopFlag = 0;          //boolean flag to stop the test
+    int8 startFlag = 1;
     
     //Initialization
     
     CellTestStart();
+    isr_1_StartEx(sample_routine);
     CyGlobalIntEnable;
     
     //UART INFO PRINTING
@@ -164,61 +171,55 @@ int main(void)
             
             // Continue Executing While the no test errors are evident
             while(!stopFlag){
+                while(startFlag ==1){
+                    startFlag = 0;
+                    // Test Voltage Reading
                 
-                // Test Voltage Reading
+                    AMux_1_Select(0); 
+                    ADC_1_StartConvert();                           // Start the Read the ADC
+                    ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);               
+                    vtestCount = ADC_1_GetResult32(0);              // vtest in unitless counts
+                    vtestCount = FilterSignal(vtestCount, 1);
+                    vtestVal = ADC_1_CountsTo_mVolts(0, vtestCount);// vtest in mV    
+                    CyDelayUs(250);
+                    
+                    // Virtual Ground Reading 
+                    
+                    AMux_1_Select(1);
+                    ADC_1_StartConvert();                           // Start the Read the ADC
+                    ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
+                    vrgndCount = ADC_1_GetResult32(0);              // vrgnd in unitless counts                          
+                    vrgndCount = FilterSignal(vrgndCount, 2);
+                    vrgndVal = ADC_1_CountsTo_mVolts(0, vrgndCount);// vrgnd in mV
+                    CyDelayUs(250);
+                    
+                    // Reference Voltage Reading
+                    
+                    AMux_1_Select(0);
+                    ADC_1_StartConvert();                           // Start the Read the ADC
+                    ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
+                    vrefCount = ADC_1_GetResult32(0);               // vref in unitless counts
+                    vrefCount = FilterSignal(vrefCount, 3);
+                    vrefVal = ADC_1_CountsTo_mVolts(0, vrefCount);  // vref in mV
+                    CyDelayUs(250);                    
+                    
+                    // After rapid samples - to ensure similar adc/amp conditions
+                    // Calculations are made
+                    
+                    gainReal = (vrefVal - vrgndVal)/V_REF_RELATIVE;     // The actual op-amp gain
+                    vrgndVal = vrgndVal/gainReal;                       // Find the virtual ground value
+                    vtestVal = vtestVal/gainReal;                       // Find the test point value
+                    vtestVal = vtestVal - vrgndVal;                     // Take the difference to negate op-amp offset                
+                }
                 
-                AMux_1_Select(0); 
-                ADC_1_StartConvert();                           // Start the Read the ADC
-                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);               
-                vtestCount = ADC_1_GetResult32(0);              // vtest in unitless counts
-                //ADC_1_StopConvert();
-                vtestCount = FilterSignal(vtestCount, 1);
-                vtestVal = ADC_1_CountsTo_mVolts(0, vtestCount);// vtest in mV    
-                CyDelayUs(250);
-                
-                // Virtual Ground Reading 
-                
-                AMux_1_Select(1);
-                ADC_1_StartConvert();                           // Start the Read the ADC
-                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-                vrgndCount = ADC_1_GetResult32(0);              // vrgnd in unitless counts
-                //ADC_1_StopConvert();                            
-                vrgndCount = FilterSignal(vrgndCount, 2);
-                vrgndVal = ADC_1_CountsTo_mVolts(0, vrgndCount);// vrgnd in mV
-                CyDelayUs(250);
-                
-                // Reference Voltage Reading
-                
-                AMux_1_Select(0);
-                ADC_1_StartConvert();                           // Start the Read the ADC
-                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-                vrefCount = ADC_1_GetResult32(0);               // vref in unitless counts
-                //ADC_1_StopConvert();
-                vrefCount = FilterSignal(vrefCount, 3);
-                vrefVal = ADC_1_CountsTo_mVolts(0, vrefCount);  // vref in mV
-                CyDelayUs(250);
-                
-                
-                // After rapid samples - to ensure similar adc/amp conditions
-                // Calculations are made
-                
-                //gainReal = (vrefVal - vrgndVal)/V_REF_RELATIVE;     // The actual op-amp gain
-                //vrgndVal = vrgndVal/gainReal;                       // Find the virtual ground value
-                //vtestVal = vtestVal/gainReal;                       // Find the test point value
-                //vtestVal = vtestVal - vrgndVal;                     // Take the difference to negate op-amp offset
-                
-                // This is the test voltage relative to virtual gnd
-                
-                // Stop the Test.... 
+                // Stop the Test...
                 userInput = UART_1_UartGetChar();
                 
                 if (userInput == 83){ // 83 is ASCII for STOP t     
                     stopFlag = 1;
                     Timer_1_Stop();
                     vtestIdeal = vtestIdeal + 5;
-                }                         
-     
-                CyDelayUs(250);
+                }                      
                 
                 // Print the values
                 if (Timer_1_ReadCounter() > 1){

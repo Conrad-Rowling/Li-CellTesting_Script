@@ -1,5 +1,5 @@
 # Internal_Main
-# 2021-04-27 00:17:42Z
+# 2021-04-27 01:22:51Z
 
 # IO_0@[IOP=(0)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 0 0
@@ -27,3 +27,5 @@ set_location "\UART_1:SCB\" m0s8scbcell -1 -1 1
 set_location "\I2C_1:SCB_IRQ\" interrupt -1 -1 10
 set_location "\I2C_1:SCB\" m0s8scbcell -1 -1 2
 set_location "\Timer_1:cy_m0s8_tcpwm_1\" m0s8tcpwmcell -1 -1 0
+set_location "isr_1" interrupt -1 -1 18
+set_location "\TCPWM_1:cy_m0s8_tcpwm_1\" m0s8tcpwmcell -1 -1 1
