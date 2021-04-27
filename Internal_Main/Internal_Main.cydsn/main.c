@@ -50,6 +50,8 @@ void Print_Headers()
 *
 *******************************************************************************/
 void CellTestStart(){
+    CyGlobalIntEnable;
+    isr_1_StartEx(MyCustomISR); 
     AMux_1_Start();
     AMux_2_Start();
     Opamp_1_Start();
@@ -61,6 +63,7 @@ void CellTestStart(){
     PVref_1_Start();
     PVref_1_Enable();
     BLUE_LED_Write(0);
+    TCPWM_1_Start();
 }
 
 
@@ -132,6 +135,14 @@ int32 FilterSignal(int32 ADCSample, uint8 channel){
     return filValueRounded;
 }
 
+CY_ISR_PROTO(MyCustomISR);
+CY_ISR(MyCustomISR)
+
+{
+    NVIC_ClearPendingIRQ(SysInt_1_cfg.intrSrc);
+    startFlag = 1;
+}
+
 
 
 // ======================================
@@ -165,6 +176,10 @@ int main(void)
     int8 stopFlag = 0;          // Boolean flag to stop the test
     int8 stopCode = 0;          // Code for determining the reason why test was stopped
     
+    //PWM
+    int8 startFlag = 1;
+    
+    
     //Initialization
     
     CellTestStart();
@@ -179,6 +194,11 @@ int main(void)
     UART_1_UartPutString(string);
     sprintf(string,"\r\n Voltage(Ideal) (mV), Voltage(Measured) (mV), VirtualGND (mV), VRef (mV), Calculated Gain \r\n");
     UART_1_UartPutString(string);
+    
+    
+    //  Start Convert
+    
+    Clock_2_Start();
     
     // Main For Loop
     for(;;)
@@ -197,38 +217,40 @@ int main(void)
             
             // Continue Executing While the no test errors are evident
             while(!stopFlag){
-                
+                while(startFlag == 1){
+                startFlag = 0;
+                    
                 //================================
                 // Test Voltage Reading (vtest)
                 //================================
                 AMux_2_Select(2);
-                AMux_1_Select(1); 
+                AMux_1_Select(0); 
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);               
                 vtestCount = ADC_1_GetResult32(0);              // vtest in unitless counts
-                ADC_1_StopConvert();
+                //ADC_1_StopConvert();
                 vtestCount = FilterSignal(vtestCount, 1);
                 vtestVal = ADC_1_CountsTo_mVolts(0, vtestCount);// vtest in mV                
                                 
                 //================================
                 // Virtual Ground Reading (vrgnd)
                 //================================
-                AMux_1_Select(2);
+                AMux_1_Select(1);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrgndCount = ADC_1_GetResult32(0);              // vrgnd in unitless counts
-                ADC_1_StopConvert();                            
+                //ADC_1_StopConvert();                            
                 vrgndCount = FilterSignal(vrgndCount, 2);       // Channel 3 because...
                 vrgndVal = ADC_1_CountsTo_mVolts(0, vrgndCount);// vrgnd in mV
                                 
                 //================================
                 // Reference Voltage Reading (vref)
                 //================================
-                AMux_1_Select(0);
+                AMux_1_Select(2);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrefCount = ADC_1_GetResult32(0);               // vref in unitless counts
-                ADC_1_StopConvert();    
+                //ADC_1_StopConvert();    
                 vrefCount = FilterSignal(vrefCount, 3);         // Channel 3 because ...
                 vrefVal = ADC_1_CountsTo_mVolts(0, vrefCount);  // vref in mV
                                 
@@ -239,12 +261,12 @@ int main(void)
                 vtestVal = vtestVal/gainReal;                       // Find the test point value
                 vtestVal = vtestVal - vrgndVal;                     // Take the difference to negate op-amp offset                
                                 
-                AMux_2_Select(1);
+                //AMux_2_Select(1);
                 
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vbatUpCount = ADC_1_GetResult32(0);               // vref in unitless counts
-                ADC_1_StopConvert();    
+                //ADC_1_StopConvert();    
                 vbatUpCount = FilterSignal(vbatUpCount, 4);         // Channel 3 because ...
                 vbatUpVal = ADC_1_CountsTo_mVolts(0, vbatUpCount);  // vref in mV
                 
@@ -253,7 +275,7 @@ int main(void)
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vbatLowCount = ADC_1_GetResult32(0);               // vref in unitless counts
-                ADC_1_StopConvert();    
+                //ADC_1_StopConvert();    
                 vbatLowCount = FilterSignal(vbatLowCount, 5);         // Channel 3 because ...
                 vbatLowVal = ADC_1_CountsTo_mVolts(0, vbatLowCount);
                 
@@ -265,6 +287,11 @@ int main(void)
                 //userInput = UART_1_UartGetChar();
                 //if (userInput == 83){ // 83 is ASCII for STOP
                 
+                
+                
+                
+                } //end of scan from startflag
+                
                 if (UART_1_UartGetChar() == 83) {
                     stopFlag = 1;
                     stopCode = 4; 
@@ -272,7 +299,7 @@ int main(void)
                     vtestIdeal = vtestIdeal + 5;
                 }                         
                 
-                CyDelayUs(250);
+                //CyDelayUs(250);
                 
                 // Print the values
                 if (Timer_1_ReadCounter() > 1){ 
@@ -311,6 +338,7 @@ int main(void)
                     UART_1_UartPutString(string1); 
                 }                
                 */
+                
             }
         }
     }

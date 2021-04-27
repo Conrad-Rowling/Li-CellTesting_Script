@@ -4,7 +4,15 @@ net ClockBlock_HFClk
 	term   ":interrupt_15.clock"
 	switch ":m0s8clockblockcell.hfclk==>:interrupt_10.clock"
 	term   ":interrupt_10.clock"
+	switch ":m0s8clockblockcell.hfclk==>:interrupt_18.clock"
+	term   ":interrupt_18.clock"
 end ClockBlock_HFClk
+net Net_1373
+	term   ":m0s8tcpwmcell_1.interrupt"
+	switch ":m0s8tcpwmcell_1.interrupt==>:interrupt_idmux_18.in_0"
+	switch ":interrupt_idmux_18.interrupt_idmux_18__out==>:interrupt_18.interrupt"
+	term   ":interrupt_18.interrupt"
+end Net_1373
 net Net_154
 	term   ":m0s8scbcell_2.interrupt"
 	switch ":m0s8scbcell_2.interrupt==>:interrupt_idmux_10.in_0"

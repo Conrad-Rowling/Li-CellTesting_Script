@@ -2,7 +2,7 @@
 --	Conversion of Internal_Main.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sun Apr 25 22:20:47 2021
+--	Mon Apr 26 17:41:42 2021
 --
 
 USE cypress.cypress.all;
@@ -575,16 +575,16 @@ SIGNAL Net_742 : bit;
 SIGNAL Net_743 : bit;
 SIGNAL Net_735 : bit;
 SIGNAL \UART_1:Net_1028\ : bit;
+SIGNAL Net_734 : bit;
 SIGNAL Net_728 : bit;
 SIGNAL Net_729 : bit;
 SIGNAL Net_730 : bit;
 SIGNAL Net_731 : bit;
 SIGNAL Net_732 : bit;
 SIGNAL Net_733 : bit;
-SIGNAL Net_734 : bit;
-SIGNAL Net_736 : bit;
 SIGNAL Net_737 : bit;
 SIGNAL Net_702 : bit;
+SIGNAL Net_736 : bit;
 SIGNAL \I2C_1:Net_847\ : bit;
 SIGNAL \I2C_1:select_s_wire\ : bit;
 SIGNAL \I2C_1:rx_wire\ : bit;
@@ -620,16 +620,16 @@ SIGNAL \I2C_1:miso_s_wire\ : bit;
 SIGNAL Net_172 : bit;
 SIGNAL Net_163 : bit;
 SIGNAL \I2C_1:Net_1028\ : bit;
+SIGNAL Net_162 : bit;
 SIGNAL Net_156 : bit;
 SIGNAL Net_157 : bit;
 SIGNAL Net_158 : bit;
 SIGNAL Net_159 : bit;
 SIGNAL Net_160 : bit;
 SIGNAL Net_161 : bit;
-SIGNAL Net_162 : bit;
-SIGNAL Net_165 : bit;
 SIGNAL Net_166 : bit;
 SIGNAL Net_173 : bit;
+SIGNAL Net_165 : bit;
 SIGNAL tmpOE__BLUE_LED_net_0 : bit;
 SIGNAL tmpFB_0__BLUE_LED_net_0 : bit;
 SIGNAL tmpIO_0__BLUE_LED_net_0 : bit;
@@ -698,6 +698,19 @@ SIGNAL tmpFB_0__VBatLow_net_0 : bit;
 SIGNAL tmpIO_0__VBatLow_net_0 : bit;
 TERMINAL tmpSIOVREF__VBatLow_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__VBatLow_net_0 : bit;
+SIGNAL \TCPWM_1:Net_81\ : bit;
+SIGNAL \TCPWM_1:Net_75\ : bit;
+SIGNAL \TCPWM_1:Net_69\ : bit;
+SIGNAL \TCPWM_1:Net_66\ : bit;
+SIGNAL \TCPWM_1:Net_82\ : bit;
+SIGNAL \TCPWM_1:Net_72\ : bit;
+SIGNAL Net_1375 : bit;
+SIGNAL Net_1374 : bit;
+SIGNAL Net_1376 : bit;
+SIGNAL Net_1377 : bit;
+SIGNAL Net_1378 : bit;
+SIGNAL Net_1373 : bit;
+SIGNAL Net_1379 : bit;
 BEGIN
 
 zero <=  ('0') ;
@@ -3740,5 +3753,33 @@ VBatLow:cy_psoc3_pins_v1_10
 		out_clock_en=>one,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__VBatLow_net_0);
+\TCPWM_1:cy_m0s8_tcpwm_1\:cy_m0s8_tcpwm_v1_0
+	GENERIC MAP(cy_registers=>"")
+	PORT MAP(clock=>Net_1379,
+		capture=>zero,
+		count=>one,
+		reload=>zero,
+		stop=>zero,
+		start=>zero,
+		underflow=>Net_1375,
+		overflow=>Net_1374,
+		compare_match=>Net_1376,
+		line_out=>Net_1377,
+		line_out_compl=>Net_1378,
+		interrupt=>Net_1373);
+Clock_2:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"117def58-32e7-4850-886c-ee2c2441b03c",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"83333333.3333333",
+		is_direct=>'0',
+		is_digital=>'0')
+	PORT MAP(clock_out=>Net_1379,
+		dig_domain_out=>open);
+isr_1:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_1373);
 
 END R_T_L;

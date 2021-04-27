@@ -254,11 +254,11 @@ The parameters that are set in the customizer are redefined as constants here.
 #define ADC_1_CFG0_VNEG_INPUT_SEL          (7)
 #define ADC_1_CFG0_SINGLE_PRESENT          (1)
 #define ADC_1_CFG0_VREF_MV_VALUE           (1200)
-#define ADC_1_CFG0_APERTURE_TIME0          (46uL)
+#define ADC_1_CFG0_APERTURE_TIME0          (3uL)
 #define ADC_1_CFG0_APERTURE_TIME1          (2uL)
 #define ADC_1_CFG0_APERTURE_TIME2          (2uL)
 #define ADC_1_CFG0_APERTURE_TIME3          (2uL)
-#define ADC_1_CFG0_FREERUNNING             (1u)
+#define ADC_1_CFG0_FREERUNNING             (0u)
 #define ADC_1_CFG0_AVGERAGING_MODE         (1uL)
 #define ADC_1_CFG0_LOW_LIMIT               (512u)
 #define ADC_1_CFG0_HIGH_LIMIT              (3584u)
@@ -1598,7 +1598,7 @@ extern const uint32 CYCODE ADC_1_InputsPlacement[ADC_1_TOTAL_CHANNELS_NUM];
 
 #if (0)
 #define ADC_1_CFG0_TARGET_SPS 100000
-#define ADC_1_CFG0_ACHIEVED_SPS 100000
+#define ADC_1_CFG0_ACHIEVED_SPS 352941
 #define ADC_1_CFG0_ADC_CLOCK_FREQ_HZ 12000000
 #define ADC_1_CFG0_VREF_SOURCE VREFSOURCE_VBGR
 #define ADC_1_CFG0_VREF_BYPASS True
@@ -1616,7 +1616,7 @@ extern const uint32 CYCODE ADC_1_InputsPlacement[ADC_1_TOTAL_CHANNELS_NUM];
 #define ADC_1_CFG0_CHAN0_INPUT_MODE SINGLE_ENDED_CHAN
 #define ADC_1_CFG0_CHAN0_USE_AVERAGING True
 #define ADC_1_CFG0_CHAN0_MIN_ACQ_TIME_NS 194
-#define ADC_1_CFG0_CHAN0_ACHIEVED_ACQ_TIME_NS 3792
+#define ADC_1_CFG0_CHAN0_ACHIEVED_ACQ_TIME_NS 208
 
 
 #endif

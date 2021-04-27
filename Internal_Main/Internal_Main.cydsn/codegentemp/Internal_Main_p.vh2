@@ -1,6 +1,6 @@
 -- Project:   Internal_Main
--- Generated: 04/25/2021 22:20:48
--- PSoC Creator  4.4
+-- Generated: 04/26/2021 17:41:43
+-- PSoC Creator  4.3
 
 ENTITY Internal_Main IS
     PORT(
@@ -53,9 +53,17 @@ ARCHITECTURE __DEFAULT__ OF Internal_Main IS
     SIGNAL Net_1362_8 : bit;
     SIGNAL Net_1362_9 : bit;
     SIGNAL Net_1363 : bit;
+    SIGNAL Net_1373 : bit;
+    SIGNAL Net_1374 : bit;
+    SIGNAL Net_1375 : bit;
+    SIGNAL Net_1376 : bit;
+    SIGNAL Net_1377 : bit;
+    SIGNAL Net_1378 : bit;
+    SIGNAL Net_1379_ff4 : bit;
+    ATTRIBUTE global_signal OF Net_1379_ff4 : SIGNAL IS true;
     SIGNAL Net_154 : bit;
-    SIGNAL Net_1629_ff4 : bit;
-    ATTRIBUTE global_signal OF Net_1629_ff4 : SIGNAL IS true;
+    SIGNAL Net_1629_ff5 : bit;
+    ATTRIBUTE global_signal OF Net_1629_ff5 : SIGNAL IS true;
     SIGNAL Net_163 : bit;
     SIGNAL Net_170 : bit;
     SIGNAL Net_171 : bit;
@@ -411,10 +419,11 @@ BEGIN
             ilo => ClockBlock_ILO,
             lfclk => ClockBlock_LFClk,
             wco => ClockBlock_WCO,
+            ff_div_4 => Net_1379_ff4,
             ff_div_12 => \ADC_1:sarClock_ff12\,
             ff_div_0 => \I2C_1:Net_847_ff0\,
             ff_div_1 => \UART_1:Net_847_ff1\,
-            ff_div_4 => Net_1629_ff4);
+            ff_div_5 => Net_1629_ff5);
 
     \ADC_1:Bypass\:logicalport
         GENERIC MAP(
@@ -1793,7 +1802,7 @@ BEGIN
         GENERIC MAP(
             cy_registers => "")
         PORT MAP(
-            clock => Net_1629_ff4,
+            clock => Net_1629_ff5,
             capture => '0',
             count => '1',
             reload => '0',
@@ -1838,5 +1847,30 @@ BEGIN
             needs_dsab => 0)
         PORT MAP(
             ctb_dsi_comp => \Opamp_3:Net_12\);
+
+    \TCPWM_1:cy_m0s8_tcpwm_1\:m0s8tcpwmcell
+        GENERIC MAP(
+            cy_registers => "")
+        PORT MAP(
+            clock => Net_1379_ff4,
+            capture => '0',
+            count => '1',
+            reload => '0',
+            stop => '0',
+            start => '0',
+            tr_underflow => Net_1375,
+            tr_overflow => Net_1374,
+            tr_compare_match => Net_1376,
+            line => Net_1377,
+            line_compl => Net_1378,
+            interrupt => Net_1373);
+
+    isr_1:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_1373,
+            clock => ClockBlock_HFClk);
 
 END __DEFAULT__;
