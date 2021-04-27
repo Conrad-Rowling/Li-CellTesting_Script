@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Shunt_In.c  
+* File Name: VRef.c  
 * Version 2.20
 *
 * Description:
@@ -13,35 +13,35 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "Shunt_In.h"
+#include "VRef.h"
 
 
-#if defined(Shunt_In__PC)
-    #define Shunt_In_SetP4PinDriveMode(shift, mode)  \
+#if defined(VRef__PC)
+    #define VRef_SetP4PinDriveMode(shift, mode)  \
     do { \
-        Shunt_In_PC =   (Shunt_In_PC & \
-                                (uint32)(~(uint32)(Shunt_In_DRIVE_MODE_IND_MASK << \
-                                (Shunt_In_DRIVE_MODE_BITS * (shift))))) | \
+        VRef_PC =   (VRef_PC & \
+                                (uint32)(~(uint32)(VRef_DRIVE_MODE_IND_MASK << \
+                                (VRef_DRIVE_MODE_BITS * (shift))))) | \
                                 (uint32)((uint32)(mode) << \
-                                (Shunt_In_DRIVE_MODE_BITS * (shift))); \
+                                (VRef_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 #else
     #if (CY_PSOC4_4200L)
-        #define Shunt_In_SetP4PinDriveMode(shift, mode)  \
+        #define VRef_SetP4PinDriveMode(shift, mode)  \
         do { \
-            Shunt_In_USBIO_CTRL_REG = (Shunt_In_USBIO_CTRL_REG & \
-                                    (uint32)(~(uint32)(Shunt_In_DRIVE_MODE_IND_MASK << \
-                                    (Shunt_In_DRIVE_MODE_BITS * (shift))))) | \
+            VRef_USBIO_CTRL_REG = (VRef_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(VRef_DRIVE_MODE_IND_MASK << \
+                                    (VRef_DRIVE_MODE_BITS * (shift))))) | \
                                     (uint32)((uint32)(mode) << \
-                                    (Shunt_In_DRIVE_MODE_BITS * (shift))); \
+                                    (VRef_DRIVE_MODE_BITS * (shift))); \
         } while (0)
     #endif
 #endif
   
 
-#if defined(Shunt_In__PC) || (CY_PSOC4_4200L) 
+#if defined(VRef__PC) || (CY_PSOC4_4200L) 
     /*******************************************************************************
-    * Function Name: Shunt_In_SetDriveMode
+    * Function Name: VRef_SetDriveMode
     ****************************************************************************//**
     *
     * \brief Sets the drive mode for each of the Pins component's pins.
@@ -67,17 +67,17 @@
     *  APIs (primary method) or disable interrupts around this function.
     *
     * \funcusage
-    *  \snippet Shunt_In_SUT.c usage_Shunt_In_SetDriveMode
+    *  \snippet VRef_SUT.c usage_VRef_SetDriveMode
     *******************************************************************************/
-    void Shunt_In_SetDriveMode(uint8 mode)
+    void VRef_SetDriveMode(uint8 mode)
     {
-		Shunt_In_SetP4PinDriveMode(Shunt_In__0__SHIFT, mode);
+		VRef_SetP4PinDriveMode(VRef__0__SHIFT, mode);
     }
 #endif
 
 
 /*******************************************************************************
-* Function Name: Shunt_In_Write
+* Function Name: VRef_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -106,18 +106,18 @@
 *  this function.
 *
 * \funcusage
-*  \snippet Shunt_In_SUT.c usage_Shunt_In_Write
+*  \snippet VRef_SUT.c usage_VRef_Write
 *******************************************************************************/
-void Shunt_In_Write(uint8 value)
+void VRef_Write(uint8 value)
 {
-    uint8 drVal = (uint8)(Shunt_In_DR & (uint8)(~Shunt_In_MASK));
-    drVal = (drVal | ((uint8)(value << Shunt_In_SHIFT) & Shunt_In_MASK));
-    Shunt_In_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(VRef_DR & (uint8)(~VRef_MASK));
+    drVal = (drVal | ((uint8)(value << VRef_SHIFT) & VRef_MASK));
+    VRef_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: Shunt_In_Read
+* Function Name: VRef_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void Shunt_In_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet Shunt_In_SUT.c usage_Shunt_In_Read  
+*  \snippet VRef_SUT.c usage_VRef_Read  
 *******************************************************************************/
-uint8 Shunt_In_Read(void)
+uint8 VRef_Read(void)
 {
-    return (uint8)((Shunt_In_PS & Shunt_In_MASK) >> Shunt_In_SHIFT);
+    return (uint8)((VRef_PS & VRef_MASK) >> VRef_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: Shunt_In_ReadDataReg
+* Function Name: VRef_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 Shunt_In_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred Shunt_In_Read() API because the 
-* Shunt_In_ReadDataReg() reads the data register instead of the status 
+* preferred VRef_Read() API because the 
+* VRef_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,16 +159,16 @@ uint8 Shunt_In_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet Shunt_In_SUT.c usage_Shunt_In_ReadDataReg 
+*  \snippet VRef_SUT.c usage_VRef_ReadDataReg 
 *******************************************************************************/
-uint8 Shunt_In_ReadDataReg(void)
+uint8 VRef_ReadDataReg(void)
 {
-    return (uint8)((Shunt_In_DR & Shunt_In_MASK) >> Shunt_In_SHIFT);
+    return (uint8)((VRef_DR & VRef_MASK) >> VRef_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: Shunt_In_SetInterruptMode
+* Function Name: VRef_SetInterruptMode
 ****************************************************************************//**
 *
 * \brief Configures the interrupt mode for each of the Pins component's
@@ -181,12 +181,12 @@ uint8 Shunt_In_ReadDataReg(void)
 * \param position
 *  The pin position as listed in the Pins component. You may OR these to be 
 *  able to configure the interrupt mode of multiple pins within a Pins 
-*  component. Or you may use Shunt_In_INTR_ALL to configure the
+*  component. Or you may use VRef_INTR_ALL to configure the
 *  interrupt mode of all the pins in the Pins component.       
-*  - Shunt_In_0_INTR       (First pin in the list)
-*  - Shunt_In_1_INTR       (Second pin in the list)
+*  - VRef_0_INTR       (First pin in the list)
+*  - VRef_1_INTR       (Second pin in the list)
 *  - ...
-*  - Shunt_In_INTR_ALL     (All pins in Pins component)
+*  - VRef_INTR_ALL     (All pins in Pins component)
 *
 * \param mode
 *  Interrupt mode for the selected pins. Valid options are documented in
@@ -202,19 +202,19 @@ uint8 Shunt_In_ReadDataReg(void)
 *  port.
 *
 * \funcusage
-*  \snippet Shunt_In_SUT.c usage_Shunt_In_SetInterruptMode
+*  \snippet VRef_SUT.c usage_VRef_SetInterruptMode
 *******************************************************************************/
-void Shunt_In_SetInterruptMode(uint16 position, uint16 mode)
+void VRef_SetInterruptMode(uint16 position, uint16 mode)
 {
     uint32 intrCfg;
     
-    intrCfg =  Shunt_In_INTCFG & (uint32)(~(uint32)position);
-    Shunt_In_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+    intrCfg =  VRef_INTCFG & (uint32)(~(uint32)position);
+    VRef_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
 }
 
 
 /*******************************************************************************
-* Function Name: Shunt_In_ClearInterrupt
+* Function Name: VRef_ClearInterrupt
 ****************************************************************************//**
 *
 * \brief Clears any active interrupts attached with the component and returns 
@@ -231,13 +231,13 @@ void Shunt_In_SetInterruptMode(uint16 position, uint16 mode)
 *  those associated with the Pins component.
 *
 * \funcusage
-*  \snippet Shunt_In_SUT.c usage_Shunt_In_ClearInterrupt
+*  \snippet VRef_SUT.c usage_VRef_ClearInterrupt
 *******************************************************************************/
-uint8 Shunt_In_ClearInterrupt(void)
+uint8 VRef_ClearInterrupt(void)
 {
-	uint8 maskedStatus = (uint8)(Shunt_In_INTSTAT & Shunt_In_MASK);
-	Shunt_In_INTSTAT = maskedStatus;
-    return maskedStatus >> Shunt_In_SHIFT;
+	uint8 maskedStatus = (uint8)(VRef_INTSTAT & VRef_MASK);
+	VRef_INTSTAT = maskedStatus;
+    return maskedStatus >> VRef_SHIFT;
 }
 
 

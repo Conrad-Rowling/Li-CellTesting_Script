@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Shunt_In.c  
+* File Name: VRef.c  
 * Version 2.20
 *
 * Description:
@@ -15,13 +15,13 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "Shunt_In.h"
+#include "VRef.h"
 
-static Shunt_In_BACKUP_STRUCT  Shunt_In_backup = {0u, 0u, 0u};
+static VRef_BACKUP_STRUCT  VRef_backup = {0u, 0u, 0u};
 
 
 /*******************************************************************************
-* Function Name: Shunt_In_Sleep
+* Function Name: VRef_Sleep
 ****************************************************************************//**
 *
 * \brief Stores the pin configuration and prepares the pin for entering chip 
@@ -39,30 +39,30 @@ static Shunt_In_BACKUP_STRUCT  Shunt_In_backup = {0u, 0u, 0u};
 *  deep-sleep/hibernate modes.
 *
 * \funcusage
-*  \snippet Shunt_In_SUT.c usage_Shunt_In_Sleep_Wakeup
+*  \snippet VRef_SUT.c usage_VRef_Sleep_Wakeup
 *******************************************************************************/
-void Shunt_In_Sleep(void)
+void VRef_Sleep(void)
 {
-    #if defined(Shunt_In__PC)
-        Shunt_In_backup.pcState = Shunt_In_PC;
+    #if defined(VRef__PC)
+        VRef_backup.pcState = VRef_PC;
     #else
         #if (CY_PSOC4_4200L)
             /* Save the regulator state and put the PHY into suspend mode */
-            Shunt_In_backup.usbState = Shunt_In_CR1_REG;
-            Shunt_In_USB_POWER_REG |= Shunt_In_USBIO_ENTER_SLEEP;
-            Shunt_In_CR1_REG &= Shunt_In_USBIO_CR1_OFF;
+            VRef_backup.usbState = VRef_CR1_REG;
+            VRef_USB_POWER_REG |= VRef_USBIO_ENTER_SLEEP;
+            VRef_CR1_REG &= VRef_USBIO_CR1_OFF;
         #endif
     #endif
-    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Shunt_In__SIO)
-        Shunt_In_backup.sioState = Shunt_In_SIO_REG;
+    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(VRef__SIO)
+        VRef_backup.sioState = VRef_SIO_REG;
         /* SIO requires unregulated output buffer and single ended input buffer */
-        Shunt_In_SIO_REG &= (uint32)(~Shunt_In_SIO_LPM_MASK);
+        VRef_SIO_REG &= (uint32)(~VRef_SIO_LPM_MASK);
     #endif  
 }
 
 
 /*******************************************************************************
-* Function Name: Shunt_In_Wakeup
+* Function Name: VRef_Wakeup
 ****************************************************************************//**
 *
 * \brief Restores the pin configuration that was saved during Pin_Sleep(). This 
@@ -77,22 +77,22 @@ void Shunt_In_Sleep(void)
 *  None
 *  
 * \funcusage
-*  Refer to Shunt_In_Sleep() for an example usage.
+*  Refer to VRef_Sleep() for an example usage.
 *******************************************************************************/
-void Shunt_In_Wakeup(void)
+void VRef_Wakeup(void)
 {
-    #if defined(Shunt_In__PC)
-        Shunt_In_PC = Shunt_In_backup.pcState;
+    #if defined(VRef__PC)
+        VRef_PC = VRef_backup.pcState;
     #else
         #if (CY_PSOC4_4200L)
             /* Restore the regulator state and come out of suspend mode */
-            Shunt_In_USB_POWER_REG &= Shunt_In_USBIO_EXIT_SLEEP_PH1;
-            Shunt_In_CR1_REG = Shunt_In_backup.usbState;
-            Shunt_In_USB_POWER_REG &= Shunt_In_USBIO_EXIT_SLEEP_PH2;
+            VRef_USB_POWER_REG &= VRef_USBIO_EXIT_SLEEP_PH1;
+            VRef_CR1_REG = VRef_backup.usbState;
+            VRef_USB_POWER_REG &= VRef_USBIO_EXIT_SLEEP_PH2;
         #endif
     #endif
-    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Shunt_In__SIO)
-        Shunt_In_SIO_REG = Shunt_In_backup.sioState;
+    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(VRef__SIO)
+        VRef_SIO_REG = VRef_backup.sioState;
     #endif
 }
 
