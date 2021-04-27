@@ -167,22 +167,22 @@ int main(void)
                 
                 // Test Voltage Reading
                 
-                AMux_1_Select(1); 
+                AMux_1_Select(0); 
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);               
                 vtestCount = ADC_1_GetResult32(0);              // vtest in unitless counts
-                ADC_1_StopConvert();
+                //ADC_1_StopConvert();
                 vtestCount = FilterSignal(vtestCount, 1);
                 vtestVal = ADC_1_CountsTo_mVolts(0, vtestCount);// vtest in mV    
                 CyDelayUs(250);
                 
                 // Virtual Ground Reading 
                 
-                AMux_1_Select(2);
+                AMux_1_Select(1);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrgndCount = ADC_1_GetResult32(0);              // vrgnd in unitless counts
-                ADC_1_StopConvert();                            
+                //ADC_1_StopConvert();                            
                 vrgndCount = FilterSignal(vrgndCount, 2);
                 vrgndVal = ADC_1_CountsTo_mVolts(0, vrgndCount);// vrgnd in mV
                 CyDelayUs(250);
@@ -193,7 +193,7 @@ int main(void)
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrefCount = ADC_1_GetResult32(0);               // vref in unitless counts
-                ADC_1_StopConvert();
+                //ADC_1_StopConvert();
                 vrefCount = FilterSignal(vrefCount, 3);
                 vrefVal = ADC_1_CountsTo_mVolts(0, vrefCount);  // vref in mV
                 CyDelayUs(250);
@@ -202,10 +202,10 @@ int main(void)
                 // After rapid samples - to ensure similar adc/amp conditions
                 // Calculations are made
                 
-                gainReal = (vrefVal - vrgndVal)/V_REF_RELATIVE;     // The actual op-amp gain
-                vrgndVal = vrgndVal/gainReal;                       // Find the virtual ground value
-                vtestVal = vtestVal/gainReal;                       // Find the test point value
-                vtestVal = vtestVal - vrgndVal;                     // Take the difference to negate op-amp offset
+                //gainReal = (vrefVal - vrgndVal)/V_REF_RELATIVE;     // The actual op-amp gain
+                //vrgndVal = vrgndVal/gainReal;                       // Find the virtual ground value
+                //vtestVal = vtestVal/gainReal;                       // Find the test point value
+                //vtestVal = vtestVal - vrgndVal;                     // Take the difference to negate op-amp offset
                 
                 // This is the test voltage relative to virtual gnd
                 
