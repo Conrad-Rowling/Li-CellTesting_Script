@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: VrGnd.h  
+* File Name: Shunt_In.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_VrGnd_ALIASES_H) /* Pins VrGnd_ALIASES_H */
-#define CY_PINS_VrGnd_ALIASES_H
+#if !defined(CY_PINS_Shunt_In_ALIASES_H) /* Pins Shunt_In_ALIASES_H */
+#define CY_PINS_Shunt_In_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -26,17 +26,17 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define VrGnd_0			(VrGnd__0__PC)
-#define VrGnd_0_PS		(VrGnd__0__PS)
-#define VrGnd_0_PC		(VrGnd__0__PC)
-#define VrGnd_0_DR		(VrGnd__0__DR)
-#define VrGnd_0_SHIFT	(VrGnd__0__SHIFT)
-#define VrGnd_0_INTR	((uint16)((uint16)0x0003u << (VrGnd__0__SHIFT*2u)))
+#define Shunt_In_0			(Shunt_In__0__PC)
+#define Shunt_In_0_PS		(Shunt_In__0__PS)
+#define Shunt_In_0_PC		(Shunt_In__0__PC)
+#define Shunt_In_0_DR		(Shunt_In__0__DR)
+#define Shunt_In_0_SHIFT	(Shunt_In__0__SHIFT)
+#define Shunt_In_0_INTR	((uint16)((uint16)0x0003u << (Shunt_In__0__SHIFT*2u)))
 
-#define VrGnd_INTR_ALL	 ((uint16)(VrGnd_0_INTR))
+#define Shunt_In_INTR_ALL	 ((uint16)(Shunt_In_0_INTR))
 
 
-#endif /* End Pins VrGnd_ALIASES_H */
+#endif /* End Pins Shunt_In_ALIASES_H */
 
 
 /* [] END OF FILE */

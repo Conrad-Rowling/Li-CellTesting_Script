@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: VrGnd.c  
+* File Name: Cal_In.c  
 * Version 2.20
 *
 * Description:
@@ -13,35 +13,35 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "VrGnd.h"
+#include "Cal_In.h"
 
 
-#if defined(VrGnd__PC)
-    #define VrGnd_SetP4PinDriveMode(shift, mode)  \
+#if defined(Cal_In__PC)
+    #define Cal_In_SetP4PinDriveMode(shift, mode)  \
     do { \
-        VrGnd_PC =   (VrGnd_PC & \
-                                (uint32)(~(uint32)(VrGnd_DRIVE_MODE_IND_MASK << \
-                                (VrGnd_DRIVE_MODE_BITS * (shift))))) | \
+        Cal_In_PC =   (Cal_In_PC & \
+                                (uint32)(~(uint32)(Cal_In_DRIVE_MODE_IND_MASK << \
+                                (Cal_In_DRIVE_MODE_BITS * (shift))))) | \
                                 (uint32)((uint32)(mode) << \
-                                (VrGnd_DRIVE_MODE_BITS * (shift))); \
+                                (Cal_In_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 #else
     #if (CY_PSOC4_4200L)
-        #define VrGnd_SetP4PinDriveMode(shift, mode)  \
+        #define Cal_In_SetP4PinDriveMode(shift, mode)  \
         do { \
-            VrGnd_USBIO_CTRL_REG = (VrGnd_USBIO_CTRL_REG & \
-                                    (uint32)(~(uint32)(VrGnd_DRIVE_MODE_IND_MASK << \
-                                    (VrGnd_DRIVE_MODE_BITS * (shift))))) | \
+            Cal_In_USBIO_CTRL_REG = (Cal_In_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(Cal_In_DRIVE_MODE_IND_MASK << \
+                                    (Cal_In_DRIVE_MODE_BITS * (shift))))) | \
                                     (uint32)((uint32)(mode) << \
-                                    (VrGnd_DRIVE_MODE_BITS * (shift))); \
+                                    (Cal_In_DRIVE_MODE_BITS * (shift))); \
         } while (0)
     #endif
 #endif
   
 
-#if defined(VrGnd__PC) || (CY_PSOC4_4200L) 
+#if defined(Cal_In__PC) || (CY_PSOC4_4200L) 
     /*******************************************************************************
-    * Function Name: VrGnd_SetDriveMode
+    * Function Name: Cal_In_SetDriveMode
     ****************************************************************************//**
     *
     * \brief Sets the drive mode for each of the Pins component's pins.
@@ -67,17 +67,17 @@
     *  APIs (primary method) or disable interrupts around this function.
     *
     * \funcusage
-    *  \snippet VrGnd_SUT.c usage_VrGnd_SetDriveMode
+    *  \snippet Cal_In_SUT.c usage_Cal_In_SetDriveMode
     *******************************************************************************/
-    void VrGnd_SetDriveMode(uint8 mode)
+    void Cal_In_SetDriveMode(uint8 mode)
     {
-		VrGnd_SetP4PinDriveMode(VrGnd__0__SHIFT, mode);
+		Cal_In_SetP4PinDriveMode(Cal_In__0__SHIFT, mode);
     }
 #endif
 
 
 /*******************************************************************************
-* Function Name: VrGnd_Write
+* Function Name: Cal_In_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -106,18 +106,18 @@
 *  this function.
 *
 * \funcusage
-*  \snippet VrGnd_SUT.c usage_VrGnd_Write
+*  \snippet Cal_In_SUT.c usage_Cal_In_Write
 *******************************************************************************/
-void VrGnd_Write(uint8 value)
+void Cal_In_Write(uint8 value)
 {
-    uint8 drVal = (uint8)(VrGnd_DR & (uint8)(~VrGnd_MASK));
-    drVal = (drVal | ((uint8)(value << VrGnd_SHIFT) & VrGnd_MASK));
-    VrGnd_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(Cal_In_DR & (uint8)(~Cal_In_MASK));
+    drVal = (drVal | ((uint8)(value << Cal_In_SHIFT) & Cal_In_MASK));
+    Cal_In_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: VrGnd_Read
+* Function Name: Cal_In_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void VrGnd_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet VrGnd_SUT.c usage_VrGnd_Read  
+*  \snippet Cal_In_SUT.c usage_Cal_In_Read  
 *******************************************************************************/
-uint8 VrGnd_Read(void)
+uint8 Cal_In_Read(void)
 {
-    return (uint8)((VrGnd_PS & VrGnd_MASK) >> VrGnd_SHIFT);
+    return (uint8)((Cal_In_PS & Cal_In_MASK) >> Cal_In_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: VrGnd_ReadDataReg
+* Function Name: Cal_In_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 VrGnd_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred VrGnd_Read() API because the 
-* VrGnd_ReadDataReg() reads the data register instead of the status 
+* preferred Cal_In_Read() API because the 
+* Cal_In_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,16 +159,16 @@ uint8 VrGnd_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet VrGnd_SUT.c usage_VrGnd_ReadDataReg 
+*  \snippet Cal_In_SUT.c usage_Cal_In_ReadDataReg 
 *******************************************************************************/
-uint8 VrGnd_ReadDataReg(void)
+uint8 Cal_In_ReadDataReg(void)
 {
-    return (uint8)((VrGnd_DR & VrGnd_MASK) >> VrGnd_SHIFT);
+    return (uint8)((Cal_In_DR & Cal_In_MASK) >> Cal_In_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: VrGnd_SetInterruptMode
+* Function Name: Cal_In_SetInterruptMode
 ****************************************************************************//**
 *
 * \brief Configures the interrupt mode for each of the Pins component's
@@ -181,12 +181,12 @@ uint8 VrGnd_ReadDataReg(void)
 * \param position
 *  The pin position as listed in the Pins component. You may OR these to be 
 *  able to configure the interrupt mode of multiple pins within a Pins 
-*  component. Or you may use VrGnd_INTR_ALL to configure the
+*  component. Or you may use Cal_In_INTR_ALL to configure the
 *  interrupt mode of all the pins in the Pins component.       
-*  - VrGnd_0_INTR       (First pin in the list)
-*  - VrGnd_1_INTR       (Second pin in the list)
+*  - Cal_In_0_INTR       (First pin in the list)
+*  - Cal_In_1_INTR       (Second pin in the list)
 *  - ...
-*  - VrGnd_INTR_ALL     (All pins in Pins component)
+*  - Cal_In_INTR_ALL     (All pins in Pins component)
 *
 * \param mode
 *  Interrupt mode for the selected pins. Valid options are documented in
@@ -202,19 +202,19 @@ uint8 VrGnd_ReadDataReg(void)
 *  port.
 *
 * \funcusage
-*  \snippet VrGnd_SUT.c usage_VrGnd_SetInterruptMode
+*  \snippet Cal_In_SUT.c usage_Cal_In_SetInterruptMode
 *******************************************************************************/
-void VrGnd_SetInterruptMode(uint16 position, uint16 mode)
+void Cal_In_SetInterruptMode(uint16 position, uint16 mode)
 {
     uint32 intrCfg;
     
-    intrCfg =  VrGnd_INTCFG & (uint32)(~(uint32)position);
-    VrGnd_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+    intrCfg =  Cal_In_INTCFG & (uint32)(~(uint32)position);
+    Cal_In_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
 }
 
 
 /*******************************************************************************
-* Function Name: VrGnd_ClearInterrupt
+* Function Name: Cal_In_ClearInterrupt
 ****************************************************************************//**
 *
 * \brief Clears any active interrupts attached with the component and returns 
@@ -231,13 +231,13 @@ void VrGnd_SetInterruptMode(uint16 position, uint16 mode)
 *  those associated with the Pins component.
 *
 * \funcusage
-*  \snippet VrGnd_SUT.c usage_VrGnd_ClearInterrupt
+*  \snippet Cal_In_SUT.c usage_Cal_In_ClearInterrupt
 *******************************************************************************/
-uint8 VrGnd_ClearInterrupt(void)
+uint8 Cal_In_ClearInterrupt(void)
 {
-	uint8 maskedStatus = (uint8)(VrGnd_INTSTAT & VrGnd_MASK);
-	VrGnd_INTSTAT = maskedStatus;
-    return maskedStatus >> VrGnd_SHIFT;
+	uint8 maskedStatus = (uint8)(Cal_In_INTSTAT & Cal_In_MASK);
+	Cal_In_INTSTAT = maskedStatus;
+    return maskedStatus >> Cal_In_SHIFT;
 }
 
 

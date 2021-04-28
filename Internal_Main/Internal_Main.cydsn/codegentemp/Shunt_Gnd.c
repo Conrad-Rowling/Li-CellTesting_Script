@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: VTest.c  
+* File Name: Shunt_Gnd.c  
 * Version 2.20
 *
 * Description:
@@ -13,35 +13,35 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "VTest.h"
+#include "Shunt_Gnd.h"
 
 
-#if defined(VTest__PC)
-    #define VTest_SetP4PinDriveMode(shift, mode)  \
+#if defined(Shunt_Gnd__PC)
+    #define Shunt_Gnd_SetP4PinDriveMode(shift, mode)  \
     do { \
-        VTest_PC =   (VTest_PC & \
-                                (uint32)(~(uint32)(VTest_DRIVE_MODE_IND_MASK << \
-                                (VTest_DRIVE_MODE_BITS * (shift))))) | \
+        Shunt_Gnd_PC =   (Shunt_Gnd_PC & \
+                                (uint32)(~(uint32)(Shunt_Gnd_DRIVE_MODE_IND_MASK << \
+                                (Shunt_Gnd_DRIVE_MODE_BITS * (shift))))) | \
                                 (uint32)((uint32)(mode) << \
-                                (VTest_DRIVE_MODE_BITS * (shift))); \
+                                (Shunt_Gnd_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 #else
     #if (CY_PSOC4_4200L)
-        #define VTest_SetP4PinDriveMode(shift, mode)  \
+        #define Shunt_Gnd_SetP4PinDriveMode(shift, mode)  \
         do { \
-            VTest_USBIO_CTRL_REG = (VTest_USBIO_CTRL_REG & \
-                                    (uint32)(~(uint32)(VTest_DRIVE_MODE_IND_MASK << \
-                                    (VTest_DRIVE_MODE_BITS * (shift))))) | \
+            Shunt_Gnd_USBIO_CTRL_REG = (Shunt_Gnd_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(Shunt_Gnd_DRIVE_MODE_IND_MASK << \
+                                    (Shunt_Gnd_DRIVE_MODE_BITS * (shift))))) | \
                                     (uint32)((uint32)(mode) << \
-                                    (VTest_DRIVE_MODE_BITS * (shift))); \
+                                    (Shunt_Gnd_DRIVE_MODE_BITS * (shift))); \
         } while (0)
     #endif
 #endif
   
 
-#if defined(VTest__PC) || (CY_PSOC4_4200L) 
+#if defined(Shunt_Gnd__PC) || (CY_PSOC4_4200L) 
     /*******************************************************************************
-    * Function Name: VTest_SetDriveMode
+    * Function Name: Shunt_Gnd_SetDriveMode
     ****************************************************************************//**
     *
     * \brief Sets the drive mode for each of the Pins component's pins.
@@ -67,17 +67,17 @@
     *  APIs (primary method) or disable interrupts around this function.
     *
     * \funcusage
-    *  \snippet VTest_SUT.c usage_VTest_SetDriveMode
+    *  \snippet Shunt_Gnd_SUT.c usage_Shunt_Gnd_SetDriveMode
     *******************************************************************************/
-    void VTest_SetDriveMode(uint8 mode)
+    void Shunt_Gnd_SetDriveMode(uint8 mode)
     {
-		VTest_SetP4PinDriveMode(VTest__0__SHIFT, mode);
+		Shunt_Gnd_SetP4PinDriveMode(Shunt_Gnd__0__SHIFT, mode);
     }
 #endif
 
 
 /*******************************************************************************
-* Function Name: VTest_Write
+* Function Name: Shunt_Gnd_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -106,18 +106,18 @@
 *  this function.
 *
 * \funcusage
-*  \snippet VTest_SUT.c usage_VTest_Write
+*  \snippet Shunt_Gnd_SUT.c usage_Shunt_Gnd_Write
 *******************************************************************************/
-void VTest_Write(uint8 value)
+void Shunt_Gnd_Write(uint8 value)
 {
-    uint8 drVal = (uint8)(VTest_DR & (uint8)(~VTest_MASK));
-    drVal = (drVal | ((uint8)(value << VTest_SHIFT) & VTest_MASK));
-    VTest_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(Shunt_Gnd_DR & (uint8)(~Shunt_Gnd_MASK));
+    drVal = (drVal | ((uint8)(value << Shunt_Gnd_SHIFT) & Shunt_Gnd_MASK));
+    Shunt_Gnd_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: VTest_Read
+* Function Name: Shunt_Gnd_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void VTest_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet VTest_SUT.c usage_VTest_Read  
+*  \snippet Shunt_Gnd_SUT.c usage_Shunt_Gnd_Read  
 *******************************************************************************/
-uint8 VTest_Read(void)
+uint8 Shunt_Gnd_Read(void)
 {
-    return (uint8)((VTest_PS & VTest_MASK) >> VTest_SHIFT);
+    return (uint8)((Shunt_Gnd_PS & Shunt_Gnd_MASK) >> Shunt_Gnd_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: VTest_ReadDataReg
+* Function Name: Shunt_Gnd_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 VTest_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred VTest_Read() API because the 
-* VTest_ReadDataReg() reads the data register instead of the status 
+* preferred Shunt_Gnd_Read() API because the 
+* Shunt_Gnd_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,16 +159,16 @@ uint8 VTest_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet VTest_SUT.c usage_VTest_ReadDataReg 
+*  \snippet Shunt_Gnd_SUT.c usage_Shunt_Gnd_ReadDataReg 
 *******************************************************************************/
-uint8 VTest_ReadDataReg(void)
+uint8 Shunt_Gnd_ReadDataReg(void)
 {
-    return (uint8)((VTest_DR & VTest_MASK) >> VTest_SHIFT);
+    return (uint8)((Shunt_Gnd_DR & Shunt_Gnd_MASK) >> Shunt_Gnd_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: VTest_SetInterruptMode
+* Function Name: Shunt_Gnd_SetInterruptMode
 ****************************************************************************//**
 *
 * \brief Configures the interrupt mode for each of the Pins component's
@@ -181,12 +181,12 @@ uint8 VTest_ReadDataReg(void)
 * \param position
 *  The pin position as listed in the Pins component. You may OR these to be 
 *  able to configure the interrupt mode of multiple pins within a Pins 
-*  component. Or you may use VTest_INTR_ALL to configure the
+*  component. Or you may use Shunt_Gnd_INTR_ALL to configure the
 *  interrupt mode of all the pins in the Pins component.       
-*  - VTest_0_INTR       (First pin in the list)
-*  - VTest_1_INTR       (Second pin in the list)
+*  - Shunt_Gnd_0_INTR       (First pin in the list)
+*  - Shunt_Gnd_1_INTR       (Second pin in the list)
 *  - ...
-*  - VTest_INTR_ALL     (All pins in Pins component)
+*  - Shunt_Gnd_INTR_ALL     (All pins in Pins component)
 *
 * \param mode
 *  Interrupt mode for the selected pins. Valid options are documented in
@@ -202,19 +202,19 @@ uint8 VTest_ReadDataReg(void)
 *  port.
 *
 * \funcusage
-*  \snippet VTest_SUT.c usage_VTest_SetInterruptMode
+*  \snippet Shunt_Gnd_SUT.c usage_Shunt_Gnd_SetInterruptMode
 *******************************************************************************/
-void VTest_SetInterruptMode(uint16 position, uint16 mode)
+void Shunt_Gnd_SetInterruptMode(uint16 position, uint16 mode)
 {
     uint32 intrCfg;
     
-    intrCfg =  VTest_INTCFG & (uint32)(~(uint32)position);
-    VTest_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+    intrCfg =  Shunt_Gnd_INTCFG & (uint32)(~(uint32)position);
+    Shunt_Gnd_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
 }
 
 
 /*******************************************************************************
-* Function Name: VTest_ClearInterrupt
+* Function Name: Shunt_Gnd_ClearInterrupt
 ****************************************************************************//**
 *
 * \brief Clears any active interrupts attached with the component and returns 
@@ -231,13 +231,13 @@ void VTest_SetInterruptMode(uint16 position, uint16 mode)
 *  those associated with the Pins component.
 *
 * \funcusage
-*  \snippet VTest_SUT.c usage_VTest_ClearInterrupt
+*  \snippet Shunt_Gnd_SUT.c usage_Shunt_Gnd_ClearInterrupt
 *******************************************************************************/
-uint8 VTest_ClearInterrupt(void)
+uint8 Shunt_Gnd_ClearInterrupt(void)
 {
-	uint8 maskedStatus = (uint8)(VTest_INTSTAT & VTest_MASK);
-	VTest_INTSTAT = maskedStatus;
-    return maskedStatus >> VTest_SHIFT;
+	uint8 maskedStatus = (uint8)(Shunt_Gnd_INTSTAT & Shunt_Gnd_MASK);
+	Shunt_Gnd_INTSTAT = maskedStatus;
+    return maskedStatus >> Shunt_Gnd_SHIFT;
 }
 
 

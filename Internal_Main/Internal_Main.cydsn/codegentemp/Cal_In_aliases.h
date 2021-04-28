@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: VRef.h  
+* File Name: Cal_In.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_VRef_ALIASES_H) /* Pins VRef_ALIASES_H */
-#define CY_PINS_VRef_ALIASES_H
+#if !defined(CY_PINS_Cal_In_ALIASES_H) /* Pins Cal_In_ALIASES_H */
+#define CY_PINS_Cal_In_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -26,17 +26,17 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define VRef_0			(VRef__0__PC)
-#define VRef_0_PS		(VRef__0__PS)
-#define VRef_0_PC		(VRef__0__PC)
-#define VRef_0_DR		(VRef__0__DR)
-#define VRef_0_SHIFT	(VRef__0__SHIFT)
-#define VRef_0_INTR	((uint16)((uint16)0x0003u << (VRef__0__SHIFT*2u)))
+#define Cal_In_0			(Cal_In__0__PC)
+#define Cal_In_0_PS		(Cal_In__0__PS)
+#define Cal_In_0_PC		(Cal_In__0__PC)
+#define Cal_In_0_DR		(Cal_In__0__DR)
+#define Cal_In_0_SHIFT	(Cal_In__0__SHIFT)
+#define Cal_In_0_INTR	((uint16)((uint16)0x0003u << (Cal_In__0__SHIFT*2u)))
 
-#define VRef_INTR_ALL	 ((uint16)(VRef_0_INTR))
+#define Cal_In_INTR_ALL	 ((uint16)(Cal_In_0_INTR))
 
 
-#endif /* End Pins VRef_ALIASES_H */
+#endif /* End Pins Cal_In_ALIASES_H */
 
 
 /* [] END OF FILE */

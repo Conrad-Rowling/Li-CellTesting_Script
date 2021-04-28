@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: VTest.h  
+* File Name: Shunt_Gnd.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_VTest_ALIASES_H) /* Pins VTest_ALIASES_H */
-#define CY_PINS_VTest_ALIASES_H
+#if !defined(CY_PINS_Shunt_Gnd_ALIASES_H) /* Pins Shunt_Gnd_ALIASES_H */
+#define CY_PINS_Shunt_Gnd_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -26,17 +26,17 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define VTest_0			(VTest__0__PC)
-#define VTest_0_PS		(VTest__0__PS)
-#define VTest_0_PC		(VTest__0__PC)
-#define VTest_0_DR		(VTest__0__DR)
-#define VTest_0_SHIFT	(VTest__0__SHIFT)
-#define VTest_0_INTR	((uint16)((uint16)0x0003u << (VTest__0__SHIFT*2u)))
+#define Shunt_Gnd_0			(Shunt_Gnd__0__PC)
+#define Shunt_Gnd_0_PS		(Shunt_Gnd__0__PS)
+#define Shunt_Gnd_0_PC		(Shunt_Gnd__0__PC)
+#define Shunt_Gnd_0_DR		(Shunt_Gnd__0__DR)
+#define Shunt_Gnd_0_SHIFT	(Shunt_Gnd__0__SHIFT)
+#define Shunt_Gnd_0_INTR	((uint16)((uint16)0x0003u << (Shunt_Gnd__0__SHIFT*2u)))
 
-#define VTest_INTR_ALL	 ((uint16)(VTest_0_INTR))
+#define Shunt_Gnd_INTR_ALL	 ((uint16)(Shunt_Gnd_0_INTR))
 
 
-#endif /* End Pins VTest_ALIASES_H */
+#endif /* End Pins Shunt_Gnd_ALIASES_H */
 
 
 /* [] END OF FILE */
