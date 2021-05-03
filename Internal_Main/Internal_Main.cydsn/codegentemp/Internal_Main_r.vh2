@@ -1,6 +1,6 @@
 -- Project:   Internal_Main
--- Generated: 04/28/2021 13:10:20
--- PSoC Creator  4.4
+-- Generated: 05/02/2021 20:59:11
+-- PSoC Creator  4.3
 
 ENTITY Internal_Main IS
     PORT(
@@ -430,10 +430,10 @@ BEGIN
             ilo => ClockBlock_ILO,
             lfclk => ClockBlock_LFClk,
             wco => ClockBlock_WCO,
-            ff_div_4 => Net_1425_ff5,
             ff_div_12 => \ADC_1:sarClock_ff12\,
             ff_div_0 => open,
             ff_div_1 => \UART_1:Net_847_ff1\,
+            ff_div_4 => Net_1425_ff5,
             ff_div_5 => Net_1379_ff4,
             ff_div_2 => \I2C_1:Net_847_ff0\);
 

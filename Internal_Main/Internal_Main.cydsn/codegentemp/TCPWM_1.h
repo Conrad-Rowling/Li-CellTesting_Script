@@ -50,7 +50,7 @@ extern uint8  TCPWM_1_initVar;
 #define TCPWM_1_CY_TCPWM_4000                  (CY_PSOC4_4000)
 
 /* TCPWM Configuration */
-#define TCPWM_1_CONFIG                         (7lu)
+#define TCPWM_1_CONFIG                         (1lu)
 
 /* Quad Mode */
 /* Parameters */
@@ -129,7 +129,7 @@ extern uint8  TCPWM_1_initVar;
 ***************************************/
 
 /* Timer/Counter Mode */
-#define TCPWM_1_TC_PERIOD_VALUE                (65535lu)
+#define TCPWM_1_TC_PERIOD_VALUE                (2000lu)
 #define TCPWM_1_TC_COMPARE_VALUE               (65535lu)
 #define TCPWM_1_TC_COMPARE_BUF_VALUE           (65535lu)
 #define TCPWM_1_TC_COMPARE_SWAP                (0lu)

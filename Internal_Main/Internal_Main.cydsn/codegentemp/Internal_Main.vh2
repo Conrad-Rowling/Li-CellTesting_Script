@@ -2,7 +2,7 @@
 --	Conversion of Internal_Main.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Wed Apr 28 13:10:19 2021
+--	Sun May 02 20:59:09 2021
 --
 
 USE cypress.cypress.all;
@@ -583,16 +583,16 @@ SIGNAL Net_742 : bit;
 SIGNAL Net_743 : bit;
 SIGNAL Net_735 : bit;
 SIGNAL \UART_1:Net_1028\ : bit;
+SIGNAL Net_734 : bit;
 SIGNAL Net_728 : bit;
 SIGNAL Net_729 : bit;
 SIGNAL Net_730 : bit;
 SIGNAL Net_731 : bit;
 SIGNAL Net_732 : bit;
 SIGNAL Net_733 : bit;
-SIGNAL Net_734 : bit;
-SIGNAL Net_736 : bit;
 SIGNAL Net_737 : bit;
 SIGNAL Net_702 : bit;
+SIGNAL Net_736 : bit;
 SIGNAL \I2C_1:Net_847\ : bit;
 SIGNAL \I2C_1:select_s_wire\ : bit;
 SIGNAL \I2C_1:rx_wire\ : bit;
@@ -628,16 +628,16 @@ SIGNAL \I2C_1:miso_s_wire\ : bit;
 SIGNAL Net_172 : bit;
 SIGNAL Net_163 : bit;
 SIGNAL \I2C_1:Net_1028\ : bit;
+SIGNAL Net_162 : bit;
 SIGNAL Net_156 : bit;
 SIGNAL Net_157 : bit;
 SIGNAL Net_158 : bit;
 SIGNAL Net_159 : bit;
 SIGNAL Net_160 : bit;
 SIGNAL Net_161 : bit;
-SIGNAL Net_162 : bit;
-SIGNAL Net_165 : bit;
 SIGNAL Net_166 : bit;
 SIGNAL Net_173 : bit;
+SIGNAL Net_165 : bit;
 SIGNAL tmpOE__BLUE_LED_net_0 : bit;
 SIGNAL tmpFB_0__BLUE_LED_net_0 : bit;
 SIGNAL tmpIO_0__BLUE_LED_net_0 : bit;
@@ -692,7 +692,7 @@ SIGNAL tmpOE__VBatUp_net_0 : bit;
 SIGNAL tmpFB_0__VBatUp_net_0 : bit;
 SIGNAL tmpIO_0__VBatUp_net_0 : bit;
 TERMINAL tmpSIOVREF__VBatUp_net_0 : bit;
-TERMINAL Net_1402 : bit;
+TERMINAL Net_1446 : bit;
 SIGNAL tmpINTERRUPT_0__VBatUp_net_0 : bit;
 TERMINAL Net_1408 : bit;
 TERMINAL \Opamp_3:Net_9\ : bit;
@@ -3661,7 +3661,7 @@ VBatUp:cy_psoc3_pins_v1_10
 		analog=>Net_817,
 		io=>(tmpIO_0__VBatUp_net_0),
 		siovref=>(tmpSIOVREF__VBatUp_net_0),
-		annotation=>Net_1402,
+		annotation=>Net_1446,
 		in_clock=>zero,
 		in_clock_en=>one,
 		in_reset=>zero,
@@ -3781,7 +3781,7 @@ Clock_2:cy_clock_v1_0
 		id=>"117def58-32e7-4850-886c-ee2c2441b03c",
 		source_clock_id=>"",
 		divisor=>0,
-		period=>"83333333.3333333",
+		period=>"1000000000000",
 		is_direct=>'0',
 		is_digital=>'0')
 	PORT MAP(clock_out=>Net_1379,
@@ -3804,7 +3804,7 @@ R_1:cy_annotation_universal_v1_0
 	GENERIC MAP(comp_name=>"Resistor_v1_0",
 		port_names=>"T1, T2",
 		width=>2)
-	PORT MAP(connect=>(Net_1402, Net_1404));
+	PORT MAP(connect=>(Net_1446, Net_1404));
 R_7:cy_annotation_universal_v1_0
 	GENERIC MAP(comp_name=>"Resistor_v1_0",
 		port_names=>"T1, T2",
@@ -3814,7 +3814,7 @@ R_8:cy_annotation_universal_v1_0
 	GENERIC MAP(comp_name=>"Resistor_v1_0",
 		port_names=>"T1, T2",
 		width=>2)
-	PORT MAP(connect=>(Net_1406, Net_1402));
+	PORT MAP(connect=>(Net_1406, Net_1446));
 GND_3:cy_annotation_universal_v1_0
 	GENERIC MAP(comp_name=>"Gnd_v1_0",
 		port_names=>"T1",
