@@ -16,7 +16,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define V_REF_RELATIVE  35          //know voltage of VRef - VRGnd (mV)           
+#define V_REF_RELATIVE  40          //know voltage of VRef - VRGnd (mV)           
 #define V_TEST_START    0
  
 
@@ -52,9 +52,9 @@ void Print_Headers()
 void CellTestStart(){
     CyGlobalIntEnable;
     AMux_1_Start();
+    AMux_2_Start();
     Opamp_1_Start();
     Opamp_2_Start();
-    Opamp_3_Start();
     PGA_1_Start(); 
     ADC_1_Start();
     UART_1_Start();
@@ -109,7 +109,7 @@ void HaltTest(int stopCode){
 int32 FilterSignal(int32 ADCSample, uint8 channel){
     
     // MOVING AVERAGE
-	static int32 filteredValue[6] = {0,0};
+	static int32 filteredValue[9] = {0,0};
 	
 	/* Filtered value rounded-off to 20-bits */
 	int32 filValueRounded;
@@ -171,24 +171,27 @@ int main(void)
     int32 vbatLowCount;
     float vbatLowVal;
     
+    int32 vbatCalCount;
+    float vbatCalVal;
+    
+    int32 vbatGndCount;
+    float vbatGndVal;
+    
+    float vbatVal;
+    
     float gainReal;             // Calculated gain of the amplifier
+    float gainReal2;
     char string[60];            // For printing over UART
     
     int32 userInput;            // Reading UART input
     int8 stopFlag = 0;          // Boolean flag to stop the test
     int8 stopCode = 0;          // Code for determining the reason why test was stopped
     
-    
     CyGlobalIntEnable;
-    //PWM
-    //isr_1_StartEx(MyCustomISR);
-    
-    
+        
     //Initialization
     
-    
     CellTestStart();
-    //CyGlobalIntEnable;
     
     //UART INFO PRINTING
     sprintf(string, "\r\n\r\nAt any point in the test to increment the Test Voltage: Enter 'S' \r\n"); 
@@ -199,16 +202,8 @@ int main(void)
     UART_1_UartPutString(string);
     sprintf(string,"\r\n Voltage(Ideal) (mV), Voltage(Measured) (mV), VirtualGND (mV), VRef (mV), Calculated Gain \r\n");
     UART_1_UartPutString(string);
-    
-    //CyGlobalIntEnable;
-    
-    
-    //  Start Convert
-    
-    //Clock_2_Start();
-    
+        
     isr_1_StartEx(MyCustomISR);
-    
     
     // Main For Loop
     for(;;)
@@ -229,63 +224,69 @@ int main(void)
             while(!stopFlag){
                 while(startFlag == 1){
                 startFlag = 0;
-                    
-                //================================
-                // Test Voltage Reading (vtest)
-                //================================
-                AMux_1_Select(1); 
-                ADC_1_StartConvert();                           // Start the Read the ADC
-                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);               
-                vtestCount = ADC_1_GetResult32(2);              // vtest in unitless counts
-                vtestCount = FilterSignal(vtestCount, 1);
-                vtestVal = ADC_1_CountsTo_mVolts(2, vtestCount);// vtest in mV                
-                                
-                //================================
-                // Virtual Ground Reading (vrgnd)
-                //================================
-                AMux_1_Select(2);
-                ADC_1_StartConvert();                           // Start the Read the ADC
-                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-                vrgndCount = ADC_1_GetResult32(2);              // vrgnd in unitless counts                            
-                vrgndCount = FilterSignal(vrgndCount, 2);       // Channel 3 because...
-                vrgndVal = ADC_1_CountsTo_mVolts(2, vrgndCount);// vrgnd in mV
-                                
+                
                 //================================
                 // Reference Voltage Reading (vref)
                 //================================
                 AMux_1_Select(0);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-                vrefCount = ADC_1_GetResult32(2);               // vref in unitless counts   
+                vrefCount = ADC_1_GetResult32(1);               // vref in unitless counts   
                 vrefCount = FilterSignal(vrefCount, 3);         // Channel 3 because ...
-                vrefVal = ADC_1_CountsTo_mVolts(2, vrefCount);  // vref in mV       
+                vrefVal = ADC_1_CountsTo_mVolts(1, vrefCount);  // vref in mV     
                 
+                //================================
+                // Virtual Ground Reading (vrgnd)
+                //================================
+                AMux_1_Select(2);
+                ADC_1_StartConvert();                           // Start the Read the ADC
+                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
+                vrgndCount = ADC_1_GetResult32(1);              // vrgnd in unitless counts                            
+                vrgndCount = FilterSignal(vrgndCount, 2);       // Channel 3 because...
+                vrgndVal = ADC_1_CountsTo_mVolts(1, vrgndCount);// vrgnd in mV                
+                
+                //================================
+                // Test Voltage Reading (vtest)
+                //================================
+                AMux_1_Select(1); 
+                ADC_1_StartConvert();                           // Start the Read the ADC
+                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);               
+                vtestCount = ADC_1_GetResult32(1);              // vtest in unitless counts
+                vtestCount = FilterSignal(vtestCount, 1);
+                vtestVal = ADC_1_CountsTo_mVolts(1, vtestCount);// vtest in mV                
+                                                
                 //================================
                 // Battery Voltage Divider (+) (vbatUp)
                 //================================
+                AMux_2_Select(0);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vbatUpCount = ADC_1_GetResult32(0);               // vref in unitless counts   
                 vbatUpCount = FilterSignal(vbatUpCount, 4);         // Channel 3 because ...
-                vbatUpVal = ADC_1_CountsTo_mVolts(0, vbatUpCount);  // vref in mV               
-                
+                vbatUpVal = ADC_1_CountsTo_mVolts(0, vbatUpCount);  // vref in mV                
+                                
                 //================================
                 // Battery Voltage Divider (-) (vbatLow)
                 //================================
+                
+                AMux_2_Select(1);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-                vbatLowCount = ADC_1_GetResult32(1);               // vref in unitless counts   
-                vbatLowCount = FilterSignal(vbatLowCount, 5);         // Channel 3 because ...
-                vbatLowVal = ADC_1_CountsTo_mVolts(1, vbatLowCount);
+                vbatLowCount = ADC_1_GetResult32(0);               // vref in unitless counts   
+                vbatLowCount = FilterSignal(vbatLowCount, 7);         // Channel 3 because ...
+                vbatLowVal = ADC_1_CountsTo_mVolts(0, vbatLowCount);
+                
                 
                 // After rapid samples - to ensure similar adc/amp conditions
                 // Calculations are made
+                
                 gainReal = (vrefVal - vrgndVal)/V_REF_RELATIVE;     // The actual op-amp gain
                 vrgndVal = vrgndVal/gainReal;                       // Find the virtual ground value
                 vtestVal = vtestVal/gainReal;                       // Find the test point value
-                
-                vtestVal = vtestVal - vrgndVal;                     // Take the difference to negate op-amp offset    
-                vbatUpVal = vbatUpVal - vbatLowVal;
+               
+                vtestVal = vtestVal - vrgndVal;                     // Take the difference to negate op-amp offset
+                gainReal2 = (vbatCalVal - vbatGndVal)/V_REF_RELATIVE;
+                vbatVal = (vbatUpVal - vbatLowVal);                 //gainReal2;
 
                 } //end of scan from startflag
                 
@@ -302,7 +303,7 @@ int main(void)
                 
                 // Print the values
                 if (Timer_1_ReadCounter() > 1){ 
-                    sprintf(string, "%ld, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f \r\n", vtestIdeal, vtestVal, vrgndVal, vrefVal, gainReal, vbatUpVal, vbatLowVal); 
+                    sprintf(string, "%ld, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f \r\n", vtestIdeal, vtestVal, vrgndVal, vrefVal, gainReal, vbatVal, gainReal2, vbatUpVal, vbatLowVal); 
                     UART_1_UartPutString(string);
                     Timer_1_WriteCounter(0);
                 }

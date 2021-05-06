@@ -1,5 +1,5 @@
 # Internal_Main
-# 2021-05-03 03:59:10Z
+# 2021-05-06 03:57:45Z
 
 # IO_0@[IOP=(0)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 0 0
@@ -9,7 +9,7 @@ set_location "ctb0_resistor_string" p4rsbcell -1 -1 0
 set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
 set_io "\ADC_1:Bypass(0)\" iocell 2 7
 set_io "GND_ref(0)" iocell 2 1
-set_io "Shunt_Gnd(0)" iocell 2 2
+set_io "Shunt_Gnd(0)" iocell 2 4
 set_io "Cal_In(0)" iocell 2 5
 set_io "Shunt_In(0)" iocell 1 5
 set_io "\I2C_1:sda(0)\" iocell 3 7
@@ -26,4 +26,3 @@ set_location "\PGA_1:cy_psoc4_abuf\" p4abufcell -1 -1 0
 set_location "\PVref_1:cy_psoc4_pref\" p4prefcell -1 -1 1
 set_location "\Opamp_1:cy_psoc4_abuf\" p4abufcell -1 -1 1
 set_location "\Opamp_2:cy_psoc4_abuf\" p4abufcell -1 -1 2
-set_location "\Opamp_3:cy_psoc4_abuf\" p4abufcell -1 -1 3

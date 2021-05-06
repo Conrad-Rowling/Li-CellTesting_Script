@@ -1,6 +1,6 @@
 -- Project:   Internal_Main
--- Generated: 05/02/2021 20:59:10
--- PSoC Creator  4.3
+-- Generated: 05/05/2021 20:57:45
+-- PSoC Creator  4.4
 
 ENTITY Internal_Main IS
     PORT(
@@ -55,15 +55,15 @@ ARCHITECTURE __DEFAULT__ OF Internal_Main IS
     SIGNAL Net_1362_9 : bit;
     SIGNAL Net_1363 : bit;
     SIGNAL Net_1373 : bit;
-    SIGNAL Net_1374 : bit;
-    SIGNAL Net_1375 : bit;
-    SIGNAL Net_1376 : bit;
-    SIGNAL Net_1377 : bit;
-    SIGNAL Net_1378 : bit;
     SIGNAL Net_1379_ff4 : bit;
     ATTRIBUTE global_signal OF Net_1379_ff4 : SIGNAL IS true;
     SIGNAL Net_1425_ff5 : bit;
     ATTRIBUTE global_signal OF Net_1425_ff5 : SIGNAL IS true;
+    SIGNAL Net_1477 : bit;
+    SIGNAL Net_1479 : bit;
+    SIGNAL Net_1480 : bit;
+    SIGNAL Net_1481 : bit;
+    SIGNAL Net_1485 : bit;
     SIGNAL Net_154 : bit;
     SIGNAL Net_163 : bit;
     SIGNAL Net_170 : bit;
@@ -106,7 +106,6 @@ ARCHITECTURE __DEFAULT__ OF Internal_Main IS
     SIGNAL \I2C_1:tx_wire\ : bit;
     SIGNAL \Opamp_1:Net_12\ : bit;
     SIGNAL \Opamp_2:Net_12\ : bit;
-    SIGNAL \Opamp_3:Net_12\ : bit;
     SIGNAL \PGA_1:Net_12\ : bit;
     SIGNAL \UART_1:Net_847_ff1\ : bit;
     ATTRIBUTE global_signal OF \UART_1:Net_847_ff1\ : SIGNAL IS true;
@@ -131,7 +130,7 @@ ARCHITECTURE __DEFAULT__ OF Internal_Main IS
     ATTRIBUTE Location OF ClockGenBlock : LABEL IS "F(CLK_GEN,0)";
     ATTRIBUTE Location OF \ADC_1:Bypass(0)\ : LABEL IS "P2[7]";
     ATTRIBUTE Location OF GND_ref(0) : LABEL IS "P2[1]";
-    ATTRIBUTE Location OF Shunt_Gnd(0) : LABEL IS "P2[2]";
+    ATTRIBUTE Location OF Shunt_Gnd(0) : LABEL IS "P2[4]";
     ATTRIBUTE Location OF Cal_In(0) : LABEL IS "P2[5]";
     ATTRIBUTE Location OF Shunt_In(0) : LABEL IS "P1[5]";
     ATTRIBUTE Location OF \I2C_1:sda(0)\ : LABEL IS "P3[7]";
@@ -148,7 +147,6 @@ ARCHITECTURE __DEFAULT__ OF Internal_Main IS
     ATTRIBUTE Location OF \PVref_1:cy_psoc4_pref\ : LABEL IS "F(REF,1)";
     ATTRIBUTE Location OF \Opamp_1:cy_psoc4_abuf\ : LABEL IS "F(OA,1)";
     ATTRIBUTE Location OF \Opamp_2:cy_psoc4_abuf\ : LABEL IS "F(OA,2)";
-    ATTRIBUTE Location OF \Opamp_3:cy_psoc4_abuf\ : LABEL IS "F(OA,3)";
     COMPONENT interrupt
         PORT (
             interrupt : IN std_ulogic;
@@ -1690,8 +1688,8 @@ BEGIN
         GENERIC MAP(
             cmn_neg_width => 1,
             cy_registers => "",
-            input_mode => "000",
-            muxin_width => 3);
+            input_mode => "00",
+            muxin_width => 2);
 
     \ADC_1:cy_psoc4_sar_1\:p4sarcell
         GENERIC MAP(
@@ -1848,15 +1846,6 @@ BEGIN
         PORT MAP(
             ctb_dsi_comp => \Opamp_2:Net_12\);
 
-    \Opamp_3:cy_psoc4_abuf\:p4abufcell
-        GENERIC MAP(
-            cy_registers => "",
-            deepsleep_available => 0,
-            has_resistor => 0,
-            needs_dsab => 0)
-        PORT MAP(
-            ctb_dsi_comp => \Opamp_3:Net_12\);
-
     \TCPWM_1:cy_m0s8_tcpwm_1\:m0s8tcpwmcell
         GENERIC MAP(
             cy_registers => "")
@@ -1867,11 +1856,11 @@ BEGIN
             reload => '0',
             stop => '0',
             start => '0',
-            tr_underflow => Net_1375,
-            tr_overflow => Net_1374,
-            tr_compare_match => Net_1376,
-            line => Net_1377,
-            line_compl => Net_1378,
+            tr_underflow => Net_1485,
+            tr_overflow => Net_1481,
+            tr_compare_match => Net_1477,
+            line => Net_1479,
+            line_compl => Net_1480,
             interrupt => Net_1373);
 
     isr_1:interrupt

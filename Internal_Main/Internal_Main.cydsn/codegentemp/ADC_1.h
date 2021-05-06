@@ -240,10 +240,10 @@ The parameters that are set in the customizer are redefined as constants here.
 
 #define ADC_1_CFG0_SAMPLE_RATE             (100000)
 #define ADC_1_CFG0_CHANNEL_BASE            (0u)
-#define ADC_1_CFG0_CHANNEL_COUNT           (3u)
+#define ADC_1_CFG0_CHANNEL_COUNT           (2u)
 #define ADC_1_CFG0_VREF_SEL_MASK           (0xc0u)
 #define ADC_1_CFG0_NOMINAL_CLOCK_FREQ      (12000000u)
-#define ADC_1_CFG0_CHANNEL_EN              (0x7u)
+#define ADC_1_CFG0_CHANNEL_EN              (0x3u)
 /* Sample Control Register */
 #define ADC_1_CFG0_SUB_RESOLUTION          (1u)
 #define ADC_1_CFG0_SINGLE_ENDED_FORMAT     (1uL)
@@ -438,7 +438,7 @@ The parameters that are set in the customizer are redefined as constants here.
 /** ADC_1_TOTAL_CHANNELS_NUM
 * This constant represents the amount of input channels available for scanning.
 */
-#define ADC_1_TOTAL_CHANNELS_NUM           (3u)
+#define ADC_1_TOTAL_CHANNELS_NUM           (2u)
 
 /*******************************************************************************
 *    Variables with External Linkage
@@ -1598,7 +1598,7 @@ extern const uint32 CYCODE ADC_1_InputsPlacement[ADC_1_TOTAL_CHANNELS_NUM];
 
 #if (0)
 #define ADC_1_CFG0_TARGET_SPS 100000
-#define ADC_1_CFG0_ACHIEVED_SPS 117647
+#define ADC_1_CFG0_ACHIEVED_SPS 176471
 #define ADC_1_CFG0_ADC_CLOCK_FREQ_HZ 12000000
 #define ADC_1_CFG0_VREF_SOURCE VREFSOURCE_VBGR
 #define ADC_1_CFG0_VREF_BYPASS True
@@ -1610,7 +1610,7 @@ extern const uint32 CYCODE ADC_1_InputsPlacement[ADC_1_TOTAL_CHANNELS_NUM];
 #define ADC_1_CFG0_FILTER_F1_KHZ 10
 #define ADC_1_CFG0_FILTER_F2_KHZ -1
 #define ADC_1_CFG0_FILTER_SAMPLE_FREQ_KHZ 1000
-#define ADC_1_CFG0_NUM_CHANNELS 3
+#define ADC_1_CFG0_NUM_CHANNELS 2
 #define ADC_1_CFG0_CHAN0_ENABLED True
 #define ADC_1_CFG0_CHAN0_USE_ALT_RES False
 #define ADC_1_CFG0_CHAN0_INPUT_MODE SINGLE_ENDED_CHAN
@@ -1623,12 +1623,6 @@ extern const uint32 CYCODE ADC_1_InputsPlacement[ADC_1_TOTAL_CHANNELS_NUM];
 #define ADC_1_CFG0_CHAN1_USE_AVERAGING True
 #define ADC_1_CFG0_CHAN1_MIN_ACQ_TIME_NS 194
 #define ADC_1_CFG0_CHAN1_ACHIEVED_ACQ_TIME_NS 208
-#define ADC_1_CFG0_CHAN2_ENABLED True
-#define ADC_1_CFG0_CHAN2_USE_ALT_RES False
-#define ADC_1_CFG0_CHAN2_INPUT_MODE SINGLE_ENDED_CHAN
-#define ADC_1_CFG0_CHAN2_USE_AVERAGING True
-#define ADC_1_CFG0_CHAN2_MIN_ACQ_TIME_NS 194
-#define ADC_1_CFG0_CHAN2_ACHIEVED_ACQ_TIME_NS 208
 
 
 #endif
