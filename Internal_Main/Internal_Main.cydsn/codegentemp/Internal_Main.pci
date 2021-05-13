@@ -1,5 +1,5 @@
 # Internal_Main
-# 2021-05-06 03:57:45Z
+# 2021-05-13 06:24:52Z
 
 # IO_0@[IOP=(0)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 0 0
@@ -18,11 +18,10 @@ set_io "BLUE_LED(0)" iocell 0 2
 set_io "UART_IN(0)" iocell 0 4
 set_io "UART_OUT(0)" iocell 0 5
 set_io "v_out(0)" iocell 2 3
-set_io "VBatUp(0)" iocell 1 0
+set_io "VBatHigh(0)" iocell 1 0
 set_io "VBatLow(0)" iocell 1 4
 set_location "\ADC_1:cy_psoc4_sar_1\" p4sarcell -1 -1 0
 set_location "CyDesignWideVoltageReference" p4prefcell -1 -1 0
 set_location "\PGA_1:cy_psoc4_abuf\" p4abufcell -1 -1 0
 set_location "\PVref_1:cy_psoc4_pref\" p4prefcell -1 -1 1
 set_location "\Opamp_1:cy_psoc4_abuf\" p4abufcell -1 -1 1
-set_location "\Opamp_2:cy_psoc4_abuf\" p4abufcell -1 -1 2

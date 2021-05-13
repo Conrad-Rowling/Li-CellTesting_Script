@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: VBatUp.c  
+* File Name: VBatHigh.c  
 * Version 2.20
 *
 * Description:
@@ -15,13 +15,13 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "VBatUp.h"
+#include "VBatHigh.h"
 
-static VBatUp_BACKUP_STRUCT  VBatUp_backup = {0u, 0u, 0u};
+static VBatHigh_BACKUP_STRUCT  VBatHigh_backup = {0u, 0u, 0u};
 
 
 /*******************************************************************************
-* Function Name: VBatUp_Sleep
+* Function Name: VBatHigh_Sleep
 ****************************************************************************//**
 *
 * \brief Stores the pin configuration and prepares the pin for entering chip 
@@ -39,30 +39,30 @@ static VBatUp_BACKUP_STRUCT  VBatUp_backup = {0u, 0u, 0u};
 *  deep-sleep/hibernate modes.
 *
 * \funcusage
-*  \snippet VBatUp_SUT.c usage_VBatUp_Sleep_Wakeup
+*  \snippet VBatHigh_SUT.c usage_VBatHigh_Sleep_Wakeup
 *******************************************************************************/
-void VBatUp_Sleep(void)
+void VBatHigh_Sleep(void)
 {
-    #if defined(VBatUp__PC)
-        VBatUp_backup.pcState = VBatUp_PC;
+    #if defined(VBatHigh__PC)
+        VBatHigh_backup.pcState = VBatHigh_PC;
     #else
         #if (CY_PSOC4_4200L)
             /* Save the regulator state and put the PHY into suspend mode */
-            VBatUp_backup.usbState = VBatUp_CR1_REG;
-            VBatUp_USB_POWER_REG |= VBatUp_USBIO_ENTER_SLEEP;
-            VBatUp_CR1_REG &= VBatUp_USBIO_CR1_OFF;
+            VBatHigh_backup.usbState = VBatHigh_CR1_REG;
+            VBatHigh_USB_POWER_REG |= VBatHigh_USBIO_ENTER_SLEEP;
+            VBatHigh_CR1_REG &= VBatHigh_USBIO_CR1_OFF;
         #endif
     #endif
-    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(VBatUp__SIO)
-        VBatUp_backup.sioState = VBatUp_SIO_REG;
+    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(VBatHigh__SIO)
+        VBatHigh_backup.sioState = VBatHigh_SIO_REG;
         /* SIO requires unregulated output buffer and single ended input buffer */
-        VBatUp_SIO_REG &= (uint32)(~VBatUp_SIO_LPM_MASK);
+        VBatHigh_SIO_REG &= (uint32)(~VBatHigh_SIO_LPM_MASK);
     #endif  
 }
 
 
 /*******************************************************************************
-* Function Name: VBatUp_Wakeup
+* Function Name: VBatHigh_Wakeup
 ****************************************************************************//**
 *
 * \brief Restores the pin configuration that was saved during Pin_Sleep(). This 
@@ -77,22 +77,22 @@ void VBatUp_Sleep(void)
 *  None
 *  
 * \funcusage
-*  Refer to VBatUp_Sleep() for an example usage.
+*  Refer to VBatHigh_Sleep() for an example usage.
 *******************************************************************************/
-void VBatUp_Wakeup(void)
+void VBatHigh_Wakeup(void)
 {
-    #if defined(VBatUp__PC)
-        VBatUp_PC = VBatUp_backup.pcState;
+    #if defined(VBatHigh__PC)
+        VBatHigh_PC = VBatHigh_backup.pcState;
     #else
         #if (CY_PSOC4_4200L)
             /* Restore the regulator state and come out of suspend mode */
-            VBatUp_USB_POWER_REG &= VBatUp_USBIO_EXIT_SLEEP_PH1;
-            VBatUp_CR1_REG = VBatUp_backup.usbState;
-            VBatUp_USB_POWER_REG &= VBatUp_USBIO_EXIT_SLEEP_PH2;
+            VBatHigh_USB_POWER_REG &= VBatHigh_USBIO_EXIT_SLEEP_PH1;
+            VBatHigh_CR1_REG = VBatHigh_backup.usbState;
+            VBatHigh_USB_POWER_REG &= VBatHigh_USBIO_EXIT_SLEEP_PH2;
         #endif
     #endif
-    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(VBatUp__SIO)
-        VBatUp_SIO_REG = VBatUp_backup.sioState;
+    #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(VBatHigh__SIO)
+        VBatHigh_SIO_REG = VBatHigh_backup.sioState;
     #endif
 }
 

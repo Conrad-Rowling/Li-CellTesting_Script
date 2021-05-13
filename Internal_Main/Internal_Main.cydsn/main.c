@@ -1,16 +1,14 @@
 /* ========================================
- * Version: 2.2
- * Last Modified: 5.2.2021 
+ * Version: 2.3
+ * Last Modified: 5.12.2021 
  * Formula Racing @ UC Davis, Electrical Senior Design, & the Electricool gang, 2021
  * ========================================
 */
 
 // ToDo =======================================
-// 1) Figure out why the ADC jumps around alot to narrow down the error
-// 1.1) Add in the Shunt_GND and CAL_in functionality into the code 
-// 2) Add in the Muxes into the program
-// 3) Correct the output of the serial terminal
-// 4) Add in Safety features
+// 1) Test this code on the new battery read set up. Battery reading uses the currently 
+//    made breadboard voltage divider that we used for Shunt testing
+// 2) May have to adjust the res1 and res2 values to more accurately reflect breadboard resistances
 
 #include "project.h"
 #include <stdio.h>
@@ -52,9 +50,9 @@ void Print_Headers()
 void CellTestStart(){
     CyGlobalIntEnable;
     AMux_1_Start();
-    AMux_2_Start();
+    //AMux_2_Start();
     Opamp_1_Start();
-    Opamp_2_Start();
+    //Opamp_2_Start();
     PGA_1_Start(); 
     ADC_1_Start();
     UART_1_Start();
@@ -165,8 +163,8 @@ int main(void)
     int32 vrefCount;            // Reference voltage adc counts
     float vrefVal;              // Reference voltage (mV)
     
-    int32 vbatUpCount;
-    float vbatUpVal;
+    int32 vbatHighCount;
+    float vbatHighVal;
     
     int32 vbatLowCount;
     float vbatLowVal;
@@ -186,6 +184,9 @@ int main(void)
     int32 userInput;            // Reading UART input
     int8 stopFlag = 0;          // Boolean flag to stop the test
     int8 stopCode = 0;          // Code for determining the reason why test was stopped
+    
+    int32 res1 = 828000;        //The first resistor in the battery voltage divider circuit
+    int32 res2 = 10000;         //Seconds resistor in ^this^ divider
     
     CyGlobalIntEnable;
         
@@ -226,50 +227,50 @@ int main(void)
                 startFlag = 0;
                 
                 //================================
-                // Reference Voltage Reading (vref)
+                // Reference Voltage Reading (vref)(or Cal_In)
                 //================================
-                AMux_1_Select(0);
+                AMux_1_Select(2);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-                vrefCount = ADC_1_GetResult32(1);               // vref in unitless counts   
+                vrefCount = ADC_1_GetResult32(0);               // vref in unitless counts   
                 vrefCount = FilterSignal(vrefCount, 3);         // Channel 3 because ...
                 vrefVal = ADC_1_CountsTo_mVolts(1, vrefCount);  // vref in mV     
                 
                 //================================
                 // Virtual Ground Reading (vrgnd)
                 //================================
-                AMux_1_Select(2);
+                AMux_1_Select(4);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-                vrgndCount = ADC_1_GetResult32(1);              // vrgnd in unitless counts                            
+                vrgndCount = ADC_1_GetResult32(0);              // vrgnd in unitless counts                            
                 vrgndCount = FilterSignal(vrgndCount, 2);       // Channel 3 because...
                 vrgndVal = ADC_1_CountsTo_mVolts(1, vrgndCount);// vrgnd in mV                
                 
                 //================================
-                // Test Voltage Reading (vtest)
+                // Test Voltage Reading (vtest) (or Shunt_In) 
                 //================================
-                AMux_1_Select(1); 
+                AMux_1_Select(3); 
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);               
-                vtestCount = ADC_1_GetResult32(1);              // vtest in unitless counts
+                vtestCount = ADC_1_GetResult32(0);              // vtest in unitless counts
                 vtestCount = FilterSignal(vtestCount, 1);
                 vtestVal = ADC_1_CountsTo_mVolts(1, vtestCount);// vtest in mV                
                                                 
                 //================================
-                // Battery Voltage Divider (+) (vbatUp)
+                // Battery Voltage Divider (+) (vbatHigh)
                 //================================
-                AMux_2_Select(0);
+                AMux_1_Select(0);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-                vbatUpCount = ADC_1_GetResult32(0);               // vref in unitless counts   
-                vbatUpCount = FilterSignal(vbatUpCount, 4);         // Channel 3 because ...
-                vbatUpVal = ADC_1_CountsTo_mVolts(0, vbatUpCount);  // vref in mV                
+                vbatHighCount = ADC_1_GetResult32(0);               // vref in unitless counts   
+                vbatHighCount = FilterSignal(vbatHighCount, 4);         // Channel 3 because ...
+                vbatHighVal = ADC_1_CountsTo_mVolts(0, vbatHighCount);  // vref in mV                
                                 
                 //================================
                 // Battery Voltage Divider (-) (vbatLow)
                 //================================
                 
-                AMux_2_Select(1);
+                AMux_1_Select(1);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vbatLowCount = ADC_1_GetResult32(0);               // vref in unitless counts   
@@ -286,7 +287,12 @@ int main(void)
                
                 vtestVal = vtestVal - vrgndVal;                     // Take the difference to negate op-amp offset
                 gainReal2 = (vbatCalVal - vbatGndVal)/V_REF_RELATIVE;
-                vbatVal = (vbatUpVal - vbatLowVal);                 //gainReal2;
+                
+                vbatHighVal = vbatHighVal/gainReal;                 // The actual first divider battery voltage
+                vbatLowVal = vbatLowVal/gainReal;                   // The actual second divider battery voltage 
+                
+                vbatVal = (vbatHighVal - vbatLowVal);               //vbatval after voltage divider, 0 to 40 mV
+                vbatVal = vbatVal * ((res1 + res2) / res1);         //The input voltage in VOLTS
 
                 } //end of scan from startflag
                 
@@ -303,7 +309,7 @@ int main(void)
                 
                 // Print the values
                 if (Timer_1_ReadCounter() > 1){ 
-                    sprintf(string, "%ld, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f \r\n", vtestIdeal, vtestVal, vrgndVal, vrefVal, gainReal, vbatVal, gainReal2, vbatUpVal, vbatLowVal); 
+                    sprintf(string, "%ld, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f \r\n", vtestIdeal, vtestVal, vrgndVal, vrefVal, gainReal, vbatVal, gainReal2, vbatHighVal, vbatLowVal); 
                     UART_1_UartPutString(string);
                     Timer_1_WriteCounter(0);
                 }

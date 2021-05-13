@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: VBatUp.c  
+* File Name: VBatHigh.c  
 * Version 2.20
 *
 * Description:
@@ -13,35 +13,35 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "VBatUp.h"
+#include "VBatHigh.h"
 
 
-#if defined(VBatUp__PC)
-    #define VBatUp_SetP4PinDriveMode(shift, mode)  \
+#if defined(VBatHigh__PC)
+    #define VBatHigh_SetP4PinDriveMode(shift, mode)  \
     do { \
-        VBatUp_PC =   (VBatUp_PC & \
-                                (uint32)(~(uint32)(VBatUp_DRIVE_MODE_IND_MASK << \
-                                (VBatUp_DRIVE_MODE_BITS * (shift))))) | \
+        VBatHigh_PC =   (VBatHigh_PC & \
+                                (uint32)(~(uint32)(VBatHigh_DRIVE_MODE_IND_MASK << \
+                                (VBatHigh_DRIVE_MODE_BITS * (shift))))) | \
                                 (uint32)((uint32)(mode) << \
-                                (VBatUp_DRIVE_MODE_BITS * (shift))); \
+                                (VBatHigh_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 #else
     #if (CY_PSOC4_4200L)
-        #define VBatUp_SetP4PinDriveMode(shift, mode)  \
+        #define VBatHigh_SetP4PinDriveMode(shift, mode)  \
         do { \
-            VBatUp_USBIO_CTRL_REG = (VBatUp_USBIO_CTRL_REG & \
-                                    (uint32)(~(uint32)(VBatUp_DRIVE_MODE_IND_MASK << \
-                                    (VBatUp_DRIVE_MODE_BITS * (shift))))) | \
+            VBatHigh_USBIO_CTRL_REG = (VBatHigh_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(VBatHigh_DRIVE_MODE_IND_MASK << \
+                                    (VBatHigh_DRIVE_MODE_BITS * (shift))))) | \
                                     (uint32)((uint32)(mode) << \
-                                    (VBatUp_DRIVE_MODE_BITS * (shift))); \
+                                    (VBatHigh_DRIVE_MODE_BITS * (shift))); \
         } while (0)
     #endif
 #endif
   
 
-#if defined(VBatUp__PC) || (CY_PSOC4_4200L) 
+#if defined(VBatHigh__PC) || (CY_PSOC4_4200L) 
     /*******************************************************************************
-    * Function Name: VBatUp_SetDriveMode
+    * Function Name: VBatHigh_SetDriveMode
     ****************************************************************************//**
     *
     * \brief Sets the drive mode for each of the Pins component's pins.
@@ -67,17 +67,17 @@
     *  APIs (primary method) or disable interrupts around this function.
     *
     * \funcusage
-    *  \snippet VBatUp_SUT.c usage_VBatUp_SetDriveMode
+    *  \snippet VBatHigh_SUT.c usage_VBatHigh_SetDriveMode
     *******************************************************************************/
-    void VBatUp_SetDriveMode(uint8 mode)
+    void VBatHigh_SetDriveMode(uint8 mode)
     {
-		VBatUp_SetP4PinDriveMode(VBatUp__0__SHIFT, mode);
+		VBatHigh_SetP4PinDriveMode(VBatHigh__0__SHIFT, mode);
     }
 #endif
 
 
 /*******************************************************************************
-* Function Name: VBatUp_Write
+* Function Name: VBatHigh_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -106,18 +106,18 @@
 *  this function.
 *
 * \funcusage
-*  \snippet VBatUp_SUT.c usage_VBatUp_Write
+*  \snippet VBatHigh_SUT.c usage_VBatHigh_Write
 *******************************************************************************/
-void VBatUp_Write(uint8 value)
+void VBatHigh_Write(uint8 value)
 {
-    uint8 drVal = (uint8)(VBatUp_DR & (uint8)(~VBatUp_MASK));
-    drVal = (drVal | ((uint8)(value << VBatUp_SHIFT) & VBatUp_MASK));
-    VBatUp_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(VBatHigh_DR & (uint8)(~VBatHigh_MASK));
+    drVal = (drVal | ((uint8)(value << VBatHigh_SHIFT) & VBatHigh_MASK));
+    VBatHigh_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: VBatUp_Read
+* Function Name: VBatHigh_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void VBatUp_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet VBatUp_SUT.c usage_VBatUp_Read  
+*  \snippet VBatHigh_SUT.c usage_VBatHigh_Read  
 *******************************************************************************/
-uint8 VBatUp_Read(void)
+uint8 VBatHigh_Read(void)
 {
-    return (uint8)((VBatUp_PS & VBatUp_MASK) >> VBatUp_SHIFT);
+    return (uint8)((VBatHigh_PS & VBatHigh_MASK) >> VBatHigh_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: VBatUp_ReadDataReg
+* Function Name: VBatHigh_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 VBatUp_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred VBatUp_Read() API because the 
-* VBatUp_ReadDataReg() reads the data register instead of the status 
+* preferred VBatHigh_Read() API because the 
+* VBatHigh_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,16 +159,16 @@ uint8 VBatUp_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet VBatUp_SUT.c usage_VBatUp_ReadDataReg 
+*  \snippet VBatHigh_SUT.c usage_VBatHigh_ReadDataReg 
 *******************************************************************************/
-uint8 VBatUp_ReadDataReg(void)
+uint8 VBatHigh_ReadDataReg(void)
 {
-    return (uint8)((VBatUp_DR & VBatUp_MASK) >> VBatUp_SHIFT);
+    return (uint8)((VBatHigh_DR & VBatHigh_MASK) >> VBatHigh_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: VBatUp_SetInterruptMode
+* Function Name: VBatHigh_SetInterruptMode
 ****************************************************************************//**
 *
 * \brief Configures the interrupt mode for each of the Pins component's
@@ -181,12 +181,12 @@ uint8 VBatUp_ReadDataReg(void)
 * \param position
 *  The pin position as listed in the Pins component. You may OR these to be 
 *  able to configure the interrupt mode of multiple pins within a Pins 
-*  component. Or you may use VBatUp_INTR_ALL to configure the
+*  component. Or you may use VBatHigh_INTR_ALL to configure the
 *  interrupt mode of all the pins in the Pins component.       
-*  - VBatUp_0_INTR       (First pin in the list)
-*  - VBatUp_1_INTR       (Second pin in the list)
+*  - VBatHigh_0_INTR       (First pin in the list)
+*  - VBatHigh_1_INTR       (Second pin in the list)
 *  - ...
-*  - VBatUp_INTR_ALL     (All pins in Pins component)
+*  - VBatHigh_INTR_ALL     (All pins in Pins component)
 *
 * \param mode
 *  Interrupt mode for the selected pins. Valid options are documented in
@@ -202,19 +202,19 @@ uint8 VBatUp_ReadDataReg(void)
 *  port.
 *
 * \funcusage
-*  \snippet VBatUp_SUT.c usage_VBatUp_SetInterruptMode
+*  \snippet VBatHigh_SUT.c usage_VBatHigh_SetInterruptMode
 *******************************************************************************/
-void VBatUp_SetInterruptMode(uint16 position, uint16 mode)
+void VBatHigh_SetInterruptMode(uint16 position, uint16 mode)
 {
     uint32 intrCfg;
     
-    intrCfg =  VBatUp_INTCFG & (uint32)(~(uint32)position);
-    VBatUp_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+    intrCfg =  VBatHigh_INTCFG & (uint32)(~(uint32)position);
+    VBatHigh_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
 }
 
 
 /*******************************************************************************
-* Function Name: VBatUp_ClearInterrupt
+* Function Name: VBatHigh_ClearInterrupt
 ****************************************************************************//**
 *
 * \brief Clears any active interrupts attached with the component and returns 
@@ -231,13 +231,13 @@ void VBatUp_SetInterruptMode(uint16 position, uint16 mode)
 *  those associated with the Pins component.
 *
 * \funcusage
-*  \snippet VBatUp_SUT.c usage_VBatUp_ClearInterrupt
+*  \snippet VBatHigh_SUT.c usage_VBatHigh_ClearInterrupt
 *******************************************************************************/
-uint8 VBatUp_ClearInterrupt(void)
+uint8 VBatHigh_ClearInterrupt(void)
 {
-	uint8 maskedStatus = (uint8)(VBatUp_INTSTAT & VBatUp_MASK);
-	VBatUp_INTSTAT = maskedStatus;
-    return maskedStatus >> VBatUp_SHIFT;
+	uint8 maskedStatus = (uint8)(VBatHigh_INTSTAT & VBatHigh_MASK);
+	VBatHigh_INTSTAT = maskedStatus;
+    return maskedStatus >> VBatHigh_SHIFT;
 }
 
 
