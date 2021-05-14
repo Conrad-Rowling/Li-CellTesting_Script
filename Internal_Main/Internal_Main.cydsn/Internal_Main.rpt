@@ -1,13 +1,13 @@
-Loading plugins phase: Elapsed time ==> 0s.278ms
+Loading plugins phase: Elapsed time ==> 0s.117ms
 <CYPRESSTAG name="CyDsfit arguments...">
-cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\samue\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\Internal_Main.cyprj -d CY8C4145LQI-PS433 -s C:\Users\samue\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\Crowling\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\Internal_Main.cyprj -d CY8C4145LQI-PS433 -s C:\Users\Crowling\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 </CYPRESSTAG>
 <CYPRESSTAG name="Design elaboration results...">
 </CYPRESSTAG>
-Elaboration phase: Elapsed time ==> 4s.207ms
+Elaboration phase: Elapsed time ==> 3s.010ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
-HDL generation phase: Elapsed time ==> 0s.211ms
+HDL generation phase: Elapsed time ==> 0s.119ms
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -24,24 +24,24 @@ HDL generation phase: Elapsed time ==> 0s.211ms
 
 ======================================================================
 Compiling:  Internal_Main.v
-Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\bin\warp.exe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\samue\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\Internal_Main.cyprj -dcpsoc3 Internal_Main.v -verilog
+Program  :   D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\bin\warp.exe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Crowling\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\Internal_Main.cyprj -dcpsoc3 Internal_Main.v -verilog
 ======================================================================
 
 ======================================================================
 Compiling:  Internal_Main.v
-Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\bin\warp.exe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\samue\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\Internal_Main.cyprj -dcpsoc3 Internal_Main.v -verilog
+Program  :   D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\bin\warp.exe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Crowling\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\Internal_Main.cyprj -dcpsoc3 Internal_Main.v -verilog
 ======================================================================
 
 ======================================================================
 Compiling:  Internal_Main.v
 Program  :   vlogfe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\samue\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\Internal_Main.cyprj -dcpsoc3 -verilog Internal_Main.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Crowling\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\Internal_Main.cyprj -dcpsoc3 -verilog Internal_Main.v
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
-Wed May 12 23:24:49 2021
+Fri May 14 10:58:35 2021
 
 
 ======================================================================
@@ -51,33 +51,33 @@ Options  :    -yv2 -q10 Internal_Main.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
-Wed May 12 23:24:49 2021
+Fri May 14 10:58:35 2021
 
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Bus_Connect_v2_50\Bus_Connect_v2_50.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\cypress.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_vref_v1_70\cy_vref_v1_70.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\AMux_v1_80\AMux_v1_80.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\cypress.v'
+Flattening file 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'
+Flattening file 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Bus_Connect_v2_50\Bus_Connect_v2_50.v'
+Flattening file 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.v'
+Flattening file 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'
+Flattening file 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'
+Flattening file 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
+Flattening file 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'
+Flattening file 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_vref_v1_70\cy_vref_v1_70.v'
+Flattening file 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\AMux_v1_80\AMux_v1_80.v'
+Flattening file 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.v'
 
 vpp:  No errors.
 
 Library 'work' => directory 'lcpsoc3'
 General_symbol_table
 General_symbol_table
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\std.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\cypress.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\work\cypress.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
 Using control file 'Internal_Main.ctl'.
 
 vlogfe:  No errors.
@@ -86,33 +86,33 @@ vlogfe:  No errors.
 ======================================================================
 Compiling:  Internal_Main.v
 Program  :   tovif
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\samue\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\Internal_Main.cyprj -dcpsoc3 -verilog Internal_Main.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Crowling\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\Internal_Main.cyprj -dcpsoc3 -verilog Internal_Main.v
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
-Wed May 12 23:24:50 2021
+Fri May 14 10:58:35 2021
 
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\std.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\cypress.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\work\cypress.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
-Linking 'C:\Users\samue\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\codegentemp\Internal_Main.ctl'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'.
-Linking 'C:\Users\samue\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\codegentemp\Internal_Main.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Bus_Connect_v2_50\Bus_Connect_v2_50.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\cypress.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_vref_v1_70\cy_vref_v1_70.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\AMux_v1_80\AMux_v1_80.v'.
-Internal_Main.v (line 184, col 24):  Warning: (W460) 't_fvalid' unassigned in module 'Scan_ADC_v3_10_0'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\Users\Crowling\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\codegentemp\Internal_Main.ctl'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'.
+Linking 'C:\Users\Crowling\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\codegentemp\Internal_Main.v'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Bus_Connect_v2_50\Bus_Connect_v2_50.v'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.v'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_vref_v1_70\cy_vref_v1_70.v'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\AMux_v1_80\AMux_v1_80.v'.
+Internal_Main.v (line 188, col 24):  Warning: (W460) 't_fvalid' unassigned in module 'Scan_ADC_v3_10_0'.
 
 tovif:  No errors.  1 warning.
 
@@ -120,33 +120,33 @@ tovif:  No errors.  1 warning.
 ======================================================================
 Compiling:  Internal_Main.v
 Program  :   topld
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\samue\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\Internal_Main.cyprj -dcpsoc3 -verilog Internal_Main.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Crowling\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\Internal_Main.cyprj -dcpsoc3 -verilog Internal_Main.v
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
-Wed May 12 23:24:51 2021
+Fri May 14 10:58:36 2021
 
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\std.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\cypress.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\work\cypress.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
-Linking 'C:\Users\samue\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\codegentemp\Internal_Main.ctl'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'.
-Linking 'C:\Users\samue\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\codegentemp\Internal_Main.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Bus_Connect_v2_50\Bus_Connect_v2_50.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\cypress.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_vref_v1_70\cy_vref_v1_70.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\AMux_v1_80\AMux_v1_80.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\lib\lcpsoc3\stdlogic\cpsoc3.vif'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\Users\Crowling\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\codegentemp\Internal_Main.ctl'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'.
+Linking 'C:\Users\Crowling\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\codegentemp\Internal_Main.v'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Bus_Connect_v2_50\Bus_Connect_v2_50.v'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.v'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_vref_v1_70\cy_vref_v1_70.v'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\AMux_v1_80\AMux_v1_80.v'.
+Linking 'D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\lcpsoc3\stdlogic\cpsoc3.vif'.
 
 ----------------------------------------------------------
 Detecting unused logic.
@@ -166,29 +166,29 @@ Detecting unused logic.
 	\UART_1:uncfg_rx_irq\
 	\UART_1:Net_1099\
 	\UART_1:Net_1258\
-	Net_734
 	Net_728
 	Net_729
 	Net_730
 	Net_731
 	Net_732
 	Net_733
-	Net_737
+	Net_734
 	Net_736
+	Net_737
 	\I2C_1:Net_1257\
 	\I2C_1:uncfg_rx_irq\
 	\I2C_1:Net_1099\
 	\I2C_1:Net_1258\
-	Net_162
 	Net_156
 	Net_157
 	Net_158
 	Net_159
 	Net_160
 	Net_161
+	Net_162
+	Net_165
 	Net_166
 	Net_173
-	Net_165
 
 
 Deleted 37 User equations/components.
@@ -234,7 +234,6 @@ Aliasing tmpOE__UART_IN_net_0 to \ADC_1:tmpOE__Bypass_net_0\
 Aliasing tmpOE__UART_OUT_net_0 to \ADC_1:tmpOE__Bypass_net_0\
 Aliasing tmpOE__v_out_net_0 to \ADC_1:tmpOE__Bypass_net_0\
 Aliasing tmpOE__VBatHigh_net_0 to \ADC_1:tmpOE__Bypass_net_0\
-Aliasing tmpOE__VBatLow_net_0 to \ADC_1:tmpOE__Bypass_net_0\
 Aliasing \TCPWM_1:Net_75\ to \ADC_1:Net_410\
 Aliasing \TCPWM_1:Net_69\ to \ADC_1:tmpOE__Bypass_net_0\
 Aliasing \TCPWM_1:Net_66\ to \ADC_1:Net_410\
@@ -262,7 +261,7 @@ Removing Lhs of wire \UART_1:sclk_s_wire\[1004] = zero[580]
 Removing Lhs of wire \UART_1:mosi_s_wire\[1005] = zero[580]
 Removing Lhs of wire \UART_1:miso_m_wire\[1006] = zero[580]
 Removing Lhs of wire \UART_1:cts_wire\[1009] = zero[580]
-Removing Rhs of wire Net_702[1034] = \UART_1:tx_wire\[1012]
+Removing Rhs of wire Net_702[1035] = \UART_1:tx_wire\[1012]
 Removing Lhs of wire \I2C_1:select_s_wire\[1038] = zero[580]
 Removing Lhs of wire \I2C_1:rx_wire\[1039] = zero[580]
 Removing Lhs of wire \I2C_1:Net_1170\[1042] = \I2C_1:Net_847\[1037]
@@ -282,18 +281,17 @@ Removing Lhs of wire \Timer_1:Net_82\[1103] = zero[580]
 Removing Lhs of wire \Timer_1:Net_72\[1104] = zero[580]
 Removing Lhs of wire tmpOE__UART_IN_net_0[1114] = one[584]
 Removing Lhs of wire tmpOE__UART_OUT_net_0[1119] = one[584]
-Removing Lhs of wire tmpOE__v_out_net_0[1129] = one[584]
-Removing Lhs of wire tmpOE__VBatHigh_net_0[1147] = one[584]
-Removing Lhs of wire tmpOE__VBatLow_net_0[1154] = one[584]
-Removing Lhs of wire \TCPWM_1:Net_81\[1161] = Net_1379[1173]
-Removing Lhs of wire \TCPWM_1:Net_75\[1162] = zero[580]
-Removing Lhs of wire \TCPWM_1:Net_69\[1163] = one[584]
-Removing Lhs of wire \TCPWM_1:Net_66\[1164] = zero[580]
-Removing Lhs of wire \TCPWM_1:Net_82\[1165] = zero[580]
-Removing Lhs of wire \TCPWM_1:Net_72\[1166] = zero[580]
+Removing Lhs of wire tmpOE__v_out_net_0[1128] = one[584]
+Removing Lhs of wire tmpOE__VBatHigh_net_0[1146] = one[584]
+Removing Lhs of wire \TCPWM_1:Net_81\[1153] = Net_1379[1165]
+Removing Lhs of wire \TCPWM_1:Net_75\[1154] = zero[580]
+Removing Lhs of wire \TCPWM_1:Net_69\[1155] = one[584]
+Removing Lhs of wire \TCPWM_1:Net_66\[1156] = zero[580]
+Removing Lhs of wire \TCPWM_1:Net_82\[1157] = zero[580]
+Removing Lhs of wire \TCPWM_1:Net_72\[1158] = zero[580]
 
 ------------------------------------------------------
-Aliased 0 equations, 51 wires.
+Aliased 0 equations, 50 wires.
 ------------------------------------------------------
 
 ----------------------------------------------------------
@@ -313,18 +311,18 @@ Circuit simplification results:
 
 topld:  No errors.
 
-CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp
-Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\warp\bin\warp.exe
-Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\samue\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\Internal_Main.cyprj -dcpsoc3 Internal_Main.v -verilog
+CYPRESS_DIR    : D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp
+Warp Program   : D:\Cypress\PSoC Creator\4.4\PSoC Creator\warp\bin\warp.exe
+Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Crowling\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\Internal_Main.cyprj -dcpsoc3 Internal_Main.v -verilog
 </CYPRESSTAG>
-Warp synthesis phase: Elapsed time ==> 2s.286ms
+Warp synthesis phase: Elapsed time ==> 0s.755ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
-cyp3fit: V4.3.0.1445, Family: PSoC3, Started at: Wednesday, 12 May 2021 23:24:52
-Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\samue\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\Internal_Main.cyprj -d CY8C4145LQI-PS433 Internal_Main.v -verilog
+cyp3fit: V4.4.0.80, Family: PSoC3, Started at: Friday, 14 May 2021 10:58:36
+Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Crowling\OneDrive\Documents\GitHub\Li-CellTesting_Script\Internal_Main\Internal_Main.cydsn\Internal_Main.cyprj -d CY8C4145LQI-PS433 Internal_Main.v -verilog
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
-Design parsing phase: Elapsed time ==> 0s.028ms
+Design parsing phase: Elapsed time ==> 0s.017ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Tech Mapping">
 <CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
@@ -882,47 +880,6 @@ Design Equations
         Properties:
         {
         }
-
-    Pin : Name = VBatLow(0)
-        Attributes:
-            In Group/Port: True
-            In Sync Option: AUTO
-            Out Sync Option: AUTO
-            Interrupt generated: False
-            Interrupt mode: NONE
-            Drive mode: HI_Z_ANALOG
-            VTrip: EITHER
-            Slew: FAST
-            Input Sync needed: False
-            Output Sync needed: False
-            SC shield enabled: False
-            POR State: ANY
-            LCD Mode: COMMON
-            Register Mode: RegComb
-            CaSense Mode: NEITHER
-            Treat as pin: True
-            Is OE Registered: False
-            Uses Analog: True
-            Can contain Digital: False
-            Is SIO: False
-            SIO Output Buf: NONREGULATED
-            SIO Input Buf: SINGLE_ENDED
-            SIO HiFreq: LOW
-            SIO Hyst: DISABLED
-            SIO Vtrip: MULTIPLIER_0_5
-            SIO Multiplier Index: 0
-            SIO RefSel: VCC_IO
-            Required Capabilities: ANALOG
-            Initial Value: 1
-            IO Voltage: 0
-        PORT MAP (
-            pa_out => VBatLow(0)__PA ,
-            analog_term => Net_1503 ,
-            annotation => Net_1404 ,
-            pad => VBatLow(0)_PAD );
-        Properties:
-        {
-        }
     </CYPRESSTAG>
     <CYPRESSTAG name="Macrocell listing" icon="FILE_RPT_EQUATION">
     </CYPRESSTAG>
@@ -983,7 +940,7 @@ Technology mapping summary
 Resource Type                 : Used : Free :  Max :  % Used
 ============================================================
 Interrupts                    :    3 :   22 :   25 : 12.00 %
-IO                            :   16 :   22 :   38 : 42.11 %
+IO                            :   15 :   23 :   38 : 39.47 %
 Segment LCD                   :    0 :    1 :    1 :  0.00 %
 CapSense                      :    0 :    1 :    1 :  0.00 %
 Die Temp                      :    0 :    1 :    1 :  0.00 %
@@ -1001,8 +958,8 @@ SAR ADC                       :    1 :    0 :    1 : 100.00 %
 DAC                           :      :      :      :        
   7-bit IDAC                  :    0 :    2 :    2 :  0.00 %
 </CYPRESSTAG>
-Technology Mapping: Elapsed time ==> 0s.063ms
-Tech Mapping phase: Elapsed time ==> 0s.082ms
+Technology Mapping: Elapsed time ==> 0s.042ms
+Tech Mapping phase: Elapsed time ==> 0s.051ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
 <CYPRESSTAG name="FFB & IO Pre Placement">
@@ -1022,7 +979,6 @@ UART_IN(0)                          : [IOP=(0)][IoId=(4)]
 UART_OUT(0)                         : [IOP=(0)][IoId=(5)]                
 v_out(0)                            : [IOP=(2)][IoId=(3)]                
 VBatHigh(0)                         : [IOP=(1)][IoId=(0)]                
-VBatLow(0)                          : [IOP=(1)][IoId=(4)]                
 ClockGenBlock                       : CLK_GEN_[FFB(CLK_GEN,0)]           
 \ADC_1:cy_psoc4_sar_1\              : SARADC_[FFB(SARADC,0)]             
 \UART_1:SCB\                        : SCB_[FFB(SCB,1)]                   
@@ -1039,15 +995,15 @@ RELAY_EN(0)                         : [IOP=(0)][IoId=(3)]
 </CYPRESSTAG>
 </CYPRESSTAG>
 <CYPRESSTAG name="Real Analog Placement">
-Elapsed time ==> 0.1882226s
+Elapsed time ==> 0.1254465s
 </CYPRESSTAG>
-Analog Placement phase: Elapsed time ==> 0s.512ms
+Analog Placement phase: Elapsed time ==> 0s.358ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Routing">
 <CYPRESSTAG name="Analog Routing">
-Route success=True, Iterations=1 Elapsed=0.0445227 secs
+Route success=True, Iterations=1 Elapsed=0.0155841 secs
 </CYPRESSTAG>
-Analog Routing phase: Elapsed time ==> 0s.055ms
+Analog Routing phase: Elapsed time ==> 0s.020ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Code Generation">
 ============ Analog Final Answer Routes ============
@@ -1068,9 +1024,6 @@ Map of net to items {
   }
   Net: Net_1501 {
     p1_0
-  }
-  Net: Net_1503 {
-    p1_4
   }
   Net: Net_661 {
     p1_5
@@ -1117,7 +1070,6 @@ Map of net to items {
     PASS0_CTB0_G33
     PASS0_ctb1_ctbus0
     PASS0_CTB1_P00
-    PASS0_CTB1_P04
     PASS0_CTB0_P05
     PASS0_CTB1_P05
     PASS0_CTB0_P04
@@ -1132,7 +1084,6 @@ Map of item to net {
   p2_4                                             -> Net_1472
   p2_5                                             -> Net_1473
   p1_0                                             -> Net_1501
-  p1_4                                             -> Net_1503
   p1_5                                             -> Net_661
   p2_1                                             -> Net_665
   PASS0_CTB0_R01                                   -> Net_665
@@ -1159,7 +1110,6 @@ Map of item to net {
   PASS0_CTB0_G33                                   -> AMuxNet::AMux_1
   PASS0_ctb1_ctbus0                                -> AMuxNet::AMux_1
   PASS0_CTB1_P00                                   -> AMuxNet::AMux_1
-  PASS0_CTB1_P04                                   -> AMuxNet::AMux_1
   PASS0_CTB0_P05                                   -> AMuxNet::AMux_1
   PASS0_CTB1_P05                                   -> AMuxNet::AMux_1
   PASS0_CTB0_P04                                   -> AMuxNet::AMux_1
@@ -1183,17 +1133,6 @@ Mux Info {
       }
     }
     Arm: 1 {
-      Net:   Net_1503
-      Outer: PASS0_CTB1_P04
-      Inner: __open__
-      Path {
-        PASS0_CTB0_G33
-        PASS0_ctb1_ctbus0
-        PASS0_CTB1_P04
-        p1_4
-      }
-    }
-    Arm: 2 {
       Net:   Net_1473
       Outer: PASS0_CTB0_P05
       Inner: __open__
@@ -1202,7 +1141,7 @@ Mux Info {
         p2_5
       }
     }
-    Arm: 3 {
+    Arm: 2 {
       Net:   Net_661
       Outer: PASS0_CTB1_P05
       Inner: __open__
@@ -1213,7 +1152,7 @@ Mux Info {
         p1_5
       }
     }
-    Arm: 4 {
+    Arm: 3 {
       Net:   Net_1472
       Outer: PASS0_CTB0_P04
       Inner: __open__
@@ -1224,7 +1163,7 @@ Mux Info {
     }
   }
 }
-Analog Code Generation phase: Elapsed time ==> 0s.042ms
+Analog Code Generation phase: Elapsed time ==> 0s.015ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="Detailed placement messages">
@@ -1242,7 +1181,7 @@ PLD Packing: Elapsed time ==> 0s.000ms
 Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
 <CYPRESSTAG name="Final Partitioning Summary">
 Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
-Partitioning: Elapsed time ==> 0s.025ms
+Partitioning: Elapsed time ==> 0s.008ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Final Placement Summary">
 
@@ -1490,48 +1429,6 @@ Pin : Name = VBatHigh(0)
         analog_term => Net_1501 ,
         annotation => Net_1446 ,
         pad => VBatHigh(0)_PAD );
-    Properties:
-    {
-    }
-
-[IoId=4]: 
-Pin : Name = VBatLow(0)
-    Attributes:
-        In Group/Port: True
-        In Sync Option: AUTO
-        Out Sync Option: AUTO
-        Interrupt generated: False
-        Interrupt mode: NONE
-        Drive mode: HI_Z_ANALOG
-        VTrip: EITHER
-        Slew: FAST
-        Input Sync needed: False
-        Output Sync needed: False
-        SC shield enabled: False
-        POR State: ANY
-        LCD Mode: COMMON
-        Register Mode: RegComb
-        CaSense Mode: NEITHER
-        Treat as pin: True
-        Is OE Registered: False
-        Uses Analog: True
-        Can contain Digital: False
-        Is SIO: False
-        SIO Output Buf: NONREGULATED
-        SIO Input Buf: SINGLE_ENDED
-        SIO HiFreq: LOW
-        SIO Hyst: DISABLED
-        SIO Vtrip: MULTIPLIER_0_5
-        SIO Multiplier Index: 0
-        SIO RefSel: VCC_IO
-        Required Capabilities: ANALOG
-        Initial Value: 1
-        IO Voltage: 0
-    PORT MAP (
-        pa_out => VBatLow(0)__PA ,
-        analog_term => Net_1503 ,
-        annotation => Net_1404 ,
-        pad => VBatLow(0)_PAD );
     Properties:
     {
     }
@@ -2112,10 +2009,9 @@ Blocks not positioned by the digital component placer:
     Amux Block @ <No Location>: 
     amuxcell: Name =AMux_1
         PORT MAP (
-            muxin_4 => Net_1472 ,
-            muxin_3 => Net_661 ,
-            muxin_2 => Net_1473 ,
-            muxin_1 => Net_1503 ,
+            muxin_3 => Net_1472 ,
+            muxin_2 => Net_661 ,
+            muxin_1 => Net_1473 ,
             muxin_0 => Net_1501 ,
             vout => Net_697 );
         Properties:
@@ -2124,8 +2020,8 @@ Blocks not positioned by the digital component placer:
             connect_mode = 1
             cy_registers = ""
             hw_control = 0
-            init_mux_sel = "00000"
-            muxin_width = 5
+            init_mux_sel = "0000"
+            muxin_width = 4
             one_active = 0
         }
 </CYPRESSTAG>
@@ -2143,7 +2039,6 @@ Port | Pin | Fixed |      Type |       Drive Mode |              Name | Connecti
      |   5 |     * |      NONE |         CMOS_OUT |       UART_OUT(0) | In(Net_702)
 -----+-----+-------+-----------+------------------+-------------------+------------------------
    1 |   0 |     * |      NONE |      HI_Z_ANALOG |       VBatHigh(0) | Analog(Net_1501)
-     |   4 |     * |      NONE |      HI_Z_ANALOG |        VBatLow(0) | Analog(Net_1503)
      |   5 |     * |      NONE |      HI_Z_ANALOG |       Shunt_In(0) | Analog(Net_661)
 -----+-----+-------+-----------+------------------+-------------------+------------------------
    2 |   1 |     * |      NONE |      HI_Z_ANALOG |        GND_ref(0) | Analog(Net_665)
@@ -2158,19 +2053,19 @@ Port | Pin | Fixed |      Type |       Drive Mode |              Name | Connecti
 </CYPRESSTAG>
 </CYPRESSTAG>
 </CYPRESSTAG>
-Digital component placer commit/Report: Elapsed time ==> 0s.042ms
-Digital Placement phase: Elapsed time ==> 0s.317ms
+Digital component placer commit/Report: Elapsed time ==> 0s.021ms
+Digital Placement phase: Elapsed time ==> 0s.461ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
-"C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\dev\psoc4/8/route_arch-rrg.cydata" --vh2-path "Internal_Main_r.vh2" --pcf-path "Internal_Main.pco" --des-name "Internal_Main" --dsf-path "Internal_Main.dsf"
+"D:\Cypress\PSoC Creator\4.4\PSoC Creator\bin/sjrouter.exe" --xml-path "D:\Cypress\PSoC Creator\4.4\PSoC Creator\dev\psoc4/8/route_arch-rrg.cydata" --vh2-path "Internal_Main_r.vh2" --pcf-path "Internal_Main.pco" --des-name "Internal_Main" --dsf-path "Internal_Main.dsf"
 Routing successful.
-Digital Routing phase: Elapsed time ==> 0s.374ms
+Digital Routing phase: Elapsed time ==> 0s.323ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Generation">
-Bitstream Generation phase: Elapsed time ==> 0s.199ms
+Bitstream Generation phase: Elapsed time ==> 0s.121ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Verification">
-Bitstream Verification phase: Elapsed time ==> 0s.002ms
+Bitstream Verification phase: Elapsed time ==> 0s.001ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Static timing analysis">
 No timing parameter file available for CY8C4145LQI-PS433
@@ -2180,11 +2075,11 @@ Static timing analysis phase: Elapsed time ==> 0s.000ms
 Data reporting phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
-Design database save phase: Elapsed time ==> 0s.242ms
+Design database save phase: Elapsed time ==> 0s.166ms
 </CYPRESSTAG>
-cydsfit: Elapsed time ==> 2s.004ms
+cydsfit: Elapsed time ==> 1s.590ms
 </CYPRESSTAG>
-Fitter phase: Elapsed time ==> 2s.006ms
-API generation phase: Elapsed time ==> 4s.470ms
-Dependency generation phase: Elapsed time ==> 0s.026ms
-Cleanup phase: Elapsed time ==> 0s.001ms
+Fitter phase: Elapsed time ==> 1s.591ms
+API generation phase: Elapsed time ==> 4s.488ms
+Dependency generation phase: Elapsed time ==> 0s.015ms
+Cleanup phase: Elapsed time ==> 0s.000ms

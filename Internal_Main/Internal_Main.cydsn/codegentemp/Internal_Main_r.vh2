@@ -1,6 +1,6 @@
 -- Project:   Internal_Main
--- Generated: 05/12/2021 23:24:53
--- PSoC Creator  4.3
+-- Generated: 05/14/2021 10:58:37
+-- PSoC Creator  4.4
 
 ENTITY Internal_Main IS
     PORT(
@@ -86,7 +86,6 @@ ARCHITECTURE __DEFAULT__ OF Internal_Main IS
     SIGNAL UART_IN(0)__PA : bit;
     SIGNAL UART_OUT(0)__PA : bit;
     SIGNAL VBatHigh(0)__PA : bit;
-    SIGNAL VBatLow(0)__PA : bit;
     SIGNAL \\\ADC_1:Bypass(0)\\__PA\ : bit;
     SIGNAL \ADC_1:Net_423\ : bit;
     SIGNAL \ADC_1:sarClock_ff12\ : bit;
@@ -141,7 +140,6 @@ ARCHITECTURE __DEFAULT__ OF Internal_Main IS
     ATTRIBUTE Location OF UART_OUT(0) : LABEL IS "P0[5]";
     ATTRIBUTE Location OF v_out(0) : LABEL IS "P2[3]";
     ATTRIBUTE Location OF VBatHigh(0) : LABEL IS "P1[0]";
-    ATTRIBUTE Location OF VBatLow(0) : LABEL IS "P1[4]";
     ATTRIBUTE Location OF \ADC_1:cy_psoc4_sar_1\ : LABEL IS "F(SARADC,0)";
     ATTRIBUTE Location OF \ADC_1:IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(15)]";
     ATTRIBUTE Location OF CyDesignWideVoltageReference : LABEL IS "F(REF,0)";
@@ -1593,95 +1591,6 @@ BEGIN
             io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
         PORT MAP(
             pa_out => VBatHigh(0)__PA,
-            oe => open,
-            in_clock => open,
-            in_clock_en => '1',
-            in_reset => '0',
-            out_clock => open,
-            out_clock_en => '1',
-            out_reset => '0');
-
-    VBatLow:logicalport
-        GENERIC MAP(
-            drive_mode => "000",
-            ibuf_enabled => "0",
-            id => "9e939d0c-a774-413c-9869-b502bc50b80a",
-            init_dr_st => "1",
-            input_buffer_sel => "00",
-            input_clk_en => 0,
-            input_sync => "0",
-            input_sync_mode => "0",
-            intr_mode => "00",
-            invert_in_clock => 0,
-            invert_in_clock_en => 0,
-            invert_in_reset => 0,
-            invert_out_clock => 0,
-            invert_out_clock_en => 0,
-            invert_out_reset => 0,
-            io_voltage => "",
-            layout_mode => "CONTIGUOUS",
-            oe_conn => "0",
-            oe_reset => 0,
-            oe_sync => "0",
-            output_clk_en => 0,
-            output_clock_mode => "0",
-            output_conn => "0",
-            output_mode => "0",
-            output_reset => 0,
-            output_sync => "0",
-            ovt_hyst_trim => "0",
-            ovt_needed => "0",
-            ovt_slew_control => "00",
-            pa_in_clock => -1,
-            pa_in_clock_en => -1,
-            pa_in_reset => -1,
-            pa_out_clock => -1,
-            pa_out_clock_en => -1,
-            pa_out_reset => -1,
-            pin_aliases => "",
-            pin_mode => "A",
-            por_state => 4,
-            port_alias_group => "",
-            port_alias_required => 0,
-            sio_group_cnt => 0,
-            sio_hifreq => "00000000",
-            sio_hyst => "1",
-            sio_ibuf => "00000000",
-            sio_info => "00",
-            sio_obuf => "00000000",
-            sio_refsel => "00000000",
-            sio_vohsel => "00000000",
-            sio_vtrip => "00000000",
-            slew_rate => "0",
-            spanning => 0,
-            sw_only => 0,
-            use_annotation => "1",
-            vtrip => "10",
-            width => 1,
-            in_clk_inv => 0,
-            in_clken_inv => 0,
-            in_clken_mode => 1,
-            in_rst_inv => 0,
-            out_clk_inv => 0,
-            out_clken_inv => 0,
-            out_clken_mode => 1,
-            out_rst_inv => 0)
-        PORT MAP(
-            in_clock_en => open,
-            in_reset => open,
-            out_clock_en => open,
-            out_reset => open);
-
-    VBatLow(0):iocell
-        GENERIC MAP(
-            in_sync_mode => 0,
-            out_sync_mode => 0,
-            oe_sync_mode => 0,
-            logicalport => "VBatLow",
-            logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
-        PORT MAP(
-            pa_out => VBatLow(0)__PA,
             oe => open,
             in_clock => open,
             in_clock_en => '1',

@@ -107,7 +107,7 @@ void HaltTest(int stopCode){
 int32 FilterSignal(int32 ADCSample, uint8 channel){
     
     // MOVING AVERAGE
-	static int32 filteredValue[9] = {0,0};
+	static int32 filteredValue[5] = {0,0};
 	
 	/* Filtered value rounded-off to 20-bits */
 	int32 filValueRounded;
@@ -234,7 +234,7 @@ int main(void)
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrefCount = ADC_1_GetResult32(0);               // vref in unitless counts   
                 vrefCount = FilterSignal(vrefCount, 3);         // Channel 3 because ...
-                vrefVal = ADC_1_CountsTo_mVolts(1, vrefCount);  // vref in mV     
+                vrefVal = ADC_1_CountsTo_mVolts(0, vrefCount);  // vref in mV     
                 
                 //================================
                 // Virtual Ground Reading (vrgnd)
@@ -244,7 +244,7 @@ int main(void)
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrgndCount = ADC_1_GetResult32(0);              // vrgnd in unitless counts                            
                 vrgndCount = FilterSignal(vrgndCount, 2);       // Channel 3 because...
-                vrgndVal = ADC_1_CountsTo_mVolts(1, vrgndCount);// vrgnd in mV                
+                vrgndVal = ADC_1_CountsTo_mVolts(0, vrgndCount);// vrgnd in mV                
                 
                 //================================
                 // Test Voltage Reading (vtest) (or Shunt_In) 
@@ -254,7 +254,7 @@ int main(void)
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);               
                 vtestCount = ADC_1_GetResult32(0);              // vtest in unitless counts
                 vtestCount = FilterSignal(vtestCount, 1);
-                vtestVal = ADC_1_CountsTo_mVolts(1, vtestCount);// vtest in mV                
+                vtestVal = ADC_1_CountsTo_mVolts(0, vtestCount);// vtest in mV                
                                                 
                 //================================
                 // Battery Voltage Divider (+) (vbatHigh)
@@ -266,16 +266,16 @@ int main(void)
                 vbatHighCount = FilterSignal(vbatHighCount, 4);         // Channel 3 because ...
                 vbatHighVal = ADC_1_CountsTo_mVolts(0, vbatHighCount);  // vref in mV                
                                 
-                //================================
-                // Battery Voltage Divider (-) (vbatLow)
-                //================================
-                
-                AMux_1_Select(1);
-                ADC_1_StartConvert();                           // Start the Read the ADC
-                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-                vbatLowCount = ADC_1_GetResult32(0);               // vref in unitless counts   
-                vbatLowCount = FilterSignal(vbatLowCount, 7);         // Channel 3 because ...
-                vbatLowVal = ADC_1_CountsTo_mVolts(0, vbatLowCount);
+//                //================================
+//                // Battery Voltage Divider (-) (vbatLow)
+//                //================================
+//                
+//                AMux_1_Select(1);
+//                ADC_1_StartConvert();                           // Start the Read the ADC
+//                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
+//                vbatLowCount = ADC_1_GetResult32(0);               // vref in unitless counts   
+//                vbatLowCount = FilterSignal(vbatLowCount, 7);         // Channel 3 because ...
+//                vbatLowVal = ADC_1_CountsTo_mVolts(0, vbatLowCount);
                 
                 
                 // After rapid samples - to ensure similar adc/amp conditions
