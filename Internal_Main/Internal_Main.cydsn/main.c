@@ -185,8 +185,8 @@ int main(void)
     int8 stopFlag = 0;          // Boolean flag to stop the test
     int8 stopCode = 0;          // Code for determining the reason why test was stopped
     
-    int32 res1 = 828000;        //The first resistor in the battery voltage divider circuit
-    int32 res2 = 10000;         //Seconds resistor in ^this^ divider
+    float res1 = 828000;        //The first resistor in the battery voltage divider circuit
+    float res2 = 10000;         //Seconds resistor in ^this^ divider
     
     CyGlobalIntEnable;
         
@@ -217,14 +217,20 @@ int main(void)
         
         if (userInput == 71)  //Type Capital G into Putty
         {            
+            sprintf(string, "Please\r\n"); 
+            UART_1_UartPutString(string);
             Timer_1_Start();
             stopFlag = 0;
             stopCode = 0; 
+            sprintf(string, "Please1\r\n"); 
+            UART_1_UartPutString(string);
             
             // Continue Executing While the no test errors are evident
             while(!stopFlag){
                 while(startFlag == 1){
                 startFlag = 0;
+                sprintf(string, "Please2\r\n"); 
+                UART_1_UartPutString(string);
                 
                 //================================
                 // Reference Voltage Reading (vref)(or Cal_In)
@@ -232,10 +238,24 @@ int main(void)
                 AMux_1_Select(2);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-                vrefCount = ADC_1_GetResult32(0);               // vref in unitless counts   
+                
+                sprintf(string, "Please2.1\r\n"); 
+                UART_1_UartPutString(string);
+                
+                vrefCount = ADC_1_GetResult32(0);               // vref in unitless counts  
+                
+                sprintf(string, "Please2.2\r\n"); 
+                UART_1_UartPutString(string);
+                
                 vrefCount = FilterSignal(vrefCount, 3);         // Channel 3 because ...
+                
+                sprintf(string, "Please1\r\n"); 
+                UART_1_UartPutString(string);
+                
                 vrefVal = ADC_1_CountsTo_mVolts(1, vrefCount);  // vref in mV     
                 
+                sprintf(string, "Please2.5\r\n"); 
+                UART_1_UartPutString(string);
                 //================================
                 // Virtual Ground Reading (vrgnd)
                 //================================
@@ -277,7 +297,8 @@ int main(void)
                 vbatLowCount = FilterSignal(vbatLowCount, 7);         // Channel 3 because ...
                 vbatLowVal = ADC_1_CountsTo_mVolts(0, vbatLowCount);
                 
-                
+                sprintf(string, "Please3\r\n"); 
+                UART_1_UartPutString(string);
                 // After rapid samples - to ensure similar adc/amp conditions
                 // Calculations are made
                 
@@ -294,6 +315,8 @@ int main(void)
                 vbatVal = (vbatHighVal - vbatLowVal);               //vbatval after voltage divider, 0 to 40 mV
                 vbatVal = vbatVal * ((res1 + res2) / res1);         //The input voltage in VOLTS
 
+                sprintf(string, "Please4\r\n"); 
+                UART_1_UartPutString(string);
                 } //end of scan from startflag
                 
                 // Stop the Test.... 
@@ -306,10 +329,12 @@ int main(void)
                 }                         
                 
                 //CyDelayUs(250);
+                sprintf(string, "Please5\r\n"); 
+                UART_1_UartPutString(string);
                 
                 // Print the values
                 if (Timer_1_ReadCounter() > 1){ 
-                    sprintf(string, "%ld, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f \r\n", vtestIdeal, vtestVal, vrgndVal, vrefVal, gainReal, vbatVal, gainReal2, vbatHighVal, vbatLowVal); 
+                    sprintf(string, "Bollocks\r\n");//"%ld, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f \r\n", vtestIdeal, vtestVal, vrgndVal, vrefVal, gainReal, vbatVal, gainReal2, vbatHighVal, vbatLowVal); 
                     UART_1_UartPutString(string);
                     Timer_1_WriteCounter(0);
                 }
