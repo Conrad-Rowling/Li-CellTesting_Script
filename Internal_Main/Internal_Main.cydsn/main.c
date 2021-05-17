@@ -14,9 +14,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define V_REF_RELATIVE  40          //know voltage of VRef - VRGnd (mV)           
-#define V_TEST_START    0
- 
+#define SOC_FULL  10.2 //Ahr
+#define BATTERY_HIGH_TEMP 60 //deg C   
+#define RESISTOR_HIGH_TEMP 180 //deg C
+
+#define NUM_R_THERMISTORS 5 // excluding the thermistor at Position 1
+#define NUM_BAT_THERMISTORS 6 // excluding the thermistor at Position 1
+
+#define SHUNT_CONDUCTANCE 1.0 // (1.2 for High Current, .133 for Low Current)
+
+#define LOW_CURRENT 1
+#define HIGH_CURRENT 20
+
+#define V_REF_RELATIVE 35
 
 // =============================
 // Function Definitions
@@ -30,13 +40,24 @@
 * Formats the headers for exporting the UART terminal to a comma delimited Excel file
 *
 *******************************************************************************/
-void Print_Headers()
+void Print_Headers(uint length_a, uint length_b)
 {
     char hstr[60]; 
     sprintf(hstr,"\r\n");
     UART_1_UartPutString(hstr);
-    sprintf(hstr,"\r\n Voltage(Ideal) (mV), Voltage(Measured) (mV), VirtualGND (mV), VRef (mV), Calculated Gain \r\n");
+    sprintf(hstr,"Time(s), SOC(percent), Bat(V), Shunt(A), ");  //"Time, % SOC, Shunt(A), Bat(V), ");
     UART_1_UartPutString(hstr);
+    
+    for (uint i = 0; i < length_a; i++){
+        sprintf(hstr,"Battery Temp %d, ", i);
+        UART_1_UartPutString(hstr);
+        CyDelay(10);
+        }
+        for (uint i = 0; i < length_b; i++){
+        sprintf(hstr,"Resistor Temp %d, ", i);
+        UART_1_UartPutString(hstr);
+        CyDelay(10);
+        }   
     sprintf(hstr,"\r\n");
     UART_1_UartPutString(hstr);
 }
@@ -48,11 +69,8 @@ void Print_Headers()
 *
 *******************************************************************************/
 void CellTestStart(){
-    CyGlobalIntEnable;
     AMux_1_Start();
-    //AMux_2_Start();
     Opamp_1_Start();
-    //Opamp_2_Start();
     PGA_1_Start(); 
     ADC_1_Start();
     UART_1_Start();
@@ -60,6 +78,7 @@ void CellTestStart(){
     PVref_1_Enable();
     BLUE_LED_Write(0);
     TCPWM_1_Start();
+    Print_Headers(NUM_BAT_THERMISTORS,NUM_R_THERMISTORS);
 }
 
 
@@ -137,9 +156,7 @@ int startFlag;
 CY_ISR_PROTO(MyCustomISR);
 CY_ISR(MyCustomISR)
 {
-    //void _ClearPending(MyCustomISR.intrSrcS);
     TCPWM_1_ClearInterrupt(TCPWM_1_INTR_MASK_TC);
-    //isr_1_ClearPending(); 
     startFlag = 1;
 }
 
@@ -152,8 +169,6 @@ int main(void)
 {
     // Variable Creation
     
-    int32 vtestIdeal = V_TEST_START;
-    
     int32 vtestCount;           // Test voltage adc counts
     float vtestVal;             // Test voltage (mV)
     
@@ -161,24 +176,13 @@ int main(void)
     float vrgndVal;             // Virtual gnd voltage (mV)
     
     int32 vrefCount;            // Reference voltage adc counts
-    float vrefVal;              // Reference voltage (mV)
+    float vrefVal;              // Reference voltage (mV)    
     
-    int32 vbatHighCount;
-    float vbatHighVal;
-    
-    int32 vbatLowCount;
-    float vbatLowVal;
-    
-    int32 vbatCalCount;
-    float vbatCalVal;
-    
-    int32 vbatGndCount;
-    float vbatGndVal;
-    
+    int32 vbatCount;
     float vbatVal;
     
     float gainReal;             // Calculated gain of the amplifier
-    float gainReal2;
+    
     char string[60];            // For printing over UART
     
     int32 userInput;            // Reading UART input
@@ -188,6 +192,13 @@ int main(void)
     int32 res1 = 828000;        //The first resistor in the battery voltage divider circuit
     int32 res2 = 10000;         //Seconds resistor in ^this^ divider
     
+    uint8 batteryArray[32];
+    uint8 resistorArray[32];
+    uint32 rxData;
+    
+    uint8 r_therm_toRead = (NUM_R_THERMISTORS*2) + 1;
+    uint8 b_therm_toRead = (NUM_BAT_THERMISTORS*2) + 1;
+    
     CyGlobalIntEnable;
         
     //Initialization
@@ -195,14 +206,6 @@ int main(void)
     CellTestStart();
     
     //UART INFO PRINTING
-    sprintf(string, "\r\n\r\nAt any point in the test to increment the Test Voltage: Enter 'S' \r\n"); 
-    UART_1_UartPutString(string);
-    sprintf(string, "The Test Voltage will increment by in 5 mV in the data logger \r\n");
-    UART_1_UartPutString(string);
-    sprintf(string, "\r\nEnter G to start Test: \r\n"); 
-    UART_1_UartPutString(string);
-    sprintf(string,"\r\n Voltage(Ideal) (mV), Voltage(Measured) (mV), VirtualGND (mV), VRef (mV), Calculated Gain \r\n");
-    UART_1_UartPutString(string);
         
     isr_1_StartEx(MyCustomISR);
     
@@ -262,21 +265,9 @@ int main(void)
                 AMux_1_Select(0);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-                vbatHighCount = ADC_1_GetResult32(0);               // vref in unitless counts   
-                vbatHighCount = FilterSignal(vbatHighCount, 4);         // Channel 3 because ...
-                vbatHighVal = ADC_1_CountsTo_mVolts(0, vbatHighCount);  // vref in mV                
-                                
-//                //================================
-//                // Battery Voltage Divider (-) (vbatLow)
-//                //================================
-//                
-//                AMux_1_Select(1);
-//                ADC_1_StartConvert();                           // Start the Read the ADC
-//                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-//                vbatLowCount = ADC_1_GetResult32(0);               // vref in unitless counts   
-//                vbatLowCount = FilterSignal(vbatLowCount, 7);         // Channel 3 because ...
-//                vbatLowVal = ADC_1_CountsTo_mVolts(0, vbatLowCount);
-                
+                vbatCount = ADC_1_GetResult32(0);               // vref in unitless counts   
+                vbatCount = FilterSignal(vbatCount, 4);         // Channel 3 because ...
+                vbatVal = ADC_1_CountsTo_mVolts(0, vbatCount);  // vref in mV                
                 
                 // After rapid samples - to ensure similar adc/amp conditions
                 // Calculations are made
@@ -286,12 +277,9 @@ int main(void)
                 vtestVal = vtestVal/gainReal;                       // Find the test point value
                
                 vtestVal = vtestVal - vrgndVal;                     // Take the difference to negate op-amp offset
-                gainReal2 = (vbatCalVal - vbatGndVal)/V_REF_RELATIVE;
+                                                                     // The actual first divider battery voltage
+                vbatVal = vbatVal/gainReal;                   // The actual second divider battery voltage 
                 
-                vbatHighVal = vbatHighVal/gainReal;                 // The actual first divider battery voltage
-                vbatLowVal = vbatLowVal/gainReal;                   // The actual second divider battery voltage 
-                
-                vbatVal = (vbatHighVal - vbatLowVal);               //vbatval after voltage divider, 0 to 40 mV
                 vbatVal = vbatVal * ((res1 + res2) / res1);         //The input voltage in VOLTS
 
                 } //end of scan from startflag
@@ -302,49 +290,50 @@ int main(void)
                     stopFlag = 1;
                     stopCode = 4; 
                     Timer_1_Stop();
-                    vtestIdeal = vtestIdeal + 5;
-                }                         
+                }       
                 
-                //CyDelayUs(250);
+                if (Timer_1_ReadCounter()> 4){
+                    I2C_1_I2CMasterReadBuf(0x08, batteryArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
+                    for(uint i = 2; i < b_therm_toRead; i=i+2){
+                        sprintf(string, "%d.%d, ", batteryArray[i], batteryArray[i+1]);
+                        UART_1_UartPutString(string);    
+                    }
                 
-                // Print the values
-                if (Timer_1_ReadCounter() > 1){ 
-                    sprintf(string, "%ld, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f \r\n", vtestIdeal, vtestVal, vrgndVal, vrefVal, gainReal, vbatVal, gainReal2, vbatHighVal, vbatLowVal); 
-                    UART_1_UartPutString(string);
-                    Timer_1_WriteCounter(0);
+                    I2C_1_I2CMasterReadBuf(0x09, resistorArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
+                    for(uint i = 2; i < r_therm_toRead; i=i+2){
+                        sprintf(string, "%d.%d, ", resistorArray[i], resistorArray[i+1]);
+                        UART_1_UartPutString(string);    
+                    }
+                
                 }
-                
-                
                 //==========================
                 // Shutdown Features 
                 //==========================
                 
-                /*
+                
                 // Over Heating Protection
                 for(uint i = 2; i < 12; i=i+2){
                     if (batteryArray[i] > BATTERY_HIGH_TEMP){
                         stopFlag = 1; 
                         stopCode = 2; 
-                        sprintf(string1, "\r\n ERROR - High Temperature on Battery: %d.%d, on Thermistor %d \r\n", batteryArray[i], batteryArray[i+1], i);
-                        UART_1_UartPutString(string1); 
+                        sprintf(string, "\r\n ERROR - High Temperature on Battery: %d.%d, on Thermistor %d \r\n", batteryArray[i], batteryArray[i+1], i);
+                        UART_1_UartPutString(string); 
                     }
                     if (resistorArray[i] > RESISTOR_HIGH_TEMP){ 
                         stopFlag = 1; 
                         stopCode = 3; 
-                        sprintf(string1, "\r\n ERROR - High Temperature on Resistor: %d.%d, on Thermistor %d \r\n", resistorArray[i], resistorArray[i+1], i);
-                        UART_1_UartPutString(string1);   
+                        sprintf(string, "\r\n ERROR - High Temperature on Resistor: %d.%d, on Thermistor %d \r\n", resistorArray[i], resistorArray[i+1], i);
+                        UART_1_UartPutString(string);   
                     }
                 }
                 
                 // Battery Voltage Detection
-                 if(vmBatmV < 2.5) {
+                 if(vbatVal < 2.5) {
                     stopFlag = 1; 
                     stopCode = 1;
-                    sprintf(string1, "\r\n ERROR - Cell Discharged: %f \r\n", vmBatmV); 
-                    UART_1_UartPutString(string1); 
+                    sprintf(string, "\r\n ERROR - Cell Discharged: %f \r\n", vbatVal); 
+                    UART_1_UartPutString(string); 
                 }                
-                */
-                
             }
         }
     }
