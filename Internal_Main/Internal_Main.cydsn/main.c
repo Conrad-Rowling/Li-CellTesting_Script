@@ -1,5 +1,5 @@
 /* ========================================
- * Version: 2.3
+ * Version: 2.5
  * Last Modified: 5.12.2021 
  * Formula Racing @ UC Davis, Electrical Senior Design, & the Electricool gang, 2021
  * ========================================
@@ -21,12 +21,12 @@
 #define NUM_R_THERMISTORS 5 // excluding the thermistor at Position 1
 #define NUM_BAT_THERMISTORS 6 // excluding the thermistor at Position 1
 
-#define SHUNT_CONDUCTANCE 1.0 // (1.2 for High Current, .133 for Low Current)
+#define SHUNT_CONDUCTANCE .133 // (1.2 for High Current, .133 for Low Current)
 
 #define LOW_CURRENT 1
 #define HIGH_CURRENT 20
 
-#define V_REF_RELATIVE 35
+#define V_REF_RELATIVE 39.7
 
 // =============================
 // Function Definitions
@@ -69,6 +69,8 @@ void Print_Headers(uint length_a, uint length_b)
 *
 *******************************************************************************/
 void CellTestStart(){
+    
+    I2C_1_Start();
     AMux_1_Start();
     Opamp_1_Start();
     PGA_1_Start(); 
@@ -90,7 +92,7 @@ void CellTestStart(){
 *
 *******************************************************************************/
 void HaltTest(int stopCode){
-    char string[30];
+    char string[50];
     Timer_1_Stop();
     switch (stopCode) { 
     case 1: 
@@ -180,6 +182,7 @@ int main(void)
     
     int32 vbatCount;
     float vbatVal;
+    float shuntAmps; 
     
     float gainReal;             // Calculated gain of the amplifier
     
@@ -192,8 +195,8 @@ int main(void)
     int32 res1 = 828000;        //The first resistor in the battery voltage divider circuit
     int32 res2 = 10000;         //Seconds resistor in ^this^ divider
     
-    uint8 batteryArray[32];
-    uint8 resistorArray[32];
+    uint8 batteryArray[32] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    uint8 resistorArray[32] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,};
     uint32 rxData;
     
     uint8 r_therm_toRead = (NUM_R_THERMISTORS*2) + 1;
@@ -273,12 +276,17 @@ int main(void)
                 // Calculations are made
                 
                 gainReal = (vrefVal - vrgndVal)/V_REF_RELATIVE;     // The actual op-amp gain
+                
                 vrgndVal = vrgndVal/gainReal;                       // Find the virtual ground value
+                vrefVal = vrefVal / gainReal; 
                 vtestVal = vtestVal/gainReal;                       // Find the test point value
                
                 vtestVal = vtestVal - vrgndVal;                     // Take the difference to negate op-amp offset
-                                                                     // The actual first divider battery voltage
-                vbatVal = vbatVal/gainReal;                   // The actual second divider battery voltage 
+                shuntAmps = vtestVal*SHUNT_CONDUCTANCE;
+                
+                
+                
+                vbatVal = vbatVal/gainReal;                         // The actual second divider battery voltage 
                 
                 vbatVal = vbatVal * ((res1 + res2) / res1);         //The input voltage in VOLTS
 
@@ -292,19 +300,52 @@ int main(void)
                     Timer_1_Stop();
                 }       
                 
-                if (Timer_1_ReadCounter()> 4){
+                if (Timer_1_ReadCounter() > 1){
+                    Timer_1_WriteCounter(0);
+                    
                     I2C_1_I2CMasterReadBuf(0x08, batteryArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
                     for(uint i = 2; i < b_therm_toRead; i=i+2){
-                        sprintf(string, "%d.%d, ", batteryArray[i], batteryArray[i+1]);
-                        UART_1_UartPutString(string);    
+                        //sprintf(string, "%d.%d, ", batteryArray[i], batteryArray[i+1]);
+                        //UART_1_UartPutString(string);    
                     }
-                
+                    CyDelay(10); 
                     I2C_1_I2CMasterReadBuf(0x09, resistorArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
                     for(uint i = 2; i < r_therm_toRead; i=i+2){
-                        sprintf(string, "%d.%d, ", resistorArray[i], resistorArray[i+1]);
-                        UART_1_UartPutString(string);    
+                        //sprintf(string, "%d.%d, ", resistorArray[i], resistorArray[i+1]);
+                        //UART_1_UartPutString(string);    
+                    }
+                        
+                    // Reset the Timer
+                    
+                    
+                    sprintf(string, "Shunt mV: %f, Gain: %f, CalIn w g: %f, ShuntGND w g: %f, Batt mV: %f \n\r", vtestVal, gainReal, vrefVal*gainReal, vrgndVal*gainReal, vbatVal);
+                    UART_1_UartPutString(string);      
+                    
+                    /*
+                    for(uint i = 2; i < 12; i=i+2){
+                        if (batteryArray[i] > BATTERY_HIGH_TEMP){
+                            stopFlag = 1; 
+                            stopCode = 2; 
+                            sprintf(string, "\r\n ERROR - High Temperature on Battery: %d.%d, on Thermistor %d \r\n", batteryArray[i], batteryArray[i+1], i);
+                            UART_1_UartPutString(string); 
+                        }
+                        if (resistorArray[i] > RESISTOR_HIGH_TEMP){ 
+                            stopFlag = 1; 
+                            stopCode = 3; 
+                            sprintf(string, "\r\n ERROR - High Temperature on Resistor: %d.%d, on Thermistor %d \r\n", resistorArray[i], resistorArray[i+1], i);
+                            UART_1_UartPutString(string);   
+                        }
                     }
                 
+                    // Battery Voltage Detection
+                    if(vbatVal < 2.5) {
+                        stopFlag = 1; 
+                        stopCode = 1;
+                        sprintf(string, "\r\n ERROR - Cell Discharged: %f \r\n", vbatVal); 
+                        UART_1_UartPutString(string); 
+                    }
+                    */
+                    
                 }
                 //==========================
                 // Shutdown Features 
@@ -312,28 +353,7 @@ int main(void)
                 
                 
                 // Over Heating Protection
-                for(uint i = 2; i < 12; i=i+2){
-                    if (batteryArray[i] > BATTERY_HIGH_TEMP){
-                        stopFlag = 1; 
-                        stopCode = 2; 
-                        sprintf(string, "\r\n ERROR - High Temperature on Battery: %d.%d, on Thermistor %d \r\n", batteryArray[i], batteryArray[i+1], i);
-                        UART_1_UartPutString(string); 
-                    }
-                    if (resistorArray[i] > RESISTOR_HIGH_TEMP){ 
-                        stopFlag = 1; 
-                        stopCode = 3; 
-                        sprintf(string, "\r\n ERROR - High Temperature on Resistor: %d.%d, on Thermistor %d \r\n", resistorArray[i], resistorArray[i+1], i);
-                        UART_1_UartPutString(string);   
-                    }
-                }
-                
-                // Battery Voltage Detection
-                 if(vbatVal < 2.5) {
-                    stopFlag = 1; 
-                    stopCode = 1;
-                    sprintf(string, "\r\n ERROR - Cell Discharged: %f \r\n", vbatVal); 
-                    UART_1_UartPutString(string); 
-                }                
+                                
             }
         }
     }

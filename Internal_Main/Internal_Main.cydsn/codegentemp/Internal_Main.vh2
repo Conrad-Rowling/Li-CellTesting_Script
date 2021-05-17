@@ -2,7 +2,7 @@
 --	Conversion of Internal_Main.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri May 14 10:58:36 2021
+--	Sun May 16 23:32:10 2021
 --
 
 USE cypress.cypress.all;
@@ -279,6 +279,7 @@ TERMINAL \ADC_1:Net_345\ : bit;
 TERMINAL \ADC_1:vinNeg_1\ : bit;
 TERMINAL \ADC_1:Net_331\ : bit;
 TERMINAL \ADC_1:vinNeg_0\ : bit;
+TERMINAL \ADC_1:Net_1405\ : bit;
 TERMINAL \ADC_1:Net_365_0\ : bit;
 TERMINAL \ADC_1:muxoutPlus\ : bit;
 TERMINAL \ADC_1:sarmuxVinPlus_0\ : bit;
@@ -493,7 +494,6 @@ TERMINAL \ADC_1:Net_1388\ : bit;
 TERMINAL \ADC_1:Net_1406\ : bit;
 TERMINAL \ADC_1:Net_1402\ : bit;
 TERMINAL \ADC_1:Net_1399\ : bit;
-TERMINAL \ADC_1:Net_1405\ : bit;
 TERMINAL \ADC_1:Net_1448\ : bit;
 TERMINAL \ADC_1:Net_1523_0\ : bit;
 TERMINAL Net_1365_0 : bit;
@@ -1630,7 +1630,7 @@ one <=  ('1') ;
 	GENERIC MAP(sig_width=>1,
 		is_net_join=>'0')
 	PORT MAP(signal1=>\ADC_1:vinNeg_0\,
-		signal2=>\ADC_1:Net_331\);
+		signal2=>\ADC_1:Net_1405\);
 \ADC_1:vinNegConnect:bus_connect\:cy_connect_v1_0
 	GENERIC MAP(sig_width=>1,
 		is_net_join=>'0')
