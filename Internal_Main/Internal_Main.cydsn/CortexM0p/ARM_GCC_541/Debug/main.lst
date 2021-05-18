@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 1
 
 
    1              		.syntax unified
@@ -58,147 +58,149 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
   28:main.c        **** 
   29:main.c        **** #define V_REF_RELATIVE 39.7
   30:main.c        **** 
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 2
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 2
 
 
-  31:main.c        **** // =============================
-  32:main.c        **** // Function Definitions
-  33:main.c        **** // =============================
+  31:main.c        **** 
+  32:main.c        **** int startFlag;
+  33:main.c        **** int printFlag;
   34:main.c        **** 
   35:main.c        **** 
-  36:main.c        **** /*******************************************************************************
-  37:main.c        **** * Function Name: Print_Headers
-  38:main.c        **** ****************************************************************************//**
-  39:main.c        **** *
-  40:main.c        **** * Formats the headers for exporting the UART terminal to a comma delimited Excel file
-  41:main.c        **** *
-  42:main.c        **** *******************************************************************************/
-  43:main.c        **** void Print_Headers(uint length_a, uint length_b)
-  44:main.c        **** {
-  45:main.c        ****     char hstr[60]; 
-  46:main.c        ****     sprintf(hstr,"\r\n");
-  47:main.c        ****     UART_1_UartPutString(hstr);
-  48:main.c        ****     sprintf(hstr,"Time(s), SOC(percent), Bat(V), Shunt(A), ");  //"Time, % SOC, Shunt(A), Bat(V), "
-  49:main.c        ****     UART_1_UartPutString(hstr);
-  50:main.c        ****     
-  51:main.c        ****     for (uint i = 0; i < length_a; i++){
-  52:main.c        ****         sprintf(hstr,"Battery Temp %d, ", i);
-  53:main.c        ****         UART_1_UartPutString(hstr);
-  54:main.c        ****         CyDelay(10);
-  55:main.c        ****         }
-  56:main.c        ****         for (uint i = 0; i < length_b; i++){
-  57:main.c        ****         sprintf(hstr,"Resistor Temp %d, ", i);
+  36:main.c        **** // =============================
+  37:main.c        **** // Function Definitions
+  38:main.c        **** // =============================
+  39:main.c        **** 
+  40:main.c        **** 
+  41:main.c        **** /*******************************************************************************
+  42:main.c        **** * Function Name: Print_Headers
+  43:main.c        **** ****************************************************************************//**
+  44:main.c        **** *
+  45:main.c        **** * Formats the headers for exporting the UART terminal to a comma delimited Excel file
+  46:main.c        **** *
+  47:main.c        **** *******************************************************************************/
+  48:main.c        **** void Print_Headers(uint length_a, uint length_b)
+  49:main.c        **** {
+  50:main.c        ****     char hstr[60]; 
+  51:main.c        ****     sprintf(hstr,"\r\n");
+  52:main.c        ****     UART_1_UartPutString(hstr);
+  53:main.c        ****     sprintf(hstr,"Time(s), SOC(percent), Bat(V), Shunt(A), ");  //"Time, % SOC, Shunt(A), Bat(V), "
+  54:main.c        ****     UART_1_UartPutString(hstr);
+  55:main.c        ****     
+  56:main.c        ****     for (uint i = 0; i < length_a; i++){
+  57:main.c        ****         sprintf(hstr,"Battery Temp %d, ", i);
   58:main.c        ****         UART_1_UartPutString(hstr);
   59:main.c        ****         CyDelay(10);
-  60:main.c        ****         }   
-  61:main.c        ****     sprintf(hstr,"\r\n");
-  62:main.c        ****     UART_1_UartPutString(hstr);
-  63:main.c        **** }
-  64:main.c        **** /*******************************************************************************
-  65:main.c        **** * Function Name: CellTestStart()
-  66:main.c        **** ****************************************************************************//**
-  67:main.c        **** * 
-  68:main.c        **** * Initialize all of the units and functionality
-  69:main.c        **** *
-  70:main.c        **** *******************************************************************************/
-  71:main.c        **** void CellTestStart(){
-  72:main.c        ****     
-  73:main.c        ****     I2C_1_Start();
-  74:main.c        ****     AMux_1_Start();
-  75:main.c        ****     Opamp_1_Start();
-  76:main.c        ****     PGA_1_Start(); 
-  77:main.c        ****     ADC_1_Start();
-  78:main.c        ****     UART_1_Start();
-  79:main.c        ****     PVref_1_Start();
-  80:main.c        ****     PVref_1_Enable();
-  81:main.c        ****     BLUE_LED_Write(0);
-  82:main.c        ****     TCPWM_1_Start();
-  83:main.c        ****     Print_Headers(NUM_BAT_THERMISTORS,NUM_R_THERMISTORS);
-  84:main.c        **** }
-  85:main.c        **** 
-  86:main.c        **** 
-  87:main.c        **** /*******************************************************************************
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 3
+  60:main.c        ****         }
+  61:main.c        ****         for (uint i = 0; i < length_b; i++){
+  62:main.c        ****         sprintf(hstr,"Resistor Temp %d, ", i);
+  63:main.c        ****         UART_1_UartPutString(hstr);
+  64:main.c        ****         CyDelay(10);
+  65:main.c        ****         }   
+  66:main.c        ****     sprintf(hstr,"\r\n");
+  67:main.c        ****     UART_1_UartPutString(hstr);
+  68:main.c        **** }
+  69:main.c        **** /*******************************************************************************
+  70:main.c        **** * Function Name: CellTestStart()
+  71:main.c        **** ****************************************************************************//**
+  72:main.c        **** * 
+  73:main.c        **** * Initialize all of the units and functionality
+  74:main.c        **** *
+  75:main.c        **** *******************************************************************************/
+  76:main.c        **** void CellTestStart(){
+  77:main.c        ****     
+  78:main.c        ****     I2C_1_Start();
+  79:main.c        ****     AMux_1_Start();
+  80:main.c        ****     Opamp_1_Start();
+  81:main.c        ****     PGA_1_Start(); 
+  82:main.c        ****     ADC_1_Start();
+  83:main.c        ****     UART_1_Start();
+  84:main.c        ****     PVref_1_Start();
+  85:main.c        ****     PVref_1_Enable();
+  86:main.c        ****     BLUE_LED_Write(0);
+  87:main.c        ****     TCPWM_1_Start();
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 3
 
 
-  88:main.c        **** * Function Name: CellTestStop()
-  89:main.c        **** ****************************************************************************//**
-  90:main.c        **** * 
-  91:main.c        **** * Turns off stuff (placeholder when more equipment is used)
-  92:main.c        **** *
-  93:main.c        **** *******************************************************************************/
-  94:main.c        **** void HaltTest(int stopCode){
-  95:main.c        ****     char string[50];
-  96:main.c        ****     Timer_1_Stop();
-  97:main.c        ****     switch (stopCode) { 
-  98:main.c        ****     case 1: 
-  99:main.c        ****         sprintf(string, "!!! Test halted because of Cell is completely discharged !!!\n\r"); 
- 100:main.c        ****         break; 
- 101:main.c        ****     case 2: 
- 102:main.c        ****         sprintf(string, "!!! Test halted because of cell Overheating !!!\n\r"); 
- 103:main.c        ****         break; 
- 104:main.c        ****         
- 105:main.c        ****     case 3: 
- 106:main.c        ****         sprintf(string, "!!! Test halted beacuase of power resistor overheating !!!\n\r"); 
- 107:main.c        ****         break; 
- 108:main.c        ****         
- 109:main.c        ****     case 4: 
- 110:main.c        ****         sprintf(string, "!!! Test Halted by user !!!\n\r"); 
- 111:main.c        ****         break;
- 112:main.c        ****     default: 
- 113:main.c        ****         sprintf(string, "!!! Test Halted for Unknown Reason !!!\n\r"); 
- 114:main.c        ****     }
- 115:main.c        ****     
- 116:main.c        ****     UART_1_UartPutString(string);
- 117:main.c        **** }
- 118:main.c        **** 
- 119:main.c        **** 
- 120:main.c        **** /*******************************************************************************
- 121:main.c        **** * Function Name: FilterSignal()
- 122:main.c        **** ****************************************************************************//**
- 123:main.c        **** * 
- 124:main.c        **** * Moving window average (more or less) - takes input value, compares it to the last value on the gi
- 125:main.c        **** * If its much bigger, it takes the new value in. If not, it rounds the difference out.
- 126:main.c        **** *
- 127:main.c        **** *******************************************************************************/
- 128:main.c        **** int32 FilterSignal(int32 ADCSample, uint8 channel){
- 129:main.c        ****     
- 130:main.c        ****     // MOVING AVERAGE
- 131:main.c        **** 	static int32 filteredValue[5] = {0,0};
- 132:main.c        **** 	
- 133:main.c        **** 	/* Filtered value rounded-off to 20-bits */
- 134:main.c        **** 	int32 filValueRounded;
- 135:main.c        **** 	
- 136:main.c        **** 	/* Left shift input by MAX_FILTER_COEFF_SHIFT to allow divisions up to MAX_FILTER_COEFF_SHIFT */
- 137:main.c        **** 	ADCSample <<= 8;
- 138:main.c        **** 	   
- 139:main.c        **** 	/* Pass the filter input as it is for fast changes in input  - if the least significant bits chang
- 140:main.c        ****     if((ADCSample > (filteredValue[channel] + (100*256))) || (ADCSample < (filteredValue[channel] -
- 141:main.c        ****         filteredValue[channel] = ADCSample;     
- 142:main.c        ****     }
- 143:main.c        ****     
- 144:main.c        ****     /* If not the first sample then based on filter coefficient, filter the input signal */
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 4
+  88:main.c        ****     Print_Headers(NUM_BAT_THERMISTORS,NUM_R_THERMISTORS);
+  89:main.c        **** }
+  90:main.c        **** 
+  91:main.c        **** 
+  92:main.c        **** /*******************************************************************************
+  93:main.c        **** * Function Name: CellTestStop()
+  94:main.c        **** ****************************************************************************//**
+  95:main.c        **** * 
+  96:main.c        **** * Turns off stuff (placeholder when more equipment is used)
+  97:main.c        **** *
+  98:main.c        **** *******************************************************************************/
+  99:main.c        **** void HaltTest(int stopCode){
+ 100:main.c        ****     char string[50];
+ 101:main.c        ****     Timer_1_Stop();
+ 102:main.c        ****     switch (stopCode) { 
+ 103:main.c        ****     case 1: 
+ 104:main.c        ****         sprintf(string, "!!! Test halted because of Cell is completely discharged !!!\n\r"); 
+ 105:main.c        ****         break; 
+ 106:main.c        ****     case 2: 
+ 107:main.c        ****         sprintf(string, "!!! Test halted because of cell Overheating !!!\n\r"); 
+ 108:main.c        ****         break; 
+ 109:main.c        ****         
+ 110:main.c        ****     case 3: 
+ 111:main.c        ****         sprintf(string, "!!! Test halted beacuase of power resistor overheating !!!\n\r"); 
+ 112:main.c        ****         break; 
+ 113:main.c        ****         
+ 114:main.c        ****     case 4: 
+ 115:main.c        ****         sprintf(string, "!!! Test Halted by user !!!\n\r"); 
+ 116:main.c        ****         break;
+ 117:main.c        ****     default: 
+ 118:main.c        ****         sprintf(string, "!!! Test Halted for Unknown Reason !!!\n\r"); 
+ 119:main.c        ****     }
+ 120:main.c        ****     
+ 121:main.c        ****     UART_1_UartPutString(string);
+ 122:main.c        **** }
+ 123:main.c        **** 
+ 124:main.c        **** 
+ 125:main.c        **** /*******************************************************************************
+ 126:main.c        **** * Function Name: FilterSignal()
+ 127:main.c        **** ****************************************************************************//**
+ 128:main.c        **** * 
+ 129:main.c        **** * Moving window average (more or less) - takes input value, compares it to the last value on the gi
+ 130:main.c        **** * If its much bigger, it takes the new value in. If not, it rounds the difference out.
+ 131:main.c        **** *
+ 132:main.c        **** *******************************************************************************/
+ 133:main.c        **** int32 FilterSignal(int32 ADCSample, uint8 channel){
+ 134:main.c        ****     
+ 135:main.c        ****     // MOVING AVERAGE
+ 136:main.c        **** 	static int32 filteredValue[5] = {0,0};
+ 137:main.c        **** 	
+ 138:main.c        **** 	/* Filtered value rounded-off to 20-bits */
+ 139:main.c        **** 	int32 filValueRounded;
+ 140:main.c        **** 	
+ 141:main.c        **** 	/* Left shift input by MAX_FILTER_COEFF_SHIFT to allow divisions up to MAX_FILTER_COEFF_SHIFT */
+ 142:main.c        **** 	ADCSample <<= 8;
+ 143:main.c        **** 	   
+ 144:main.c        **** 	/* Pass the filter input as it is for fast changes in input  - if the least significant bits chang
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 4
 
 
- 145:main.c        ****     else{
- 146:main.c        ****         /* IIR filter */
- 147:main.c        **** 		filteredValue[channel] = filteredValue[channel] + ((ADCSample - filteredValue[channel]) >> 4);		 
- 148:main.c        **** 	}
- 149:main.c        ****     
- 150:main.c        **** 	/* Compensate filter result for  left shift of 8 and round off */
- 151:main.c        **** 	filValueRounded = (filteredValue[channel] >> 8) + ((filteredValue[channel] & 0x00000080) >> 7);
- 152:main.c        ****     return filValueRounded;
- 153:main.c        **** }
- 154:main.c        **** 
- 155:main.c        **** 
- 156:main.c        **** int startFlag;
- 157:main.c        **** int printFlag;
- 158:main.c        **** 
- 159:main.c        **** CY_ISR_PROTO(MyCustomISR);
- 160:main.c        **** CY_ISR(MyCustomISR)
- 161:main.c        **** {
-  28              		.loc 1 161 0
+ 145:main.c        ****     if((ADCSample > (filteredValue[channel] + (100*256))) || (ADCSample < (filteredValue[channel] -
+ 146:main.c        ****         filteredValue[channel] = ADCSample;     
+ 147:main.c        ****     }
+ 148:main.c        ****     
+ 149:main.c        ****     /* If not the first sample then based on filter coefficient, filter the input signal */
+ 150:main.c        ****     else{
+ 151:main.c        ****         /* IIR filter */
+ 152:main.c        **** 		filteredValue[channel] = filteredValue[channel] + ((ADCSample - filteredValue[channel]) >> 4);		 
+ 153:main.c        **** 	}
+ 154:main.c        ****     
+ 155:main.c        **** 	/* Compensate filter result for  left shift of 8 and round off */
+ 156:main.c        **** 	filValueRounded = (filteredValue[channel] >> 8) + ((filteredValue[channel] & 0x00000080) >> 7);
+ 157:main.c        ****     return filValueRounded;
+ 158:main.c        **** }
+ 159:main.c        **** 
+ 160:main.c        **** 
+ 161:main.c        **** CY_ISR_PROTO(MyCustomISR);
+ 162:main.c        **** CY_ISR(MyCustomISR)
+ 163:main.c        **** {
+  28              		.loc 1 163 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -206,18 +208,18 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
   33              		.cfi_def_cfa_offset 8
   34              		.cfi_offset 4, -8
   35              		.cfi_offset 14, -4
- 162:main.c        ****     TCPWM_1_ClearInterrupt(TCPWM_1_INTR_MASK_TC);
-  36              		.loc 1 162 0
+ 164:main.c        ****     TCPWM_1_ClearInterrupt(TCPWM_1_INTR_MASK_TC);
+  36              		.loc 1 164 0
   37 0002 0120     		movs	r0, #1
   38 0004 FFF7FEFF 		bl	TCPWM_1_ClearInterrupt
   39              	.LVL0:
- 163:main.c        ****     startFlag = 1;
-  40              		.loc 1 163 0
+ 165:main.c        ****     startFlag = 1;
+  40              		.loc 1 165 0
   41 0008 0122     		movs	r2, #1
   42 000a 014B     		ldr	r3, .L2
   43 000c 1A60     		str	r2, [r3]
- 164:main.c        **** }
-  44              		.loc 1 164 0
+ 166:main.c        **** }
+  44              		.loc 1 166 0
   45              		@ sp needed
   46 000e 10BD     		pop	{r4, pc}
   47              	.L3:
@@ -235,13 +237,13 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
   59              		.type	print_UART, %function
   60              	print_UART:
   61              	.LFB39:
- 165:main.c        **** 
- 166:main.c        **** CY_ISR_PROTO(print_UART);
- 167:main.c        **** CY_ISR(print_UART){
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 5
+ 167:main.c        **** 
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 5
 
 
-  62              		.loc 1 167 0
+ 168:main.c        **** CY_ISR_PROTO(print_UART);
+ 169:main.c        **** CY_ISR(print_UART){
+  62              		.loc 1 169 0
   63              		.cfi_startproc
   64              		@ args = 0, pretend = 0, frame = 0
   65              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -249,18 +251,18 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
   67              		.cfi_def_cfa_offset 8
   68              		.cfi_offset 4, -8
   69              		.cfi_offset 14, -4
- 168:main.c        ****     Timer_1_ClearInterrupt(Timer_1_INTR_MASK_TC);
-  70              		.loc 1 168 0
+ 170:main.c        ****     Timer_1_ClearInterrupt(Timer_1_INTR_MASK_TC);
+  70              		.loc 1 170 0
   71 0002 0120     		movs	r0, #1
   72 0004 FFF7FEFF 		bl	Timer_1_ClearInterrupt
   73              	.LVL1:
- 169:main.c        ****     printFlag = 1;
-  74              		.loc 1 169 0
+ 171:main.c        ****     printFlag = 1;
+  74              		.loc 1 171 0
   75 0008 0122     		movs	r2, #1
   76 000a 014B     		ldr	r3, .L5
   77 000c 1A60     		str	r2, [r3]
- 170:main.c        **** }
-  78              		.loc 1 170 0
+ 172:main.c        **** }
+  78              		.loc 1 172 0
   79              		@ sp needed
   80 000e 10BD     		pop	{r4, pc}
   81              	.L6:
@@ -278,8 +280,8 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
   93              		.type	Print_Headers, %function
   94              	Print_Headers:
   95              	.LFB34:
-  44:main.c        ****     char hstr[60]; 
-  96              		.loc 1 44 0
+  49:main.c        ****     char hstr[60]; 
+  96              		.loc 1 49 0
   97              		.cfi_startproc
   98              		@ args = 0, pretend = 0, frame = 64
   99              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -295,25 +297,25 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  109              		.cfi_def_cfa_offset 88
  110 0004 0600     		movs	r6, r0
  111 0006 0D00     		movs	r5, r1
-  46:main.c        ****     UART_1_UartPutString(hstr);
- 112              		.loc 1 46 0
+  51:main.c        ****     UART_1_UartPutString(hstr);
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 6
+
+
+ 112              		.loc 1 51 0
  113 0008 01AC     		add	r4, sp, #4
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 6
-
-
  114 000a 214B     		ldr	r3, .L12
  115 000c 1A88     		ldrh	r2, [r3]
  116 000e 2280     		strh	r2, [r4]
  117 0010 9B78     		ldrb	r3, [r3, #2]
  118 0012 A370     		strb	r3, [r4, #2]
-  47:main.c        ****     sprintf(hstr,"Time(s), SOC(percent), Bat(V), Shunt(A), ");  //"Time, % SOC, Shunt(A), Bat(V), "
- 119              		.loc 1 47 0
+  52:main.c        ****     sprintf(hstr,"Time(s), SOC(percent), Bat(V), Shunt(A), ");  //"Time, % SOC, Shunt(A), Bat(V), "
+ 119              		.loc 1 52 0
  120 0014 2000     		movs	r0, r4
  121              	.LVL3:
  122 0016 FFF7FEFF 		bl	UART_1_UartPutString
  123              	.LVL4:
-  48:main.c        ****     UART_1_UartPutString(hstr);
- 124              		.loc 1 48 0
+  53:main.c        ****     UART_1_UartPutString(hstr);
+ 124              		.loc 1 53 0
  125 001a 1E49     		ldr	r1, .L12+4
  126 001c 2300     		movs	r3, r4
  127 001e 0A00     		movs	r2, r1
@@ -327,45 +329,45 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  135 002e 1960     		str	r1, [r3]
  136 0030 9288     		ldrh	r2, [r2, #4]
  137 0032 9A80     		strh	r2, [r3, #4]
-  49:main.c        ****     
- 138              		.loc 1 49 0
+  54:main.c        ****     
+ 138              		.loc 1 54 0
  139 0034 2000     		movs	r0, r4
  140 0036 FFF7FEFF 		bl	UART_1_UartPutString
  141              	.LVL5:
  142              	.LBB2:
-  51:main.c        ****         sprintf(hstr,"Battery Temp %d, ", i);
- 143              		.loc 1 51 0
+  56:main.c        ****         sprintf(hstr,"Battery Temp %d, ", i);
+ 143              		.loc 1 56 0
  144 003a 0024     		movs	r4, #0
  145 003c 0BE0     		b	.L8
  146              	.LVL6:
  147              	.L9:
-  52:main.c        ****         UART_1_UartPutString(hstr);
- 148              		.loc 1 52 0 discriminator 3
+  57:main.c        ****         UART_1_UartPutString(hstr);
+ 148              		.loc 1 57 0 discriminator 3
  149 003e 2200     		movs	r2, r4
  150 0040 1549     		ldr	r1, .L12+8
  151 0042 01A8     		add	r0, sp, #4
  152 0044 FFF7FEFF 		bl	sprintf
  153              	.LVL7:
-  53:main.c        ****         CyDelay(10);
- 154              		.loc 1 53 0 discriminator 3
+  58:main.c        ****         CyDelay(10);
+ 154              		.loc 1 58 0 discriminator 3
  155 0048 01A8     		add	r0, sp, #4
  156 004a FFF7FEFF 		bl	UART_1_UartPutString
  157              	.LVL8:
-  54:main.c        ****         }
- 158              		.loc 1 54 0 discriminator 3
+  59:main.c        ****         }
+ 158              		.loc 1 59 0 discriminator 3
  159 004e 0A20     		movs	r0, #10
  160 0050 FFF7FEFF 		bl	CyDelay
  161              	.LVL9:
-  51:main.c        ****         sprintf(hstr,"Battery Temp %d, ", i);
- 162              		.loc 1 51 0 discriminator 3
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 7
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 7
 
 
+  56:main.c        ****         sprintf(hstr,"Battery Temp %d, ", i);
+ 162              		.loc 1 56 0 discriminator 3
  163 0054 0134     		adds	r4, r4, #1
  164              	.LVL10:
  165              	.L8:
-  51:main.c        ****         sprintf(hstr,"Battery Temp %d, ", i);
- 166              		.loc 1 51 0 is_stmt 0 discriminator 1
+  56:main.c        ****         sprintf(hstr,"Battery Temp %d, ", i);
+ 166              		.loc 1 56 0 is_stmt 0 discriminator 1
  167 0056 B442     		cmp	r4, r6
  168 0058 F1D3     		bcc	.L9
  169 005a 0024     		movs	r4, #0
@@ -375,52 +377,52 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  173              	.L11:
  174              	.LBE2:
  175              	.LBB3:
-  57:main.c        ****         UART_1_UartPutString(hstr);
- 176              		.loc 1 57 0 is_stmt 1 discriminator 3
+  62:main.c        ****         UART_1_UartPutString(hstr);
+ 176              		.loc 1 62 0 is_stmt 1 discriminator 3
  177 005e 2200     		movs	r2, r4
  178 0060 0E49     		ldr	r1, .L12+12
  179 0062 01A8     		add	r0, sp, #4
  180 0064 FFF7FEFF 		bl	sprintf
  181              	.LVL13:
-  58:main.c        ****         CyDelay(10);
- 182              		.loc 1 58 0 discriminator 3
+  63:main.c        ****         CyDelay(10);
+ 182              		.loc 1 63 0 discriminator 3
  183 0068 01A8     		add	r0, sp, #4
  184 006a FFF7FEFF 		bl	UART_1_UartPutString
  185              	.LVL14:
-  59:main.c        ****         }   
- 186              		.loc 1 59 0 discriminator 3
+  64:main.c        ****         }   
+ 186              		.loc 1 64 0 discriminator 3
  187 006e 0A20     		movs	r0, #10
  188 0070 FFF7FEFF 		bl	CyDelay
  189              	.LVL15:
-  56:main.c        ****         sprintf(hstr,"Resistor Temp %d, ", i);
- 190              		.loc 1 56 0 discriminator 3
+  61:main.c        ****         sprintf(hstr,"Resistor Temp %d, ", i);
+ 190              		.loc 1 61 0 discriminator 3
  191 0074 0134     		adds	r4, r4, #1
  192              	.LVL16:
  193              	.L10:
-  56:main.c        ****         sprintf(hstr,"Resistor Temp %d, ", i);
- 194              		.loc 1 56 0 is_stmt 0 discriminator 1
+  61:main.c        ****         sprintf(hstr,"Resistor Temp %d, ", i);
+ 194              		.loc 1 61 0 is_stmt 0 discriminator 1
  195 0076 AC42     		cmp	r4, r5
  196 0078 F1D3     		bcc	.L11
  197              	.LBE3:
-  61:main.c        ****     UART_1_UartPutString(hstr);
- 198              		.loc 1 61 0 is_stmt 1
+  66:main.c        ****     UART_1_UartPutString(hstr);
+ 198              		.loc 1 66 0 is_stmt 1
  199 007a 01A8     		add	r0, sp, #4
  200 007c 044B     		ldr	r3, .L12
  201 007e 1A88     		ldrh	r2, [r3]
  202 0080 0280     		strh	r2, [r0]
  203 0082 9B78     		ldrb	r3, [r3, #2]
  204 0084 8370     		strb	r3, [r0, #2]
-  62:main.c        **** }
- 205              		.loc 1 62 0
+  67:main.c        **** }
+ 205              		.loc 1 67 0
  206 0086 FFF7FEFF 		bl	UART_1_UartPutString
  207              	.LVL17:
-  63:main.c        **** /*******************************************************************************
- 208              		.loc 1 63 0
+  68:main.c        **** /*******************************************************************************
+ 208              		.loc 1 68 0
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 8
+
+
  209 008a 11B0     		add	sp, sp, #68
  210              		@ sp needed
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 8
-
-
  211              	.LVL18:
  212              	.LVL19:
  213              	.LVL20:
@@ -443,8 +445,8 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  230              		.type	CellTestStart, %function
  231              	CellTestStart:
  232              	.LFB35:
-  71:main.c        ****     
- 233              		.loc 1 71 0
+  76:main.c        ****     
+ 233              		.loc 1 76 0
  234              		.cfi_startproc
  235              		@ args = 0, pretend = 0, frame = 0
  236              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -452,58 +454,58 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  238              		.cfi_def_cfa_offset 8
  239              		.cfi_offset 4, -8
  240              		.cfi_offset 14, -4
-  73:main.c        ****     AMux_1_Start();
- 241              		.loc 1 73 0
+  78:main.c        ****     AMux_1_Start();
+ 241              		.loc 1 78 0
  242 0002 FFF7FEFF 		bl	I2C_1_Start
  243              	.LVL21:
-  74:main.c        ****     Opamp_1_Start();
- 244              		.loc 1 74 0
+  79:main.c        ****     Opamp_1_Start();
+ 244              		.loc 1 79 0
  245 0006 FFF7FEFF 		bl	AMux_1_Start
  246              	.LVL22:
-  75:main.c        ****     PGA_1_Start(); 
- 247              		.loc 1 75 0
+  80:main.c        ****     PGA_1_Start(); 
+ 247              		.loc 1 80 0
  248 000a FFF7FEFF 		bl	Opamp_1_Start
  249              	.LVL23:
-  76:main.c        ****     ADC_1_Start();
- 250              		.loc 1 76 0
+  81:main.c        ****     ADC_1_Start();
+ 250              		.loc 1 81 0
  251 000e FFF7FEFF 		bl	PGA_1_Start
  252              	.LVL24:
-  77:main.c        ****     UART_1_Start();
- 253              		.loc 1 77 0
+  82:main.c        ****     UART_1_Start();
+ 253              		.loc 1 82 0
  254 0012 FFF7FEFF 		bl	ADC_1_Start
  255              	.LVL25:
-  78:main.c        ****     PVref_1_Start();
- 256              		.loc 1 78 0
+  83:main.c        ****     PVref_1_Start();
+ 256              		.loc 1 83 0
  257 0016 FFF7FEFF 		bl	UART_1_Start
  258              	.LVL26:
-  79:main.c        ****     PVref_1_Enable();
- 259              		.loc 1 79 0
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 9
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 9
 
 
+  84:main.c        ****     PVref_1_Enable();
+ 259              		.loc 1 84 0
  260 001a FFF7FEFF 		bl	PVref_1_Start
  261              	.LVL27:
-  80:main.c        ****     BLUE_LED_Write(0);
- 262              		.loc 1 80 0
+  85:main.c        ****     BLUE_LED_Write(0);
+ 262              		.loc 1 85 0
  263 001e FFF7FEFF 		bl	PVref_1_Enable
  264              	.LVL28:
-  81:main.c        ****     TCPWM_1_Start();
- 265              		.loc 1 81 0
+  86:main.c        ****     TCPWM_1_Start();
+ 265              		.loc 1 86 0
  266 0022 0020     		movs	r0, #0
  267 0024 FFF7FEFF 		bl	BLUE_LED_Write
  268              	.LVL29:
-  82:main.c        ****     Print_Headers(NUM_BAT_THERMISTORS,NUM_R_THERMISTORS);
- 269              		.loc 1 82 0
+  87:main.c        ****     Print_Headers(NUM_BAT_THERMISTORS,NUM_R_THERMISTORS);
+ 269              		.loc 1 87 0
  270 0028 FFF7FEFF 		bl	TCPWM_1_Start
  271              	.LVL30:
-  83:main.c        **** }
- 272              		.loc 1 83 0
+  88:main.c        **** }
+ 272              		.loc 1 88 0
  273 002c 0521     		movs	r1, #5
  274 002e 0620     		movs	r0, #6
  275 0030 FFF7FEFF 		bl	Print_Headers
  276              	.LVL31:
-  84:main.c        **** 
- 277              		.loc 1 84 0
+  89:main.c        **** 
+ 277              		.loc 1 89 0
  278              		@ sp needed
  279 0034 10BD     		pop	{r4, pc}
  280              		.cfi_endproc
@@ -517,8 +519,8 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  288              		.type	HaltTest, %function
  289              	HaltTest:
  290              	.LFB36:
-  94:main.c        ****     char string[50];
- 291              		.loc 1 94 0
+  99:main.c        ****     char string[50];
+ 291              		.loc 1 99 0
  292              		.cfi_startproc
  293              		@ args = 0, pretend = 0, frame = 56
  294              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -530,17 +532,17 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  300 0002 8EB0     		sub	sp, sp, #56
  301              		.cfi_def_cfa_offset 64
  302 0004 0400     		movs	r4, r0
-  96:main.c        ****     switch (stopCode) { 
- 303              		.loc 1 96 0
+ 101:main.c        ****     switch (stopCode) { 
+ 303              		.loc 1 101 0
  304 0006 FFF7FEFF 		bl	Timer_1_Stop
  305              	.LVL33:
-  97:main.c        ****     case 1: 
- 306              		.loc 1 97 0
+ 102:main.c        ****     case 1: 
+ 306              		.loc 1 102 0
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 10
+
+
  307 000a 022C     		cmp	r4, #2
  308 000c 0ED0     		beq	.L17
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 10
-
-
  309 000e 02DC     		bgt	.L18
  310 0010 012C     		cmp	r4, #1
  311 0012 05D0     		beq	.L19
@@ -552,41 +554,41 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  317 001c 12D0     		beq	.L21
  318 001e 1EE0     		b	.L16
  319              	.L19:
-  99:main.c        ****         break; 
- 320              		.loc 1 99 0
+ 104:main.c        ****         break; 
+ 320              		.loc 1 104 0
  321 0020 3F22     		movs	r2, #63
  322 0022 1849     		ldr	r1, .L23
  323 0024 01A8     		add	r0, sp, #4
  324 0026 FFF7FEFF 		bl	memcpy
  325              	.LVL34:
- 100:main.c        ****     case 2: 
- 326              		.loc 1 100 0
+ 105:main.c        ****     case 2: 
+ 326              		.loc 1 105 0
  327 002a 26E0     		b	.L22
  328              	.L17:
- 102:main.c        ****         break; 
- 329              		.loc 1 102 0
+ 107:main.c        ****         break; 
+ 329              		.loc 1 107 0
  330 002c 3222     		movs	r2, #50
  331 002e 1649     		ldr	r1, .L23+4
  332 0030 01A8     		add	r0, sp, #4
  333 0032 FFF7FEFF 		bl	memcpy
  334              	.LVL35:
- 103:main.c        ****         
- 335              		.loc 1 103 0
+ 108:main.c        ****         
+ 335              		.loc 1 108 0
  336 0036 20E0     		b	.L22
  337              	.L20:
- 106:main.c        ****         break; 
- 338              		.loc 1 106 0
+ 111:main.c        ****         break; 
+ 338              		.loc 1 111 0
  339 0038 3D22     		movs	r2, #61
  340 003a 1449     		ldr	r1, .L23+8
  341 003c 01A8     		add	r0, sp, #4
  342 003e FFF7FEFF 		bl	memcpy
  343              	.LVL36:
- 107:main.c        ****         
- 344              		.loc 1 107 0
+ 112:main.c        ****         
+ 344              		.loc 1 112 0
  345 0042 1AE0     		b	.L22
  346              	.L21:
- 110:main.c        ****         break;
- 347              		.loc 1 110 0
+ 115:main.c        ****         break;
+ 347              		.loc 1 115 0
  348 0044 01A9     		add	r1, sp, #4
  349 0046 1248     		ldr	r0, .L23+12
  350 0048 0B00     		movs	r3, r1
@@ -596,20 +598,20 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  354              	.LVL37:
  355 0050 13CA     		ldmia	r2!, {r0, r1, r4}
  356 0052 13C3     		stmia	r3!, {r0, r1, r4}
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 11
+
+
  357 0054 1168     		ldr	r1, [r2]
  358 0056 1960     		str	r1, [r3]
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 11
-
-
  359 0058 9288     		ldrh	r2, [r2, #4]
  360 005a 9A80     		strh	r2, [r3, #4]
- 111:main.c        ****     default: 
- 361              		.loc 1 111 0
+ 116:main.c        ****     default: 
+ 361              		.loc 1 116 0
  362 005c 0DE0     		b	.L22
  363              	.LVL38:
  364              	.L16:
- 113:main.c        ****     }
- 365              		.loc 1 113 0
+ 118:main.c        ****     }
+ 365              		.loc 1 118 0
  366 005e 01A9     		add	r1, sp, #4
  367 0060 0C48     		ldr	r0, .L23+16
  368 0062 0B00     		movs	r3, r1
@@ -626,13 +628,13 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  379 0076 1279     		ldrb	r2, [r2, #4]
  380 0078 1A71     		strb	r2, [r3, #4]
  381              	.L22:
- 116:main.c        **** }
- 382              		.loc 1 116 0
+ 121:main.c        **** }
+ 382              		.loc 1 121 0
  383 007a 01A8     		add	r0, sp, #4
  384 007c FFF7FEFF 		bl	UART_1_UartPutString
  385              	.LVL40:
- 117:main.c        **** 
- 386              		.loc 1 117 0
+ 122:main.c        **** 
+ 386              		.loc 1 122 0
  387 0080 0EB0     		add	sp, sp, #56
  388              		@ sp needed
  389 0082 10BD     		pop	{r4, pc}
@@ -655,22 +657,22 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  406              		.type	FilterSignal, %function
  407              	FilterSignal:
  408              	.LFB37:
- 128:main.c        ****     
- 409              		.loc 1 128 0
+ 133:main.c        ****     
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 12
+
+
+ 409              		.loc 1 133 0
  410              		.cfi_startproc
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 12
-
-
  411              		@ args = 0, pretend = 0, frame = 0
  412              		@ frame_needed = 0, uses_anonymous_args = 0
  413              		@ link register save eliminated.
  414              	.LVL41:
- 137:main.c        **** 	   
- 415              		.loc 1 137 0
+ 142:main.c        **** 	   
+ 415              		.loc 1 142 0
  416 0000 0002     		lsls	r0, r0, #8
  417              	.LVL42:
- 140:main.c        ****         filteredValue[channel] = ADCSample;     
- 418              		.loc 1 140 0
+ 145:main.c        ****         filteredValue[channel] = ADCSample;     
+ 418              		.loc 1 145 0
  419 0002 8A00     		lsls	r2, r1, #2
  420 0004 0E4B     		ldr	r3, .L29
  421 0006 D358     		ldr	r3, [r2, r3]
@@ -679,22 +681,22 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  424 000c 9A18     		adds	r2, r3, r2
  425 000e 9042     		cmp	r0, r2
  426 0010 03DC     		bgt	.L26
- 140:main.c        ****         filteredValue[channel] = ADCSample;     
- 427              		.loc 1 140 0 is_stmt 0 discriminator 1
+ 145:main.c        ****         filteredValue[channel] = ADCSample;     
+ 427              		.loc 1 145 0 is_stmt 0 discriminator 1
  428 0012 0C4A     		ldr	r2, .L29+4
  429 0014 9A18     		adds	r2, r3, r2
  430 0016 9042     		cmp	r0, r2
  431 0018 03DA     		bge	.L27
  432              	.L26:
- 141:main.c        ****     }
- 433              		.loc 1 141 0 is_stmt 1
+ 146:main.c        ****     }
+ 433              		.loc 1 146 0 is_stmt 1
  434 001a 8B00     		lsls	r3, r1, #2
  435 001c 084A     		ldr	r2, .L29
  436 001e 9850     		str	r0, [r3, r2]
  437 0020 05E0     		b	.L28
  438              	.L27:
- 147:main.c        **** 	}
- 439              		.loc 1 147 0
+ 152:main.c        **** 	}
+ 439              		.loc 1 152 0
  440 0022 C01A     		subs	r0, r0, r3
  441              	.LVL43:
  442 0024 0011     		asrs	r0, r0, #4
@@ -703,8 +705,8 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  445 002a 054A     		ldr	r2, .L29
  446 002c 9850     		str	r0, [r3, r2]
  447              	.L28:
- 151:main.c        ****     return filValueRounded;
- 448              		.loc 1 151 0
+ 156:main.c        ****     return filValueRounded;
+ 448              		.loc 1 156 0
  449 002e 8900     		lsls	r1, r1, #2
  450              	.LVL44:
  451 0030 034B     		ldr	r3, .L29
@@ -715,12 +717,12 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  456 003a 0340     		ands	r3, r0
  457 003c D018     		adds	r0, r2, r3
  458              	.LVL45:
- 153:main.c        **** 
- 459              		.loc 1 153 0
+ 158:main.c        **** 
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 13
+
+
+ 459              		.loc 1 158 0
  460              		@ sp needed
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 13
-
-
  461 003e 7047     		bx	lr
  462              	.L30:
  463              		.align	2
@@ -745,15 +747,15 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  482              		.type	main, %function
  483              	main:
  484              	.LFB40:
- 171:main.c        **** 
- 172:main.c        **** 
  173:main.c        **** 
- 174:main.c        **** // ======================================
- 175:main.c        **** // Main Function
+ 174:main.c        **** 
+ 175:main.c        **** 
  176:main.c        **** // ======================================
- 177:main.c        **** int main(void)
- 178:main.c        **** {
- 485              		.loc 1 178 0
+ 177:main.c        **** // Main Function
+ 178:main.c        **** // ======================================
+ 179:main.c        **** int main(void)
+ 180:main.c        **** {
+ 485              		.loc 1 180 0
  486              		.cfi_startproc
  487              		@ args = 0, pretend = 0, frame = 152
  488              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -771,167 +773,167 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  500 0006 AEB0     		sub	sp, sp, #184
  501              		.cfi_def_cfa_offset 208
  502              	.LVL46:
- 179:main.c        ****     // Variable Creation
- 180:main.c        ****     
- 181:main.c        ****     int32 vtestCount;           // Test voltage adc counts
- 182:main.c        ****     float vtestVal;             // Test voltage (mV)
- 183:main.c        ****     
- 184:main.c        ****     int32 vrgndCount;           // Virtual gnd voltage adc counts
- 185:main.c        ****     float vrgndVal;             // Virtual gnd voltage (mV)
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 14
+ 181:main.c        ****     // Variable Creation
+ 182:main.c        ****     
+ 183:main.c        ****     int32 vtestCount;           // Test voltage adc counts
+ 184:main.c        ****     float vtestVal;             // Test voltage (mV)
+ 185:main.c        ****     
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 14
 
 
- 186:main.c        ****     
- 187:main.c        ****     int32 vrefCount;            // Reference voltage adc counts
- 188:main.c        ****     float vrefVal;              // Reference voltage (mV)    
- 189:main.c        ****     
- 190:main.c        ****     int32 vbatCount;
- 191:main.c        ****     float vbatVal;
- 192:main.c        ****     float shuntAmps; 
- 193:main.c        ****     
- 194:main.c        ****     float gainReal;             // Calculated gain of the amplifier
+ 186:main.c        ****     int32 vrgndCount;           // Virtual gnd voltage adc counts
+ 187:main.c        ****     float vrgndVal;             // Virtual gnd voltage (mV)
+ 188:main.c        ****     
+ 189:main.c        ****     int32 vrefCount;            // Reference voltage adc counts
+ 190:main.c        ****     float vrefVal;              // Reference voltage (mV)    
+ 191:main.c        ****     
+ 192:main.c        ****     int32 vbatCount;
+ 193:main.c        ****     float vbatVal;
+ 194:main.c        ****     float shuntAmps; 
  195:main.c        ****     
- 196:main.c        ****     char string[60];            // For printing over UART
+ 196:main.c        ****     float gainReal;             // Calculated gain of the amplifier
  197:main.c        ****     
- 198:main.c        ****     int32 userInput;            // Reading UART input
- 199:main.c        ****     int8 stopFlag = 0;          // Boolean flag to stop the test
- 200:main.c        ****     int8 stopCode = 0;          // Code for determining the reason why test was stopped
- 201:main.c        ****     
- 202:main.c        ****     int32 res1 = 828000;        //The first resistor in the battery voltage divider circuit
- 203:main.c        ****     int32 res2 = 10000;         //Seconds resistor in ^this^ divider
- 204:main.c        ****     
- 205:main.c        ****     uint8 batteryArray[32] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
- 503              		.loc 1 205 0
+ 198:main.c        ****     char string[60];            // For printing over UART
+ 199:main.c        ****     
+ 200:main.c        ****     int32 userInput;            // Reading UART input
+ 201:main.c        ****     int8 stopFlag = 0;          // Boolean flag to stop the test
+ 202:main.c        ****     int8 stopCode = 0;          // Code for determining the reason why test was stopped
+ 203:main.c        ****     
+ 204:main.c        ****     int32 res1 = 828000;        //The first resistor in the battery voltage divider circuit
+ 205:main.c        ****     int32 res2 = 10000;         //Seconds resistor in ^this^ divider
+ 206:main.c        ****     
+ 207:main.c        ****     uint8 batteryArray[32] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+ 503              		.loc 1 207 0
  504 0008 2022     		movs	r2, #32
  505 000a 0021     		movs	r1, #0
  506 000c 17A8     		add	r0, sp, #92
  507 000e FFF7FEFF 		bl	memset
  508              	.LVL47:
- 206:main.c        ****     uint8 resistorArray[32] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,};
- 509              		.loc 1 206 0
+ 208:main.c        ****     uint8 resistorArray[32] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,};
+ 509              		.loc 1 208 0
  510 0012 2022     		movs	r2, #32
  511 0014 0021     		movs	r1, #0
  512 0016 0FA8     		add	r0, sp, #60
  513 0018 FFF7FEFF 		bl	memset
  514              	.LVL48:
- 207:main.c        ****     uint32 rxData;
- 208:main.c        ****     
- 209:main.c        ****     uint8 r_therm_toRead = (NUM_R_THERMISTORS*2) + 1;
- 210:main.c        ****     uint8 b_therm_toRead = (NUM_BAT_THERMISTORS*2) + 1;
- 211:main.c        ****     
- 212:main.c        ****     CyGlobalIntEnable;
- 515              		.loc 1 212 0
+ 209:main.c        ****     uint32 rxData;
+ 210:main.c        ****     
+ 211:main.c        ****     uint8 r_therm_toRead = (NUM_R_THERMISTORS*2) + 1;
+ 212:main.c        ****     uint8 b_therm_toRead = (NUM_BAT_THERMISTORS*2) + 1;
+ 213:main.c        ****     
+ 214:main.c        ****     CyGlobalIntEnable;
+ 515              		.loc 1 214 0
  516              		.syntax divided
- 517              	@ 212 "main.c" 1
+ 517              	@ 214 "main.c" 1
  518 001c 62B6     		CPSIE   i
  519              	@ 0 "" 2
- 213:main.c        ****         
- 214:main.c        ****     //Initialization
- 215:main.c        ****     
- 216:main.c        ****     CellTestStart();
- 520              		.loc 1 216 0
+ 215:main.c        ****         
+ 216:main.c        ****     //Initialization
+ 217:main.c        ****     
+ 218:main.c        ****     CellTestStart();
+ 520              		.loc 1 218 0
  521              		.thumb
  522              		.syntax unified
  523 001e FFF7FEFF 		bl	CellTestStart
  524              	.LVL49:
- 217:main.c        ****     
- 218:main.c        ****     //UART INFO PRINTING
- 219:main.c        ****         
- 220:main.c        ****     isr_1_StartEx(MyCustomISR);
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 15
+ 219:main.c        ****     
+ 220:main.c        ****     //UART INFO PRINTING
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 15
 
 
- 525              		.loc 1 220 0
+ 221:main.c        ****         
+ 222:main.c        ****     isr_1_StartEx(MyCustomISR);
+ 525              		.loc 1 222 0
  526 0022 7648     		ldr	r0, .L44
  527 0024 FFF7FEFF 		bl	isr_1_StartEx
  528              	.LVL50:
- 221:main.c        ****     isr_print_StartEx(print_UART);
- 529              		.loc 1 221 0
+ 223:main.c        ****     isr_print_StartEx(print_UART);
+ 529              		.loc 1 223 0
  530 0028 7548     		ldr	r0, .L44+4
  531 002a FFF7FEFF 		bl	isr_print_StartEx
  532              	.LVL51:
  533              	.L32:
- 222:main.c        ****     
- 223:main.c        ****     // Main For Loop
- 224:main.c        ****     for(;;)
- 225:main.c        ****     {
- 226:main.c        ****         BLUE_LED_Write(1);
- 534              		.loc 1 226 0
+ 224:main.c        ****     
+ 225:main.c        ****     // Main For Loop
+ 226:main.c        ****     for(;;)
+ 227:main.c        ****     {
+ 228:main.c        ****         BLUE_LED_Write(1);
+ 534              		.loc 1 228 0
  535 002e 0120     		movs	r0, #1
  536 0030 FFF7FEFF 		bl	BLUE_LED_Write
  537              	.LVL52:
- 227:main.c        ****         CyDelay(10);
- 538              		.loc 1 227 0
+ 229:main.c        ****         CyDelay(10);
+ 538              		.loc 1 229 0
  539 0034 0A20     		movs	r0, #10
  540 0036 FFF7FEFF 		bl	CyDelay
  541              	.LVL53:
- 228:main.c        ****         userInput = UART_1_UartGetChar();
- 542              		.loc 1 228 0
+ 230:main.c        ****         userInput = UART_1_UartGetChar();
+ 542              		.loc 1 230 0
  543 003a FFF7FEFF 		bl	UART_1_UartGetChar
  544              	.LVL54:
- 229:main.c        ****         
- 230:main.c        ****         // Start the Test Commmand
  231:main.c        ****         
- 232:main.c        ****         if (userInput == 71)  //Type Capital G into Putty
- 545              		.loc 1 232 0
+ 232:main.c        ****         // Start the Test Commmand
+ 233:main.c        ****         
+ 234:main.c        ****         if (userInput == 71)  //Type Capital G into Putty
+ 545              		.loc 1 234 0
  546 003e 4728     		cmp	r0, #71
  547 0040 F5D1     		bne	.L32
- 233:main.c        ****         {            
- 234:main.c        ****             Timer_1_Start();
- 548              		.loc 1 234 0
+ 235:main.c        ****         {            
+ 236:main.c        ****             Timer_1_Start();
+ 548              		.loc 1 236 0
  549 0042 FFF7FEFF 		bl	Timer_1_Start
  550              	.LVL55:
- 235:main.c        ****             stopFlag = 0;
- 551              		.loc 1 235 0
+ 237:main.c        ****             stopFlag = 0;
+ 551              		.loc 1 237 0
  552 0046 0023     		movs	r3, #0
  553 0048 9846     		mov	r8, r3
- 236:main.c        ****             stopCode = 0; 
- 237:main.c        ****             
- 238:main.c        ****             // Continue Executing While the no test errors are evident
- 239:main.c        ****             while(!stopFlag){
- 554              		.loc 1 239 0
+ 238:main.c        ****             stopCode = 0; 
+ 239:main.c        ****             
+ 240:main.c        ****             // Continue Executing While the no test errors are evident
+ 241:main.c        ****             while(!stopFlag){
+ 554              		.loc 1 241 0
  555 004a D3E0     		b	.L33
  556              	.LVL56:
  557              	.L34:
- 240:main.c        ****                 while(startFlag == 1){
- 241:main.c        ****                 startFlag = 0;
- 558              		.loc 1 241 0
+ 242:main.c        ****                 while(startFlag == 1){
+ 243:main.c        ****                 startFlag = 0;
+ 558              		.loc 1 243 0
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 16
+
+
  559 004c 0022     		movs	r2, #0
  560 004e 6D4B     		ldr	r3, .L44+8
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 16
-
-
  561 0050 1A60     		str	r2, [r3]
- 242:main.c        ****                 
- 243:main.c        ****                 //================================
- 244:main.c        ****                 // Reference Voltage Reading (vref)(or Cal_In)
+ 244:main.c        ****                 
  245:main.c        ****                 //================================
- 246:main.c        ****                 AMux_1_Select(2);
- 562              		.loc 1 246 0
+ 246:main.c        ****                 // Reference Voltage Reading (vref)(or Cal_In)
+ 247:main.c        ****                 //================================
+ 248:main.c        ****                 AMux_1_Select(2);
+ 562              		.loc 1 248 0
  563 0052 0220     		movs	r0, #2
  564 0054 FFF7FEFF 		bl	AMux_1_Select
  565              	.LVL57:
- 247:main.c        ****                 ADC_1_StartConvert();                           // Start the Read the ADC
- 566              		.loc 1 247 0
+ 249:main.c        ****                 ADC_1_StartConvert();                           // Start the Read the ADC
+ 566              		.loc 1 249 0
  567 0058 FFF7FEFF 		bl	ADC_1_StartConvert
  568              	.LVL58:
- 248:main.c        ****                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
- 569              		.loc 1 248 0
+ 250:main.c        ****                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
+ 569              		.loc 1 250 0
  570 005c 0220     		movs	r0, #2
  571 005e FFF7FEFF 		bl	ADC_1_IsEndConversion
  572              	.LVL59:
- 249:main.c        ****                 vrefCount = ADC_1_GetResult32(0);               // vref in unitless counts   
- 573              		.loc 1 249 0
+ 251:main.c        ****                 vrefCount = ADC_1_GetResult32(0);               // vref in unitless counts   
+ 573              		.loc 1 251 0
  574 0062 0020     		movs	r0, #0
  575 0064 FFF7FEFF 		bl	ADC_1_GetResult32
  576              	.LVL60:
- 250:main.c        ****                 vrefCount = FilterSignal(vrefCount, 3);         // Channel 3 because ...
- 577              		.loc 1 250 0
+ 252:main.c        ****                 vrefCount = FilterSignal(vrefCount, 3);         // Channel 3 because ...
+ 577              		.loc 1 252 0
  578 0068 0321     		movs	r1, #3
  579 006a FFF7FEFF 		bl	FilterSignal
  580              	.LVL61:
- 251:main.c        ****                 vrefVal = ADC_1_CountsTo_mVolts(0, vrefCount);  // vref in mV     
- 581              		.loc 1 251 0
+ 253:main.c        ****                 vrefVal = ADC_1_CountsTo_mVolts(0, vrefCount);  // vref in mV     
+ 581              		.loc 1 253 0
  582 006e 01B2     		sxth	r1, r0
  583 0070 0020     		movs	r0, #0
  584              	.LVL62:
@@ -941,40 +943,40 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  588              	.LVL64:
  589 007a 051C     		adds	r5, r0, #0
  590              	.LVL65:
- 252:main.c        ****                 
- 253:main.c        ****                 //================================
- 254:main.c        ****                 // Virtual Ground Reading (vrgnd)
+ 254:main.c        ****                 
  255:main.c        ****                 //================================
- 256:main.c        ****                 AMux_1_Select(4);
- 591              		.loc 1 256 0
+ 256:main.c        ****                 // Virtual Ground Reading (vrgnd)
+ 257:main.c        ****                 //================================
+ 258:main.c        ****                 AMux_1_Select(4);
+ 591              		.loc 1 258 0
  592 007c 0420     		movs	r0, #4
  593              	.LVL66:
  594 007e FFF7FEFF 		bl	AMux_1_Select
  595              	.LVL67:
- 257:main.c        ****                 ADC_1_StartConvert();                           // Start the Read the ADC
- 596              		.loc 1 257 0
+ 259:main.c        ****                 ADC_1_StartConvert();                           // Start the Read the ADC
+ 596              		.loc 1 259 0
  597 0082 FFF7FEFF 		bl	ADC_1_StartConvert
  598              	.LVL68:
- 258:main.c        ****                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
- 599              		.loc 1 258 0
+ 260:main.c        ****                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 17
+
+
+ 599              		.loc 1 260 0
  600 0086 0220     		movs	r0, #2
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 17
-
-
  601 0088 FFF7FEFF 		bl	ADC_1_IsEndConversion
  602              	.LVL69:
- 259:main.c        ****                 vrgndCount = ADC_1_GetResult32(0);              // vrgnd in unitless counts        
- 603              		.loc 1 259 0
+ 261:main.c        ****                 vrgndCount = ADC_1_GetResult32(0);              // vrgnd in unitless counts        
+ 603              		.loc 1 261 0
  604 008c 0020     		movs	r0, #0
  605 008e FFF7FEFF 		bl	ADC_1_GetResult32
  606              	.LVL70:
- 260:main.c        ****                 vrgndCount = FilterSignal(vrgndCount, 2);       // Channel 3 because...
- 607              		.loc 1 260 0
+ 262:main.c        ****                 vrgndCount = FilterSignal(vrgndCount, 2);       // Channel 3 because...
+ 607              		.loc 1 262 0
  608 0092 0221     		movs	r1, #2
  609 0094 FFF7FEFF 		bl	FilterSignal
  610              	.LVL71:
- 261:main.c        ****                 vrgndVal = ADC_1_CountsTo_mVolts(0, vrgndCount);// vrgnd in mV                
- 611              		.loc 1 261 0
+ 263:main.c        ****                 vrgndVal = ADC_1_CountsTo_mVolts(0, vrgndCount);// vrgnd in mV                
+ 611              		.loc 1 263 0
  612 0098 01B2     		sxth	r1, r0
  613 009a 0020     		movs	r0, #0
  614              	.LVL72:
@@ -984,80 +986,80 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  618              	.LVL74:
  619 00a4 061C     		adds	r6, r0, #0
  620              	.LVL75:
- 262:main.c        ****                 
- 263:main.c        ****                 //================================
- 264:main.c        ****                 // Test Voltage Reading (vtest) (or Shunt_In) 
+ 264:main.c        ****                 
  265:main.c        ****                 //================================
- 266:main.c        ****                 AMux_1_Select(3); 
- 621              		.loc 1 266 0
+ 266:main.c        ****                 // Test Voltage Reading (vtest) (or Shunt_In) 
+ 267:main.c        ****                 //================================
+ 268:main.c        ****                 AMux_1_Select(3); 
+ 621              		.loc 1 268 0
  622 00a6 0320     		movs	r0, #3
  623              	.LVL76:
  624 00a8 FFF7FEFF 		bl	AMux_1_Select
  625              	.LVL77:
- 267:main.c        ****                 ADC_1_StartConvert();                           // Start the Read the ADC
- 626              		.loc 1 267 0
+ 269:main.c        ****                 ADC_1_StartConvert();                           // Start the Read the ADC
+ 626              		.loc 1 269 0
  627 00ac FFF7FEFF 		bl	ADC_1_StartConvert
  628              	.LVL78:
- 268:main.c        ****                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);               
- 629              		.loc 1 268 0
+ 270:main.c        ****                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);               
+ 629              		.loc 1 270 0
  630 00b0 0220     		movs	r0, #2
  631 00b2 FFF7FEFF 		bl	ADC_1_IsEndConversion
  632              	.LVL79:
- 269:main.c        ****                 vtestCount = ADC_1_GetResult32(0);              // vtest in unitless counts
- 633              		.loc 1 269 0
+ 271:main.c        ****                 vtestCount = ADC_1_GetResult32(0);              // vtest in unitless counts
+ 633              		.loc 1 271 0
  634 00b6 0020     		movs	r0, #0
  635 00b8 FFF7FEFF 		bl	ADC_1_GetResult32
  636              	.LVL80:
- 270:main.c        ****                 vtestCount = FilterSignal(vtestCount, 1);
- 637              		.loc 1 270 0
+ 272:main.c        ****                 vtestCount = FilterSignal(vtestCount, 1);
+ 637              		.loc 1 272 0
  638 00bc 0121     		movs	r1, #1
  639 00be FFF7FEFF 		bl	FilterSignal
  640              	.LVL81:
- 271:main.c        ****                 vtestVal = ADC_1_CountsTo_mVolts(0, vtestCount);// vtest in mV                
- 641              		.loc 1 271 0
+ 273:main.c        ****                 vtestVal = ADC_1_CountsTo_mVolts(0, vtestCount);// vtest in mV                
+ 641              		.loc 1 273 0
  642 00c2 01B2     		sxth	r1, r0
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 18
+
+
  643 00c4 0020     		movs	r0, #0
  644              	.LVL82:
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 18
-
-
  645 00c6 FFF7FEFF 		bl	ADC_1_CountsTo_mVolts
  646              	.LVL83:
  647 00ca FFF7FEFF 		bl	__aeabi_i2f
  648              	.LVL84:
  649 00ce 071C     		adds	r7, r0, #0
  650              	.LVL85:
- 272:main.c        ****                                                 
- 273:main.c        ****                 //================================
- 274:main.c        ****                 // Battery Voltage Divider (+) (vbatHigh)
+ 274:main.c        ****                                                 
  275:main.c        ****                 //================================
- 276:main.c        ****                 AMux_1_Select(0);
- 651              		.loc 1 276 0
+ 276:main.c        ****                 // Battery Voltage Divider (+) (vbatHigh)
+ 277:main.c        ****                 //================================
+ 278:main.c        ****                 AMux_1_Select(0);
+ 651              		.loc 1 278 0
  652 00d0 0020     		movs	r0, #0
  653              	.LVL86:
  654 00d2 FFF7FEFF 		bl	AMux_1_Select
  655              	.LVL87:
- 277:main.c        ****                 ADC_1_StartConvert();                           // Start the Read the ADC
- 656              		.loc 1 277 0
+ 279:main.c        ****                 ADC_1_StartConvert();                           // Start the Read the ADC
+ 656              		.loc 1 279 0
  657 00d6 FFF7FEFF 		bl	ADC_1_StartConvert
  658              	.LVL88:
- 278:main.c        ****                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
- 659              		.loc 1 278 0
+ 280:main.c        ****                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
+ 659              		.loc 1 280 0
  660 00da 0220     		movs	r0, #2
  661 00dc FFF7FEFF 		bl	ADC_1_IsEndConversion
  662              	.LVL89:
- 279:main.c        ****                 vbatCount = ADC_1_GetResult32(0);               // vref in unitless counts   
- 663              		.loc 1 279 0
+ 281:main.c        ****                 vbatCount = ADC_1_GetResult32(0);               // vref in unitless counts   
+ 663              		.loc 1 281 0
  664 00e0 0020     		movs	r0, #0
  665 00e2 FFF7FEFF 		bl	ADC_1_GetResult32
  666              	.LVL90:
- 280:main.c        ****                 vbatCount = FilterSignal(vbatCount, 4);         // Channel 3 because ...
- 667              		.loc 1 280 0
+ 282:main.c        ****                 vbatCount = FilterSignal(vbatCount, 4);         // Channel 3 because ...
+ 667              		.loc 1 282 0
  668 00e6 0421     		movs	r1, #4
  669 00e8 FFF7FEFF 		bl	FilterSignal
  670              	.LVL91:
- 281:main.c        ****                 vbatVal = ADC_1_CountsTo_mVolts(0, vbatCount);  // vref in mV                
- 671              		.loc 1 281 0
+ 283:main.c        ****                 vbatVal = ADC_1_CountsTo_mVolts(0, vbatCount);  // vref in mV                
+ 671              		.loc 1 283 0
  672 00ec 01B2     		sxth	r1, r0
  673 00ee 0020     		movs	r0, #0
  674              	.LVL92:
@@ -1067,20 +1069,20 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  678              	.LVL94:
  679 00f8 0990     		str	r0, [sp, #36]
  680              	.LVL95:
- 282:main.c        ****                 
- 283:main.c        ****                 // After rapid samples - to ensure similar adc/amp conditions
- 284:main.c        ****                 // Calculations are made
- 285:main.c        ****                 
- 286:main.c        ****                 gainReal = (vrefVal - vrgndVal)/V_REF_RELATIVE;     // The actual op-amp gain
- 681              		.loc 1 286 0
+ 284:main.c        ****                 
+ 285:main.c        ****                 // After rapid samples - to ensure similar adc/amp conditions
+ 286:main.c        ****                 // Calculations are made
+ 287:main.c        ****                 
+ 288:main.c        ****                 gainReal = (vrefVal - vrgndVal)/V_REF_RELATIVE;     // The actual op-amp gain
+ 681              		.loc 1 288 0
  682 00fa 311C     		adds	r1, r6, #0
  683 00fc 281C     		adds	r0, r5, #0
  684              	.LVL96:
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 19
+
+
  685 00fe FFF7FEFF 		bl	__aeabi_fsub
  686              	.LVL97:
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 19
-
-
  687 0102 FFF7FEFF 		bl	__aeabi_f2d
  688              	.LVL98:
  689 0106 404A     		ldr	r2, .L44+12
@@ -1091,9 +1093,9 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  694              	.LVL100:
  695 0112 041C     		adds	r4, r0, #0
  696              	.LVL101:
- 287:main.c        ****                 
- 288:main.c        ****                 vrgndVal = vrgndVal/gainReal;                       // Find the virtual ground valu
- 697              		.loc 1 288 0
+ 289:main.c        ****                 
+ 290:main.c        ****                 vrgndVal = vrgndVal/gainReal;                       // Find the virtual ground valu
+ 697              		.loc 1 290 0
  698 0114 011C     		adds	r1, r0, #0
  699 0116 301C     		adds	r0, r6, #0
  700              	.LVL102:
@@ -1101,8 +1103,8 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  702              	.LVL103:
  703 011c 061C     		adds	r6, r0, #0
  704              	.LVL104:
- 289:main.c        ****                 vrefVal = vrefVal / gainReal; 
- 705              		.loc 1 289 0
+ 291:main.c        ****                 vrefVal = vrefVal / gainReal; 
+ 705              		.loc 1 291 0
  706 011e 211C     		adds	r1, r4, #0
  707 0120 281C     		adds	r0, r5, #0
  708              	.LVL105:
@@ -1110,83 +1112,83 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  710              	.LVL106:
  711 0126 051C     		adds	r5, r0, #0
  712              	.LVL107:
- 290:main.c        ****                 vtestVal = vtestVal/gainReal;                       // Find the test point value
- 713              		.loc 1 290 0
+ 292:main.c        ****                 vtestVal = vtestVal/gainReal;                       // Find the test point value
+ 713              		.loc 1 292 0
  714 0128 211C     		adds	r1, r4, #0
  715 012a 381C     		adds	r0, r7, #0
  716              	.LVL108:
  717 012c FFF7FEFF 		bl	__aeabi_fdiv
  718              	.LVL109:
- 291:main.c        ****                
- 292:main.c        ****                 vtestVal = vtestVal - vrgndVal;                     // Take the difference to negat
- 719              		.loc 1 292 0
+ 293:main.c        ****                
+ 294:main.c        ****                 vtestVal = vtestVal - vrgndVal;                     // Take the difference to negat
+ 719              		.loc 1 294 0
  720 0130 311C     		adds	r1, r6, #0
  721 0132 FFF7FEFF 		bl	__aeabi_fsub
  722              	.LVL110:
  723 0136 0A90     		str	r0, [sp, #40]
  724              	.LVL111:
- 293:main.c        ****                 shuntAmps = vtestVal*SHUNT_CONDUCTANCE;
- 294:main.c        ****                 
- 295:main.c        ****                 
+ 295:main.c        ****                 shuntAmps = vtestVal*SHUNT_CONDUCTANCE;
  296:main.c        ****                 
- 297:main.c        ****                 vbatVal = vbatVal/gainReal;                         // The actual second divider ba
- 725              		.loc 1 297 0
+ 297:main.c        ****                 
+ 298:main.c        ****                 
+ 299:main.c        ****                 vbatVal = vbatVal/gainReal;                         // The actual second divider ba
+ 725              		.loc 1 299 0
  726 0138 211C     		adds	r1, r4, #0
  727 013a 0998     		ldr	r0, [sp, #36]
  728              	.LVL112:
  729 013c FFF7FEFF 		bl	__aeabi_fdiv
  730              	.LVL113:
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 20
+
+
  731 0140 071C     		adds	r7, r0, #0
  732              	.LVL114:
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 20
-
-
  733              	.L42:
- 240:main.c        ****                 startFlag = 0;
- 734              		.loc 1 240 0
+ 242:main.c        ****                 startFlag = 0;
+ 734              		.loc 1 242 0
  735 0142 304B     		ldr	r3, .L44+8
  736 0144 1B68     		ldr	r3, [r3]
  737 0146 012B     		cmp	r3, #1
  738 0148 80D0     		beq	.L34
- 298:main.c        ****                 
- 299:main.c        ****                 vbatVal = vbatVal * ((res1 + res2) / res1);         //The input voltage in VOLTS
- 300:main.c        **** 
- 301:main.c        ****                 } //end of scan from startflag
- 302:main.c        ****                 
- 303:main.c        ****                 // Stop the Test.... 
- 304:main.c        ****                 userInput = UART_1_UartGetChar();
- 739              		.loc 1 304 0
+ 300:main.c        ****                 
+ 301:main.c        ****                 vbatVal = vbatVal * ((res1 + res2) / res1);         //The input voltage in VOLTS
+ 302:main.c        **** 
+ 303:main.c        ****                 } //end of scan from startflag
+ 304:main.c        ****                 
+ 305:main.c        ****                 // Stop the Test.... 
+ 306:main.c        ****                 userInput = UART_1_UartGetChar();
+ 739              		.loc 1 306 0
  740 014a FFF7FEFF 		bl	UART_1_UartGetChar
  741              	.LVL115:
- 305:main.c        ****                 if (userInput == 83) {
- 742              		.loc 1 305 0
+ 307:main.c        ****                 if (userInput == 83) {
+ 742              		.loc 1 307 0
  743 014e 5328     		cmp	r0, #83
  744 0150 4CD1     		bne	.L36
  745              	.LVL116:
- 306:main.c        ****                     stopFlag = 1;
- 307:main.c        ****                     stopCode = 4; 
- 308:main.c        ****                     Timer_1_Stop();
- 746              		.loc 1 308 0
+ 308:main.c        ****                     stopFlag = 1;
+ 309:main.c        ****                     stopCode = 4; 
+ 310:main.c        ****                     Timer_1_Stop();
+ 746              		.loc 1 310 0
  747 0152 FFF7FEFF 		bl	Timer_1_Stop
  748              	.LVL117:
- 306:main.c        ****                     stopFlag = 1;
- 749              		.loc 1 306 0
+ 308:main.c        ****                     stopFlag = 1;
+ 749              		.loc 1 308 0
  750 0156 0123     		movs	r3, #1
  751 0158 9846     		mov	r8, r3
  752 015a 47E0     		b	.L36
  753              	.LVL118:
  754              	.L41:
- 309:main.c        ****                 }       
- 310:main.c        ****                 
- 311:main.c        ****                 while (printFlag ==1){
- 312:main.c        ****                     printFlag = 0;
- 755              		.loc 1 312 0
+ 311:main.c        ****                 }       
+ 312:main.c        ****                 
+ 313:main.c        ****                 while (printFlag ==1){
+ 314:main.c        ****                     printFlag = 0;
+ 755              		.loc 1 314 0
  756 015c 0022     		movs	r2, #0
  757 015e 2C4B     		ldr	r3, .L44+20
  758 0160 1A60     		str	r2, [r3]
- 313:main.c        ****                     
- 314:main.c        ****                     I2C_1_I2CMasterReadBuf(0x08, batteryArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
- 759              		.loc 1 314 0
+ 315:main.c        ****                     
+ 316:main.c        ****                     I2C_1_I2CMasterReadBuf(0x08, batteryArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
+ 759              		.loc 1 316 0
  760 0162 0023     		movs	r3, #0
  761 0164 2032     		adds	r2, r2, #32
  762 0166 17A9     		add	r1, sp, #92
@@ -1194,33 +1196,33 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  764 016a FFF7FEFF 		bl	I2C_1_I2CMasterReadBuf
  765              	.LVL119:
  766              	.LBB4:
- 315:main.c        ****                     for(uint i = 2; i < b_therm_toRead; i=i+2){
- 767              		.loc 1 315 0
+ 317:main.c        ****                     for(uint i = 2; i < b_therm_toRead; i=i+2){
+ 767              		.loc 1 317 0
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 21
+
+
  768 016e 0223     		movs	r3, #2
  769 0170 00E0     		b	.L37
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 21
-
-
  770              	.LVL120:
  771              	.L38:
- 772              		.loc 1 315 0 is_stmt 0 discriminator 3
+ 772              		.loc 1 317 0 is_stmt 0 discriminator 3
  773 0172 0233     		adds	r3, r3, #2
  774              	.LVL121:
  775              	.L37:
- 776              		.loc 1 315 0 discriminator 1
+ 776              		.loc 1 317 0 discriminator 1
  777 0174 0C2B     		cmp	r3, #12
  778 0176 FCD9     		bls	.L38
  779              	.LBE4:
- 316:main.c        ****                         //sprintf(string, "%d.%d, ", batteryArray[i], batteryArray[i+1]);
- 317:main.c        ****                         //UART_1_UartPutString(string);    
- 318:main.c        ****                     }
- 319:main.c        ****                     CyDelay(10); 
- 780              		.loc 1 319 0 is_stmt 1
+ 318:main.c        ****                         //sprintf(string, "%d.%d, ", batteryArray[i], batteryArray[i+1]);
+ 319:main.c        ****                         //UART_1_UartPutString(string);    
+ 320:main.c        ****                     }
+ 321:main.c        ****                     CyDelay(10); 
+ 780              		.loc 1 321 0 is_stmt 1
  781 0178 0A20     		movs	r0, #10
  782 017a FFF7FEFF 		bl	CyDelay
  783              	.LVL122:
- 320:main.c        ****                     I2C_1_I2CMasterReadBuf(0x09, resistorArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
- 784              		.loc 1 320 0
+ 322:main.c        ****                     I2C_1_I2CMasterReadBuf(0x09, resistorArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
+ 784              		.loc 1 322 0
  785 017e 0023     		movs	r3, #0
  786 0180 2022     		movs	r2, #32
  787 0182 0FA9     		add	r1, sp, #60
@@ -1228,39 +1230,39 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  789 0186 FFF7FEFF 		bl	I2C_1_I2CMasterReadBuf
  790              	.LVL123:
  791              	.LBB5:
- 321:main.c        ****                     for(uint i = 2; i < r_therm_toRead; i=i+2){
- 792              		.loc 1 321 0
+ 323:main.c        ****                     for(uint i = 2; i < r_therm_toRead; i=i+2){
+ 792              		.loc 1 323 0
  793 018a 0223     		movs	r3, #2
  794 018c 00E0     		b	.L39
  795              	.LVL124:
  796              	.L40:
- 797              		.loc 1 321 0 is_stmt 0 discriminator 3
+ 797              		.loc 1 323 0 is_stmt 0 discriminator 3
  798 018e 0233     		adds	r3, r3, #2
  799              	.LVL125:
  800              	.L39:
- 801              		.loc 1 321 0 discriminator 1
+ 801              		.loc 1 323 0 discriminator 1
  802 0190 0A2B     		cmp	r3, #10
  803 0192 FCD9     		bls	.L40
  804              	.LBE5:
- 322:main.c        ****                         //sprintf(string, "%d.%d, ", resistorArray[i], resistorArray[i+1]);
- 323:main.c        ****                         //UART_1_UartPutString(string);    
- 324:main.c        ****                     }
- 325:main.c        ****                         
- 326:main.c        ****                     // Reset the Timer
- 327:main.c        ****                     
- 328:main.c        ****                     
- 329:main.c        ****                     sprintf(string, "Shunt mV: %f, Gain: %f, CalIn w g: %f, ShuntGND w g: %f, Batt 
- 805              		.loc 1 329 0 is_stmt 1
+ 324:main.c        ****                         //sprintf(string, "%d.%d, ", resistorArray[i], resistorArray[i+1]);
+ 325:main.c        ****                         //UART_1_UartPutString(string);    
+ 326:main.c        ****                     }
+ 327:main.c        ****                         
+ 328:main.c        ****                     // Reset the Timer
+ 329:main.c        ****                     
+ 330:main.c        ****                     
+ 331:main.c        ****                     sprintf(string, "Shunt mV: %f, Gain: %f, CalIn w g: %f, ShuntGND w g: %f, Batt 
+ 805              		.loc 1 331 0 is_stmt 1
  806 0194 211C     		adds	r1, r4, #0
  807 0196 281C     		adds	r0, r5, #0
  808 0198 FFF7FEFF 		bl	__aeabi_fmul
  809              	.LVL126:
  810 019c 0990     		str	r0, [sp, #36]
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 22
+
+
  811 019e 211C     		adds	r1, r4, #0
  812 01a0 301C     		adds	r0, r6, #0
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 22
-
-
  813 01a2 FFF7FEFF 		bl	__aeabi_fmul
  814              	.LVL127:
  815 01a6 0B90     		str	r0, [sp, #44]
@@ -1295,32 +1297,32 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  844 01e0 1FA8     		add	r0, sp, #124
  845 01e2 FFF7FEFF 		bl	sprintf
  846              	.LVL133:
- 330:main.c        ****                     UART_1_UartPutString(string);      
- 847              		.loc 1 330 0
+ 332:main.c        ****                     UART_1_UartPutString(string);      
+ 847              		.loc 1 332 0
  848 01e6 1FA8     		add	r0, sp, #124
  849 01e8 FFF7FEFF 		bl	UART_1_UartPutString
  850              	.LVL134:
  851              	.L36:
- 311:main.c        ****                     printFlag = 0;
- 852              		.loc 1 311 0
+ 313:main.c        ****                     printFlag = 0;
+ 852              		.loc 1 313 0
  853 01ec 084B     		ldr	r3, .L44+20
  854 01ee 1B68     		ldr	r3, [r3]
  855 01f0 012B     		cmp	r3, #1
  856 01f2 B3D0     		beq	.L41
  857              	.LVL135:
  858              	.L33:
- 239:main.c        ****                 while(startFlag == 1){
- 859              		.loc 1 239 0
+ 241:main.c        ****                 while(startFlag == 1){
+ 859              		.loc 1 241 0
  860 01f4 4346     		mov	r3, r8
  861 01f6 002B     		cmp	r3, #0
  862 01f8 A3D0     		beq	.L42
  863 01fa 18E7     		b	.L32
  864              	.L45:
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 23
+
+
  865              		.align	2
  866              	.L44:
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 23
-
-
  867 01fc 00000000 		.word	MyCustomISR
  868 0200 00000000 		.word	print_UART
  869 0204 00000000 		.word	startFlag
@@ -1376,11 +1378,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  898      74656420 
  898      62656163 
  899 00cb 696E6720 		.ascii	"ing !!!\012\015\000"
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 24
+
+
  899      2121210A 
  899      0D00
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 24
-
-
  900 00d5 000000   		.space	3
  901              	.LC16:
  902 00d8 21212120 		.ascii	"!!! Test Halted by user !!!\012\015\000"
@@ -1418,9 +1420,9 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  914              		.bss
  915              		.align	2
  916              		.set	.LANCHOR0,. + 0
- 917              		.type	filteredValue.7541, %object
- 918              		.size	filteredValue.7541, 20
- 919              	filteredValue.7541:
+ 917              		.type	filteredValue.7565, %object
+ 918              		.size	filteredValue.7565, 20
+ 919              	filteredValue.7565:
  920 0000 00000000 		.space	20
  920      00000000 
  920      00000000 
@@ -1429,18 +1431,18 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  921              		.text
  922              	.Letext0:
  923              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
- 924              		.file 3 "d:\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.1\\arm-none-eabi\\inc
+ 924              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
  925              		.file 4 "Generated_Source\\PSoC4/TCPWM_1.h"
  926              		.file 5 "Generated_Source\\PSoC4/Timer_1.h"
- 927              		.file 6 "d:\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.1\\arm-none-eabi\\inc
+ 927              		.file 6 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
  928              		.file 7 "Generated_Source\\PSoC4/UART_1_SPI_UART.h"
  929              		.file 8 "Generated_Source\\PSoC4/CyLib.h"
  930              		.file 9 "Generated_Source\\PSoC4/I2C_1.h"
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 25
+
+
  931              		.file 10 "Generated_Source\\PSoC4/AMux_1.h"
  932              		.file 11 "Generated_Source\\PSoC4/Opamp_1.h"
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 25
-
-
  933              		.file 12 "Generated_Source\\PSoC4/PGA_1.h"
  934              		.file 13 "Generated_Source\\PSoC4/ADC_1.h"
  935              		.file 14 "Generated_Source\\PSoC4/UART_1.h"
@@ -1458,19 +1460,19 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  947 000b 01       		.uleb128 0x1
  948 000c 86000000 		.4byte	.LASF80
  949 0010 0C       		.byte	0xc
- 950 0011 AD030000 		.4byte	.LASF81
- 951 0015 D6020000 		.4byte	.LASF82
+ 950 0011 A8030000 		.4byte	.LASF81
+ 951 0015 44010000 		.4byte	.LASF82
  952 0019 00000000 		.4byte	.Ldebug_ranges0+0
  953 001d 00000000 		.4byte	0
  954 0021 00000000 		.4byte	.Ldebug_line0
  955 0025 02       		.uleb128 0x2
  956 0026 08       		.byte	0x8
  957 0027 04       		.byte	0x4
- 958 0028 DF030000 		.4byte	.LASF0
+ 958 0028 DA030000 		.4byte	.LASF0
  959 002c 02       		.uleb128 0x2
  960 002d 04       		.byte	0x4
  961 002e 04       		.byte	0x4
- 962 002f C5010000 		.4byte	.LASF1
+ 962 002f 1D020000 		.4byte	.LASF1
  963 0033 02       		.uleb128 0x2
  964 0034 01       		.byte	0x1
  965 0035 06       		.byte	0x6
@@ -1478,7 +1480,7 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  967 003a 02       		.uleb128 0x2
  968 003b 01       		.byte	0x1
  969 003c 08       		.byte	0x8
- 970 003d 39020000 		.4byte	.LASF3
+ 970 003d 93020000 		.4byte	.LASF3
  971 0041 02       		.uleb128 0x2
  972 0042 02       		.byte	0x2
  973 0043 05       		.byte	0x5
@@ -1486,26 +1488,26 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  975 0048 02       		.uleb128 0x2
  976 0049 02       		.byte	0x2
  977 004a 07       		.byte	0x7
- 978 004b C3020000 		.4byte	.LASF5
+ 978 004b 1D030000 		.4byte	.LASF5
  979 004f 02       		.uleb128 0x2
  980 0050 04       		.byte	0x4
  981 0051 05       		.byte	0x5
- 982 0052 F1010000 		.4byte	.LASF6
+ 982 0052 4B020000 		.4byte	.LASF6
  983 0056 02       		.uleb128 0x2
  984 0057 04       		.byte	0x4
  985 0058 07       		.byte	0x7
- 986 0059 C2030000 		.4byte	.LASF7
+ 986 0059 BD030000 		.4byte	.LASF7
  987 005d 02       		.uleb128 0x2
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 26
+
+
  988 005e 08       		.byte	0x8
  989 005f 05       		.byte	0x5
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 26
-
-
- 990 0060 CB010000 		.4byte	.LASF8
+ 990 0060 23020000 		.4byte	.LASF8
  991 0064 02       		.uleb128 0x2
  992 0065 08       		.byte	0x8
  993 0066 07       		.byte	0x7
- 994 0067 67020000 		.4byte	.LASF9
+ 994 0067 C1020000 		.4byte	.LASF9
  995 006b 03       		.uleb128 0x3
  996 006c 04       		.byte	0x4
  997 006d 05       		.byte	0x5
@@ -1513,54 +1515,54 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  999 0072 02       		.uleb128 0x2
  1000 0073 04       		.byte	0x4
  1001 0074 07       		.byte	0x7
- 1002 0075 7E020000 		.4byte	.LASF10
+ 1002 0075 D8020000 		.4byte	.LASF10
  1003 0079 04       		.uleb128 0x4
- 1004 007a 97010000 		.4byte	.LASF11
+ 1004 007a EF010000 		.4byte	.LASF11
  1005 007e 02       		.byte	0x2
  1006 007f FC01     		.2byte	0x1fc
  1007 0081 3A000000 		.4byte	0x3a
  1008 0085 04       		.uleb128 0x4
- 1009 0086 A6030000 		.4byte	.LASF12
+ 1009 0086 A1030000 		.4byte	.LASF12
  1010 008a 02       		.byte	0x2
  1011 008b FE01     		.2byte	0x1fe
  1012 008d 56000000 		.4byte	0x56
  1013 0091 04       		.uleb128 0x4
- 1014 0092 D9010000 		.4byte	.LASF13
+ 1014 0092 31020000 		.4byte	.LASF13
  1015 0096 02       		.byte	0x2
  1016 0097 FF01     		.2byte	0x1ff
  1017 0099 33000000 		.4byte	0x33
  1018 009d 04       		.uleb128 0x4
- 1019 009e D9030000 		.4byte	.LASF14
+ 1019 009e D4030000 		.4byte	.LASF14
  1020 00a2 02       		.byte	0x2
  1021 00a3 0102     		.2byte	0x201
  1022 00a5 4F000000 		.4byte	0x4f
  1023 00a9 02       		.uleb128 0x2
  1024 00aa 01       		.byte	0x1
  1025 00ab 08       		.byte	0x8
- 1026 00ac DE010000 		.4byte	.LASF15
+ 1026 00ac 30030000 		.4byte	.LASF15
  1027 00b0 02       		.uleb128 0x2
  1028 00b1 08       		.byte	0x8
  1029 00b2 04       		.byte	0x4
- 1030 00b3 2D020000 		.4byte	.LASF16
+ 1030 00b3 87020000 		.4byte	.LASF16
  1031 00b7 02       		.uleb128 0x2
  1032 00b8 04       		.byte	0x4
  1033 00b9 07       		.byte	0x7
- 1034 00ba 67040000 		.4byte	.LASF17
+ 1034 00ba 5B040000 		.4byte	.LASF17
  1035 00be 05       		.uleb128 0x5
- 1036 00bf 44010000 		.4byte	.LASF18
+ 1036 00bf 9C010000 		.4byte	.LASF18
  1037 00c3 03       		.byte	0x3
  1038 00c4 6C       		.byte	0x6c
  1039 00c5 72000000 		.4byte	0x72
  1040 00c9 06       		.uleb128 0x6
- 1041 00ca 67010000 		.4byte	.LASF19
+ 1041 00ca BF010000 		.4byte	.LASF19
  1042 00ce 01       		.byte	0x1
- 1043 00cf A0       		.byte	0xa0
+ 1043 00cf A2       		.byte	0xa2
  1044 00d0 00000000 		.4byte	.LFB38
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 27
+
+
  1045 00d4 14000000 		.4byte	.LFE38-.LFB38
  1046 00d8 01       		.uleb128 0x1
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 27
-
-
  1047 00d9 9C       		.byte	0x9c
  1048 00da EE000000 		.4byte	0xee
  1049 00de 07       		.uleb128 0x7
@@ -1574,9 +1576,9 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  1057 00ec 00       		.byte	0
  1058 00ed 00       		.byte	0
  1059 00ee 06       		.uleb128 0x6
- 1060 00ef 3F040000 		.4byte	.LASF20
+ 1060 00ef 3A040000 		.4byte	.LASF20
  1061 00f3 01       		.byte	0x1
- 1062 00f4 A7       		.byte	0xa7
+ 1062 00f4 A9       		.byte	0xa9
  1063 00f5 00000000 		.4byte	.LFB39
  1064 00f9 14000000 		.4byte	.LFE39-.LFB39
  1065 00fd 01       		.uleb128 0x1
@@ -1593,34 +1595,34 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  1076 0111 00       		.byte	0
  1077 0112 00       		.byte	0
  1078 0113 06       		.uleb128 0x6
- 1079 0114 B4030000 		.4byte	.LASF21
+ 1079 0114 AF030000 		.4byte	.LASF21
  1080 0118 01       		.byte	0x1
- 1081 0119 2B       		.byte	0x2b
+ 1081 0119 30       		.byte	0x30
  1082 011a 00000000 		.4byte	.LFB34
  1083 011e A0000000 		.4byte	.LFE34-.LFB34
  1084 0122 01       		.uleb128 0x1
  1085 0123 9C       		.byte	0x9c
  1086 0124 55020000 		.4byte	0x255
  1087 0128 09       		.uleb128 0x9
- 1088 0129 01020000 		.4byte	.LASF22
+ 1088 0129 5B020000 		.4byte	.LASF22
  1089 012d 01       		.byte	0x1
- 1090 012e 2B       		.byte	0x2b
+ 1090 012e 30       		.byte	0x30
  1091 012f BE000000 		.4byte	0xbe
  1092 0133 00000000 		.4byte	.LLST0
  1093 0137 09       		.uleb128 0x9
- 1094 0138 85010000 		.4byte	.LASF23
+ 1094 0138 DD010000 		.4byte	.LASF23
  1095 013c 01       		.byte	0x1
- 1096 013d 2B       		.byte	0x2b
+ 1096 013d 30       		.byte	0x30
  1097 013e BE000000 		.4byte	0xbe
  1098 0142 2C000000 		.4byte	.LLST1
  1099 0146 0A       		.uleb128 0xa
- 1100 0147 A6010000 		.4byte	.LASF24
+ 1100 0147 FE010000 		.4byte	.LASF24
  1101 014b 01       		.byte	0x1
- 1102 014c 2D       		.byte	0x2d
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 28
+
+
+ 1102 014c 32       		.byte	0x32
  1103 014d 55020000 		.4byte	0x255
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 28
-
-
  1104 0151 03       		.uleb128 0x3
  1105 0152 91       		.byte	0x91
  1106 0153 AC7F     		.sleb128 -84
@@ -1631,7 +1633,7 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  1111 0162 0C       		.uleb128 0xc
  1112 0163 6900     		.ascii	"i\000"
  1113 0165 01       		.byte	0x1
- 1114 0166 33       		.byte	0x33
+ 1114 0166 38       		.byte	0x38
  1115 0167 BE000000 		.4byte	0xbe
  1116 016b 58000000 		.4byte	.LLST2
  1117 016f 0D       		.uleb128 0xd
@@ -1676,11 +1678,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  1156 01b3 50       		.byte	0x50
  1157 01b4 01       		.uleb128 0x1
  1158 01b5 3A       		.byte	0x3a
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 29
+
+
  1159 01b6 00       		.byte	0
  1160 01b7 00       		.byte	0
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 29
-
-
  1161 01b8 0B       		.uleb128 0xb
  1162 01b9 5E000000 		.4byte	.LBB3
  1163 01bd 1C000000 		.4byte	.LBE3-.LBB3
@@ -1688,7 +1690,7 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  1165 01c5 0C       		.uleb128 0xc
  1166 01c6 6900     		.ascii	"i\000"
  1167 01c8 01       		.byte	0x1
- 1168 01c9 38       		.byte	0x38
+ 1168 01c9 3D       		.byte	0x3d
  1169 01ca BE000000 		.4byte	0xbe
  1170 01ce 77000000 		.4byte	.LLST3
  1171 01d2 0D       		.uleb128 0xd
@@ -1736,11 +1738,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  1213 0219 00       		.byte	0
  1214 021a 00       		.byte	0
  1215 021b 0D       		.uleb128 0xd
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 30
+
+
  1216 021c 1A000000 		.4byte	.LVL4
  1217 0220 F0080000 		.4byte	0x8f0
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 30
-
-
  1218 0224 2F020000 		.4byte	0x22f
  1219 0228 08       		.uleb128 0x8
  1220 0229 01       		.uleb128 0x1
@@ -1779,9 +1781,9 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  1253 0263 3B       		.byte	0x3b
  1254 0264 00       		.byte	0
  1255 0265 10       		.uleb128 0x10
- 1256 0266 A2020000 		.4byte	.LASF83
+ 1256 0266 FC020000 		.4byte	.LASF83
  1257 026a 01       		.byte	0x1
- 1258 026b 47       		.byte	0x47
+ 1258 026b 4C       		.byte	0x4c
  1259 026c 00000000 		.4byte	.LFB35
  1260 0270 36000000 		.4byte	.LFE35-.LFB35
  1261 0274 01       		.uleb128 0x1
@@ -1796,11 +1798,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  1270 028c 11       		.uleb128 0x11
  1271 028d 0E000000 		.4byte	.LVL23
  1272 0291 1D090000 		.4byte	0x91d
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 31
+
+
  1273 0295 11       		.uleb128 0x11
  1274 0296 12000000 		.4byte	.LVL24
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 31
-
-
  1275 029a 28090000 		.4byte	0x928
  1276 029e 11       		.uleb128 0x11
  1277 029f 16000000 		.4byte	.LVL25
@@ -1843,27 +1845,27 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  1314 02f1 00       		.byte	0
  1315 02f2 00       		.byte	0
  1316 02f3 06       		.uleb128 0x6
- 1317 02f4 C6040000 		.4byte	.LASF25
+ 1317 02f4 BA040000 		.4byte	.LASF25
  1318 02f8 01       		.byte	0x1
- 1319 02f9 5E       		.byte	0x5e
+ 1319 02f9 63       		.byte	0x63
  1320 02fa 00000000 		.4byte	.LFB36
  1321 02fe 98000000 		.4byte	.LFE36-.LFB36
  1322 0302 01       		.uleb128 0x1
  1323 0303 9C       		.byte	0x9c
  1324 0304 A8030000 		.4byte	0x3a8
  1325 0308 09       		.uleb128 0x9
- 1326 0309 9D010000 		.4byte	.LASF26
+ 1326 0309 F5010000 		.4byte	.LASF26
  1327 030d 01       		.byte	0x1
- 1328 030e 5E       		.byte	0x5e
+ 1328 030e 63       		.byte	0x63
  1329 030f 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 32
+
+
  1330 0313 8A000000 		.4byte	.LLST4
  1331 0317 0A       		.uleb128 0xa
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 32
-
-
- 1332 0318 FA010000 		.4byte	.LASF27
+ 1332 0318 54020000 		.4byte	.LASF27
  1333 031c 01       		.byte	0x1
- 1334 031d 5F       		.byte	0x5f
+ 1334 031d 64       		.byte	0x64
  1335 031e A8030000 		.4byte	0x3a8
  1336 0322 02       		.uleb128 0x2
  1337 0323 91       		.byte	0x91
@@ -1916,11 +1918,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  1384 0370 02       		.uleb128 0x2
  1385 0371 08       		.byte	0x8
  1386 0372 32       		.byte	0x32
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 33
+
+
  1387 0373 00       		.byte	0
  1388 0374 0D       		.uleb128 0xd
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 33
-
-
  1389 0375 42000000 		.4byte	.LVL36
  1390 0379 82090000 		.4byte	0x982
  1391 037d 97030000 		.4byte	0x397
@@ -1962,9 +1964,9 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  1427 03b6 31       		.byte	0x31
  1428 03b7 00       		.byte	0
  1429 03b8 12       		.uleb128 0x12
- 1430 03b9 53010000 		.4byte	.LASF84
+ 1430 03b9 AB010000 		.4byte	.LASF84
  1431 03bd 01       		.byte	0x1
- 1432 03be 80       		.byte	0x80
+ 1432 03be 85       		.byte	0x85
  1433 03bf 9D000000 		.4byte	0x9d
  1434 03c3 00000000 		.4byte	.LFB37
  1435 03c7 48000000 		.4byte	.LFE37-.LFB37
@@ -1974,30 +1976,30 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  1439 03d1 09       		.uleb128 0x9
  1440 03d2 18010000 		.4byte	.LASF28
  1441 03d6 01       		.byte	0x1
- 1442 03d7 80       		.byte	0x80
+ 1442 03d7 85       		.byte	0x85
  1443 03d8 9D000000 		.4byte	0x9d
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 34
+
+
  1444 03dc CF000000 		.4byte	.LLST5
  1445 03e0 09       		.uleb128 0x9
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 34
-
-
- 1446 03e1 68030000 		.4byte	.LASF29
+ 1446 03e1 63030000 		.4byte	.LASF29
  1447 03e5 01       		.byte	0x1
- 1448 03e6 80       		.byte	0x80
+ 1448 03e6 85       		.byte	0x85
  1449 03e7 79000000 		.4byte	0x79
  1450 03eb FD000000 		.4byte	.LLST6
  1451 03ef 0A       		.uleb128 0xa
- 1452 03f0 CF040000 		.4byte	.LASF30
+ 1452 03f0 C3040000 		.4byte	.LASF30
  1453 03f4 01       		.byte	0x1
- 1454 03f5 83       		.byte	0x83
+ 1454 03f5 88       		.byte	0x88
  1455 03f6 0E040000 		.4byte	0x40e
  1456 03fa 05       		.uleb128 0x5
  1457 03fb 03       		.byte	0x3
- 1458 03fc 00000000 		.4byte	filteredValue.7541
+ 1458 03fc 00000000 		.4byte	filteredValue.7565
  1459 0400 0A       		.uleb128 0xa
- 1460 0401 96030000 		.4byte	.LASF31
+ 1460 0401 91030000 		.4byte	.LASF31
  1461 0405 01       		.byte	0x1
- 1462 0406 86       		.byte	0x86
+ 1462 0406 8B       		.byte	0x8b
  1463 0407 9D000000 		.4byte	0x9d
  1464 040b 01       		.uleb128 0x1
  1465 040c 50       		.byte	0x50
@@ -2012,7 +2014,7 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  1474 041e 13       		.uleb128 0x13
  1475 041f 22010000 		.4byte	.LASF85
  1476 0423 01       		.byte	0x1
- 1477 0424 B1       		.byte	0xb1
+ 1477 0424 B3       		.byte	0xb3
  1478 0425 6B000000 		.4byte	0x6b
  1479 0429 00000000 		.4byte	.LFB40
  1480 042d 18020000 		.4byte	.LFE40-.LFB40
@@ -2020,72 +2022,72 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  1482 0432 9C       		.byte	0x9c
  1483 0433 9B080000 		.4byte	0x89b
  1484 0437 14       		.uleb128 0x14
- 1485 0438 3A030000 		.4byte	.LASF32
+ 1485 0438 35030000 		.4byte	.LASF32
  1486 043c 01       		.byte	0x1
- 1487 043d B5       		.byte	0xb5
+ 1487 043d B7       		.byte	0xb7
  1488 043e 9D000000 		.4byte	0x9d
  1489 0442 1E010000 		.4byte	.LLST7
  1490 0446 14       		.uleb128 0x14
- 1491 0447 53030000 		.4byte	.LASF33
+ 1491 0447 4E030000 		.4byte	.LASF33
  1492 044b 01       		.byte	0x1
- 1493 044c B6       		.byte	0xb6
+ 1493 044c B8       		.byte	0xb8
  1494 044d 2C000000 		.4byte	0x2c
  1495 0451 3C010000 		.4byte	.LLST8
  1496 0455 14       		.uleb128 0x14
  1497 0456 27010000 		.4byte	.LASF34
  1498 045a 01       		.byte	0x1
- 1499 045b B8       		.byte	0xb8
+ 1499 045b BA       		.byte	0xba
  1500 045c 9D000000 		.4byte	0x9d
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 35
+
+
  1501 0460 8A010000 		.4byte	.LLST9
  1502 0464 14       		.uleb128 0x14
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 35
-
-
- 1503 0465 8E010000 		.4byte	.LASF35
+ 1503 0465 E6010000 		.4byte	.LASF35
  1504 0469 01       		.byte	0x1
- 1505 046a B9       		.byte	0xb9
+ 1505 046a BB       		.byte	0xbb
  1506 046b 2C000000 		.4byte	0x2c
  1507 046f A8010000 		.4byte	.LLST10
  1508 0473 14       		.uleb128 0x14
- 1509 0474 49010000 		.4byte	.LASF36
+ 1509 0474 A1010000 		.4byte	.LASF36
  1510 0478 01       		.byte	0x1
- 1511 0479 BB       		.byte	0xbb
+ 1511 0479 BD       		.byte	0xbd
  1512 047a 9D000000 		.4byte	0x9d
  1513 047e E7010000 		.4byte	.LLST11
  1514 0482 14       		.uleb128 0x14
- 1515 0483 DD040000 		.4byte	.LASF37
+ 1515 0483 D1040000 		.4byte	.LASF37
  1516 0487 01       		.byte	0x1
- 1517 0488 BC       		.byte	0xbc
+ 1517 0488 BE       		.byte	0xbe
  1518 0489 2C000000 		.4byte	0x2c
  1519 048d 05020000 		.4byte	.LLST12
  1520 0491 14       		.uleb128 0x14
  1521 0492 2C000000 		.4byte	.LASF38
  1522 0496 01       		.byte	0x1
- 1523 0497 BE       		.byte	0xbe
+ 1523 0497 C0       		.byte	0xc0
  1524 0498 9D000000 		.4byte	0x9d
  1525 049c 44020000 		.4byte	.LLST13
  1526 04a0 14       		.uleb128 0x14
- 1527 04a1 37040000 		.4byte	.LASF39
+ 1527 04a1 32040000 		.4byte	.LASF39
  1528 04a5 01       		.byte	0x1
- 1529 04a6 BF       		.byte	0xbf
+ 1529 04a6 C1       		.byte	0xc1
  1530 04a7 2C000000 		.4byte	0x2c
  1531 04ab 62020000 		.4byte	.LLST14
  1532 04af 14       		.uleb128 0x14
- 1533 04b0 47020000 		.4byte	.LASF40
+ 1533 04b0 A1020000 		.4byte	.LASF40
  1534 04b4 01       		.byte	0x1
- 1535 04b5 C0       		.byte	0xc0
+ 1535 04b5 C2       		.byte	0xc2
  1536 04b6 2C000000 		.4byte	0x2c
  1537 04ba 98020000 		.4byte	.LLST15
  1538 04be 14       		.uleb128 0x14
- 1539 04bf 24020000 		.4byte	.LASF41
+ 1539 04bf 7E020000 		.4byte	.LASF41
  1540 04c3 01       		.byte	0x1
- 1541 04c4 C2       		.byte	0xc2
+ 1541 04c4 C4       		.byte	0xc4
  1542 04c5 2C000000 		.4byte	0x2c
  1543 04c9 DF020000 		.4byte	.LLST16
  1544 04cd 0A       		.uleb128 0xa
- 1545 04ce FA010000 		.4byte	.LASF27
+ 1545 04ce 54020000 		.4byte	.LASF27
  1546 04d2 01       		.byte	0x1
- 1547 04d3 C4       		.byte	0xc4
+ 1547 04d3 C6       		.byte	0xc6
  1548 04d4 55020000 		.4byte	0x255
  1549 04d8 03       		.uleb128 0x3
  1550 04d9 91       		.byte	0x91
@@ -2093,80 +2095,80 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  1552 04dc 14       		.uleb128 0x14
  1553 04dd 36000000 		.4byte	.LASF42
  1554 04e1 01       		.byte	0x1
- 1555 04e2 C6       		.byte	0xc6
+ 1555 04e2 C8       		.byte	0xc8
  1556 04e3 9D000000 		.4byte	0x9d
  1557 04e7 13030000 		.4byte	.LLST17
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 36
+
+
  1558 04eb 14       		.uleb128 0x14
- 1559 04ec BA020000 		.4byte	.LASF43
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 36
-
-
+ 1559 04ec 14030000 		.4byte	.LASF43
  1560 04f0 01       		.byte	0x1
- 1561 04f1 C7       		.byte	0xc7
+ 1561 04f1 C9       		.byte	0xc9
  1562 04f2 91000000 		.4byte	0x91
  1563 04f6 31030000 		.4byte	.LLST18
  1564 04fa 14       		.uleb128 0x14
- 1565 04fb 9D010000 		.4byte	.LASF26
+ 1565 04fb F5010000 		.4byte	.LASF26
  1566 04ff 01       		.byte	0x1
- 1567 0500 C8       		.byte	0xc8
+ 1567 0500 CA       		.byte	0xca
  1568 0501 91000000 		.4byte	0x91
  1569 0505 73030000 		.4byte	.LLST19
  1570 0509 15       		.uleb128 0x15
- 1571 050a A2040000 		.4byte	.LASF44
+ 1571 050a 96040000 		.4byte	.LASF44
  1572 050e 01       		.byte	0x1
- 1573 050f CA       		.byte	0xca
+ 1573 050f CC       		.byte	0xcc
  1574 0510 9D000000 		.4byte	0x9d
  1575 0514 60A20C00 		.4byte	0xca260
  1576 0518 16       		.uleb128 0x16
- 1577 0519 D4030000 		.4byte	.LASF45
+ 1577 0519 CF030000 		.4byte	.LASF45
  1578 051d 01       		.byte	0x1
- 1579 051e CB       		.byte	0xcb
+ 1579 051e CD       		.byte	0xcd
  1580 051f 9D000000 		.4byte	0x9d
  1581 0523 1027     		.2byte	0x2710
  1582 0525 0A       		.uleb128 0xa
- 1583 0526 FB030000 		.4byte	.LASF46
+ 1583 0526 F6030000 		.4byte	.LASF46
  1584 052a 01       		.byte	0x1
- 1585 052b CD       		.byte	0xcd
+ 1585 052b CF       		.byte	0xcf
  1586 052c 9B080000 		.4byte	0x89b
  1587 0530 03       		.uleb128 0x3
  1588 0531 91       		.byte	0x91
  1589 0532 8C7F     		.sleb128 -116
  1590 0534 0A       		.uleb128 0xa
- 1591 0535 85040000 		.4byte	.LASF47
+ 1591 0535 79040000 		.4byte	.LASF47
  1592 0539 01       		.byte	0x1
- 1593 053a CE       		.byte	0xce
+ 1593 053a D0       		.byte	0xd0
  1594 053b 9B080000 		.4byte	0x89b
  1595 053f 03       		.uleb128 0x3
  1596 0540 91       		.byte	0x91
  1597 0541 EC7E     		.sleb128 -148
  1598 0543 17       		.uleb128 0x17
- 1599 0544 70040000 		.4byte	.LASF86
+ 1599 0544 64040000 		.4byte	.LASF86
  1600 0548 01       		.byte	0x1
- 1601 0549 CF       		.byte	0xcf
+ 1601 0549 D1       		.byte	0xd1
  1602 054a 85000000 		.4byte	0x85
  1603 054e 18       		.uleb128 0x18
- 1604 054f 93040000 		.4byte	.LASF48
+ 1604 054f 87040000 		.4byte	.LASF48
  1605 0553 01       		.byte	0x1
- 1606 0554 D1       		.byte	0xd1
+ 1606 0554 D3       		.byte	0xd3
  1607 0555 79000000 		.4byte	0x79
  1608 0559 0B       		.byte	0xb
  1609 055a 18       		.uleb128 0x18
- 1610 055b 08040000 		.4byte	.LASF49
+ 1610 055b 03040000 		.4byte	.LASF49
  1611 055f 01       		.byte	0x1
- 1612 0560 D2       		.byte	0xd2
+ 1612 0560 D4       		.byte	0xd4
  1613 0561 79000000 		.4byte	0x79
  1614 0565 0D       		.byte	0xd
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 37
+
+
  1615 0566 0B       		.uleb128 0xb
  1616 0567 6E010000 		.4byte	.LBB4
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 37
-
-
  1617 056b 0A000000 		.4byte	.LBE4-.LBB4
  1618 056f 82050000 		.4byte	0x582
  1619 0573 19       		.uleb128 0x19
  1620 0574 6900     		.ascii	"i\000"
  1621 0576 01       		.byte	0x1
- 1622 0577 3B01     		.2byte	0x13b
+ 1622 0577 3D01     		.2byte	0x13d
  1623 0579 BE000000 		.4byte	0xbe
  1624 057d 9F030000 		.4byte	.LLST20
  1625 0581 00       		.byte	0
@@ -2177,7 +2179,7 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  1630 058f 19       		.uleb128 0x19
  1631 0590 6900     		.ascii	"i\000"
  1632 0592 01       		.byte	0x1
- 1633 0593 4101     		.2byte	0x141
+ 1633 0593 4301     		.2byte	0x143
  1634 0595 BE000000 		.4byte	0xbe
  1635 0599 BE030000 		.4byte	.LLST21
  1636 059d 00       		.byte	0
@@ -2216,11 +2218,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  1669 05d2 08       		.uleb128 0x8
  1670 05d3 01       		.uleb128 0x1
  1671 05d4 51       		.byte	0x51
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 38
+
+
  1672 05d5 01       		.uleb128 0x1
  1673 05d6 30       		.byte	0x30
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 38
-
-
  1674 05d7 08       		.uleb128 0x8
  1675 05d8 01       		.uleb128 0x1
  1676 05d9 52       		.byte	0x52
@@ -2276,11 +2278,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  1726 063b 11       		.uleb128 0x11
  1727 063c 3E000000 		.4byte	.LVL54
  1728 0640 AA090000 		.4byte	0x9aa
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 39
+
+
  1729 0644 11       		.uleb128 0x11
  1730 0645 46000000 		.4byte	.LVL55
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 39
-
-
  1731 0649 B6090000 		.4byte	0x9b6
  1732 064d 0D       		.uleb128 0xd
  1733 064e 58000000 		.4byte	.LVL57
@@ -2336,11 +2338,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  1783 06b3 30       		.byte	0x30
  1784 06b4 00       		.byte	0
  1785 06b5 0D       		.uleb128 0xd
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 40
+
+
  1786 06b6 82000000 		.4byte	.LVL67
  1787 06ba C2090000 		.4byte	0x9c2
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 40
-
-
  1788 06be C8060000 		.4byte	0x6c8
  1789 06c2 08       		.uleb128 0x8
  1790 06c3 01       		.uleb128 0x1
@@ -2396,11 +2398,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  1840 0722 C2090000 		.4byte	0x9c2
  1841 0726 30070000 		.4byte	0x730
  1842 072a 08       		.uleb128 0x8
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 41
+
+
  1843 072b 01       		.uleb128 0x1
  1844 072c 50       		.byte	0x50
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 41
-
-
  1845 072d 01       		.uleb128 0x1
  1846 072e 33       		.byte	0x33
  1847 072f 00       		.byte	0
@@ -2456,11 +2458,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  1897 0794 50       		.byte	0x50
  1898 0795 01       		.uleb128 0x1
  1899 0796 30       		.byte	0x30
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 42
+
+
  1900 0797 00       		.byte	0
  1901 0798 11       		.uleb128 0x11
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 42
-
-
  1902 0799 DA000000 		.4byte	.LVL88
  1903 079d CD090000 		.4byte	0x9cd
  1904 07a1 0D       		.uleb128 0xd
@@ -2516,11 +2518,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  1954 080c 08       		.uleb128 0x8
  1955 080d 01       		.uleb128 0x1
  1956 080e 50       		.byte	0x50
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 43
+
+
  1957 080f 01       		.uleb128 0x1
  1958 0810 38       		.byte	0x38
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 43
-
-
  1959 0811 08       		.uleb128 0x8
  1960 0812 01       		.uleb128 0x1
  1961 0813 51       		.byte	0x51
@@ -2576,11 +2578,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  2011 0859 01       		.uleb128 0x1
  2012 085a 30       		.byte	0x30
  2013 085b 00       		.byte	0
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 44
+
+
  2014 085c 0D       		.uleb128 0xd
  2015 085d E6010000 		.4byte	.LVL133
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 44
-
-
  2016 0861 E5080000 		.4byte	0x8e5
  2017 0865 89080000 		.4byte	0x889
  2018 0869 08       		.uleb128 0x8
@@ -2629,80 +2631,80 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  2061 08a9 1F       		.byte	0x1f
  2062 08aa 00       		.byte	0
  2063 08ab 1A       		.uleb128 0x1a
- 2064 08ac B0020000 		.4byte	.LASF50
+ 2064 08ac 0A030000 		.4byte	.LASF50
  2065 08b0 01       		.byte	0x1
- 2066 08b1 9C       		.byte	0x9c
+ 2066 08b1 20       		.byte	0x20
  2067 08b2 6B000000 		.4byte	0x6b
  2068 08b6 05       		.uleb128 0x5
  2069 08b7 03       		.byte	0x3
  2070 08b8 00000000 		.4byte	startFlag
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 45
+
+
  2071 08bc 1A       		.uleb128 0x1a
- 2072 08bd 17040000 		.4byte	.LASF51
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 45
-
-
+ 2072 08bd 12040000 		.4byte	.LASF51
  2073 08c1 01       		.byte	0x1
- 2074 08c2 9D       		.byte	0x9d
+ 2074 08c2 21       		.byte	0x21
  2075 08c3 6B000000 		.4byte	0x6b
  2076 08c7 05       		.uleb128 0x5
  2077 08c8 03       		.byte	0x3
  2078 08c9 00000000 		.4byte	printFlag
  2079 08cd 1B       		.uleb128 0x1b
- 2080 08ce 70030000 		.4byte	.LASF52
- 2081 08d2 70030000 		.4byte	.LASF52
+ 2080 08ce 6B030000 		.4byte	.LASF52
+ 2081 08d2 6B030000 		.4byte	.LASF52
  2082 08d6 04       		.byte	0x4
  2083 08d7 4701     		.2byte	0x147
  2084 08d9 1B       		.uleb128 0x1b
- 2085 08da 8B020000 		.4byte	.LASF53
- 2086 08de 8B020000 		.4byte	.LASF53
+ 2085 08da E5020000 		.4byte	.LASF53
+ 2086 08de E5020000 		.4byte	.LASF53
  2087 08e2 05       		.byte	0x5
  2088 08e3 4701     		.2byte	0x147
  2089 08e5 1C       		.uleb128 0x1c
- 2090 08e6 51020000 		.4byte	.LASF54
- 2091 08ea 51020000 		.4byte	.LASF54
+ 2090 08e6 AB020000 		.4byte	.LASF54
+ 2091 08ea AB020000 		.4byte	.LASF54
  2092 08ee 06       		.byte	0x6
  2093 08ef E7       		.byte	0xe7
  2094 08f0 1B       		.uleb128 0x1b
- 2095 08f1 E6030000 		.4byte	.LASF55
- 2096 08f5 E6030000 		.4byte	.LASF55
+ 2095 08f1 E1030000 		.4byte	.LASF55
+ 2096 08f5 E1030000 		.4byte	.LASF55
  2097 08f9 07       		.byte	0x7
  2098 08fa 2A03     		.2byte	0x32a
  2099 08fc 1C       		.uleb128 0x1c
- 2100 08fd BE040000 		.4byte	.LASF56
- 2101 0901 BE040000 		.4byte	.LASF56
+ 2100 08fd B2040000 		.4byte	.LASF56
+ 2101 0901 B2040000 		.4byte	.LASF56
  2102 0905 08       		.byte	0x8
  2103 0906 EC       		.byte	0xec
  2104 0907 1C       		.uleb128 0x1c
- 2105 0908 0A020000 		.4byte	.LASF57
- 2106 090c 0A020000 		.4byte	.LASF57
+ 2105 0908 64020000 		.4byte	.LASF57
+ 2106 090c 64020000 		.4byte	.LASF57
  2107 0910 09       		.byte	0x9
  2108 0911 72       		.byte	0x72
  2109 0912 1C       		.uleb128 0x1c
- 2110 0913 B8010000 		.4byte	.LASF58
- 2111 0917 B8010000 		.4byte	.LASF58
+ 2110 0913 10020000 		.4byte	.LASF58
+ 2111 0917 10020000 		.4byte	.LASF58
  2112 091b 0A       		.byte	0xa
  2113 091c 25       		.byte	0x25
  2114 091d 1C       		.uleb128 0x1c
- 2115 091e 77040000 		.4byte	.LASF59
- 2116 0922 77040000 		.4byte	.LASF59
+ 2115 091e 6B040000 		.4byte	.LASF59
+ 2116 0922 6B040000 		.4byte	.LASF59
  2117 0926 0B       		.byte	0xb
  2118 0927 29       		.byte	0x29
  2119 0928 1C       		.uleb128 0x1c
- 2120 0929 5C030000 		.4byte	.LASF60
- 2121 092d 5C030000 		.4byte	.LASF60
+ 2120 0929 57030000 		.4byte	.LASF60
+ 2121 092d 57030000 		.4byte	.LASF60
  2122 0931 0C       		.byte	0xc
  2123 0932 37       		.byte	0x37
  2124 0933 1C       		.uleb128 0x1c
  2125 0934 0D000000 		.4byte	.LASF61
  2126 0938 0D000000 		.4byte	.LASF61
  2127 093c 0D       		.byte	0xd
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 46
+
+
  2128 093d B1       		.byte	0xb1
  2129 093e 1C       		.uleb128 0x1c
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 46
-
-
- 2130 093f AB010000 		.4byte	.LASF62
- 2131 0943 AB010000 		.4byte	.LASF62
+ 2130 093f 03020000 		.4byte	.LASF62
+ 2131 0943 03020000 		.4byte	.LASF62
  2132 0947 0E       		.byte	0xe
  2133 0948 72       		.byte	0x72
  2134 0949 1C       		.uleb128 0x1c
@@ -2711,8 +2713,8 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  2137 0952 0F       		.byte	0xf
  2138 0953 37       		.byte	0x37
  2139 0954 1C       		.uleb128 0x1c
- 2140 0955 87030000 		.4byte	.LASF64
- 2141 0959 87030000 		.4byte	.LASF64
+ 2140 0955 82030000 		.4byte	.LASF64
+ 2141 0959 82030000 		.4byte	.LASF64
  2142 095d 0F       		.byte	0xf
  2143 095e 36       		.byte	0x36
  2144 095f 1C       		.uleb128 0x1c
@@ -2721,8 +2723,8 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  2147 0968 10       		.byte	0x10
  2148 0969 33       		.byte	0x33
  2149 096a 1B       		.uleb128 0x1b
- 2150 096b 45030000 		.4byte	.LASF66
- 2151 096f 45030000 		.4byte	.LASF66
+ 2150 096b 40030000 		.4byte	.LASF66
+ 2151 096f 40030000 		.4byte	.LASF66
  2152 0973 04       		.byte	0x4
  2153 0974 3201     		.2byte	0x132
  2154 0976 1B       		.uleb128 0x1b
@@ -2731,19 +2733,19 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  2157 097f 05       		.byte	0x5
  2158 0980 3301     		.2byte	0x133
  2159 0982 1D       		.uleb128 0x1d
- 2160 0983 60010000 		.4byte	.LASF68
- 2161 0987 60010000 		.4byte	.LASF68
+ 2160 0983 B8010000 		.4byte	.LASF68
+ 2161 0987 B8010000 		.4byte	.LASF68
  2162 098b 1D       		.uleb128 0x1d
- 2163 098c 60040000 		.4byte	.LASF69
- 2164 0990 60040000 		.4byte	.LASF69
+ 2163 098c 36020000 		.4byte	.LASF69
+ 2164 0990 36020000 		.4byte	.LASF69
  2165 0994 1C       		.uleb128 0x1c
- 2166 0995 16020000 		.4byte	.LASF70
- 2167 0999 16020000 		.4byte	.LASF70
+ 2166 0995 70020000 		.4byte	.LASF70
+ 2167 0999 70020000 		.4byte	.LASF70
  2168 099d 11       		.byte	0x11
  2169 099e 18       		.byte	0x18
  2170 099f 1C       		.uleb128 0x1c
- 2171 09a0 73010000 		.4byte	.LASF71
- 2172 09a4 73010000 		.4byte	.LASF71
+ 2171 09a0 CB010000 		.4byte	.LASF71
+ 2172 09a4 CB010000 		.4byte	.LASF71
  2173 09a8 12       		.byte	0x12
  2174 09a9 18       		.byte	0x18
  2175 09aa 1B       		.uleb128 0x1b
@@ -2752,16 +2754,16 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  2178 09b3 07       		.byte	0x7
  2179 09b4 0F03     		.2byte	0x30f
  2180 09b6 1B       		.uleb128 0x1b
- 2181 09b7 59020000 		.4byte	.LASF73
- 2182 09bb 59020000 		.4byte	.LASF73
+ 2181 09b7 B3020000 		.4byte	.LASF73
+ 2182 09bb B3020000 		.4byte	.LASF73
  2183 09bf 05       		.byte	0x5
  2184 09c0 3201     		.2byte	0x132
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 47
+
+
  2185 09c2 1C       		.uleb128 0x1c
- 2186 09c3 E3010000 		.4byte	.LASF74
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 47
-
-
- 2187 09c7 E3010000 		.4byte	.LASF74
+ 2186 09c3 3D020000 		.4byte	.LASF74
+ 2187 09c7 3D020000 		.4byte	.LASF74
  2188 09cb 0A       		.byte	0xa
  2189 09cc 57       		.byte	0x57
  2190 09cd 1C       		.uleb128 0x1c
@@ -2770,8 +2772,8 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  2193 09d6 0D       		.byte	0xd
  2194 09d7 B4       		.byte	0xb4
  2195 09d8 1C       		.uleb128 0x1c
- 2196 09d9 4A040000 		.4byte	.LASF76
- 2197 09dd 4A040000 		.4byte	.LASF76
+ 2196 09d9 45040000 		.4byte	.LASF76
+ 2197 09dd 45040000 		.4byte	.LASF76
  2198 09e1 0D       		.byte	0xd
  2199 09e2 B8       		.byte	0xb8
  2200 09e3 1C       		.uleb128 0x1c
@@ -2780,13 +2782,13 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  2203 09ec 0D       		.byte	0xd
  2204 09ed BA       		.byte	0xba
  2205 09ee 1C       		.uleb128 0x1c
- 2206 09ef 21040000 		.4byte	.LASF78
- 2207 09f3 21040000 		.4byte	.LASF78
+ 2206 09ef 1C040000 		.4byte	.LASF78
+ 2207 09f3 1C040000 		.4byte	.LASF78
  2208 09f7 0D       		.byte	0xd
  2209 09f8 C3       		.byte	0xc3
  2210 09f9 1B       		.uleb128 0x1b
- 2211 09fa A7040000 		.4byte	.LASF79
- 2212 09fe A7040000 		.4byte	.LASF79
+ 2211 09fa 9B040000 		.4byte	.LASF79
+ 2212 09fe 9B040000 		.4byte	.LASF79
  2213 0a02 13       		.byte	0x13
  2214 0a03 1401     		.2byte	0x114
  2215 0a05 00       		.byte	0
@@ -2816,11 +2818,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  2239 0015 00       		.byte	0
  2240 0016 0B       		.uleb128 0xb
  2241 0017 0B       		.uleb128 0xb
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 48
+
+
  2242 0018 3E       		.uleb128 0x3e
  2243 0019 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 48
-
-
  2244 001a 03       		.uleb128 0x3
  2245 001b 0E       		.uleb128 0xe
  2246 001c 00       		.byte	0
@@ -2876,11 +2878,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  2296 004e 27       		.uleb128 0x27
  2297 004f 19       		.uleb128 0x19
  2298 0050 11       		.uleb128 0x11
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 49
+
+
  2299 0051 01       		.uleb128 0x1
  2300 0052 12       		.uleb128 0x12
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 49
-
-
  2301 0053 06       		.uleb128 0x6
  2302 0054 40       		.uleb128 0x40
  2303 0055 18       		.uleb128 0x18
@@ -2936,11 +2938,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  2353 008d 13       		.uleb128 0x13
  2354 008e 02       		.uleb128 0x2
  2355 008f 18       		.uleb128 0x18
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 50
+
+
  2356 0090 00       		.byte	0
  2357 0091 00       		.byte	0
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 50
-
-
  2358 0092 0B       		.uleb128 0xb
  2359 0093 0B       		.uleb128 0xb
  2360 0094 01       		.byte	0x1
@@ -2996,11 +2998,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  2410 00c8 0B       		.uleb128 0xb
  2411 00c9 00       		.byte	0
  2412 00ca 00       		.byte	0
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 51
+
+
  2413 00cb 10       		.uleb128 0x10
  2414 00cc 2E       		.uleb128 0x2e
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 51
-
-
  2415 00cd 01       		.byte	0x1
  2416 00ce 3F       		.uleb128 0x3f
  2417 00cf 19       		.uleb128 0x19
@@ -3056,11 +3058,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  2467 0105 19       		.uleb128 0x19
  2468 0106 01       		.uleb128 0x1
  2469 0107 13       		.uleb128 0x13
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 52
+
+
  2470 0108 00       		.byte	0
  2471 0109 00       		.byte	0
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 52
-
-
  2472 010a 13       		.uleb128 0x13
  2473 010b 2E       		.uleb128 0x2e
  2474 010c 01       		.byte	0x1
@@ -3116,11 +3118,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  2524 0140 0B       		.uleb128 0xb
  2525 0141 49       		.uleb128 0x49
  2526 0142 13       		.uleb128 0x13
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 53
+
+
  2527 0143 1C       		.uleb128 0x1c
  2528 0144 06       		.uleb128 0x6
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 53
-
-
  2529 0145 00       		.byte	0
  2530 0146 00       		.byte	0
  2531 0147 16       		.uleb128 0x16
@@ -3176,11 +3178,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  2581 0179 3B       		.uleb128 0x3b
  2582 017a 05       		.uleb128 0x5
  2583 017b 49       		.uleb128 0x49
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 54
+
+
  2584 017c 13       		.uleb128 0x13
  2585 017d 02       		.uleb128 0x2
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 54
-
-
  2586 017e 17       		.uleb128 0x17
  2587 017f 00       		.byte	0
  2588 0180 00       		.byte	0
@@ -3236,11 +3238,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  2638 01b2 00       		.byte	0
  2639 01b3 00       		.byte	0
  2640 01b4 1D       		.uleb128 0x1d
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 55
+
+
  2641 01b5 2E       		.uleb128 0x2e
  2642 01b6 00       		.byte	0
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 55
-
-
  2643 01b7 3F       		.uleb128 0x3f
  2644 01b8 19       		.uleb128 0x19
  2645 01b9 3C       		.uleb128 0x3c
@@ -3296,11 +3298,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  2695 0060 0200     		.2byte	0x2
  2696 0062 30       		.byte	0x30
  2697 0063 9F       		.byte	0x9f
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 56
+
+
  2698 0064 3E000000 		.4byte	.LVL6
  2699 0068 5C000000 		.4byte	.LVL11
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 56
-
-
  2700 006c 0100     		.2byte	0x1
  2701 006e 54       		.byte	0x54
  2702 006f 00000000 		.4byte	0
@@ -3356,11 +3358,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  2752 00ef F3       		.byte	0xf3
  2753 00f0 01       		.uleb128 0x1
  2754 00f1 50       		.byte	0x50
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 57
+
+
  2755 00f2 38       		.byte	0x38
  2756 00f3 24       		.byte	0x24
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 57
-
-
  2757 00f4 9F       		.byte	0x9f
  2758 00f5 00000000 		.4byte	0
  2759 00f9 00000000 		.4byte	0
@@ -3416,11 +3418,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  2809 017d 0300     		.2byte	0x3
  2810 017f 91       		.byte	0x91
  2811 0180 D87E     		.sleb128 -168
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 58
+
+
  2812 0182 00000000 		.4byte	0
  2813 0186 00000000 		.4byte	0
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 58
-
-
  2814              	.LLST9:
  2815 018a 92000000 		.4byte	.LVL70
  2816 018e 97000000 		.4byte	.LVL71-1
@@ -3476,11 +3478,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  2866 0218 0100     		.2byte	0x1
  2867 021a 50       		.byte	0x50
  2868 021b 7E000000 		.4byte	.LVL66
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 59
+
+
  2869 021f 28010000 		.4byte	.LVL107
  2870 0223 0100     		.2byte	0x1
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 59
-
-
  2871 0225 55       		.byte	0x55
  2872 0226 28010000 		.4byte	.LVL107
  2873 022a 2C010000 		.4byte	.LVL108
@@ -3536,11 +3538,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  2923 02a8 25       		.uleb128 0x25
  2924 02a9 08       		.byte	0x8
  2925 02aa A01A2FDD 		.4byte	0xdd2f1aa0
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 60
+
+
  2926 02ae 2406C13F 		.4byte	0x3fc10624
  2927 02b2 1E       		.byte	0x1e
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 60
-
-
  2928 02b3 F7       		.byte	0xf7
  2929 02b4 2C       		.uleb128 0x2c
  2930 02b5 9F       		.byte	0x9f
@@ -3596,11 +3598,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  2980 0329 00000000 		.4byte	0
  2981 032d 00000000 		.4byte	0
  2982              	.LLST18:
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 61
+
+
  2983 0331 08000000 		.4byte	.LVL46
  2984 0335 2E000000 		.4byte	.LVL51
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 61
-
-
  2985 0339 0200     		.2byte	0x2
  2986 033b 30       		.byte	0x30
  2987 033c 9F       		.byte	0x9f
@@ -3656,11 +3658,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  3037 03ba 00000000 		.4byte	0
  3038              	.LLST21:
  3039 03be 8A010000 		.4byte	.LVL123
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 62
+
+
  3040 03c2 8E010000 		.4byte	.LVL124
  3041 03c6 0200     		.2byte	0x2
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 62
-
-
  3042 03c8 32       		.byte	0x32
  3043 03c9 9F       		.byte	0x9f
  3044 03ca 8E010000 		.4byte	.LVL124
@@ -3713,14 +3715,14 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  3091 003c 00000000 		.4byte	0
  3092              		.section	.debug_line,"",%progbits
  3093              	.Ldebug_line0:
- 3094 0000 09030000 		.section	.debug_str,"MS",%progbits,1
- 3094      0200C701 
+ 3094 0000 31030000 		.section	.debug_str,"MS",%progbits,1
+ 3094      0200EF01 
  3094      00000201 
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 63
+
+
  3094      FB0E0D00 
  3094      01010101 
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 63
-
-
  3095              	.LASF67:
  3096 0000 54696D65 		.ascii	"Timer_1_Stop\000"
  3096      725F315F 
@@ -3776,11 +3778,11 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  3116      31363036 
  3117 00b9 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0plus -mthumb -"
  3117      20726576 
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 64
+
+
  3117      6973696F 
  3117      6E203233 
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 64
-
-
  3117      37373135 
  3118 00ec 67202D4F 		.ascii	"g -Og -ffunction-sections -ffat-lto-objects\000"
  3118      67202D66 
@@ -3804,335 +3806,333 @@ ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 1
  3126      74526573 
  3126      756C7433 
  3126      3200
- 3127              	.LASF18:
- 3128 0144 75696E74 		.ascii	"uint\000"
- 3128      00
- 3129              	.LASF36:
- 3130 0149 76726566 		.ascii	"vrefCount\000"
- 3130      436F756E 
- 3130      7400
- 3131              	.LASF84:
- 3132 0153 46696C74 		.ascii	"FilterSignal\000"
- 3132      65725369 
- 3132      676E616C 
- 3132      00
- 3133              	.LASF68:
- 3134 0160 6D656D63 		.ascii	"memcpy\000"
- 3134      707900
- 3135              	.LASF19:
- 3136 0167 4D794375 		.ascii	"MyCustomISR\000"
- 3136      73746F6D 
- 3136      49535200 
- 3137              	.LASF71:
- 3138 0173 6973725F 		.ascii	"isr_print_StartEx\000"
- 3138      7072696E 
- 3138      745F5374 
- 3138      61727445 
- 3138      7800
- 3139              	.LASF23:
- 3140 0185 6C656E67 		.ascii	"length_b\000"
- 3140      74685F62 
- 3140      00
- 3141              	.LASF35:
- 3142 018e 7672676E 		.ascii	"vrgndVal\000"
- 3142      6456616C 
- 3142      00
- 3143              	.LASF11:
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 65
+ 3127              	.LASF82:
+ 3128 0144 433A5C55 		.ascii	"C:\\Users\\cdrow\\Documents\\GitHub\\Li-CellTesting"
+ 3128      73657273 
+ 3128      5C636472 
+ 3128      6F775C44 
+ 3128      6F63756D 
+ 3129 0172 5F536372 		.ascii	"_Script\\Internal_Main\\Internal_Main.cydsn\000"
+ 3129      6970745C 
+ 3129      496E7465 
+ 3129      726E616C 
+ 3129      5F4D6169 
+ 3130              	.LASF18:
+ 3131 019c 75696E74 		.ascii	"uint\000"
+ 3131      00
+ 3132              	.LASF36:
+ 3133 01a1 76726566 		.ascii	"vrefCount\000"
+ 3133      436F756E 
+ 3133      7400
+ 3134              	.LASF84:
+ 3135 01ab 46696C74 		.ascii	"FilterSignal\000"
+ 3135      65725369 
+ 3135      676E616C 
+ 3135      00
+ 3136              	.LASF68:
+ 3137 01b8 6D656D63 		.ascii	"memcpy\000"
+ 3137      707900
+ 3138              	.LASF19:
+ 3139 01bf 4D794375 		.ascii	"MyCustomISR\000"
+ 3139      73746F6D 
+ 3139      49535200 
+ 3140              	.LASF71:
+ 3141 01cb 6973725F 		.ascii	"isr_print_StartEx\000"
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 65
 
 
- 3144 0197 75696E74 		.ascii	"uint8\000"
- 3144      3800
- 3145              	.LASF26:
- 3146 019d 73746F70 		.ascii	"stopCode\000"
- 3146      436F6465 
- 3146      00
- 3147              	.LASF24:
- 3148 01a6 68737472 		.ascii	"hstr\000"
- 3148      00
- 3149              	.LASF62:
- 3150 01ab 55415254 		.ascii	"UART_1_Start\000"
- 3150      5F315F53 
- 3150      74617274 
- 3150      00
- 3151              	.LASF58:
- 3152 01b8 414D7578 		.ascii	"AMux_1_Start\000"
- 3152      5F315F53 
- 3152      74617274 
- 3152      00
- 3153              	.LASF1:
- 3154 01c5 666C6F61 		.ascii	"float\000"
- 3154      7400
- 3155              	.LASF8:
- 3156 01cb 6C6F6E67 		.ascii	"long long int\000"
- 3156      206C6F6E 
- 3156      6720696E 
- 3156      7400
- 3157              	.LASF13:
- 3158 01d9 696E7438 		.ascii	"int8\000"
- 3158      00
- 3159              	.LASF15:
- 3160 01de 63686172 		.ascii	"char\000"
- 3160      00
- 3161              	.LASF74:
- 3162 01e3 414D7578 		.ascii	"AMux_1_Select\000"
- 3162      5F315F53 
- 3162      656C6563 
- 3162      7400
- 3163              	.LASF6:
- 3164 01f1 6C6F6E67 		.ascii	"long int\000"
- 3164      20696E74 
- 3164      00
- 3165              	.LASF27:
- 3166 01fa 73747269 		.ascii	"string\000"
- 3166      6E6700
- 3167              	.LASF22:
- 3168 0201 6C656E67 		.ascii	"length_a\000"
- 3168      74685F61 
- 3168      00
- 3169              	.LASF57:
- 3170 020a 4932435F 		.ascii	"I2C_1_Start\000"
- 3170      315F5374 
- 3170      61727400 
- 3171              	.LASF70:
- 3172 0216 6973725F 		.ascii	"isr_1_StartEx\000"
- 3172      315F5374 
- 3172      61727445 
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 66
+ 3141      7072696E 
+ 3141      745F5374 
+ 3141      61727445 
+ 3141      7800
+ 3142              	.LASF23:
+ 3143 01dd 6C656E67 		.ascii	"length_b\000"
+ 3143      74685F62 
+ 3143      00
+ 3144              	.LASF35:
+ 3145 01e6 7672676E 		.ascii	"vrgndVal\000"
+ 3145      6456616C 
+ 3145      00
+ 3146              	.LASF11:
+ 3147 01ef 75696E74 		.ascii	"uint8\000"
+ 3147      3800
+ 3148              	.LASF26:
+ 3149 01f5 73746F70 		.ascii	"stopCode\000"
+ 3149      436F6465 
+ 3149      00
+ 3150              	.LASF24:
+ 3151 01fe 68737472 		.ascii	"hstr\000"
+ 3151      00
+ 3152              	.LASF62:
+ 3153 0203 55415254 		.ascii	"UART_1_Start\000"
+ 3153      5F315F53 
+ 3153      74617274 
+ 3153      00
+ 3154              	.LASF58:
+ 3155 0210 414D7578 		.ascii	"AMux_1_Start\000"
+ 3155      5F315F53 
+ 3155      74617274 
+ 3155      00
+ 3156              	.LASF1:
+ 3157 021d 666C6F61 		.ascii	"float\000"
+ 3157      7400
+ 3158              	.LASF8:
+ 3159 0223 6C6F6E67 		.ascii	"long long int\000"
+ 3159      206C6F6E 
+ 3159      6720696E 
+ 3159      7400
+ 3160              	.LASF13:
+ 3161 0231 696E7438 		.ascii	"int8\000"
+ 3161      00
+ 3162              	.LASF69:
+ 3163 0236 6D656D73 		.ascii	"memset\000"
+ 3163      657400
+ 3164              	.LASF74:
+ 3165 023d 414D7578 		.ascii	"AMux_1_Select\000"
+ 3165      5F315F53 
+ 3165      656C6563 
+ 3165      7400
+ 3166              	.LASF6:
+ 3167 024b 6C6F6E67 		.ascii	"long int\000"
+ 3167      20696E74 
+ 3167      00
+ 3168              	.LASF27:
+ 3169 0254 73747269 		.ascii	"string\000"
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 66
 
 
- 3172      7800
- 3173              	.LASF41:
- 3174 0224 6761696E 		.ascii	"gainReal\000"
- 3174      5265616C 
- 3174      00
- 3175              	.LASF16:
- 3176 022d 6C6F6E67 		.ascii	"long double\000"
- 3176      20646F75 
- 3176      626C6500 
- 3177              	.LASF3:
- 3178 0239 756E7369 		.ascii	"unsigned char\000"
- 3178      676E6564 
- 3178      20636861 
- 3178      7200
- 3179              	.LASF40:
- 3180 0247 7368756E 		.ascii	"shuntAmps\000"
- 3180      74416D70 
- 3180      7300
- 3181              	.LASF54:
- 3182 0251 73707269 		.ascii	"sprintf\000"
- 3182      6E746600 
- 3183              	.LASF73:
- 3184 0259 54696D65 		.ascii	"Timer_1_Start\000"
- 3184      725F315F 
- 3184      53746172 
- 3184      7400
- 3185              	.LASF9:
- 3186 0267 6C6F6E67 		.ascii	"long long unsigned int\000"
- 3186      206C6F6E 
- 3186      6720756E 
- 3186      7369676E 
- 3186      65642069 
- 3187              	.LASF10:
- 3188 027e 756E7369 		.ascii	"unsigned int\000"
- 3188      676E6564 
- 3188      20696E74 
- 3188      00
- 3189              	.LASF53:
- 3190 028b 54696D65 		.ascii	"Timer_1_ClearInterrupt\000"
- 3190      725F315F 
- 3190      436C6561 
- 3190      72496E74 
- 3190      65727275 
- 3191              	.LASF83:
- 3192 02a2 43656C6C 		.ascii	"CellTestStart\000"
- 3192      54657374 
- 3192      53746172 
- 3192      7400
- 3193              	.LASF50:
- 3194 02b0 73746172 		.ascii	"startFlag\000"
- 3194      74466C61 
- 3194      6700
- 3195              	.LASF43:
- 3196 02ba 73746F70 		.ascii	"stopFlag\000"
- 3196      466C6167 
- 3196      00
- 3197              	.LASF5:
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 67
+ 3169      6E6700
+ 3170              	.LASF22:
+ 3171 025b 6C656E67 		.ascii	"length_a\000"
+ 3171      74685F61 
+ 3171      00
+ 3172              	.LASF57:
+ 3173 0264 4932435F 		.ascii	"I2C_1_Start\000"
+ 3173      315F5374 
+ 3173      61727400 
+ 3174              	.LASF70:
+ 3175 0270 6973725F 		.ascii	"isr_1_StartEx\000"
+ 3175      315F5374 
+ 3175      61727445 
+ 3175      7800
+ 3176              	.LASF41:
+ 3177 027e 6761696E 		.ascii	"gainReal\000"
+ 3177      5265616C 
+ 3177      00
+ 3178              	.LASF16:
+ 3179 0287 6C6F6E67 		.ascii	"long double\000"
+ 3179      20646F75 
+ 3179      626C6500 
+ 3180              	.LASF3:
+ 3181 0293 756E7369 		.ascii	"unsigned char\000"
+ 3181      676E6564 
+ 3181      20636861 
+ 3181      7200
+ 3182              	.LASF40:
+ 3183 02a1 7368756E 		.ascii	"shuntAmps\000"
+ 3183      74416D70 
+ 3183      7300
+ 3184              	.LASF54:
+ 3185 02ab 73707269 		.ascii	"sprintf\000"
+ 3185      6E746600 
+ 3186              	.LASF73:
+ 3187 02b3 54696D65 		.ascii	"Timer_1_Start\000"
+ 3187      725F315F 
+ 3187      53746172 
+ 3187      7400
+ 3188              	.LASF9:
+ 3189 02c1 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3189      206C6F6E 
+ 3189      6720756E 
+ 3189      7369676E 
+ 3189      65642069 
+ 3190              	.LASF10:
+ 3191 02d8 756E7369 		.ascii	"unsigned int\000"
+ 3191      676E6564 
+ 3191      20696E74 
+ 3191      00
+ 3192              	.LASF53:
+ 3193 02e5 54696D65 		.ascii	"Timer_1_ClearInterrupt\000"
+ 3193      725F315F 
+ 3193      436C6561 
+ 3193      72496E74 
+ 3193      65727275 
+ 3194              	.LASF83:
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 67
 
 
- 3198 02c3 73686F72 		.ascii	"short unsigned int\000"
- 3198      7420756E 
- 3198      7369676E 
- 3198      65642069 
- 3198      6E7400
- 3199              	.LASF82:
- 3200 02d6 433A5C55 		.ascii	"C:\\Users\\Crowling\\OneDrive\\Documents\\GitHub\\L"
- 3200      73657273 
- 3200      5C43726F 
- 3200      776C696E 
- 3200      675C4F6E 
- 3201 0303 692D4365 		.ascii	"i-CellTesting_Script\\Internal_Main\\Internal_Main."
- 3201      6C6C5465 
- 3201      7374696E 
- 3201      675F5363 
- 3201      72697074 
- 3202 0334 63796473 		.ascii	"cydsn\000"
- 3202      6E00
- 3203              	.LASF32:
- 3204 033a 76746573 		.ascii	"vtestCount\000"
- 3204      74436F75 
- 3204      6E7400
- 3205              	.LASF66:
- 3206 0345 54435057 		.ascii	"TCPWM_1_Start\000"
- 3206      4D5F315F 
- 3206      53746172 
- 3206      7400
- 3207              	.LASF33:
- 3208 0353 76746573 		.ascii	"vtestVal\000"
- 3208      7456616C 
- 3208      00
- 3209              	.LASF60:
- 3210 035c 5047415F 		.ascii	"PGA_1_Start\000"
- 3210      315F5374 
- 3210      61727400 
- 3211              	.LASF29:
- 3212 0368 6368616E 		.ascii	"channel\000"
- 3212      6E656C00 
- 3213              	.LASF52:
- 3214 0370 54435057 		.ascii	"TCPWM_1_ClearInterrupt\000"
- 3214      4D5F315F 
- 3214      436C6561 
- 3214      72496E74 
- 3214      65727275 
- 3215              	.LASF64:
- 3216 0387 50567265 		.ascii	"PVref_1_Enable\000"
- 3216      665F315F 
- 3216      456E6162 
- 3216      6C6500
- 3217              	.LASF31:
- 3218 0396 66696C56 		.ascii	"filValueRounded\000"
- 3218      616C7565 
- 3218      526F756E 
- 3218      64656400 
- 3219              	.LASF12:
- 3220 03a6 75696E74 		.ascii	"uint32\000"
- 3220      333200
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 68
+ 3195 02fc 43656C6C 		.ascii	"CellTestStart\000"
+ 3195      54657374 
+ 3195      53746172 
+ 3195      7400
+ 3196              	.LASF50:
+ 3197 030a 73746172 		.ascii	"startFlag\000"
+ 3197      74466C61 
+ 3197      6700
+ 3198              	.LASF43:
+ 3199 0314 73746F70 		.ascii	"stopFlag\000"
+ 3199      466C6167 
+ 3199      00
+ 3200              	.LASF5:
+ 3201 031d 73686F72 		.ascii	"short unsigned int\000"
+ 3201      7420756E 
+ 3201      7369676E 
+ 3201      65642069 
+ 3201      6E7400
+ 3202              	.LASF15:
+ 3203 0330 63686172 		.ascii	"char\000"
+ 3203      00
+ 3204              	.LASF32:
+ 3205 0335 76746573 		.ascii	"vtestCount\000"
+ 3205      74436F75 
+ 3205      6E7400
+ 3206              	.LASF66:
+ 3207 0340 54435057 		.ascii	"TCPWM_1_Start\000"
+ 3207      4D5F315F 
+ 3207      53746172 
+ 3207      7400
+ 3208              	.LASF33:
+ 3209 034e 76746573 		.ascii	"vtestVal\000"
+ 3209      7456616C 
+ 3209      00
+ 3210              	.LASF60:
+ 3211 0357 5047415F 		.ascii	"PGA_1_Start\000"
+ 3211      315F5374 
+ 3211      61727400 
+ 3212              	.LASF29:
+ 3213 0363 6368616E 		.ascii	"channel\000"
+ 3213      6E656C00 
+ 3214              	.LASF52:
+ 3215 036b 54435057 		.ascii	"TCPWM_1_ClearInterrupt\000"
+ 3215      4D5F315F 
+ 3215      436C6561 
+ 3215      72496E74 
+ 3215      65727275 
+ 3216              	.LASF64:
+ 3217 0382 50567265 		.ascii	"PVref_1_Enable\000"
+ 3217      665F315F 
+ 3217      456E6162 
+ 3217      6C6500
+ 3218              	.LASF31:
+ 3219 0391 66696C56 		.ascii	"filValueRounded\000"
+ 3219      616C7565 
+ 3219      526F756E 
+ 3219      64656400 
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 68
 
 
- 3221              	.LASF81:
- 3222 03ad 6D61696E 		.ascii	"main.c\000"
- 3222      2E6300
- 3223              	.LASF21:
- 3224 03b4 5072696E 		.ascii	"Print_Headers\000"
- 3224      745F4865 
- 3224      61646572 
- 3224      7300
- 3225              	.LASF7:
- 3226 03c2 6C6F6E67 		.ascii	"long unsigned int\000"
- 3226      20756E73 
- 3226      69676E65 
- 3226      6420696E 
- 3226      7400
- 3227              	.LASF45:
- 3228 03d4 72657332 		.ascii	"res2\000"
- 3228      00
- 3229              	.LASF14:
- 3230 03d9 696E7433 		.ascii	"int32\000"
- 3230      3200
- 3231              	.LASF0:
- 3232 03df 646F7562 		.ascii	"double\000"
- 3232      6C6500
- 3233              	.LASF55:
- 3234 03e6 55415254 		.ascii	"UART_1_UartPutString\000"
- 3234      5F315F55 
- 3234      61727450 
- 3234      75745374 
- 3234      72696E67 
- 3235              	.LASF46:
- 3236 03fb 62617474 		.ascii	"batteryArray\000"
- 3236      65727941 
- 3236      72726179 
- 3236      00
- 3237              	.LASF49:
- 3238 0408 625F7468 		.ascii	"b_therm_toRead\000"
- 3238      65726D5F 
- 3238      746F5265 
- 3238      616400
- 3239              	.LASF51:
- 3240 0417 7072696E 		.ascii	"printFlag\000"
- 3240      74466C61 
- 3240      6700
- 3241              	.LASF78:
- 3242 0421 4144435F 		.ascii	"ADC_1_CountsTo_mVolts\000"
- 3242      315F436F 
- 3242      756E7473 
- 3242      546F5F6D 
- 3242      566F6C74 
- 3243              	.LASF39:
- 3244 0437 76626174 		.ascii	"vbatVal\000"
- 3244      56616C00 
- 3245              	.LASF20:
- 3246 043f 7072696E 		.ascii	"print_UART\000"
- 3246      745F5541 
- 3246      525400
- 3247              	.LASF76:
-ARM GAS  C:\Users\Crowling\AppData\Local\Temp\cc4Z6h1h.s 			page 69
+ 3220              	.LASF12:
+ 3221 03a1 75696E74 		.ascii	"uint32\000"
+ 3221      333200
+ 3222              	.LASF81:
+ 3223 03a8 6D61696E 		.ascii	"main.c\000"
+ 3223      2E6300
+ 3224              	.LASF21:
+ 3225 03af 5072696E 		.ascii	"Print_Headers\000"
+ 3225      745F4865 
+ 3225      61646572 
+ 3225      7300
+ 3226              	.LASF7:
+ 3227 03bd 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3227      20756E73 
+ 3227      69676E65 
+ 3227      6420696E 
+ 3227      7400
+ 3228              	.LASF45:
+ 3229 03cf 72657332 		.ascii	"res2\000"
+ 3229      00
+ 3230              	.LASF14:
+ 3231 03d4 696E7433 		.ascii	"int32\000"
+ 3231      3200
+ 3232              	.LASF0:
+ 3233 03da 646F7562 		.ascii	"double\000"
+ 3233      6C6500
+ 3234              	.LASF55:
+ 3235 03e1 55415254 		.ascii	"UART_1_UartPutString\000"
+ 3235      5F315F55 
+ 3235      61727450 
+ 3235      75745374 
+ 3235      72696E67 
+ 3236              	.LASF46:
+ 3237 03f6 62617474 		.ascii	"batteryArray\000"
+ 3237      65727941 
+ 3237      72726179 
+ 3237      00
+ 3238              	.LASF49:
+ 3239 0403 625F7468 		.ascii	"b_therm_toRead\000"
+ 3239      65726D5F 
+ 3239      746F5265 
+ 3239      616400
+ 3240              	.LASF51:
+ 3241 0412 7072696E 		.ascii	"printFlag\000"
+ 3241      74466C61 
+ 3241      6700
+ 3242              	.LASF78:
+ 3243 041c 4144435F 		.ascii	"ADC_1_CountsTo_mVolts\000"
+ 3243      315F436F 
+ 3243      756E7473 
+ 3243      546F5F6D 
+ 3243      566F6C74 
+ 3244              	.LASF39:
+ 3245 0432 76626174 		.ascii	"vbatVal\000"
+ 3245      56616C00 
+ 3246              	.LASF20:
+ 3247 043a 7072696E 		.ascii	"print_UART\000"
+ARM GAS  C:\Users\cdrow\AppData\Local\Temp\ccy4oMJv.s 			page 69
 
 
- 3248 044a 4144435F 		.ascii	"ADC_1_IsEndConversion\000"
- 3248      315F4973 
- 3248      456E6443 
- 3248      6F6E7665 
- 3248      7273696F 
- 3249              	.LASF69:
- 3250 0460 6D656D73 		.ascii	"memset\000"
- 3250      657400
- 3251              	.LASF17:
- 3252 0467 73697A65 		.ascii	"sizetype\000"
- 3252      74797065 
- 3252      00
- 3253              	.LASF86:
- 3254 0470 72784461 		.ascii	"rxData\000"
- 3254      746100
- 3255              	.LASF59:
- 3256 0477 4F70616D 		.ascii	"Opamp_1_Start\000"
- 3256      705F315F 
- 3256      53746172 
- 3256      7400
- 3257              	.LASF47:
- 3258 0485 72657369 		.ascii	"resistorArray\000"
- 3258      73746F72 
- 3258      41727261 
- 3258      7900
- 3259              	.LASF48:
- 3260 0493 725F7468 		.ascii	"r_therm_toRead\000"
- 3260      65726D5F 
- 3260      746F5265 
- 3260      616400
- 3261              	.LASF44:
- 3262 04a2 72657331 		.ascii	"res1\000"
- 3262      00
- 3263              	.LASF79:
- 3264 04a7 4932435F 		.ascii	"I2C_1_I2CMasterReadBuf\000"
- 3264      315F4932 
- 3264      434D6173 
- 3264      74657252 
- 3264      65616442 
- 3265              	.LASF56:
- 3266 04be 43794465 		.ascii	"CyDelay\000"
- 3266      6C617900 
- 3267              	.LASF25:
- 3268 04c6 48616C74 		.ascii	"HaltTest\000"
- 3268      54657374 
- 3268      00
- 3269              	.LASF30:
- 3270 04cf 66696C74 		.ascii	"filteredValue\000"
- 3270      65726564 
- 3270      56616C75 
- 3270      6500
- 3271              	.LASF37:
- 3272 04dd 76726566 		.ascii	"vrefVal\000"
- 3272      56616C00 
- 3273              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 3247      745F5541 
+ 3247      525400
+ 3248              	.LASF76:
+ 3249 0445 4144435F 		.ascii	"ADC_1_IsEndConversion\000"
+ 3249      315F4973 
+ 3249      456E6443 
+ 3249      6F6E7665 
+ 3249      7273696F 
+ 3250              	.LASF17:
+ 3251 045b 73697A65 		.ascii	"sizetype\000"
+ 3251      74797065 
+ 3251      00
+ 3252              	.LASF86:
+ 3253 0464 72784461 		.ascii	"rxData\000"
+ 3253      746100
+ 3254              	.LASF59:
+ 3255 046b 4F70616D 		.ascii	"Opamp_1_Start\000"
+ 3255      705F315F 
+ 3255      53746172 
+ 3255      7400
+ 3256              	.LASF47:
+ 3257 0479 72657369 		.ascii	"resistorArray\000"
+ 3257      73746F72 
+ 3257      41727261 
+ 3257      7900
+ 3258              	.LASF48:
+ 3259 0487 725F7468 		.ascii	"r_therm_toRead\000"
+ 3259      65726D5F 
+ 3259      746F5265 
+ 3259      616400
+ 3260              	.LASF44:
+ 3261 0496 72657331 		.ascii	"res1\000"
+ 3261      00
+ 3262              	.LASF79:
+ 3263 049b 4932435F 		.ascii	"I2C_1_I2CMasterReadBuf\000"
+ 3263      315F4932 
+ 3263      434D6173 
+ 3263      74657252 
+ 3263      65616442 
+ 3264              	.LASF56:
+ 3265 04b2 43794465 		.ascii	"CyDelay\000"
+ 3265      6C617900 
+ 3266              	.LASF25:
+ 3267 04ba 48616C74 		.ascii	"HaltTest\000"
+ 3267      54657374 
+ 3267      00
+ 3268              	.LASF30:
+ 3269 04c3 66696C74 		.ascii	"filteredValue\000"
+ 3269      65726564 
+ 3269      56616C75 
+ 3269      6500
+ 3270              	.LASF37:
+ 3271 04d1 76726566 		.ascii	"vrefVal\000"
+ 3271      56616C00 
+ 3272              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

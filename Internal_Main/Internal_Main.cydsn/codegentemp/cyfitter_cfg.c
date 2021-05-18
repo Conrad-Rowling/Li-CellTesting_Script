@@ -244,10 +244,7 @@ static void AnalogSetDefault(void)
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB1_CTB_CTRL, 0x80000000u);
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_CTRL, 0x80000000u);
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_SARMUXVPLUS_SW, 0x01000001u);
-	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_SARMUXVMINUS_SW, 0x02000000u);
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_ART_CTB0VREF_SW, 0x00020000u);
-	CY_SET_XTND_REG32((void CYFAR *)CYREG_SAR_CTRL, 0x80000000u);
-	CY_SET_XTND_REG32((void CYFAR *)CYREG_SAR_MUX_SWITCH0, 0x00010000u);
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_PASS_CTRL, 0x00000003u);
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_PRB_CTRL, 0x80000001u);
 	CY_SET_XTND_REG32((void CYFAR *)CYREG_PASS_PRB_REF0, 0x000000F1u);
@@ -305,16 +302,19 @@ void AMux_1_Set(uint8 channel)
 {
 	switch (channel) {
 		case 0u:
-			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW, (0x01u));
-			break;
-		case 1u:
 			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x20u));
 			break;
-		case 2u:
+		case 1u:
 			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW, (0x20u));
 			break;
-		case 3u:
+		case 2u:
 			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW, (0x10u));
+			break;
+		case 3u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW, (0x01u));
+			break;
+		case 4u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_OA0_SW, (0x04u));
 			break;
 		default:
 			break;
@@ -339,16 +339,19 @@ void AMux_1_Unset(uint8 channel)
 {
 	switch (channel) {
 		case 0u:
-			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW_CLEAR, (0x01u));
-			break;
-		case 1u:
 			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x20u));
 			break;
-		case 2u:
+		case 1u:
 			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW_CLEAR, (0x20u));
 			break;
-		case 3u:
+		case 2u:
 			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_CTBBUS_SW_CLEAR, (0x10u));
+			break;
+		case 3u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB1_CTBBUS_SW_CLEAR, (0x01u));
+			break;
+		case 4u:
+			CY_SET_REG32((void CYXDATA *)CYREG_CTB0_OA0_SW_CLEAR, (0x04u));
 			break;
 		default:
 			break;
@@ -399,8 +402,8 @@ void cyfitter_cfg(void)
 	CY_SET_REG32((void *)(CYREG_GPIO_PRT1_PC2), 0x00000021u);
 
 	/* IOPINS0_2 Starting address: CYDEV_GPIO_PRT2_BASE */
-	CY_SET_REG32((void *)(CYDEV_GPIO_PRT2_BASE), 0x000000BAu);
-	CY_SET_REG32((void *)(CYREG_GPIO_PRT2_PC2), 0x000000BAu);
+	CY_SET_REG32((void *)(CYDEV_GPIO_PRT2_BASE), 0x000000BBu);
+	CY_SET_REG32((void *)(CYREG_GPIO_PRT2_PC2), 0x000000BBu);
 
 	/* IOPINS0_3 Starting address: CYDEV_GPIO_PRT3_BASE */
 	CY_SET_REG32((void *)(CYDEV_GPIO_PRT3_BASE), 0x000000C0u);
