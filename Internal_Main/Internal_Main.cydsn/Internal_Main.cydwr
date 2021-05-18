@@ -11,6 +11,12 @@
   </Group>
   <Data key="DataVersionKey" value="2" />
   <Group key="DWRInstGuidMapping">
+    <Group key="Interrupt">
+      <Data key="3dbba19d-7851-4a83-b204-a0a386fe8d68/696fcfb7-e3b3-4302-9123-1e2c9e4522d2" value="I2C_1_SCB_IRQ" />
+      <Data key="1793b7a3-e19a-4bf0-98ed-bac54bd32355" value="isr_print" />
+      <Data key="53689b16-13b4-49d6-a64c-ce36e5ca42dc" value="isr_1" />
+      <Data key="b9eed6ff-0c1d-47a1-9a7d-79b674fdda99/9a5e41ee-3968-42d5-9e5e-56f6204d8010" value="ADC_1_IRQ" />
+    </Group>
     <Group key="Pin">
       <Data key="1fd60ed3-fe51-4527-bdb4-2a22674833b8" value="Shunt_In" />
       <Data key="3dbba19d-7851-4a83-b204-a0a386fe8d68/5382e105-1382-4a2e-b9f4-3bb2feba71e0" value="I2C_1_sda" />
@@ -808,6 +814,22 @@
       </Group>
       <Group key="256">
         <Data key="LevelKey" value="0" />
+      </Group>
+    </Group>
+  </Group>
+  <Group key="Interrupt">
+    <Group key="53689b16-13b4-49d6-a64c-ce36e5ca42dc">
+      <Group key="CortexM0p">
+        <Data key="Assigned" value="True" />
+        <Data key="Priority" value="1" />
+        <Data key="Vector" value="-1" />
+      </Group>
+    </Group>
+    <Group key="b9eed6ff-0c1d-47a1-9a7d-79b674fdda99/9a5e41ee-3968-42d5-9e5e-56f6204d8010">
+      <Group key="CortexM0p">
+        <Data key="Assigned" value="True" />
+        <Data key="Priority" value="0" />
+        <Data key="Vector" value="-1" />
       </Group>
     </Group>
   </Group>

@@ -149,7 +149,7 @@
 #define ADC_1_IRQ__INTC_MASK 0x8000u
 #define ADC_1_IRQ__INTC_NUMBER 15u
 #define ADC_1_IRQ__INTC_PRIOR_MASK 0xC0000000u
-#define ADC_1_IRQ__INTC_PRIOR_NUM 3u
+#define ADC_1_IRQ__INTC_PRIOR_NUM 0u
 #define ADC_1_IRQ__INTC_PRIOR_REG CYREG_CM0P_IPR3
 #define ADC_1_IRQ__INTC_SET_EN_REG CYREG_CM0P_ISER
 #define ADC_1_IRQ__INTC_SET_PD_REG CYREG_CM0P_ISPR
@@ -354,7 +354,7 @@
 #define isr_1__INTC_MASK 0x40000u
 #define isr_1__INTC_NUMBER 18u
 #define isr_1__INTC_PRIOR_MASK 0xC00000u
-#define isr_1__INTC_PRIOR_NUM 3u
+#define isr_1__INTC_PRIOR_NUM 1u
 #define isr_1__INTC_PRIOR_REG CYREG_CM0P_IPR4
 #define isr_1__INTC_SET_EN_REG CYREG_CM0P_ISER
 #define isr_1__INTC_SET_PD_REG CYREG_CM0P_ISPR
@@ -891,6 +891,17 @@
 #define Shunt_Gnd__PORT 2u
 #define Shunt_Gnd__PS CYREG_GPIO_PRT2_PS
 #define Shunt_Gnd__SHIFT 4u
+
+/* isr_print */
+#define isr_print__INTC_CLR_EN_REG CYREG_CM0P_ICER
+#define isr_print__INTC_CLR_PD_REG CYREG_CM0P_ICPR
+#define isr_print__INTC_MASK 0x20000u
+#define isr_print__INTC_NUMBER 17u
+#define isr_print__INTC_PRIOR_MASK 0xC000u
+#define isr_print__INTC_PRIOR_NUM 3u
+#define isr_print__INTC_PRIOR_REG CYREG_CM0P_IPR4
+#define isr_print__INTC_SET_EN_REG CYREG_CM0P_ISER
+#define isr_print__INTC_SET_PD_REG CYREG_CM0P_ISPR
 
 /* Miscellaneous */
 #define CY_PROJECT_NAME "Internal_Main"

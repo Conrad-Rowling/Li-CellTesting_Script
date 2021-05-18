@@ -62,6 +62,7 @@
 #include "TCPWM_1.h"
 #include "Clock_2.h"
 #include "isr_1.h"
+#include "isr_print.h"
 #include "ADC_1_intSarClock.h"
 #include "ADC_1_IRQ.h"
 #include "ADC_1_intUabClock.h"
@@ -78,9 +79,9 @@
 #include "cytypes.h"
 #include "cypins.h"
 #include "core_cm0plus_psoc4.h"
-#include "cy_em_eeprom.h"
 #include "CyDMA.h"
 #include "CyLFClk.h"
+#include "cy_em_eeprom.h"
 
 /*[]*/
 

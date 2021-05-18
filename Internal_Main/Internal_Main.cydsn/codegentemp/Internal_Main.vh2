@@ -2,7 +2,7 @@
 --	Conversion of Internal_Main.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sun May 16 23:32:10 2021
+--	Mon May 17 17:18:05 2021
 --
 
 USE cypress.cypress.all;
@@ -651,7 +651,7 @@ SIGNAL Net_203 : bit;
 SIGNAL Net_198 : bit;
 SIGNAL Net_201 : bit;
 SIGNAL Net_202 : bit;
-SIGNAL Net_200 : bit;
+SIGNAL Net_1512 : bit;
 SIGNAL Net_1425 : bit;
 SIGNAL tmpOE__UART_IN_net_0 : bit;
 SIGNAL tmpIO_0__UART_IN_net_0 : bit;
@@ -3276,7 +3276,7 @@ RELAY_EN:cy_psoc3_pins_v1_10
 		compare_match=>Net_198,
 		line_out=>Net_201,
 		line_out_compl=>Net_202,
-		interrupt=>Net_200);
+		interrupt=>Net_1512);
 Clock_1:cy_clock_v1_0
 	GENERIC MAP(cy_registers=>"",
 		id=>"0e00a0bb-6c56-4b9a-9f16-520ffad56c07",
@@ -3669,5 +3669,9 @@ Cell:cy_annotation_universal_v1_0
 		port_names=>"Neg, Pos",
 		width=>2)
 	PORT MAP(connect=>(Net_1405, Net_1406));
+isr_print:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_1512);
 
 END R_T_L;

@@ -28,6 +28,11 @@
 
 #define V_REF_RELATIVE 39.7
 
+
+int startFlag;
+int printFlag;
+
+
 // =============================
 // Function Definitions
 // =============================
@@ -153,13 +158,17 @@ int32 FilterSignal(int32 ADCSample, uint8 channel){
 }
 
 
-int startFlag;
-
 CY_ISR_PROTO(MyCustomISR);
 CY_ISR(MyCustomISR)
 {
     TCPWM_1_ClearInterrupt(TCPWM_1_INTR_MASK_TC);
     startFlag = 1;
+}
+
+CY_ISR_PROTO(print_UART);
+CY_ISR(print_UART){
+    Timer_1_ClearInterrupt(Timer_1_INTR_MASK_TC);
+    printFlag = 1;
 }
 
 
@@ -211,6 +220,7 @@ int main(void)
     //UART INFO PRINTING
         
     isr_1_StartEx(MyCustomISR);
+    isr_print_StartEx(print_UART);
     
     // Main For Loop
     for(;;)
@@ -300,8 +310,8 @@ int main(void)
                     Timer_1_Stop();
                 }       
                 
-                if (Timer_1_ReadCounter() > 1){
-                    Timer_1_WriteCounter(0);
+                while (printFlag ==1){
+                    printFlag = 0;
                     
                     I2C_1_I2CMasterReadBuf(0x08, batteryArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
                     for(uint i = 2; i < b_therm_toRead; i=i+2){

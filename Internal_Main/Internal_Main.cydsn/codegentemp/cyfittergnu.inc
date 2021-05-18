@@ -149,7 +149,7 @@
 .set ADC_1_IRQ__INTC_MASK, 0x8000
 .set ADC_1_IRQ__INTC_NUMBER, 15
 .set ADC_1_IRQ__INTC_PRIOR_MASK, 0xC0000000
-.set ADC_1_IRQ__INTC_PRIOR_NUM, 3
+.set ADC_1_IRQ__INTC_PRIOR_NUM, 0
 .set ADC_1_IRQ__INTC_PRIOR_REG, CYREG_CM0P_IPR3
 .set ADC_1_IRQ__INTC_SET_EN_REG, CYREG_CM0P_ISER
 .set ADC_1_IRQ__INTC_SET_PD_REG, CYREG_CM0P_ISPR
@@ -354,7 +354,7 @@
 .set isr_1__INTC_MASK, 0x40000
 .set isr_1__INTC_NUMBER, 18
 .set isr_1__INTC_PRIOR_MASK, 0xC00000
-.set isr_1__INTC_PRIOR_NUM, 3
+.set isr_1__INTC_PRIOR_NUM, 1
 .set isr_1__INTC_PRIOR_REG, CYREG_CM0P_IPR4
 .set isr_1__INTC_SET_EN_REG, CYREG_CM0P_ISER
 .set isr_1__INTC_SET_PD_REG, CYREG_CM0P_ISPR
@@ -891,6 +891,17 @@
 .set Shunt_Gnd__PORT, 2
 .set Shunt_Gnd__PS, CYREG_GPIO_PRT2_PS
 .set Shunt_Gnd__SHIFT, 4
+
+/* isr_print */
+.set isr_print__INTC_CLR_EN_REG, CYREG_CM0P_ICER
+.set isr_print__INTC_CLR_PD_REG, CYREG_CM0P_ICPR
+.set isr_print__INTC_MASK, 0x20000
+.set isr_print__INTC_NUMBER, 17
+.set isr_print__INTC_PRIOR_MASK, 0xC000
+.set isr_print__INTC_PRIOR_NUM, 3
+.set isr_print__INTC_PRIOR_REG, CYREG_CM0P_IPR4
+.set isr_print__INTC_SET_EN_REG, CYREG_CM0P_ISER
+.set isr_print__INTC_SET_PD_REG, CYREG_CM0P_ISPR
 
 /* Miscellaneous */
 .set CyDesignWideVoltageReference_PRB_REF, CYREG_PASS_PRB_REF0

@@ -1,5 +1,5 @@
 -- Project:   Internal_Main
--- Generated: 05/16/2021 23:32:11
+-- Generated: 05/17/2021 17:18:06
 -- PSoC Creator  4.4
 
 ENTITY Internal_Main IS
@@ -64,13 +64,13 @@ ARCHITECTURE __DEFAULT__ OF Internal_Main IS
     SIGNAL Net_1480 : bit;
     SIGNAL Net_1481 : bit;
     SIGNAL Net_1485 : bit;
+    SIGNAL Net_1512 : bit;
     SIGNAL Net_154 : bit;
     SIGNAL Net_163 : bit;
     SIGNAL Net_170 : bit;
     SIGNAL Net_171 : bit;
     SIGNAL Net_172 : bit;
     SIGNAL Net_198 : bit;
-    SIGNAL Net_200 : bit;
     SIGNAL Net_201 : bit;
     SIGNAL Net_202 : bit;
     SIGNAL Net_203 : bit;
@@ -1718,7 +1718,7 @@ BEGIN
             tr_compare_match => Net_198,
             line => Net_201,
             line_compl => Net_202,
-            interrupt => Net_200);
+            interrupt => Net_1512);
 
     \PVref_1:cy_psoc4_pref\:p4prefcell
         GENERIC MAP(
@@ -1758,6 +1758,14 @@ BEGIN
             is_nmi => 0)
         PORT MAP(
             interrupt => Net_1373,
+            clock => ClockBlock_HFClk);
+
+    isr_print:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_1512,
             clock => ClockBlock_HFClk);
 
 END __DEFAULT__;
