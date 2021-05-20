@@ -2,7 +2,7 @@
 --	Conversion of Internal_Main.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sun May 16 23:32:10 2021
+--	Wed May 19 23:37:27 2021
 --
 
 USE cypress.cypress.all;
@@ -279,7 +279,6 @@ TERMINAL \ADC_1:Net_345\ : bit;
 TERMINAL \ADC_1:vinNeg_1\ : bit;
 TERMINAL \ADC_1:Net_331\ : bit;
 TERMINAL \ADC_1:vinNeg_0\ : bit;
-TERMINAL \ADC_1:Net_1405\ : bit;
 TERMINAL \ADC_1:Net_365_0\ : bit;
 TERMINAL \ADC_1:muxoutPlus\ : bit;
 TERMINAL \ADC_1:sarmuxVinPlus_0\ : bit;
@@ -494,6 +493,7 @@ TERMINAL \ADC_1:Net_1388\ : bit;
 TERMINAL \ADC_1:Net_1406\ : bit;
 TERMINAL \ADC_1:Net_1402\ : bit;
 TERMINAL \ADC_1:Net_1399\ : bit;
+TERMINAL \ADC_1:Net_1405\ : bit;
 TERMINAL \ADC_1:Net_1448\ : bit;
 TERMINAL \ADC_1:Net_1523_0\ : bit;
 TERMINAL Net_1365_0 : bit;
@@ -518,7 +518,7 @@ TERMINAL Net_1498 : bit;
 SIGNAL tmpINTERRUPT_0__GND_ref_net_0 : bit;
 SIGNAL tmpOE__Shunt_Gnd_net_0 : bit;
 SIGNAL tmpFB_0__Shunt_Gnd_net_0 : bit;
-TERMINAL Net_1472 : bit;
+TERMINAL Net_1523 : bit;
 SIGNAL tmpIO_0__Shunt_Gnd_net_0 : bit;
 TERMINAL tmpSIOVREF__Shunt_Gnd_net_0 : bit;
 TERMINAL Net_98 : bit;
@@ -1630,7 +1630,7 @@ one <=  ('1') ;
 	GENERIC MAP(sig_width=>1,
 		is_net_join=>'0')
 	PORT MAP(signal1=>\ADC_1:vinNeg_0\,
-		signal2=>\ADC_1:Net_1405\);
+		signal2=>\ADC_1:Net_331\);
 \ADC_1:vinNegConnect:bus_connect\:cy_connect_v1_0
 	GENERIC MAP(sig_width=>1,
 		is_net_join=>'0')
@@ -2716,7 +2716,7 @@ Shunt_Gnd:cy_psoc3_pins_v1_10
 	PORT MAP(oe=>(one),
 		y=>(zero),
 		fb=>(tmpFB_0__Shunt_Gnd_net_0),
-		analog=>Net_1472,
+		analog=>Net_1523,
 		io=>(tmpIO_0__Shunt_Gnd_net_0),
 		siovref=>(tmpSIOVREF__Shunt_Gnd_net_0),
 		annotation=>Net_98,
@@ -3435,7 +3435,7 @@ AMux_1:cy_psoc3_amux_v1_0
 		init_mux_sel=>"0000",
 		api_type=>0,
 		connect_mode=>1)
-	PORT MAP(muxin=>(Net_1472, Net_661, Net_1473, Net_1501),
+	PORT MAP(muxin=>(Net_1523, Net_661, Net_1473, Net_1501),
 		hw_ctrl_en=>(others => zero),
 		vout=>Net_697);
 R_2:cy_annotation_universal_v1_0

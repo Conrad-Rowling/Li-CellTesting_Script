@@ -251,7 +251,7 @@ The parameters that are set in the customizer are redefined as constants here.
 #define ADC_1_CFG0_SAMPLES_AVERAGED        (0uL)
 #define ADC_1_CFG0_RANGE_INTR_MASK         (0x0u)
 #define ADC_1_CFG0_SATURATE_INTR_MASK      (0x0u)
-#define ADC_1_CFG0_VNEG_INPUT_SEL          (0)
+#define ADC_1_CFG0_VNEG_INPUT_SEL          (7)
 #define ADC_1_CFG0_SINGLE_PRESENT          (1)
 #define ADC_1_CFG0_VREF_MV_VALUE           (1200)
 #define ADC_1_CFG0_APERTURE_TIME0          (3uL)
@@ -1602,7 +1602,7 @@ extern const uint32 CYCODE ADC_1_InputsPlacement[ADC_1_TOTAL_CHANNELS_NUM];
 #define ADC_1_CFG0_ADC_CLOCK_FREQ_HZ 12000000
 #define ADC_1_CFG0_VREF_SOURCE VREFSOURCE_VBGR
 #define ADC_1_CFG0_VREF_BYPASS True
-#define ADC_1_CFG0_VNEG_SOURCE VNEGSOURCE_VSSA_K
+#define ADC_1_CFG0_VNEG_SOURCE VNEGSOURCE_VREFSHORT
 #define ADC_1_CFG0_NUM_SAMPLES_AVERAGED TWO_SAMPLES
 #define ADC_1_CFG0_AVERAGING_MODE SEQUENTIAL_AVG
 #define ADC_1_CFG0_ALT_RES TEN_BIT
