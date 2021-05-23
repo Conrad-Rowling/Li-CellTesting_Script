@@ -129,7 +129,7 @@ extern uint8  TCPWM_1_initVar;
 ***************************************/
 
 /* Timer/Counter Mode */
-#define TCPWM_1_TC_PERIOD_VALUE                (4lu)
+#define TCPWM_1_TC_PERIOD_VALUE                (50lu)
 #define TCPWM_1_TC_COMPARE_VALUE               (65535lu)
 #define TCPWM_1_TC_COMPARE_BUF_VALUE           (65535lu)
 #define TCPWM_1_TC_COMPARE_SWAP                (0lu)

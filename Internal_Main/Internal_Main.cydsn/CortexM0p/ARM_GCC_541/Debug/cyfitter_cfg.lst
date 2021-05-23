@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
   29:Generated_Source\PSoC4/cyfitter_cfg.c **** #if defined(__GNUC__) || defined(__ARMCC_VERSION)
   30:Generated_Source\PSoC4/cyfitter_cfg.c ****     #define CYPACKED 
   31:Generated_Source\PSoC4/cyfitter_cfg.c ****     #define CYPACKED_ATTR __attribute__ ((packed))
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 2
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 2
 
 
   32:Generated_Source\PSoC4/cyfitter_cfg.c ****     #define CYALIGNED __attribute__ ((aligned))
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
   86:Generated_Source\PSoC4/cyfitter_cfg.c **** }
   87:Generated_Source\PSoC4/cyfitter_cfg.c **** CY_CFG_UNUSED
   88:Generated_Source\PSoC4/cyfitter_cfg.c **** static void CYCONFIGCPYCODE(void *dest, const void *src, size_t n);
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 3
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 3
 
 
   89:Generated_Source\PSoC4/cyfitter_cfg.c **** CY_CFG_UNUSED
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  143:Generated_Source\PSoC4/cyfitter_cfg.c ****     /* `#END` */
  144:Generated_Source\PSoC4/cyfitter_cfg.c **** 
  145:Generated_Source\PSoC4/cyfitter_cfg.c ****     while(1) {}
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 4
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 4
 
 
  146:Generated_Source\PSoC4/cyfitter_cfg.c **** #endif /* CY_CFG_CLOCK_STARTUP_ERROR_CALLBACK */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
   47 0014 1A60     		str	r2, [r3]
  180:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)CYREG_PERI_DIV_CMD, 0x8000FF40u);
   48              		.loc 1 180 0
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 5
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 5
 
 
   49 0016 8023     		movs	r3, #128
@@ -253,7 +253,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
   56              		.loc 1 182 0
   57 0022 214A     		ldr	r2, .L2+16
   58 0024 1A60     		str	r2, [r3]
- 183:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)CYREG_PERI_DIV_16_CTL4, 0x0005DB00u);
+ 183:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_REG32((void *)CYREG_PERI_DIV_16_CTL4, 0x005DBF00u);
   59              		.loc 1 183 0
   60 0026 2149     		ldr	r1, .L2+20
   61 0028 214A     		ldr	r2, .L2+24
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
   90 0052 2022     		movs	r2, #32
   91 0054 1F4B     		ldr	r3, .L2+60
   92 0056 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 6
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 6
 
 
  194:Generated_Source\PSoC4/cyfitter_cfg.c **** 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  127 008a 0020     		movs	r0, #0
  128 008c FFF7FEFF 		bl	CySysClkSetTimerSource
  129              	.LVL3:
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 7
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 7
 
 
  214:Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* Set Flash Cycles based on newly configured 24.00MHz HFCLK. */
@@ -378,7 +378,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  141 00a0 40FF0080 		.word	-2147418304
  142 00a4 04030040 		.word	1073742596
  143 00a8 41FF0080 		.word	-2147418303
- 144 00ac 00DB0500 		.word	383744
+ 144 00ac 00BF5D00 		.word	6143744
  145 00b0 10030040 		.word	1073742608
  146 00b4 44FF0080 		.word	-2147418300
  147 00b8 006BDC02 		.word	47999744
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  225:Generated_Source\PSoC4/cyfitter_cfg.c **** *
  226:Generated_Source\PSoC4/cyfitter_cfg.c **** * Summary:
  227:Generated_Source\PSoC4/cyfitter_cfg.c **** *  Sets up the analog portions of the chip to default values based on chip
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 8
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 8
 
 
  228:Generated_Source\PSoC4/cyfitter_cfg.c **** *  configuration options from the project.
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  180 0000 064B     		ldr	r3, .L7
  181 0002 1B68     		ldr	r3, [r3]
  182              	.LVL5:
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 9
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 9
 
 
  275:Generated_Source\PSoC4/cyfitter_cfg.c **** 	if (enabled != 0u)
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  226              		.cfi_offset 14, -4
  240:Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)CYREG_CTB0_OA0_SW, 0x21000008u);
  227              		.loc 1 240 0
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 10
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 10
 
 
  228 0002 8023     		movs	r3, #128
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  251:Generated_Source\PSoC4/cyfitter_cfg.c **** 	SetAnalogRoutingPumps(1);
  272              		.loc 1 251 0
  273 0046 D13A     		subs	r2, r2, #209
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 11
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 11
 
 
  274 0048 114B     		ldr	r3, .L10+60
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  298:Generated_Source\PSoC4/cyfitter_cfg.c **** *   void
  299:Generated_Source\PSoC4/cyfitter_cfg.c **** *
  300:Generated_Source\PSoC4/cyfitter_cfg.c **** *******************************************************************************/
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 12
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 12
 
 
  301:Generated_Source\PSoC4/cyfitter_cfg.c **** void AMux_1_Set(uint8 channel)
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  353 002c 024B     		ldr	r3, .L18+4
  354 002e 1A60     		str	r2, [r3]
  355              	.L12:
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 13
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 13
 
 
  315:Generated_Source\PSoC4/cyfitter_cfg.c **** 			break;
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  387 000a 0AD0     		beq	.L24
  388 000c 0328     		cmp	r0, #3
  389 000e 0CD0     		beq	.L25
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 14
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 14
 
 
  390 0010 0EE0     		b	.L20
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  428              		.size	AMux_1_Unset, .-AMux_1_Unset
  429              		.section	.psocinit
  430              		.align	2
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 15
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 15
 
 
  431              		.global	cyfitter_cfg
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  456              		.loc 1 382 0
  457 00fe EE22     		movs	r2, #238
  458 0100 1206     		lsls	r2, r2, #24
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 16
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 16
 
 
  459 0102 124B     		ldr	r3, .L29+8
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  491              		.loc 1 404 0
  492 0132 9022     		movs	r2, #144
  493 0134 1204     		lsls	r2, r2, #16
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 17
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 17
 
 
  494 0136 0F4B     		ldr	r3, .L29+48
@@ -1015,10 +1015,10 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  536 000c C1010000 		.4byte	.LASF29
  537 0010 0C       		.byte	0xc
  538 0011 5F020000 		.4byte	.LASF30
- 539 0015 52000000 		.4byte	.LASF31
+ 539 0015 19010000 		.4byte	.LASF31
  540 0019 00000000 		.4byte	.Ldebug_ranges0+0
  541 001d 00000000 		.4byte	0
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 18
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 18
 
 
  542 0021 00000000 		.4byte	.Ldebug_line0
@@ -1029,11 +1029,11 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  547 002c 03       		.uleb128 0x3
  548 002d 04       		.byte	0x4
  549 002e 07       		.byte	0x7
- 550 002f 3A010000 		.4byte	.LASF0
+ 550 002f D9000000 		.4byte	.LASF0
  551 0033 03       		.uleb128 0x3
  552 0034 08       		.byte	0x8
  553 0035 05       		.byte	0x5
- 554 0036 67010000 		.4byte	.LASF1
+ 554 0036 06010000 		.4byte	.LASF1
  555 003a 03       		.uleb128 0x3
  556 003b 08       		.byte	0x8
  557 003c 04       		.byte	0x4
@@ -1045,7 +1045,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  563 0048 03       		.uleb128 0x3
  564 0049 01       		.byte	0x1
  565 004a 08       		.byte	0x8
- 566 004b D7000000 		.4byte	.LASF4
+ 566 004b 76000000 		.4byte	.LASF4
  567 004f 03       		.uleb128 0x3
  568 0050 02       		.byte	0x2
  569 0051 05       		.byte	0x5
@@ -1053,7 +1053,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  571 0056 03       		.uleb128 0x3
  572 0057 02       		.byte	0x2
  573 0058 07       		.byte	0x7
- 574 0059 BE000000 		.4byte	.LASF6
+ 574 0059 5D000000 		.4byte	.LASF6
  575 005d 03       		.uleb128 0x3
  576 005e 04       		.byte	0x4
  577 005f 05       		.byte	0x5
@@ -1061,40 +1061,40 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  579 0064 03       		.uleb128 0x3
  580 0065 04       		.byte	0x4
  581 0066 07       		.byte	0x7
- 582 0067 E5000000 		.4byte	.LASF8
+ 582 0067 84000000 		.4byte	.LASF8
  583 006b 03       		.uleb128 0x3
  584 006c 08       		.byte	0x8
  585 006d 07       		.byte	0x7
- 586 006e 47010000 		.4byte	.LASF9
+ 586 006e E6000000 		.4byte	.LASF9
  587 0072 03       		.uleb128 0x3
  588 0073 04       		.byte	0x4
  589 0074 07       		.byte	0x7
- 590 0075 5E010000 		.4byte	.LASF10
+ 590 0075 FD000000 		.4byte	.LASF10
  591 0079 03       		.uleb128 0x3
  592 007a 01       		.byte	0x1
  593 007b 08       		.byte	0x8
- 594 007c 75010000 		.4byte	.LASF11
+ 594 007c 14010000 		.4byte	.LASF11
  595 0080 04       		.uleb128 0x4
- 596 0081 F7000000 		.4byte	.LASF12
+ 596 0081 96000000 		.4byte	.LASF12
  597 0085 02       		.byte	0x2
  598 0086 FC01     		.2byte	0x1fc
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 19
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 19
 
 
  599 0088 48000000 		.4byte	0x48
  600 008c 04       		.uleb128 0x4
- 601 008d 33010000 		.4byte	.LASF13
+ 601 008d D2000000 		.4byte	.LASF13
  602 0091 02       		.byte	0x2
  603 0092 FE01     		.2byte	0x1fe
  604 0094 64000000 		.4byte	0x64
  605 0098 03       		.uleb128 0x3
  606 0099 04       		.byte	0x4
  607 009a 04       		.byte	0x4
- 608 009b D1000000 		.4byte	.LASF14
+ 608 009b 70000000 		.4byte	.LASF14
  609 009f 03       		.uleb128 0x3
  610 00a0 08       		.byte	0x8
  611 00a1 04       		.byte	0x4
- 612 00a2 20010000 		.4byte	.LASF15
+ 612 00a2 BF000000 		.4byte	.LASF15
  613 00a6 04       		.uleb128 0x4
  614 00a7 00000000 		.4byte	.LASF16
  615 00ab 02       		.byte	0x2
@@ -1103,7 +1103,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  618 00b2 05       		.uleb128 0x5
  619 00b3 8C000000 		.4byte	0x8c
  620 00b7 06       		.uleb128 0x6
- 621 00b8 B3000000 		.4byte	.LASF17
+ 621 00b8 52000000 		.4byte	.LASF17
  622 00bc 01       		.byte	0x1
  623 00bd AA       		.byte	0xaa
  624 00be 00000000 		.4byte	.LFB4
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  653 00ff 08       		.uleb128 0x8
  654 0100 01       		.uleb128 0x1
  655 0101 50       		.byte	0x50
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 20
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 20
 
 
  656 0102 01       		.uleb128 0x1
@@ -1155,7 +1155,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  667 0113 00       		.byte	0
  668 0114 00       		.byte	0
  669 0115 0A       		.uleb128 0xa
- 670 0116 0A010000 		.4byte	.LASF19
+ 670 0116 A9000000 		.4byte	.LASF19
  671 011a 01       		.byte	0x1
  672 011b 1001     		.2byte	0x110
  673 011d 00000000 		.4byte	.LFB6
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  710 016e 00       		.byte	0
  711 016f 0A       		.uleb128 0xa
  712 0170 A1010000 		.4byte	.LASF20
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 21
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 21
 
 
  713 0174 01       		.byte	0x1
@@ -1234,7 +1234,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  743 01b7 50       		.byte	0x50
  744 01b8 00       		.byte	0
  745 01b9 0A       		.uleb128 0xa
- 746 01ba FD000000 		.4byte	.LASF24
+ 746 01ba 9C000000 		.4byte	.LASF24
  747 01be 01       		.byte	0x1
  748 01bf 7601     		.2byte	0x176
  749 01c1 F4000000 		.4byte	.LFB9
@@ -1258,13 +1258,13 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  767 01ee 43000000 		.4byte	.LASF26
  768 01f2 43000000 		.4byte	.LASF26
  769 01f6 03       		.byte	0x3
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 22
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 22
 
 
  770 01f7 D0       		.byte	0xd0
  771 01f8 0E       		.uleb128 0xe
- 772 01f9 27010000 		.4byte	.LASF27
- 773 01fd 27010000 		.4byte	.LASF27
+ 772 01f9 C6000000 		.4byte	.LASF27
+ 773 01fd C6000000 		.4byte	.LASF27
  774 0201 03       		.byte	0x3
  775 0202 D6       		.byte	0xd6
  776 0203 0E       		.uleb128 0xe
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  824 0028 00       		.byte	0
  825 0029 04       		.uleb128 0x4
  826 002a 16       		.uleb128 0x16
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 23
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 23
 
 
  827 002b 00       		.byte	0
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  881 0066 00       		.byte	0
  882 0067 02       		.uleb128 0x2
  883 0068 18       		.uleb128 0x18
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 24
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 24
 
 
  884 0069 9142     		.uleb128 0x2111
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  938 00a3 34       		.uleb128 0x34
  939 00a4 00       		.byte	0
  940 00a5 03       		.uleb128 0x3
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 25
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 25
 
 
  941 00a6 0E       		.uleb128 0xe
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  995 0006 00000000 		.4byte	.Ldebug_info0
  996 000a 04       		.byte	0x4
  997 000b 00       		.byte	0
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 26
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 26
 
 
  998 000c 0000     		.2byte	0
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  1040      53657454 
  1040      696D6572 
  1040      536F7572 
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 27
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 27
 
 
  1041              	.LASF23:
@@ -1571,92 +1571,92 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  1044      74536574 
  1044      56656374 
  1044      6F7200
- 1045              	.LASF31:
- 1046 0052 433A5C55 		.ascii	"C:\\Users\\Tucker Zischka\\Documents\\GitHub\\Li-Ce"
- 1046      73657273 
- 1046      5C547563 
- 1046      6B657220 
- 1046      5A697363 
- 1047 0080 6C6C5465 		.ascii	"llTesting_Script\\Internal_Main\\Internal_Main.cyds"
- 1047      7374696E 
- 1047      675F5363 
- 1047      72697074 
- 1047      5C496E74 
- 1048 00b1 6E00     		.ascii	"n\000"
- 1049              	.LASF17:
- 1050 00b3 436C6F63 		.ascii	"ClockSetup\000"
- 1050      6B536574 
- 1050      757000
- 1051              	.LASF6:
- 1052 00be 73686F72 		.ascii	"short unsigned int\000"
- 1052      7420756E 
- 1052      7369676E 
- 1052      65642069 
- 1052      6E7400
- 1053              	.LASF14:
- 1054 00d1 666C6F61 		.ascii	"float\000"
+ 1045              	.LASF17:
+ 1046 0052 436C6F63 		.ascii	"ClockSetup\000"
+ 1046      6B536574 
+ 1046      757000
+ 1047              	.LASF6:
+ 1048 005d 73686F72 		.ascii	"short unsigned int\000"
+ 1048      7420756E 
+ 1048      7369676E 
+ 1048      65642069 
+ 1048      6E7400
+ 1049              	.LASF14:
+ 1050 0070 666C6F61 		.ascii	"float\000"
+ 1050      7400
+ 1051              	.LASF4:
+ 1052 0076 756E7369 		.ascii	"unsigned char\000"
+ 1052      676E6564 
+ 1052      20636861 
+ 1052      7200
+ 1053              	.LASF8:
+ 1054 0084 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1054      20756E73 
+ 1054      69676E65 
+ 1054      6420696E 
  1054      7400
- 1055              	.LASF4:
- 1056 00d7 756E7369 		.ascii	"unsigned char\000"
- 1056      676E6564 
- 1056      20636861 
- 1056      7200
- 1057              	.LASF8:
- 1058 00e5 6C6F6E67 		.ascii	"long unsigned int\000"
- 1058      20756E73 
- 1058      69676E65 
- 1058      6420696E 
- 1058      7400
- 1059              	.LASF12:
- 1060 00f7 75696E74 		.ascii	"uint8\000"
- 1060      3800
- 1061              	.LASF24:
- 1062 00fd 63796669 		.ascii	"cyfitter_cfg\000"
- 1062      74746572 
- 1062      5F636667 
- 1062      00
- 1063              	.LASF19:
- 1064 010a 53657441 		.ascii	"SetAnalogRoutingPumps\000"
- 1064      6E616C6F 
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 28
+ 1055              	.LASF12:
+ 1056 0096 75696E74 		.ascii	"uint8\000"
+ 1056      3800
+ 1057              	.LASF24:
+ 1058 009c 63796669 		.ascii	"cyfitter_cfg\000"
+ 1058      74746572 
+ 1058      5F636667 
+ 1058      00
+ 1059              	.LASF19:
+ 1060 00a9 53657441 		.ascii	"SetAnalogRoutingPumps\000"
+ 1060      6E616C6F 
+ 1060      67526F75 
+ 1060      74696E67 
+ 1060      50756D70 
+ 1061              	.LASF15:
+ 1062 00bf 646F7562 		.ascii	"double\000"
+ 1062      6C6500
+ 1063              	.LASF27:
+ 1064 00c6 4379496E 		.ascii	"CyIntEnable\000"
+ 1064      74456E61 
+ 1064      626C6500 
+ 1065              	.LASF13:
+ 1066 00d2 75696E74 		.ascii	"uint32\000"
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 28
 
 
- 1064      67526F75 
- 1064      74696E67 
- 1064      50756D70 
- 1065              	.LASF15:
- 1066 0120 646F7562 		.ascii	"double\000"
- 1066      6C6500
- 1067              	.LASF27:
- 1068 0127 4379496E 		.ascii	"CyIntEnable\000"
- 1068      74456E61 
- 1068      626C6500 
- 1069              	.LASF13:
- 1070 0133 75696E74 		.ascii	"uint32\000"
- 1070      333200
- 1071              	.LASF0:
- 1072 013a 756E7369 		.ascii	"unsigned int\000"
- 1072      676E6564 
- 1072      20696E74 
+ 1066      333200
+ 1067              	.LASF0:
+ 1068 00d9 756E7369 		.ascii	"unsigned int\000"
+ 1068      676E6564 
+ 1068      20696E74 
+ 1068      00
+ 1069              	.LASF9:
+ 1070 00e6 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1070      206C6F6E 
+ 1070      6720756E 
+ 1070      7369676E 
+ 1070      65642069 
+ 1071              	.LASF10:
+ 1072 00fd 73697A65 		.ascii	"sizetype\000"
+ 1072      74797065 
  1072      00
- 1073              	.LASF9:
- 1074 0147 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1073              	.LASF1:
+ 1074 0106 6C6F6E67 		.ascii	"long long int\000"
  1074      206C6F6E 
- 1074      6720756E 
- 1074      7369676E 
- 1074      65642069 
- 1075              	.LASF10:
- 1076 015e 73697A65 		.ascii	"sizetype\000"
- 1076      74797065 
+ 1074      6720696E 
+ 1074      7400
+ 1075              	.LASF11:
+ 1076 0114 63686172 		.ascii	"char\000"
  1076      00
- 1077              	.LASF1:
- 1078 0167 6C6F6E67 		.ascii	"long long int\000"
- 1078      206C6F6E 
- 1078      6720696E 
- 1078      7400
- 1079              	.LASF11:
- 1080 0175 63686172 		.ascii	"char\000"
- 1080      00
+ 1077              	.LASF31:
+ 1078 0119 433A5C55 		.ascii	"C:\\Users\\19255\\OneDrive\\Documents\\GitHub\\Li-C"
+ 1078      73657273 
+ 1078      5C313932 
+ 1078      35355C4F 
+ 1078      6E654472 
+ 1079 0146 656C6C54 		.ascii	"ellTesting_Script\\Internal_Main\\Internal_Main.cyd"
+ 1079      65737469 
+ 1079      6E675F53 
+ 1079      63726970 
+ 1079      745C496E 
+ 1080 0177 736E00   		.ascii	"sn\000"
  1081              	.LASF21:
  1082 017a 656E6162 		.ascii	"enabled\000"
  1082      6C656400 
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 1
  1090 01ac 6C6F6E67 		.ascii	"long int\000"
  1090      20696E74 
  1090      00
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccD0yUGj.s 			page 29
+ARM GAS  C:\Users\19255\AppData\Local\Temp\cc2tSkvM.s 			page 29
 
 
  1091              	.LASF2:

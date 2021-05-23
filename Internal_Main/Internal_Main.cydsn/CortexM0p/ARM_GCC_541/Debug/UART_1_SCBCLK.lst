@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 1
+ARM GAS  C:\Users\19255\AppData\Local\Temp\ccas3yGq.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 1
   28:Generated_Source\PSoC4/UART_1_SCBCLK.c **** * Summary:
   29:Generated_Source\PSoC4/UART_1_SCBCLK.c **** *  Starts the clock, aligned to the specified running clock.
   30:Generated_Source\PSoC4/UART_1_SCBCLK.c **** *
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 2
+ARM GAS  C:\Users\19255\AppData\Local\Temp\ccas3yGq.s 			page 2
 
 
   31:Generated_Source\PSoC4/UART_1_SCBCLK.c **** * Parameters:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 1
   60              		.section	.text.UART_1_SCBCLK_Stop,"ax",%progbits
   61              		.align	2
   62              		.global	UART_1_SCBCLK_Stop
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 3
+ARM GAS  C:\Users\19255\AppData\Local\Temp\ccas3yGq.s 			page 3
 
 
   63              		.code	16
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 1
   72              		@ link register save eliminated.
   73              	.L6:
   97:Generated_Source\PSoC4/UART_1_SCBCLK.c **** #if defined CYREG_PERI_DIV_CMD
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 4
+ARM GAS  C:\Users\19255\AppData\Local\Temp\ccas3yGq.s 			page 4
 
 
   98:Generated_Source\PSoC4/UART_1_SCBCLK.c **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 1
  123:Generated_Source\PSoC4/UART_1_SCBCLK.c **** *  Modifies the clock divider and the fractional divider.
  124:Generated_Source\PSoC4/UART_1_SCBCLK.c **** *
  125:Generated_Source\PSoC4/UART_1_SCBCLK.c **** * Parameters:
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 5
+ARM GAS  C:\Users\19255\AppData\Local\Temp\ccas3yGq.s 			page 5
 
 
  126:Generated_Source\PSoC4/UART_1_SCBCLK.c **** *  clkDivider:  Divider register value (0-65535). This value is NOT the
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 1
  149:Generated_Source\PSoC4/UART_1_SCBCLK.c **** #else
  150:Generated_Source\PSoC4/UART_1_SCBCLK.c ****     /* get all but integer divider bits */
  151:Generated_Source\PSoC4/UART_1_SCBCLK.c ****     maskVal = UART_1_SCBCLK_DIV_REG & (uint32)(~(uint32)UART_1_SCBCLK__DIVIDER_MASK);
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 6
+ARM GAS  C:\Users\19255\AppData\Local\Temp\ccas3yGq.s 			page 6
 
 
  152:Generated_Source\PSoC4/UART_1_SCBCLK.c ****     /* combine mask and new divider val into 32-bit value */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 1
  159 0002 1868     		ldr	r0, [r3]
  160 0004 000A     		lsrs	r0, r0, #8
  161 0006 80B2     		uxth	r0, r0
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 7
+ARM GAS  C:\Users\19255\AppData\Local\Temp\ccas3yGq.s 			page 7
 
 
  179:Generated_Source\PSoC4/UART_1_SCBCLK.c ****         >> UART_1_SCBCLK_DIV_INT_SHIFT);
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 1
  187              		@ sp needed
  188 0002 7047     		bx	lr
  189              		.cfi_endproc
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 8
+ARM GAS  C:\Users\19255\AppData\Local\Temp\ccas3yGq.s 			page 8
 
 
  190              	.LFE4:
@@ -435,8 +435,8 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 1
  201 000b 01       		.uleb128 0x1
  202 000c D5010000 		.4byte	.LASF25
  203 0010 0C       		.byte	0xc
- 204 0011 82000000 		.4byte	.LASF26
- 205 0015 21000000 		.4byte	.LASF27
+ 204 0011 7C000000 		.4byte	.LASF26
+ 205 0015 00000000 		.4byte	.LASF27
  206 0019 00000000 		.4byte	.Ldebug_ranges0+0
  207 001d 00000000 		.4byte	0
  208 0021 00000000 		.4byte	.Ldebug_line0
@@ -447,78 +447,78 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 1
  213 002c 02       		.uleb128 0x2
  214 002d 01       		.byte	0x1
  215 002e 08       		.byte	0x8
- 216 002f FB000000 		.4byte	.LASF1
+ 216 002f F5000000 		.4byte	.LASF1
  217 0033 02       		.uleb128 0x2
  218 0034 02       		.byte	0x2
  219 0035 05       		.byte	0x5
- 220 0036 BC010000 		.4byte	.LASF2
+ 220 0036 B6010000 		.4byte	.LASF2
  221 003a 02       		.uleb128 0x2
  222 003b 02       		.byte	0x2
  223 003c 07       		.byte	0x7
- 224 003d 1B010000 		.4byte	.LASF3
+ 224 003d 15010000 		.4byte	.LASF3
  225 0041 02       		.uleb128 0x2
  226 0042 04       		.byte	0x4
  227 0043 05       		.byte	0x5
- 228 0044 CC010000 		.4byte	.LASF4
+ 228 0044 C6010000 		.4byte	.LASF4
  229 0048 02       		.uleb128 0x2
  230 0049 04       		.byte	0x4
  231 004a 07       		.byte	0x7
- 232 004b 09010000 		.4byte	.LASF5
+ 232 004b 03010000 		.4byte	.LASF5
  233 004f 02       		.uleb128 0x2
  234 0050 08       		.byte	0x8
  235 0051 05       		.byte	0x5
- 236 0052 A9010000 		.4byte	.LASF6
+ 236 0052 A3010000 		.4byte	.LASF6
  237 0056 02       		.uleb128 0x2
  238 0057 08       		.byte	0x8
  239 0058 07       		.byte	0x7
- 240 0059 92010000 		.4byte	.LASF7
+ 240 0059 8C010000 		.4byte	.LASF7
  241 005d 03       		.uleb128 0x3
  242 005e 04       		.byte	0x4
  243 005f 05       		.byte	0x5
  244 0060 696E7400 		.ascii	"int\000"
  245 0064 02       		.uleb128 0x2
  246 0065 04       		.byte	0x4
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 9
+ARM GAS  C:\Users\19255\AppData\Local\Temp\ccas3yGq.s 			page 9
 
 
  247 0066 07       		.byte	0x7
- 248 0067 85010000 		.4byte	.LASF8
+ 248 0067 7F010000 		.4byte	.LASF8
  249 006b 04       		.uleb128 0x4
- 250 006c C6010000 		.4byte	.LASF9
+ 250 006c C0010000 		.4byte	.LASF9
  251 0070 02       		.byte	0x2
  252 0071 FC01     		.2byte	0x1fc
  253 0073 2C000000 		.4byte	0x2c
  254 0077 04       		.uleb128 0x4
- 255 0078 77010000 		.4byte	.LASF10
+ 255 0078 71010000 		.4byte	.LASF10
  256 007c 02       		.byte	0x2
  257 007d FD01     		.2byte	0x1fd
  258 007f 3A000000 		.4byte	0x3a
  259 0083 04       		.uleb128 0x4
- 260 0084 7E010000 		.4byte	.LASF11
+ 260 0084 78010000 		.4byte	.LASF11
  261 0088 02       		.byte	0x2
  262 0089 FE01     		.2byte	0x1fe
  263 008b 48000000 		.4byte	0x48
  264 008f 02       		.uleb128 0x2
  265 0090 04       		.byte	0x4
  266 0091 04       		.byte	0x4
- 267 0092 A9000000 		.4byte	.LASF12
+ 267 0092 A3000000 		.4byte	.LASF12
  268 0096 02       		.uleb128 0x2
  269 0097 08       		.byte	0x8
  270 0098 04       		.byte	0x4
- 271 0099 4F010000 		.4byte	.LASF13
+ 271 0099 49010000 		.4byte	.LASF13
  272 009d 02       		.uleb128 0x2
  273 009e 01       		.byte	0x1
  274 009f 08       		.byte	0x8
- 275 00a0 B7010000 		.4byte	.LASF14
+ 275 00a0 B1010000 		.4byte	.LASF14
  276 00a4 04       		.uleb128 0x4
- 277 00a5 00000000 		.4byte	.LASF15
+ 277 00a5 CF010000 		.4byte	.LASF15
  278 00a9 02       		.byte	0x2
  279 00aa A802     		.2byte	0x2a8
  280 00ac B0000000 		.4byte	0xb0
  281 00b0 05       		.uleb128 0x5
  282 00b1 83000000 		.4byte	0x83
  283 00b5 06       		.uleb128 0x6
- 284 00b6 2E010000 		.4byte	.LASF16
+ 284 00b6 28010000 		.4byte	.LASF16
  285 00ba 01       		.byte	0x1
  286 00bb 27       		.byte	0x27
  287 00bc 00000000 		.4byte	.LFB0
@@ -527,25 +527,25 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 1
  290 00c5 9C       		.byte	0x9c
  291 00c6 DA000000 		.4byte	0xda
  292 00ca 07       		.uleb128 0x7
- 293 00cb 5D010000 		.4byte	.LASF18
+ 293 00cb 57010000 		.4byte	.LASF18
  294 00cf 01       		.byte	0x1
  295 00d0 27       		.byte	0x27
  296 00d1 83000000 		.4byte	0x83
  297 00d5 00000000 		.4byte	.LLST0
  298 00d9 00       		.byte	0
  299 00da 08       		.uleb128 0x8
- 300 00db 06000000 		.4byte	.LASF28
+ 300 00db 61000000 		.4byte	.LASF28
  301 00df 01       		.byte	0x1
  302 00e0 5F       		.byte	0x5f
  303 00e1 00000000 		.4byte	.LFB1
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 10
+ARM GAS  C:\Users\19255\AppData\Local\Temp\ccas3yGq.s 			page 10
 
 
  304 00e5 18000000 		.4byte	.LFE1-.LFB1
  305 00e9 01       		.uleb128 0x1
  306 00ea 9C       		.byte	0x9c
  307 00eb 06       		.uleb128 0x6
- 308 00ec AF000000 		.4byte	.LASF17
+ 308 00ec A9000000 		.4byte	.LASF17
  309 00f0 01       		.byte	0x1
  310 00f1 86       		.byte	0x86
  311 00f2 00000000 		.4byte	.LFB2
@@ -554,25 +554,25 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 1
  314 00fb 9C       		.byte	0x9c
  315 00fc 3B010000 		.4byte	0x13b
  316 0100 07       		.uleb128 0x7
- 317 0101 44010000 		.4byte	.LASF19
+ 317 0101 3E010000 		.4byte	.LASF19
  318 0105 01       		.byte	0x1
  319 0106 86       		.byte	0x86
  320 0107 77000000 		.4byte	0x77
  321 010b 21000000 		.4byte	.LLST1
  322 010f 07       		.uleb128 0x7
- 323 0110 69010000 		.4byte	.LASF20
+ 323 0110 63010000 		.4byte	.LASF20
  324 0114 01       		.byte	0x1
  325 0115 86       		.byte	0x86
  326 0116 6B000000 		.4byte	0x6b
  327 011a 42000000 		.4byte	.LLST2
  328 011e 09       		.uleb128 0x9
- 329 011f 19000000 		.4byte	.LASF21
+ 329 011f 74000000 		.4byte	.LASF21
  330 0123 01       		.byte	0x1
  331 0124 88       		.byte	0x88
  332 0125 83000000 		.4byte	0x83
  333 0129 63000000 		.4byte	.LLST3
  334 012d 0A       		.uleb128 0xa
- 335 012e 56010000 		.4byte	.LASF22
+ 335 012e 50010000 		.4byte	.LASF22
  336 0132 01       		.byte	0x1
  337 0133 89       		.byte	0x89
  338 0134 83000000 		.4byte	0x83
@@ -580,7 +580,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 1
  340 0139 51       		.byte	0x51
  341 013a 00       		.byte	0
  342 013b 0B       		.uleb128 0xb
- 343 013c DA000000 		.4byte	.LASF23
+ 343 013c D4000000 		.4byte	.LASF23
  344 0140 01       		.byte	0x1
  345 0141 B0       		.byte	0xb0
  346 0142 77000000 		.4byte	0x77
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 1
  358 0163 01       		.uleb128 0x1
  359 0164 9C       		.byte	0x9c
  360 0165 00       		.byte	0
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 11
+ARM GAS  C:\Users\19255\AppData\Local\Temp\ccas3yGq.s 			page 11
 
 
  361              		.section	.debug_abbrev,"",%progbits
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 1
  415 0034 00       		.byte	0
  416 0035 00       		.byte	0
  417 0036 05       		.uleb128 0x5
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 12
+ARM GAS  C:\Users\19255\AppData\Local\Temp\ccas3yGq.s 			page 12
 
 
  418 0037 35       		.uleb128 0x35
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 1
  472 006e 0B       		.uleb128 0xb
  473 006f 3B       		.uleb128 0x3b
  474 0070 0B       		.uleb128 0xb
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 13
+ARM GAS  C:\Users\19255\AppData\Local\Temp\ccas3yGq.s 			page 13
 
 
  475 0071 27       		.uleb128 0x27
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 1
  529 00a8 19       		.uleb128 0x19
  530 00a9 49       		.uleb128 0x49
  531 00aa 13       		.uleb128 0x13
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 14
+ARM GAS  C:\Users\19255\AppData\Local\Temp\ccas3yGq.s 			page 14
 
 
  532 00ab 11       		.uleb128 0x11
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 1
  586 005f 00000000 		.4byte	0
  587              	.LLST3:
  588 0063 0A000000 		.4byte	.LVL3
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 15
+ARM GAS  C:\Users\19255\AppData\Local\Temp\ccas3yGq.s 			page 15
 
 
  589 0067 10000000 		.4byte	.LVL5
@@ -887,138 +887,138 @@ ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 1
  630      00000201 
  630      FB0E0D00 
  630      01010101 
- 631              	.LASF15:
- 632 0000 72656733 		.ascii	"reg32\000"
- 632      3200
- 633              	.LASF28:
- 634 0006 55415254 		.ascii	"UART_1_SCBCLK_Stop\000"
- 634      5F315F53 
- 634      4342434C 
- 634      4B5F5374 
- 634      6F7000
- 635              	.LASF21:
- 636 0019 6D61736B 		.ascii	"maskVal\000"
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 16
+ 631              	.LASF27:
+ 632 0000 433A5C55 		.ascii	"C:\\Users\\19255\\OneDrive\\Documents\\GitHub\\Li-C"
+ 632      73657273 
+ 632      5C313932 
+ 632      35355C4F 
+ 632      6E654472 
+ 633 002d 656C6C54 		.ascii	"ellTesting_Script\\Internal_Main\\Internal_Main.cyd"
+ 633      65737469 
+ 633      6E675F53 
+ 633      63726970 
+ 633      745C496E 
+ARM GAS  C:\Users\19255\AppData\Local\Temp\ccas3yGq.s 			page 16
 
 
- 636      56616C00 
- 637              	.LASF27:
- 638 0021 433A5C55 		.ascii	"C:\\Users\\Tucker Zischka\\Documents\\GitHub\\Li-Ce"
- 638      73657273 
- 638      5C547563 
- 638      6B657220 
- 638      5A697363 
- 639 004f 6C6C5465 		.ascii	"llTesting_Script\\Internal_Main\\Internal_Main.cyds"
- 639      7374696E 
- 639      675F5363 
- 639      72697074 
- 639      5C496E74 
- 640 0080 6E00     		.ascii	"n\000"
- 641              	.LASF26:
- 642 0082 47656E65 		.ascii	"Generated_Source\\PSoC4\\UART_1_SCBCLK.c\000"
- 642      72617465 
- 642      645F536F 
- 642      75726365 
- 642      5C50536F 
- 643              	.LASF12:
- 644 00a9 666C6F61 		.ascii	"float\000"
- 644      7400
- 645              	.LASF17:
- 646 00af 55415254 		.ascii	"UART_1_SCBCLK_SetFractionalDividerRegister\000"
+ 634 005e 736E00   		.ascii	"sn\000"
+ 635              	.LASF28:
+ 636 0061 55415254 		.ascii	"UART_1_SCBCLK_Stop\000"
+ 636      5F315F53 
+ 636      4342434C 
+ 636      4B5F5374 
+ 636      6F7000
+ 637              	.LASF21:
+ 638 0074 6D61736B 		.ascii	"maskVal\000"
+ 638      56616C00 
+ 639              	.LASF26:
+ 640 007c 47656E65 		.ascii	"Generated_Source\\PSoC4\\UART_1_SCBCLK.c\000"
+ 640      72617465 
+ 640      645F536F 
+ 640      75726365 
+ 640      5C50536F 
+ 641              	.LASF12:
+ 642 00a3 666C6F61 		.ascii	"float\000"
+ 642      7400
+ 643              	.LASF17:
+ 644 00a9 55415254 		.ascii	"UART_1_SCBCLK_SetFractionalDividerRegister\000"
+ 644      5F315F53 
+ 644      4342434C 
+ 644      4B5F5365 
+ 644      74467261 
+ 645              	.LASF23:
+ 646 00d4 55415254 		.ascii	"UART_1_SCBCLK_GetDividerRegister\000"
  646      5F315F53 
  646      4342434C 
- 646      4B5F5365 
- 646      74467261 
- 647              	.LASF23:
- 648 00da 55415254 		.ascii	"UART_1_SCBCLK_GetDividerRegister\000"
- 648      5F315F53 
- 648      4342434C 
- 648      4B5F4765 
- 648      74446976 
- 649              	.LASF1:
- 650 00fb 756E7369 		.ascii	"unsigned char\000"
- 650      676E6564 
- 650      20636861 
- 650      7200
- 651              	.LASF5:
- 652 0109 6C6F6E67 		.ascii	"long unsigned int\000"
- 652      20756E73 
- 652      69676E65 
- 652      6420696E 
- 652      7400
- 653              	.LASF3:
- 654 011b 73686F72 		.ascii	"short unsigned int\000"
- 654      7420756E 
- 654      7369676E 
- 654      65642069 
- 654      6E7400
- 655              	.LASF16:
- 656 012e 55415254 		.ascii	"UART_1_SCBCLK_StartEx\000"
- 656      5F315F53 
- 656      4342434C 
- 656      4B5F5374 
- 656      61727445 
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 17
+ 646      4B5F4765 
+ 646      74446976 
+ 647              	.LASF1:
+ 648 00f5 756E7369 		.ascii	"unsigned char\000"
+ 648      676E6564 
+ 648      20636861 
+ 648      7200
+ 649              	.LASF5:
+ 650 0103 6C6F6E67 		.ascii	"long unsigned int\000"
+ 650      20756E73 
+ 650      69676E65 
+ 650      6420696E 
+ 650      7400
+ 651              	.LASF3:
+ 652 0115 73686F72 		.ascii	"short unsigned int\000"
+ 652      7420756E 
+ 652      7369676E 
+ 652      65642069 
+ 652      6E7400
+ 653              	.LASF16:
+ 654 0128 55415254 		.ascii	"UART_1_SCBCLK_StartEx\000"
+ 654      5F315F53 
+ 654      4342434C 
+ 654      4B5F5374 
+ 654      61727445 
+ 655              	.LASF19:
+ 656 013e 636C6B44 		.ascii	"clkDivider\000"
+ 656      69766964 
+ARM GAS  C:\Users\19255\AppData\Local\Temp\ccas3yGq.s 			page 17
 
 
- 657              	.LASF19:
- 658 0144 636C6B44 		.ascii	"clkDivider\000"
- 658      69766964 
- 658      657200
- 659              	.LASF13:
- 660 014f 646F7562 		.ascii	"double\000"
- 660      6C6500
- 661              	.LASF22:
- 662 0156 72656756 		.ascii	"regVal\000"
- 662      616C00
- 663              	.LASF18:
- 664 015d 616C6967 		.ascii	"alignClkDiv\000"
- 664      6E436C6B 
- 664      44697600 
- 665              	.LASF20:
- 666 0169 636C6B46 		.ascii	"clkFractional\000"
- 666      72616374 
- 666      696F6E61 
- 666      6C00
- 667              	.LASF10:
- 668 0177 75696E74 		.ascii	"uint16\000"
- 668      313600
- 669              	.LASF11:
- 670 017e 75696E74 		.ascii	"uint32\000"
- 670      333200
- 671              	.LASF8:
- 672 0185 756E7369 		.ascii	"unsigned int\000"
- 672      676E6564 
- 672      20696E74 
- 672      00
- 673              	.LASF7:
- 674 0192 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 656      657200
+ 657              	.LASF13:
+ 658 0149 646F7562 		.ascii	"double\000"
+ 658      6C6500
+ 659              	.LASF22:
+ 660 0150 72656756 		.ascii	"regVal\000"
+ 660      616C00
+ 661              	.LASF18:
+ 662 0157 616C6967 		.ascii	"alignClkDiv\000"
+ 662      6E436C6B 
+ 662      44697600 
+ 663              	.LASF20:
+ 664 0163 636C6B46 		.ascii	"clkFractional\000"
+ 664      72616374 
+ 664      696F6E61 
+ 664      6C00
+ 665              	.LASF10:
+ 666 0171 75696E74 		.ascii	"uint16\000"
+ 666      313600
+ 667              	.LASF11:
+ 668 0178 75696E74 		.ascii	"uint32\000"
+ 668      333200
+ 669              	.LASF8:
+ 670 017f 756E7369 		.ascii	"unsigned int\000"
+ 670      676E6564 
+ 670      20696E74 
+ 670      00
+ 671              	.LASF7:
+ 672 018c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 672      206C6F6E 
+ 672      6720756E 
+ 672      7369676E 
+ 672      65642069 
+ 673              	.LASF6:
+ 674 01a3 6C6F6E67 		.ascii	"long long int\000"
  674      206C6F6E 
- 674      6720756E 
- 674      7369676E 
- 674      65642069 
- 675              	.LASF6:
- 676 01a9 6C6F6E67 		.ascii	"long long int\000"
- 676      206C6F6E 
- 676      6720696E 
- 676      7400
- 677              	.LASF14:
- 678 01b7 63686172 		.ascii	"char\000"
- 678      00
- 679              	.LASF2:
- 680 01bc 73686F72 		.ascii	"short int\000"
- 680      7420696E 
- 680      7400
- 681              	.LASF9:
- 682 01c6 75696E74 		.ascii	"uint8\000"
- 682      3800
- 683              	.LASF4:
- 684 01cc 6C6F6E67 		.ascii	"long int\000"
- 684      20696E74 
- 684      00
+ 674      6720696E 
+ 674      7400
+ 675              	.LASF14:
+ 676 01b1 63686172 		.ascii	"char\000"
+ 676      00
+ 677              	.LASF2:
+ 678 01b6 73686F72 		.ascii	"short int\000"
+ 678      7420696E 
+ 678      7400
+ 679              	.LASF9:
+ 680 01c0 75696E74 		.ascii	"uint8\000"
+ 680      3800
+ 681              	.LASF4:
+ 682 01c6 6C6F6E67 		.ascii	"long int\000"
+ 682      20696E74 
+ 682      00
+ 683              	.LASF15:
+ 684 01cf 72656733 		.ascii	"reg32\000"
+ 684      3200
  685              	.LASF25:
  686 01d5 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
-ARM GAS  C:\Users\TUCKER~1\AppData\Local\Temp\ccpqpg1e.s 			page 18
+ARM GAS  C:\Users\19255\AppData\Local\Temp\ccas3yGq.s 			page 18
 
 
  686      43313120 

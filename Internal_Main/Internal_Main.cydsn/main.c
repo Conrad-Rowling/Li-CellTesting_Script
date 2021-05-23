@@ -237,6 +237,7 @@ int main(void)
                 // Battery Voltage Divider (+) (vbatHigh)
                 //================================
                 AMux_1_Select(0);
+                CyDelay(10);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vbatCount = ADC_1_GetResult32(0);               // vref in unitless counts   
@@ -247,6 +248,7 @@ int main(void)
                 // Reference Voltage Reading (vref)(or Cal_In)
                 //================================
                 AMux_1_Select(1);
+                CyDelay(10);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrefCount = ADC_1_GetResult32(0);               // vref in unitless counts   
@@ -257,6 +259,7 @@ int main(void)
                 // Test Voltage Reading (vtest) (or Shunt_In) 
                 //================================
                 AMux_1_Select(2); 
+                CyDelay(10);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);               
                 vtestCount = ADC_1_GetResult32(0);              // vtest in unitless counts
@@ -267,6 +270,7 @@ int main(void)
                 // Virtual Ground Reading (vrgnd)
                 //================================
                 AMux_1_Select(3);
+                CyDelay(10);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrgndCount = ADC_1_GetResult32(0);              // vrgnd in unitless counts                            
