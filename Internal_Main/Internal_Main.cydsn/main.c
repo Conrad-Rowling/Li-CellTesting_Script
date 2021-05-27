@@ -82,13 +82,12 @@ void CellTestStart(){
     UART_1_Start();
     PVref_1_Start();
     PVref_1_Enable();
-    BLUE_LED_Write(0);
     Print_Headers(NUM_BAT_THERMISTORS,NUM_R_THERMISTORS);
 }
 
 
 /*******************************************************************************
-* Function Name: CellTestStop()
+* Function Name: HaltTest()
 ****************************************************************************//**
 * 
 * Turns off stuff (placeholder when more equipment is used)
@@ -97,6 +96,7 @@ void CellTestStart(){
 void HaltTest(int stopCode){
     char string[50];
     Timer_1_Stop();
+    RELAY_EN_Write(0);
     switch (stopCode) { 
     case 1: 
         sprintf(string, "!!! Test halted because of Cell is completely discharged !!!\n\r"); 
@@ -110,7 +110,7 @@ void HaltTest(int stopCode){
         break; 
         
     case 4: 
-        sprintf(string, "!!! Test Halted by user !!!\n\r"); 
+        sprintf(string, "\n\r"); 
         break;
     default: 
         sprintf(string, "!!! Test Halted for Unknown Reason !!!\n\r"); 
@@ -231,14 +231,20 @@ int main(void)
     // Main For Loop
     for(;;)
     {
+        // ------------------------ new --------------------------
         BLUE_LED_Write(1);
-        CyDelay(10);
+        CyDelay(100);
+        BLUE_LED_Write(0);
+        CyDelay(100);
+        // -------------------------------------------------------
+        
         userInput = UART_1_UartGetChar();
-        
-        // Start the Test Commmand
-        
         if (userInput == 71)  //Type Capital G into Putty
-        {            
+        {         
+            // ----------------------new --------------------------
+            BLUE_LED_Write(0);
+            RELAY_EN_Write(1);
+            // ----------------------------------------------------
             TCPWM_1_Start();
             Timer_1_Start();
             stopFlag = 0;
@@ -307,24 +313,18 @@ int main(void)
                     vtestVal = vtestVal/gainReal;                       // Find the test point value
                    
                     vtestVal = vtestVal - vrgndVal;                     // Take the difference to negate op-amp offset
-                    shuntAmps = vtestVal*SHUNT_CONDUCTANCE;
-                    
-                    
+                    shuntAmps = vtestVal*SHUNT_CONDUCTANCE;                    
                     
                     vbatHVal = vbatHVal/gainReal;                         // The actual second divider battery voltage 
                     vbatLVal = vbatLVal/gainReal;
                     vbatVal = (vbatHVal - vbatLVal);                      //The input voltage in VOLTS
                     printCount += 1;
-                     
-                    //end of scan from startflag
                     
                     // Stop the Test.... 
                     userInput = UART_1_UartGetChar();
                     if (userInput == 83) {
                         stopFlag = 1;
-                        stopCode = 4; 
-                        TCPWM_1_Stop();
-                        Timer_1_Stop();
+                        HaltTest(4);
                     }       
                     
                     if (printCount > 1000){
@@ -356,14 +356,14 @@ int main(void)
                     // ----------------------------------------------- all new code --------------------------------------------------------------------//
                     for(uint i = 2; i < 12; i=i+2){
                         if (batteryArray[i] > BATTERY_HIGH_TEMP){
-                            stopFlag = 1; 
-                            stopCode = 2; 
+                            stopFlag = 1;
+                            HaltTest(2);
                             sprintf(string, "\r\n ERROR - High Temperature on Battery: %d.%d, on Thermistor %d \r\n", batteryArray[i], batteryArray[i+1], i);
                             UART_1_UartPutString(string); 
                         }
                         if (resistorArray[i] > RESISTOR_HIGH_TEMP){ 
                             stopFlag = 1; 
-                            stopCode = 3; 
+                            HaltTest(3);
                             sprintf(string, "\r\n ERROR - High Temperature on Resistor: %d.%d, on Thermistor %d \r\n", resistorArray[i], resistorArray[i+1], i);
                             UART_1_UartPutString(string);   
                         }
@@ -371,8 +371,8 @@ int main(void)
                 
                     // Battery Voltage Detection
                     if(vbatVal < 2.5) {
-                        stopFlag = 1; 
-                        stopCode = 1;
+                        stopFlag = 1;
+                        HaltTest(1);
                         sprintf(string, "\r\n ERROR - Cell Discharged: %f \r\n", vbatVal); 
                         UART_1_UartPutString(string); 
                     }
