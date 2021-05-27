@@ -189,7 +189,12 @@ int main(void)
     int32 vrefCount;            // Reference voltage adc counts
     float vrefVal;              // Reference voltage (mV)    
     
-    int32 vbatCount;
+    int32 vbatHCount;
+    float vbatHVal;
+    
+    int32 vbatLCount;
+    float vbatLVal;
+    
     float vbatVal;
     float shuntAmps; 
     
@@ -245,17 +250,17 @@ int main(void)
                 //================================
                 // Reference Voltage Reading (vref)(or Cal_In)
                 //================================
-                AMux_1_Select(2);
+                AMux_1_Select(0);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrefCount = ADC_1_GetResult32(0);               // vref in unitless counts   
-                vrefCount = FilterSignal(vrefCount, 3);         // Channel 3 because ...
+                vrefCount = FilterSignal(vrefCount, 0);         // Channel 3 because ...
                 vrefVal = ADC_1_CountsTo_mVolts(0, vrefCount);  // vref in mV     
                 
                 //================================
                 // Virtual Ground Reading (vrgnd)
                 //================================
-                AMux_1_Select(4);
+                AMux_1_Select(2);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
                 vrgndCount = ADC_1_GetResult32(0);              // vrgnd in unitless counts                            
@@ -265,7 +270,7 @@ int main(void)
                 //================================
                 // Test Voltage Reading (vtest) (or Shunt_In) 
                 //================================
-                AMux_1_Select(3); 
+                AMux_1_Select(1); 
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);               
                 vtestCount = ADC_1_GetResult32(0);              // vtest in unitless counts
@@ -275,15 +280,22 @@ int main(void)
                 //================================
                 // Battery Voltage Divider (+) (vbatHigh)
                 //================================
-                AMux_1_Select(0);
+                AMux_1_Select(3);
                 ADC_1_StartConvert();                           // Start the Read the ADC
                 ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-                vbatCount = ADC_1_GetResult32(0);               // vref in unitless counts   
-                vbatCount = FilterSignal(vbatCount, 4);         // Channel 3 because ...
-                vbatVal = ADC_1_CountsTo_mVolts(0, vbatCount);  // vref in mV                
+                vbatHCount = ADC_1_GetResult32(0);               // vref in unitless counts   
+                vbatHCount = FilterSignal(vbatHCount, 3);         // Channel 3 because ...
+                vbatHVal = ADC_1_CountsTo_mVolts(0, vbatHCount);  // vref in mV                
                 
-                // After rapid samples - to ensure similar adc/amp conditions
-                // Calculations are made
+                //================================
+                // Battery Voltage Divider (-) (vbatLow)
+                //================================
+                AMux_1_Select(4);
+                ADC_1_StartConvert();                           // Start the Read the ADC
+                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
+                vbatLCount = ADC_1_GetResult32(0);               // vref in unitless counts   
+                vbatLCount = FilterSignal(vbatLCount, 4);         // Channel 3 because ...
+                vbatLVal = ADC_1_CountsTo_mVolts(0, vbatLCount);  // vref in mV   
                 
                 gainReal = (vrefVal - vrgndVal)/V_REF_RELATIVE;     // The actual op-amp gain
                 
@@ -296,40 +308,43 @@ int main(void)
                 
                 
                 
-                vbatVal = vbatVal/gainReal;                         // The actual second divider battery voltage 
+                vbatHVal = vbatHVal/gainReal;                         // The actual second divider battery voltage 
+                vbatLVal = vbatLVal/gainReal;
+                vbatVal = (vbatHVal - vbatLVal);                      //The input voltage in VOLTS
                 
-                vbatVal = vbatVal * ((res1 + res2) / res1);         //The input voltage in VOLTS
-
-                } //end of scan from startflag
+                sprintf(string, "%f, Gain : %f, CalIn : %f, ShuntGND : %f, Batt mV: %f \n\r", vtestVal, gainReal, vrefVal, vrgndVal, vbatVal);
+                UART_1_UartPutString(string);  
+                } 
+                //end of scan from startflag
                 
                 // Stop the Test.... 
-                userInput = UART_1_UartGetChar();
-                if (userInput == 83) {
-                    stopFlag = 1;
-                    stopCode = 4; 
-                    Timer_1_Stop();
-                }       
+//                userInput = UART_1_UartGetChar();
+//                if (userInput == 83) {
+//                    stopFlag = 1;
+//                    stopCode = 4; 
+//                    Timer_1_Stop();
+//                }       
                 
-                while (printFlag ==1){
-                    printFlag = 0;
+               // while (printFlag ==1){
+                    //printFlag = 0;
                     
-                    I2C_1_I2CMasterReadBuf(0x08, batteryArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
-                    for(uint i = 2; i < b_therm_toRead; i=i+2){
-                        //sprintf(string, "%d.%d, ", batteryArray[i], batteryArray[i+1]);
-                        //UART_1_UartPutString(string);    
-                    }
-                    CyDelay(10); 
-                    I2C_1_I2CMasterReadBuf(0x09, resistorArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
-                    for(uint i = 2; i < r_therm_toRead; i=i+2){
-                        //sprintf(string, "%d.%d, ", resistorArray[i], resistorArray[i+1]);
-                        //UART_1_UartPutString(string);    
-                    }
+//                    I2C_1_I2CMasterReadBuf(0x08, batteryArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
+//                    for(uint i = 2; i < b_therm_toRead; i=i+2){
+//                        //sprintf(string, "%d.%d, ", batteryArray[i], batteryArray[i+1]);
+//                        //UART_1_UartPutString(string);    
+//                    }
+//                    CyDelay(10); 
+//                    I2C_1_I2CMasterReadBuf(0x09, resistorArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
+//                    for(uint i = 2; i < r_therm_toRead; i=i+2){
+//                        //sprintf(string, "%d.%d, ", resistorArray[i], resistorArray[i+1]);
+//                        //UART_1_UartPutString(string);    
+//                    }
                         
                     // Reset the Timer
                     
                     
-                    sprintf(string, "Shunt mV: %f, Gain: %f, CalIn w g: %f, ShuntGND w g: %f, Batt mV: %f \n\r", vtestVal, gainReal, vrefVal*gainReal, vrgndVal*gainReal, vbatVal);
-                    UART_1_UartPutString(string);      
+//                    sprintf(string, "Shunt mV: %f, Gain: %f, CalIn w g: %f, ShuntGND w g: %f, Batt mV: %f \n\r", vtestVal, gainReal, vrefVal*gainReal, vrgndVal*gainReal, vbatVal);
+//                    UART_1_UartPutString(string);      
                     
                     /*
                     for(uint i = 2; i < 12; i=i+2){
@@ -356,7 +371,7 @@ int main(void)
                     }
                     */
                     
-                }
+                //}
                 //==========================
                 // Shutdown Features 
                 //==========================

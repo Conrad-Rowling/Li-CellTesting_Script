@@ -354,7 +354,7 @@
 #define isr_1__INTC_MASK 0x40000u
 #define isr_1__INTC_NUMBER 18u
 #define isr_1__INTC_PRIOR_MASK 0xC00000u
-#define isr_1__INTC_PRIOR_NUM 1u
+#define isr_1__INTC_PRIOR_NUM 3u
 #define isr_1__INTC_PRIOR_REG CYREG_CM0P_IPR4
 #define isr_1__INTC_SET_EN_REG CYREG_CM0P_ISER
 #define isr_1__INTC_SET_PD_REG CYREG_CM0P_ISPR

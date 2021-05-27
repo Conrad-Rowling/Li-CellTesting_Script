@@ -1,5 +1,5 @@
 -- Project:   Internal_Main
--- Generated: 05/17/2021 19:10:56
+-- Generated: 05/26/2021 18:55:27
 -- PSoC Creator  4.4
 
 ENTITY Internal_Main IS
@@ -41,35 +41,35 @@ ARCHITECTURE __DEFAULT__ OF Internal_Main IS
     ATTRIBUTE global_signal OF Net_1425_ff5 : SIGNAL IS true;
     SIGNAL Net_1512 : bit;
     SIGNAL Net_154 : bit;
-    SIGNAL Net_1561 : bit;
-    SIGNAL Net_1563 : bit;
-    SIGNAL Net_1564 : bit;
-    SIGNAL Net_1565 : bit;
-    SIGNAL Net_1569 : bit;
     SIGNAL Net_163 : bit;
-    SIGNAL Net_1670 : bit;
-    SIGNAL Net_1671 : bit;
-    SIGNAL Net_1672_0 : bit;
-    SIGNAL Net_1672_1 : bit;
-    SIGNAL Net_1672_2 : bit;
-    SIGNAL Net_1672_3 : bit;
-    SIGNAL Net_1673 : bit;
-    SIGNAL Net_1674_0 : bit;
-    SIGNAL Net_1674_1 : bit;
-    SIGNAL Net_1674_10 : bit;
-    SIGNAL Net_1674_11 : bit;
-    SIGNAL Net_1674_2 : bit;
-    SIGNAL Net_1674_3 : bit;
-    SIGNAL Net_1674_4 : bit;
-    SIGNAL Net_1674_5 : bit;
-    SIGNAL Net_1674_6 : bit;
-    SIGNAL Net_1674_7 : bit;
-    SIGNAL Net_1674_8 : bit;
-    SIGNAL Net_1674_9 : bit;
-    SIGNAL Net_1675 : bit;
     SIGNAL Net_170 : bit;
     SIGNAL Net_171 : bit;
     SIGNAL Net_172 : bit;
+    SIGNAL Net_1725 : bit;
+    SIGNAL Net_1727 : bit;
+    SIGNAL Net_1728 : bit;
+    SIGNAL Net_1729 : bit;
+    SIGNAL Net_1733 : bit;
+    SIGNAL Net_1754 : bit;
+    SIGNAL Net_1755 : bit;
+    SIGNAL Net_1756_0 : bit;
+    SIGNAL Net_1756_1 : bit;
+    SIGNAL Net_1756_2 : bit;
+    SIGNAL Net_1756_3 : bit;
+    SIGNAL Net_1757 : bit;
+    SIGNAL Net_1758_0 : bit;
+    SIGNAL Net_1758_1 : bit;
+    SIGNAL Net_1758_10 : bit;
+    SIGNAL Net_1758_11 : bit;
+    SIGNAL Net_1758_2 : bit;
+    SIGNAL Net_1758_3 : bit;
+    SIGNAL Net_1758_4 : bit;
+    SIGNAL Net_1758_5 : bit;
+    SIGNAL Net_1758_6 : bit;
+    SIGNAL Net_1758_7 : bit;
+    SIGNAL Net_1758_8 : bit;
+    SIGNAL Net_1758_9 : bit;
+    SIGNAL Net_1759 : bit;
     SIGNAL Net_198 : bit;
     SIGNAL Net_201 : bit;
     SIGNAL Net_202 : bit;
@@ -1696,26 +1696,26 @@ BEGIN
             cy_registers => "")
         PORT MAP(
             clock => \ADC_1:sarClock_ff12\,
-            sample_done => Net_1671,
-            chan_id_valid => Net_1673,
-            chan_id_3 => Net_1672_3,
-            chan_id_2 => Net_1672_2,
-            chan_id_1 => Net_1672_1,
-            chan_id_0 => Net_1672_0,
-            data_valid => Net_1675,
-            data_11 => Net_1674_11,
-            data_10 => Net_1674_10,
-            data_9 => Net_1674_9,
-            data_8 => Net_1674_8,
-            data_7 => Net_1674_7,
-            data_6 => Net_1674_6,
-            data_5 => Net_1674_5,
-            data_4 => Net_1674_4,
-            data_3 => Net_1674_3,
-            data_2 => Net_1674_2,
-            data_1 => Net_1674_1,
-            data_0 => Net_1674_0,
-            tr_sar_out => Net_1670,
+            sample_done => Net_1755,
+            chan_id_valid => Net_1757,
+            chan_id_3 => Net_1756_3,
+            chan_id_2 => Net_1756_2,
+            chan_id_1 => Net_1756_1,
+            chan_id_0 => Net_1756_0,
+            data_valid => Net_1759,
+            data_11 => Net_1758_11,
+            data_10 => Net_1758_10,
+            data_9 => Net_1758_9,
+            data_8 => Net_1758_8,
+            data_7 => Net_1758_7,
+            data_6 => Net_1758_6,
+            data_5 => Net_1758_5,
+            data_4 => Net_1758_4,
+            data_3 => Net_1758_3,
+            data_2 => Net_1758_2,
+            data_1 => Net_1758_1,
+            data_0 => Net_1758_0,
+            tr_sar_out => Net_1754,
             irq => \ADC_1:Net_423\,
             sw_negvref => open,
             cfg_st_sel_1 => open,
@@ -1823,11 +1823,11 @@ BEGIN
             reload => '0',
             stop => '0',
             start => '0',
-            tr_underflow => Net_1569,
-            tr_overflow => Net_1565,
-            tr_compare_match => Net_1561,
-            line => Net_1563,
-            line_compl => Net_1564,
+            tr_underflow => Net_1733,
+            tr_overflow => Net_1729,
+            tr_compare_match => Net_1725,
+            line => Net_1727,
+            line_compl => Net_1728,
             interrupt => Net_1373);
 
     isr_1:interrupt
