@@ -198,6 +198,7 @@ int main(void)
     float vbatVal;
     float shuntAmps; 
     
+    uint32 printCount;
     float gainReal;             // Calculated gain of the amplifier
     
     char string[60];            // For printing over UART
@@ -240,7 +241,8 @@ int main(void)
         {            
             Timer_1_Start();
             stopFlag = 0;
-            stopCode = 0; 
+            stopCode = 0;
+            printCount = 0;
             
             // Continue Executing While the no test errors are evident
             while(!stopFlag){
@@ -311,10 +313,8 @@ int main(void)
                 vbatHVal = vbatHVal/gainReal;                         // The actual second divider battery voltage 
                 vbatLVal = vbatLVal/gainReal;
                 vbatVal = (vbatHVal - vbatLVal);                      //The input voltage in VOLTS
-                
-                sprintf(string, "%f, Gain : %f, CalIn : %f, ShuntGND : %f, Batt mV: %f \n\r", vtestVal, gainReal, vrefVal, vrgndVal, vbatVal);
-                UART_1_UartPutString(string);  
-                } 
+                printCount += 1;
+                 
                 //end of scan from startflag
                 
                 // Stop the Test.... 
@@ -325,21 +325,25 @@ int main(void)
 //                    Timer_1_Stop();
 //                }       
                 
-               // while (printFlag ==1){
-                    //printFlag = 0;
+                if (printCount > 1000){
+                    printCount = 0;
                     
-//                    I2C_1_I2CMasterReadBuf(0x08, batteryArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
-//                    for(uint i = 2; i < b_therm_toRead; i=i+2){
-//                        //sprintf(string, "%d.%d, ", batteryArray[i], batteryArray[i+1]);
-//                        //UART_1_UartPutString(string);    
-//                    }
-//                    CyDelay(10); 
-//                    I2C_1_I2CMasterReadBuf(0x09, resistorArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
-//                    for(uint i = 2; i < r_therm_toRead; i=i+2){
-//                        //sprintf(string, "%d.%d, ", resistorArray[i], resistorArray[i+1]);
-//                        //UART_1_UartPutString(string);    
-//                    }
-                        
+                    sprintf(string, "\r\n %f, Gain: %f, CalIn w g: %f, ShuntGND w g: %f, Batt mV: %f", vtestVal, gainReal, vrefVal*gainReal, vrgndVal*gainReal, vbatVal);
+                    UART_1_UartPutString(string);
+                    
+                    I2C_1_I2CMasterReadBuf(0x08, batteryArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
+                    for(uint i = 2; i < b_therm_toRead; i=i+2){
+                        sprintf(string, "%d.%d, ", batteryArray[i], batteryArray[i+1]);
+                        UART_1_UartPutString(string);    
+                    }
+                    CyDelay(10); 
+                    I2C_1_I2CMasterReadBuf(0x09, resistorArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
+                    for(uint i = 2; i < r_therm_toRead; i=i+2){
+                        sprintf(string, "%d.%d, ", resistorArray[i], resistorArray[i+1]);
+                        UART_1_UartPutString(string);    
+                    }   
+                }
+                }
                     // Reset the Timer
                     
                     
