@@ -28,7 +28,6 @@
 
 #define V_REF_RELATIVE 39.7
 
-
 int startFlag;
 int printFlag;
 
@@ -50,7 +49,7 @@ void Print_Headers(uint length_a, uint length_b)
     char hstr[60]; 
     sprintf(hstr,"\r\n");
     UART_1_UartPutString(hstr);
-    sprintf(hstr,"Time(s), SOC(percent), Bat(V), Shunt(A), ");  //"Time, % SOC, Shunt(A), Bat(V), ");
+    sprintf(hstr,"Time(s), SOC(percent), VbatLow(mV), VbatHigh(mV), VShunt(mV), VShuntGND(mV), VRef(mV), Gain, ShuntG,  ");  //"Time, % SOC, Shunt(A), Bat(V), ");
     UART_1_UartPutString(hstr);
     
     for (uint i = 0; i < length_a; i++){
@@ -198,6 +197,8 @@ int main(void)
     float shuntAmps; 
     
     uint32 printCount;
+    uint32 time;
+    float timeDec;
     float gainReal;             // Calculated gain of the amplifier
     
     char string[60];            // For printing over UART
@@ -239,6 +240,7 @@ int main(void)
         if (userInput == 71)  //Type Capital G into Putty
         {            
             TCPWM_1_Start();
+            Timer_1_Start();
             stopFlag = 0;
             stopCode = 0;
             printCount = 0;
@@ -322,12 +324,18 @@ int main(void)
                         stopFlag = 1;
                         stopCode = 4; 
                         TCPWM_1_Stop();
+                        Timer_1_Stop();
                     }       
                     
                     if (printCount > 1000){
                         printCount = 0;
-                        
-                        sprintf(string, "\r\n %f, Gain: %f, CalIn: %f, ShuntGND: %f, Batt mV: %f", vtestVal, gainReal, vrefVal, vrgndVal, vbatVal);
+                        // ----------------new --------------------- // 
+                        time = Timer_1_ReadCounter();
+                        timeDec = time/128;     
+                        // ----------------------------------------- // 
+
+                        // sprintf(string, "\r\n Shunt: %f, Gain: %f, CalIn: %f, ShuntGND: %f, Batt mV: %f", vtestVal, gainReal, vrefVal, vrgndVal, vbatVal);              
+                        sprintf(string, "\r\n %f, NA, %f, %f, %f, %f, %f, %f, %f", timeDec, vbatHVal, vbatLVal, vtestVal, vrgndVal, vrefVal, gainReal, SHUNT_CONDUCTANCE);
                         UART_1_UartPutString(string);
                         
                         I2C_1_I2CMasterReadBuf(0x08, batteryArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
@@ -344,10 +352,8 @@ int main(void)
                             UART_1_UartPutString(string);    
                         }   
                     }
-                }
-                    // Reset the Timer    
                     
-                    /*
+                    // ----------------------------------------------- all new code --------------------------------------------------------------------//
                     for(uint i = 2; i < 12; i=i+2){
                         if (batteryArray[i] > BATTERY_HIGH_TEMP){
                             stopFlag = 1; 
@@ -370,16 +376,8 @@ int main(void)
                         sprintf(string, "\r\n ERROR - Cell Discharged: %f \r\n", vbatVal); 
                         UART_1_UartPutString(string); 
                     }
-                    */
-                    
-                //}
-                //==========================
-                // Shutdown Features 
-                //==========================
-                
-                
-                // Over Heating Protection
-                                
+                    // ---------------------------------------------------------------------------------------------------------------------------------------------//
+                }                               
             }
         }
     }
