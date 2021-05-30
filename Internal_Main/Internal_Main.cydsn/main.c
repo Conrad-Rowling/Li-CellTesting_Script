@@ -1,5 +1,5 @@
 /* ========================================
- * Version: 2.3
+ * Version: 2.5
  * Last Modified: 5.12.2021 
  * Formula Racing @ UC Davis, Electrical Senior Design, & the Electricool gang, 2021
  * ========================================
@@ -14,9 +14,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define V_REF_RELATIVE  40          //know voltage of VRef - VRGnd (mV)           
-#define V_TEST_START    0
- 
+#define SOC_FULL  10.2 //Ahr
+#define BATTERY_HIGH_TEMP 60 //deg C   
+#define RESISTOR_HIGH_TEMP 180 //deg C
+
+#define NUM_R_THERMISTORS 5 // excluding the thermistor at Position 1
+#define NUM_BAT_THERMISTORS 6 // excluding the thermistor at Position 1
+
+#define SHUNT_CONDUCTANCE .133 // (1.2 for High Current, .133 for Low Current)
+
+#define LOW_CURRENT 1
+#define HIGH_CURRENT 20
+
+#define V_REF_RELATIVE 39.7
+
+int startFlag;
+int printFlag;
+
 
 // =============================
 // Function Definitions
@@ -30,13 +44,24 @@
 * Formats the headers for exporting the UART terminal to a comma delimited Excel file
 *
 *******************************************************************************/
-void Print_Headers()
+void Print_Headers(uint length_a, uint length_b)
 {
     char hstr[60]; 
     sprintf(hstr,"\r\n");
     UART_1_UartPutString(hstr);
-    sprintf(hstr,"\r\n Voltage(Ideal) (mV), Voltage(Measured) (mV), VirtualGND (mV), VRef (mV), Calculated Gain \r\n");
+    sprintf(hstr,"Time(s), SOC(percent), VbatLow(mV), VbatHigh(mV), VShunt(mV), VShuntGND(mV), VRef(mV), Gain, ShuntG,  ");  //"Time, % SOC, Shunt(A), Bat(V), ");
     UART_1_UartPutString(hstr);
+    
+    for (uint i = 0; i < length_a; i++){
+        sprintf(hstr,"Battery Temp %d, ", i);
+        UART_1_UartPutString(hstr);
+        CyDelay(10);
+        }
+        for (uint i = 0; i < length_b; i++){
+        sprintf(hstr,"Resistor Temp %d, ", i);
+        UART_1_UartPutString(hstr);
+        CyDelay(10);
+        }   
     sprintf(hstr,"\r\n");
     UART_1_UartPutString(hstr);
 }
@@ -48,31 +73,30 @@ void Print_Headers()
 *
 *******************************************************************************/
 void CellTestStart(){
-    CyGlobalIntEnable;
+    
+    I2C_1_Start();
     AMux_1_Start();
-    //AMux_2_Start();
     Opamp_1_Start();
-    //Opamp_2_Start();
     PGA_1_Start(); 
     ADC_1_Start();
     UART_1_Start();
     PVref_1_Start();
     PVref_1_Enable();
-    BLUE_LED_Write(0);
-    TCPWM_1_Start();
+    Print_Headers(NUM_BAT_THERMISTORS,NUM_R_THERMISTORS);
 }
 
 
 /*******************************************************************************
-* Function Name: CellTestStop()
+* Function Name: HaltTest()
 ****************************************************************************//**
 * 
 * Turns off stuff (placeholder when more equipment is used)
 *
 *******************************************************************************/
 void HaltTest(int stopCode){
-    char string[30];
+    char string[50];
     Timer_1_Stop();
+    RELAY_EN_Write(0);
     switch (stopCode) { 
     case 1: 
         sprintf(string, "!!! Test halted because of Cell is completely discharged !!!\n\r"); 
@@ -86,7 +110,7 @@ void HaltTest(int stopCode){
         break; 
         
     case 4: 
-        sprintf(string, "!!! Test Halted by user !!!\n\r"); 
+        sprintf(string, "\n\r"); 
         break;
     default: 
         sprintf(string, "!!! Test Halted for Unknown Reason !!!\n\r"); 
@@ -107,7 +131,7 @@ void HaltTest(int stopCode){
 int32 FilterSignal(int32 ADCSample, uint8 channel){
     
     // MOVING AVERAGE
-	static int32 filteredValue[9] = {0,0};
+	static int32 filteredValue[5] = {0,0};
 	
 	/* Filtered value rounded-off to 20-bits */
 	int32 filValueRounded;
@@ -132,15 +156,17 @@ int32 FilterSignal(int32 ADCSample, uint8 channel){
 }
 
 
-int startFlag;
-
 CY_ISR_PROTO(MyCustomISR);
 CY_ISR(MyCustomISR)
 {
-    //void _ClearPending(MyCustomISR.intrSrcS);
     TCPWM_1_ClearInterrupt(TCPWM_1_INTR_MASK_TC);
-    //isr_1_ClearPending(); 
     startFlag = 1;
+}
+
+CY_ISR_PROTO(print_UART);
+CY_ISR(print_UART){
+    Timer_1_ClearInterrupt(Timer_1_INTR_MASK_TC);
+    printFlag = 1;
 }
 
 
@@ -152,8 +178,6 @@ int main(void)
 {
     // Variable Creation
     
-    int32 vtestIdeal = V_TEST_START;
-    
     int32 vtestCount;           // Test voltage adc counts
     float vtestVal;             // Test voltage (mV)
     
@@ -161,32 +185,37 @@ int main(void)
     float vrgndVal;             // Virtual gnd voltage (mV)
     
     int32 vrefCount;            // Reference voltage adc counts
-    float vrefVal;              // Reference voltage (mV)
+    float vrefVal;              // Reference voltage (mV)    
     
-    int32 vbatHighCount;
-    float vbatHighVal;
+    int32 vbatHCount;
+    float vbatHVal;
     
-    int32 vbatLowCount;
-    float vbatLowVal;
-    
-    int32 vbatCalCount;
-    float vbatCalVal;
-    
-    int32 vbatGndCount;
-    float vbatGndVal;
+    int32 vbatLCount;
+    float vbatLVal;
     
     float vbatVal;
+    float shuntAmps; 
     
+    uint32 printCount;
+    uint32 time;
+    float timeDec;
     float gainReal;             // Calculated gain of the amplifier
-    float gainReal2;
+    
     char string[60];            // For printing over UART
     
     int32 userInput;            // Reading UART input
     int8 stopFlag = 0;          // Boolean flag to stop the test
     int8 stopCode = 0;          // Code for determining the reason why test was stopped
     
-    float res1 = 828000;        //The first resistor in the battery voltage divider circuit
-    float res2 = 10000;         //Seconds resistor in ^this^ divider
+    int32 res1 = 828000;        //The first resistor in the battery voltage divider circuit
+    int32 res2 = 10000;         //Seconds resistor in ^this^ divider
+    
+    uint8 batteryArray[32] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    uint8 resistorArray[32] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,};
+    uint32 rxData;
+    
+    uint8 r_therm_toRead = (NUM_R_THERMISTORS*2) + 1;
+    uint8 b_therm_toRead = (NUM_BAT_THERMISTORS*2) + 1;
     
     CyGlobalIntEnable;
         
@@ -195,181 +224,160 @@ int main(void)
     CellTestStart();
     
     //UART INFO PRINTING
-    sprintf(string, "\r\n\r\nAt any point in the test to increment the Test Voltage: Enter 'S' \r\n"); 
-    UART_1_UartPutString(string);
-    sprintf(string, "The Test Voltage will increment by in 5 mV in the data logger \r\n");
-    UART_1_UartPutString(string);
-    sprintf(string, "\r\nEnter G to start Test: \r\n"); 
-    UART_1_UartPutString(string);
-    sprintf(string,"\r\n Voltage(Ideal) (mV), Voltage(Measured) (mV), VirtualGND (mV), VRef (mV), Calculated Gain \r\n");
-    UART_1_UartPutString(string);
         
     isr_1_StartEx(MyCustomISR);
+    isr_print_StartEx(print_UART);
     
     // Main For Loop
     for(;;)
     {
+        // ------------------------ new --------------------------
         BLUE_LED_Write(1);
-        CyDelay(10);
+        CyDelay(100);
+        BLUE_LED_Write(0);
+        CyDelay(100);
+        // -------------------------------------------------------
+        
         userInput = UART_1_UartGetChar();
-        
-        // Start the Test Commmand
-        
         if (userInput == 71)  //Type Capital G into Putty
-        {            
-            sprintf(string, "Please\r\n"); 
-            UART_1_UartPutString(string);
+        {         
+            // ----------------------new --------------------------
+            BLUE_LED_Write(0);
+            RELAY_EN_Write(1);
+            // ----------------------------------------------------
+            TCPWM_1_Start();
             Timer_1_Start();
             stopFlag = 0;
-            stopCode = 0; 
-            sprintf(string, "Please1\r\n"); 
-            UART_1_UartPutString(string);
+            stopCode = 0;
+            printCount = 0;
             
             // Continue Executing While the no test errors are evident
             while(!stopFlag){
                 while(startFlag == 1){
-                startFlag = 0;
-                sprintf(string, "Please2\r\n"); 
-                UART_1_UartPutString(string);
-                
-                //================================
-                // Reference Voltage Reading (vref)(or Cal_In)
-                //================================
-                AMux_1_Select(2);
-                ADC_1_StartConvert();                           // Start the Read the ADC
-                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-                
-                sprintf(string, "Please2.1\r\n"); 
-                UART_1_UartPutString(string);
-                
-                vrefCount = ADC_1_GetResult32(0);               // vref in unitless counts  
-                
-                sprintf(string, "Please2.2\r\n"); 
-                UART_1_UartPutString(string);
-                
-                vrefCount = FilterSignal(vrefCount, 3);         // Channel 3 because ...
-                
-                sprintf(string, "Please1\r\n"); 
-                UART_1_UartPutString(string);
-                
-                vrefVal = ADC_1_CountsTo_mVolts(1, vrefCount);  // vref in mV     
-                
-                sprintf(string, "Please2.5\r\n"); 
-                UART_1_UartPutString(string);
-                //================================
-                // Virtual Ground Reading (vrgnd)
-                //================================
-                AMux_1_Select(4);
-                ADC_1_StartConvert();                           // Start the Read the ADC
-                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-                vrgndCount = ADC_1_GetResult32(0);              // vrgnd in unitless counts                            
-                vrgndCount = FilterSignal(vrgndCount, 2);       // Channel 3 because...
-                vrgndVal = ADC_1_CountsTo_mVolts(1, vrgndCount);// vrgnd in mV                
-                
-                //================================
-                // Test Voltage Reading (vtest) (or Shunt_In) 
-                //================================
-                AMux_1_Select(3); 
-                ADC_1_StartConvert();                           // Start the Read the ADC
-                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);               
-                vtestCount = ADC_1_GetResult32(0);              // vtest in unitless counts
-                vtestCount = FilterSignal(vtestCount, 1);
-                vtestVal = ADC_1_CountsTo_mVolts(1, vtestCount);// vtest in mV                
-                                                
-                //================================
-                // Battery Voltage Divider (+) (vbatHigh)
-                //================================
-                AMux_1_Select(0);
-                ADC_1_StartConvert();                           // Start the Read the ADC
-                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-                vbatHighCount = ADC_1_GetResult32(0);               // vref in unitless counts   
-                vbatHighCount = FilterSignal(vbatHighCount, 4);         // Channel 3 because ...
-                vbatHighVal = ADC_1_CountsTo_mVolts(0, vbatHighCount);  // vref in mV                
-                                
-                //================================
-                // Battery Voltage Divider (-) (vbatLow)
-                //================================
-                
-                AMux_1_Select(1);
-                ADC_1_StartConvert();                           // Start the Read the ADC
-                ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
-                vbatLowCount = ADC_1_GetResult32(0);               // vref in unitless counts   
-                vbatLowCount = FilterSignal(vbatLowCount, 7);         // Channel 3 because ...
-                vbatLowVal = ADC_1_CountsTo_mVolts(0, vbatLowCount);
-                
-                sprintf(string, "Please3\r\n"); 
-                UART_1_UartPutString(string);
-                // After rapid samples - to ensure similar adc/amp conditions
-                // Calculations are made
-                
-                gainReal = (vrefVal - vrgndVal)/V_REF_RELATIVE;     // The actual op-amp gain
-                vrgndVal = vrgndVal/gainReal;                       // Find the virtual ground value
-                vtestVal = vtestVal/gainReal;                       // Find the test point value
-               
-                vtestVal = vtestVal - vrgndVal;                     // Take the difference to negate op-amp offset
-                gainReal2 = (vbatCalVal - vbatGndVal)/V_REF_RELATIVE;
-                
-                vbatHighVal = vbatHighVal/gainReal;                 // The actual first divider battery voltage
-                vbatLowVal = vbatLowVal/gainReal;                   // The actual second divider battery voltage 
-                
-                vbatVal = (vbatHighVal - vbatLowVal);               //vbatval after voltage divider, 0 to 40 mV
-                vbatVal = vbatVal * ((res1 + res2) / res1);         //The input voltage in VOLTS
+                    startFlag = 0;
+                    
+                    //================================
+                    // Reference Voltage Reading (vref)(or Cal_In)
+                    //================================
+                    AMux_1_Select(0);
+                    ADC_1_StartConvert();                           // Start the Read the ADC
+                    ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
+                    vrefCount = ADC_1_GetResult32(0);               // vref in unitless counts   
+                    vrefCount = FilterSignal(vrefCount, 0);         // Channel 3 because ...
+                    vrefVal = ADC_1_CountsTo_mVolts(0, vrefCount);  // vref in mV     
+                    
+                    //================================
+                    // Virtual Ground Reading (vrgnd)
+                    //================================
+                    AMux_1_Select(2);
+                    ADC_1_StartConvert();                           // Start the Read the ADC
+                    ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
+                    vrgndCount = ADC_1_GetResult32(0);              // vrgnd in unitless counts                            
+                    vrgndCount = FilterSignal(vrgndCount, 2);       // Channel 3 because...
+                    vrgndVal = ADC_1_CountsTo_mVolts(0, vrgndCount);// vrgnd in mV                
+                    
+                    //================================
+                    // Test Voltage Reading (vtest) (or Shunt_In) 
+                    //================================
+                    AMux_1_Select(1); 
+                    ADC_1_StartConvert();                           // Start the Read the ADC
+                    ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);               
+                    vtestCount = ADC_1_GetResult32(0);              // vtest in unitless counts
+                    vtestCount = FilterSignal(vtestCount, 1);
+                    vtestVal = ADC_1_CountsTo_mVolts(0, vtestCount);// vtest in mV                
+                                                    
+                    //================================
+                    // Battery Voltage Divider (+) (vbatHigh)
+                    //================================
+                    AMux_1_Select(3);
+                    ADC_1_StartConvert();                           // Start the Read the ADC
+                    ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
+                    vbatHCount = ADC_1_GetResult32(0);               // vref in unitless counts   
+                    vbatHCount = FilterSignal(vbatHCount, 3);         // Channel 3 because ...
+                    vbatHVal = ADC_1_CountsTo_mVolts(0, vbatHCount);  // vref in mV                
+                    
+                    //================================
+                    // Battery Voltage Divider (-) (vbatLow)
+                    //================================
+                    AMux_1_Select(4);
+                    ADC_1_StartConvert();                           // Start the Read the ADC
+                    ADC_1_IsEndConversion(ADC_1_WAIT_FOR_RESULT);
+                    vbatLCount = ADC_1_GetResult32(0);               // vref in unitless counts   
+                    vbatLCount = FilterSignal(vbatLCount, 4);         // Channel 3 because ...
+                    vbatLVal = ADC_1_CountsTo_mVolts(0, vbatLCount);  // vref in mV   
+                    
+                    gainReal = (vrefVal - vrgndVal)/V_REF_RELATIVE;     // The actual op-amp gain
+                    
+                    vrgndVal = vrgndVal/gainReal;                       // Find the virtual ground value
+                    vrefVal = vrefVal / gainReal; 
+                    vtestVal = vtestVal/gainReal;                       // Find the test point value
+                   
+                    vtestVal = vtestVal - vrgndVal;                     // Take the difference to negate op-amp offset
+                    shuntAmps = vtestVal*SHUNT_CONDUCTANCE;                    
+                    
+                    vbatHVal = vbatHVal/gainReal;                         // The actual second divider battery voltage 
+                    vbatLVal = vbatLVal/gainReal;
+                    vbatVal = (vbatHVal - vbatLVal);                      //The input voltage in VOLTS
+                    printCount += 1;
+                    
+                    // Stop the Test.... 
+                    userInput = UART_1_UartGetChar();
+                    if (userInput == 83) {
+                        stopFlag = 1;
+                        HaltTest(4);
+                    }       
+                    
+                    if (printCount > 1000){
+                        printCount = 0;
+                        // ----------------new --------------------- // 
+                        time = Timer_1_ReadCounter();
+                        timeDec = time/128;     
+                        // ----------------------------------------- // 
 
-                sprintf(string, "Please4\r\n"); 
-                UART_1_UartPutString(string);
-                } //end of scan from startflag
-                
-                // Stop the Test.... 
-                userInput = UART_1_UartGetChar();
-                if (userInput == 83) {
-                    stopFlag = 1;
-                    stopCode = 4; 
-                    Timer_1_Stop();
-                    vtestIdeal = vtestIdeal + 5;
-                }                         
-                
-                //CyDelayUs(250);
-                sprintf(string, "Please5\r\n"); 
-                UART_1_UartPutString(string);
-                
-                // Print the values
-                if (Timer_1_ReadCounter() > 1){ 
-                    sprintf(string, "Bollocks\r\n");//"%ld, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f, %3.3f \r\n", vtestIdeal, vtestVal, vrgndVal, vrefVal, gainReal, vbatVal, gainReal2, vbatHighVal, vbatLowVal); 
-                    UART_1_UartPutString(string);
-                    Timer_1_WriteCounter(0);
-                }
-                
-                
-                //==========================
-                // Shutdown Features 
-                //==========================
-                
-                /*
-                // Over Heating Protection
-                for(uint i = 2; i < 12; i=i+2){
-                    if (batteryArray[i] > BATTERY_HIGH_TEMP){
-                        stopFlag = 1; 
-                        stopCode = 2; 
-                        sprintf(string1, "\r\n ERROR - High Temperature on Battery: %d.%d, on Thermistor %d \r\n", batteryArray[i], batteryArray[i+1], i);
-                        UART_1_UartPutString(string1); 
+                        // sprintf(string, "\r\n Shunt: %f, Gain: %f, CalIn: %f, ShuntGND: %f, Batt mV: %f", vtestVal, gainReal, vrefVal, vrgndVal, vbatVal);              
+                        sprintf(string, "\r\n %f, NA, %f, %f, %f, %f, %f, %f, %f", timeDec, vbatHVal, vbatLVal, vtestVal, vrgndVal, vrefVal, gainReal, SHUNT_CONDUCTANCE);
+                        UART_1_UartPutString(string);
+                        
+                        I2C_1_I2CMasterReadBuf(0x08, batteryArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
+                        for(uint i = 2; i < b_therm_toRead; i=i+2){
+                            sprintf(string, "%d.%d, ", batteryArray[i], batteryArray[i+1]);
+                            UART_1_UartPutString(string);    
+                        }
+                        
+                        CyDelay(10);
+                        
+                        I2C_1_I2CMasterReadBuf(0x09, resistorArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
+                        for(uint i = 2; i < r_therm_toRead; i=i+2){
+                            sprintf(string, "%d.%d, ", resistorArray[i], resistorArray[i+1]);
+                            UART_1_UartPutString(string);    
+                        }   
                     }
-                    if (resistorArray[i] > RESISTOR_HIGH_TEMP){ 
-                        stopFlag = 1; 
-                        stopCode = 3; 
-                        sprintf(string1, "\r\n ERROR - High Temperature on Resistor: %d.%d, on Thermistor %d \r\n", resistorArray[i], resistorArray[i+1], i);
-                        UART_1_UartPutString(string1);   
+                    
+                    // ----------------------------------------------- all new code --------------------------------------------------------------------//
+                    for(uint i = 2; i < 12; i=i+2){
+                        if (batteryArray[i] > BATTERY_HIGH_TEMP){
+                            stopFlag = 1;
+                            HaltTest(2);
+                            sprintf(string, "\r\n ERROR - High Temperature on Battery: %d.%d, on Thermistor %d \r\n", batteryArray[i], batteryArray[i+1], i);
+                            UART_1_UartPutString(string); 
+                        }
+                        if (resistorArray[i] > RESISTOR_HIGH_TEMP){ 
+                            stopFlag = 1; 
+                            HaltTest(3);
+                            sprintf(string, "\r\n ERROR - High Temperature on Resistor: %d.%d, on Thermistor %d \r\n", resistorArray[i], resistorArray[i+1], i);
+                            UART_1_UartPutString(string);   
+                        }
                     }
-                }
                 
-                // Battery Voltage Detection
-                 if(vmBatmV < 2.5) {
-                    stopFlag = 1; 
-                    stopCode = 1;
-                    sprintf(string1, "\r\n ERROR - Cell Discharged: %f \r\n", vmBatmV); 
-                    UART_1_UartPutString(string1); 
-                }                
-                */
-                
+                    // Battery Voltage Detection
+                    if(vbatVal < 2.5) {
+                        stopFlag = 1;
+                        HaltTest(1);
+                        sprintf(string, "\r\n ERROR - Cell Discharged: %f \r\n", vbatVal); 
+                        UART_1_UartPutString(string); 
+                    }
+                    // ---------------------------------------------------------------------------------------------------------------------------------------------//
+                }                               
             }
         }
     }

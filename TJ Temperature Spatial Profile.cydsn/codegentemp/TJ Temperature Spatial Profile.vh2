@@ -2,7 +2,7 @@
 --	Conversion of TJ Temperature Spatial Profile.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Wed Mar 31 20:43:53 2021
+--	Sun May 16 21:34:16 2021
 --
 
 USE cypress.cypress.all;
@@ -41,18 +41,18 @@ SIGNAL \I2C_1:miso_m_wire\ : bit;
 SIGNAL \I2C_1:tmpOE__sda_net_0\ : bit;
 SIGNAL zero : bit;
 SIGNAL \I2C_1:tmpFB_0__sda_net_0\ : bit;
-SIGNAL Net_2058 : bit;
+SIGNAL Net_2365 : bit;
 TERMINAL \I2C_1:tmpSIOVREF__sda_net_0\ : bit;
 SIGNAL one : bit;
 SIGNAL \I2C_1:tmpINTERRUPT_0__sda_net_0\ : bit;
 SIGNAL \I2C_1:tmpOE__scl_net_0\ : bit;
 SIGNAL \I2C_1:tmpFB_0__scl_net_0\ : bit;
-SIGNAL Net_2057 : bit;
+SIGNAL Net_2364 : bit;
 TERMINAL \I2C_1:tmpSIOVREF__scl_net_0\ : bit;
 SIGNAL \I2C_1:tmpINTERRUPT_0__scl_net_0\ : bit;
 SIGNAL \I2C_1:Net_1099\ : bit;
 SIGNAL \I2C_1:Net_1258\ : bit;
-SIGNAL Net_2040 : bit;
+SIGNAL Net_2348 : bit;
 SIGNAL \I2C_1:cts_wire\ : bit;
 SIGNAL \I2C_1:tx_wire\ : bit;
 SIGNAL \I2C_1:rts_wire\ : bit;
@@ -63,19 +63,19 @@ SIGNAL \I2C_1:select_m_wire_1\ : bit;
 SIGNAL \I2C_1:select_m_wire_0\ : bit;
 SIGNAL \I2C_1:sclk_m_wire\ : bit;
 SIGNAL \I2C_1:miso_s_wire\ : bit;
-SIGNAL Net_2043 : bit;
-SIGNAL Net_2042 : bit;
+SIGNAL Net_2366 : bit;
+SIGNAL Net_2357 : bit;
 SIGNAL \I2C_1:Net_1028\ : bit;
-SIGNAL Net_2039 : bit;
-SIGNAL Net_2048 : bit;
-SIGNAL Net_2049 : bit;
-SIGNAL Net_2050 : bit;
-SIGNAL Net_2051 : bit;
-SIGNAL Net_2052 : bit;
-SIGNAL Net_2053 : bit;
-SIGNAL Net_2054 : bit;
-SIGNAL Net_2056 : bit;
-SIGNAL Net_2059 : bit;
+SIGNAL Net_2350 : bit;
+SIGNAL Net_2351 : bit;
+SIGNAL Net_2352 : bit;
+SIGNAL Net_2353 : bit;
+SIGNAL Net_2354 : bit;
+SIGNAL Net_2355 : bit;
+SIGNAL Net_2356 : bit;
+SIGNAL Net_2359 : bit;
+SIGNAL Net_2360 : bit;
+SIGNAL Net_2367 : bit;
 TERMINAL Net_2178 : bit;
 TERMINAL Net_338 : bit;
 TERMINAL Net_2176 : bit;
@@ -728,16 +728,16 @@ SIGNAL Net_2102 : bit;
 SIGNAL Net_2087 : bit;
 SIGNAL Net_2086 : bit;
 SIGNAL \UART_1:Net_1028\ : bit;
-SIGNAL Net_2083 : bit;
 SIGNAL Net_2092 : bit;
 SIGNAL Net_2093 : bit;
 SIGNAL Net_2094 : bit;
 SIGNAL Net_2095 : bit;
 SIGNAL Net_2096 : bit;
 SIGNAL Net_2097 : bit;
+SIGNAL Net_2083 : bit;
+SIGNAL Net_2103 : bit;
 SIGNAL Net_2098 : bit;
 SIGNAL Net_2100 : bit;
-SIGNAL Net_2103 : bit;
 SIGNAL tmpOE__RX_net_0 : bit;
 SIGNAL tmpIO_0__RX_net_0 : bit;
 TERMINAL tmpSIOVREF__RX_net_0 : bit;
@@ -918,7 +918,7 @@ R_16:cy_annotation_universal_v1_0
 		y=>(zero),
 		fb=>(\I2C_1:tmpFB_0__sda_net_0\),
 		analog=>(open),
-		io=>Net_2058,
+		io=>Net_2365,
 		siovref=>(\I2C_1:tmpSIOVREF__sda_net_0\),
 		annotation=>(open),
 		in_clock=>zero,
@@ -988,7 +988,7 @@ R_16:cy_annotation_universal_v1_0
 		y=>(zero),
 		fb=>(\I2C_1:tmpFB_0__scl_net_0\),
 		analog=>(open),
-		io=>Net_2057,
+		io=>Net_2364,
 		siovref=>(\I2C_1:tmpSIOVREF__scl_net_0\),
 		annotation=>(open),
 		in_clock=>zero,
@@ -1001,12 +1001,12 @@ R_16:cy_annotation_universal_v1_0
 \I2C_1:SCB_IRQ\:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10",
 		is_nmi=>'0')
-	PORT MAP(int_signal=>Net_2040);
+	PORT MAP(int_signal=>Net_2348);
 \I2C_1:SCB\:cy_m0s8_scb_v2_0
 	GENERIC MAP(cy_registers=>"",
 		scb_mode=>0)
 	PORT MAP(clock=>\I2C_1:Net_847\,
-		interrupt=>Net_2040,
+		interrupt=>Net_2348,
 		rx=>zero,
 		tx=>\I2C_1:tx_wire\,
 		cts=>zero,
@@ -1019,10 +1019,10 @@ R_16:cy_annotation_universal_v1_0
 		miso_s=>\I2C_1:miso_s_wire\,
 		select_s=>zero,
 		sclk_s=>zero,
-		scl=>Net_2057,
-		sda=>Net_2058,
-		tx_req=>Net_2043,
-		rx_req=>Net_2042);
+		scl=>Net_2364,
+		sda=>Net_2365,
+		tx_req=>Net_2366,
+		rx_req=>Net_2357);
 AMux_1_CYAMUXSIDE_A:cy_psoc3_amux_v1_0
 	GENERIC MAP(cy_registers=>"",
 		muxin_width=>33,

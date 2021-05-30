@@ -1,6 +1,6 @@
 -- Project:   TJ Temperature Spatial Profile
--- Generated: 03/31/2021 20:43:55
--- PSoC Creator  4.3
+-- Generated: 05/16/2021 21:34:18
+-- PSoC Creator  4.4
 
 ENTITY \TJ Temperature Spatial Profile\ IS
     PORT(
@@ -53,16 +53,16 @@ ARCHITECTURE __DEFAULT__ OF \TJ Temperature Spatial Profile\ IS
     SIGNAL Net_1989_7 : bit;
     SIGNAL Net_1989_8 : bit;
     SIGNAL Net_1989_9 : bit;
-    SIGNAL Net_2040 : bit;
-    SIGNAL Net_2042 : bit;
-    SIGNAL Net_2043 : bit;
-    SIGNAL Net_2057 : bit;
-    SIGNAL Net_2058 : bit;
     SIGNAL Net_2084 : bit;
     SIGNAL Net_2086 : bit;
     SIGNAL Net_2087 : bit;
     SIGNAL Net_2099 : bit;
     SIGNAL Net_2100 : bit;
+    SIGNAL Net_2348 : bit;
+    SIGNAL Net_2357 : bit;
+    SIGNAL Net_2364 : bit;
+    SIGNAL Net_2365 : bit;
+    SIGNAL Net_2366 : bit;
     SIGNAL Pin_1(0)__PA : bit;
     SIGNAL Pin_10(0)__PA : bit;
     SIGNAL Pin_11(0)__PA : bit;
@@ -499,7 +499,7 @@ BEGIN
         PORT MAP(
             pa_out => \\\I2C_1:sda(0)\\__PA\,
             oe => open,
-            fb => Net_2058,
+            fb => Net_2365,
             pin_input => open,
             pad_in => \I2C_1:sda(0)_PAD\,
             in_clock => open,
@@ -591,7 +591,7 @@ BEGIN
         PORT MAP(
             pa_out => \\\I2C_1:scl(0)\\__PA\,
             oe => open,
-            fb => Net_2057,
+            fb => Net_2364,
             pin_input => open,
             pad_in => \I2C_1:scl(0)_PAD\,
             in_clock => open,
@@ -2750,7 +2750,7 @@ BEGIN
             int_type => "10",
             is_nmi => 0)
         PORT MAP(
-            interrupt => Net_2040,
+            interrupt => Net_2348,
             clock => ClockBlock_HFClk);
 
     \I2C_1:SCB\:m0s8scbcell
@@ -2759,7 +2759,7 @@ BEGIN
             scb_mode => 0)
         PORT MAP(
             clock => \I2C_1:Net_847_ff0\,
-            interrupt => Net_2040,
+            interrupt => Net_2348,
             uart_rx => open,
             uart_tx => \I2C_1:tx_wire\,
             uart_cts => open,
@@ -2775,10 +2775,10 @@ BEGIN
             miso_s => \I2C_1:miso_s_wire\,
             select_s => open,
             sclk_s => open,
-            i2c_scl => Net_2057,
-            i2c_sda => Net_2058,
-            tr_tx_req => Net_2043,
-            tr_rx_req => Net_2042);
+            i2c_scl => Net_2364,
+            i2c_sda => Net_2365,
+            tr_tx_req => Net_2366,
+            tr_rx_req => Net_2357);
 
     \PVref_1:cy_psoc4_pref\:p4prefcell
         GENERIC MAP(
