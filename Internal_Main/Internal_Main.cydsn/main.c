@@ -46,7 +46,7 @@ int printFlag;
 *******************************************************************************/
 void Print_Headers(uint length_a, uint length_b)
 {
-    char hstr[60]; 
+    char hstr[300];      //Made this very large
     sprintf(hstr,"\r\n");
     UART_1_UartPutString(hstr);
     sprintf(hstr,"Time(s), SOC(percent), VbatLow(mV), VbatHigh(mV), VShunt(mV), VShuntGND(mV), VRef(mV), Gain, ShuntG,  ");  //"Time, % SOC, Shunt(A), Bat(V), ");
@@ -82,6 +82,7 @@ void CellTestStart(){
     UART_1_Start();
     PVref_1_Start();
     PVref_1_Enable();
+    TCPWM_1_Start();
     Print_Headers(NUM_BAT_THERMISTORS,NUM_R_THERMISTORS);
 }
 
@@ -96,6 +97,7 @@ void CellTestStart(){
 void HaltTest(int stopCode){
     char string[50];
     Timer_1_Stop();
+    TCPWM_1_Stop();
     RELAY_EN_Write(0);
     switch (stopCode) { 
     case 1: 
@@ -163,11 +165,11 @@ CY_ISR(MyCustomISR)
     startFlag = 1;
 }
 
-CY_ISR_PROTO(print_UART);
+/*CY_ISR_PROTO(print_UART);
 CY_ISR(print_UART){
     Timer_1_ClearInterrupt(Timer_1_INTR_MASK_TC);
     printFlag = 1;
-}
+}*/
 
 
 
@@ -201,7 +203,7 @@ int main(void)
     float timeDec;
     float gainReal;             // Calculated gain of the amplifier
     
-    char string[60];            // For printing over UART
+    char string[100];            // For printing over UART
     
     int32 userInput;            // Reading UART input
     int8 stopFlag = 0;          // Boolean flag to stop the test
@@ -223,10 +225,9 @@ int main(void)
     
     CellTestStart();
     
-    //UART INFO PRINTING
-        
+    //UART INFO PRINTING    
     isr_1_StartEx(MyCustomISR);
-    isr_print_StartEx(print_UART);
+    //isr_print_StartEx(print_UART);
     
     // Main For Loop
     for(;;)
@@ -331,7 +332,7 @@ int main(void)
                         printCount = 0;
                         // ----------------new --------------------- // 
                         time = Timer_1_ReadCounter();
-                        timeDec = time/128;     
+                        timeDec = time/128.0;     
                         // ----------------------------------------- // 
 
                         // sprintf(string, "\r\n Shunt: %f, Gain: %f, CalIn: %f, ShuntGND: %f, Batt mV: %f", vtestVal, gainReal, vrefVal, vrgndVal, vbatVal);              
@@ -350,7 +351,16 @@ int main(void)
                         for(uint i = 2; i < r_therm_toRead; i=i+2){
                             sprintf(string, "%d.%d, ", resistorArray[i], resistorArray[i+1]);
                             UART_1_UartPutString(string);    
-                        }   
+                        } 
+                        
+                        // Battery Voltage Detection
+                        if(vbatVal < 2.5) {
+                            stopFlag = 1;
+                            HaltTest(1);
+                            sprintf(string, "\r\n ERROR - Cell Discharged: %f \r\n", vbatVal); 
+                            UART_1_UartPutString(string); 
+                        }
+                        // ---------------------------------------------------------------------------------------------------------------------------------------------//
                     }
                     
                     // ----------------------------------------------- all new code --------------------------------------------------------------------//
@@ -367,16 +377,10 @@ int main(void)
                             sprintf(string, "\r\n ERROR - High Temperature on Resistor: %d.%d, on Thermistor %d \r\n", resistorArray[i], resistorArray[i+1], i);
                             UART_1_UartPutString(string);   
                         }
+                        
+                        
                     }
                 
-                    // Battery Voltage Detection
-                    if(vbatVal < 2.5) {
-                        stopFlag = 1;
-                        HaltTest(1);
-                        sprintf(string, "\r\n ERROR - Cell Discharged: %f \r\n", vbatVal); 
-                        UART_1_UartPutString(string); 
-                    }
-                    // ---------------------------------------------------------------------------------------------------------------------------------------------//
                 }                               
             }
         }

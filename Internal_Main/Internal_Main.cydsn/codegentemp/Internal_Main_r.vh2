@@ -1,6 +1,6 @@
 -- Project:   Internal_Main
--- Generated: 05/27/2021 12:21:32
--- PSoC Creator  4.4
+-- Generated: 05/31/2021 17:57:35
+-- PSoC Creator  4.3
 
 ENTITY Internal_Main IS
     PORT(
@@ -154,7 +154,6 @@ ARCHITECTURE __DEFAULT__ OF Internal_Main IS
     ATTRIBUTE Location OF \Opamp_1:cy_psoc4_abuf\ : LABEL IS "F(OA,1)";
     ATTRIBUTE Location OF \PVref_1:cy_psoc4_pref\ : LABEL IS "F(REF,1)";
     ATTRIBUTE Location OF \PGA_1:cy_psoc4_abuf\ : LABEL IS "F(OA,0)";
-    ATTRIBUTE Location OF isr_print : LABEL IS "[IntrContainer=(0)][IntrId=(17)]";
     COMPONENT interrupt
         PORT (
             interrupt : IN std_ulogic;
@@ -1861,13 +1860,5 @@ BEGIN
             needs_dsab => 0)
         PORT MAP(
             ctb_dsi_comp => \PGA_1:Net_12\);
-
-    isr_print:interrupt
-        GENERIC MAP(
-            int_type => "10",
-            is_nmi => 0)
-        PORT MAP(
-            interrupt => Net_1512,
-            clock => ClockBlock_HFClk);
 
 END __DEFAULT__;

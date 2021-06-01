@@ -1,6 +1,6 @@
 -- Project:   Internal_Main
--- Generated: 05/27/2021 12:21:32
--- PSoC Creator  4.4
+-- Generated: 05/31/2021 17:57:34
+-- PSoC Creator  4.3
 
 ENTITY Internal_Main IS
     PORT(
@@ -1851,13 +1851,5 @@ BEGIN
             needs_dsab => 0)
         PORT MAP(
             ctb_dsi_comp => \PGA_1:Net_12\);
-
-    isr_print:interrupt
-        GENERIC MAP(
-            int_type => "10",
-            is_nmi => 0)
-        PORT MAP(
-            interrupt => Net_1512,
-            clock => ClockBlock_HFClk);
 
 END __DEFAULT__;
