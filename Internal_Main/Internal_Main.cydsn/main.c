@@ -336,7 +336,7 @@ int main(void)
                         // ----------------------------------------- // 
 
                         // sprintf(string, "\r\n Shunt: %f, Gain: %f, CalIn: %f, ShuntGND: %f, Batt mV: %f", vtestVal, gainReal, vrefVal, vrgndVal, vbatVal);              
-                        sprintf(string, "\r\n %f, NA, %f, %f, %f, %f, %f, %f, %f", timeDec, vbatHVal, vbatLVal, vtestVal, vrgndVal, vrefVal, gainReal, SHUNT_CONDUCTANCE);
+                        sprintf(string, "\r\n %f, NA, %f, %f, %f, %f, %f, %f, %f, ", timeDec, vbatHVal, vbatLVal, vtestVal, vrgndVal, vrefVal, gainReal, SHUNT_CONDUCTANCE);
                         UART_1_UartPutString(string);
                         
                         I2C_1_I2CMasterReadBuf(0x08, batteryArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
