@@ -49,7 +49,7 @@ void Print_Headers(uint length_a, uint length_b)
     char hstr[300];      //Made this very large
     sprintf(hstr,"\r\n");
     UART_1_UartPutString(hstr);
-    sprintf(hstr,"Time(s), SOC(percent), VbatLow(mV), VbatHigh(mV), VShunt(mV), VShuntGND(mV), VRef(mV), Gain, ShuntG,  ");  //"Time, % SOC, Shunt(A), Bat(V), ");
+    sprintf(hstr,"Time(s), VbatHigh(mV), VbatLow(mV), VShunt(mV), VShuntGND(mV), VRef(mV), Gain, ShuntG,  ");  //"Time, % SOC, Shunt(A), Bat(V), ");
     UART_1_UartPutString(hstr);
     
     for (uint i = 0; i < length_a; i++){
@@ -101,21 +101,21 @@ void HaltTest(int stopCode){
     RELAY_EN_Write(0);
     switch (stopCode) { 
     case 1: 
-        sprintf(string, "!!! Test halted because of Cell is completely discharged !!!\n\r"); 
+        sprintf(string, "\n\r!!! Test halted because of Cell is completely discharged !!!\n\r"); 
         break; 
     case 2: 
-        sprintf(string, "!!! Test halted because of cell Overheating !!!\n\r"); 
+        sprintf(string, "\n\r!!! Test halted because of cell Overheating !!!\n\r"); 
         break; 
         
     case 3: 
-        sprintf(string, "!!! Test halted beacuase of power resistor overheating !!!\n\r"); 
+        sprintf(string, "\n\r!!! Test halted beacuase of power resistor overheating !!!\n\r"); 
         break; 
         
     case 4: 
         sprintf(string, "\n\r"); 
         break;
     default: 
-        sprintf(string, "!!! Test Halted for Unknown Reason !!!\n\r"); 
+        sprintf(string, "\n\r!!! Test Halted for Unknown Reason !!!\n\r"); 
     }
     
     UART_1_UartPutString(string);
@@ -336,7 +336,7 @@ int main(void)
                         // ----------------------------------------- // 
 
                         // sprintf(string, "\r\n Shunt: %f, Gain: %f, CalIn: %f, ShuntGND: %f, Batt mV: %f", vtestVal, gainReal, vrefVal, vrgndVal, vbatVal);              
-                        sprintf(string, "\r\n %f, NA, %f, %f, %f, %f, %f, %f, %f, ", timeDec, vbatHVal, vbatLVal, vtestVal, vrgndVal, vrefVal, gainReal, SHUNT_CONDUCTANCE);
+                        sprintf(string, "\r\n %f, %f, %f, %f, %f, %f, %f, %f, ", timeDec, vbatHVal, vbatLVal, vtestVal, vrgndVal, vrefVal, gainReal, SHUNT_CONDUCTANCE);
                         UART_1_UartPutString(string);
                         
                         I2C_1_I2CMasterReadBuf(0x08, batteryArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
@@ -354,7 +354,7 @@ int main(void)
                         } 
                         
                         // Battery Voltage Detection
-                        if(vbatVal < 2.5) {
+                        if(vbatVal < 1) {
                             stopFlag = 1;
                             HaltTest(1);
                             sprintf(string, "\r\n ERROR - Cell Discharged: %f \r\n", vbatVal); 
@@ -376,11 +376,8 @@ int main(void)
                             HaltTest(3);
                             sprintf(string, "\r\n ERROR - High Temperature on Resistor: %d.%d, on Thermistor %d \r\n", resistorArray[i], resistorArray[i+1], i);
                             UART_1_UartPutString(string);   
-                        }
-                        
-                        
+                        }  
                     }
-                
                 }                               
             }
         }
