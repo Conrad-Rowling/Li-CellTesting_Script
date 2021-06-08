@@ -1,5 +1,5 @@
 /* ========================================
- * Version: 2.5
+ * Version: 2.8
  * Last Modified: 5.12.2021 
  * Formula Racing @ UC Davis, Electrical Senior Design, & the Electricool gang, 2021
  * ========================================
@@ -21,7 +21,7 @@
 #define NUM_R_THERMISTORS 5 // excluding the thermistor at Position 1
 #define NUM_BAT_THERMISTORS 6 // excluding the thermistor at Position 1
 
-#define SHUNT_CONDUCTANCE .133 // (1.2 for High Current, .133 for Low Current)
+#define SHUNT_CONDUCTANCE 1.2 // (1.2 for High Current, .133 for Low Current)
 
 #define LOW_CURRENT 1
 #define HIGH_CURRENT 20
@@ -318,7 +318,9 @@ int main(void)
                     
                     vbatHVal = vbatHVal/gainReal;                         // The actual second divider battery voltage 
                     vbatLVal = vbatLVal/gainReal;
-                    vbatVal = (vbatHVal - vbatLVal);                      //The input voltage in VOLTS
+                    //vbatVal = (vbatHVal - vbatLVal);                      //The input voltage in VOLTS
+                    //vbatVal = vbatVal * 838000/3000 + shuntAmps*.00417;       
+                    vbatVal = (vbatHVal - vrgndVal + 10.2) * 838000 / 6000; 
                     printCount += 1;
                     
                     // Stop the Test.... 
@@ -336,7 +338,7 @@ int main(void)
                         // ----------------------------------------- // 
 
                         // sprintf(string, "\r\n Shunt: %f, Gain: %f, CalIn: %f, ShuntGND: %f, Batt mV: %f", vtestVal, gainReal, vrefVal, vrgndVal, vbatVal);              
-                        sprintf(string, "\r\n %f, %f, %f, %f, %f, %f, %f, %f, ", timeDec, vbatHVal, vbatLVal, vtestVal, vrgndVal, vrefVal, gainReal, SHUNT_CONDUCTANCE);
+                        sprintf(string, "\r\n %f, %f, %f, %f, %f, %f, %f, %f, %f, ", timeDec, vbatVal, vbatHVal, vbatLVal, vtestVal, vrgndVal, vrefVal, gainReal, SHUNT_CONDUCTANCE);
                         UART_1_UartPutString(string);
                         
                         I2C_1_I2CMasterReadBuf(0x08, batteryArray, 32, I2C_1_I2C_MODE_COMPLETE_XFER);
@@ -354,12 +356,14 @@ int main(void)
                         } 
                         
                         // Battery Voltage Detection
+                        /*
                         if(vbatVal < 1) {
                             stopFlag = 1;
                             HaltTest(1);
                             sprintf(string, "\r\n ERROR - Cell Discharged: %f \r\n", vbatVal); 
                             UART_1_UartPutString(string); 
                         }
+                        */
                         // ---------------------------------------------------------------------------------------------------------------------------------------------//
                     }
                     
