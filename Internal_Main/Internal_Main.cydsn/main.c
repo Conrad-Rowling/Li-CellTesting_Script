@@ -19,9 +19,9 @@
 #define RESISTOR_HIGH_TEMP 180 //deg C
 
 #define NUM_R_THERMISTORS 5 // excluding the thermistor at Position 1
-#define NUM_BAT_THERMISTORS 6 // excluding the thermistor at Position 1
+#define NUM_BAT_THERMISTORS 7 // excluding the thermistor at Position 1
 
-#define SHUNT_CONDUCTANCE .133 // (1.2 for High Current, .133 for Low Current)
+#define SHUNT_CONDUCTANCE 1.2 // (1.2 for High Current, .133 for Low Current)
 
 #define LOW_CURRENT 1
 #define HIGH_CURRENT 20
