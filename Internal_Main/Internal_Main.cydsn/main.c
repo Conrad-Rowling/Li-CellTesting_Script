@@ -1,5 +1,5 @@
 /* ========================================
- * Version: 2.8
+ * Version: 2.9
  * Last Modified: 5.12.2021 
  * Formula Racing @ UC Davis, Electrical Senior Design, & the Electricool gang, 2021
  * ========================================
@@ -21,7 +21,7 @@
 #define NUM_R_THERMISTORS 5 // excluding the thermistor at Position 1
 #define NUM_BAT_THERMISTORS 6 // excluding the thermistor at Position 1
 
-#define SHUNT_CONDUCTANCE 1.2 // (1.2 for High Current, .133 for Low Current)
+#define SHUNT_CONDUCTANCE .133 // (1.2 for High Current, .133 for Low Current)
 
 #define LOW_CURRENT 1
 #define HIGH_CURRENT 20
@@ -49,7 +49,7 @@ void Print_Headers(uint length_a, uint length_b)
     char hstr[300];      //Made this very large
     sprintf(hstr,"\r\n");
     UART_1_UartPutString(hstr);
-    sprintf(hstr,"Time(s), VbatHigh(mV), VbatLow(mV), VShunt(mV), VShuntGND(mV), VRef(mV), Gain, ShuntG,  ");  //"Time, % SOC, Shunt(A), Bat(V), ");
+    sprintf(hstr,"Time(s), VbatVal(mV), VbatHigh(mV), VbatLow(mV), VShunt(mV), VShuntGND(mV), VRef(mV), Gain, ShuntG,  ");  //"Time, % SOC, Shunt(A), Bat(V), ");
     UART_1_UartPutString(hstr);
     
     for (uint i = 0; i < length_a; i++){
@@ -320,7 +320,7 @@ int main(void)
                     vbatLVal = vbatLVal/gainReal;
                     //vbatVal = (vbatHVal - vbatLVal);                      //The input voltage in VOLTS
                     //vbatVal = vbatVal * 838000/3000 + shuntAmps*.00417;       
-                    vbatVal = (vbatHVal - vrgndVal + 10.2) * 838000 / 6000; 
+                    vbatVal = (vbatHVal - vrgndVal + 9.9) * 839013.6 / 5972 + shuntAmps * .0044 * 1000; 
                     printCount += 1;
                     
                     // Stop the Test.... 
@@ -356,14 +356,13 @@ int main(void)
                         } 
                         
                         // Battery Voltage Detection
-                        /*
-                        if(vbatVal < 1) {
+                        
+                        if(vbatVal < 2900) {
                             stopFlag = 1;
                             HaltTest(1);
                             sprintf(string, "\r\n ERROR - Cell Discharged: %f \r\n", vbatVal); 
                             UART_1_UartPutString(string); 
                         }
-                        */
                         // ---------------------------------------------------------------------------------------------------------------------------------------------//
                     }
                     
