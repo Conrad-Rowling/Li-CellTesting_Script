@@ -8,15 +8,16 @@ clc; clear; close all;
 %% Data Import
 
 % 4x.75 ohms = .19
-test1.cell2 = importfile("C:\Users\tucke\Desktop\drive-download-20210613T205918Z-001\Cell2 4 .75ohm.csv", [3, Inf]);
-test1.cell3 = importfile("C:\Users\tucke\Desktop\drive-download-20210613T205918Z-001\Cell3 4 .75ohm.csv", [3, Inf]);
-test1.cell4 = importfile("C:\Users\tucke\Desktop\drive-download-20210613T205918Z-001\Cell4 4 .75ohm.csv", [3, Inf]);
-test1.cell5 = importfile("C:\Users\tucke\Desktop\drive-download-20210613T205918Z-001\Cell5 4 .75ohm.csv", [3, Inf]);
-test1.cell6 = importfile("C:\Users\tucke\Desktop\drive-download-20210613T205918Z-001\Cell6 4 .75ohm.csv", [3, Inf]);
-test1.cell7 = importfile("C:\Users\tucke\Desktop\drive-download-20210613T205918Z-001\Cell7 4 .75ohm.csv", [3, Inf]);
-test1.cell8 = importfile("C:\Users\tucke\Desktop\drive-download-20210613T205918Z-001\Cell8 4 .75ohm.csv", [3, Inf]);
-test1.cell9 = importfile("C:\Users\tucke\Desktop\drive-download-20210613T205918Z-001\Cell9 4 .75ohm.csv", [3, Inf]);
-test1.cell10 = importfile("C:\Users\tucke\Desktop\drive-download-20210613T205918Z-001\Cell10 4 .75ohm.csv", [3, Inf]);
+addpath('.\Cell Data')
+test1.cell2 = importfile("Cell2 4 .75ohm.csv", [3, Inf]);
+test1.cell3 = importfile("Cell3 4 .75ohm.csv", [3, Inf]);
+test1.cell4 = importfile("Cell4 4 .75ohm.csv", [3, Inf]);
+test1.cell5 = importfile("Cell5 4 .75ohm.csv", [3, Inf]);
+test1.cell6 = importfile("Cell6 4 .75ohm.csv", [3, Inf]);
+test1.cell7 = importfile("Cell7 4 .75ohm.csv", [3, Inf]);
+test1.cell8 = importfile("Cell8 4 .75ohm.csv", [3, Inf]);
+test1.cell9 = importfile("Cell9 4 .75ohm.csv", [3, Inf]);
+test1.cell10 = importfile("Cell10 4 .75ohm.csv", [3, Inf]);
 
 fn = fieldnames(test1);
 for i = 1:numel(fn)  
