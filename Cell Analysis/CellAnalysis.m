@@ -24,12 +24,35 @@ for i = 1:numel(fn)
     %test2.(fn{i}) = test1.(fn{i});
 end 
 
-%% Average Current vs Time
-test1.shuntMV = zeros(length(test1));
+%% Preprocess Time
 for i = 1:numel(fn)
-    test1(i,:).shuntMV = test1.(fn{i}).VShuntmV;
+   [peaks, peakLocs] = findpeaks(test1.(fn{i}).Times);
+   for j = 1:numel(peakLocs)
+       if j == numel(peakLocs)
+           endPoint = numel(test1.(fn{i}).Times); 
+       else
+           endPoint = peakLocs(j+1);
+       end
+       for k = peakLocs(j): endPoint
+            test1.(fn{i}).Times(k) = test1.(fn{i}).Times(k) + 500 .* j;
+       end
+   end
 end
 
+%% Average Current vs Time
+
+%Dump everything into one 
+totalCurrent = [];
+for i = 1:numel(fn)
+    totalCurrent = cat(1, totalCurrent, [test1.(fn{i}).Times, test1.(fn{i}).VShuntmV]);
+end
+
+% Sort the items
+totalCurrent = sortrows(totalCurrent);
+
+% Bin the Items
+totalBins = 1000; 
+[bins, edges] = discretize(totalCurrent, totalBins);
 
 
 %% Functions
