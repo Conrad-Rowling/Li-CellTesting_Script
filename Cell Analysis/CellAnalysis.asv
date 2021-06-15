@@ -28,9 +28,48 @@ test1.cell10 = importfile("Cell10 4 .75ohm.csv", [3, Inf]);
 
 %% Calculate Call
 
-%averageShuntMV = calculateAvg(test1, 'VShuntmV');
-%averageBatMV = calculateAvg(test1, 'VbatValmV');
+[averageShuntMV, shuntRegression] = calculateAvg(test1, 'VShuntmV');
+[averageBatMV , batRegression] = calculateAvg(test1, 'VbatValmV');
 
+range = 1:5:574;
+shunt = shuntRegression(range); 
+bat = batRegression(range);
+
+shunt = shunt .* 1.2; 
+bat = bat ./ 1000; 
+
+power = shunt .* bat; 
+
+energy_Consumed = zeros(numel(power), 1); 
+
+for i = 1:numel(power)
+    for j = 1:i
+       energy_Consumed(i) = energy_Consumed(i) + power(j)*.5; 
+    end
+end
+
+
+[averageTemp{1}, tempReg1] = calculateAvg(test1, 'BatteryTemp1');
+[averageTemp{2}, tempReg2] = calculateAvg(test1, 'BatteryTemp2');
+[averageTemp{3}, tempReg3] = calculateAvg(test1, 'BatteryTemp3');
+[averageTemp{4}, tempReg4] = calculateAvg(test1, 'BatteryTemp4');
+
+averageTempMatrix(:,1) = tempReg1(range);
+averageTempMatrix(:,2) = tempReg2(range);
+averageTempMatrix(:,3) = tempReg3(range);
+averageTempMatrix(:,4) = tempReg4(range);
+
+[X,Y] = meshgrid([1 2 3 4], energy_Consumed');
+figure; 
+surf(X, Y, averageTempMatrix);
+xlabel('Energy Consumed [Joules]');
+ylabel('Cell Body Position');
+zlabel('Temperature [C]');
+title('Temperature Profile vs Energy Consumed');
+hold on; 
+
+%% Functions
+function void = heatCalc(test1)
 % Temp Averaging
 averageTemp{1} = calculateAvg(test1, 'BatteryTemp1');
 averageTemp{2} = calculateAvg(test1, 'BatteryTemp2');
@@ -53,17 +92,18 @@ for i = 1:numel(ambient_temps(:,1))
     ambient_delta_t(i,2) = curveFit(ambient_temps(i,1)) - ambient_temp_avg(1,2);    
 end
 
-% Move over the time
+% move over the time
 ambient_delta_t(:,1) = ambient_temps(:,1);
 
-h_conv = 1.32 .* (ambient_delta_t(:,1) ./ 65 ).^(.25);       % convection transfer coefficient for a cylinder [W/(m^2*C)]
+% h_conv = %1.32 .* (ambient_delta_t ./ 65 ).^(.25);       % convection transfer coefficient for a cylinder [W/(m^2*C)]
+h_conv = ones(numel(ambient_delta_t(:,1)),2);              % Setting everything to ones 
 
 
 Q_gen = m_c .* c_p * delta_t;
 q_loss = [ambient_delta_t(:,1) (h_conv(:,2) .* area_cell .* ambient_delta_t(:,2))];
 Q_loss = trapz(q_loss(:,1),q_loss(:,2));
+end
 
-%% Functions
 function regressionFit = calcTempAvg(averageTemp)
 totalTemp = [];
 for i = 1:numel(averageTemp)
@@ -90,7 +130,7 @@ title('Average Temp vs Time');
 hold on; 
 end
 
-function testSet = calculateAvg(test1 , dataName)
+function [testSet, regressionFit] = calculateAvg(test1 , dataName)
 fn = fieldnames(test1);
 
 %% Preprocess Time
