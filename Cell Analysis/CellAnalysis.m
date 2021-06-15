@@ -48,12 +48,15 @@ ambient_temps = calculateAvg(test1, 'ResistorTemp0');
 ambient_temp_avg = mean(ambient_temps); 
 area_cell = .0037573;                       % Area of a cell  [m^2]
 
+% Move over the 
 for i = 1:numel(ambient_temps(:,1))
     ambient_delta_t(i,2) = curveFit(ambient_temps(i,1)) - ambient_temp_avg(1,2);    
 end
+
+% move over the time
 ambient_delta_t(:,1) = ambient_temps(:,1);
 
-h_conv = 1.32 .* (ambient_delta_t ./ 65 );       % convection transfer coefficient for a cylinder [W/(m^2*C)]
+h_conv = 1.32 .* (ambient_delta_t ./ 65 ).^(.25);       % convection transfer coefficient for a cylinder [W/(m^2*C)]
 
 
 Q_gen = m_c .* c_p * delta_t;

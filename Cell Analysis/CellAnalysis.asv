@@ -42,13 +42,26 @@ curveFit = calcTempAvg(averageTemp);
 m_c = 46.6./1000;     % mass [Kgrams]
 c_p = 1108.4;   % Specific Heat Capacity [J/Kg*K]
 delta_t = curveFit(547) - curveFit(0);     % Change in Temperature [Delta T]
-ambient_temp = mean(calculateAvg(test1, 'ResistorTemp1')); 
-ambient_delta_t = curveFit();
-h_conv = 1.32 .* (ambient_delta_t./ 65 );       % convection transfer coefficient for a cylinder [W/(m^2*C)]
+
+ambient_temps = calculateAvg(test1, 'ResistorTemp0'); 
+
+ambient_temp_avg = mean(ambient_temps); 
+area_cell = .0037573;                       % Area of a cell  [m^2]
+
+% Move over the 
+for i = 1:numel(ambient_temps(:,1))
+    ambient_delta_t(i,2) = curveFit(ambient_temps(i,1)) - ambient_temp_avg(1,2);    
+end
+
+% Move over the time
+ambient_delta_t(:,1) = ambient_temps(:,1);
+
+h_conv = 1.32 .* (ambient_delta_t(:,1) ./ 65 ).^(.25);       % convection transfer coefficient for a cylinder [W/(m^2*C)]
 
 
-q_gen = m_c .* c_p * delta_t;
-q_loss = h_conv .* area_cell .* ambient_delta_t; 
+Q_gen = m_c .* c_p * delta_t;
+q_loss = [ambient_delta_t(:,1) (h_conv(:,2) .* area_cell .* ambient_delta_t(:,2))];
+Q_loss = trapz(q_loss(:,1),q_loss(:,2));
 
 %% Functions
 function regressionFit = calcTempAvg(averageTemp)
