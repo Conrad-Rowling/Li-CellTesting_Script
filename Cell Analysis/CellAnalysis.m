@@ -17,7 +17,6 @@ addpath("./Cell Data");
 %    allFileNames{k}
 %end
 
-test1.cell2 = importfile("Cell2 4 .75ohm.csv", [3, Inf]);
 test1.cell3 = importfile("Cell3 4 .75ohm.csv", [3, Inf]);
 test1.cell4 = importfile("Cell4 4 .75ohm.csv", [3, Inf]);
 test1.cell5 = importfile("Cell5 4 .75ohm.csv", [3, Inf]);
@@ -29,10 +28,65 @@ test1.cell10 = importfile("Cell10 4 .75ohm.csv", [3, Inf]);
 
 %% Calculate Call
 
-averageShuntMV = calculateAvg(test1, 'VShuntmV');
-averageBatMV = calculateAvg(test1, 'VbatValmV');
+%averageShuntMV = calculateAvg(test1, 'VShuntmV');
+%averageBatMV = calculateAvg(test1, 'VbatValmV');
+
+% Temp Averaging
+averageTemp{1} = calculateAvg(test1, 'BatteryTemp1');
+averageTemp{2} = calculateAvg(test1, 'BatteryTemp2');
+averageTemp{3} = calculateAvg(test1, 'BatteryTemp3');
+averageTemp{4} = calculateAvg(test1, 'BatteryTemp4');
+
+curveFit = calcTempAvg(averageTemp);
+
+m_c = 46.6./1000;     % mass [Kgrams]
+c_p = 1108.4;   % Specific Heat Capacity [J/Kg*K]
+delta_t = curveFit(547) - curveFit(0);     % Change in Temperature [Delta T]
+
+ambient_temps = calculateAvg(test1, 'ResistorTemp0'); 
+
+ambient_temp_avg = mean(ambient_temps); 
+area_cell = .0037573;                       % Area of a cell  [m^2]
+
+for i = 1:numel(ambient_temps(:,1))
+    ambient_delta_t(i,2) = curveFit(ambient_temps(i,1)) - ambient_temp_avg(1,2);    
+end
+ambient_delta_t(:,1) = ambient_temps(:,1);
+
+h_conv = 1.32 .* (ambient_delta_t ./ 65 );       % convection transfer coefficient for a cylinder [W/(m^2*C)]
+
+
+Q_gen = m_c .* c_p * delta_t;
+q_loss = [ambient_delta_t(:,1) (h_conv(:,2) .* area_cell .* ambient_delta_t(:,2))];
+Q_loss = trapz(q_loss(:,1),q_loss(:,2));
 
 %% Functions
+function regressionFit = calcTempAvg(averageTemp)
+totalTemp = [];
+for i = 1:numel(averageTemp)
+    totalTemp = cat(1, totalTemp, averageTemp{i} );
+end
+
+% Sort the items
+totalTemp = sortrows(totalTemp);
+
+% Remove NaNs
+totalTemp = rmmissing(totalTemp);
+
+% Regression Fit 
+regressionFit = fit(totalTemp(:,1), totalTemp(:,2), 'gauss7');
+
+%% Graph the Average Temperature
+
+figure;
+plot(regressionFit);
+xlim([1 547]);
+xlabel('Time [Seconds]');
+ylabel('Temperature [Celcius]');
+title('Average Temp vs Time');
+hold on; 
+end
+
 function testSet = calculateAvg(test1 , dataName)
 fn = fieldnames(test1);
 
@@ -68,14 +122,16 @@ totalCurrent = rmmissing(totalCurrent);
 % Regression Fit 
 regressionFit = fit(totalCurrent(:,1), totalCurrent(:,2), 'gauss8');
 
+%{
 % Bin the Items
-totalBins = 1000; 
-[bins, edges] = discretize(totalCurrent, totalBins);
+binEdges = 0:1:ceil(totalCurrent(end,1)); 
+totalBins = numel(binEdges); 
+bins = discretize(totalCurrent(:,1), binEdges);
 
 summedCurrent = zeros([totalBins , 2]); 
 old = bins(1);
 numberToAverage = 0; 
-for i = 1:numel(bins(:,1))                                                      %iteraterate through the entire sorted set
+for i = 1:numel(bins)                                                      %iteraterate through the entire sorted set
     summedCurrent(bins(i),:) = summedCurrent(bins(i),:) + totalCurrent(i,:);    % Sum the sorted set together in the bins they belong to
     numberToAverage = numberToAverage + 1;                                      % Keep track of how much to average
     if old ~= bins(i)                                                           % Average them once you reached the end of the bing
@@ -85,6 +141,8 @@ for i = 1:numel(bins(:,1))                                                      
     end
 end
 
+summedCurrent(bins(end, 1),:) = summedCurrent(bins(end,1),:) ./ numberToAverage; 
+%}
 
 %% Graph The Average Current
 
@@ -101,7 +159,7 @@ title(strcat({'Average '}, dataName, {' vs Time'}));
 hold on; 
 
 %% Function Return 
-testSet = summedCurrent; 
+testSet = totalCurrent; 
 end
 
 function cell2475ohm1 = importfile(filename, dataLines)

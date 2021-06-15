@@ -1,8 +1,7 @@
 %% Cell Analysis (CA)
 %   Written by Tucker Zischka
 %   6/14/2021
-% This will help to solve for resistance in the busbar/bolted joints of the
-% accumulator 
+% This will help to analyze the data captured by the Senior Design Project
 
 clc; clf; clear; close all;
 
@@ -14,10 +13,10 @@ addpath("./Cell Data");
 %filesStructure = dir(fileFolder)
 %allFileNames = {filesStructure(:).name}
 %for k = 1 : length(allFileNames)
-%    importfile("Cell2") allFileNames{k}
+%    importfile("Cell2")
+%    allFileNames{k}
 %end
 
-test1.cell2 = importfile("Cell2 4 .75ohm.csv", [3, Inf]);
 test1.cell3 = importfile("Cell3 4 .75ohm.csv", [3, Inf]);
 test1.cell4 = importfile("Cell4 4 .75ohm.csv", [3, Inf]);
 test1.cell5 = importfile("Cell5 4 .75ohm.csv", [3, Inf]);
@@ -27,11 +26,56 @@ test1.cell8 = importfile("Cell8 4 .75ohm.csv", [3, Inf]);
 test1.cell9 = importfile("Cell9 4 .75ohm.csv", [3, Inf]);
 test1.cell10 = importfile("Cell10 4 .75ohm.csv", [3, Inf]);
 
+%% Calculate Call
 
-%testSet = calculateAvg(test1, 'VShuntmV');
-testSet1 = calculateAvg(test1, 'VbatValmV');
+%averageShuntMV = calculateAvg(test1, 'VShuntmV');
+%averageBatMV = calculateAvg(test1, 'VbatValmV');
+
+% Temp Averaging
+averageTemp{1} = calculateAvg(test1, 'BatteryTemp1');
+averageTemp{2} = calculateAvg(test1, 'BatteryTemp2');
+averageTemp{3} = calculateAvg(test1, 'BatteryTemp3');
+averageTemp{4} = calculateAvg(test1, 'BatteryTemp4');
+
+curveFit = calcTempAvg(averageTemp);
+
+m_c = 46.6./1000;     % mass [Kgrams]
+c_p = 1108.4;   % Specific Heat Capacity [J/Kg*K]
+delta_t = curveFit(547) - curveFit(0);     % Change in Temperature [Delta T]
+ambient_temp = mean(calculateAvg(test1, 'ResistorTemp1')); 
+ambient_delta_t = curveFit();
+h_conv = 1.32 .* (ambient_delta_t./ 65 );       % convection transfer coefficient for a cylinder [W/(m^2*C)]
+
+
+q_gen = m_c .* c_p * delta_t;
+q_loss = h_conv .* area_cell .* ambient_delta_t; 
 
 %% Functions
+function regressionFit = calcTempAvg(averageTemp)
+totalTemp = [];
+for i = 1:numel(averageTemp)
+    totalTemp = cat(1, totalTemp, averageTemp{i} );
+end
+
+% Sort the items
+totalTemp = sortrows(totalTemp);
+
+% Remove NaNs
+totalTemp = rmmissing(totalTemp);
+
+% Regression Fit 
+regressionFit = fit(totalTemp(:,1), totalTemp(:,2), 'gauss7');
+
+%% Graph the Average Temperature
+
+figure;
+plot(regressionFit);
+xlim([1 547]);
+xlabel('Time [Seconds]');
+ylabel('Temperature [Celcius]');
+title('Average Temp vs Time');
+hold on; 
+end
 
 function testSet = calculateAvg(test1 , dataName)
 fn = fieldnames(test1);
@@ -68,15 +112,16 @@ totalCurrent = rmmissing(totalCurrent);
 % Regression Fit 
 regressionFit = fit(totalCurrent(:,1), totalCurrent(:,2), 'gauss8');
 
-% Bin the Items
 %{
-totalBins = 1000; 
-[bins, edges] = discretize(totalCurrent, totalBins);
+% Bin the Items
+binEdges = 0:1:ceil(totalCurrent(end,1)); 
+totalBins = numel(binEdges); 
+bins = discretize(totalCurrent(:,1), binEdges);
 
 summedCurrent = zeros([totalBins , 2]); 
 old = bins(1);
 numberToAverage = 0; 
-for i = 1:numel(bins(:,1))                                                      %iteraterate through the entire sorted set
+for i = 1:numel(bins)                                                      %iteraterate through the entire sorted set
     summedCurrent(bins(i),:) = summedCurrent(bins(i),:) + totalCurrent(i,:);    % Sum the sorted set together in the bins they belong to
     numberToAverage = numberToAverage + 1;                                      % Keep track of how much to average
     if old ~= bins(i)                                                           % Average them once you reached the end of the bing
@@ -85,21 +130,13 @@ for i = 1:numel(bins(:,1))                                                      
         numberToAverage = 0; 
     end
 end
+
+summedCurrent(bins(end, 1),:) = summedCurrent(bins(end,1),:) ./ numberToAverage; 
 %}
 
 %% Graph The Average Current
 
-% Plot Properties
-width = 3;     % Width in inches
-height = 3;    % Height in inches
-alw = 0.75;    % AxesLineWidth
-fsz = 11;      % Fontsize
-lw = 1.5;      % LineWidth
-msz = 8;       % MarkerSize
-
-
-figure(1);
-pos = get(gcf, 'Position');
+figure;
 %set(gca, 'FontSize', fsz, 'LineWidth', alw); %<- Set properties
 plot(regressionFit);
 %set(gcf, 'Position', [pos(1) pos(2) width*100, height*100]); %<- Set size
@@ -107,11 +144,12 @@ plot(regressionFit);
 %plot(summedCurrent(:,1),summedCurrent(:,2), 'LineWidth',lw,'MarkerSize',msz); %<- Specify plot properites
 xlim([1 547]);
 xlabel('Time [Seconds]');
-ylabel('Shunt Voltage [milliVolts]');
-title('Average Shunt Voltage vs Time');
+ylabel('Voltage [milliVolts]');
+title(strcat({'Average '}, dataName, {' vs Time'}));
 hold on; 
+
 %% Function Return 
-testSet = 1; 
+testSet = totalCurrent; 
 end
 
 function cell2475ohm1 = importfile(filename, dataLines)
